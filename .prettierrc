@@ -1,12 +1,16 @@
 {
-  "bracketSpacing": true,
   "printWidth": 100,
-  "pugAttributeSeparator": "always",
-  "pugSortAttributes": "asc",
-  "pugWrapAttributesThreshold": -1,
+  "singleQuote": true,
+  "bracketSpacing": true,
   "quoteProps": "consistent",
   "semi": true,
-  "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+
+  "pugAttributeSeparator": "always",
+  "pugBracketSpacing": true,
+  "pugSingleQuote": true,
+  "pugSortAttributes": "asc",
+  "pugWrapAttributesThreshold": -1,
+  "pugPrintWidth": 100
 }
