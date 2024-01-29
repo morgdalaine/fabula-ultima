@@ -1274,8 +1274,8 @@ html .charsheet .fabula-ultima .bestiary html {
 }
 html .fabula-ultima .bestiary .defenses,
 html .charsheet .fabula-ultima .bestiary .defenses {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   gap: 4px;
 }
 html .fabula-ultima .bestiary .defenses__container,
@@ -1292,6 +1292,7 @@ html .charsheet .fabula-ultima .bestiary .defense {
 }
 html .fabula-ultima .bestiary .defense__quick,
 html .charsheet .fabula-ultima .bestiary .defense__quick {
+  grid-column: 1/-1;
   grid-template-columns: 1fr;
 }
 html .fabula-ultima .bestiary :root,

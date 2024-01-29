@@ -96,21 +96,21 @@
         },
       },
       {
-        name: 'defense_mod',
-        label: 'Bonus DEF',
+        name: 'defense_extra',
+        label: '+DEF',
         type: 'number',
         css: {
           names: ['defense', 'defense__def'],
-          modifiers: ['flex-row', 'small'],
+          modifiers: ['flex-row', 'small', 'center'],
         },
       },
       {
-        name: 'magic_defense_mod',
-        label: 'Bonus M.DEF',
+        name: 'magic_defense_extra',
+        label: '+M.DEF',
         type: 'number',
         css: {
           names: ['defense', 'defense__mdef'],
-          modifiers: ['flex-row', 'small'],
+          modifiers: ['flex-row', 'small', 'center'],
         },
       },
     ]
@@ -119,29 +119,31 @@
   spine.bestiary.extras = {
     fields: [
       {
-        name: 'hp_mod',
-        label: 'Bonus HP',
+        name: 'hp_extra',
+        label: 'Extra HP',
         type: 'number',
+        step: 10,
         css: {
-          names: ['extra', 'extra__hp_mod'],
+          names: ['extra', 'extra__hp_extra'],
           modifiers: ['flex-row', 'small'],
         },
       },
       {
-        name: 'mp_mod',
-        label: 'Bonus MP',
+        name: 'mp_extra',
+        label: 'Extra MP',
         type: 'number',
+        step: 10,
         css: {
-          names: ['extra', 'extra__mp_mod'],
+          names: ['extra', 'extra__mp_extra'],
           modifiers: ['flex-row', 'small'],
         },
       },
       {
-        name: 'initiative_mod',
-        label: 'Bonus Initiative',
+        name: 'initiative_extra',
+        label: 'Extra Initiative',
         type: 'number',
         css: {
-          names: ['extra', 'extra__initiative_mod'],
+          names: ['extra', 'extra__initiative_extra'],
           modifiers: ['flex-row', 'small'],
         },
       },

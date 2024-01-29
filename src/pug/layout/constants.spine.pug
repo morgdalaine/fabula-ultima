@@ -16,10 +16,10 @@
   };
 
   const attributeOptions = [
-    { name: 'dexterity', value: 'dex', text: 'DEX' },
-    { name: 'insight', value: 'ins', text: 'INS' },
-    { name: 'might', value: 'mig', text: 'MIG' },
-    { name: 'willpower', value: 'wlp', text: 'WLP' },
+    { name: 'dexterity', value: 'dexterity', text: 'DEX', selected: true },
+    { name: 'insight', value: 'insight', text: 'INS' },
+    { name: 'might', value: 'might', text: 'MIG' },
+    { name: 'willpower', value: 'willpower', text: 'WLP' },
   ];
 
   const rangeOptions = [
@@ -84,6 +84,7 @@
   ];
 
   const extraDefenseOptions = [
+    { name: 'extra_defense_null', value: '', text: '—' },
     { name: 'extra_defense_00', value: '0/0', text: '+0 Def / +0 M. Def' },
     { name: 'extra_defense_12', value: '1/2', text: '+1 Def / +2 M. Def' },
     { name: 'extra_defense_21', value: '2/1', text: '+2 Def / +1 M. Def' },

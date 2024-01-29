@@ -85,9 +85,9 @@
   "extra_defense_42": "+4 Def / +2 M. Def",
   "defense_mod": "Bonus DEF",
   "magic_defense_mod": "Bonus M.DEF",
-  "hp_mod": "Bonus HP",
-  "mp_mod": "Bonus MP",
-  "initiative_mod": "Bonus Initiative",
+  "hp_mod": "Extra HP",
+  "mp_mod": "Extra MP",
+  "initiative_mod": "Extra Initiative",
   "initiative_bonus": "+4 Initiative",
   "checkbox_title": "Checkbox",
   "accuracy_bonus": "+3 bonus to all Accuracy checks",
@@ -182,5 +182,12 @@
   "gear_name": "Gear",
   "gear_effect": "Effect",
   "spell_mp": "MP",
-  "spell_precision": "Accuracy"
+  "spell_precision": "Accuracy",
+  "extra_defense_null": "—",
+  "hp_extra": "Extra HP",
+  "mp_extra": "Extra MP",
+  "initiative_extra": "Extra Initiative",
+  "created_by": "Created By",
+  "defense_extra": "+DEF",
+  "magic_defense_extra": "+M.DEF"
 }
