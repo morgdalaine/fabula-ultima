@@ -1,0 +1,29 @@
+@forward 'breakpoints';
+@forward 'colors';
+@forward 'fonts';
+@forward 'mixins';
+@use 'colors' as colors;
+@use 'fonts' as fonts;
+
+:root,
+html {
+  // Inputs
+
+  // --input-background: #{rgb($green-light, 0.5)};
+  --input-background-color-active: #{rgb(colors.$indigo, 0.1)};
+  // --input-background-color-disabled: #{rgb($green-light, 0.1)};
+
+  --input-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --input-border-color-active: #{colors.$indigo-d40};
+  // --input-border-color-disabled: #{gray};
+
+  --input-color: #{colors.$indigo-d40};
+  --input-color-active: #{colors.$black};
+  // --input-color-disabled: #{gray};
+
+  // Fonts
+  --font-body: #{fonts.$font-pt-sans-narrow};
+  --font-nav: #{fonts.$font-antonio};
+  --font-serif: #{fonts.$font-pt-serif};
+  --font-title: #{fonts.$font-antonio};
+}

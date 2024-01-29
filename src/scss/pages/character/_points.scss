@@ -1,0 +1,126 @@
+.points {
+  $this: '.points';
+
+  &__content {
+    display: grid;
+    grid-template-columns: 3rem repeat(2, 0.5fr) 1fr;
+    gap: 0;
+    padding: $p-md;
+  }
+}
+
+// HP and MP
+.point {
+  $this: '.point';
+
+  display: grid;
+  align-items: center;
+  text-align: center;
+  padding: $p-md;
+
+  span[name*='attr'],
+  input[type='number'] {
+    font-size: $font-h4;
+  }
+
+  &__label {
+    font-family: $header-font-stack;
+    font-size: $font-h2;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: center;
+
+    &--hp {
+      color: $red;
+    }
+    &--mp {
+      color: $blue;
+    }
+
+    &--max,
+    &--current,
+    &--crisis {
+      color: $green-dark;
+      text-align: center;
+      font-weight: 700;
+      font-variant: all-small-caps;
+    }
+    &--max {
+      grid-column: span 2;
+    }
+  }
+
+  &__subtitle {
+    color: $mid-grey;
+    text-align: center;
+    font-weight: 700;
+    font-size: $font-s;
+    text-transform: uppercase;
+  }
+
+  &--select,
+  &__current {
+    font-size: $font-xl;
+    text-align: center;
+  }
+
+  &__current {
+    &::before {
+      content: 'd';
+    }
+  }
+
+  &__hp_crisis {
+    .point__subtitle {
+      color: $red;
+    }
+  }
+
+  &__hp_max,
+  &__hp_crisis,
+  &__mp_max,
+  &__ip_max {
+    border-inline-end: 1px dashed $green;
+  }
+
+  &__mp_max,
+  &__ip_max {
+    grid-column: span 2;
+  }
+}
+
+// FABULA POINTS
+.point {
+  $this: '.point';
+
+  &__row {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: $m-lg;
+
+    .point__bullets {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__fp,
+  &__xp {
+    input {
+      height: 100%;
+      font-size: $font-h1;
+    }
+  }
+
+  &__bullets {
+    display: grid;
+    gap: 0 $m-md;
+    padding: $p-sm;
+  }
+
+  &__bullet {
+    &::before {
+      content: '✦ ';
+    }
+  }
+}

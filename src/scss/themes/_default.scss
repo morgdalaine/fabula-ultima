@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+html {
+  --foreground: #{white};
+
+  --label-color: #{black};
+  --text-color: #{black};
+
+  // Inputs
+  --input-background: #{rgb($green-light, 0.5)};
+  --input-background-color-active: #{rgb($green, 0.1)};
+  --input-background-color-disabled: #{rgb($green-light, 0.1)};
+
+  --input-border-color: #{black};
+  --input-border-color-active: #{magenta};
+  --input-border-color-disabled: #{gray};
+
+  --input-color: #{gray};
+  --input-color-active: #{black};
+  --input-color-disabled: #{gray};
+}

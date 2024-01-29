@@ -1,0 +1,34 @@
+// tied to whole thing, the panel
+.bonds {
+  $this: '.bonds';
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, auto);
+    gap: $grid-gutter;
+  }
+}
+
+.bond {
+  $this: '.bond';
+
+  &__bond_name {
+    display: flex;
+  }
+  &__name {
+    font-size: 0;
+  }
+
+  &__emotion {
+    display: flex;
+    flex-direction: column;
+    gap: $m-sm;
+
+    padding-inline: $p-sm;
+    border-inline-end: 1px dashed black;
+
+    &:last-of-type {
+      border-inline-end: none;
+    }
+  }
+}

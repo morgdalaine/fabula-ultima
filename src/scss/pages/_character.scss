@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the character page.
+// -----------------------------------------------------------------------------
+
+.character {
+  @import 'character/attributes';
+  @import 'character/header';
+  @import 'character/traits';
+  @import 'character/bonds';
+  @import 'character/derived';
+  @import 'character/points';
+}

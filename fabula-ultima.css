@@ -1,0 +1,1349 @@
+@import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+:root,
+html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 12px;
+}
+html .characterviewer,
+html .tab-content,
+html .sheetform,
+html .charactersheet {
+  box-sizing: border-box;
+  height: calc(100% - 1px);
+}
+
+.charsheet * {
+  box-sizing: border-box;
+  height: unset;
+  width: unset;
+  padding: unset;
+  margin: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  color: unset;
+  border: unset;
+  border-radius: unset;
+  background: unset;
+  background-color: unset;
+  text-shadow: unset;
+  box-shadow: unset;
+}
+.charsheet h1,
+.charsheet h2,
+.charsheet h3,
+.charsheet h4,
+.charsheet h5 {
+  font-size: unset;
+  line-height: unset;
+  color: unset;
+}
+.charsheet p,
+.charsheet input,
+.charsheet input[type=number],
+.charsheet textarea,
+.charsheet select,
+.charsheet button,
+.charsheet button[type=roll],
+.charsheet label {
+  display: unset;
+  width: unset;
+  height: unset;
+  padding: unset;
+  margin-bottom: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  text-shadow: none;
+  line-height: unset;
+  color: unset;
+  border: unset;
+  border-radius: unset;
+  background: unset;
+  background-color: unset;
+  box-shadow: unset;
+}
+.charsheet button[type=roll]::before {
+  display: none;
+}
+.charsheet input[disabled],
+.charsheet select[disabled],
+.charsheet textarea[disabled],
+.charsheet input[readonly],
+.charsheet select[readonly],
+.charsheet textarea[readonly] {
+  background-color: unset;
+  border-color: unset;
+}
+
+.charsheet * {
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.charsheet fieldset {
+  background: transparent;
+}
+.charsheet span {
+  word-break: break-word;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+
+.ui-dialog .largedialog {
+  padding: 0;
+}
+.ui-dialog .charsheet {
+  padding: 0;
+}
+
+.ui-dialog .charsheet .repcontainer {
+  display: grid;
+}
+.ui-dialog .charsheet .repcontainer .chimera-repeater--delete {
+  display: none;
+  padding-inline-start: 20px;
+}
+.ui-dialog .charsheet .repcontainer.editmode + .repcontrol {
+  display: block !important;
+}
+.ui-dialog .charsheet .repcontainer.editmode + .repcontrol button.repcontrol_edit::before {
+  background-image: url("https://www.svgrepo.com/show/471631/lock-unlocked-01.svg");
+}
+.ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--delete {
+  display: grid !important;
+}
+.ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--view,
+.ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--edit {
+  display: none !important;
+}
+.ui-dialog .charsheet .repcontainer .repitem {
+  margin-block-end: 4px;
+}
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol {
+  background-color: transparent;
+}
+.ui-dialog .charsheet .repcontrol_add, .ui-dialog .charsheet .repcontrol_edit, .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
+  font-size: 0;
+}
+.ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before, .ui-dialog .charsheet .repcontrol_del::before, .ui-dialog .charsheet .repcontrol_move::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.ui-dialog .charsheet .repcontrol_add:hover, .ui-dialog .charsheet .repcontrol_edit:hover, .ui-dialog .charsheet .repcontrol_del:hover, .ui-dialog .charsheet .repcontrol_move:hover {
+  background-color: hsla(108, 80%, 80%, 0.8);
+}
+.ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before {
+  width: 20px;
+}
+.ui-dialog .charsheet .repcontrol_add::before {
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png");
+}
+.ui-dialog .charsheet .repcontrol_edit::before {
+  background-image: url("https://www.svgrepo.com/show/471623/lock-01.svg");
+}
+.ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ui-dialog .charsheet .repcontrol_del {
+  right: 4px;
+}
+.ui-dialog .charsheet .repcontrol_del::before {
+  background-image: url("https://www.svgrepo.com/show/471998/trash-01.svg");
+}
+.ui-dialog .charsheet .repcontrol_move {
+  left: 4px;
+}
+.ui-dialog .charsheet .repcontrol_move::before {
+  background-image: url("https://www.svgrepo.com/show/471721/move.svg");
+}
+
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol {
+  background-color: transparent;
+  z-index: 1;
+}
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol:hover {
+  background-image: linear-gradient(to right, hsla(301, 80%, 80%, 0.8), transparent);
+}
+
+div#tab-content.tab-content .attributesabilities {
+  min-width: 525px;
+}
+div#tab-content.tab-content .attributesabilities .divider {
+  border: none;
+}
+
+html .characterviewer {
+  display: grid !important;
+  grid-template-rows: auto 1fr;
+}
+html .characterviewer .content {
+  margin-bottom: 0;
+}
+html .characterviewer .charsheet {
+  padding: 0;
+}
+html .characterviewer .nav-tabs {
+  padding-block-start: 8px;
+  margin-block-end: 8px;
+  border: none;
+}
+html .characterviewer .nav-tabs > li {
+  margin-bottom: 0;
+}
+html .characterviewer .nav-tabs > li.active > a {
+  opacity: 1 !important;
+  color: hotpink;
+  background: yellow;
+}
+html .characterviewer .nav-tabs > li > a {
+  border: none !important;
+  padding-block: 4px;
+  padding-inline: 12px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+html .characterviewer .nav-tabs > li > a:hover, html .characterviewer .nav-tabs > li > a:active {
+  color: hotpink;
+}
+html .characterviewer .nav-tabs > li > a:hover {
+  background: lime;
+}
+html .characterviewer .nav-tabs > li > a:active {
+  background: purple;
+}
+html .characterviewer .nav-tabs > li.active > a,
+html .characterviewer .nav-tabs > li.active > a:hover,
+html .characterviewer .nav-tabs > li.active > a:focus, html .characterviewer .nav-tabs > li:not(.active) > a,
+html .characterviewer .nav-tabs > li:not(.active) > a:hover,
+html .characterviewer .nav-tabs > li:not(.active) > a:focus {
+  text-decoration: none;
+}
+html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1) {
+  opacity: 0.3;
+}
+html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):focus {
+  opacity: 1;
+}
+
+html .character,
+html .charsheet .character {
+  display: none;
+}
+html input[name*=sheet_type][value=character] ~ * main.character,
+html .charsheet input[name*=sheet_type][value=character] ~ * main.character {
+  display: grid;
+}
+html .bestiary,
+html .charsheet .bestiary {
+  display: none;
+}
+html input[name*=sheet_type][value=bestiary] ~ * main.bestiary,
+html .charsheet input[name*=sheet_type][value=bestiary] ~ * main.bestiary {
+  display: grid;
+}
+html .gm,
+html .charsheet .gm {
+  display: none;
+}
+html input[name*=sheet_type][value=gm] ~ * main.gm,
+html .charsheet input[name*=sheet_type][value=gm] ~ * main.gm {
+  display: grid;
+}
+html .fabula-ultima,
+html .charsheet .fabula-ultima {
+  margin: 4px;
+  margin-right: 12px;
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+}
+html .fabula-ultima .chimera-repeater--is-empty[value="0"] ~ .chimera-repeater__empty,
+html .charsheet .fabula-ultima .chimera-repeater--is-empty[value="0"] ~ .chimera-repeater__empty {
+  display: grid;
+}
+html .fabula-ultima .chimera-repeater__empty,
+html .charsheet .fabula-ultima .chimera-repeater__empty {
+  display: none;
+}
+html .fabula-ultima .chimera-repeater__header,
+html .charsheet .fabula-ultima .chimera-repeater__header {
+  padding: 8px;
+}
+html .fabula-ultima .chimera-repeater__header span,
+html .charsheet .fabula-ultima .chimera-repeater__header span {
+  display: block;
+  text-align: center;
+}
+html .fabula-ultima .chimera-repeater__view, html .fabula-ultima .chimera-repeater__edit, html .fabula-ultima .chimera-repeater__content, html .fabula-ultima .chimera-repeater__delete,
+html .charsheet .fabula-ultima .chimera-repeater__view,
+html .charsheet .fabula-ultima .chimera-repeater__edit,
+html .charsheet .fabula-ultima .chimera-repeater__content,
+html .charsheet .fabula-ultima .chimera-repeater__delete {
+  display: none;
+  transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
+}
+html .fabula-ultima .chimera-repeater__content,
+html .charsheet .fabula-ultima .chimera-repeater__content {
+  display: grid;
+}
+html .fabula-ultima .chimera-repeater__edit, html .fabula-ultima .chimera-repeater__content,
+html .charsheet .fabula-ultima .chimera-repeater__edit,
+html .charsheet .fabula-ultima .chimera-repeater__content {
+  position: relative;
+  padding: 8px;
+}
+html .fabula-ultima .chimera-repeater__delete,
+html .charsheet .fabula-ultima .chimera-repeater__delete {
+  min-height: 16px;
+  padding-inline: 16px;
+  align-items: center;
+}
+html .fabula-ultima .chimera-input--flex,
+html .charsheet .fabula-ultima .chimera-input--flex {
+  display: flex;
+}
+html .fabula-ultima .chimera-input:has([type=checkbox]) .chimera-input__label,
+html .charsheet .fabula-ultima .chimera-input:has([type=checkbox]) .chimera-input__label {
+  cursor: pointer;
+}
+html .fabula-ultima .chimera-input--gap-4,
+html .charsheet .fabula-ultima .chimera-input--gap-4 {
+  gap: 4;
+}
+html .fabula-ultima .chimera-input--gap-8,
+html .charsheet .fabula-ultima .chimera-input--gap-8 {
+  gap: 8;
+}
+html .fabula-ultima .chimera-input--gap-12,
+html .charsheet .fabula-ultima .chimera-input--gap-12 {
+  gap: 12;
+}
+html .fabula-ultima .chimera-input--gap-16,
+html .charsheet .fabula-ultima .chimera-input--gap-16 {
+  gap: 16;
+}
+html .fabula-ultima :root,
+html .fabula-ultima html,
+html .charsheet .fabula-ultima :root,
+html .charsheet .fabula-ultima html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima input[type=number],
+html .fabula-ultima input[type=text],
+html .fabula-ultima select,
+html .fabula-ultima textarea,
+html .charsheet .fabula-ultima input[type=number],
+html .charsheet .fabula-ultima input[type=text],
+html .charsheet .fabula-ultima select,
+html .charsheet .fabula-ultima textarea {
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  min-height: 2.5rem;
+  color: var(--input-color);
+  background: transparent;
+  padding-inline-start: 4px;
+  padding-block: 1px;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+  align-self: normal;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima input[type=number]:active, html .fabula-ultima input[type=number]:hover, html .fabula-ultima input[type=number]:focus,
+html .fabula-ultima input[type=text]:active,
+html .fabula-ultima input[type=text]:hover,
+html .fabula-ultima input[type=text]:focus,
+html .fabula-ultima select:active,
+html .fabula-ultima select:hover,
+html .fabula-ultima select:focus,
+html .fabula-ultima textarea:active,
+html .fabula-ultima textarea:hover,
+html .fabula-ultima textarea:focus,
+html .charsheet .fabula-ultima input[type=number]:active,
+html .charsheet .fabula-ultima input[type=number]:hover,
+html .charsheet .fabula-ultima input[type=number]:focus,
+html .charsheet .fabula-ultima input[type=text]:active,
+html .charsheet .fabula-ultima input[type=text]:hover,
+html .charsheet .fabula-ultima input[type=text]:focus,
+html .charsheet .fabula-ultima select:active,
+html .charsheet .fabula-ultima select:hover,
+html .charsheet .fabula-ultima select:focus,
+html .charsheet .fabula-ultima textarea:active,
+html .charsheet .fabula-ultima textarea:hover,
+html .charsheet .fabula-ultima textarea:focus {
+  outline: transparent;
+  background-color: var(--input-background-color-active);
+  color: var(--input-color-active);
+  border-color: var(--input-border-color-active);
+}
+html .fabula-ultima input[type=number]::-moz-placeholder, html .fabula-ultima input[type=text]::-moz-placeholder, html .fabula-ultima select::-moz-placeholder, html .fabula-ultima textarea::-moz-placeholder, html .charsheet .fabula-ultima input[type=number]::-moz-placeholder, html .charsheet .fabula-ultima input[type=text]::-moz-placeholder, html .charsheet .fabula-ultima select::-moz-placeholder, html .charsheet .fabula-ultima textarea::-moz-placeholder {
+  color: gray;
+}
+html .fabula-ultima input[type=number]::placeholder,
+html .fabula-ultima input[type=text]::placeholder,
+html .fabula-ultima select::placeholder,
+html .fabula-ultima textarea::placeholder,
+html .charsheet .fabula-ultima input[type=number]::placeholder,
+html .charsheet .fabula-ultima input[type=text]::placeholder,
+html .charsheet .fabula-ultima select::placeholder,
+html .charsheet .fabula-ultima textarea::placeholder {
+  color: gray;
+}
+html .fabula-ultima input[type=checkbox],
+html .charsheet .fabula-ultima input[type=checkbox] {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--input-color);
+  background: transparent;
+  padding-inline-start: 4px;
+  padding-block: 1px;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+  align-self: normal;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima input[type=checkbox]:active, html .fabula-ultima input[type=checkbox]:hover, html .fabula-ultima input[type=checkbox]:focus, html .fabula-ultima input[type=checkbox]:checked,
+html .charsheet .fabula-ultima input[type=checkbox]:active,
+html .charsheet .fabula-ultima input[type=checkbox]:hover,
+html .charsheet .fabula-ultima input[type=checkbox]:focus,
+html .charsheet .fabula-ultima input[type=checkbox]:checked {
+  outline: transparent;
+  background-color: var(--input-background-color-active);
+  color: var(--input-color-active);
+  border-color: var(--input-border-color-active);
+}
+html .fabula-ultima .chimera-input,
+html .charsheet .fabula-ultima .chimera-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+}
+html .fabula-ultima .chimera-input--column,
+html .charsheet .fabula-ultima .chimera-input--column {
+  flex-direction: row;
+}
+html .fabula-ultima .chimera-input--flex-row,
+html .charsheet .fabula-ultima .chimera-input--flex-row {
+  flex-direction: row;
+}
+html .fabula-ultima .chimera-input--flex-row .chimera-input__label,
+html .charsheet .fabula-ultima .chimera-input--flex-row .chimera-input__label {
+  align-self: center;
+}
+html .fabula-ultima .chimera-input--center .chimera-input__label,
+html .fabula-ultima .chimera-input--center .chimera-input__field,
+html .charsheet .fabula-ultima .chimera-input--center .chimera-input__label,
+html .charsheet .fabula-ultima .chimera-input--center .chimera-input__field {
+  text-align: center;
+}
+html .fabula-ultima .chimera-input--small .chimera-input__field,
+html .charsheet .fabula-ultima .chimera-input--small .chimera-input__field {
+  width: 5rem;
+  align-self: center;
+  text-align: center;
+}
+html .fabula-ultima .chimera-input__label,
+html .charsheet .fabula-ultima .chimera-input__label {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+html .fabula-ultima .chimera-input__field[type=number],
+html .charsheet .fabula-ultima .chimera-input__field[type=number] {
+  text-align: center;
+}
+html .fabula-ultima .chimera-value--bullet::before,
+html .charsheet .fabula-ultima .chimera-value--bullet::before {
+  content: "✦";
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima .chimera-value__label,
+html .charsheet .fabula-ultima .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin-inline-end: 4px;
+}
+html .fabula-ultima .chimera-value__value,
+html .charsheet .fabula-ultima .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima input[type=number],
+html .charsheet .fabula-ultima input[type=number] {
+  text-align: center;
+}
+html .fabula-ultima input[type=number][disabled], html .fabula-ultima input[type=number][readonly],
+html .charsheet .fabula-ultima input[type=number][disabled],
+html .charsheet .fabula-ultima input[type=number][readonly] {
+  cursor: default;
+  background: var(--input-background-disabled);
+  color: var(--input-color-disabled);
+  border-color: var(--input-border-disabled);
+}
+html .fabula-ultima textarea,
+html .charsheet .fabula-ultima textarea {
+  max-height: 10rem;
+  resize: vertical;
+  scrollbar-width: thin;
+}
+@supports selector(::-webkit-scrollbar) {
+  html .fabula-ultima textarea::-webkit-scrollbar,
+  html .charsheet .fabula-ultima textarea::-webkit-scrollbar {
+    width: 0.5rem;
+    background: transparent;
+  }
+  html .fabula-ultima textarea::-webkit-scrollbar-track,
+  html .charsheet .fabula-ultima textarea::-webkit-scrollbar-track {
+    background: var(--input-color-active);
+  }
+}
+html .fabula-ultima span--bold,
+html .charsheet .fabula-ultima span--bold {
+  font-weight: 700;
+}
+html .fabula-ultima span[name],
+html .charsheet .fabula-ultima span[name] {
+  white-space: pre-wrap;
+}
+html .fabula-ultima .chimera-switch__group,
+html .charsheet .fabula-ultima .chimera-switch__group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  justify-content: center;
+}
+html .fabula-ultima .chimera-switch__label,
+html .charsheet .fabula-ultima .chimera-switch__label {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  aspect-ratio: 1;
+  color: var(--input-color);
+  background: transparent;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima .chimera-switch__label:has(:checked),
+html .charsheet .fabula-ultima .chimera-switch__label:has(:checked) {
+  background: var(--input-background-color-active);
+}
+html .fabula-ultima .chimera-switch__label:has(:checked) img,
+html .fabula-ultima .chimera-switch__label:has(:checked) svg,
+html .charsheet .fabula-ultima .chimera-switch__label:has(:checked) img,
+html .charsheet .fabula-ultima .chimera-switch__label:has(:checked) svg {
+  filter: none;
+}
+html .fabula-ultima .chimera-switch__label:active, html .fabula-ultima .chimera-switch__label:hover, html .fabula-ultima .chimera-switch__label:focus,
+html .charsheet .fabula-ultima .chimera-switch__label:active,
+html .charsheet .fabula-ultima .chimera-switch__label:hover,
+html .charsheet .fabula-ultima .chimera-switch__label:focus {
+  outline: transparent;
+  color: var(--input-color-active);
+  border-color: var(--input-border-color-active);
+}
+html .fabula-ultima .chimera-switch__label img,
+html .fabula-ultima .chimera-switch__label svg,
+html .charsheet .fabula-ultima .chimera-switch__label img,
+html .charsheet .fabula-ultima .chimera-switch__label svg {
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1;
+  filter: invert(0.5);
+}
+html .fabula-ultima .chimera-switch__label input[type=radio],
+html .charsheet .fabula-ultima .chimera-switch__label input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+html .fabula-ultima .chimera-switch__label span,
+html .charsheet .fabula-ultima .chimera-switch__label span {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+html .fabula-ultima .chimera-repeater__empty,
+html .charsheet .fabula-ultima .chimera-repeater__empty {
+  background-color: hsla(197, 80%, 80%, 0.8);
+  padding: 8px;
+}
+html .fabula-ultima .chimera-repeater__empty-header,
+html .charsheet .fabula-ultima .chimera-repeater__empty-header {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .chimera-repeater__empty-subtitle,
+html .charsheet .fabula-ultima .chimera-repeater__empty-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+html .fabula-ultima .fabula-check,
+html .charsheet .fabula-ultima .fabula-check {
+  position: relative;
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .fabula-check span:first-of-type,
+html .charsheet .fabula-ultima .fabula-check span:first-of-type {
+  color: blue;
+}
+html .fabula-ultima .fabula-check span:last-of-type,
+html .charsheet .fabula-ultima .fabula-check span:last-of-type {
+  color: red;
+}
+html .fabula-ultima .fabula-check::before,
+html .charsheet .fabula-ultima .fabula-check::before {
+  content: "【";
+}
+html .fabula-ultima .fabula-check::after,
+html .charsheet .fabula-ultima .fabula-check::after {
+  content: "】";
+}
+html .fabula-ultima :root,
+html .fabula-ultima html,
+html .charsheet .fabula-ultima :root,
+html .charsheet .fabula-ultima html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary,
+html .charsheet .fabula-ultima .bestiary {
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .attacks--heading,
+html .charsheet .fabula-ultima .bestiary .attacks--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .attacks--delete .attack,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .attacks--delete .attack span,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack span {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check span, html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before, html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check span,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before {
+  margin: 0px 2.4px 0px -8px;
+}
+html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after {
+  margin: 0px -5.6px 0px 0px;
+}
+html .fabula-ultima .bestiary .attacks--edit .attack,
+html .charsheet .fabula-ultima .bestiary .attacks--edit .attack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .attacks--edit .attack__special,
+html .charsheet .fabula-ultima .bestiary .attacks--edit .attack__special {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary .attacks--edit .attack__name,
+html .charsheet .fabula-ultima .bestiary .attacks--edit .attack__name {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary .spells--heading,
+html .charsheet .fabula-ultima .bestiary .spells--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .spells--delete .spell,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .spells--delete .spell span,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell span {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .spells--delete .spell .fabula-check span, html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before, html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check span,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before {
+  margin: 0px 2.4px 0px -8px;
+}
+html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after {
+  margin: 0px -5.6px 0px 0px;
+}
+html .fabula-ultima .bestiary .spells--edit .spell,
+html .charsheet .fabula-ultima .bestiary .spells--edit .spell {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .spells--edit .spell__special,
+html .charsheet .fabula-ultima .bestiary .spells--edit .spell__special {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary .spells--edit .spell__name,
+html .charsheet .fabula-ultima .bestiary .spells--edit .spell__name {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary .weapons--heading,
+html .charsheet .fabula-ultima .bestiary .weapons--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .weapons--delete .weapon,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .weapons--delete .weapon span,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon span {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check span, html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before, html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check span,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before {
+  margin: 0px 2.4px 0px -8px;
+}
+html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after {
+  margin: 0px -5.6px 0px 0px;
+}
+html .fabula-ultima .bestiary .weapons--edit .weapon,
+html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .weapons--edit .weapon__special,
+html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__special {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary .weapons--edit .weapon__name,
+html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__name {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary .weapons--edit .weapon__category,
+html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__category {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .armor,
+html .charsheet .fabula-ultima .bestiary .armor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .armor--heading,
+html .charsheet .fabula-ultima .bestiary .armor--heading {
+  grid-column: 1/-1;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .armor--edit,
+html .charsheet .fabula-ultima .bestiary .armor--edit {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .armor__name,
+html .charsheet .fabula-ultima .bestiary .armor__name {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .shield,
+html .charsheet .fabula-ultima .bestiary .shield {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .shield--heading,
+html .charsheet .fabula-ultima .bestiary .shield--heading {
+  grid-column: 1/-1;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .shield--edit,
+html .charsheet .fabula-ultima .bestiary .shield--edit {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .shield__name,
+html .charsheet .fabula-ultima .bestiary .shield__name {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .equipment,
+html .charsheet .fabula-ultima .bestiary .equipment {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .affinities,
+html .charsheet .fabula-ultima .bestiary .affinities {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .affinity,
+html .charsheet .fabula-ultima .bestiary .affinity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+  align-items: center;
+}
+html .fabula-ultima .bestiary .affinity .chimera-input__label,
+html .charsheet .fabula-ultima .bestiary .affinity .chimera-input__label {
+  align-self: center;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .attributes,
+html .charsheet .fabula-ultima .bestiary .attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .attributes__distribution,
+html .charsheet .fabula-ultima .bestiary .attributes__distribution {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html .fabula-ultima .bestiary .attribute,
+html .charsheet .fabula-ultima .bestiary .attribute {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+html .fabula-ultima .bestiary .attribute .chimera-input__label,
+html .charsheet .fabula-ultima .bestiary .attribute .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .attribute .chimera-input__field,
+html .charsheet .fabula-ultima .bestiary .attribute .chimera-input__field {
+  align-self: normal;
+}
+html .fabula-ultima .bestiary .distribution:first-of-type,
+html .charsheet .fabula-ultima .bestiary .distribution:first-of-type {
+  padding-block-end: 4px;
+}
+html .fabula-ultima .bestiary .distribution:last-of-type,
+html .charsheet .fabula-ultima .bestiary .distribution:last-of-type {
+  padding-block-start: 4px;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .defenses,
+html .charsheet .fabula-ultima .bestiary .defenses {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .defenses__container,
+html .charsheet .fabula-ultima .bestiary .defenses__container {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .defense,
+html .charsheet .fabula-ultima .bestiary .defense {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .extras,
+html .charsheet .fabula-ultima .bestiary .extras {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .extras__container,
+html .charsheet .fabula-ultima .bestiary .extras__container {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .extra,
+html .charsheet .fabula-ultima .bestiary .extra {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .bio,
+html .charsheet .fabula-ultima .bestiary .bio {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .bio input[name*=rank][value=companion] ~ .bio__villain,
+html .charsheet .fabula-ultima .bestiary .bio input[name*=rank][value=companion] ~ .bio__villain {
+  display: none;
+}
+html .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level, html .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level,
+html .charsheet .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level,
+html .charsheet .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level {
+  display: none;
+}
+html .fabula-ultima .bestiary .bio__traits,
+html .charsheet .fabula-ultima .bestiary .bio__traits {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary .bio__companion_skill_level, html .fabula-ultima .bestiary .bio__pc_level,
+html .charsheet .fabula-ultima .bestiary .bio__companion_skill_level,
+html .charsheet .fabula-ultima .bestiary .bio__pc_level {
+  grid-column: 4;
+}
+html .fabula-ultima .bestiary .bio__description,
+html .charsheet .fabula-ultima .bestiary .bio__description {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary :root,
+html .fabula-ultima .bestiary html,
+html .charsheet .fabula-ultima .bestiary :root,
+html .charsheet .fabula-ultima .bestiary html {
+  --input-background-color-active: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+}
+html .fabula-ultima .bestiary .notes,
+html .charsheet .fabula-ultima .bestiary .notes {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .notes--heading,
+html .charsheet .fabula-ultima .bestiary .notes--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .notes--delete .note,
+html .charsheet .fabula-ultima .bestiary .notes--delete .note {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .notes--edit .note,
+html .charsheet .fabula-ultima .bestiary .notes--edit .note {
+  display: grid;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .raregear,
+html .charsheet .fabula-ultima .bestiary .raregear {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .raregear--heading,
+html .charsheet .fabula-ultima .bestiary .raregear--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .raregear--delete .gear,
+html .charsheet .fabula-ultima .bestiary .raregear--delete .gear {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .raregear--edit .gear,
+html .charsheet .fabula-ultima .bestiary .raregear--edit .gear {
+  display: grid;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .actions,
+html .charsheet .fabula-ultima .bestiary .actions {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .actions--heading,
+html .charsheet .fabula-ultima .bestiary .actions--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .actions--delete .action,
+html .charsheet .fabula-ultima .bestiary .actions--delete .action {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .actions--edit .action,
+html .charsheet .fabula-ultima .bestiary .actions--edit .action {
+  display: grid;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .specials,
+html .charsheet .fabula-ultima .bestiary .specials {
+  grid-column: span 2;
+}
+html .fabula-ultima .bestiary .specials--heading,
+html .charsheet .fabula-ultima .bestiary .specials--heading {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+}
+html .fabula-ultima .bestiary .specials--delete .special,
+html .charsheet .fabula-ultima .bestiary .specials--delete .special {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary .specials--edit .special,
+html .charsheet .fabula-ultima .bestiary .specials--edit .special {
+  display: grid;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary--view,
+html .charsheet .fabula-ultima .bestiary--view {
+  max-width: 400px;
+}
+html .fabula-ultima .bestiary--view .bio__general,
+html .charsheet .fabula-ultima .bestiary--view .bio__general {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+html .fabula-ultima .bestiary--view .bio__character_name,
+html .charsheet .fabula-ultima .bestiary--view .bio__character_name {
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary--view .bio__level-species,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-species {
+  display: flex;
+  gap: 4px;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary--edit,
+html .charsheet .fabula-ultima .bestiary--edit {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+html .fabula-ultima .bestiary--edit .bio,
+html .charsheet .fabula-ultima .bestiary--edit .bio {
+  grid-column: 1/-1;
+}
+html .fabula-ultima .bestiary--edit .attributes__distribution,
+html .charsheet .fabula-ultima .bestiary--edit .attributes__distribution {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary--edit .affinities,
+html .charsheet .fabula-ultima .bestiary--edit .affinities {
+  grid-row: span 2;
+}
+html .fabula-ultima .bestiary--edit .affinities__distribution,
+html .charsheet .fabula-ultima .bestiary--edit .affinities__distribution {
+  grid-column: span 3;
+}
+html .fabula-ultima .bestiary--edit .armor,
+html .fabula-ultima .bestiary--edit .shield,
+html .fabula-ultima .bestiary--edit .attacks,
+html .fabula-ultima .bestiary--edit .weapons,
+html .fabula-ultima .bestiary--edit .spells,
+html .charsheet .fabula-ultima .bestiary--edit .armor,
+html .charsheet .fabula-ultima .bestiary--edit .shield,
+html .charsheet .fabula-ultima .bestiary--edit .attacks,
+html .charsheet .fabula-ultima .bestiary--edit .weapons,
+html .charsheet .fabula-ultima .bestiary--edit .spells {
+  grid-column: span 2;
+}

@@ -1,0 +1,30 @@
+.traits {
+  $this: '.traits';
+
+  &__content {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: $m-lg;
+    padding: $p-md;
+  }
+}
+
+.trait {
+  $this: '.trait';
+
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  align-items: center;
+  gap: $m-lg;
+
+  &__label {
+    font-family: $header-font-stack;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &--identity {
+    grid-column: 1 / -1;
+  }
+}

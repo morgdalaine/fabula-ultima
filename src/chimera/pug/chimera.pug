@@ -1,0 +1,137 @@
+-
+  const buildCSS = (args) => {
+    const css = [args.block, ...args.names ?? []];
+    if (args?.modifiers) {
+      args.modifiers.forEach((mod) => css.push(`${args.block}--${mod}`))
+    }
+    return css;
+  };
+
+//- https://github.com/pugjs/pug/issues/1693#issuecomment-894801220
+//- https://codepen.io/Vectorjon/pen/GRmYWjN
+mixin chimera-block(key, marker=false)
+  - global.my_blocks = global.my_blocks || {};
+  if marker
+    if global.my_blocks[key]
+      - let temp = {};
+      - temp[key] = global.my_blocks[key];
+      - global.my_blocks[key] = null;
+      - temp[key]();
+    else
+      block
+  else
+    - global.my_blocks[key] = this.block;
+
+mixin chimera-layout(blob)
+  //-
+
+mixin chimera-switch(blob)
+  .chimera-switch
+    input(name=blob.attr, type='hidden')
+    .chimera-switch__group
+      each option in blob.options
+        label.chimera-switch__label
+          input(id=blob.name, name=blob.attr, value=option.value, type='radio')
+          +chimera-icon({ icon: option.image })
+          span(data-i18n=option.value)=option.text
+
+
+
+mixin chimera-input-element(blob)
+  case blob.type
+    when 'hidden'
+      input(id=blob.name, name=blob.attr, type=blob.type, value=blob.value)&attributes(attributes)
+
+    when 'textarea'
+      textarea(
+        class=blob.inputClass,
+        data-i18n-title=blob.label,
+        id=blob.name,
+        max=blob.max,
+        min=blob.min,
+        name=blob.attr,
+        type=blob.type
+      )
+
+    when 'select'
+      select(class=blob.inputClass, data-i18n-title=blob.label, id=blob.name, name=blob.attr)&attributes(attributes)
+        each option in blob.options
+          option(data-i18n=option.name, value=option.value)= option.text
+
+    when 'switch'
+      +chimera-switch(blob)
+
+    when 'number'
+    when 'text'
+    default
+      input(
+        class=blob.inputClass,
+        data-i18n-title=blob.label,
+        id=blob.name,
+        max=blob.max,
+        min=blob.min,
+        name=blob.attr,
+        type=blob.type
+      )&attributes(attributes)
+
+mixin chimera-html-element(blob)
+  //-
+
+mixin chimera-icon(blob)
+  - const { src, title } = icons[blob.icon];
+  img(src=src, data-i18n-title=`${blob.icon}_title`, title=title)
+
+mixin chimera-input(blob)
+  - const namespace = 'chimera-input';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const inputClass = `${namespace}__field`;
+  - const attr = `attr_${blob.name}`;
+  div(class=css)
+    if blob.icon
+      +chimera-icon(blob)
+
+    if blob.label
+      label.chimera-input__label(data-i18n=blob.name, for=blob.name)= blob.label
+
+    if blob.type
+      +chimera-input-element({ inputClass, attr, ...blob })
+
+    if blob.html
+      +chimera-html-element({ inputClass, ...blob })
+
+
+mixin chimera-value(blob)
+  - const namespace = 'chimera-value';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const valueClass = `${namespace}__field`;
+  - const attr = `attr_${blob.name}`;
+  div(class=css)
+    if blob.label
+      - const datai18n = blob.name ?? blob.label.replace(" ", "_").toLowerCase()
+      label.chimera-value__label(data-i18n=datai18n, for=blob.name)= blob.label
+
+    if blob.content
+      span.chimera-value__value(data-i18n=blob.name)= blob.content
+
+mixin chimera-span(blob)
+  - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
+  span(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)&attributes(attributes)
+
+
+mixin chimera-repeater(fieldset)
+  block
+  .chimera-repeater
+    input.chimera-repeater--is-empty(name=`attr_${fieldset}_empty`, type='hidden', value=0)
+    .chimera-repeater__empty
+      - const emptyKey = `none_${fieldset}_repeating`;
+      - const emptyHeader = `No ${fieldset.replace(/[-_]+/g, ' ')} saved.`;
+      h2.chimera-repeater__empty-header(data-i18n=emptyKey)= emptyHeader
+      span.chimera-repeater__empty-subtitle(data-i18n='click_add_to_add') Click +Add to load data.
+    fieldset(class=`repeating_${fieldset}`)
+      .chimera-repeater__content
+        .chimera-repeater--edit(class=`${fieldset}--edit`)
+          +chimera-block('edit', true)
+        .chimera-repeater--delete(class=`${fieldset}--delete`)
+          +chimera-block('delete', true)
+        .chimera-repeater--view(class=`${fieldset}--view`)
+          +chimera-block('view', true)

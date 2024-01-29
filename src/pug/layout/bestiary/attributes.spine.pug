@@ -1,0 +1,117 @@
+-
+  spine.bestiary.attributes = {
+    attributes: ['dexterity', 'insight', 'might', 'willpower'],
+    fields: [
+      {
+        name: 'dexterity_max',
+        label: 'DEX',
+        title: 'Dexterity',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'insight_max',
+        label: 'INS',
+        title: 'Insight',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'might_max',
+        label: 'MIG',
+        title: 'Might',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'willpower_max',
+        label: 'WLP',
+        title: 'Willpower',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+    ],
+    statuses: {
+      dexterity: [
+        {
+          name: 'slow',
+          label: 'Slow',
+          type: 'checkbox'
+        },
+        {
+          name: 'enraged',
+          label: 'Enraged',
+          type: 'checkbox',
+        },
+      ],
+      insight: [{ name: 'dazed', label: 'Dazed', type: 'checkbox' }],
+      might: [
+        {
+          name: 'weak',
+          label: 'Weak',
+          type: 'checkbox'
+        },
+        {
+          name: 'poisoned',
+          label: 'Poisoned',
+          type: 'checkbox',
+        },
+      ],
+      willpower: [
+        {
+          name: 'shaken',
+          label: 'Shaken',
+          type: 'checkbox',
+        },
+      ],
+    },
+    distribution: [
+      {
+        name: 'attribute_distribution',
+        content: `Distribute one of the following arrays among the NPC's Attributes.`,
+        css: { names: ['distribution'] },
+      },
+      {
+        label: 'Jack of All Trades',
+        content: 'd8, d8, d8, d8',
+        css: { names: ['distribution'], modifiers: ['bullet'] },
+      },
+      {
+        label: 'Standard',
+        content: 'd10, d8, d8, d6',
+        css: { names: ['distribution'], modifiers: ['bullet'] },
+      },
+      {
+        label: 'Specialized',
+        content: 'd10, d10, d6, d6',
+        css: { names: ['distribution'], modifiers: ['bullet'] },
+      },
+      {
+        label: 'Super Specialized',
+        content: 'd12, d8, d6, d6',
+        css: { names: ['distribution'], modifiers: ['bullet'] },
+      },
+      {
+        name: 'attribute_higher_levels',
+        content:
+          'Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).',
+        css: { names: ['distribution'] },
+      },
+    ],
+  };

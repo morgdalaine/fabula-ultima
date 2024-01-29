@@ -1,0 +1,105 @@
+-
+  const icons = {
+    air: { title: 'Air', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg' },
+    bolt: { title: 'Bolt', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg' },
+    dark: { title: 'Dark', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg' },
+    earth: { title: 'Earth', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg' },
+    fire: { title: 'Fire', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg' },
+    ice: { title: 'Ice', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg' },
+    light: { title: 'Light', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg' },
+    physical: { title: 'Physical', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg' },
+    poison: { title: 'Poison', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg' },
+    feather: { title: 'Feather', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png' },
+    melee: { title: 'Melee', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg' },
+    distance: { title: 'Distance', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg' },
+  };
+
+  const attributeOptions = [
+    { name: 'dexterity', value: 'dex', text: 'DEX' },
+    { name: 'insight', value: 'ins', text: 'INS' },
+    { name: 'might', value: 'mig', text: 'MIG' },
+    { name: 'willpower', value: 'wlp', text: 'WLP' },
+  ];
+
+  const rangeOptions = [
+    { name: 'melee', value: 'melee', text: 'Melee', image: 'melee' },
+    { name: 'distance', value: 'distance', text: 'Distance', image: 'distance' },
+  ];
+
+  const damageTypeOptions = [
+    { name: 'physical', value: 'physical', text: 'Physical' },
+    { name: 'air', value: 'air', text: 'Air' },
+    { name: 'bolt', value: 'bolt', text: 'Bolt' },
+    { name: 'dark', value: 'dark', text: 'Dark' },
+    { name: 'earth', value: 'earth', text: 'Earth' },
+    { name: 'fire', value: 'fire', text: 'Fire' },
+    { name: 'ice', value: 'ice', text: 'Ice' },
+    { name: 'light', value: 'light', text: 'Light' },
+    { name: 'poison', value: 'poison', text: 'Poison' },
+  ];
+
+  const rankOptions = [
+    { name: 'soldier', value: 'soldier', text: 'Soldier' },
+    { name: 'elite', value: 'elite', text: 'Elite' },
+    { name: 'champion', value: 'champion', text: 'Champion' },
+    { name: 'champion2', value: 'champion2', text: 'Champion(2)' },
+    { name: 'champion3', value: 'champion3', text: 'Champion(3)' },
+    { name: 'champion4', value: 'champion4', text: 'Champion(4)' },
+    { name: 'champion5', value: 'champion5', text: 'Champion(5)' },
+    { name: 'companion', value: 'companion', text: 'Companion' },
+  ];
+
+  const villainOptions = [
+    { name: 'none', value: '', text: '—' },
+    { name: 'minor', value: 'minor', text: 'Minor' },
+    { name: 'major', value: 'major', text: 'Major' },
+    { name: 'supreme', value: 'supreme', text: 'Supreme' },
+  ];
+
+  const speciesOptions = [
+    { name: 'beast', value: 'Beast', text: 'Beast' },
+    { name: 'construct', value: 'Construct', text: 'Construct' },
+    { name: 'demon', value: 'Demon', text: 'Demon' },
+    { name: 'elemental', value: 'Elemental', text: 'Elemental' },
+    { name: 'monster', value: 'Monster', text: 'Monster' },
+    { name: 'plant', value: 'Plant', text: 'Plant' },
+    { name: 'undead', value: 'Undead', text: 'Undead' },
+    { name: 'humanoid', value: 'Humanoid', text: 'Humanoid' },
+  ];
+
+  const damageAffinityOptions = [
+    { name: 'none', value: '', text: '—' },
+    { name: 'vulnerable', value: 'vu', text: 'Vulnerable' },
+    { name: 'resistant', value: 'rs', text: 'Resistant' },
+    { name: 'immune', value: 'im', text: 'Immune' },
+    { name: 'absorbs', value: 'ab', text: 'Absorbs' },
+  ];
+
+  const dieSizeOptions = [
+    { name: 'd6', value: '6', text: 'd6' },
+    { name: 'd8', value: '8', text: 'd8' },
+    { name: 'd10', value: '10', text: 'd10' },
+    { name: 'd12', value: '12', text: 'd12' },
+  ];
+
+  const extraDefenseOptions = [
+    { name: 'extra_defense_00', value: '0/0', text: '+0 Def / +0 M. Def' },
+    { name: 'extra_defense_12', value: '1/2', text: '+1 Def / +2 M. Def' },
+    { name: 'extra_defense_21', value: '2/1', text: '+2 Def / +1 M. Def' },
+    { name: 'extra_defense_33', value: '3/3', text: '+3 Def / +3 M. Def' },
+    { name: 'extra_defense_24', value: '2/4', text: '+2 Def / +4 M. Def' },
+    { name: 'extra_defense_42', value: '4/2', text: '+4 Def / +2 M. Def' },
+  ];
+
+  const weaponCategoryOptions = [
+    { name: 'arcane', value: 'arcane', text: 'Arcane' },
+    { name: 'bow', value: 'bow', text: 'Bow' },
+    { name: 'flail', value: 'flail', text: 'Flail' },
+    { name: 'firearm', value: 'firearm', text: 'Firearm' },
+    { name: 'spear', value: 'spear', text: 'Spear' },
+    { name: 'thrown', value: 'thrown', text: 'Thrown' },
+    { name: 'heavy', value: 'heavy', text: 'Heavy' },
+    { name: 'dagger', value: 'dagger', text: 'Dagger' },
+    { name: 'brawling', value: 'brawling', text: 'Brawling' },
+    { name: 'sword', value: 'sword', text: 'Sword' },
+  ];

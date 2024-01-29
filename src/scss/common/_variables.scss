@@ -1,0 +1,126 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Margins
+$m-xl: 2rem;
+$m-lg: 1rem;
+$m-md: 0.5rem;
+$m-sm: 0.25rem;
+
+/// Padding
+$p-xl: $m-xl;
+$p-lg: $m-lg;
+$p-md: $m-md;
+$p-sm: $m-sm;
+
+/// Design Settings
+$grid-columns: 12;
+$gutter-gap: $p-lg;
+$grid-gutter-row: $p-sm;
+$grid-gutter-col: $p-sm;
+$grid-gutter: $grid-gutter-row $grid-gutter-col;
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'PT Sans Narrow', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
+
+$header-font-stack: 'Antonio', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
+$input-font-stack: 'Source Sans Pro', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
+$nav-font-stack: 'Antonio', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial',
+  sans-serif !default;
+$serif-font-stack: 'Cormorant Garamond', sans-serif !default;
+
+$text-color: rgb(34, 34, 34) !default;
+$brand-color: rgb(229, 0, 80) !default;
+$light-grey: rgb(237, 237, 237) !default;
+$mid-grey: rgb(153, 153, 153) !default;
+$dark-grey: rgb(68, 68, 68) !default;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'https://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+$white: white;
+$anti-white: #eff4f3;
+
+$red: #cd1719;
+$blue: #009fe3;
+
+$green-dark: #2b4a42;
+$green: #8db3a9;
+$green-light: #e1f2e5;
+
+$purple-dark: #643c65;
+$purple: #7b5088;
+
+/// Fonts
+/// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
+/// $font-size-base affects the font size of the body text
+$font-size-root: 10px;
+$font-size-base: 1rem;
+
+$font-h1: $font-size-base * 2.5;
+$font-h2: $font-size-base * 2;
+$font-h3: $font-size-base * 1.75;
+$font-h4: $font-size-base * 1.5;
+$font-h5: $font-size-base * 1.25;
+$font-h6: $font-size-base;
+
+$font-xxl: $font-size-base * 1.4;
+$font-xl: $font-size-base * 1.25;
+$font-l: $font-size-base * 1.125;
+$font-m: $font-size-base;
+$font-s: $font-size-base * 0.875;
+$font-xs: $font-size-base * 0.75;
+
+/// Inputs
+$input-component-size: 2.5rem;
+$input-component-size-small: 2rem;
+$input-component-size-large: 3rem;
+
+$input-font-size: $font-l;
+
+$input-background: var(--input-background);
+$input-background-active: var(--input-background-color-active);
+$input-background-disabled: var(--input-background-color-disabled);
+
+$input-border: 1px solid var(--input-border-color);
+$input-border-active: 1px solid var(--input-border-color-active);
+$input-border-disabled: 1px solid var(--input-border-color-disabled);
+$input-border-radius: 0.5rem;
+
+$input-color: var(--input-color);
+$input-color-active: var(--input-color-active);
+$input-color-disabled: var(--input-color-disabled);
+
+$input-shadow: 0 0 0 1px var(--input-border-color) inset;
+$input-shadow-active: 0 0 0 1px var(--input-border-color-active) inset;
+
+/// Nav-Tab
+/// Character Sheet, Charactermancer, Bio & Info, and Attributes & Abilities navigation
+$nav-tab-color: $white;
+$nav-tab-color-active: $white;
+$nav-tab-color-hover: $green-dark;
+$nav-tab-background: $green;
+$nav-tab-background-active: $green-dark;
+$nav-tab-background-hover: $green-light;
+$nav-tab-border: 2px solid $green;

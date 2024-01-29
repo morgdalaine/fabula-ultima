@@ -1,0 +1,69 @@
+.chimera-repeater {
+  $this: '.chimera-repeater';
+
+  &--is-empty {
+    &[value='0'] {
+      ~ #{$this}__empty {
+        display: grid;
+      }
+    }
+  }
+
+  // &__controller {
+  //   &[value='0'] {
+  //     ~ * #{$this}__view {
+  //       display: grid;
+  //     }
+  //     ~ .repcontrol {
+  //       display: none;
+  //     }
+  //     ~ * .itemcontrol * {
+  //       display: none;
+  //     }
+  //     ~ * #{$this}__delete {
+  //       display: none;
+  //     }
+  //   }
+  //   &[value='on'] {
+  //     ~ * #{$this}__edit {
+  //       display: grid;
+  //     }
+  //   }
+  // }
+
+  &__empty {
+    display: none;
+  }
+
+  &__header {
+    padding: 8px;
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__view,
+  &__edit,
+  &__content,
+  &__delete {
+    display: none;
+    transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
+  }
+
+  &__content {
+    display: grid;
+  }
+
+  &__edit,
+  &__content {
+    position: relative;
+    padding: 8px;
+  }
+
+  &__delete {
+    min-height: 16px;
+    padding-inline: 16px;
+    align-items: center;
+  }
+}

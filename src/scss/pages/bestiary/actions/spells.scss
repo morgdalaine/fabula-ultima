@@ -1,0 +1,55 @@
+@use '../../../common/vars' as *;
+@use '../../../common/vars' as mixins;
+
+.spells {
+  $this: '.spells';
+
+  &--heading {
+    @include mixins.text-lg-700;
+  }
+
+  &--delete {
+    .spell {
+      display: flex;
+      gap: 4px;
+
+      span {
+        @include text-lg-700-fabula;
+        text-transform: uppercase;
+      }
+
+      .fabula-check {
+        span,
+        &::before,
+        &::after {
+          @include text-lg-700-fabula;
+          text-transform: uppercase;
+        }
+
+        &::before {
+          margin: 0px 2.4px 0px -8px;
+        }
+        &::after {
+          margin: 0px -5.6px 0px 0px;
+        }
+      }
+    }
+  }
+
+  &--edit {
+    .spell {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      gap: 4px;
+
+      &__special {
+        grid-column: 1/-1;
+      }
+
+      &__name {
+        grid-column: span 3;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use '../../common/vars' as *;
+@use '../../common/vars' as mixins;
+
+.affinities {
+  display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.affinity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+  align-items: center;
+
+  .chimera-input__label {
+    align-self: center;
+  }
+}

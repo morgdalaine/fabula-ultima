@@ -1,0 +1,291 @@
+-
+  spine.bestiary.attacks = {
+    heading: {
+      name: 'attacks',
+      label: 'Basic Attacks',
+    },
+    hidden: [
+    ],
+    delete: [
+      {
+        name: 'attack_name',
+        label: 'Attack Name',
+        css: { names: ['attack__name'], modifiers: [] },
+      },
+      {
+        name: 'attack_check_1',
+        dynamic: true,
+        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_check_2',
+        dynamic: true,
+        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'attack_name',
+        label: 'Attack Name',
+        type: 'text',
+        css: { names: ['attack__name'], modifiers: [] },
+      },
+      {
+        name: 'attack_range',
+        label: 'Range',
+        type: 'switch',
+        options: rangeOptions,
+        css: { names: ['attack__range'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_check_1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_check_2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        css: { names: ['attack__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'attack_extra_damage',
+        label: 'Extra Damage',
+        type: 'checkbox',
+        css: { names: ['attack__extra_damage'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_special',
+        label: 'Special',
+        type: 'textarea',
+        css: { names: ['attack__special'], modifiers: [] },
+      },
+    ],
+  };
+
+  spine.bestiary.weapons = {
+    heading: {
+      name: 'weapons',
+      label: 'Weapons',
+    },
+    hidden: [
+    ],
+    delete: [
+      {
+        name: 'weapon_name',
+        label: 'Weapon Name',
+        css: { names: ['weapon__name'], modifiers: [] },
+      },
+      {
+        name: 'weapon_check_1',
+        dynamic: true,
+        css: { names: ['weapon__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_check_2',
+        dynamic: true,
+        css: { names: ['weapon__check_2'], modifiers: ['small', 'center'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'weapon_name',
+        label: 'Weapon Name',
+        type: 'text',
+        css: { names: ['weapon__name'], modifiers: [] },
+      },
+      {
+        name: 'weapon_range',
+        label: 'Range',
+        type: 'switch',
+        options: rangeOptions,
+        css: { names: ['weapon__range'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_check_1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['weapon__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_check_2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['weapon__check_2'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_category',
+        label: 'category',
+        type: 'select',
+        options: weaponCategoryOptions,
+        css: { names: ['weapon__category'], modifiers: ['center'] },
+      },
+      {
+        name: 'weapon_hands',
+        label: 'Hands',
+        type: 'number',
+        min: 1,
+        min: 2,
+        css: { names: ['weapon__hands'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_precision',
+        label: 'Accuracy',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__precision'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_damage',
+        label: 'Damage',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__damage'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        css: { names: ['weapon__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'weapon_attack_precision',
+        label: 'Attack Accuracy',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__attack_precision'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_attack_damage',
+        label: 'Attack Damage',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__attack_damage'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_extra_damage',
+        label: 'Extra Damage',
+        type: 'checkbox',
+        css: { names: ['weapon__extra_damage'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_cost',
+        label: 'Cost',
+        type: 'number',
+        min: 0,
+        step: 50,
+        css: { names: ['weapon__cost'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_special',
+        label: 'Special',
+        type: 'textarea',
+        css: { names: ['weapon__special'], modifiers: [] },
+      },
+    ],
+  };
+
+  spine.bestiary.spells = {
+    heading: {
+      name: 'spells',
+      label: 'Spells',
+    },
+    hidden: [
+    ],
+    delete: [
+      {
+        name: 'spell_name',
+        label: 'spell Name',
+        css: { names: ['spell__name'], modifiers: [] },
+      },
+      {
+        name: 'spell_check_1',
+        dynamic: true,
+        css: { names: ['spell__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'spell_check_2',
+        dynamic: true,
+        css: { names: ['spell__check_2'], modifiers: ['small', 'center'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'spell_name',
+        label: 'Spell Name',
+        type: 'text',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_offensive',
+        label: 'Is Offensive',
+        type: 'checkbox',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_check_1',
+        label: 'Magic Check',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_check_2',
+        label: 'Magic Check',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_mod',
+        label: 'Mod',
+        title: 'Magic Check Mod',
+        type: 'number',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_mp_cost',
+        label: 'MP Cost',
+        type: 'number',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_damage',
+        label: 'Damage Calculation',
+        type: 'text',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_target',
+        label: 'Spell Target',
+        type: 'text',
+        css: { names: ['spells'], modifiers: [] },
+      },
+      {
+        name: 'spell_duration',
+        label: 'Spell Duration',
+        type: 'text',
+        css: { names: ['spells'], modifiers: [] },
+      },
+
+      {
+        name: 'spell_effect',
+        label: 'Spell Effect',
+        type: 'textarea',
+        css: { names: ['spells'], modifiers: [] },
+      },
+    ],
+  };

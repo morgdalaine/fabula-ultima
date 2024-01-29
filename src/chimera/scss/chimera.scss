@@ -1,0 +1,16 @@
+@use 'mixins' as chimera;
+@use 'components/repeater';
+
+.chimera-input {
+  &--flex {
+    display: flex;
+  }
+
+  &:has([type='checkbox']) {
+    .chimera-input__label {
+      cursor: pointer;
+    }
+  }
+
+  @include chimera.layout-gaps;
+}

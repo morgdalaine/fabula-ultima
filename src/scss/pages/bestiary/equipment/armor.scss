@@ -1,0 +1,32 @@
+@use '../../../common/vars' as *;
+@use '../../../common/vars' as mixins;
+
+.armor {
+  $this: '.armor';
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+
+  &--heading {
+    grid-column: 1/-1;
+    @include mixins.text-lg-700;
+  }
+
+  &--edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  &__name {
+    grid-column: span 2;
+  }
+  &__initiative,
+  &__cost,
+  &__defense,
+  &__defense_bonus,
+  &__magic_defense,
+  &__magic_defense_bonus {
+  }
+}

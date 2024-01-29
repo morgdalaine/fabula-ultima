@@ -1,0 +1,26 @@
+@use '../../../common/vars' as *;
+@use '../../../common/vars' as mixins;
+
+.raregear {
+  $this: '.raregear';
+
+  grid-column: span 2;
+
+  &--heading {
+    @include mixins.text-lg-700;
+  }
+
+  &--delete {
+    .gear {
+      display: flex;
+      gap: 4px;
+    }
+  }
+
+  &--edit {
+    .gear {
+      display: grid;
+      gap: 4px;
+    }
+  }
+}

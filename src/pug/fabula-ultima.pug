@@ -1,0 +1,38 @@
+include ../chimera/pug/chimera
+include layout/spine
+include components/mixins
+
+mixin html
+  html
+    head
+      link(href='fabula-ultima.css', rel='stylesheet', type='text/css')
+    body
+      block
+
++html
+  select(name='attr_sheet_type')
+    each type in spine.sheets
+      option(data-i18n=type, value=type)= type.toUpperCase()
+
+  input(name="attr_sheet_type", type='hidden' value='bestiary')
+  .fabula-ultima
+    - const now = Date.now();
+    span= now
+
+    main.character
+      span [CHARACTER]
+    main.bestiary
+      include pages/bestiary
+    main.gm
+      span [GM]
+
+
+    footer
+
+
+  - console.log(Date.now());
+  script(type='text/worker')
+    include ../js/globals.js
+    include ../js/sheetworkers.js
+    include ../js/eventhandlers.js
+    include ../chimera/js/repeating.js

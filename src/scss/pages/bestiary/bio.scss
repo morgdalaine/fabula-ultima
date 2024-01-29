@@ -1,0 +1,37 @@
+@use '../../common/vars' as *;
+@use '../../common/vars' as mixins;
+
+.bio {
+  $this: '.bio';
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+
+  input[name*='rank'] {
+    &[value='companion'] ~ #{$this} {
+      &__villain {
+        display: none;
+      }
+    }
+    &:not([value='companion']) ~ #{$this} {
+      &__companion_skill_level,
+      &__pc_level {
+        display: none;
+      }
+    }
+  }
+
+  &__traits {
+    grid-column: span 3;
+  }
+
+  &__companion_skill_level,
+  &__pc_level {
+    grid-column: 4;
+  }
+
+  &__description {
+    grid-column: 1/-1;
+  }
+}

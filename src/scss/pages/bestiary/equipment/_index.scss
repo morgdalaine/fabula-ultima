@@ -1,0 +1,8 @@
+@use '../../../common/vars' as *;
+@use '../../../common/vars' as mixins;
+@use 'armor';
+@use 'shield';
+
+.equipment {
+  grid-column: 1/-1;
+}

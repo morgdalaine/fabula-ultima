@@ -1,0 +1,119 @@
+.ui-dialog .charsheet {
+  .repcontainer {
+    $this: '.repcontainer';
+
+    display: grid;
+
+    .chimera-repeater--delete {
+      display: none;
+      padding-inline-start: 20px;
+    }
+
+    &.editmode {
+      + .repcontrol {
+        display: block !important;
+        button.repcontrol_edit::before {
+          background-image: url('https://www.svgrepo.com/show/471631/lock-unlocked-01.svg');
+        }
+      }
+      .chimera-repeater--delete {
+        display: grid !important;
+      }
+      .chimera-repeater--view,
+      .chimera-repeater--edit {
+        display: none !important;
+      }
+    }
+
+    .repitem {
+      @extend %itemcontrol;
+    }
+  }
+
+  .repcontainer {
+    .repitem {
+      $this: '.repitem';
+
+      margin-block-end: 4px;
+    }
+    .repitem {
+      .itemcontrol {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .repcontrol {
+    $this: '.repcontrol';
+
+    &_add,
+    &_edit,
+    &_del,
+    &_move {
+      font-size: 0;
+      &::before {
+        content: '';
+        display: block;
+        width: 1.5rem;
+        aspect-ratio: 1;
+
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      &:hover {
+        background-color: hsl(random(360) 80% 80% / 80%);
+        // filter: invert(99%);
+      }
+    }
+
+    &_add,
+    &_edit {
+      &::before {
+        width: 20px;
+      }
+    }
+
+    &_add {
+      &::before {
+        background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png');
+      }
+    }
+    &_edit {
+      &::before {
+        background-image: url('https://www.svgrepo.com/show/471623/lock-01.svg');
+      }
+    }
+
+    &_del,
+    &_move {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &_del {
+      right: 4px;
+      &::before {
+        background-image: url('https://www.svgrepo.com/show/471998/trash-01.svg');
+      }
+    }
+    &_move {
+      left: 4px;
+      &::before {
+        background-image: url('https://www.svgrepo.com/show/471721/move.svg');
+      }
+    }
+  }
+}
+
+%itemcontrol {
+  .itemcontrol {
+    $this: '.itemcontrol';
+    background-color: transparent;
+    z-index: 1;
+    &:hover {
+      background-image: linear-gradient(to right, hsl(random(360) 80% 80% / 80%), transparent);
+    }
+  }
+}

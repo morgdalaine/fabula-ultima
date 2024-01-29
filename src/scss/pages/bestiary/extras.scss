@@ -1,0 +1,23 @@
+@use '../../common/vars' as *;
+@use '../../common/vars' as mixins;
+
+.extras {
+  $this: '.extras';
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__container {
+    grid-column: span 2;
+  }
+}
+
+.extra {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}

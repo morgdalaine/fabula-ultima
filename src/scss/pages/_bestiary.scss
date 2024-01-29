@@ -1,0 +1,60 @@
+@use '../common/vars.scss' as *;
+@use '../common/mixins' as mixins;
+
+.bestiary {
+  $this: '.bestiary';
+  @import 'bestiary/actions';
+  @import 'bestiary/equipment';
+  @import 'bestiary/affinity';
+  @import 'bestiary/attributes';
+  @import 'bestiary/defenses';
+  @import 'bestiary/extras';
+  @import 'bestiary/bio';
+  @import 'bestiary/other';
+
+  &--view {
+    max-width: 400px;
+
+    #{$this} {
+      &__general {
+        display: grid;
+        grid-template-columns: 1fr auto;
+      }
+
+      &__character_name {
+        text-transform: uppercase;
+      }
+      &__level-species {
+        display: flex;
+        gap: 4px;
+
+        text-transform: uppercase;
+      }
+    }
+  }
+  &--edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+
+    .bio {
+      grid-column: 1/-1;
+    }
+    .attributes__distribution {
+      grid-column: span 3;
+    }
+    .affinities {
+      grid-row: span 2;
+    }
+    .affinities__distribution {
+      grid-column: span 3;
+    }
+    .armor,
+    .shield,
+    .attacks,
+    .weapons,
+    .spells {
+      grid-column: span 2;
+    }
+  }
+}

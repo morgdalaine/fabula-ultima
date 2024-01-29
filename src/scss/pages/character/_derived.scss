@@ -1,0 +1,35 @@
+.initiative-defenses {
+  $this: '.initiative-defenses';
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $m-lg;
+    padding: $p-md;
+  }
+}
+
+.derived {
+  $this: '.derived';
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: $m-lg;
+
+  span[name*='attr'] {
+    font-size: $font-h4;
+  }
+
+  &__label {
+    font-family: $header-font-stack;
+    font-size: $font-xl;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    font-size: $font-xl;
+    text-align: center;
+  }
+}

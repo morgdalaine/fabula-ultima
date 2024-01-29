@@ -1,0 +1,71 @@
+.attributes-statuses {
+  $this: '.attributes-statuses';
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, auto) 1fr;
+    grid-template-columns: auto repeat(2, 4rem) auto 1fr;
+    gap: $m-md $m-lg;
+    padding: $p-md;
+    padding-left: $p-xl;
+
+    background: linear-gradient(to right, $green-light, transparent);
+  }
+}
+
+.attribute {
+  $this: '.attribute';
+
+  display: grid;
+  grid-template-columns: 1fr auto 2rem;
+  justify-content: flex-end;
+  gap: $m-lg;
+
+  &__label {
+    font-family: $header-font-stack;
+    font-size: $font-xl;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: right;
+    align-self: center;
+
+    &--base,
+    &--current {
+      color: $green-dark;
+      text-align: center;
+      font-weight: 700;
+      font-variant: all-small-caps;
+    }
+  }
+
+  &--select,
+  &__current {
+    font-size: $font-xl;
+    text-align: center;
+  }
+
+  &__current {
+    &::before {
+      content: 'd';
+    }
+  }
+}
+
+.status {
+  $this: '.status';
+
+  display: flex;
+  gap: $m-md;
+  align-items: center;
+
+  &__name {
+    font-family: $header-font-stack;
+    font-size: $font-xl;
+    text-transform: uppercase;
+  }
+
+  &--enraged,
+  &--poisoned {
+    grid-row: span 2;
+  }
+}

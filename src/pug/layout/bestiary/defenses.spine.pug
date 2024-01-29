@@ -1,0 +1,170 @@
+-
+  spine.bestiary.affinities = {
+    fields: [
+      {
+        name: 'physical',
+        label: 'Physical',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'physical',
+        css: { names: ['affinity','affinity--physical'], modifiers: ['center'] },
+      },
+      {
+        name: 'air',
+        label: 'Air',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'air',
+        css: { names: ['affinity','affinity--air'], modifiers: ['center'] },
+      },
+      {
+        name: 'bolt',
+        label: 'Bolt',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'bolt',
+        css: { names: ['affinity','affinity--bolt'], modifiers: ['center'] },
+      },
+      {
+        name: 'dark',
+        label: 'Dark',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'dark',
+        css: { names: ['affinity','affinity--dark'], modifiers: ['center'] },
+      },
+      {
+        name: 'earth',
+        label: 'Earth',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'earth',
+        css: { names: ['affinity','affinity--earth'], modifiers: ['center'] },
+      },
+      {
+        name: 'fire',
+        label: 'Fire',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'fire',
+        css: { names: ['affinity','affinity--fire'], modifiers: ['center'] },
+      },
+      {
+        name: 'ice',
+        label: 'Ice',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'ice',
+        css: { names: ['affinity','affinity--ice'], modifiers: ['center'] },
+      },
+      {
+        name: 'light',
+        label: 'Light',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'light',
+        css: { names: ['affinity','affinity--light'], modifiers: ['center'] },
+      },
+      {
+        name: 'poison',
+        label: 'Poison',
+        type: 'select',
+        options: damageAffinityOptions,
+        icon: 'poison',
+        css: { names: ['affinity','affinity--poison'], modifiers: ['center'] },
+      },
+    ],
+  };
+
+  spine.bestiary.defenses = {
+    fields: [
+      {
+        name: 'defense_quick',
+        label: 'Defenses',
+        type: 'select',
+        options: extraDefenseOptions,
+        css: {
+          names: ['defense', 'defense__quick'],
+        },
+      },
+      {
+        name: 'defense_mod',
+        label: 'Bonus DEF',
+        type: 'number',
+        css: {
+          names: ['defense', 'defense__def'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+      {
+        name: 'magic_defense_mod',
+        label: 'Bonus M.DEF',
+        type: 'number',
+        css: {
+          names: ['defense', 'defense__mdef'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+    ]
+  };
+
+  spine.bestiary.extras = {
+    fields: [
+      {
+        name: 'hp_mod',
+        label: 'Bonus HP',
+        type: 'number',
+        css: {
+          names: ['extra', 'extra__hp_mod'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+      {
+        name: 'mp_mod',
+        label: 'Bonus MP',
+        type: 'number',
+        css: {
+          names: ['extra', 'extra__mp_mod'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+      {
+        name: 'initiative_mod',
+        label: 'Bonus Initiative',
+        type: 'number',
+        css: {
+          names: ['extra', 'extra__initiative_mod'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+    ],
+    checkboxes: [
+      {
+        name: 'initiative_bonus',
+        label: '+4 Initiative',
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__initiative_bonus'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+      {
+        name: 'accuracy_bonus',
+        label: '+3 bonus to all Accuracy checks',
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__accuracy_bonus'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+      {
+        name: 'magic_bonus',
+        label: '+3 bonus to all Magic checks',
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__magic_bonus'],
+          modifiers: ['flex-row', 'small'],
+        },
+      },
+    ],
+  };

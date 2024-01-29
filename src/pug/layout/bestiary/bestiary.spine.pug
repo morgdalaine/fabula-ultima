@@ -1,0 +1,209 @@
+-
+  spine.bestiary.general = {
+    hidden: ['rank'],
+    fields: [
+      {
+        name: 'character_name',
+        label: 'Name',
+        type: 'text',
+        css: { names: ['bio__character_name'] },
+      },
+      {
+        name: 'traits',
+        label: 'Traits',
+        type: 'text',
+        css: { names: ['bio__traits'] }
+      },
+      {
+        name: 'level',
+        label: 'Level',
+        min: 5,
+        css: { names: ['bio__level'], modifiers: ['center', 'small'] },
+        max: 50,
+        type: 'number',
+      },
+      {
+        name: 'species',
+        label: 'Species',
+        type: 'select',
+        options: speciesOptions,
+        css: { names: ['bio__species'] },
+      },
+      {
+        name: 'rank',
+        label: 'Rank',
+        type: 'select',
+        options: rankOptions,
+        css: { names: ['bio__rank'] },
+      },
+      {
+        name: 'villain',
+        label: 'Villain',
+        type: 'select',
+        options: villainOptions,
+        css: { names: ['bio__villain'] },
+      },
+      {
+        name: 'companion_skill_level',
+        label: 'Skill Level',
+        min: 1,
+        max: 10,
+        type: 'number',
+        css: { names: ['bio__companion_skill_level'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'pc_level',
+        label: 'PC Level',
+        min: 5,
+        max: 50,
+        type: 'number',
+        css: { names: ['bio__pc_level'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'description',
+        label: 'Description',
+        type: 'textarea',
+        css: { names: ['bio__description'] },
+      },
+    ],
+  };
+
+  spine.bestiary.points = {
+    hp: {
+      name: 'hp',
+      label: 'HP',
+      title: 'Hit Points',
+      type: 'number',
+      css: { names: ['bestiary__hp'] },
+    },
+    crisis: {
+      name: 'hp_crisis',
+      label: 'Crisis',
+      css: { names: ['bestiary__hp_crisis'] },
+      type: 'number',
+    },
+    mp: {
+      name: 'mp',
+      label: 'MP',
+      title: 'Mind Points',
+      type: 'number',
+      css: { names: ['bestiary__mp'] },
+    },
+    initiative: {
+      name: 'initiative',
+      label: 'Init.',
+      title: 'Initiative',
+      type: 'number',
+      css: { names: ['bestiary__initiative'] },
+    },
+  };
+
+  spine.bestiary.armor = {
+    heading: { name: 'armor', label: 'Armor' },
+    fields: [
+      {
+        name: 'armor_name',
+        label: 'Name',
+        title: 'Name',
+        type: 'text',
+        css: { names: ['armor__name'] },
+      },
+      {
+        name: 'armor_initiative',
+        label: 'Initiative',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['armor__initiative'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_cost',
+        label: 'Cost',
+        title: 'Cost',
+        type: 'number',
+        css: { names: ['armor__cost'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_defense',
+        label: 'DEF',
+        title: 'Defense',
+        type: 'number',
+        css: { names: ['armor__defense'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_defense_bonus',
+        label: 'DEF Bonus',
+        title: 'Defense Bonus',
+        type: 'number',
+        css: { names: ['armor__defense_bonus'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_magic_defense',
+        label: 'M.DEF',
+        title: 'Magic Defense',
+        type: 'number',
+        css: { names: ['armor__magic_defense'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_magic_defense_bonus',
+        label: 'M.DEF Bonus',
+        title: 'Magic_defense_bonus',
+        type: 'number',
+        css: { names: ['armor__magic_defense_bonus'], modifiers: ['center', 'small'] },
+      },
+    ],
+  };
+
+  spine.bestiary.shield = {
+    heading: { name: 'shield', label: 'Shield' },
+    fields: [
+      {
+        name: 'shield_name',
+        label: 'Name',
+        title: 'Name',
+        type: 'text',
+        css: { names: ['shield__name'] },
+      },
+      {
+        name: 'shield_initiative',
+        label: 'Initiative',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['shield__initiative'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_cost',
+        label: 'Cost',
+        title: 'Cost',
+        type: 'number',
+        css: { names: ['shield__cost'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_defense',
+        label: 'DEF',
+        title: 'Defense',
+        type: 'number',
+        css: { names: ['shield__defense'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_defense_bonus',
+        label: 'DEF Bonus',
+        title: 'Defense Bonus',
+        type: 'number',
+        css: { names: ['shield__defense_bonus'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_magic_defense',
+        label: 'M.DEF',
+        title: 'Magic Defense',
+        type: 'number',
+        css: { names: ['shield__magic_defense'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_magic_defense_bonus',
+        label: 'M.DEF Bonus',
+        title: 'Magic_defense_bonus',
+        type: 'number',
+        css: { names: ['shield__magic_defense_bonus'], modifiers: ['center', 'small'] },
+      },
+    ],
+  };

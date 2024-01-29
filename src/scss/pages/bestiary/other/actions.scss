@@ -1,0 +1,26 @@
+@use '../../../common/vars' as *;
+@use '../../../common/vars' as mixins;
+
+.actions {
+  $this: '.actions';
+
+  grid-column: span 2;
+
+  &--heading {
+    @include mixins.text-lg-700;
+  }
+
+  &--delete {
+    .action {
+      display: flex;
+      gap: 4px;
+    }
+  }
+
+  &--edit {
+    .action {
+      display: grid;
+      gap: 4px;
+    }
+  }
+}
