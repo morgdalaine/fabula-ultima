@@ -178,5 +178,6 @@
   "attack_range": "Range",
   "distance_title": "Distance",
   "distance": "Distance",
-  "weapon_range": "Range"
+  "weapon_range": "Range",
+  "weapon_attack_name": "Attack Name"
 }

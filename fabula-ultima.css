@@ -160,7 +160,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-size: contain;
 }
 .ui-dialog .charsheet .repcontrol_add:hover, .ui-dialog .charsheet .repcontrol_edit:hover, .ui-dialog .charsheet .repcontrol_del:hover, .ui-dialog .charsheet .repcontrol_move:hover {
-  background-color: hsla(108, 80%, 80%, 0.8);
+  background-color: hsla(121, 80%, 80%, 0.8);
 }
 .ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before {
   width: 20px;
@@ -194,7 +194,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   z-index: 1;
 }
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol:hover {
-  background-image: linear-gradient(to right, hsla(301, 80%, 80%, 0.8), transparent);
+  background-image: linear-gradient(to right, hsla(89, 80%, 80%, 0.8), transparent);
 }
 
 div#tab-content.tab-content .attributesabilities {
@@ -653,7 +653,7 @@ html .charsheet .fabula-ultima .chimera-switch__label span {
 }
 html .fabula-ultima .chimera-repeater__empty,
 html .charsheet .fabula-ultima .chimera-repeater__empty {
-  background-color: hsla(197, 80%, 80%, 0.8);
+  background-color: hsla(342, 80%, 80%, 0.8);
   padding: 8px;
 }
 html .fabula-ultima .chimera-repeater__empty-header,
@@ -927,10 +927,6 @@ html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__special {
 html .fabula-ultima .bestiary .weapons--edit .weapon__name,
 html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__name {
   grid-column: span 3;
-}
-html .fabula-ultima .bestiary .weapons--edit .weapon__category,
-html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__category {
-  grid-column: span 2;
 }
 html .fabula-ultima .bestiary :root,
 html .fabula-ultima .bestiary html,

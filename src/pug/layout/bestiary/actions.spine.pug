@@ -133,6 +133,13 @@
         css: { names: ['weapon__category'], modifiers: ['center'] },
       },
       {
+        name: 'weapon_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        css: { names: ['weapon__type'], modifiers: ['center'] },
+      },
+      {
         name: 'weapon_hands',
         label: 'Hands',
         type: 'number',
@@ -155,11 +162,19 @@
         css: { names: ['weapon__damage'], modifiers: ['small', 'center'] },
       },
       {
-        name: 'weapon_type',
-        label: 'Damage Type',
-        type: 'select',
-        options: damageTypeOptions,
-        css: { names: ['weapon__type'], modifiers: ['center'] },
+        name: 'weapon_cost',
+        label: 'Cost',
+        type: 'number',
+        min: 0,
+        step: 50,
+        css: { names: ['weapon__cost'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_attack_name',
+        label: 'Attack Name',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__attack_name'] },
       },
       {
         name: 'weapon_attack_precision',
@@ -180,14 +195,6 @@
         label: 'Extra Damage',
         type: 'checkbox',
         css: { names: ['weapon__extra_damage'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'weapon_cost',
-        label: 'Cost',
-        type: 'number',
-        min: 0,
-        step: 50,
-        css: { names: ['weapon__cost'], modifiers: ['small', 'center'] },
       },
       {
         name: 'weapon_special',
