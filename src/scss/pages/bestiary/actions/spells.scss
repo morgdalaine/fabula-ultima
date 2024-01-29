@@ -5,7 +5,8 @@
   $this: '.spells';
 
   &--heading {
-    @include mixins.text-lg-700;
+    @include mixins.text-xl-400-fabula;
+    text-transform: capitalize;
   }
 
   &--delete {
@@ -14,7 +15,7 @@
       gap: 4px;
 
       span {
-        @include text-lg-700-fabula;
+        @include text-xl-700-fabula;
         text-transform: uppercase;
       }
 
@@ -22,7 +23,7 @@
         span,
         &::before,
         &::after {
-          @include text-lg-700-fabula;
+          @include text-xl-700-fabula;
           text-transform: uppercase;
         }
 
@@ -39,16 +40,17 @@
   &--edit {
     .spell {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr) repeat(3, auto);
       // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
       gap: 4px;
 
-      &__special {
+      &__special,
+      &__effect {
         grid-column: 1/-1;
       }
 
       &__name {
-        grid-column: span 3;
+        grid-column: span 2;
       }
     }
   }

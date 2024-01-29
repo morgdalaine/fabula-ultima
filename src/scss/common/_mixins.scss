@@ -49,7 +49,23 @@
   line-height: 120%;
 }
 
-@mixin text-lg-700 {
+@mixin text-lg-400 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+@mixin text-xl-400 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+
+@mixin text-xl-700 {
   font-family: var(--font-body);
   font-size: 1.5rem;
   font-style: normal;
@@ -57,7 +73,16 @@
   line-height: 125%;
 }
 
-@mixin text-lg-700-fabula {
+@mixin text-xl-400-fabula {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+}
+
+@mixin text-xl-700-fabula {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -66,10 +91,19 @@
   text-transform: uppercase;
 }
 
-@mixin text-xl-700 {
+@mixin text-xxl-700 {
   font-family: var(--font-body);
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
+}
+
+@mixin shadow-box {
+  background-color: var(--surface-container-lowest);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-light);
+  overflow: hidden;
+  padding: 12px;
+  height: min-content;
 }

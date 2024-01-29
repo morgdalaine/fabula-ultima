@@ -5,7 +5,8 @@
   $this: '.attacks';
 
   &--heading {
-    @include mixins.text-lg-700;
+    @include mixins.text-xl-400-fabula;
+    text-transform: capitalize;
   }
 
   &--delete {
@@ -14,7 +15,7 @@
       gap: 4px;
 
       span {
-        @include text-lg-700-fabula;
+        @include text-xl-700-fabula;
         text-transform: uppercase;
       }
 
@@ -22,7 +23,7 @@
         span,
         &::before,
         &::after {
-          @include text-lg-700-fabula;
+          @include text-xl-700-fabula;
           text-transform: uppercase;
         }
 

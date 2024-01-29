@@ -10,7 +10,7 @@
       <option data-i18n="gm" value="gm">GM</option>
     </select>
     <input name="attr_sheet_type" type="hidden" value="bestiary"/>
-    <div class="fabula-ultima"><span>1706534385165</span>
+    <div class="fabula-ultima"><span>1706560418448</span>
       <main class="character"><span>[CHARACTER]</span></main>
       <main class="bestiary">
         <header class="bestiary--view">
@@ -24,7 +24,7 @@
         <header class="bestiary--edit">
           <div class="bio">
             <input name="attr_rank" type="hidden"/>
-            <div class="chimera-input bio__character_name">
+            <div class="chimera-input bio__name">
               <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
               <input class="chimera-input__field" data-i18n-title="Name" id="character_name" name="attr_character_name" type="text"/>
             </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="chimera-input bio__level chimera-input--center chimera-input--small">
               <label class="chimera-input__label" data-i18n="level" for="level">Level</label>
-              <input class="chimera-input__field" data-i18n-title="Level" id="level" max="50" min="5" name="attr_level" type="number"/>
+              <input class="chimera-input__field" data-i18n-title="Level" id="level" max="50" min="5" step="5" name="attr_level" type="number"/>
             </div>
             <div class="chimera-input bio__species">
               <label class="chimera-input__label" data-i18n="species" for="species">Species</label>
@@ -79,6 +79,18 @@
               <label class="chimera-input__label" data-i18n="pc_level" for="pc_level">PC Level</label>
               <input class="chimera-input__field" data-i18n-title="PC Level" id="pc_level" max="50" min="5" name="attr_pc_level" type="number"/>
             </div>
+            <div class="chimera-input bio__multipart">
+              <label class="chimera-input__label" data-i18n="multipart" for="multipart">Multi-Part</label>
+              <input class="chimera-input__field" data-i18n-title="Multi-Part" id="multipart" name="attr_multipart" type="text"/>
+            </div>
+            <div class="chimera-input bio__phases chimera-input--center chimera-input--small">
+              <label class="chimera-input__label" data-i18n="phases" for="phases">Phases</label>
+              <input class="chimera-input__field" data-i18n-title="Phases" id="phases" min="0" name="attr_phases" type="number"/>
+            </div>
+            <div class="chimera-input bio__createdby">
+              <label class="chimera-input__label" data-i18n="createdby" for="createdby">Created By</label>
+              <input class="chimera-input__field" data-i18n-title="Created By" id="createdby" name="attr_createdby" type="text"/>
+            </div>
             <div class="chimera-input bio__description">
               <label class="chimera-input__label" data-i18n="description" for="description">Description</label>
               <textarea class="chimera-input__field" data-i18n-title="Description" id="description" name="attr_description" type="textarea"></textarea>
@@ -122,7 +134,7 @@
               </select>
             </div>
           </div>
-          <div class="attributes__distribution">
+          <div class="attributes__distribution chimera-container--shadow">
             <div class="chimera-value distribution"><span class="chimera-value__value" data-i18n="attribute_distribution">Distribute one of the following arrays among the NPC's Attributes.</span>
             </div>
             <div class="chimera-value distribution chimera-value--bullet">
@@ -232,26 +244,20 @@
               </select>
             </div>
           </div>
-          <div class="affinities__distribution">
-            <div class="chimera-value distribution"><span class="chimera-value__value" data-i18n="attribute_distribution">Distribute one of the following arrays among the NPC's Attributes.</span>
+          <div class="affinities__skillcost chimera-container--shadow">
+            <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_vulnerability">Gain 1 skill per vulnerability</span>
             </div>
-            <div class="chimera-value distribution chimera-value--bullet">
-              <label class="chimera-value__label" data-i18n="jack_of all trades">Jack of All Trades</label><span class="chimera-value__value">d8, d8, d8, d8</span>
+            <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_physical_vulnerability">Gain 2 skills per physical vulnerability</span>
             </div>
-            <div class="chimera-value distribution chimera-value--bullet">
-              <label class="chimera-value__label" data-i18n="standard">Standard</label><span class="chimera-value__value">d10, d8, d8, d6</span>
+            <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_resistance">Use 0.5 skill per Resistance</span>
             </div>
-            <div class="chimera-value distribution chimera-value--bullet">
-              <label class="chimera-value__label" data-i18n="specialized">Specialized</label><span class="chimera-value__value">d10, d10, d6, d6</span>
+            <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_immunity">Use 1 skill per Immunity</span>
             </div>
-            <div class="chimera-value distribution chimera-value--bullet">
-              <label class="chimera-value__label" data-i18n="super_specialized">Super Specialized</label><span class="chimera-value__value">d12, d8, d6, d6</span>
-            </div>
-            <div class="chimera-value distribution"><span class="chimera-value__value" data-i18n="attribute_higher_levels">Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).</span>
+            <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_absorption">Use 2 skill per Absorption</span>
             </div>
           </div>
           <div class="defenses">
-            <div class="chimera-input defense defense__quick">
+            <div class="chimera-input defense defense__quick chimera-input--center">
               <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
               <select class="chimera-input__field" data-i18n-title="Defenses" id="defense_quick" name="attr_defense_quick">
                 <option data-i18n="extra_defense_00" value="0/0">+0 Def / +0 M. Def</option>
@@ -286,18 +292,21 @@
             </div>
           </div>
           <div class="extras extra--checkboxes">
-            <div class="chimera-input extra extra__initiative_bonus chimera-input--flex-row chimera-input--small">
-              <label class="chimera-input__label" data-i18n="initiative_bonus" for="initiative_bonus">+4 Initiative</label>
-              <input class="chimera-input__field" data-i18n-title="+4 Initiative" id="initiative_bonus" name="attr_initiative_bonus" type="checkbox"/>
-            </div>
-            <div class="chimera-input extra extra__accuracy_bonus chimera-input--flex-row chimera-input--small">
-              <label class="chimera-input__label" data-i18n="accuracy_bonus" for="accuracy_bonus">+3 bonus to all Accuracy checks</label>
-              <input class="chimera-input__field" data-i18n-title="+3 bonus to all Accuracy checks" id="accuracy_bonus" name="attr_accuracy_bonus" type="checkbox"/>
-            </div>
-            <div class="chimera-input extra extra__magic_bonus chimera-input--flex-row chimera-input--small">
-              <label class="chimera-input__label" data-i18n="magic_bonus" for="magic_bonus">+3 bonus to all Magic checks</label>
-              <input class="chimera-input__field" data-i18n-title="+3 bonus to all Magic checks" id="magic_bonus" name="attr_magic_bonus" type="checkbox"/>
-            </div>
+            <label class="chimera-checkbox extra extra__initiative_bonus">
+              <div class="chimera-checkbox__field">
+                <input id="initiative_bonus" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+              </div><span class="chimera-checkbox__label" data-i18n="initiative_bonus" for="initiative_bonus">+4 Initiative</span>
+            </label>
+            <label class="chimera-checkbox extra extra__accuracy_bonus">
+              <div class="chimera-checkbox__field">
+                <input id="accuracy_bonus" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+              </div><span class="chimera-checkbox__label" data-i18n="accuracy_bonus" for="accuracy_bonus">+3 bonus to all Accuracy checks</span>
+            </label>
+            <label class="chimera-checkbox extra extra__magic_bonus">
+              <div class="chimera-checkbox__field">
+                <input id="magic_bonus" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+              </div><span class="chimera-checkbox__label" data-i18n="magic_bonus" for="magic_bonus">+3 bonus to all Magic checks</span>
+            </label>
           </div>
           <div class="armor">
             <h2 class="armor--heading" data-i18n="armor">Armor</h2>
@@ -311,7 +320,7 @@
             </div>
             <div class="chimera-input armor__cost chimera-input--center chimera-input--small">
               <label class="chimera-input__label" data-i18n="armor_cost" for="armor_cost">Cost</label>
-              <input class="chimera-input__field" data-i18n-title="Cost" id="armor_cost" name="attr_armor_cost" type="number"/>
+              <input class="chimera-input__field" data-i18n-title="Cost" id="armor_cost" min="0" step="50" name="attr_armor_cost" type="number"/>
             </div>
             <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
               <label class="chimera-input__label" data-i18n="armor_defense" for="armor_defense">DEF</label>
@@ -342,7 +351,7 @@
             </div>
             <div class="chimera-input shield__cost chimera-input--center chimera-input--small">
               <label class="chimera-input__label" data-i18n="shield_cost" for="shield_cost">Cost</label>
-              <input class="chimera-input__field" data-i18n-title="Cost" id="shield_cost" name="attr_shield_cost" type="number"/>
+              <input class="chimera-input__field" data-i18n-title="Cost" id="shield_cost" min="0" step="50" name="attr_shield_cost" type="number"/>
             </div>
             <div class="chimera-input shield__defense chimera-input--center chimera-input--small">
               <label class="chimera-input__label" data-i18n="shield_defense" for="shield_defense">DEF</label>
@@ -422,10 +431,11 @@
                           <option data-i18n="poison" value="poison">Poison</option>
                         </select>
                       </div>
-                      <div class="chimera-input attack__extra_damage chimera-input--small chimera-input--center">
-                        <label class="chimera-input__label" data-i18n="attack_extra_damage" for="attack_extra_damage">Extra Damage</label>
-                        <input class="chimera-input__field" data-i18n-title="Extra Damage" id="attack_extra_damage" name="attr_attack_extra_damage" type="checkbox"/>
-                      </div>
+                      <label class="chimera-checkbox attack__extra_damage chimera-checkbox--column">
+                        <div class="chimera-checkbox__field">
+                          <input id="attack_extra_damage" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+                        </div><span class="chimera-checkbox__label" data-i18n="attack_extra_damage" for="attack_extra_damage">Extra Damage</span>
+                      </label>
                       <div class="chimera-input attack__special">
                         <label class="chimera-input__label" data-i18n="attack_special" for="attack_special">Special</label>
                         <textarea class="chimera-input__field" data-i18n-title="Special" id="attack_special" name="attr_attack_special" type="textarea"></textarea>
@@ -473,6 +483,21 @@
                           </div>
                         </div>
                       </div>
+                      <div class="chimera-input weapon__category chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="weapon_category" for="weapon_category">Category</label>
+                        <select class="chimera-input__field" data-i18n-title="Category" id="weapon_category" name="attr_weapon_category">
+                          <option data-i18n="arcane" value="arcane">Arcane</option>
+                          <option data-i18n="bow" value="bow">Bow</option>
+                          <option data-i18n="flail" value="flail">Flail</option>
+                          <option data-i18n="firearm" value="firearm">Firearm</option>
+                          <option data-i18n="spear" value="spear">Spear</option>
+                          <option data-i18n="thrown" value="thrown">Thrown</option>
+                          <option data-i18n="heavy" value="heavy">Heavy</option>
+                          <option data-i18n="dagger" value="dagger">Dagger</option>
+                          <option data-i18n="brawling" value="brawling">Brawling</option>
+                          <option data-i18n="sword" value="sword">Sword</option>
+                        </select>
+                      </div>
                       <div class="chimera-input weapon__check_1 chimera-input--small chimera-input--center">
                         <label class="chimera-input__label" data-i18n="weapon_check_1" for="weapon_check_1">Attr 1</label>
                         <select class="chimera-input__field" data-i18n-title="Attr 1" id="weapon_check_1" name="attr_weapon_check_1">
@@ -491,20 +516,9 @@
                           <option data-i18n="willpower" value="wlp">WLP</option>
                         </select>
                       </div>
-                      <div class="chimera-input weapon__category chimera-input--center">
-                        <label class="chimera-input__label" data-i18n="weapon_category" for="weapon_category">category</label>
-                        <select class="chimera-input__field" data-i18n-title="category" id="weapon_category" name="attr_weapon_category">
-                          <option data-i18n="arcane" value="arcane">Arcane</option>
-                          <option data-i18n="bow" value="bow">Bow</option>
-                          <option data-i18n="flail" value="flail">Flail</option>
-                          <option data-i18n="firearm" value="firearm">Firearm</option>
-                          <option data-i18n="spear" value="spear">Spear</option>
-                          <option data-i18n="thrown" value="thrown">Thrown</option>
-                          <option data-i18n="heavy" value="heavy">Heavy</option>
-                          <option data-i18n="dagger" value="dagger">Dagger</option>
-                          <option data-i18n="brawling" value="brawling">Brawling</option>
-                          <option data-i18n="sword" value="sword">Sword</option>
-                        </select>
+                      <div class="chimera-input weapon__precision chimera-input--small chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="weapon_precision" for="weapon_precision">Accuracy</label>
+                        <input class="chimera-input__field" data-i18n-title="Accuracy" id="weapon_precision" min="0" name="attr_weapon_precision" type="number"/>
                       </div>
                       <div class="chimera-input weapon__type chimera-input--center">
                         <label class="chimera-input__label" data-i18n="weapon_type" for="weapon_type">Damage Type</label>
@@ -522,11 +536,7 @@
                       </div>
                       <div class="chimera-input weapon__hands chimera-input--small chimera-input--center">
                         <label class="chimera-input__label" data-i18n="weapon_hands" for="weapon_hands">Hands</label>
-                        <input class="chimera-input__field" data-i18n-title="Hands" id="weapon_hands" min="2" name="attr_weapon_hands" type="number"/>
-                      </div>
-                      <div class="chimera-input weapon__precision chimera-input--small chimera-input--center">
-                        <label class="chimera-input__label" data-i18n="weapon_precision" for="weapon_precision">Accuracy</label>
-                        <input class="chimera-input__field" data-i18n-title="Accuracy" id="weapon_precision" min="0" name="attr_weapon_precision" type="number"/>
+                        <input class="chimera-input__field" data-i18n-title="Hands" id="weapon_hands" max="2" min="1" name="attr_weapon_hands" type="number"/>
                       </div>
                       <div class="chimera-input weapon__damage chimera-input--small chimera-input--center">
                         <label class="chimera-input__label" data-i18n="weapon_damage" for="weapon_damage">Damage</label>
@@ -534,7 +544,7 @@
                       </div>
                       <div class="chimera-input weapon__cost chimera-input--small chimera-input--center">
                         <label class="chimera-input__label" data-i18n="weapon_cost" for="weapon_cost">Cost</label>
-                        <input class="chimera-input__field" data-i18n-title="Cost" id="weapon_cost" min="0" name="attr_weapon_cost" type="number"/>
+                        <input class="chimera-input__field" data-i18n-title="Cost" id="weapon_cost" min="0" step="50" name="attr_weapon_cost" type="number"/>
                       </div>
                       <div class="chimera-input weapon__attack_name">
                         <label class="chimera-input__label" data-i18n="weapon_attack_name" for="weapon_attack_name">Attack Name</label>
@@ -548,10 +558,11 @@
                         <label class="chimera-input__label" data-i18n="weapon_attack_damage" for="weapon_attack_damage">Attack Damage</label>
                         <input class="chimera-input__field" data-i18n-title="Attack Damage" id="weapon_attack_damage" min="0" name="attr_weapon_attack_damage" type="number"/>
                       </div>
-                      <div class="chimera-input weapon__extra_damage chimera-input--small chimera-input--center">
-                        <label class="chimera-input__label" data-i18n="weapon_extra_damage" for="weapon_extra_damage">Extra Damage</label>
-                        <input class="chimera-input__field" data-i18n-title="Extra Damage" id="weapon_extra_damage" name="attr_weapon_extra_damage" type="checkbox"/>
-                      </div>
+                      <label class="chimera-checkbox weapon__extra_damage chimera-checkbox--column">
+                        <div class="chimera-checkbox__field">
+                          <input id="weapon_extra_damage" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+                        </div><span class="chimera-checkbox__label" data-i18n="weapon_extra_damage" for="weapon_extra_damage">Extra Damage</span>
+                      </label>
                       <div class="chimera-input weapon__special">
                         <label class="chimera-input__label" data-i18n="weapon_special" for="weapon_special">Special</label>
                         <textarea class="chimera-input__field" data-i18n-title="Special" id="weapon_special" name="attr_weapon_special" type="textarea"></textarea>
@@ -581,55 +592,56 @@
                 <div class="chimera-repeater__content">
                   <div class="chimera-repeater--edit spells--edit">
                     <div class="spell">
-                      <div class="chimera-input spells">
+                      <div class="chimera-input spell__name">
                         <label class="chimera-input__label" data-i18n="spell_name" for="spell_name">Spell Name</label>
                         <input class="chimera-input__field" data-i18n-title="Spell Name" id="spell_name" name="attr_spell_name" type="text"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_offensive" for="spell_offensive">Is Offensive</label>
-                        <input class="chimera-input__field" data-i18n-title="Is Offensive" id="spell_offensive" name="attr_spell_offensive" type="checkbox"/>
-                      </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_check_1" for="spell_check_1">Magic Check</label>
-                        <select class="chimera-input__field" data-i18n-title="Magic Check" id="spell_check_1" name="attr_spell_check_1">
+                      <label class="chimera-checkbox spell__offensive chimera-checkbox--column">
+                        <div class="chimera-checkbox__field">
+                          <input id="spell_offensive" type="checkbox"/><img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" data-i18n-title="checkbox_title" title="Checkbox"/>
+                        </div><span class="chimera-checkbox__label" data-i18n="spell_offensive" for="spell_offensive">Is Offensive</span>
+                      </label>
+                      <div class="chimera-input spell__check_1 chimera-input--small chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="spell_check_1" for="spell_check_1">Attr 1</label>
+                        <select class="chimera-input__field" data-i18n-title="Attr 1" id="spell_check_1" name="attr_spell_check_1">
                           <option data-i18n="dexterity" value="dex">DEX</option>
                           <option data-i18n="insight" value="ins">INS</option>
                           <option data-i18n="might" value="mig">MIG</option>
                           <option data-i18n="willpower" value="wlp">WLP</option>
                         </select>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_check_2" for="spell_check_2">Magic Check</label>
-                        <select class="chimera-input__field" data-i18n-title="Magic Check" id="spell_check_2" name="attr_spell_check_2">
+                      <div class="chimera-input spell__check_2 chimera-input--small chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="spell_check_2" for="spell_check_2">Attr 2</label>
+                        <select class="chimera-input__field" data-i18n-title="Attr 2" id="spell_check_2" name="attr_spell_check_2">
                           <option data-i18n="dexterity" value="dex">DEX</option>
                           <option data-i18n="insight" value="ins">INS</option>
                           <option data-i18n="might" value="mig">MIG</option>
                           <option data-i18n="willpower" value="wlp">WLP</option>
                         </select>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_mod" for="spell_mod">Mod</label>
-                        <input class="chimera-input__field" data-i18n-title="Mod" id="spell_mod" name="attr_spell_mod" type="number"/>
+                      <div class="chimera-input spell__target">
+                        <label class="chimera-input__label" data-i18n="spell_target" for="spell_target">Target</label>
+                        <input class="chimera-input__field" data-i18n-title="Target" id="spell_target" name="attr_spell_target" type="text"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_mp_cost" for="spell_mp_cost">MP Cost</label>
-                        <input class="chimera-input__field" data-i18n-title="MP Cost" id="spell_mp_cost" name="attr_spell_mp_cost" type="number"/>
+                      <div class="chimera-input spell__duration">
+                        <label class="chimera-input__label" data-i18n="spell_duration" for="spell_duration">Duration</label>
+                        <input class="chimera-input__field" data-i18n-title="Duration" id="spell_duration" name="attr_spell_duration" type="text"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_damage" for="spell_damage">Damage Calculation</label>
-                        <input class="chimera-input__field" data-i18n-title="Damage Calculation" id="spell_damage" name="attr_spell_damage" type="text"/>
+                      <div class="chimera-input spell__mp chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="spell_mp" for="spell_mp">MP</label>
+                        <input class="chimera-input__field" data-i18n-title="MP" id="spell_mp" name="attr_spell_mp" type="text"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_target" for="spell_target">Spell Target</label>
-                        <input class="chimera-input__field" data-i18n-title="Spell Target" id="spell_target" name="attr_spell_target" type="text"/>
+                      <div class="chimera-input spell__precision chimera-input--small chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="spell_precision" for="spell_precision">Accuracy</label>
+                        <input class="chimera-input__field" data-i18n-title="Accuracy" id="spell_precision" min="0" name="attr_spell_precision" type="number"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_duration" for="spell_duration">Spell Duration</label>
-                        <input class="chimera-input__field" data-i18n-title="Spell Duration" id="spell_duration" name="attr_spell_duration" type="text"/>
+                      <div class="chimera-input spell__damage chimera-input--small chimera-input--center">
+                        <label class="chimera-input__label" data-i18n="spell_damage" for="spell_damage">Damage</label>
+                        <input class="chimera-input__field" data-i18n-title="Damage" id="spell_damage" min="0" name="attr_spell_damage" type="number"/>
                       </div>
-                      <div class="chimera-input spells">
-                        <label class="chimera-input__label" data-i18n="spell_effect" for="spell_effect">Spell Effect</label>
-                        <textarea class="chimera-input__field" data-i18n-title="Spell Effect" id="spell_effect" name="attr_spell_effect" type="textarea"></textarea>
+                      <div class="chimera-input spell__effect">
+                        <label class="chimera-input__label" data-i18n="spell_effect" for="spell_effect">Effect</label>
+                        <textarea class="chimera-input__field" data-i18n-title="Effect" id="spell_effect" name="attr_spell_effect" type="textarea"></textarea>
                       </div>
                     </div>
                   </div>

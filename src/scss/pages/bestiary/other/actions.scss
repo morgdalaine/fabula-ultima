@@ -7,7 +7,8 @@
   grid-column: span 2;
 
   &--heading {
-    @include mixins.text-lg-700;
+    @include mixins.text-xl-400-fabula;
+    text-transform: capitalize;
   }
 
   &--delete {

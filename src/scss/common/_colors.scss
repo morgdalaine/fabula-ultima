@@ -1,9 +1,46 @@
+// background-color: color-mix(in srgb, white 10%, #f44336);
+
 $hp-red: #d1232a;
 $mp-blue: #00aeef;
 
-$background: '';
-$error: '';
-$error-container: '';
+$surface-dim: #d9dbd1;
+$surface: #f8faf0;
+$surface-bright: #f8faf0;
+$surface-container: '#edefe5';
+$surface-container-high: '#e7e9df';
+$surface-container-highest: #e1e3da;
+$surface-container-low: '#f3f5eb';
+$surface-container-lowest: #ffffff;
+
+$on-surface: #1a1c18;
+$on-surface-variant: #43483e;
+
+$outline: #74796d;
+$outline-variant: #c3c8bb;
+
+$primary-base: #664168;
+$secondary-base: #6e468d;
+$tertiary-base: #b8a8bd;
+
+$primary-l40: #386a1f;
+$on-primary-l100: $surface-container-lowest;
+$on-primary-container: #072100;
+
+$secondary-l40: #55624c;
+$on-secondary-l100: $surface-container-lowest;
+$on-secondary-container: #131f0d;
+
+$tertiary-l40: #386666;
+$on-tertiary-l100: $surface-container-lowest;
+$on-tertiary-container: #002020;
+
+$error-l40: #ba1a1a;
+$error-container: #ffdad6;
+$on-error-l100: $surface-container-lowest;
+$on-error-container: #410002;
+
+$background: #e2f3ee;
+$error: #ba1a1a;
 $inverse-on-surface: '';
 $inverse-primary: '';
 $inverse-surface: '';
@@ -18,14 +55,10 @@ $on-secondary: '';
 $on-secondary-container: '';
 $on-secondary-fixed: '';
 $on-secondary-fixed-variant: '';
-$on-surface: '';
-$on-surface-variant: '';
 $on-tertiary: '';
 $on-tertiary-container: '';
 $on-tertiary-fixed: '';
 $on-tertiary-fixed-variant: '';
-$outline: '';
-$outline-variant: '';
 $primary: '';
 $primary-container: '';
 $primary-fixed: '';
@@ -36,14 +69,6 @@ $secondary-container: '';
 $secondary-fixed: '';
 $secondary-fixed-dim: '';
 $shadow: '';
-$surface: '';
-$surface-bright: '';
-$surface-container: '';
-$surface-container-high: '';
-$surface-container-highest: '';
-$surface-container-low: '';
-$surface-container-lowest: '';
-$surface-dim: '';
 $surface-tint: '';
 $surface-variant: '';
 $tertiary: '';
@@ -307,3 +332,18 @@ $blue-grey-d30: #37474f;
 $blue-grey-d40: #263238;
 $black: #000;
 $white: #fff;
+
+// Tint a color: mix a color with white
+@function tint-color($color, $weight) {
+  @return mix(white, $color, $weight);
+}
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+
+// Shade the color if the weight is positive, else tint it
+@function shift-color($color, $weight) {
+  @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+}

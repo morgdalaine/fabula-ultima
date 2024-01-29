@@ -7,6 +7,8 @@
 
 :root,
 html {
+  --background: #{colors.$background};
+  --surface-container-lowest: #{colors.$surface-container-lowest};
   // Inputs
 
   // --input-background: #{rgb($green-light, 0.5)};
@@ -21,9 +23,24 @@ html {
   --input-color-active: #{colors.$black};
   // --input-color-disabled: #{gray};
 
+  --nav-color-focus: #{colors.$primary-base};
+
   // Fonts
   --font-body: #{fonts.$font-pt-sans-narrow};
   --font-nav: #{fonts.$font-antonio};
   --font-serif: #{fonts.$font-pt-serif};
   --font-title: #{fonts.$font-antonio};
+
+  --header-gradient-dark: #{linear-gradient(
+      90deg,
+      colors.$primary-base 0%,
+      colors.$tertiary-base 100%
+    )};
+
+  --repeating-empty-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+
+  --tertiary-gradient-light: #{linear-gradient(90deg, colors.$light-green-d40 0%, transparent 100%)};
+
+  --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
+    rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
 }

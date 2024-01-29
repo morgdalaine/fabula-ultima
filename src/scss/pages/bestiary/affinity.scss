@@ -6,6 +6,9 @@
   // grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   gap: 4px;
+
+  &__shield-cost {
+  }
 }
 
 .affinity {
@@ -15,6 +18,7 @@
   align-items: center;
 
   .chimera-input__label {
+    @include mixins.text-lg-400;
     align-self: center;
   }
 }

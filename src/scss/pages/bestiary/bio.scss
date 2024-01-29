@@ -5,7 +5,7 @@
   $this: '.bio';
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
   gap: 4px;
 
   input[name*='rank'] {
@@ -22,13 +22,40 @@
     }
   }
 
+  &__name {
+    // grid-column: span 2;
+  }
+
   &__traits {
     grid-column: span 3;
   }
 
+  &__rank,
+  &__villain,
+  &__multipart,
+  &__createdby {
+    grid-column: span 2;
+  }
+
+  &__species,
+  &__rank,
+  &__villain,
   &__companion_skill_level,
   &__pc_level {
+    grid-row: 2;
+  }
+
+  &__companion_skill_level {
     grid-column: 4;
+  }
+  &__pc_level {
+    grid-column: 5;
+  }
+
+  &__phases,
+  &__multipart,
+  &__createdby {
+    grid-row-start: 3;
   }
 
   &__description {

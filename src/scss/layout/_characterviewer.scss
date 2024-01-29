@@ -35,8 +35,8 @@ html {
         &.active {
           > a {
             opacity: 1 !important;
-            color: hotpink; //$nav-tab-color;
-            background: yellow; // $nav-tab-background;
+            color: white;
+            background: var(--header-gradient-dark);
           }
         }
 
@@ -53,13 +53,27 @@ html {
 
           &:hover,
           &:active {
-            color: hotpink; //$nav-tab-color;
-          }
-          &:hover {
-            background: lime; // $nav-tab-background-hover;
+            /* Fallback: Set a background color. */
+            background-color: lime;
+
+            /* Create the gradient. */
+            background-image: var(--header-gradient-dark);
+            // background-image: linear-gradient(45deg, #f3ec78, #af4261);
+
+            /* Set the background size and repeat properties. */
+            background-size: 100%;
+            background-repeat: repeat;
+
+            /* Use the text as a mask for the background. */
+            /* This will show the gradient as a text color rather than element bg. */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
           }
           &:active {
-            background: purple; //$nav-tab-background-active;
+            background-image: linear-gradient(90deg, rgb(110, 70, 141) 0%, rgb(255, 255, 255) 100%);
           }
         }
 

@@ -74,6 +74,13 @@
         css: { names: ['affinity','affinity--poison'], modifiers: ['center'] },
       },
     ],
+    skillcost: [
+      { name: 'affinity_vulnerability', content: 'Gain 1 skill per vulnerability', },
+      { name: 'affinity_physical_vulnerability', content: 'Gain 2 skills per physical vulnerability', },
+      { name: 'affinity_resistance', content: 'Use 0.5 skill per Resistance', },
+      { name: 'affinity_immunity', content: 'Use 1 skill per Immunity', },
+      { name: 'affinity_absorption', content: 'Use 2 skill per Absorption', },
+    ]
   };
 
   spine.bestiary.defenses = {
@@ -85,6 +92,7 @@
         options: extraDefenseOptions,
         css: {
           names: ['defense', 'defense__quick'],
+          modifiers: ['center']
         },
       },
       {
@@ -145,7 +153,6 @@
         type: 'checkbox',
         css: {
           names: ['extra', 'extra__initiative_bonus'],
-          modifiers: ['flex-row', 'small'],
         },
       },
       {
@@ -154,7 +161,6 @@
         type: 'checkbox',
         css: {
           names: ['extra', 'extra__accuracy_bonus'],
-          modifiers: ['flex-row', 'small'],
         },
       },
       {
@@ -163,7 +169,6 @@
         type: 'checkbox',
         css: {
           names: ['extra', 'extra__magic_bonus'],
-          modifiers: ['flex-row', 'small'],
         },
       },
     ],

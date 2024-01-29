@@ -1,0 +1,241 @@
+.chimera-input {
+  &--column {
+    flex-direction: row;
+  }
+
+  &--flex-row {
+    flex-direction: row;
+    .chimera-input__label {
+      align-self: center;
+    }
+  }
+
+  &--center {
+    .chimera-input__label,
+    .chimera-input__field {
+      text-align: center;
+    }
+  }
+
+  &--small {
+    .chimera-input__field {
+      width: 5rem;
+      align-self: center;
+      text-align: center;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  width: 100%;
+  width: stretch;
+
+  &__label {
+    @include mixins.text-sm-400;
+  }
+  &__field {
+    &[type='number'] {
+      text-align: center;
+    }
+  }
+}
+
+.chimera-value {
+  &--bullet {
+    &::before {
+      content: '✦';
+      @include mixins.text-base-400;
+    }
+  }
+
+  &__label {
+    @include mixins.text-base-700;
+    margin-inline-end: 4px;
+  }
+  &__value {
+    @include mixins.text-base-400;
+  }
+}
+
+.chimera-checkbox {
+  &--column {
+    flex-direction: column-reverse;
+  }
+
+  &--flex-row {
+    flex-direction: row;
+    .chimera-checkbox__label {
+      align-self: center;
+    }
+  }
+
+  &--center {
+    .chimera-checkbox__label,
+    .chimera-checkbox__field {
+      text-align: center;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
+  align-items: center;
+
+  width: 100%;
+  width: stretch;
+
+  &__label {
+    @include mixins.text-sm-400;
+  }
+
+  &__field {
+    &:has(:checked) {
+      background: var(--input-background-color-active);
+      img,
+      svg {
+        filter: none;
+      }
+    }
+
+    position: relative;
+    display: flex;
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+
+    color: var(--input-color);
+    background: transparent;
+
+    border: 2px solid var(--input-border-color);
+    border-radius: 4px;
+
+    &:active,
+    &:hover,
+    &:focus {
+      outline: transparent;
+
+      // background-color: var(--input-background-color-active);
+      color: var(--input-color-active);
+      border-color: var(--input-border-color-active);
+    }
+
+    img,
+    svg {
+      width: 20px;
+      height: 20px;
+      aspect-ratio: 1;
+      margin-left: 3px;
+
+      filter: invert(0.5);
+    }
+
+    input[type='checkbox'] {
+      position: absolute;
+      opacity: 0;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.chimera-switch {
+  &__group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    justify-content: center;
+  }
+  &__label {
+    &:has(:checked) {
+      background: var(--input-background-color-active);
+      img,
+      svg {
+        filter: none;
+      }
+    }
+
+    position: relative;
+    display: flex;
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+
+    color: var(--input-color);
+    background: transparent;
+
+    border: 2px solid var(--input-border-color);
+    border-radius: 4px;
+
+    @include mixins.text-base-400;
+
+    &:active,
+    &:hover,
+    &:focus {
+      outline: transparent;
+
+      // background-color: var(--input-background-color-active);
+      color: var(--input-color-active);
+      border-color: var(--input-border-color-active);
+    }
+
+    img,
+    svg {
+      width: 20px;
+      height: 20px;
+      aspect-ratio: 1;
+
+      filter: invert(0.5);
+    }
+
+    input[type='radio'] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      //   &:checked + img,
+      //   &:checked + svg {
+      //     background-color: red;
+      //   }
+    }
+
+    span {
+      @include mixins.sr-only;
+    }
+  }
+}
+
+.chimera-container {
+  &--shadow {
+    @include mixins.shadow-box;
+  }
+}
+
+.chimera-repeater {
+  &__empty {
+    // background-image: var(--tertiary-gradient-light);
+    background: transparent;
+    padding: 8px;
+
+    border: 2px dashed var(--input-border-color);
+    border-radius: 4px;
+  }
+  &__empty-header {
+    @include mixins.text-xl-400;
+  }
+  &__empty-subtitle {
+    @include mixins.text-sm-400;
+  }
+}

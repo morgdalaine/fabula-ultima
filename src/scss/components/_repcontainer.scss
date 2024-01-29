@@ -62,7 +62,7 @@
       }
 
       &:hover {
-        background-color: hsl(random(360) 80% 80% / 80%);
+        background-image: var(--header-gradient-dark);
         // filter: invert(99%);
       }
     }
@@ -113,7 +113,7 @@
     background-color: transparent;
     z-index: 1;
     &:hover {
-      background-image: linear-gradient(to right, hsl(random(360) 80% 80% / 80%), transparent);
+      background-image: var(--header-gradient-dark);
     }
   }
 }

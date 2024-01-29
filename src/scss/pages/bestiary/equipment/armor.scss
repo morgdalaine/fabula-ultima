@@ -10,7 +10,8 @@
 
   &--heading {
     grid-column: 1/-1;
-    @include mixins.text-lg-700;
+    @include mixins.text-xl-400-fabula;
+    text-transform: capitalize;
   }
 
   &--edit {

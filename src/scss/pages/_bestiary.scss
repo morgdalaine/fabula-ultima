@@ -37,24 +37,54 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
 
+    padding: 8px;
+    background-color: var(--background);
+
+    > div {
+      height: min-content;
+    }
+
     .bio {
-      grid-column: 1/-1;
+      grid-column: 1 / span 3;
+    }
+    .attributes {
+      grid-column-start: 1;
     }
     .attributes__distribution {
       grid-column: span 3;
     }
     .affinities {
-      grid-row: span 2;
+      grid-row: 3 / span 2;
     }
-    .affinities__distribution {
-      grid-column: span 3;
-    }
-    .armor,
-    .shield,
-    .attacks,
-    .weapons,
-    .spells {
+    .affinities__skillcost {
       grid-column: span 2;
+    }
+
+    .defenses {
+      grid-column: 2;
+      align-self: flex-end;
+    }
+    .extras {
+      grid-column: 3;
+      align-self: flex-end;
+    }
+    .extra--checkboxes {
+      grid-column: 4;
+      align-self: flex-end;
+    }
+
+    .shield,
+    .weapons {
+      grid-column: 3 / span 2;
+    }
+
+    .armor,
+    .attacks {
+      grid-column: 1 / span 2;
+    }
+
+    .spells {
+      grid-column: 1/-1;
     }
   }
 }

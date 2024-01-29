@@ -14,10 +14,12 @@
 }
 
 .extra {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  &.chimera-input {
+    display: grid;
+    grid-template-columns: 1fr auto;
 
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
 }

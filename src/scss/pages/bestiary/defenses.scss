@@ -20,4 +20,8 @@
   gap: 4px;
   align-items: center;
   justify-content: center;
+
+  &__quick {
+    grid-template-columns: 1fr;
+  }
 }

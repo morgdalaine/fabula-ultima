@@ -35,6 +35,16 @@ mixin chimera-switch(blob)
           +chimera-icon({ icon: option.image })
           span(data-i18n=option.value)=option.text
 
+mixin chimera-checkbox(blob)
+  - const namespace = 'chimera-checkbox';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const attr = `attr_${blob.name}`;
+  - const image = blob.image ?? 'checkbox';
+  label(class=css)
+    .chimera-checkbox__field
+      input(id=blob.name, name=blob.attr, type='checkbox')
+      +chimera-icon({ icon: image })
+    span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
 
 mixin chimera-input-element(blob)
@@ -47,8 +57,6 @@ mixin chimera-input-element(blob)
         class=blob.inputClass,
         data-i18n-title=blob.label,
         id=blob.name,
-        max=blob.max,
-        min=blob.min,
         name=blob.attr,
         type=blob.type
       )
@@ -57,6 +65,9 @@ mixin chimera-input-element(blob)
       select(class=blob.inputClass, data-i18n-title=blob.label, id=blob.name, name=blob.attr)&attributes(attributes)
         each option in blob.options
           option(data-i18n=option.name, value=option.value)= option.text
+
+    when 'checkbox'
+      +chimera-checkbox(blob)
 
     when 'switch'
       +chimera-switch(blob)
@@ -70,6 +81,7 @@ mixin chimera-input-element(blob)
         id=blob.name,
         max=blob.max,
         min=blob.min,
+        step=blob.step,
         name=blob.attr,
         type=blob.type
       )&attributes(attributes)
@@ -78,7 +90,7 @@ mixin chimera-html-element(blob)
   //-
 
 mixin chimera-icon(blob)
-  - const { src, title } = icons[blob.icon];
+  - const { src, title } = assets[blob.icon];
   img(src=src, data-i18n-title=`${blob.icon}_title`, title=title)
 
 mixin chimera-input(blob)
@@ -86,18 +98,23 @@ mixin chimera-input(blob)
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
   - const inputClass = `${namespace}__field`;
   - const attr = `attr_${blob.name}`;
-  div(class=css)
-    if blob.icon
-      +chimera-icon(blob)
 
-    if blob.label
-      label.chimera-input__label(data-i18n=blob.name, for=blob.name)= blob.label
+  if blob.type === 'checkbox'
+    +chimera-checkbox(blob)
 
-    if blob.type
-      +chimera-input-element({ inputClass, attr, ...blob })
+  else
+    div(class=css)
+      if blob.icon
+        +chimera-icon(blob)
 
-    if blob.html
-      +chimera-html-element({ inputClass, ...blob })
+      if blob.label
+        label.chimera-input__label(data-i18n=blob.name, for=blob.name)= blob.label
+
+      if blob.type
+        +chimera-input-element({ inputClass, attr, ...blob })
+
+      if blob.html
+        +chimera-html-element({ inputClass, ...blob })
 
 
 mixin chimera-value(blob)

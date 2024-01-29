@@ -6,7 +6,7 @@
         name: 'character_name',
         label: 'Name',
         type: 'text',
-        css: { names: ['bio__character_name'] },
+        css: { names: ['bio__name'] },
       },
       {
         name: 'traits',
@@ -17,10 +17,11 @@
       {
         name: 'level',
         label: 'Level',
-        min: 5,
-        css: { names: ['bio__level'], modifiers: ['center', 'small'] },
-        max: 50,
         type: 'number',
+        min: 5,
+        step: 5,
+        max: 50,
+        css: { names: ['bio__level'], modifiers: ['center', 'small'] },
       },
       {
         name: 'species',
@@ -58,6 +59,25 @@
         max: 50,
         type: 'number',
         css: { names: ['bio__pc_level'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'multipart',
+        label: 'Multi-Part',
+        type: 'text',
+        css: { names: ['bio__multipart'] },
+      },
+      {
+        name: 'phases',
+        label: 'Phases',
+        type: 'number',
+        min: 0,
+        css: { names: ['bio__phases'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'createdby',
+        label: 'Created By',
+        type: 'text',
+        css: { names: ['bio__createdby'] },
       },
       {
         name: 'description',
@@ -119,6 +139,8 @@
         name: 'armor_cost',
         label: 'Cost',
         title: 'Cost',
+        min: 0,
+        step: 50,
         type: 'number',
         css: { names: ['armor__cost'], modifiers: ['center', 'small'] },
       },
@@ -175,6 +197,8 @@
         label: 'Cost',
         title: 'Cost',
         type: 'number',
+        min: 0,
+        step: 50,
         css: { names: ['shield__cost'], modifiers: ['center', 'small'] },
       },
       {

@@ -18,12 +18,11 @@
       each field in general.fields
         +chimera-input(field)
 
-
     .attributes
       each field in attributes.fields
         +chimera-input(field)
 
-    .attributes__distribution
+    .attributes__distribution.chimera-container--shadow
       each field in attributes.distribution
         +chimera-value(field)
 
@@ -31,8 +30,8 @@
       each field in affinities.fields
         +chimera-input(field)
 
-    .affinities__distribution
-      each field in attributes.distribution
+    .affinities__skillcost.chimera-container--shadow
+      each field in affinities.skillcost
         +chimera-value(field)
 
     .defenses

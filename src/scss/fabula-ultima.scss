@@ -52,6 +52,7 @@ html .charsheet {
     // @import 'layout/header', 'layout/footer';
 
     // 5. Components
+    @import 'common/chimera';
     @import 'components/inputs';
     // @import 'components/buttons', 'components/inputs', 'components/panels',
     //  'components/repeating';
