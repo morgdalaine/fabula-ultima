@@ -148,7 +148,7 @@ mixin chimera-span(blob)
 mixin chimera-repeater(fieldset)
   block
   .chimera-repeater
-    input.chimera-repeater--is-empty(name=`attr_${fieldset}_empty`, type='hidden', value=0)
+    +chimera-hidden(fieldset, 0).chimera-repeater--is-empty
     .chimera-repeater__empty
       - const emptyKey = `none_${fieldset}_repeating`;
       - const emptyHeader = `No ${fieldset.replace(/[-_]+/g, ' ')} saved.`;

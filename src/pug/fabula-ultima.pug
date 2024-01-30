@@ -14,7 +14,7 @@ mixin html
     each type in spine.sheets
       option(data-i18n=type, value=type)= type.toUpperCase()
 
-  input(name="attr_sheet_type", type='hidden' value='bestiary')
+  +chimera-hidden('sheet_type', 'bestiary')
   .fabula-ultima
     main.character
       span [CHARACTER]
