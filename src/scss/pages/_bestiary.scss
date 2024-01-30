@@ -3,36 +3,422 @@
 
 .bestiary {
   $this: '.bestiary';
-  @import 'bestiary/actions';
-  @import 'bestiary/equipment';
-  @import 'bestiary/affinity';
-  @import 'bestiary/attributes';
-  @import 'bestiary/defenses';
-  @import 'bestiary/extras';
-  @import 'bestiary/bio';
-  @import 'bestiary/other';
 
   &--view {
+    margin: 8px;
     max-width: 400px;
 
-    #{$this} {
-      &__general {
+    background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow:
+      rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+      rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    overflow: hidden;
+
+    .fabula-diamond {
+      margin: 0px;
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: smaller;
+      vertical-align: text-bottom;
+      margin-top: -3px;
+    }
+
+    .bio {
+      grid-column: span 2;
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+      -moz-box-align: stretch;
+      align-items: stretch;
+
+      &__name {
+        box-sizing: border-box;
+        margin: 0px;
+        flex-direction: row;
+        flex-basis: 0px;
+        -moz-box-flex: 1;
+        flex-grow: 1;
+        max-width: 100%;
+        border-right: 4px solid white;
+        padding-left: 16px;
+        padding-right: 16px;
+        background: linear-gradient(90deg, rgb(103, 65, 104) 0%, rgb(185, 169, 190) 100%);
+        span {
+          margin: 0px;
+          line-height: 1.5;
+          color: rgb(255, 255, 255);
+          font-family: Antonio;
+          font-size: 1.5rem;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+      }
+
+      &__level-rank-species {
+        box-sizing: border-box;
+        margin: 0px;
+        flex-direction: row;
+        padding: 4px 16px;
+        border-left: 2px solid rgb(185, 169, 190);
+        border-bottom: 2px solid rgb(185, 169, 190);
+        border-image: linear-gradient(45deg, rgb(185, 169, 190), rgb(255, 255, 255)) 1;
+
+        .fabula-diamond {
+          color: rgb(121, 74, 117);
+        }
+
+        p {
+          display: flex;
+          gap: 4px;
+        }
+        p,
+        span {
+          line-height: 1.5;
+          font-family: Antonio;
+          font-size: 1.25rem;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+      }
+
+      &__description {
+        box-sizing: border-box;
+        margin: 0px;
+        flex-direction: row;
+        flex-basis: 100%;
+        -moz-box-flex: 0;
+        flex-grow: 0;
+        max-width: 100%;
+        padding: 4px 16px;
+        border-bottom: 1px solid rgb(185, 169, 190);
+        border-image: linear-gradient(45deg, rgb(103, 65, 104), rgb(255, 255, 255)) 1;
+
+        span {
+          margin: 0px;
+          font-family: 'PT Sans Narrow', sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+      }
+
+      &__traits {
+        box-sizing: border-box;
+        margin: 0px;
+        flex-direction: row;
+        flex-basis: 100%;
+        -moz-box-flex: 0;
+        flex-grow: 0;
+        max-width: 100%;
+        padding: 4px 16px;
+        span {
+          margin: 0px;
+          font-family: 'PT Sans Narrow', sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .statistics {
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .attributes {
+      grid-column: span 2;
+
+      box-sizing: border-box;
+      margin: 2px 2px 2px 0px;
+      flex-direction: row;
+      border-bottom: 1px solid rgb(40, 17, 39);
+      border-top: 1px solid rgb(40, 17, 39);
+      border-right: 1px solid rgb(40, 17, 39);
+      border-image: linear-gradient(90deg, rgb(52, 27, 53), rgb(109, 80, 114)) 1;
+      flex-basis: calc(50% - 2px);
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+      -moz-box-align: stretch;
+      align-items: stretch;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .attribute {
+      box-sizing: border-box;
+      margin: 0px;
+      flex-direction: row;
+      flex-basis: 0px;
+      -moz-box-flex: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      border-right: 1px solid rgb(255, 255, 255);
+      padding-top: 3.2px;
+      padding-bottom: 3.2px;
+
+      line-height: 1.5;
+      font-family: Antonio;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.9rem;
+
+      span {
+        white-space: nowrap;
+
+        &::before {
+          content: 'd';
+        }
+      }
+
+      &:nth-of-type(1) {
+        background-color: rgb(239, 236, 245);
+      }
+      &:nth-of-type(2) {
+        background-color: rgb(243, 240, 247);
+      }
+      &:nth-of-type(3) {
+        background-color: rgb(246, 244, 249);
+      }
+      &:nth-of-type(4) {
+        background-color: rgb(249, 248, 251);
+      }
+      @each $attr in 'dexterity', 'insight', 'might', 'willpower' {
+        .attribute--#{$attr} {
+          // @extend .attribute;
+        }
+      }
+    }
+
+    .points {
+      grid-column: span 2;
+
+      box-sizing: border-box;
+      margin: 2px 0px 2px 2px;
+      flex-direction: row;
+      border-bottom: 1px solid rgb(40, 17, 39);
+      border-top: 1px solid rgb(40, 17, 39);
+      border-left: 1px solid rgb(40, 17, 39);
+      border-image: linear-gradient(90deg, rgb(109, 80, 114), rgb(255, 255, 255)) 1;
+      flex-basis: calc(50% - 2px);
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+      -moz-box-align: stretch;
+      align-items: stretch;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    .hp,
+    .mp {
+      line-height: 1.5;
+      font-family: Antonio;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.9rem;
+
+      span {
+        font-size: 1.25rem;
+      }
+
+      &--label {
+        line-height: 1.5;
+        font-family: Antonio;
+        font-weight: 700;
+        text-align: center;
+        font-size: 0.9rem;
+
+        align-self: center;
+        padding: 4px;
+      }
+    }
+
+    .hp {
+      box-sizing: border-box;
+      margin: 0px;
+      flex-direction: row;
+      padding: 3.2px 12px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(209, 35, 42);
+
+      .fabula-diamond {
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        color: rgb(255, 255, 255);
+        font-size: smaller;
+        vertical-align: text-bottom;
+      }
+    }
+
+    .mp {
+      box-sizing: border-box;
+      margin: 0px;
+      flex-direction: row;
+      padding: 3.2px 12px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 174, 239);
+    }
+
+    .initiative {
+      box-sizing: border-box;
+      margin: 0px;
+      flex-direction: row;
+      flex-basis: 0px;
+      -moz-box-flex: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      padding-top: 3.2px;
+      padding-bottom: 3.2px;
+
+      text-align: center;
+    }
+
+    .defenses {
+      box-sizing: border-box;
+      margin: 0px 2px 0px 0px;
+      flex-direction: row;
+      border-bottom: 1px solid rgb(40, 17, 39);
+      border-top: 1px solid rgb(40, 17, 39);
+      border-right: 1px solid rgb(40, 17, 39);
+      border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(67, 40, 70)) 1;
+      flex-basis: calc(25% - 2px);
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+    }
+
+    .defense {
+      box-sizing: border-box;
+      margin: 0px;
+      flex-direction: row;
+      flex-basis: 0px;
+      -moz-box-flex: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      border-right: 1px solid rgb(255, 255, 255);
+      padding-top: 3.2px;
+      padding-bottom: 3.2px;
+
+      line-height: 1.5;
+      font-family: Antonio;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.9rem;
+
+      span {
+        white-space: nowrap;
+      }
+
+      &:nth-of-type(1) {
+        background-color: rgb(239, 236, 245);
+      }
+      &:nth-of-type(2) {
+        background-color: rgb(243, 240, 247);
+      }
+      @each $attr in 'def', 'mdef' {
+        .defense--#{$attr} {
+          @extend .defense;
+        }
+      }
+    }
+
+    .affinities {
+      grid-column: span 3;
+
+      box-sizing: border-box;
+      margin: 0px 0px 0px 1px;
+      flex-direction: row;
+      flex-basis: 0px;
+      -moz-box-flex: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      border-bottom: 1px solid rgb(40, 17, 39);
+      border-top: 1px solid rgb(40, 17, 39);
+      border-left: 1px solid rgb(40, 17, 39);
+      border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(255, 255, 255)) 1;
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: wrap;
+      width: 100%;
+
+      justify-content: space-between;
+
+      .affinity {
+        box-sizing: border-box;
+        margin: 0px;
+        flex-direction: row;
+        flex-basis: 0px;
+        -moz-box-flex: 1;
+        flex-grow: 1;
+        max-width: 100%;
+        padding: 4px;
+        border-right: 1px solid rgb(81, 52, 85);
+
         display: grid;
-        grid-template-columns: 1fr auto;
-      }
+        grid-template-columns: 16px auto;
+        align-items: center;
 
-      &__character_name {
-        text-transform: uppercase;
-      }
-      &__level-species {
-        display: flex;
-        gap: 4px;
+        &__label {
+          @include sr-only;
+        }
 
-        text-transform: uppercase;
+        input:not([value]),
+        input[value=''] {
+          + img {
+            opacity: 0.25;
+            filter: grayscale(1);
+          }
+        }
+
+        .chimera-value__value {
+          margin: 0px;
+          line-height: 1.5;
+          font-size: inherit;
+          color: rgb(209, 35, 42);
+          font-weight: 700;
+          font-family: inherit;
+          text-align: left;
+          text-transform: uppercase;
+          padding-left: 1.6px;
+          padding-right: 1.6px;
+          white-space: nowrap;
+        }
       }
     }
   }
+
   &--edit {
+    @import 'bestiary/actions';
+    @import 'bestiary/equipment';
+    @import 'bestiary/affinity';
+    @import 'bestiary/attributes';
+    @import 'bestiary/defenses';
+    @import 'bestiary/extras';
+    @import 'bestiary/bio';
+    @import 'bestiary/other';
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;

@@ -12,3 +12,9 @@ const calculateQuickDefenses = (value) => {
     { silent: true }
   );
 };
+
+on('ready', () => {
+  findObjs({ type: 'attribute' }).forEach((attr) => {
+    log(JSON.stringify(attr));
+  });
+});

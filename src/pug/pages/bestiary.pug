@@ -1,160 +1,212 @@
-- const { general, attributes, affinities, defenses, extras, armor, shield, attacks, weapons, spells, notes, specials, actions, raregear } = spine.bestiary;
+- const { bio, attributes, points, affinities, defenses, extras, armor, shield, attacks, weapons, spells, notes, specials, actions, raregear } = spine.bestiary;
 
-  header.bestiary--view
-    - const [character_name, traits, level, species, description] = general.fields;
-    .bestiary__general
-      .bestiary__character_name
-        +chimera-span(character_name)
-      .bestiary__level-species
-        span(data-i18n='Lv') Lv
-        +chimera-span(level)
-        span ⬥
-        +chimera-span(species)
-
-  header.bestiary--edit
+header.bestiary--view
     .bio
-      each field in general.hidden
-        input(name=`attr_${field}`, type='hidden')
-      each field in general.fields
-        +chimera-input(field)
+      - const vbio = bio.fields.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
+      .bio__name
+        +chimera-span(vbio.character_name)
+      .bio__level-rank-species
+        p
+          span(data-i18n=`Lv`) Lv
+          +chimera-span(vbio.level)
+          +chimera-span(vbio.rank)
+          span.fabula-diamond ⬥
+          +chimera-span(vbio.species)
+      .bio__description
+        //- +chimera-span(description)
+        span(name=`attr_description`)
+      .bio__traits
+        span(data-i18n='traits') Traits
+        //- +chimera-value(traits)
+        span(name=`attr_traits`)
 
-    .attributes
-      each field in attributes.fields
-        +chimera-input(field)
+    .statistics
+      .attributes
+        each field in attributes.view
+          .attribute(class=`attribute--${field.name}`)
+            +chimera-value(field)
 
-    .attributes__distribution.chimera-container--shadow
-      each field in attributes.distribution
-        +chimera-value(field)
+      .points
+        .hp--label
+          span(data-i18n='hp') HP
+        .hp
+          +chimera-span(points.hp)
+          span.fabula-diamond ⬥
+          +chimera-span(points.crisis)
+        .mp--label
+          span(data-i18n=`mp`) MP
+        .mp
+          +chimera-span(points.mp)
+        .initiative
+          +chimera-value(points.initiative)
 
-    .affinities
-      each field in affinities.fields
-        +chimera-input(field)
+      .defenses
+        - const vdefense = defenses.view.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
+        .defense.defense--def
+          +chimera-value(vdefense.defense)
+        .defense.defense--mdef
+          +chimera-value(vdefense.magic_defense)
 
-    .affinities__skillcost.chimera-container--shadow
-      each field in affinities.skillcost
-        +chimera-value(field)
+      .affinities
+        each dtype in damageTypeOptions
+          .affinity(class=`affinity--${dtype.name}`)
+            input(name=`attr_${dtype.name}`, type='hidden')
+            +chimera-icon({ icon: dtype.name, title: dtype.text })
+            +chimera-value(dtype)
+            //- span.affinity__label(data-i18n=dtype.name)= dtype.text
+            //- span(name=`attr_${dtype.name}`)
 
-    .defenses
-      each field in defenses.fields
-        +chimera-input(field)
 
-    .extras
-      each field in extras.fields
-        +chimera-input(field)
 
-    .extras.extra--checkboxes
-      each field in extras.checkboxes
-        +chimera-input(field)
 
-    .armor
-      h2.armor--heading(data-i18n=armor.heading.name)= armor.heading.label
-      each field in armor.fields
-        +chimera-input(field)
-    .shield
-      h2.shield--heading(data-i18n=shield.heading.name)= shield.heading.label
-      each field in shield.fields
-        +chimera-input(field)
 
-    .attacks
-      h2.attacks--heading(data-i18n=attacks.heading.name)= attacks.heading.label
-      +chimera-repeater('attacks')
-        +chimera-block('delete')
-          .attack
-            - const [ name, att1, att2 ] = attacks.delete
-            +chimera-span(name)
-            span ✦
-            +fabula-check(att1, att2)
-        +chimera-block('edit')
-          .attack
-            each field in attacks.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in attacks.fields
-              +chimera-input(field)
 
-    .weapons
-      h2.weapons--heading(data-i18n=weapons.heading.name)= weapons.heading.label
-      +chimera-repeater('weapons')
-        +chimera-block('delete')
-          .weapon
-            - const [ name, att1, att2 ] = weapons.delete
-            +chimera-span(name)
-            span ✦
-            +fabula-check(att1, att2)
-        +chimera-block('edit')
-          .weapon
-            each field in weapons.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in weapons.fields
-              +chimera-input(field)
 
-    .spells
-      h2.spells--heading(data-i18n=spells.heading.name)= spells.heading.label
-      +chimera-repeater('spells')
-        +chimera-block('delete')
-          .spell
-            - const [ name, att1, att2 ] = spells.delete
-            +chimera-span(name)
-            span ✦
-            +fabula-check(att1, att2)
-        +chimera-block('edit')
-          .spell
-            each field in spells.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in spells.fields
-              +chimera-input(field)
 
-    .notes
-      h2.notes--heading(data-i18n=notes.heading.name)= notes.heading.label
-      +chimera-repeater('notes')
-        +chimera-block('delete')
-          .note
-            - const [ name ] = notes.delete
-            +chimera-span(name)
-        +chimera-block('edit')
-          .note
-            each field in notes.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in notes.fields
-              +chimera-input(field)
+header.bestiary--edit
+  .bio
+    each field in bio.hidden
+      input(name=`attr_${field}`, type='hidden')
+    each field in bio.fields
+      +chimera-input(field)
 
-    .specials
-      h2.specials--heading(data-i18n=specials.heading.name)= specials.heading.label
-      +chimera-repeater('specials')
-        +chimera-block('delete')
-          .special
-            - const [ name ] = specials.delete
-            +chimera-span(name)
-        +chimera-block('edit')
-          .special
-            each field in specials.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in specials.fields
-              +chimera-input(field)
+  .attributes
+    each field in attributes.fields
+      +chimera-input(field)
 
-    .actions
-      h2.actions--heading(data-i18n=actions.heading.name)= actions.heading.label
-      +chimera-repeater('actions')
-        +chimera-block('delete')
-          .action
-            - const [ name ] = actions.delete
-            +chimera-span(name)
-        +chimera-block('edit')
-          .action
-            each field in actions.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in actions.fields
-              +chimera-input(field)
+  .attributes__distribution.chimera-container--shadow
+    each field in attributes.distribution
+      +chimera-value(field)
 
-    .raregear
-      h2.raregear--heading(data-i18n=raregear.heading.name)= raregear.heading.label
-      +chimera-repeater('raregear')
-        +chimera-block('delete')
-          .gear
-            - const [ name ] = raregear.delete
-            +chimera-span(name)
-        +chimera-block('edit')
-          .gear
-            each field in raregear.hidden
-              input(name=`attr_${field}`, type='hidden')
-            each field in raregear.fields
-              +chimera-input(field)
+  .affinities
+    each field in affinities.fields
+      +chimera-input(field)
+
+  .affinities__skillcost.chimera-container--shadow
+    each field in affinities.skillcost
+      +chimera-value(field)
+
+  .defenses
+    each field in defenses.fields
+      +chimera-input(field)
+
+  .extras
+    each field in extras.fields
+      +chimera-input(field)
+
+  .extras.extra--checkboxes
+    each field in extras.checkboxes
+      +chimera-input(field)
+
+  .armor
+    h2.armor--heading(data-i18n=armor.heading.name)= armor.heading.label
+    each field in armor.fields
+      +chimera-input(field)
+  .shield
+    h2.shield--heading(data-i18n=shield.heading.name)= shield.heading.label
+    each field in shield.fields
+      +chimera-input(field)
+
+  .attacks
+    h2.attacks--heading(data-i18n=attacks.heading.name)= attacks.heading.label
+    +chimera-repeater('attacks')
+      +chimera-block('delete')
+        .attack
+          - const [ name, att1, att2 ] = attacks.delete
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('edit')
+        .attack
+          each field in attacks.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in attacks.fields
+            +chimera-input(field)
+
+  .weapons
+    h2.weapons--heading(data-i18n=weapons.heading.name)= weapons.heading.label
+    +chimera-repeater('weapons')
+      +chimera-block('delete')
+        .weapon
+          - const [ name, att1, att2 ] = weapons.delete
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('edit')
+        .weapon
+          each field in weapons.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in weapons.fields
+            +chimera-input(field)
+
+  .spells
+    h2.spells--heading(data-i18n=spells.heading.name)= spells.heading.label
+    +chimera-repeater('spells')
+      +chimera-block('delete')
+        .spell
+          - const [ name, att1, att2 ] = spells.delete
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('edit')
+        .spell
+          each field in spells.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in spells.fields
+            +chimera-input(field)
+
+  .notes
+    h2.notes--heading(data-i18n=notes.heading.name)= notes.heading.label
+    +chimera-repeater('notes')
+      +chimera-block('delete')
+        .note
+          - const [ name ] = notes.delete
+          +chimera-span(name)
+      +chimera-block('edit')
+        .note
+          each field in notes.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in notes.fields
+            +chimera-input(field)
+
+  .specials
+    h2.specials--heading(data-i18n=specials.heading.name)= specials.heading.label
+    +chimera-repeater('specials')
+      +chimera-block('delete')
+        .special
+          - const [ name ] = specials.delete
+          +chimera-span(name)
+      +chimera-block('edit')
+        .special
+          each field in specials.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in specials.fields
+            +chimera-input(field)
+
+  .actions
+    h2.actions--heading(data-i18n=actions.heading.name)= actions.heading.label
+    +chimera-repeater('actions')
+      +chimera-block('delete')
+        .action
+          - const [ name ] = actions.delete
+          +chimera-span(name)
+      +chimera-block('edit')
+        .action
+          each field in actions.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in actions.fields
+            +chimera-input(field)
+
+  .raregear
+    h2.raregear--heading(data-i18n=raregear.heading.name)= raregear.heading.label
+    +chimera-repeater('raregear')
+      +chimera-block('delete')
+        .gear
+          - const [ name ] = raregear.delete
+          +chimera-span(name)
+      +chimera-block('edit')
+        .gear
+          each field in raregear.hidden
+            input(name=`attr_${field}`, type='hidden')
+          each field in raregear.fields
+            +chimera-input(field)

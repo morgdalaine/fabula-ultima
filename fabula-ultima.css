@@ -833,45 +833,442 @@ html .charsheet .fabula-ultima html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary,
-html .charsheet .fabula-ultima .bestiary {
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+html .fabula-ultima .bestiary--view,
+html .charsheet .fabula-ultima .bestiary--view {
+  margin: 8px;
+  max-width: 400px;
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  overflow: hidden;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--view .fabula-diamond,
+html .charsheet .fabula-ultima .bestiary--view .fabula-diamond {
+  margin: 0px;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: smaller;
+  vertical-align: text-bottom;
+  margin-top: -3px;
+}
+html .fabula-ultima .bestiary--view .bio,
+html .charsheet .fabula-ultima .bestiary--view .bio {
+  grid-column: span 2;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  align-items: stretch;
+}
+html .fabula-ultima .bestiary--view .bio__name,
+html .charsheet .fabula-ultima .bestiary--view .bio__name {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  border-right: 4px solid white;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: linear-gradient(90deg, rgb(103, 65, 104) 0%, rgb(185, 169, 190) 100%);
+}
+html .fabula-ultima .bestiary--view .bio__name span,
+html .charsheet .fabula-ultima .bestiary--view .bio__name span {
+  margin: 0px;
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+  font-family: Antonio;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary--view .bio__level-rank-species,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-rank-species {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  padding: 4px 16px;
+  border-left: 2px solid rgb(185, 169, 190);
+  border-bottom: 2px solid rgb(185, 169, 190);
+  -o-border-image: linear-gradient(45deg, rgb(185, 169, 190), rgb(255, 255, 255)) 1;
+     border-image: linear-gradient(45deg, rgb(185, 169, 190), rgb(255, 255, 255)) 1;
+}
+html .fabula-ultima .bestiary--view .bio__level-rank-species .fabula-diamond,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-rank-species .fabula-diamond {
+  color: rgb(121, 74, 117);
+}
+html .fabula-ultima .bestiary--view .bio__level-rank-species p,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-rank-species p {
+  display: flex;
+  gap: 4px;
+}
+html .fabula-ultima .bestiary--view .bio__level-rank-species p,
+html .fabula-ultima .bestiary--view .bio__level-rank-species span,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-rank-species p,
+html .charsheet .fabula-ultima .bestiary--view .bio__level-rank-species span {
+  line-height: 1.5;
+  font-family: Antonio;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+html .fabula-ultima .bestiary--view .bio__description,
+html .charsheet .fabula-ultima .bestiary--view .bio__description {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 100%;
+  flex-grow: 0;
+  max-width: 100%;
+  padding: 4px 16px;
+  border-bottom: 1px solid rgb(185, 169, 190);
+  -o-border-image: linear-gradient(45deg, rgb(103, 65, 104), rgb(255, 255, 255)) 1;
+     border-image: linear-gradient(45deg, rgb(103, 65, 104), rgb(255, 255, 255)) 1;
+}
+html .fabula-ultima .bestiary--view .bio__description span,
+html .charsheet .fabula-ultima .bestiary--view .bio__description span {
+  margin: 0px;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+html .fabula-ultima .bestiary--view .bio__traits,
+html .charsheet .fabula-ultima .bestiary--view .bio__traits {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 100%;
+  flex-grow: 0;
+  max-width: 100%;
+  padding: 4px 16px;
+}
+html .fabula-ultima .bestiary--view .bio__traits span,
+html .charsheet .fabula-ultima .bestiary--view .bio__traits span {
+  margin: 0px;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+html .fabula-ultima .bestiary--view .statistics,
+html .charsheet .fabula-ultima .bestiary--view .statistics {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+html .fabula-ultima .bestiary--view .attributes,
+html .charsheet .fabula-ultima .bestiary--view .attributes {
+  grid-column: span 2;
+  box-sizing: border-box;
+  margin: 2px 2px 2px 0px;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(40, 17, 39);
+  border-top: 1px solid rgb(40, 17, 39);
+  border-right: 1px solid rgb(40, 17, 39);
+  -o-border-image: linear-gradient(90deg, rgb(52, 27, 53), rgb(109, 80, 114)) 1;
+     border-image: linear-gradient(90deg, rgb(52, 27, 53), rgb(109, 80, 114)) 1;
+  flex-basis: calc(50% - 2px);
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  align-items: stretch;
+  justify-content: space-between;
+}
+html .fabula-ultima .bestiary--view .attribute,
+html .charsheet .fabula-ultima .bestiary--view .attribute {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  border-right: 1px solid rgb(255, 255, 255);
+  padding-top: 3.2px;
+  padding-bottom: 3.2px;
+  line-height: 1.5;
+  font-family: Antonio;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.9rem;
+}
+html .fabula-ultima .bestiary--view .attribute span,
+html .charsheet .fabula-ultima .bestiary--view .attribute span {
+  white-space: nowrap;
+}
+html .fabula-ultima .bestiary--view .attribute span::before,
+html .charsheet .fabula-ultima .bestiary--view .attribute span::before {
+  content: "d";
+}
+html .fabula-ultima .bestiary--view .attribute:nth-of-type(1),
+html .charsheet .fabula-ultima .bestiary--view .attribute:nth-of-type(1) {
+  background-color: rgb(239, 236, 245);
+}
+html .fabula-ultima .bestiary--view .attribute:nth-of-type(2),
+html .charsheet .fabula-ultima .bestiary--view .attribute:nth-of-type(2) {
+  background-color: rgb(243, 240, 247);
+}
+html .fabula-ultima .bestiary--view .attribute:nth-of-type(3),
+html .charsheet .fabula-ultima .bestiary--view .attribute:nth-of-type(3) {
+  background-color: rgb(246, 244, 249);
+}
+html .fabula-ultima .bestiary--view .attribute:nth-of-type(4),
+html .charsheet .fabula-ultima .bestiary--view .attribute:nth-of-type(4) {
+  background-color: rgb(249, 248, 251);
+}
+html .fabula-ultima .bestiary--view .points,
+html .charsheet .fabula-ultima .bestiary--view .points {
+  grid-column: span 2;
+  box-sizing: border-box;
+  margin: 2px 0px 2px 2px;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(40, 17, 39);
+  border-top: 1px solid rgb(40, 17, 39);
+  border-left: 1px solid rgb(40, 17, 39);
+  -o-border-image: linear-gradient(90deg, rgb(109, 80, 114), rgb(255, 255, 255)) 1;
+     border-image: linear-gradient(90deg, rgb(109, 80, 114), rgb(255, 255, 255)) 1;
+  flex-basis: calc(50% - 2px);
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  align-items: stretch;
+  justify-content: space-between;
+}
+html .fabula-ultima .bestiary--view .hp,
+html .fabula-ultima .bestiary--view .mp,
+html .charsheet .fabula-ultima .bestiary--view .hp,
+html .charsheet .fabula-ultima .bestiary--view .mp {
+  line-height: 1.5;
+  font-family: Antonio;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.9rem;
+}
+html .fabula-ultima .bestiary--view .hp span,
+html .fabula-ultima .bestiary--view .mp span,
+html .charsheet .fabula-ultima .bestiary--view .hp span,
+html .charsheet .fabula-ultima .bestiary--view .mp span {
+  font-size: 1.25rem;
+}
+html .fabula-ultima .bestiary--view .hp--label,
+html .fabula-ultima .bestiary--view .mp--label,
+html .charsheet .fabula-ultima .bestiary--view .hp--label,
+html .charsheet .fabula-ultima .bestiary--view .mp--label {
+  line-height: 1.5;
+  font-family: Antonio;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.9rem;
+  align-self: center;
+  padding: 4px;
+}
+html .fabula-ultima .bestiary--view .hp,
+html .charsheet .fabula-ultima .bestiary--view .hp {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  padding: 3.2px 12px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(209, 35, 42);
+}
+html .fabula-ultima .bestiary--view .hp .fabula-diamond,
+html .charsheet .fabula-ultima .bestiary--view .hp .fabula-diamond {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+  font-size: smaller;
+  vertical-align: text-bottom;
+}
+html .fabula-ultima .bestiary--view .mp,
+html .charsheet .fabula-ultima .bestiary--view .mp {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  padding: 3.2px 12px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 174, 239);
+}
+html .fabula-ultima .bestiary--view .initiative,
+html .charsheet .fabula-ultima .bestiary--view .initiative {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-top: 3.2px;
+  padding-bottom: 3.2px;
+  text-align: center;
+}
+html .fabula-ultima .bestiary--view .defenses,
+html .charsheet .fabula-ultima .bestiary--view .defenses {
+  box-sizing: border-box;
+  margin: 0px 2px 0px 0px;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(40, 17, 39);
+  border-top: 1px solid rgb(40, 17, 39);
+  border-right: 1px solid rgb(40, 17, 39);
+  -o-border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(67, 40, 70)) 1;
+     border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(67, 40, 70)) 1;
+  flex-basis: calc(25% - 2px);
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+}
+html .fabula-ultima .bestiary--view .defense, html .fabula-ultima .bestiary--view .defense .defense--mdef,
+html .charsheet .fabula-ultima .bestiary--view .defense .defense--mdef, html .fabula-ultima .bestiary--view .defense .defense--def,
+html .charsheet .fabula-ultima .bestiary--view .defense .defense--def,
+html .charsheet .fabula-ultima .bestiary--view .defense {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  border-right: 1px solid rgb(255, 255, 255);
+  padding-top: 3.2px;
+  padding-bottom: 3.2px;
+  line-height: 1.5;
+  font-family: Antonio;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.9rem;
+}
+html .fabula-ultima .bestiary--view .defense span, html .fabula-ultima .bestiary--view .defense .defense--mdef span,
+html .charsheet .fabula-ultima .bestiary--view .defense .defense--mdef span, html .fabula-ultima .bestiary--view .defense .defense--def span,
+html .charsheet .fabula-ultima .bestiary--view .defense .defense--def span,
+html .charsheet .fabula-ultima .bestiary--view .defense span {
+  white-space: nowrap;
+}
+html .fabula-ultima .bestiary--view .defense:nth-of-type(1), html .fabula-ultima .bestiary--view .defense .defense--mdef:nth-of-type(1), html .fabula-ultima .bestiary--view .defense .defense--def:nth-of-type(1),
+html .charsheet .fabula-ultima .bestiary--view .defense:nth-of-type(1) {
+  background-color: rgb(239, 236, 245);
+}
+html .fabula-ultima .bestiary--view .defense:nth-of-type(2), html .fabula-ultima .bestiary--view .defense .defense--mdef:nth-of-type(2), html .fabula-ultima .bestiary--view .defense .defense--def:nth-of-type(2),
+html .charsheet .fabula-ultima .bestiary--view .defense:nth-of-type(2) {
+  background-color: rgb(243, 240, 247);
+}
+html .fabula-ultima .bestiary--view .affinities,
+html .charsheet .fabula-ultima .bestiary--view .affinities {
+  grid-column: span 3;
+  box-sizing: border-box;
+  margin: 0px 0px 0px 1px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  border-bottom: 1px solid rgb(40, 17, 39);
+  border-top: 1px solid rgb(40, 17, 39);
+  border-left: 1px solid rgb(40, 17, 39);
+  -o-border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(255, 255, 255)) 1;
+     border-image: linear-gradient(90deg, rgb(67, 40, 70), rgb(255, 255, 255)) 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+html .fabula-ultima .bestiary--view .affinities .affinity,
+html .charsheet .fabula-ultima .bestiary--view .affinities .affinity {
+  box-sizing: border-box;
+  margin: 0px;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  max-width: 100%;
+  padding: 4px;
+  border-right: 1px solid rgb(81, 52, 85);
+  display: grid;
+  grid-template-columns: 16px auto;
+  align-items: center;
+}
+html .fabula-ultima .bestiary--view .affinities .affinity__label,
+html .charsheet .fabula-ultima .bestiary--view .affinities .affinity__label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+html .fabula-ultima .bestiary--view .affinities .affinity input:not([value]) + img,
+html .fabula-ultima .bestiary--view .affinities .affinity input[value=""] + img,
+html .charsheet .fabula-ultima .bestiary--view .affinities .affinity input:not([value]) + img,
+html .charsheet .fabula-ultima .bestiary--view .affinities .affinity input[value=""] + img {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+html .fabula-ultima .bestiary--view .affinities .affinity .chimera-value__value,
+html .charsheet .fabula-ultima .bestiary--view .affinities .affinity .chimera-value__value {
+  margin: 0px;
+  line-height: 1.5;
+  font-size: inherit;
+  color: rgb(209, 35, 42);
+  font-weight: 700;
+  font-family: inherit;
+  text-align: left;
+  text-transform: uppercase;
+  padding-left: 1.6px;
+  padding-right: 1.6px;
+  white-space: nowrap;
+}
+html .fabula-ultima .bestiary--edit,
+html .charsheet .fabula-ultima .bestiary--edit {
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background-color: var(--background);
+}
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -889,8 +1286,8 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .attacks--heading,
-html .charsheet .fabula-ultima .bestiary .attacks--heading {
+html .fabula-ultima .bestiary--edit .attacks--heading,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -899,13 +1296,13 @@ html .charsheet .fabula-ultima .bestiary .attacks--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .attacks--delete .attack,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack {
+html .fabula-ultima .bestiary--edit .attacks--delete .attack,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .attacks--delete .attack span,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack span {
+html .fabula-ultima .bestiary--edit .attacks--delete .attack span,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack span {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -914,10 +1311,10 @@ html .charsheet .fabula-ultima .bestiary .attacks--delete .attack span {
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check span, html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before, html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check span,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after {
+html .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check span, html .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::before, html .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check span,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::after {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -926,30 +1323,30 @@ html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check:
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::before {
+html .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::before {
   margin: 0px 2.4px 0px -8px;
 }
-html .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .attacks--delete .attack .fabula-check::after {
+html .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--delete .attack .fabula-check::after {
   margin: 0px -5.6px 0px 0px;
 }
-html .fabula-ultima .bestiary .attacks--edit .attack,
-html .charsheet .fabula-ultima .bestiary .attacks--edit .attack {
+html .fabula-ultima .bestiary--edit .attacks--edit .attack,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--edit .attack {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .attacks--edit .attack__special,
-html .charsheet .fabula-ultima .bestiary .attacks--edit .attack__special {
+html .fabula-ultima .bestiary--edit .attacks--edit .attack__special,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--edit .attack__special {
   grid-column: 1/-1;
 }
-html .fabula-ultima .bestiary .attacks--edit .attack__name,
-html .charsheet .fabula-ultima .bestiary .attacks--edit .attack__name {
+html .fabula-ultima .bestiary--edit .attacks--edit .attack__name,
+html .charsheet .fabula-ultima .bestiary--edit .attacks--edit .attack__name {
   grid-column: span 3;
 }
-html .fabula-ultima .bestiary .spells--heading,
-html .charsheet .fabula-ultima .bestiary .spells--heading {
+html .fabula-ultima .bestiary--edit .spells--heading,
+html .charsheet .fabula-ultima .bestiary--edit .spells--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -958,13 +1355,13 @@ html .charsheet .fabula-ultima .bestiary .spells--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .spells--delete .spell,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell {
+html .fabula-ultima .bestiary--edit .spells--delete .spell,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .spells--delete .spell span,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell span {
+html .fabula-ultima .bestiary--edit .spells--delete .spell span,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell span {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -973,10 +1370,10 @@ html .charsheet .fabula-ultima .bestiary .spells--delete .spell span {
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .spells--delete .spell .fabula-check span, html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before, html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check span,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after {
+html .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check span, html .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::before, html .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check span,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::after {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -985,31 +1382,31 @@ html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::a
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::before {
+html .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::before {
   margin: 0px 2.4px 0px -8px;
 }
-html .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .spells--delete .spell .fabula-check::after {
+html .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .spells--delete .spell .fabula-check::after {
   margin: 0px -5.6px 0px 0px;
 }
-html .fabula-ultima .bestiary .spells--edit .spell,
-html .charsheet .fabula-ultima .bestiary .spells--edit .spell {
+html .fabula-ultima .bestiary--edit .spells--edit .spell,
+html .charsheet .fabula-ultima .bestiary--edit .spells--edit .spell {
   display: grid;
   grid-template-columns: repeat(2, 1fr) repeat(3, auto);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .spells--edit .spell__special, html .fabula-ultima .bestiary .spells--edit .spell__effect,
-html .charsheet .fabula-ultima .bestiary .spells--edit .spell__special,
-html .charsheet .fabula-ultima .bestiary .spells--edit .spell__effect {
+html .fabula-ultima .bestiary--edit .spells--edit .spell__special, html .fabula-ultima .bestiary--edit .spells--edit .spell__effect,
+html .charsheet .fabula-ultima .bestiary--edit .spells--edit .spell__special,
+html .charsheet .fabula-ultima .bestiary--edit .spells--edit .spell__effect {
   grid-column: 1/-1;
 }
-html .fabula-ultima .bestiary .spells--edit .spell__name,
-html .charsheet .fabula-ultima .bestiary .spells--edit .spell__name {
+html .fabula-ultima .bestiary--edit .spells--edit .spell__name,
+html .charsheet .fabula-ultima .bestiary--edit .spells--edit .spell__name {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .weapons--heading,
-html .charsheet .fabula-ultima .bestiary .weapons--heading {
+html .fabula-ultima .bestiary--edit .weapons--heading,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1018,13 +1415,13 @@ html .charsheet .fabula-ultima .bestiary .weapons--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .weapons--delete .weapon,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon {
+html .fabula-ultima .bestiary--edit .weapons--delete .weapon,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .weapons--delete .weapon span,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon span {
+html .fabula-ultima .bestiary--edit .weapons--delete .weapon span,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon span {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1033,10 +1430,10 @@ html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon span {
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check span, html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before, html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check span,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after {
+html .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check span, html .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::before, html .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check span,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::after {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1045,32 +1442,32 @@ html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check:
   text-transform: uppercase;
   text-transform: uppercase;
 }
-html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::before {
+html .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::before,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::before {
   margin: 0px 2.4px 0px -8px;
 }
-html .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after,
-html .charsheet .fabula-ultima .bestiary .weapons--delete .weapon .fabula-check::after {
+html .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::after,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--delete .weapon .fabula-check::after {
   margin: 0px -5.6px 0px 0px;
 }
-html .fabula-ultima .bestiary .weapons--edit .weapon,
-html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon {
+html .fabula-ultima .bestiary--edit .weapons--edit .weapon,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--edit .weapon {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .weapons--edit .weapon__special,
-html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__special {
+html .fabula-ultima .bestiary--edit .weapons--edit .weapon__special,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--edit .weapon__special {
   grid-column: 1/-1;
 }
-html .fabula-ultima .bestiary .weapons--edit .weapon__name,
-html .charsheet .fabula-ultima .bestiary .weapons--edit .weapon__name {
+html .fabula-ultima .bestiary--edit .weapons--edit .weapon__name,
+html .charsheet .fabula-ultima .bestiary--edit .weapons--edit .weapon__name {
   grid-column: span 3;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1088,14 +1485,14 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .armor,
-html .charsheet .fabula-ultima .bestiary .armor {
+html .fabula-ultima .bestiary--edit .armor,
+html .charsheet .fabula-ultima .bestiary--edit .armor {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .armor--heading,
-html .charsheet .fabula-ultima .bestiary .armor--heading {
+html .fabula-ultima .bestiary--edit .armor--heading,
+html .charsheet .fabula-ultima .bestiary--edit .armor--heading {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.5rem;
@@ -1105,24 +1502,24 @@ html .charsheet .fabula-ultima .bestiary .armor--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .armor--edit,
-html .charsheet .fabula-ultima .bestiary .armor--edit {
+html .fabula-ultima .bestiary--edit .armor--edit,
+html .charsheet .fabula-ultima .bestiary--edit .armor--edit {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .armor__name,
-html .charsheet .fabula-ultima .bestiary .armor__name {
+html .fabula-ultima .bestiary--edit .armor__name,
+html .charsheet .fabula-ultima .bestiary--edit .armor__name {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .shield,
-html .charsheet .fabula-ultima .bestiary .shield {
+html .fabula-ultima .bestiary--edit .shield,
+html .charsheet .fabula-ultima .bestiary--edit .shield {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .shield--heading,
-html .charsheet .fabula-ultima .bestiary .shield--heading {
+html .fabula-ultima .bestiary--edit .shield--heading,
+html .charsheet .fabula-ultima .bestiary--edit .shield--heading {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.5rem;
@@ -1132,24 +1529,24 @@ html .charsheet .fabula-ultima .bestiary .shield--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .shield--edit,
-html .charsheet .fabula-ultima .bestiary .shield--edit {
+html .fabula-ultima .bestiary--edit .shield--edit,
+html .charsheet .fabula-ultima .bestiary--edit .shield--edit {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .shield__name,
-html .charsheet .fabula-ultima .bestiary .shield__name {
+html .fabula-ultima .bestiary--edit .shield__name,
+html .charsheet .fabula-ultima .bestiary--edit .shield__name {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .equipment,
-html .charsheet .fabula-ultima .bestiary .equipment {
+html .fabula-ultima .bestiary--edit .equipment,
+html .charsheet .fabula-ultima .bestiary--edit .equipment {
   grid-column: 1/-1;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1167,21 +1564,21 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .affinities,
-html .charsheet .fabula-ultima .bestiary .affinities {
+html .fabula-ultima .bestiary--edit .affinities,
+html .charsheet .fabula-ultima .bestiary--edit .affinities {
   display: grid;
   flex-wrap: wrap;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .affinity,
-html .charsheet .fabula-ultima .bestiary .affinity {
+html .fabula-ultima .bestiary--edit .affinity,
+html .charsheet .fabula-ultima .bestiary--edit .affinity {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 4px;
   align-items: center;
 }
-html .fabula-ultima .bestiary .affinity .chimera-input__label,
-html .charsheet .fabula-ultima .bestiary .affinity .chimera-input__label {
+html .fabula-ultima .bestiary--edit .affinity .chimera-input__label,
+html .charsheet .fabula-ultima .bestiary--edit .affinity .chimera-input__label {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
@@ -1189,10 +1586,10 @@ html .charsheet .fabula-ultima .bestiary .affinity .chimera-input__label {
   line-height: 120%;
   align-self: center;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1210,51 +1607,51 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .attributes,
-html .charsheet .fabula-ultima .bestiary .attributes {
+html .fabula-ultima .bestiary--edit .attributes,
+html .charsheet .fabula-ultima .bestiary--edit .attributes {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .attributes__distribution,
-html .charsheet .fabula-ultima .bestiary .attributes__distribution {
+html .fabula-ultima .bestiary--edit .attributes__distribution,
+html .charsheet .fabula-ultima .bestiary--edit .attributes__distribution {
   grid-column: span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-html .fabula-ultima .bestiary .attribute,
-html .charsheet .fabula-ultima .bestiary .attribute {
+html .fabula-ultima .bestiary--edit .attribute,
+html .charsheet .fabula-ultima .bestiary--edit .attribute {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4px;
   align-items: center;
   justify-content: center;
 }
-html .fabula-ultima .bestiary .attribute .chimera-input__label,
-html .charsheet .fabula-ultima .bestiary .attribute .chimera-input__label {
+html .fabula-ultima .bestiary--edit .attribute .chimera-input__label,
+html .charsheet .fabula-ultima .bestiary--edit .attribute .chimera-input__label {
   font-family: var(--font-body);
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
 }
-html .fabula-ultima .bestiary .attribute .chimera-input__field,
-html .charsheet .fabula-ultima .bestiary .attribute .chimera-input__field {
+html .fabula-ultima .bestiary--edit .attribute .chimera-input__field,
+html .charsheet .fabula-ultima .bestiary--edit .attribute .chimera-input__field {
   align-self: normal;
 }
-html .fabula-ultima .bestiary .distribution:first-of-type,
-html .charsheet .fabula-ultima .bestiary .distribution:first-of-type {
+html .fabula-ultima .bestiary--edit .distribution:first-of-type,
+html .charsheet .fabula-ultima .bestiary--edit .distribution:first-of-type {
   padding-block-end: 4px;
 }
-html .fabula-ultima .bestiary .distribution:last-of-type,
-html .charsheet .fabula-ultima .bestiary .distribution:last-of-type {
+html .fabula-ultima .bestiary--edit .distribution:last-of-type,
+html .charsheet .fabula-ultima .bestiary--edit .distribution:last-of-type {
   padding-block-start: 4px;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1272,33 +1669,33 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .defenses,
-html .charsheet .fabula-ultima .bestiary .defenses {
+html .fabula-ultima .bestiary--edit .defenses,
+html .charsheet .fabula-ultima .bestiary--edit .defenses {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .defenses__container,
-html .charsheet .fabula-ultima .bestiary .defenses__container {
+html .fabula-ultima .bestiary--edit .defenses__container,
+html .charsheet .fabula-ultima .bestiary--edit .defenses__container {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .defense,
-html .charsheet .fabula-ultima .bestiary .defense {
+html .fabula-ultima .bestiary--edit .defense, html .fabula-ultima .bestiary--edit .bestiary--view .defense .defense--def, html .fabula-ultima .bestiary--view .defense .bestiary--edit .defense--def, html .fabula-ultima .bestiary--edit .bestiary--view .defense .defense--mdef, html .fabula-ultima .bestiary--view .defense .bestiary--edit .defense--mdef,
+html .charsheet .fabula-ultima .bestiary--edit .defense {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4px;
   align-items: center;
   justify-content: center;
 }
-html .fabula-ultima .bestiary .defense__quick,
-html .charsheet .fabula-ultima .bestiary .defense__quick {
+html .fabula-ultima .bestiary--edit .defense__quick,
+html .charsheet .fabula-ultima .bestiary--edit .defense__quick {
   grid-column: 1/-1;
   grid-template-columns: 1fr;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1316,28 +1713,28 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .extras,
-html .charsheet .fabula-ultima .bestiary .extras {
+html .fabula-ultima .bestiary--edit .extras,
+html .charsheet .fabula-ultima .bestiary--edit .extras {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .extras__container,
-html .charsheet .fabula-ultima .bestiary .extras__container {
+html .fabula-ultima .bestiary--edit .extras__container,
+html .charsheet .fabula-ultima .bestiary--edit .extras__container {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .extra.chimera-input,
-html .charsheet .fabula-ultima .bestiary .extra.chimera-input {
+html .fabula-ultima .bestiary--edit .extra.chimera-input,
+html .charsheet .fabula-ultima .bestiary--edit .extra.chimera-input {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4px;
   align-items: center;
   justify-content: center;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1355,62 +1752,62 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .bio,
-html .charsheet .fabula-ultima .bestiary .bio {
+html .fabula-ultima .bestiary--edit .bio,
+html .charsheet .fabula-ultima .bestiary--edit .bio {
   display: grid;
   grid-template-columns: repeat(2, 1fr) repeat(3, auto);
   gap: 4px;
 }
-html .fabula-ultima .bestiary .bio input[name*=rank][value=companion] ~ .bio__villain,
-html .charsheet .fabula-ultima .bestiary .bio input[name*=rank][value=companion] ~ .bio__villain {
+html .fabula-ultima .bestiary--edit .bio input[name*=rank][value=companion] ~ .bio__villain,
+html .charsheet .fabula-ultima .bestiary--edit .bio input[name*=rank][value=companion] ~ .bio__villain {
   display: none;
 }
-html .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level, html .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level,
-html .charsheet .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level,
-html .charsheet .fabula-ultima .bestiary .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level {
+html .fabula-ultima .bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level, html .fabula-ultima .bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level {
   display: none;
 }
-html .fabula-ultima .bestiary .bio__traits,
-html .charsheet .fabula-ultima .bestiary .bio__traits {
+html .fabula-ultima .bestiary--edit .bio__traits,
+html .charsheet .fabula-ultima .bestiary--edit .bio__traits {
   grid-column: span 3;
 }
-html .fabula-ultima .bestiary .bio__rank, html .fabula-ultima .bestiary .bio__villain, html .fabula-ultima .bestiary .bio__multipart, html .fabula-ultima .bestiary .bio__createdby,
-html .charsheet .fabula-ultima .bestiary .bio__rank,
-html .charsheet .fabula-ultima .bestiary .bio__villain,
-html .charsheet .fabula-ultima .bestiary .bio__multipart,
-html .charsheet .fabula-ultima .bestiary .bio__createdby {
+html .fabula-ultima .bestiary--edit .bio__rank, html .fabula-ultima .bestiary--edit .bio__villain, html .fabula-ultima .bestiary--edit .bio__multipart, html .fabula-ultima .bestiary--edit .bio__createdby,
+html .charsheet .fabula-ultima .bestiary--edit .bio__rank,
+html .charsheet .fabula-ultima .bestiary--edit .bio__villain,
+html .charsheet .fabula-ultima .bestiary--edit .bio__multipart,
+html .charsheet .fabula-ultima .bestiary--edit .bio__createdby {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .bio__species, html .fabula-ultima .bestiary .bio__rank, html .fabula-ultima .bestiary .bio__villain, html .fabula-ultima .bestiary .bio__companion_skill_level, html .fabula-ultima .bestiary .bio__pc_level,
-html .charsheet .fabula-ultima .bestiary .bio__species,
-html .charsheet .fabula-ultima .bestiary .bio__rank,
-html .charsheet .fabula-ultima .bestiary .bio__villain,
-html .charsheet .fabula-ultima .bestiary .bio__companion_skill_level,
-html .charsheet .fabula-ultima .bestiary .bio__pc_level {
+html .fabula-ultima .bestiary--edit .bio__species, html .fabula-ultima .bestiary--edit .bio__rank, html .fabula-ultima .bestiary--edit .bio__villain, html .fabula-ultima .bestiary--edit .bio__companion_skill_level, html .fabula-ultima .bestiary--edit .bio__pc_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio__species,
+html .charsheet .fabula-ultima .bestiary--edit .bio__rank,
+html .charsheet .fabula-ultima .bestiary--edit .bio__villain,
+html .charsheet .fabula-ultima .bestiary--edit .bio__companion_skill_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio__pc_level {
   grid-row: 2;
 }
-html .fabula-ultima .bestiary .bio__companion_skill_level,
-html .charsheet .fabula-ultima .bestiary .bio__companion_skill_level {
+html .fabula-ultima .bestiary--edit .bio__companion_skill_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio__companion_skill_level {
   grid-column: 4;
 }
-html .fabula-ultima .bestiary .bio__pc_level,
-html .charsheet .fabula-ultima .bestiary .bio__pc_level {
+html .fabula-ultima .bestiary--edit .bio__pc_level,
+html .charsheet .fabula-ultima .bestiary--edit .bio__pc_level {
   grid-column: 5;
 }
-html .fabula-ultima .bestiary .bio__phases, html .fabula-ultima .bestiary .bio__multipart, html .fabula-ultima .bestiary .bio__createdby,
-html .charsheet .fabula-ultima .bestiary .bio__phases,
-html .charsheet .fabula-ultima .bestiary .bio__multipart,
-html .charsheet .fabula-ultima .bestiary .bio__createdby {
+html .fabula-ultima .bestiary--edit .bio__phases, html .fabula-ultima .bestiary--edit .bio__multipart, html .fabula-ultima .bestiary--edit .bio__createdby,
+html .charsheet .fabula-ultima .bestiary--edit .bio__phases,
+html .charsheet .fabula-ultima .bestiary--edit .bio__multipart,
+html .charsheet .fabula-ultima .bestiary--edit .bio__createdby {
   grid-row-start: 3;
 }
-html .fabula-ultima .bestiary .bio__description,
-html .charsheet .fabula-ultima .bestiary .bio__description {
+html .fabula-ultima .bestiary--edit .bio__description,
+html .charsheet .fabula-ultima .bestiary--edit .bio__description {
   grid-column: 1/-1;
 }
-html .fabula-ultima .bestiary :root,
-html .fabula-ultima .bestiary html,
-html .charsheet .fabula-ultima .bestiary :root,
-html .charsheet .fabula-ultima .bestiary html {
+html .fabula-ultima .bestiary--edit :root,
+html .fabula-ultima .bestiary--edit html,
+html .charsheet .fabula-ultima .bestiary--edit :root,
+html .charsheet .fabula-ultima .bestiary--edit html {
   --background: #e2f3ee;
   --surface-container-lowest: #ffffff;
   --input-background-color-active: rgba(63, 81, 181, 0.1);
@@ -1428,12 +1825,12 @@ html .charsheet .fabula-ultima .bestiary html {
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
 }
-html .fabula-ultima .bestiary .notes,
-html .charsheet .fabula-ultima .bestiary .notes {
+html .fabula-ultima .bestiary--edit .notes,
+html .charsheet .fabula-ultima .bestiary--edit .notes {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .notes--heading,
-html .charsheet .fabula-ultima .bestiary .notes--heading {
+html .fabula-ultima .bestiary--edit .notes--heading,
+html .charsheet .fabula-ultima .bestiary--edit .notes--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1442,22 +1839,22 @@ html .charsheet .fabula-ultima .bestiary .notes--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .notes--delete .note,
-html .charsheet .fabula-ultima .bestiary .notes--delete .note {
+html .fabula-ultima .bestiary--edit .notes--delete .note,
+html .charsheet .fabula-ultima .bestiary--edit .notes--delete .note {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .notes--edit .note,
-html .charsheet .fabula-ultima .bestiary .notes--edit .note {
+html .fabula-ultima .bestiary--edit .notes--edit .note,
+html .charsheet .fabula-ultima .bestiary--edit .notes--edit .note {
   display: grid;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .raregear,
-html .charsheet .fabula-ultima .bestiary .raregear {
+html .fabula-ultima .bestiary--edit .raregear,
+html .charsheet .fabula-ultima .bestiary--edit .raregear {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .raregear--heading,
-html .charsheet .fabula-ultima .bestiary .raregear--heading {
+html .fabula-ultima .bestiary--edit .raregear--heading,
+html .charsheet .fabula-ultima .bestiary--edit .raregear--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1466,22 +1863,22 @@ html .charsheet .fabula-ultima .bestiary .raregear--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .raregear--delete .gear,
-html .charsheet .fabula-ultima .bestiary .raregear--delete .gear {
+html .fabula-ultima .bestiary--edit .raregear--delete .gear,
+html .charsheet .fabula-ultima .bestiary--edit .raregear--delete .gear {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .raregear--edit .gear,
-html .charsheet .fabula-ultima .bestiary .raregear--edit .gear {
+html .fabula-ultima .bestiary--edit .raregear--edit .gear,
+html .charsheet .fabula-ultima .bestiary--edit .raregear--edit .gear {
   display: grid;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .actions,
-html .charsheet .fabula-ultima .bestiary .actions {
+html .fabula-ultima .bestiary--edit .actions,
+html .charsheet .fabula-ultima .bestiary--edit .actions {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .actions--heading,
-html .charsheet .fabula-ultima .bestiary .actions--heading {
+html .fabula-ultima .bestiary--edit .actions--heading,
+html .charsheet .fabula-ultima .bestiary--edit .actions--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1490,22 +1887,22 @@ html .charsheet .fabula-ultima .bestiary .actions--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .actions--delete .action,
-html .charsheet .fabula-ultima .bestiary .actions--delete .action {
+html .fabula-ultima .bestiary--edit .actions--delete .action,
+html .charsheet .fabula-ultima .bestiary--edit .actions--delete .action {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .actions--edit .action,
-html .charsheet .fabula-ultima .bestiary .actions--edit .action {
+html .fabula-ultima .bestiary--edit .actions--edit .action,
+html .charsheet .fabula-ultima .bestiary--edit .actions--edit .action {
   display: grid;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .specials,
-html .charsheet .fabula-ultima .bestiary .specials {
+html .fabula-ultima .bestiary--edit .specials,
+html .charsheet .fabula-ultima .bestiary--edit .specials {
   grid-column: span 2;
 }
-html .fabula-ultima .bestiary .specials--heading,
-html .charsheet .fabula-ultima .bestiary .specials--heading {
+html .fabula-ultima .bestiary--edit .specials--heading,
+html .charsheet .fabula-ultima .bestiary--edit .specials--heading {
   font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
@@ -1514,42 +1911,15 @@ html .charsheet .fabula-ultima .bestiary .specials--heading {
   text-transform: uppercase;
   text-transform: capitalize;
 }
-html .fabula-ultima .bestiary .specials--delete .special,
-html .charsheet .fabula-ultima .bestiary .specials--delete .special {
+html .fabula-ultima .bestiary--edit .specials--delete .special,
+html .charsheet .fabula-ultima .bestiary--edit .specials--delete .special {
   display: flex;
   gap: 4px;
 }
-html .fabula-ultima .bestiary .specials--edit .special,
-html .charsheet .fabula-ultima .bestiary .specials--edit .special {
+html .fabula-ultima .bestiary--edit .specials--edit .special,
+html .charsheet .fabula-ultima .bestiary--edit .specials--edit .special {
   display: grid;
   gap: 4px;
-}
-html .fabula-ultima .bestiary--view,
-html .charsheet .fabula-ultima .bestiary--view {
-  max-width: 400px;
-}
-html .fabula-ultima .bestiary--view .bio__general,
-html .charsheet .fabula-ultima .bestiary--view .bio__general {
-  display: grid;
-  grid-template-columns: 1fr auto;
-}
-html .fabula-ultima .bestiary--view .bio__character_name,
-html .charsheet .fabula-ultima .bestiary--view .bio__character_name {
-  text-transform: uppercase;
-}
-html .fabula-ultima .bestiary--view .bio__level-species,
-html .charsheet .fabula-ultima .bestiary--view .bio__level-species {
-  display: flex;
-  gap: 4px;
-  text-transform: uppercase;
-}
-html .fabula-ultima .bestiary--edit,
-html .charsheet .fabula-ultima .bestiary--edit {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding: 8px;
-  background-color: var(--background);
 }
 html .fabula-ultima .bestiary--edit > div,
 html .charsheet .fabula-ultima .bestiary--edit > div {

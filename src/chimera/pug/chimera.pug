@@ -42,7 +42,7 @@ mixin chimera-checkbox(blob)
   - const image = blob.image ?? 'checkbox';
   label(class=css)
     .chimera-checkbox__field
-      input(id=blob.name, name=blob.attr, type='checkbox')
+      input(id=blob.name, name=attr, type='checkbox')
       +chimera-icon({ icon: image })
     span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
@@ -131,6 +131,10 @@ mixin chimera-value(blob)
 
     if blob.content
       span.chimera-value__value(data-i18n=blob.name)= blob.content
+
+    else
+      - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
+      span.chimera-value__value(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)&attributes(attributes)
 
 mixin chimera-span(blob)
   - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
