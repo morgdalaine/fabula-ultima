@@ -2,8 +2,9 @@
 @forward 'colors';
 @forward 'fonts';
 @forward 'mixins';
-@use 'colors' as colors;
 @use 'breakpoints' as *;
+@use 'colors' as colors;
+@use 'components' as *;
 @use 'fonts' as fonts;
 
 :root,
@@ -44,4 +45,19 @@ html {
 
   --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
     rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
+
+  --input-component-size: #{$component-size-base};
+  --icon-component-size: #{$component-size-xs};
+
+  --button-component-size: #{$component-size-base};
+  // --button-background: #{rgb($green-light, 0.5)};
+  --button-background-color-active: #{rgb(colors.$indigo, 0.1)};
+  // --button-background-color-disabled: #{rgb($green-light, 0.1)};
+  --button-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --button-border-color-active: #{colors.$indigo-d40};
+  // --button-border-color-disabled: #{gray};
+  --button-color: #{colors.$indigo-d40};
+  --button-color-active: #{colors.$black};
+  // --button-color-disabled: #{gray};
+  --button-component-size: #{$component-size-base};
 }

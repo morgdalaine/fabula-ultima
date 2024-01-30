@@ -6,7 +6,6 @@
 
     .chimera-repeater--delete {
       display: none;
-      padding-inline-start: 20px;
     }
 
     &.editmode {
@@ -14,10 +13,15 @@
         display: block !important;
         button.repcontrol_edit::before {
           background-image: url('https://www.svgrepo.com/show/471631/lock-unlocked-01.svg');
+          width: var(--icon-component-size);
+          height: var(--icon-component-size);
         }
       }
       .chimera-repeater--delete {
         display: grid !important;
+        left: var(--button-component-size);
+        position: relative;
+        width: calc(100% - 2 * var(--button-component-size));
       }
       .chimera-repeater--view,
       .chimera-repeater--edit {
@@ -46,11 +50,27 @@
   .repcontrol {
     $this: '.repcontrol';
 
+    margin-block-start: 8px;
+
     &_add,
     &_edit,
     &_del,
     &_move {
+      position: relative;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      width: var(--button-component-size);
+      height: var(--button-component-size);
+      aspect-ratio: 1;
+      color: var(--button-color);
+      background: transparent;
+      border: 2px solid var(--button-border-color);
+      border-radius: 4px;
+
       font-size: 0;
+
       &::before {
         content: '';
         display: block;
@@ -62,8 +82,7 @@
       }
 
       &:hover {
-        background-image: var(--header-gradient-dark);
-        // filter: invert(99%);
+        background: var(--button-background-color-active);
       }
     }
 
@@ -77,11 +96,15 @@
     &_add {
       &::before {
         background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png');
+        width: var(--icon-component-size);
+        height: var(--icon-component-size);
       }
     }
     &_edit {
       &::before {
         background-image: url('https://www.svgrepo.com/show/471623/lock-01.svg');
+        width: var(--icon-component-size);
+        height: var(--icon-component-size);
       }
     }
 
@@ -96,12 +119,16 @@
       right: 4px;
       &::before {
         background-image: url('https://www.svgrepo.com/show/471998/trash-01.svg');
+        width: var(--icon-component-size);
+        height: var(--icon-component-size);
       }
     }
     &_move {
       left: 4px;
       &::before {
         background-image: url('https://www.svgrepo.com/show/471721/move.svg');
+        width: var(--icon-component-size);
+        height: var(--icon-component-size);
       }
     }
   }
@@ -113,7 +140,7 @@
     background-color: transparent;
     z-index: 1;
     &:hover {
-      background-image: var(--header-gradient-dark);
+      background: var(--button-background-color-active);
     }
   }
 }

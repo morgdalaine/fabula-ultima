@@ -20,6 +20,15 @@ html {
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 
 html {
@@ -134,16 +143,20 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .ui-dialog .charsheet .repcontainer .chimera-repeater--delete {
   display: none;
-  padding-inline-start: 20px;
 }
 .ui-dialog .charsheet .repcontainer.editmode + .repcontrol {
   display: block !important;
 }
 .ui-dialog .charsheet .repcontainer.editmode + .repcontrol button.repcontrol_edit::before {
   background-image: url("https://www.svgrepo.com/show/471631/lock-unlocked-01.svg");
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--delete {
   display: grid !important;
+  left: var(--button-component-size);
+  position: relative;
+  width: calc(100% - 2 * var(--button-component-size));
 }
 .ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--view,
 .ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--edit {
@@ -155,7 +168,22 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol {
   background-color: transparent;
 }
+.ui-dialog .charsheet .repcontrol {
+  margin-block-start: 8px;
+}
 .ui-dialog .charsheet .repcontrol_add, .ui-dialog .charsheet .repcontrol_edit, .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: var(--button-component-size);
+  height: var(--button-component-size);
+  aspect-ratio: 1;
+  color: var(--button-color);
+  background: transparent;
+  border: 2px solid var(--button-border-color);
+  border-radius: 4px;
   font-size: 0;
 }
 .ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before, .ui-dialog .charsheet .repcontrol_del::before, .ui-dialog .charsheet .repcontrol_move::before {
@@ -167,16 +195,20 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-size: contain;
 }
 .ui-dialog .charsheet .repcontrol_add:hover, .ui-dialog .charsheet .repcontrol_edit:hover, .ui-dialog .charsheet .repcontrol_del:hover, .ui-dialog .charsheet .repcontrol_move:hover {
-  background-image: var(--header-gradient-dark);
+  background: var(--button-background-color-active);
 }
 .ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before {
   width: 20px;
 }
 .ui-dialog .charsheet .repcontrol_add::before {
   background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png");
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_edit::before {
   background-image: url("https://www.svgrepo.com/show/471623/lock-01.svg");
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
   position: absolute;
@@ -188,12 +220,16 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .ui-dialog .charsheet .repcontrol_del::before {
   background-image: url("https://www.svgrepo.com/show/471998/trash-01.svg");
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_move {
   left: 4px;
 }
 .ui-dialog .charsheet .repcontrol_move::before {
   background-image: url("https://www.svgrepo.com/show/471721/move.svg");
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol {
@@ -201,7 +237,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   z-index: 1;
 }
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol:hover {
-  background-image: var(--header-gradient-dark);
+  background: var(--button-background-color-active);
 }
 
 .chimera-repeater--is-empty[value="0"] ~ .chimera-repeater__empty {
@@ -349,8 +385,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
   aspect-ratio: 1;
   color: var(--input-color);
   background: transparent;
@@ -371,8 +407,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-checkbox__field img,
 .fabula-ultima .chimera-checkbox__field svg {
-  width: 2rem;
-  height: 2rem;
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
   aspect-ratio: 1;
   margin-left: 3px;
   filter: invert(0.5);
@@ -380,8 +416,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-checkbox__field input[type=checkbox] {
   position: absolute;
   opacity: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 0;
+  height: 0;
 }
 .fabula-ultima .chimera-switch__group {
   display: flex;
@@ -395,8 +431,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
   aspect-ratio: 1;
   color: var(--input-color);
   background: transparent;
@@ -408,13 +444,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-weight: 400;
   line-height: 120%;
 }
-.fabula-ultima .chimera-switch__label:has(:checked) {
-  background: var(--input-background-color-active);
-}
-.fabula-ultima .chimera-switch__label:has(:checked) img,
-.fabula-ultima .chimera-switch__label:has(:checked) svg {
-  filter: none;
-}
 .fabula-ultima .chimera-switch__label:active, .fabula-ultima .chimera-switch__label:hover, .fabula-ultima .chimera-switch__label:focus {
   outline: transparent;
   color: var(--input-color-active);
@@ -422,10 +451,17 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-switch__label img,
 .fabula-ultima .chimera-switch__label svg {
-  width: 2rem;
-  height: 2rem;
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
   aspect-ratio: 1;
   filter: invert(0.5);
+}
+.fabula-ultima .chimera-switch__label:has(:checked) {
+  background: var(--input-background-color-active);
+}
+.fabula-ultima .chimera-switch__label:has(:checked) img,
+.fabula-ultima .chimera-switch__label:has(:checked) svg {
+  filter: none;
 }
 .fabula-ultima .chimera-switch__label input[type=radio] {
   position: absolute;
@@ -481,7 +517,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: -webkit-fill-available;
   width: -moz-available;
   width: stretch;
-  min-height: 2.5rem;
+  min-height: var(--input-component-size);
   color: var(--input-color);
   background: transparent;
   padding-inline-start: 4px;
@@ -519,8 +555,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   color: gray;
 }
 .fabula-ultima input[type=checkbox] {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
   color: var(--input-color);
   background: transparent;
   padding-inline-start: 4px;
@@ -735,6 +771,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .attacks--heading {
   font-family: var(--font-title);
@@ -898,6 +943,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .armor {
   display: grid;
@@ -966,6 +1020,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .affinities {
   display: grid;
@@ -1004,6 +1067,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .attributes {
   display: flex;
@@ -1057,6 +1129,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .defenses {
   display: grid;
@@ -1095,6 +1176,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .extras {
   display: flex;
@@ -1129,6 +1219,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .bio {
   display: grid;
@@ -1180,6 +1279,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --input-component-size: 2.5rem;
+  --icon-component-size: 1.5rem;
+  --button-component-size: 2.5rem;
+  --button-background-color-active: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-component-size: 2.5rem;
 }
 .bestiary--edit .notes {
   grid-column: span 2;

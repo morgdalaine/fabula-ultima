@@ -9,7 +9,7 @@
     width: 100%;
     width: stretch;
 
-    min-height: 2.5rem;
+    min-height: var(--input-component-size);
 
     color: var(--input-color);
     background: transparent;
@@ -38,8 +38,8 @@
   }
 
   input[type='checkbox'] {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: var(--input-component-size);
+    height: var(--input-component-size);
 
     color: var(--input-color);
     background: transparent;
