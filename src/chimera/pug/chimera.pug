@@ -31,9 +31,9 @@ mixin chimera-switch(blob)
     .chimera-switch__group
       each option in blob.options
         label.chimera-switch__label
-          input(id=blob.name, name=blob.attr, value=option.value, type='radio')
+          input(id=blob.name, name=blob.attr, type='radio', value=option.value)
           +chimera-icon({ icon: option.image })
-          span(data-i18n=option.value)=option.text
+          span(data-i18n=option.value)= option.text
 
 mixin chimera-checkbox(blob)
   - const namespace = 'chimera-checkbox';
@@ -47,7 +47,7 @@ mixin chimera-checkbox(blob)
     span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
 mixin chimera-hidden(field, value)
-  input.chimera-hidden(name=`attr_${field}`, type=`hidden`, value=value)&attributes(attributes)
+  input.chimera-hidden(name=`attr_${field}`, type='hidden', value=value)&attributes(attributes)
 
 mixin chimera-input-element(blob)
   - const blobTitle = blob.title ?? blob.label;
@@ -58,17 +58,24 @@ mixin chimera-input-element(blob)
     when 'textarea'
       textarea(
         class=blob.inputClass,
-        data-i18n-title=`${blob.name}_title`, title=blobTitle,
+        data-i18n-title=`${blob.name}_title`,
         id=blob.name,
         name=blob.attr,
+        title=blobTitle,
         type=blob.type
       )&attributes(attributes)
 
     when 'select'
-      select(class=blob.inputClass, data-i18n-title=`${blob.name}_title`, title=blobTitle, id=blob.name, name=blob.attr)&attributes(attributes)
+      select(
+        class=blob.inputClass,
+        data-i18n-title=`${blob.name}_title`,
+        id=blob.name,
+        name=blob.attr,
+        title=blobTitle
+      )&attributes(attributes)
         each option, index in blob.options
-          - const isSelected = (index === 0 || option.value === blob.value || option.selected)
-          option(data-i18n=option.name, value=option.value, selected=isSelected)= option.text
+          - const isSelected = index === 0 || option.value === blob.value || option.selected;
+          option(data-i18n=option.name, selected=isSelected, value=option.value)= option.text
 
     when 'checkbox'
       +chimera-checkbox(blob)
@@ -82,12 +89,12 @@ mixin chimera-input-element(blob)
       input(
         class=blob.inputClass,
         data-i18n-title=`${blob.name}_title`,
-        title=blobTitle,
         id=blob.name,
         max=blob.max,
         min=blob.min,
-        step=blob.step,
         name=blob.attr,
+        step=blob.step,
+        title=blobTitle,
         type=blob.type,
         value=blob.value
       )&attributes(attributes)
@@ -97,7 +104,7 @@ mixin chimera-html-element(blob)
 
 mixin chimera-icon(blob)
   - const { src, title } = assets[blob.icon];
-  img(src=src, data-i18n-title=`${blob.icon}_title`, title=title)
+  img(data-i18n-title=`${blob.icon}_title`, src=src, title=title)
 
 mixin chimera-input(blob)
   - const namespace = 'chimera-input';
@@ -122,7 +129,6 @@ mixin chimera-input(blob)
       if blob.html
         +chimera-html-element({ inputClass, ...blob })
 
-
 mixin chimera-value(blob)
   - const namespace = 'chimera-value';
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
@@ -130,7 +136,7 @@ mixin chimera-value(blob)
   - const attr = `attr_${blob.name}`;
   div(class=css)
     if blob.label
-      - const datai18n = blob.name ?? blob.label.replace(" ", "_").toLowerCase()
+      - const datai18n = blob.name ?? blob.label.replace(' ', '_').toLowerCase();
       label.chimera-value__label(data-i18n=datai18n, for=blob.name)= blob.label
 
     if blob.content
@@ -143,7 +149,6 @@ mixin chimera-value(blob)
 mixin chimera-span(blob)
   - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
   span(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)&attributes(attributes)
-
 
 mixin chimera-repeater(fieldset)
   block

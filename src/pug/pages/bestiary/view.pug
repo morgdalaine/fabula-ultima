@@ -2,7 +2,7 @@ include ../../../chimera/pug/chimera
 
 mixin bestiary-view
   //- - const { bio, attributes, points, affinities, defenses, extras, armor, shield, attacks, weapons, spells, notes, specials, actions, raregear } = spine.bestiary;
-  - const asdf = 'asdf'
+  - const asdf = 'asdf';
   //- .bio
     - const vbio = bio.fields.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
     .bio__name

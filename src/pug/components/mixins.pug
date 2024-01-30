@@ -5,6 +5,6 @@ mixin fabula-check(att1, att2, precision)
     span +
     +chimera-span(att2)
     if precision
-      input(name=`attr_${precision.name}` type="hidden")
+      input(name=`attr_${precision.name}`, type='hidden')
       span.fabula-check__precision +
       +chimera-span(precision).fabula-check__precision
