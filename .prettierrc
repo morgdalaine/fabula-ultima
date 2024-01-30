@@ -7,10 +7,9 @@
   "tabWidth": 2,
   "trailingComma": "es5",
 
+  "plugins": ["@prettier/plugin-pug"],
   "pugAttributeSeparator": "always",
-  "pugBracketSpacing": true,
-  "pugSingleQuote": true,
   "pugSortAttributes": "asc",
-  "pugWrapAttributesThreshold": -1,
+  "pugWrapAttributesThreshold": 3,
   "pugPrintWidth": 100
 }
