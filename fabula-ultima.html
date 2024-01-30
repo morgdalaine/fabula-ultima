@@ -17,7 +17,7 @@
         </header>
         <header class="bestiary--edit">
               <div class="bio">
-                <input name="attr_rank" type="hidden"/>
+                    <input class="chimera-hidden" name="attr_rank" type="hidden"/>
                     <div class="chimera-input bio__name">
                       <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
                           <input class="chimera-input__field" data-i18n-title="character_name_title" title="Name" id="character_name" name="attr_character_name" type="text"/>
@@ -567,6 +567,7 @@
                           <div class="chimera-repeater--delete weapons--delete">
                             <div class="weapon"><span name="attr_weapon_name"></span><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
+                                <input name="attr_weapon_precision" type="hidden"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision"></span>
                               </div>
                             </div>
                           </div>

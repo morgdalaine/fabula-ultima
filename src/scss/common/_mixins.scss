@@ -26,7 +26,7 @@
 
 @mixin text-sm-700-fabula {
   font-family: var(--font-title);
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -35,7 +35,7 @@
 
 @mixin text-base-400 {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -43,7 +43,7 @@
 
 @mixin text-base-700 {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -51,7 +51,7 @@
 
 @mixin text-lg-400 {
   font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -59,7 +59,7 @@
 
 @mixin text-xl-400 {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -67,7 +67,7 @@
 
 @mixin text-xl-700 {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 125%;
@@ -75,7 +75,7 @@
 
 @mixin text-xl-400-fabula {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -84,7 +84,7 @@
 
 @mixin text-xl-700-fabula {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 125%;
@@ -93,7 +93,7 @@
 
 @mixin text-xxl-700 {
   font-family: var(--font-body);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
@@ -106,4 +106,29 @@
   overflow: hidden;
   padding: 12px;
   height: min-content;
+}
+
+@mixin fabula-check {
+  display: flex;
+  gap: 4px;
+
+  span {
+    @include text-xl-400;
+    line-height: 140%;
+  }
+
+  .fabula-check {
+    span,
+    &::before,
+    &::after {
+      @include text-xl-700-fabula;
+    }
+
+    &::before {
+      margin: 0px 2.4px 0px -8px;
+    }
+    &::after {
+      margin: 0px -5.6px 0px 0px;
+    }
+  }
 }

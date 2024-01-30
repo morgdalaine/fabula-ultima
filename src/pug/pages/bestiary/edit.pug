@@ -2,7 +2,7 @@
 mixin bestiary-edit(spine)
   .bio
     each field in spine.bio.hidden
-      input(name=`attr_${field}`, type='hidden')
+      +chimera-hidden(field)
     each field in spine.bio.fields
       +chimera-input(field)
 
@@ -55,7 +55,7 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .attack
           each field in spine.attacks.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.attacks.fields
             +chimera-input(field)
 
@@ -64,14 +64,14 @@ mixin bestiary-edit(spine)
     +chimera-repeater('weapons')
       +chimera-block('delete')
         .weapon
-          - const [ name, att1, att2 ] = spine.weapons.delete
+          - const [ name, att1, att2, precision ] = spine.weapons.delete
           +chimera-span(name)
           span ✦
-          +fabula-check(att1, att2)
+          +fabula-check(att1, att2, precision)
       +chimera-block('edit')
         .weapon
           each field in spine.weapons.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.weapons.fields
             +chimera-input(field)
 
@@ -87,7 +87,7 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .spell
           each field in spine.spells.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.spells.fields
             +chimera-input(field)
 
@@ -101,7 +101,7 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .note
           each field in spine.notes.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.notes.fields
             +chimera-input(field)
 
@@ -115,7 +115,7 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .special
           each field in spine.specials.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.specials.fields
             +chimera-input(field)
 
@@ -129,7 +129,7 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .action
           each field in spine.actions.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.actions.fields
             +chimera-input(field)
 
@@ -143,6 +143,6 @@ mixin bestiary-edit(spine)
       +chimera-block('edit')
         .gear
           each field in spine.raregear.hidden
-            input(name=`attr_${field}`, type='hidden')
+            +chimera-hidden(field)
           each field in spine.raregear.fields
             +chimera-input(field)

@@ -122,22 +122,17 @@
     display: flex;
     gap: 4px;
 
-    span {
-      &:first-of-type {
-        // margin: 0px 2.4px 0px -8px;
-        color: blue;
-      }
-      &:last-of-type {
-        color: red;
-        // margin: 0px -5.6px 0px 0px;
-      }
-    }
-
     &::before {
       content: '【';
     }
     &::after {
       content: '】';
+    }
+
+    input[value='0'] {
+      ~ .fabula-check__precision {
+        display: none;
+      }
     }
   }
 

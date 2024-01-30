@@ -46,6 +46,8 @@ mixin chimera-checkbox(blob)
       +chimera-icon({ icon: image })
     span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
+mixin chimera-hidden(field, value)
+  input.chimera-hidden(name=`attr_${field}`, type=`hidden`, value=value)&attributes(attributes)
 
 mixin chimera-input-element(blob)
   - const blobTitle = blob.title ?? blob.label;
@@ -60,7 +62,7 @@ mixin chimera-input-element(blob)
         id=blob.name,
         name=blob.attr,
         type=blob.type
-      )
+      )&attributes(attributes)
 
     when 'select'
       select(class=blob.inputClass, data-i18n-title=`${blob.name}_title`, title=blobTitle, id=blob.name, name=blob.attr)&attributes(attributes)

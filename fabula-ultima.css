@@ -376,14 +376,14 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-value--bullet::before {
   content: "✦";
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
 }
 .fabula-ultima .chimera-value__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -391,7 +391,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -500,7 +500,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   border: 2px solid var(--input-border-color);
   border-radius: 4px;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -571,7 +571,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-repeater__empty-header {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -600,7 +600,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   border: 2px solid var(--input-border-color);
   border-radius: 4px;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -662,7 +662,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   border-radius: 4px;
   align-self: normal;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -698,17 +698,14 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: flex;
   gap: 4px;
 }
-.fabula-ultima .fabula-check span:first-of-type {
-  color: blue;
-}
-.fabula-ultima .fabula-check span:last-of-type {
-  color: red;
-}
 .fabula-ultima .fabula-check::before {
   content: "【";
 }
 .fabula-ultima .fabula-check::after {
   content: "】";
+}
+.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__precision {
+  display: none;
 }
 .fabula-ultima select {
   align-self: normal;
@@ -717,7 +714,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background: var(--input-background);
   color: var(--input-color);
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -889,7 +886,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .attacks--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -901,21 +898,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 .bestiary--edit .attacks--delete .attack span {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 125%;
-  text-transform: uppercase;
-  text-transform: uppercase;
+  line-height: 140%;
 }
 .bestiary--edit .attacks--delete .attack .fabula-check span, .bestiary--edit .attacks--delete .attack .fabula-check::before, .bestiary--edit .attacks--delete .attack .fabula-check::after {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 125%;
-  text-transform: uppercase;
   text-transform: uppercase;
 }
 .bestiary--edit .attacks--delete .attack .fabula-check::before {
@@ -937,7 +932,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .spells--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -949,21 +944,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 .bestiary--edit .spells--delete .spell span {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 125%;
-  text-transform: uppercase;
-  text-transform: uppercase;
+  line-height: 140%;
 }
 .bestiary--edit .spells--delete .spell .fabula-check span, .bestiary--edit .spells--delete .spell .fabula-check::before, .bestiary--edit .spells--delete .spell .fabula-check::after {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 125%;
-  text-transform: uppercase;
   text-transform: uppercase;
 }
 .bestiary--edit .spells--delete .spell .fabula-check::before {
@@ -985,7 +978,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .weapons--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -997,21 +990,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 .bestiary--edit .weapons--delete .weapon span {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 125%;
-  text-transform: uppercase;
-  text-transform: uppercase;
+  line-height: 140%;
 }
 .bestiary--edit .weapons--delete .weapon .fabula-check span, .bestiary--edit .weapons--delete .weapon .fabula-check::before, .bestiary--edit .weapons--delete .weapon .fabula-check::after {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 125%;
-  text-transform: uppercase;
   text-transform: uppercase;
 }
 .bestiary--edit .weapons--delete .weapon .fabula-check::before {
@@ -1082,7 +1073,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .armor--heading {
   grid-column: 1/-1;
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1105,7 +1096,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .shield--heading {
   grid-column: 1/-1;
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1179,7 +1170,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .affinity .chimera-input__label {
   font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
@@ -1248,7 +1239,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .attribute .chimera-input__label {
   font-family: var(--font-body);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1505,7 +1496,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .notes--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1525,7 +1516,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .raregear--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1545,7 +1536,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .actions--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
@@ -1565,7 +1556,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .specials--heading {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;

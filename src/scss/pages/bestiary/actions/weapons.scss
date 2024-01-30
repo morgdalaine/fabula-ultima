@@ -11,29 +11,7 @@
 
   &--delete {
     .weapon {
-      display: flex;
-      gap: 4px;
-
-      span {
-        @include text-xl-700-fabula;
-        text-transform: uppercase;
-      }
-
-      .fabula-check {
-        span,
-        &::before,
-        &::after {
-          @include text-xl-700-fabula;
-          text-transform: uppercase;
-        }
-
-        &::before {
-          margin: 0px 2.4px 0px -8px;
-        }
-        &::after {
-          margin: 0px -5.6px 0px 0px;
-        }
-      }
+      @include fabula-check;
     }
   }
 
