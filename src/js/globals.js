@@ -6,5 +6,5 @@ const G_REPEATING = [
   'notes',
   'specials',
   'actions',
-  'raregear',
+  'rare-gear',
 ];

@@ -1,0 +1,59 @@
+include ../../../chimera/pug/chimera
+
+mixin bestiary-view
+  //- - const { bio, attributes, points, affinities, defenses, extras, armor, shield, attacks, weapons, spells, notes, specials, actions, raregear } = spine.bestiary;
+  - const asdf = 'asdf'
+  //- .bio
+    - const vbio = bio.fields.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
+    .bio__name
+      +chimera-span(vbio.character_name)
+    .bio__level-rank-species
+      p
+        span(data-i18n=`Lv`) Lv
+        +chimera-span(vbio.level)
+        +chimera-span(vbio.rank)
+        span.fabula-diamond ⬥
+        +chimera-span(vbio.species)
+    .bio__description
+      //- +chimera-span(description)
+      span(name=`attr_description`)
+    .bio__traits
+      span(data-i18n='traits') Traits
+      //- +chimera-value(traits)
+      span(name=`attr_traits`)
+
+  //- .statistics
+    .attributes
+      each field in attributes.view
+        .attribute(class=`attribute--${field.name}`)
+          +chimera-value(field)
+
+    .points
+      .hp--label
+        span(data-i18n='hp') HP
+      .hp
+        +chimera-span(points.hp)
+        span.fabula-diamond ⬥
+        +chimera-span(points.crisis)
+      .mp--label
+        span(data-i18n=`mp`) MP
+      .mp
+        +chimera-span(points.mp)
+      .initiative
+        +chimera-value(points.initiative)
+
+    .defenses
+      - const vdefense = defenses.view.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
+      .defense.defense--def
+        +chimera-value(vdefense.defense)
+      .defense.defense--mdef
+        +chimera-value(vdefense.magic_defense)
+
+    .affinities
+      each dtype in damageTypeOptions
+        .affinity(class=`affinity--${dtype.name}`)
+          input(name=`attr_${dtype.name}`, type='hidden')
+          +chimera-icon({ icon: dtype.name, title: dtype.text })
+          +chimera-value(dtype)
+          //- span.affinity__label(data-i18n=dtype.name)= dtype.text
+          //- span(name=`attr_${dtype.name}`)

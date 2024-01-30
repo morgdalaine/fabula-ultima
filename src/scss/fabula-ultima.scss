@@ -1,29 +1,23 @@
 @charset "UTF-8";
 
-// 1. Configuration and helpers
-// @use 'abstracts/variables' as *;
-// @use 'abstracts/functions';
-// @use 'abstracts/mixins';
-
-@use 'common/vars';
+@use 'common/vars' as *;
 @use 'common/mixins' as mixins;
 
-// 2. Vendors
-// @use 'vendors/normalize';
 @use 'modules/reset';
 @use 'components/repcontainer';
 
-// 3. Base stuff
-// @use 'base/base';
-// @use 'base/fonts';
-// @use 'base/typography';
-// @use 'base/helpers';
+@use '../chimera/scss/chimera' as *;
 
-// 4. Layout-related sections
+@use 'common/chimera' as chimera;
+@use 'components/inputs';
 @use 'layout/characterviewer';
+@use 'pages/bestiary';
 
-// 7. Themes
 // @use 'themes/default';
+
+@forward '../chimera/scss/chimera';
+@forward 'common/mixins';
+@forward 'common/vars';
 
 html,
 html .charsheet {
@@ -46,19 +40,12 @@ html .charsheet {
     margin: 4px;
     margin-right: 12px;
 
-    @import '../chimera/scss/chimera';
+    // @import '../chimera/scss/chimera';
 
-    // 4. Layout-related sections
-    // @import 'layout/header', 'layout/footer';
+    // @import 'common/chimera';
+    // @import 'components/inputs';
 
-    // 5. Components
-    @import 'common/chimera';
-    @import 'components/inputs';
-    // @import 'components/buttons', 'components/inputs', 'components/panels',
-    //  'components/repeating';
-
-    // 6. Page-specific styles
-    // @import 'pages/character';
-    @import 'pages/bestiary';
+    // // @import 'pages/character';
+    // @import 'pages/bestiary';
   }
 }

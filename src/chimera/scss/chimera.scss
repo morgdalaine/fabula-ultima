@@ -1,4 +1,4 @@
-@use 'mixins' as chimera;
+@use 'mixins' as mixins;
 @use 'components/repeater';
 
 .chimera-input {
@@ -12,5 +12,5 @@
     }
   }
 
-  @include chimera.layout-gaps;
+  @include mixins.layout-gaps;
 }

@@ -1,203 +1,202 @@
-@use '../common/vars.scss' as *;
-@use '../common/mixins' as mixins;
+@use '../common/vars' as *;
+@use '../common/mixins';
 
-input[type='number'],
-input[type='text'],
-select,
-textarea {
-  width: 100%;
-  width: stretch;
+.fabula-ultima {
+  input[type='number'],
+  input[type='text'],
+  select,
+  textarea {
+    width: 100%;
+    width: stretch;
 
-  min-height: 2.5rem;
+    min-height: 2.5rem;
 
-  color: var(--input-color);
-  background: transparent;
+    color: var(--input-color);
+    background: transparent;
 
-  padding-inline-start: 4px;
-  padding-block: 1px;
+    padding-inline-start: 4px;
+    padding-block: 1px;
 
-  border: 2px solid var(--input-border-color);
-  border-radius: 4px;
+    border: 2px solid var(--input-border-color);
+    border-radius: 4px;
 
-  align-self: normal;
+    @include mixins.text-base-400;
 
-  @include mixins.text-base-400;
+    &:active,
+    &:hover,
+    &:focus {
+      outline: transparent;
 
-  &:active,
-  &:hover,
-  &:focus {
-    outline: transparent;
-
-    background-color: var(--input-background-color-active);
-    color: var(--input-color-active);
-    border-color: var(--input-border-color-active);
-  }
-
-  &::placeholder {
-    color: gray;
-  }
-}
-
-input[type='checkbox'] {
-  width: 2.5rem;
-  height: 2.5rem;
-
-  color: var(--input-color);
-  background: transparent;
-
-  padding-inline-start: 4px;
-  padding-block: 1px;
-
-  border: 2px solid var(--input-border-color);
-  border-radius: 4px;
-
-  align-self: normal;
-
-  @include mixins.text-base-400;
-
-  &:active,
-  &:hover,
-  &:focus,
-  &:checked {
-    outline: transparent;
-
-    background-color: var(--input-background-color-active);
-    color: var(--input-color-active);
-    border-color: var(--input-border-color-active);
-  }
-}
-
-input[type='number'] {
-  text-align: center;
-  &[disabled],
-  &[readonly] {
-    cursor: default;
-
-    background: var(--input-background-disabled);
-    color: var(--input-color-disabled);
-
-    border-color: var(--input-border-disabled);
-  }
-}
-
-textarea {
-  max-height: 10rem;
-  resize: vertical;
-
-  scrollbar-width: thin;
-  // scrollbar-color: var(--input-color-active transparent);
-
-  @supports selector(::-webkit-scrollbar) {
-    &::-webkit-scrollbar {
-      width: 0.5rem;
-      background: transparent;
+      background-color: var(--input-background-color-active);
+      color: var(--input-color-active);
+      border-color: var(--input-border-color-active);
     }
 
-    &::-webkit-scrollbar-track {
-      background: var(--input-color-active);
+    &::placeholder {
+      color: gray;
     }
   }
-}
 
-span[name] {
-  white-space: pre-wrap;
-  // &:empty {
-  //   text-align: center;
-  //   &:before {
-  //     display: inline;
-  //     content: '—';
+  input[type='checkbox'] {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    color: var(--input-color);
+    background: transparent;
+
+    padding-inline-start: 4px;
+    padding-block: 1px;
+
+    border: 2px solid var(--input-border-color);
+    border-radius: 4px;
+
+    align-self: normal;
+
+    @include mixins.text-base-400;
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:checked {
+      outline: transparent;
+
+      background-color: var(--input-background-color-active);
+      color: var(--input-color-active);
+      border-color: var(--input-border-color-active);
+    }
+  }
+
+  input[type='number'] {
+    text-align: center;
+    &[disabled],
+    &[readonly] {
+      cursor: default;
+
+      background: var(--input-background-disabled);
+      color: var(--input-color-disabled);
+
+      border-color: var(--input-border-disabled);
+    }
+  }
+
+  textarea {
+    max-height: 10rem;
+    resize: vertical;
+
+    scrollbar-width: thin;
+    // scrollbar-color: var(--input-color-active transparent);
+
+    @supports selector(::-webkit-scrollbar) {
+      &::-webkit-scrollbar {
+        width: 0.5rem;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--input-color-active);
+      }
+    }
+  }
+
+  span[name] {
+    white-space: pre-wrap;
+    // &:empty {
+    //   text-align: center;
+    //   &:before {
+    //     display: inline;
+    //     content: '—';
+    //   }
+    // }
+  }
+
+  // label {
+  //   input[type='checkbox'] + span {
+  //     margin-inline-start: var(--m-sm);
+  //     vertical-align: middle;
   //   }
   // }
-}
 
-// label {
-//   input[type='checkbox'] + span {
-//     margin-inline-start: var(--m-sm);
-//     vertical-align: middle;
-//   }
-// }
+  .fabula-check {
+    position: relative;
+    display: flex;
+    gap: 4px;
 
-.fabula-check {
-  position: relative;
-  display: flex;
-  gap: 4px;
-
-  span {
-    &:first-of-type {
-      // margin: 0px 2.4px 0px -8px;
-      color: blue;
+    span {
+      &:first-of-type {
+        // margin: 0px 2.4px 0px -8px;
+        color: blue;
+      }
+      &:last-of-type {
+        color: red;
+        // margin: 0px -5.6px 0px 0px;
+      }
     }
-    &:last-of-type {
-      color: red;
-      // margin: 0px -5.6px 0px 0px;
+
+    &::before {
+      content: '【';
+    }
+    &::after {
+      content: '】';
     }
   }
 
-  &::before {
-    content: '【';
-  }
-  &::after {
-    content: '】';
+  // input[type='number'],
+  // input[type='text'],
+  // select,
+  // textarea {
+  //   width: 100%;
+  //   width: stretch;
+  //   height: var(--input-component-size);
+
+  //   background-color: var(--input-background);
+  //   border-bottom: var(--input-border);
+
+  //   font-family: var(--input-font-stack);
+  //   font-size: var(--input-font-size);
+  //   color: var(--input-color);
+
+  //   transition:
+  //     background-color 0.2s ease-in,
+  //     color 0.2s ease-in,
+  //     border 0.2s ease-in,
+  //     padding 0.2s ease-in;
+
+  //   padding-inline-start: var(--p-sm);
+  //   padding-block: 1px;
+
+  //   &:active,
+  //   &:hover,
+  //   &:focus {
+  //     outline: transparent;
+
+  //     background-color: var(--input-background-color-active);
+  //     color: var(--input-color-active);
+  //     border-bottom: var(--input-border-active);
+  //   }
+
+  //   &:active {
+  //     border-width: 2px;
+  //   }
+
+  //   &::placeholder {
+  //     color: gray;
+  //   }
+  // }
+
+  select {
+    align-self: normal;
+
+    // appearance: none;
+    // background-image: url('https://www.svgrepo.com/show/471164/chevron-down.svg');
+    // background-position: 100% 50%;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+
+    option {
+      background: var(--input-background);
+      color: var(--input-color);
+
+      @include text-base-400;
+    }
   }
 }
-
-// input[type='number'],
-// input[type='text'],
-// select,
-// textarea {
-//   width: 100%;
-//   width: stretch;
-//   height: var(--input-component-size);
-
-//   background-color: var(--input-background);
-//   border-bottom: var(--input-border);
-
-//   font-family: var(--input-font-stack);
-//   font-size: var(--input-font-size);
-//   color: var(--input-color);
-
-//   transition:
-//     background-color 0.2s ease-in,
-//     color 0.2s ease-in,
-//     border 0.2s ease-in,
-//     padding 0.2s ease-in;
-
-//   padding-inline-start: var(--p-sm);
-//   padding-block: 1px;
-
-//   &:active,
-//   &:hover,
-//   &:focus {
-//     outline: transparent;
-
-//     background-color: var(--input-background-color-active);
-//     color: var(--input-color-active);
-//     border-bottom: var(--input-border-active);
-//   }
-
-//   &:active {
-//     border-width: 2px;
-//   }
-
-//   &::placeholder {
-//     color: gray;
-//   }
-// }
-
-// select {
-//   // appearance: none;
-
-//   // background-image: url('https://www.svgrepo.com/show/471164/chevron-down.svg');
-//   // background-position: 100% 50%;
-//   // background-repeat: no-repeat;
-//   // background-size: contain;
-
-//   option {
-//     background: var(--input-background);
-//     // background-color: red;
-//     color: var(--input-color);
-
-//     font-family: var(--input-font-stack);
-//     font-size: var(--input-font-size);
-//   }
-// }
