@@ -26,9 +26,21 @@
     &:hover,
     &:focus {
       outline: transparent;
-
-      background-color: var(--input-background-color-active);
+    }
+    &:hover {
+      color: var(--input-color-hover);
+      border-color: var(--input-border-color-hover);
+      background-color: var(--input-background-color-hover);
+    }
+    &:focus {
+      color: var(--input-color-focus);
+      border-color: var(--input-border-color-focus);
+      background-color: var(--input-background-color-focus);
+    }
+    &:active {
       color: var(--input-color-active);
+      box-shadow: var(--input-shadow-active);
+      background-color: var(--input-background-color-active);
       border-color: var(--input-border-color-active);
     }
 
@@ -53,17 +65,6 @@
     align-self: normal;
 
     @include mixins.text-base-400;
-
-    &:active,
-    &:hover,
-    &:focus,
-    &:checked {
-      outline: transparent;
-
-      background-color: var(--input-background-color-active);
-      color: var(--input-color-active);
-      border-color: var(--input-border-color-active);
-    }
   }
 
   input[type='number'] {

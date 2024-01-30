@@ -10,22 +10,30 @@
 :root,
 html {
   --background: #{colors.$background};
-  --surface-container-lowest: #{colors.$surface-container-lowest};
-  // Inputs
+  --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
+    rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
 
-  // --input-background: #{rgb($green-light, 0.5)};
-  --input-background-color-active: #{rgb(colors.$indigo, 0.1)};
-  // --input-background-color-disabled: #{rgb($green-light, 0.1)};
+  // Buttons
+  --button-background-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --button-background-color-active: #{rgb(colors.$indigo-d40, 0.2)};
+  --button-background-color-focus: #{rgb(colors.$indigo, 0.1)};
+  --button-background-color-hover: #{rgb(colors.$indigo, 0.1)};
 
-  --input-border-color: #{rgb(colors.$indigo-d40, 0.2)};
-  --input-border-color-active: #{colors.$indigo-d40};
-  // --input-border-color-disabled: #{gray};
+  --button-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --button-border-color-active: #{colors.$indigo-d40};
+  --button-border-color-focus: #{rgb(colors.$indigo, 0.1)};
+  --button-border-color-hover: #{colors.$indigo-d40};
 
-  --input-color: #{colors.$indigo-d40};
-  --input-color-active: #{colors.$black};
-  // --input-color-disabled: #{gray};
+  --button-color: #{colors.$indigo-d40};
+  --button-color-active: #{colors.$black};
+  --button-color-focus: #{colors.$black};
+  --button-color-hover: #{colors.$indigo-d40};
 
-  --nav-color-focus: #{colors.$primary-base};
+  --button-component-size: #{$component-size-base};
+  --button-shadow-hover: #{inset 0 2px 4px rgba(colors.$on-surface, 0.15),
+    0 1px 2px rgba(colors.$on-surface, 0.05)};
+  --button-shadow-active: #{inset 0 2px 4px rgba(colors.$on-surface, 0.15),
+    0 1px 2px rgba(colors.$on-surface, 0.05)};
 
   // Fonts
   --font-body: #{fonts.$font-pt-sans-narrow};
@@ -39,25 +47,41 @@ html {
       colors.$tertiary-base 100%
     )};
 
-  --repeating-empty-border-color: #{rgb(colors.$indigo-d40, 0.2)};
-
-  --tertiary-gradient-light: #{linear-gradient(90deg, colors.$light-green-d40 0%, transparent 100%)};
-
-  --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
-    rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
-
-  --input-component-size: #{$component-size-base};
   --icon-component-size: #{$component-size-xs};
 
-  --button-component-size: #{$component-size-base};
-  // --button-background: #{rgb($green-light, 0.5)};
-  --button-background-color-active: #{rgb(colors.$indigo, 0.1)};
+  // Inputs
+  --input-background-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --input-background-color-active: #{rgb(colors.$indigo-d40, 0.2)};
+  --input-background-color-focus: #{rgb(colors.$indigo, 0.1)};
+  --input-background-color-hover: #{rgb(colors.$indigo, 0.1)};
+
+  --input-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --input-border-color-active: #{colors.$indigo-d40};
+  --input-border-color-focus: #{colors.$indigo-d40};
+  --input-border-color-hover: #{rgb(colors.$indigo, 0.1)};
+
+  --input-color: #{colors.$indigo-d40};
+  --input-color-active: #{colors.$black};
+  --input-color-focus: #{colors.$black};
+  --input-color-hover: #{colors.$indigo-d40};
+
+  --input-component-size: #{$component-size-base};
+
+  --nav-color-focus: #{colors.$primary-base};
+
+  --repeating-empty-border-color: #{rgb(colors.$indigo-d40, 0.2)};
+
+  --surface-container-lowest: #{colors.$surface-container-lowest};
+  --tertiary-gradient-light: #{linear-gradient(90deg, colors.$light-green-d40 0%, transparent 100%)};
+
   // --button-background-color-disabled: #{rgb($green-light, 0.1)};
-  --button-border-color: #{rgb(colors.$indigo-d40, 0.2)};
-  --button-border-color-active: #{colors.$indigo-d40};
+  // --button-background: #{rgb($green-light, 0.5)};
   // --button-border-color-disabled: #{gray};
-  --button-color: #{colors.$indigo-d40};
-  --button-color-active: #{colors.$black};
   // --button-color-disabled: #{gray};
-  --button-component-size: #{$component-size-base};
+  // --input-background-color-disabled: #{rgb($green-light, 0.1)};
+  // --input-background: #{rgb($green-light, 0.5)};
+  // --input-border-color-disabled: #{gray};
+  // --input-color-disabled: #{gray};
+  // Fonts
+  // Inputs
 }

@@ -5,30 +5,45 @@
 :root,
 html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 
 html {
@@ -194,8 +209,24 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-repeat: no-repeat;
   background-size: contain;
 }
+.ui-dialog .charsheet .repcontrol_add:active, .ui-dialog .charsheet .repcontrol_add:hover, .ui-dialog .charsheet .repcontrol_add:focus, .ui-dialog .charsheet .repcontrol_edit:active, .ui-dialog .charsheet .repcontrol_edit:hover, .ui-dialog .charsheet .repcontrol_edit:focus, .ui-dialog .charsheet .repcontrol_del:active, .ui-dialog .charsheet .repcontrol_del:hover, .ui-dialog .charsheet .repcontrol_del:focus, .ui-dialog .charsheet .repcontrol_move:active, .ui-dialog .charsheet .repcontrol_move:hover, .ui-dialog .charsheet .repcontrol_move:focus {
+  outline: transparent;
+}
 .ui-dialog .charsheet .repcontrol_add:hover, .ui-dialog .charsheet .repcontrol_edit:hover, .ui-dialog .charsheet .repcontrol_del:hover, .ui-dialog .charsheet .repcontrol_move:hover {
-  background: var(--button-background-color-active);
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.ui-dialog .charsheet .repcontrol_add:focus, .ui-dialog .charsheet .repcontrol_edit:focus, .ui-dialog .charsheet .repcontrol_del:focus, .ui-dialog .charsheet .repcontrol_move:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.ui-dialog .charsheet .repcontrol_add:active, .ui-dialog .charsheet .repcontrol_edit:active, .ui-dialog .charsheet .repcontrol_del:active, .ui-dialog .charsheet .repcontrol_move:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
 }
 .ui-dialog .charsheet .repcontrol_add::before, .ui-dialog .charsheet .repcontrol_edit::before {
   width: 20px;
@@ -236,8 +267,24 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-color: transparent;
   z-index: 1;
 }
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol:active, .ui-dialog .charsheet .repcontainer .repitem .itemcontrol:hover, .ui-dialog .charsheet .repcontainer .repitem .itemcontrol:focus {
+  outline: transparent;
+}
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol:hover {
-  background: var(--button-background-color-active);
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.ui-dialog .charsheet .repcontainer .repitem .itemcontrol:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
 }
 
 .chimera-repeater--is-empty[value="0"] ~ .chimera-repeater__empty {
@@ -402,8 +449,22 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-checkbox__field:active, .fabula-ultima .chimera-checkbox__field:hover, .fabula-ultima .chimera-checkbox__field:focus {
   outline: transparent;
-  color: var(--input-color-active);
-  border-color: var(--input-border-color-active);
+}
+.fabula-ultima .chimera-checkbox__field:hover {
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.fabula-ultima .chimera-checkbox__field:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.fabula-ultima .chimera-checkbox__field:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
 }
 .fabula-ultima .chimera-checkbox__field img,
 .fabula-ultima .chimera-checkbox__field svg {
@@ -446,8 +507,22 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-switch__label:active, .fabula-ultima .chimera-switch__label:hover, .fabula-ultima .chimera-switch__label:focus {
   outline: transparent;
-  color: var(--input-color-active);
-  border-color: var(--input-border-color-active);
+}
+.fabula-ultima .chimera-switch__label:hover {
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.fabula-ultima .chimera-switch__label:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.fabula-ultima .chimera-switch__label:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
 }
 .fabula-ultima .chimera-switch__label img,
 .fabula-ultima .chimera-switch__label svg {
@@ -541,8 +616,30 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima textarea:hover,
 .fabula-ultima textarea:focus {
   outline: transparent;
-  background-color: var(--input-background-color-active);
+}
+.fabula-ultima input[type=number]:hover,
+.fabula-ultima input[type=text]:hover,
+.fabula-ultima select:hover,
+.fabula-ultima textarea:hover {
+  color: var(--input-color-hover);
+  border-color: var(--input-border-color-hover);
+  background-color: var(--input-background-color-hover);
+}
+.fabula-ultima input[type=number]:focus,
+.fabula-ultima input[type=text]:focus,
+.fabula-ultima select:focus,
+.fabula-ultima textarea:focus {
+  color: var(--input-color-focus);
+  border-color: var(--input-border-color-focus);
+  background-color: var(--input-background-color-focus);
+}
+.fabula-ultima input[type=number]:active,
+.fabula-ultima input[type=text]:active,
+.fabula-ultima select:active,
+.fabula-ultima textarea:active {
   color: var(--input-color-active);
+  box-shadow: var(--input-shadow-active);
+  background-color: var(--input-background-color-active);
   border-color: var(--input-border-color-active);
 }
 .fabula-ultima input[type=number]::-moz-placeholder, .fabula-ultima input[type=text]::-moz-placeholder, .fabula-ultima select::-moz-placeholder, .fabula-ultima textarea::-moz-placeholder {
@@ -569,12 +666,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-}
-.fabula-ultima input[type=checkbox]:active, .fabula-ultima input[type=checkbox]:hover, .fabula-ultima input[type=checkbox]:focus, .fabula-ultima input[type=checkbox]:checked {
-  outline: transparent;
-  background-color: var(--input-background-color-active);
-  color: var(--input-color-active);
-  border-color: var(--input-border-color-active);
 }
 .fabula-ultima input[type=number] {
   text-align: center;
@@ -756,30 +847,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .attacks--heading {
   font-family: var(--font-title);
@@ -928,30 +1034,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .armor {
   display: grid;
@@ -1005,30 +1126,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .affinities {
   display: grid;
@@ -1052,30 +1188,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .attributes {
   display: flex;
@@ -1114,30 +1265,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .defenses {
   display: grid;
@@ -1161,30 +1327,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .extras {
   display: flex;
@@ -1204,30 +1385,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .bio {
   display: grid;
@@ -1264,30 +1460,45 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit :root,
 .bestiary--edit html {
   --background: #e2f3ee;
-  --surface-container-lowest: #ffffff;
-  --input-background-color-active: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --nav-color-focus: #664168;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
   --font-nav: Antonio, Comic Sans MS, sans-serif;
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --input-component-size: 2.5rem;
   --icon-component-size: 1.5rem;
-  --button-component-size: 2.5rem;
-  --button-background-color-active: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-component-size: 2.5rem;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #664168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .notes {
   grid-column: span 2;
