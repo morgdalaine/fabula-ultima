@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "description": "Unofficial Roll20 Character Sheet for Fabula Ultima TTRPG",
   "scripts": {
-    "dev": "run-p compile:* postcss",
-    "compile:sass": "npx sass ./src/scss/fabula-ultima.scss:fabula-ultima.css --load-path=src/chimera/scss --load-path=src/scss/common --no-source-map --no-charset --watch",
-    "compile:pug": "npx pug3 ./src/pug/fabula-ultima.pug --out ./ --watch --pretty",
-    "postcss": "npx postcss fabula-ultima.css --output fabula-ultima.css --use autoprefixer --watch --verbose --no-map",
-    "lint": "eslint . --ext .pug,.js, --fix --ignore-path .gitignore"
+    "dev": "run-p watch:*",
+    "build": "run-s compile:*",
+    "compile:sass": "npx sass ./src/scss/fabula-ultima.scss:fabula-ultima.css --no-source-map --no-charset",
+    "compile:pug": "npx pug3 ./src/pug/fabula-ultima.pug --out ./ --pretty",
+    "compile:css": "npx postcss fabula-ultima.css --output fabula-ultima.css --use autoprefixer --verbose --no-map",
+    "lint": "eslint . --ext .pug,.js, --fix --ignore-path .gitignore",
+    "i18n": "i18ntool -i fabula-ultima.html -a",
+    "watch:pug": "nodemon -e pug,js -x 'npm run compile:pug'",
+    "watch:i18n": "nodemon -e html -x 'npm run i18n'",
+    "watch:sass": "nodemon -e scss,sass -x 'npm run compile:sass'",
+    "watch:css": "nodemon -e css -x 'npm run compile:css'"
   },
   "keywords": [
     "roll20"
@@ -23,6 +29,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-pug": "^1.2.5",
+    "nodemon": "^3.0.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",

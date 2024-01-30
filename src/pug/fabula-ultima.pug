@@ -16,9 +16,6 @@ mixin html
 
   input(name="attr_sheet_type", type='hidden' value='bestiary')
   .fabula-ultima
-    - const now = Date.now();
-    span= now
-
     main.character
       span [CHARACTER]
     main.bestiary
@@ -30,7 +27,6 @@ mixin html
     footer
 
 
-  - console.log(Date.now());
   script(type='text/worker')
     include ../js/globals.js
     include ../js/sheetworkers.js
