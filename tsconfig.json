@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "outFile": "src/fabula-ultima.js",
+    "lib": ["ES2023", "DOM"],
+  },
+  "include": ["src/ts/**/*"],
+}
