@@ -6,12 +6,10 @@ include bestiary/special-rules
 include bestiary/spells
 include bestiary/weapons
 
-mixin bestiary-view(spine.bestiary)
+mixin bestiary-view(spine)
   header.bestiary--view
     .bio
-      -
-        const bio = fieldDictionary(spine.bio.fields)
-
+      - const bio = fieldDictionary(spine.bio.fields);
       +chimera-hidden('character_avatar', '')
       .bio__avatar
         img(name='attr_character_avatar')
@@ -80,7 +78,7 @@ mixin bestiary-view(spine.bestiary)
     +rare-equipment-view(spine)
     +notes-view(spine)
 
-mixin bestiary-edit(spine.bestiary)
+mixin bestiary-edit(spine)
   section.bestiary--edit
     .bio
       each field in spine.bio.hidden
@@ -134,3 +132,6 @@ mixin bestiary-edit(spine.bestiary)
     +special-rules-edit(spine)
     +rare-equipment-edit(spine)
     +notes-edit(spine)
+
++bestiary-view(spine.bestiary)
++bestiary-edit(spine.bestiary)

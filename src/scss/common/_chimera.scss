@@ -263,9 +263,9 @@
 
   .chimera-repeater {
     &__empty {
-      // background-image: var(--tertiary-gradient-light);
       background: transparent;
       padding: 8px;
+      margin-block: 4px;
 
       border: 2px dashed var(--input-border-color);
       border-radius: 4px;
