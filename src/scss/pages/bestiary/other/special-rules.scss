@@ -1,24 +1,21 @@
 @use '../../../common/vars' as mixins;
 
-.raregear {
-  $this: '.raregear';
+.specials {
+  $this: '.specials';
 
   grid-column: span 2;
 
-  &--heading {
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+  @include mixins.repeater-heading;
 
   &--delete {
-    .gear {
+    .special {
       display: flex;
       gap: 4px;
     }
   }
 
   &--edit {
-    .gear {
+    .special {
       display: grid;
       gap: 4px;
     }

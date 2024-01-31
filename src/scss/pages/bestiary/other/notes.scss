@@ -5,10 +5,7 @@
 
   grid-column: span 2;
 
-  &--heading {
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+  @include mixins.repeater-heading;
 
   &--delete {
     .note {

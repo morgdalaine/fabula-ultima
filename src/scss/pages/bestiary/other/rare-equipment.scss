@@ -1,24 +1,21 @@
 @use '../../../common/vars' as mixins;
 
-.actions {
-  $this: '.actions';
+.rare-equipment {
+  $this: '.rare-equipment';
 
   grid-column: span 2;
 
-  &--heading {
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+  @include mixins.repeater-heading;
 
   &--delete {
-    .action {
+    .gear {
       display: flex;
       gap: 4px;
     }
   }
 
   &--edit {
-    .action {
+    .gear {
       display: grid;
       gap: 4px;
     }

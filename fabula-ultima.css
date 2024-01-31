@@ -1430,7 +1430,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .notes {
   grid-column: span 2;
 }
-.bestiary--edit .notes--heading {
+.bestiary--edit .notes__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1438,6 +1438,18 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 125%;
   text-transform: uppercase;
   text-transform: capitalize;
+}
+.bestiary--edit .notes__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
 }
 .bestiary--edit .notes--delete .note {
   display: flex;
@@ -1447,10 +1459,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
-.bestiary--edit .raregear {
+.bestiary--edit .rare-equipment {
   grid-column: span 2;
 }
-.bestiary--edit .raregear--heading {
+.bestiary--edit .rare-equipment__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1459,18 +1471,30 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.bestiary--edit .raregear--delete .gear {
+.bestiary--edit .rare-equipment__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.bestiary--edit .rare-equipment--delete .gear {
   display: flex;
   gap: 4px;
 }
-.bestiary--edit .raregear--edit .gear {
+.bestiary--edit .rare-equipment--edit .gear {
   display: grid;
   gap: 4px;
 }
 .bestiary--edit .actions {
   grid-column: span 2;
 }
-.bestiary--edit .actions--heading {
+.bestiary--edit .actions__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1478,6 +1502,18 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 125%;
   text-transform: uppercase;
   text-transform: capitalize;
+}
+.bestiary--edit .actions__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
 }
 .bestiary--edit .actions--delete .action {
   display: flex;
@@ -1490,7 +1526,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .specials {
   grid-column: span 2;
 }
-.bestiary--edit .specials--heading {
+.bestiary--edit .specials__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1498,6 +1534,18 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 125%;
   text-transform: uppercase;
   text-transform: capitalize;
+}
+.bestiary--edit .specials__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
 }
 .bestiary--edit .specials--delete .special {
   display: flex;

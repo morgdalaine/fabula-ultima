@@ -34,9 +34,7 @@ mixin bestiary-view(spine)
           +chimera-value(field).attribute
 
       .points
-        -
-          const points = fieldDictionary(spine.points.fields)
-
+        - const points = fieldDictionary(spine.points.fields);
         .points__label
           label(data-i18n='hp') HP
         .points__hp
