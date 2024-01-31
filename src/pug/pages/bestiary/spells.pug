@@ -1,4 +1,5 @@
 mixin spells-view(spine)
+  +chimera-hidden('spells_empty').chimera-repeater--empty-hide-next
   .spells
     h2.spells__heading--view(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
     +chimera-repeater('spells')

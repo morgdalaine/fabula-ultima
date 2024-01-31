@@ -1,4 +1,5 @@
 mixin weapons-view(spine)
+  +chimera-hidden('weapons_empty').chimera-repeater--empty-hide-next
   .weapons
     //- h2.weapons__heading--view(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
     +chimera-repeater('weapons')

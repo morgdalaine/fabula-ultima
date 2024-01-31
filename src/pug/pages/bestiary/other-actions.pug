@@ -1,16 +1,25 @@
 mixin other-actions-view(spine)
-  //-
+  +chimera-hidden('other-actions_empty').chimera-repeater--empty-hide-next
+  .other-actions
+    h2.other-actions__heading--view(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+    +chimera-repeater('other-actions')
+      +chimera-block('view')
+        .other-action
+          - const action = fieldDictionary(spine.actions.view, 'action');
+          +chimera-icon({ icon: 'cog' }).other-action__icon
+          +chimera-value(action.name)
+          +chimera-value(action.effect)
 
 mixin other-actions-edit(spine)
-  .actions
-    h2.actions__heading--edit(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
-    +chimera-repeater('actions')
+  .other-actions
+    h2.other-actions__heading--edit(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+    +chimera-repeater('other-actions')
       +chimera-block('delete')
-        .action
+        .other-action
           - const [name] = spine.actions.delete;
           +chimera-span(name)
       +chimera-block('edit')
-        .action
+        .other-action
           each field in spine.actions.hidden
             +chimera-hidden(field)
           each field in spine.actions.fields

@@ -1,5 +1,14 @@
 mixin notes-view(spine)
-  //-
+  +chimera-hidden('notes_empty').chimera-repeater--empty-hide-next
+  .notes
+    h2.notes__heading--view(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+    +chimera-repeater('notes')
+      +chimera-block('view')
+        .note
+          - const note = fieldDictionary(spine.notes.view, 'note');
+          +chimera-icon({ icon: 'book' }).note__icon
+          +chimera-value(note.name)
+          +chimera-value(note.effect)
 
 mixin notes-edit(spine)
   .notes

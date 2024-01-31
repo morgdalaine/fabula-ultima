@@ -1,28 +1,28 @@
 @use '../../../common/vars' as mixins;
 
 .fabula-ultima {
-  .attacks {
-    $this: '.attacks';
+  .basic-attacks {
+    $this: '.basic-attacks';
 
     @include mixins.repeater-heading;
 
     &--view {
       input[name*='attack_range'] {
         &[value='melee'] {
-          ~ .attack__range--melee {
+          ~ .basic-attack__range--melee {
             display: block;
           }
         }
         &[value='distance'] {
-          ~ .attack__range--distance {
+          ~ .basic-attack__range--distance {
             display: block;
           }
         }
       }
 
-      .attack {
+      .basic-attack {
         display: grid;
-        grid-template-columns: var(--button-component-size) 1fr repeat(4, auto);
+        grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
         gap: 4px;
 
         .fabula-check span {
@@ -50,7 +50,7 @@
     }
 
     &--edit {
-      .attack {
+      .basic-attack {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 4px;

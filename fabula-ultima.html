@@ -160,35 +160,36 @@
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
                 </label>
               </div>
-                  <div class="attacks">
-                    <h2 class="attacks__heading--view" data-i18n="attacks">Basic Attacks</h2>
+                  <div class="basic-attacks">
+                    <h2 class="basic-attacks__heading--view" data-i18n="basic_attacks">Basic Attacks</h2>
+                    <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_basic-attacks_empty" type="hidden"/>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_attacks_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_basic-attacks_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_attacks_repeating">No attacks saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_basic-attacks_repeating">No basic attacks saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_attacks">
+                      <fieldset class="repeating_basic-attacks">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit attacks--edit">
+                          <div class="chimera-repeater--edit basic-attacks--edit">
                           </div>
-                          <div class="chimera-repeater--delete attacks--delete">
-                            <div class="attack"><span name="attr_attack_name"></span><span>✦</span>
+                          <div class="chimera-repeater--delete basic-attacks--delete">
+                            <div class="basic-attack"><span name="attr_attack_name"></span><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view attacks--view">
-                            <div class="attack">
-                              <input class="chimera-hidden" name="attr_attack_range" type="hidden"/><img class="attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
-                              <div class="chimera-value attack__name"><span class="chimera-value__value" name="attr_attack_name"></span>
+                          <div class="chimera-repeater--view basic-attacks--view">
+                            <div class="basic-attack">
+                              <input class="chimera-hidden" name="attr_attack_range" type="hidden"/><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
+                              <div class="chimera-value basic-attack__name"><span class="chimera-value__value" name="attr_attack_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_attack_damage"></span>
                               </div>
-                              <div class="chimera-value attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
+                              <div class="chimera-value basic-attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
                               </div>
-                              <div class="chimera-value attack__special"><span class="chimera-value__value" name="attr_attack_special"></span>
+                              <div class="chimera-value basic-attack__special"><span class="chimera-value__value" name="attr_attack_special"></span>
                               </div>
                             </div>
                           </div>
@@ -196,6 +197,7 @@
                       </fieldset>
                     </div>
                   </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_weapons_empty" type="hidden"/>
                   <div class="weapons">
                     <div class="chimera-repeater">
                       <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
@@ -232,6 +234,7 @@
                       </fieldset>
                     </div>
                   </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_spells_empty" type="hidden"/>
                   <div class="spells">
                     <h2 class="spells__heading--view" data-i18n="spells">Spells</h2>
                     <div class="chimera-repeater">
@@ -251,7 +254,7 @@
                           </div>
                           <div class="chimera-repeater--view spells--view">
                             <div class="spell">
-                              <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="spell"/>
+                              <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
                               <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
@@ -267,6 +270,110 @@
                                 </div>
                               </div>
                               <div class="chimera-value spell__effect"><span class="chimera-value__value" name="attr_spell_effect"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_other-actions_empty" type="hidden"/>
+                  <div class="other-actions">
+                    <h2 class="other-actions__heading--view" data-i18n="other_actions">Other Actions</h2>
+                    <div class="chimera-repeater">
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_other-actions_empty" type="hidden" value="0"/>
+                      <div class="chimera-repeater__empty">
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_other-actions_repeating">No other actions saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                      </div>
+                      <fieldset class="repeating_other-actions">
+                        <div class="chimera-repeater__content">
+                          <div class="chimera-repeater--edit other-actions--edit">
+                          </div>
+                          <div class="chimera-repeater--delete other-actions--delete">
+                          </div>
+                          <div class="chimera-repeater--view other-actions--view">
+                            <div class="other-action"><img class="other-action__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
+                              <div class="chimera-value other-action__name"><span class="chimera-value__value" name="attr_action_name"></span>
+                              </div>
+                              <div class="chimera-value other-action__effect"><span class="chimera-value__value" name="attr_action_effect"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_special-rules_empty" type="hidden"/>
+                  <div class="special-rules">
+                    <h2 class="special-rules__heading--view" data-i18n="special_rules">Special Rules</h2>
+                    <div class="chimera-repeater">
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_special-rules_empty" type="hidden" value="0"/>
+                      <div class="chimera-repeater__empty">
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_special-rules_repeating">No special rules saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                      </div>
+                      <fieldset class="repeating_special-rules">
+                        <div class="chimera-repeater__content">
+                          <div class="chimera-repeater--edit special-rules--edit">
+                          </div>
+                          <div class="chimera-repeater--delete special-rules--delete">
+                          </div>
+                          <div class="chimera-repeater--view special-rules--view">
+                            <div class="special-rule"><img class="special-rule__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
+                              <div class="chimera-value special-rule__name"><span class="chimera-value__value" name="attr_special_name"></span>
+                              </div>
+                              <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_rare-equipments_empty" type="hidden"/>
+                  <div class="rare-equipments">
+                    <h2 class="rare-equipments__heading--view" data-i18n="rare_equipment">Rare Equipment</h2>
+                    <div class="chimera-repeater">
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-equipments_empty" type="hidden" value="0"/>
+                      <div class="chimera-repeater__empty">
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-equipments_repeating">No rare equipments saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                      </div>
+                      <fieldset class="repeating_rare-equipments">
+                        <div class="chimera-repeater__content">
+                          <div class="chimera-repeater--edit rare-equipments--edit">
+                          </div>
+                          <div class="chimera-repeater--delete rare-equipments--delete">
+                          </div>
+                          <div class="chimera-repeater--view rare-equipments--view">
+                            <div class="rare-equipment"><img class="rare-equipment__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
+                              <div class="chimera-value rare-equipment__name"><span class="chimera-value__value" name="attr_equipment_name"></span>
+                              </div>
+                              <div class="chimera-value rare-equipment__effect"><span class="chimera-value__value" name="attr_equipment_effect"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_notes_empty" type="hidden"/>
+                  <div class="notes">
+                    <h2 class="notes__heading--view" data-i18n="notes">Notes</h2>
+                    <div class="chimera-repeater">
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_notes_empty" type="hidden" value="0"/>
+                      <div class="chimera-repeater__empty">
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_notes_repeating">No notes saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                      </div>
+                      <fieldset class="repeating_notes">
+                        <div class="chimera-repeater__content">
+                          <div class="chimera-repeater--edit notes--edit">
+                          </div>
+                          <div class="chimera-repeater--delete notes--delete">
+                          </div>
+                          <div class="chimera-repeater--view notes--view">
+                            <div class="note"><img class="note__icon" data-i18n-title="book_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/book.svg" title="Book"/>
+                              <div class="chimera-value note__name"><span class="chimera-value__value" name="attr_note_name"></span>
+                              </div>
+                              <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
                               </div>
                             </div>
                           </div>
@@ -624,23 +731,23 @@
                   <input class="chimera-input__field" data-i18n-title="shield_cost_title" id="shield_cost" min="0" name="attr_shield_cost" step="50" title="Cost" type="number"/>
                 </div>
               </div>
-                  <div class="attacks">
-                    <h2 class="attacks__heading--edit" data-i18n="attacks">Basic Attacks</h2>
+                  <div class="basic-attacks">
+                    <h2 class="basic-attacks__heading--edit" data-i18n="basic_attacks">Basic Attacks</h2>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_attacks_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_basic-attacks_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_attacks_repeating">No attacks saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_basic-attacks_repeating">No basic attacks saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_attacks">
+                      <fieldset class="repeating_basic-attacks">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit attacks--edit">
-                            <div class="attack">
+                          <div class="chimera-repeater--edit basic-attacks--edit">
+                            <div class="basic-attack">
                               <input class="chimera-hidden" name="attr_attack_range" type="hidden"/>
-                              <div class="chimera-input attack__name">
+                              <div class="chimera-input basic-attack__name">
                                 <label class="chimera-input__label" data-i18n="attack_name" for="attack_name">Attack Name</label>
                                 <input class="chimera-input__field" data-i18n-title="attack_name_title" id="attack_name" name="attr_attack_name" title="Attack Name" type="text"/>
                               </div>
-                              <div class="chimera-input attack__range chimera-input--small chimera-input--center">
+                              <div class="chimera-input basic-attack__range chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="attack_range" for="attack_range">Range</label>
                                 <div class="chimera-switch">
                                   <input name="attr_attack_range" type="hidden"/>
@@ -654,7 +761,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="chimera-input attack__check_1 chimera-input--small chimera-input--center">
+                              <div class="chimera-input basic-attack__check_1 chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="attack_check_1" for="attack_check_1">Attr 1</label>
                                 <select class="chimera-input__field" data-i18n-title="attack_check_1_title" id="attack_check_1" name="attr_attack_check_1" title="Attr 1">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -663,7 +770,7 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input attack__check_2 chimera-input--small chimera-input--center">
+                              <div class="chimera-input basic-attack__check_2 chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="attack_check_2" for="attack_check_2">Attr 2</label>
                                 <select class="chimera-input__field" data-i18n-title="attack_check_2_title" id="attack_check_2" name="attr_attack_check_2" title="Attr 2">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -672,7 +779,7 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input attack__type chimera-input--center">
+                              <div class="chimera-input basic-attack__type chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="attack_type" for="attack_type">Damage Type</label>
                                 <select class="chimera-input__field" data-i18n-title="attack_type_title" id="attack_type" name="attr_attack_type" title="Damage Type">
                                   <option data-i18n="physical" selected="selected" value="physical">Physical</option>
@@ -686,24 +793,24 @@
                                   <option data-i18n="poison" value="poison">Poison</option>
                                 </select>
                               </div>
-                              <label class="chimera-checkbox attack__extra_damage chimera-checkbox--column" data-i18n-title="attack_extra_damage_title" title="Extra Damage">
+                              <label class="chimera-checkbox basic-attack__extra_damage chimera-checkbox--column" data-i18n-title="attack_extra_damage_title" title="Extra Damage">
                                 <div class="chimera-checkbox__field">
                                   <input id="attack_extra_damage" name="attr_attack_extra_damage" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                                 </div><span class="chimera-checkbox__label" data-i18n="attack_extra_damage" for="attack_extra_damage">Extra Damage</span>
                               </label>
-                              <div class="chimera-input attack__special">
+                              <div class="chimera-input basic-attack__special">
                                 <label class="chimera-input__label" data-i18n="attack_special" for="attack_special">Special</label>
                                 <textarea class="chimera-input__field" data-i18n-title="attack_special_title" id="attack_special" name="attr_attack_special" title="Special" type="textarea"></textarea>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--delete attacks--delete">
-                            <div class="attack"><span name="attr_attack_name"></span><span>✦</span>
+                          <div class="chimera-repeater--delete basic-attacks--delete">
+                            <div class="basic-attack"><span name="attr_attack_name"></span><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view attacks--view">
+                          <div class="chimera-repeater--view basic-attacks--view">
                           </div>
                         </div>
                       </fieldset>
@@ -915,48 +1022,48 @@
                       </fieldset>
                     </div>
                   </div>
-                  <div class="actions">
-                    <h2 class="actions__heading--edit" data-i18n="other_actions">Other Actions</h2>
+                  <div class="other-actions">
+                    <h2 class="other-actions__heading--edit" data-i18n="other_actions">Other Actions</h2>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_actions_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_other-actions_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_actions_repeating">No actions saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_other-actions_repeating">No other actions saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_actions">
+                      <fieldset class="repeating_other-actions">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit actions--edit">
-                            <div class="action">
-                              <div class="chimera-input action__name">
+                          <div class="chimera-repeater--edit other-actions--edit">
+                            <div class="other-action">
+                              <div class="chimera-input other-action__name">
                                 <label class="chimera-input__label" data-i18n="action_name" for="action_name">Action</label>
                                 <input class="chimera-input__field" data-i18n-title="action_name_title" id="action_name" name="attr_action_name" title="Action" type="text"/>
                               </div>
-                              <div class="chimera-input action__effect">
+                              <div class="chimera-input other-action__effect">
                                 <label class="chimera-input__label" data-i18n="action_effect" for="action_effect">Effect</label>
                                 <textarea class="chimera-input__field" data-i18n-title="action_effect_title" id="action_effect" name="attr_action_effect" title="Effect" type="textarea"></textarea>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--delete actions--delete">
-                            <div class="action"><span name="attr_action_name"></span>
+                          <div class="chimera-repeater--delete other-actions--delete">
+                            <div class="other-action"><span name="attr_action_name"></span>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view actions--view">
+                          <div class="chimera-repeater--view other-actions--view">
                           </div>
                         </div>
                       </fieldset>
                     </div>
                   </div>
-                  <div class="specials">
-                    <h2 class="specials__heading--edit" data-i18n="special_rules">Special Rules</h2>
+                  <div class="special-rules">
+                    <h2 class="special-rules__heading--edit" data-i18n="special_rules">Special Rules</h2>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_specials_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_special-rules_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_specials_repeating">No specials saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_special-rules_repeating">No special rules saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_specials">
+                      <fieldset class="repeating_special-rules">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit specials--edit">
-                            <div class="special">
+                          <div class="chimera-repeater--edit special-rules--edit">
+                            <div class="special-rule">
                               <div class="chimera-input special__name">
                                 <label class="chimera-input__label" data-i18n="special_name" for="special_name">Special</label>
                                 <input class="chimera-input__field" data-i18n-title="special_name_title" id="special_name" name="attr_special_name" title="Special" type="text"/>
@@ -967,42 +1074,42 @@
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--delete specials--delete">
-                            <div class="special"><span name="attr_special_name"></span>
+                          <div class="chimera-repeater--delete special-rules--delete">
+                            <div class="special-rule"><span name="attr_special_name"></span>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view specials--view">
+                          <div class="chimera-repeater--view special-rules--view">
                           </div>
                         </div>
                       </fieldset>
                     </div>
                   </div>
-                  <div class="rare-equipment">
-                    <h2 class="rare-equipment__heading--edit" data-i18n="rare-gear">Rare Equipment</h2>
+                  <div class="rare-equipments">
+                    <h2 class="rare-equipments__heading--edit" data-i18n="rare_equipment">Rare Equipment</h2>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-equipment_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-equipments_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-equipment_repeating">No rare equipment saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-equipments_repeating">No rare equipments saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_rare-equipment">
+                      <fieldset class="repeating_rare-equipments">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit rare-equipment--edit">
-                            <div class="gear">
-                              <div class="chimera-input gear__name">
-                                <label class="chimera-input__label" data-i18n="gear_name" for="gear_name">Gear</label>
-                                <input class="chimera-input__field" data-i18n-title="gear_name_title" id="gear_name" name="attr_gear_name" title="Gear" type="text"/>
+                          <div class="chimera-repeater--edit rare-equipments--edit">
+                            <div class="rare-equipment">
+                              <div class="chimera-input rare-equipment__name">
+                                <label class="chimera-input__label" data-i18n="equipment_name" for="equipment_name">Equipment</label>
+                                <input class="chimera-input__field" data-i18n-title="equipment_name_title" id="equipment_name" name="attr_equipment_name" title="Equipment" type="text"/>
                               </div>
-                              <div class="chimera-input gear__effect">
-                                <label class="chimera-input__label" data-i18n="gear_effect" for="gear_effect">Effect</label>
-                                <textarea class="chimera-input__field" data-i18n-title="gear_effect_title" id="gear_effect" name="attr_gear_effect" title="Effect" type="textarea"></textarea>
+                              <div class="chimera-input rare-equipment__effect">
+                                <label class="chimera-input__label" data-i18n="equipment_effect" for="equipment_effect">Effect</label>
+                                <textarea class="chimera-input__field" data-i18n-title="equipment_effect_title" id="equipment_effect" name="attr_equipment_effect" title="Effect" type="textarea"></textarea>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--delete rare-equipment--delete">
-                            <div class="gear"><span name="attr_gear_name"></span>
+                          <div class="chimera-repeater--delete rare-equipments--delete">
+                            <div class="rare-equipment"><span name="attr_equipment_name"></span>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view rare-equipment--view">
+                          <div class="chimera-repeater--view rare-equipments--view">
                           </div>
                         </div>
                       </fieldset>
@@ -1055,13 +1162,13 @@
 };
 var G_REPEATING = [
     'bonds',
-    'attacks',
+    'basic-attacks',
     'weapons',
     'spells',
+    'other-actions',
+    'special-rules',
+    'rare-equipments',
     'notes',
-    'specials',
-    'actions',
-    'rare-gear',
 ];
 var G_DIE_SIZES = [6, 8, 10, 12];
 var G_STATUS_EFFECTS = {

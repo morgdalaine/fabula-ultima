@@ -1,40 +1,19 @@
 -
-  spine.bestiary.notes = {
-    heading: {
-      name: 'notes',
-      label: 'Notes',
-    },
-    hidden: [
-    ],
-    delete: [
-      {
-        name: 'note_name',
-        label: 'Note',
-        css: { names: ['note__name'], modifiers: [] },
-      },
-    ],
-    fields: [
-      {
-        name: 'note_name',
-        label: 'Note',
-        type: 'text',
-        css: { names: ['note__name'], modifiers: [] },
-      },
-      {
-        name: 'note_effect',
-        label: 'Effect',
-        type: 'textarea',
-        css: { names: ['note__effect'], modifiers: [] },
-      },
-    ],
-  };
-
   spine.bestiary.specials = {
     heading: {
       name: 'special_rules',
       label: 'Special Rules',
     },
-    hidden: [
+    hidden: [],
+    view: [
+      {
+        name: 'special_name',
+        css: { names: ['special-rule__name'], modifiers: [] },
+      },
+      {
+        name: 'special_effect',
+        css: { names: ['special-rule__effect'], modifiers: [] },
+      },
     ],
     delete: [
       {
@@ -65,11 +44,21 @@
       label: "Other Actions",
     },
     hidden: [],
+    view: [
+      {
+        name: 'action_name',
+        css: { names: ['other-action__name'], modifiers: [] },
+      },
+      {
+        name: 'action_effect',
+        css: { names: ['other-action__effect'], modifiers: [] },
+      },
+    ],
     delete: [
       {
         name: "action_name",
         label: "Action",
-        css: { names: ["action__name"], modifiers: [] },
+        css: { names: ["other-action__name"], modifiers: [] },
       },
     ],
     fields: [
@@ -77,42 +66,91 @@
         name: "action_name",
         label: "Action",
         type: "text",
-        css: { names: ["action__name"], modifiers: [] },
+        css: { names: ["other-action__name"], modifiers: [] },
       },
       {
         name: "action_effect",
         label: "Effect",
         type: "textarea",
-        css: { names: ["action__effect"], modifiers: [] },
+        css: { names: ["other-action__effect"], modifiers: [] },
       },
     ],
   };
 
   spine.bestiary.equipment = {
     heading: {
-      name: "rare-gear",
+      name: "rare_equipment",
       label: "Rare Equipment",
     },
     hidden: [],
+    view: [
+      {
+        name: 'equipment_name',
+        css: { names: ['rare-equipment__name'], modifiers: [] },
+      },
+      {
+        name: 'equipment_effect',
+        css: { names: ['rare-equipment__effect'], modifiers: [] },
+      },
+    ],
     delete: [
       {
-        name: "gear_name",
-        label: "Gear",
-        css: { names: ["gear__name"], modifiers: [] },
+        name: "equipment_name",
+        label: "Equipment",
+        css: { names: ["rare-equipment__name"], modifiers: [] },
       },
     ],
     fields: [
       {
-        name: "gear_name",
-        label: "Gear",
+        name: "equipment_name",
+        label: "Equipment",
         type: "text",
-        css: { names: ["gear__name"], modifiers: [] },
+        css: { names: ["rare-equipment__name"], modifiers: [] },
       },
       {
-        name: "gear_effect",
+        name: "equipment_effect",
         label: "Effect",
         type: "textarea",
-        css: { names: ["gear__effect"], modifiers: [] },
+        css: { names: ["rare-equipment__effect"], modifiers: [] },
+      },
+    ],
+  };
+
+  spine.bestiary.notes = {
+    heading: {
+      name: 'notes',
+      label: 'Notes',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'note_name',
+        css: { names: ['note__name'], modifiers: [] },
+      },
+      {
+        name: 'note_effect',
+        css: { names: ['note__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'note_name',
+        label: 'Note',
+        css: { names: ['note__name'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'note_name',
+        label: 'Note',
+        type: 'text',
+        css: { names: ['note__name'], modifiers: [] },
+      },
+      {
+        name: 'note_effect',
+        label: 'Effect',
+        type: 'textarea',
+        css: { names: ['note__effect'], modifiers: [] },
       },
     ],
   };

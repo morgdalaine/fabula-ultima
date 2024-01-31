@@ -1,16 +1,25 @@
 mixin rare-equipment-view(spine)
-  //-
+  +chimera-hidden('rare-equipments_empty').chimera-repeater--empty-hide-next
+  .rare-equipments
+    h2.rare-equipments__heading--view(data-i18n=spine.equipment.heading.name)= spine.equipment.heading.label
+    +chimera-repeater('rare-equipments')
+      +chimera-block('view')
+        .rare-equipment
+          - const equipment = fieldDictionary(spine.equipment.view, 'equipment');
+          +chimera-icon({ icon: 'equipment' }).rare-equipment__icon
+          +chimera-value(equipment.name)
+          +chimera-value(equipment.effect)
 
 mixin rare-equipment-edit(spine)
-  .rare-equipment
-    h2.rare-equipment__heading--edit(data-i18n=spine.equipment.heading.name)= spine.equipment.heading.label
-    +chimera-repeater('rare-equipment')
+  .rare-equipments
+    h2.rare-equipments__heading--edit(data-i18n=spine.equipment.heading.name)= spine.equipment.heading.label
+    +chimera-repeater('rare-equipments')
       +chimera-block('delete')
-        .gear
+        .rare-equipment
           - const [name] = spine.equipment.delete;
           +chimera-span(name)
       +chimera-block('edit')
-        .gear
+        .rare-equipment
           each field in spine.equipment.hidden
             +chimera-hidden(field)
           each field in spine.equipment.fields

@@ -9,7 +9,7 @@
     &--view {
       .spell {
         display: grid;
-        grid-template-columns: var(--button-component-size) 1fr repeat(3, auto);
+        grid-template-columns: var(--icon-component-size) 1fr repeat(3, auto);
         gap: 4px;
 
         input[name*='spell_is_offensive'] {

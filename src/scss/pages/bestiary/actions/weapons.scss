@@ -22,7 +22,7 @@
 
       .weapon {
         display: grid;
-        grid-template-columns: var(--button-component-size) 1fr repeat(4, auto);
+        grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
         gap: 4px;
 
         .fabula-check span {
@@ -58,7 +58,7 @@
         }
 
         &__special {
-          grid-column: span 5;
+          grid-column: 2 / span 4;
           @include mixins.text-lg-400;
         }
       }
@@ -68,7 +68,6 @@
       .weapon {
         display: grid;
         grid-template-columns: 1fr repeat(3, auto);
-        // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
         gap: 4px;
 
         &__special {

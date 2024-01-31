@@ -9,6 +9,16 @@
     }
   }
 
+  &--empty-hide-next {
+    &[value='0'] + {
+      div,
+      section,
+      article {
+        display: none;
+      }
+    }
+  }
+
   // &__controller {
   //   &[value='0'] {
   //     ~ * #{$this}__view {

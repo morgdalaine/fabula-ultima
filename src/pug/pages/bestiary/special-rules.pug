@@ -1,16 +1,25 @@
 mixin special-rules-view(spine)
-  //-
+  +chimera-hidden('special-rules_empty').chimera-repeater--empty-hide-next
+  .special-rules
+    h2.special-rules__heading--view(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
+    +chimera-repeater('special-rules')
+      +chimera-block('view')
+        .special-rule
+          - const rule = fieldDictionary(spine.specials.view, 'special');
+          +chimera-icon({ icon: 'cog' }).special-rule__icon
+          +chimera-value(rule.name)
+          +chimera-value(rule.effect)
 
 mixin special-rules-edit(spine)
-  .specials
-    h2.specials__heading--edit(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
-    +chimera-repeater('specials')
+  .special-rules
+    h2.special-rules__heading--edit(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
+    +chimera-repeater('special-rules')
       +chimera-block('delete')
-        .special
+        .special-rule
           - const [name] = spine.specials.delete;
           +chimera-span(name)
       +chimera-block('edit')
-        .special
+        .special-rule
           each field in spine.specials.hidden
             +chimera-hidden(field)
           each field in spine.specials.fields

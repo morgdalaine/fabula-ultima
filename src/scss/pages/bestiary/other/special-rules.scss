@@ -1,23 +1,46 @@
 @use '../../../common/vars' as mixins;
 
-.specials {
-  $this: '.specials';
+.fabula-ultima {
+  .special-rules {
+    $this: '.special-rules';
 
-  grid-column: span 2;
+    grid-column: span 2;
 
-  @include mixins.repeater-heading;
+    @include mixins.repeater-heading;
 
-  &--delete {
-    .special {
-      display: flex;
-      gap: 4px;
+    &--delete {
+      .special-rule {
+        display: flex;
+        gap: 4px;
+      }
     }
-  }
 
-  &--edit {
-    .special {
-      display: grid;
-      gap: 4px;
+    &--view {
+      .special-rule {
+        display: grid;
+        grid-template-columns: var(--icon-component-size) 1fr;
+        gap: 4px;
+
+        &__icon {
+          grid-row: span 2;
+        }
+        &__name {
+          @include mixins.text-lg-700;
+        }
+
+        &__special,
+        &__effect {
+          grid-column: 2/-1;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
+    &--edit {
+      .special-rule {
+        display: grid;
+        gap: 4px;
+      }
     }
   }
 }

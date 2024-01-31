@@ -1,12 +1,12 @@
 const G_REPEATING = [
   'bonds',
-  'attacks',
+  'basic-attacks',
   'weapons',
   'spells',
+  'other-actions',
+  'special-rules',
+  'rare-equipments',
   'notes',
-  'specials',
-  'actions',
-  'rare-gear',
 ];
 
 const G_DIE_SIZES = [6, 8, 10, 12];

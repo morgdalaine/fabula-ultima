@@ -8,7 +8,7 @@
 // @use 'bestiary/defenses';
 // @use 'bestiary/extras';
 // @use 'bestiary/bio';
-// @use 'bestiary/other';
+@use 'bestiary/other';
 
 .bestiary {
   $this: '.bestiary';
@@ -317,21 +317,19 @@
     .status-effect {
       img,
       svg {
-        margin: 0;
+        // margin: 0; bolt svg is weird
         filter: none;
       }
     }
   }
 
   &--edit {
-    // @import 'bestiary/actions';
     @import 'bestiary/equipment';
     @import 'bestiary/affinity';
     @import 'bestiary/attributes';
     @import 'bestiary/defenses';
     @import 'bestiary/extras';
     @import 'bestiary/bio';
-    @import 'bestiary/other';
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -379,7 +377,7 @@
     }
 
     .armor,
-    .attacks {
+    .basic-attacks {
       grid-column: 1 / span 2;
     }
 

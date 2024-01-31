@@ -1,23 +1,46 @@
 @use '../../../common/vars' as mixins;
 
-.rare-equipment {
-  $this: '.rare-equipment';
+.fabula-ultima {
+  .rare-equipments {
+    $this: '.rare-equipments';
 
-  grid-column: span 2;
+    grid-column: span 2;
 
-  @include mixins.repeater-heading;
+    @include mixins.repeater-heading;
 
-  &--delete {
-    .gear {
-      display: flex;
-      gap: 4px;
+    &--delete {
+      .rare-equipment {
+        display: flex;
+        gap: 4px;
+      }
     }
-  }
 
-  &--edit {
-    .gear {
-      display: grid;
-      gap: 4px;
+    &--view {
+      .rare-equipment {
+        display: grid;
+        grid-template-columns: var(--icon-component-size) 1fr;
+        gap: 4px;
+
+        &__icon {
+          grid-row: span 2;
+        }
+        &__name {
+          @include mixins.text-lg-700;
+        }
+
+        &__special,
+        &__effect {
+          grid-column: 2/-1;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
+    &--edit {
+      .rare-equipment {
+        display: grid;
+        gap: 4px;
+      }
     }
   }
 }

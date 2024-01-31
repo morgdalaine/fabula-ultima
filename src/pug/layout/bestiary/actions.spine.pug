@@ -1,56 +1,56 @@
 -
   spine.bestiary.attacks = {
     heading: {
-      name: 'attacks',
+      name: 'basic_attacks',
       label: 'Basic Attacks',
     },
     hidden: ['attack_range'],
     view: [
       {
         name: 'attack_name',
-        css: { names: ['attack__name'], modifiers: [] },
+        css: { names: ['basic-attack__name'], modifiers: [] },
       },
       {
         name: 'attack_check_1',
         dynamic: true,
-        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_1'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_check_2',
         dynamic: true,
-        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_2'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_damage',
         title: 'Damage',
-        css: { names: ['attack__type'], modifiers: ['center'] },
+        css: { names: ['basic-attack__type'], modifiers: ['center'] },
       },
       {
         name: 'attack_type',
         title: 'Damage Type',
         dynamic: true,
-        css: { names: ['attack__type'], modifiers: ['center'] },
+        css: { names: ['basic-attack__type'], modifiers: ['center'] },
       },
       {
         name: 'attack_special',
-        css: { names: ['attack__special'], modifiers: [] },
+        css: { names: ['basic-attack__special'], modifiers: [] },
       },
     ],
     delete: [
       {
         name: 'attack_name',
         label: 'Attack Name',
-        css: { names: ['attack__name'], modifiers: [] },
+        css: { names: ['basic-attack__name'], modifiers: [] },
       },
       {
         name: 'attack_check_1',
         dynamic: true,
-        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_1'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_check_2',
         dynamic: true,
-        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_2'], modifiers: ['small', 'center'] },
       },
     ],
     fields: [
@@ -58,47 +58,47 @@
         name: 'attack_name',
         label: 'Attack Name',
         type: 'text',
-        css: { names: ['attack__name'], modifiers: [] },
+        css: { names: ['basic-attack__name'], modifiers: [] },
       },
       {
         name: 'attack_range',
         label: 'Range',
         type: 'switch',
         options: rangeOptions,
-        css: { names: ['attack__range'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__range'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_check_1',
         label: 'Attr 1',
         type: 'select',
         options: attributeOptions,
-        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_1'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_check_2',
         label: 'Attr 2',
         type: 'select',
         options: attributeOptions,
-        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_2'], modifiers: ['small', 'center'] },
       },
       {
         name: 'attack_type',
         label: 'Damage Type',
         type: 'select',
         options: damageTypeOptions,
-        css: { names: ['attack__type'], modifiers: ['center'] },
+        css: { names: ['basic-attack__type'], modifiers: ['center'] },
       },
       {
         name: 'attack_extra_damage',
         label: 'Extra Damage',
         type: 'checkbox',
-        css: { names: ['attack__extra_damage'], modifiers: ['column'] },
+        css: { names: ['basic-attack__extra_damage'], modifiers: ['column'] },
       },
       {
         name: 'attack_special',
         label: 'Special',
         type: 'textarea',
-        css: { names: ['attack__special'], modifiers: [] },
+        css: { names: ['basic-attack__special'], modifiers: [] },
       },
     ],
   };
