@@ -25,6 +25,10 @@
     flex-direction: column;
     gap: 4px;
 
+    * ~ .repcontrol {
+      display: none;
+    }
+
     .bio {
       display: grid;
       grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
@@ -210,6 +214,10 @@
         &__mp {
           min-width: 4rem;
           background-color: var(--color-mp);
+        }
+        &__initiative {
+          display: flex;
+          justify-content: space-evenly;
         }
       }
 

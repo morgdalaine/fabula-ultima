@@ -20,7 +20,7 @@ mixin bestiary-view(spine)
         +chimera-hidden(bio.rank.name)
         +chimera-span(bio.level)
         +chimera-span(bio.rank)
-        +fabula-diamond
+        +fabula-diamond(['adjusted'])
         +chimera-span(bio.species)
       .bio__description
         +chimera-span(bio.description)
@@ -39,7 +39,7 @@ mixin bestiary-view(spine)
           label(data-i18n='hp') HP
         .points__hp
           +chimera-span(points.hp)
-          +fabula-diamond
+          +fabula-diamond(['adjusted'])
           +chimera-span(points.hp_crisis)
 
         .points__label
@@ -118,6 +118,7 @@ mixin bestiary-edit(spine)
         +chimera-hidden(field)
       each field in spine.armor.fields
         +chimera-input(field)
+
     .shield
       h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
       each field in spine.shield.fields

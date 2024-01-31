@@ -6,20 +6,88 @@
 
     @include mixins.repeater-heading;
 
+    &--view {
+      .spell {
+        display: grid;
+        grid-template-columns: var(--button-component-size) 1fr repeat(3, auto);
+        gap: 4px;
+
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .fabula-check,
+            ~ .fabula-diamond--toggle {
+              display: none;
+            }
+          }
+        }
+
+        .fabula-check {
+          span {
+            @include mixins.text-lg-700;
+          }
+        }
+
+        &__icon {
+          grid-row: span 2;
+        }
+
+        &__name,
+        &__mp,
+        &__target,
+        &__duration {
+          @include mixins.text-lg-700;
+        }
+
+        &__target-duration {
+          grid-column: 2 / -1;
+          grid-row-start: 2;
+          display: flex;
+          justify-content: flex-end;
+          gap: 4px;
+        }
+        &__effect {
+          grid-column: 2 / -1;
+          grid-row-start: 3;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
     &--edit {
       .spell {
         display: grid;
         grid-template-columns: repeat(2, 1fr) repeat(3, auto);
-        // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
         gap: 4px;
 
-        &__special,
-        &__effect {
-          grid-column: 1/-1;
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .spell__check_1,
+            ~ .spell__check_2 {
+              display: none;
+            }
+          }
         }
 
         &__name {
           grid-column: span 2;
+        }
+        &__offensive {
+          grid-column-start: -2;
+        }
+
+        &__mp,
+        &__target,
+        &__duration,
+        &__precision,
+        &__damage {
+          grid-row: 2;
+        }
+
+        &__special,
+        &__effect {
+          grid-column: 1/-1;
         }
       }
     }

@@ -1,5 +1,34 @@
 mixin spells-view(spine)
-  //-
+  .spells
+    h2.spells__heading--view(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    +chimera-repeater('spells')
+      +chimera-block('delete')
+        .spell
+          - const [name, att1, att2] = spine.spells.delete;
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('view')
+        .spell
+          - const spell = fieldDictionary(spine.spells.view, 'spell');
+          each field in spine.spells.hidden
+            +chimera-hidden(field)
+
+          +chimera-icon({ icon: 'spell' }).spell__icon
+
+          +chimera-value(spell.name)
+
+          +fabula-check(spell.check_1, spell.check_2, spell.precision_total)
+          +fabula-diamond(['toggle'])
+
+          +chimera-value(spell.mp)
+
+          .spell__target-duration
+            +chimera-value(spell.target)
+            +fabula-diamond
+            +chimera-value(spell.duration)
+
+          +chimera-value(spell.effect)
 
 mixin spells-edit(spine)
   .spells

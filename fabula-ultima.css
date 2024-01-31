@@ -330,6 +330,11 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-value--bullet::before {
   content: "✦";
 }
+.fabula-ultima .chimera-value--reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4px;
+}
 .fabula-ultima .chimera-value--helptext .chimera-value__label {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -666,7 +671,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__precision {
   display: none;
 }
-.fabula-ultima .fabula-diamond {
+.fabula-ultima .fabula-diamond--adjusted {
   margin-top: -3px;
 }
 .fabula-ultima select {
@@ -811,7 +816,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 150%;
 }
 .fabula-ultima .attacks--edit .attack {
   display: grid;
@@ -846,16 +851,72 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
+.fabula-ultima .spells--view .spell {
+  display: grid;
+  grid-template-columns: var(--button-component-size) 1fr repeat(3, auto);
+  gap: 4px;
+}
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .fabula-check,
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .fabula-diamond--toggle,
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .fabula-check,
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .fabula-diamond--toggle {
+  display: none;
+}
+.fabula-ultima .spells--view .spell .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .spells--view .spell__icon {
+  grid-row: span 2;
+}
+.fabula-ultima .spells--view .spell__name, .fabula-ultima .spells--view .spell__mp, .fabula-ultima .spells--view .spell__target, .fabula-ultima .spells--view .spell__duration {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .spells--view .spell__target-duration {
+  grid-column: 2/-1;
+  grid-row-start: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.fabula-ultima .spells--view .spell__effect {
+  grid-column: 2/-1;
+  grid-row-start: 3;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
 .fabula-ultima .spells--edit .spell {
   display: grid;
   grid-template-columns: repeat(2, 1fr) repeat(3, auto);
   gap: 4px;
 }
-.fabula-ultima .spells--edit .spell__special, .fabula-ultima .spells--edit .spell__effect {
-  grid-column: 1/-1;
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_1,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2 {
+  display: none;
 }
 .fabula-ultima .spells--edit .spell__name {
   grid-column: span 2;
+}
+.fabula-ultima .spells--edit .spell__offensive {
+  grid-column-start: -2;
+}
+.fabula-ultima .spells--edit .spell__mp, .fabula-ultima .spells--edit .spell__target, .fabula-ultima .spells--edit .spell__duration, .fabula-ultima .spells--edit .spell__precision, .fabula-ultima .spells--edit .spell__damage {
+  grid-row: 2;
+}
+.fabula-ultima .spells--edit .spell__special, .fabula-ultima .spells--edit .spell__effect {
+  grid-column: 1/-1;
 }
 
 .fabula-ultima .weapons__heading--edit {
@@ -879,6 +940,60 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
+.fabula-ultima .weapons--view input[name*=weapon_range][value=melee] ~ .weapon__range--melee {
+  display: block;
+}
+.fabula-ultima .weapons--view input[name*=weapon_range][value=distance] ~ .weapon__range--distance {
+  display: block;
+}
+.fabula-ultima .weapons--view .weapon {
+  display: grid;
+  grid-template-columns: var(--button-component-size) 1fr repeat(4, auto);
+  gap: 4px;
+}
+.fabula-ultima .weapons--view .weapon .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .weapons--view .weapon__range--melee, .fabula-ultima .weapons--view .weapon__range--distance {
+  display: none;
+  grid-row: span 2;
+}
+.fabula-ultima .weapons--view .weapon__attack, .fabula-ultima .weapons--view .weapon__attack_name, .fabula-ultima .weapons--view .weapon__type {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .weapons--view .weapon__attack {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .weapons--view .weapon__name {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .weapons--view .weapon__name::before {
+  content: "(";
+}
+.fabula-ultima .weapons--view .weapon__name::after {
+  content: ")";
+}
+.fabula-ultima .weapons--view .weapon__special {
+  grid-column: span 5;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
 .fabula-ultima .weapons--edit .weapon {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto);
@@ -899,6 +1014,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.bestiary--view * ~ .repcontrol {
+  display: none;
 }
 .bestiary--view .bio {
   display: grid;
@@ -1094,6 +1212,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--view .statistics .points__mp {
   min-width: 4rem;
   background-color: var(--color-mp);
+}
+.bestiary--view .statistics .points__initiative {
+  display: flex;
+  justify-content: space-evenly;
 }
 .bestiary--view .statistics .defenses {
   display: grid;
@@ -1324,7 +1446,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 150%;
   align-self: center;
 }
 .bestiary--edit .attributes {

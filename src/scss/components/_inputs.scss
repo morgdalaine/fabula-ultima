@@ -137,51 +137,10 @@
   }
 
   .fabula-diamond {
-    margin-top: -3px;
+    &--adjusted {
+      margin-top: -3px;
+    }
   }
-
-  // input[type='number'],
-  // input[type='text'],
-  // select,
-  // textarea {
-  //   width: 100%;
-  //   width: stretch;
-  //   height: var(--input-component-size);
-
-  //   background-color: var(--input-background);
-  //   border-bottom: var(--input-border);
-
-  //   font-family: var(--input-font-stack);
-  //   font-size: var(--input-font-size);
-  //   color: var(--input-color);
-
-  //   transition:
-  //     background-color 0.2s ease-in,
-  //     color 0.2s ease-in,
-  //     border 0.2s ease-in,
-  //     padding 0.2s ease-in;
-
-  //   padding-inline-start: var(--p-sm);
-  //   padding-block: 1px;
-
-  //   &:active,
-  //   &:hover,
-  //   &:focus {
-  //     outline: transparent;
-
-  //     background-color: var(--input-background-color-active);
-  //     color: var(--input-color-active);
-  //     border-bottom: var(--input-border-active);
-  //   }
-
-  //   &:active {
-  //     border-width: 2px;
-  //   }
-
-  //   &::placeholder {
-  //     color: gray;
-  //   }
-  // }
 
   select {
     align-self: normal;

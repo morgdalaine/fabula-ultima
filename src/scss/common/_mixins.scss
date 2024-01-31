@@ -54,19 +54,19 @@
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 150%;
 }
 
-@mixin text-lg-700-fabula {
-  font-family: var(--font-title);
+@mixin text-lg-700 {
+  font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 
-@mixin text-lg-700 {
-  font-family: var(--font-body);
+@mixin text-lg-700-fabula {
+  font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;

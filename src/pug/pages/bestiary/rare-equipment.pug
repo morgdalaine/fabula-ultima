@@ -3,15 +3,15 @@ mixin rare-equipment-view(spine)
 
 mixin rare-equipment-edit(spine)
   .rare-equipment
-    h2.rare-equipment__heading--edit(data-i18n=spine.rare - equipment.heading.name)= spine.rare - equipment.heading.label
-    +chimera-repeater('rare-gear')
+    h2.rare-equipment__heading--edit(data-i18n=spine.equipment.heading.name)= spine.equipment.heading.label
+    +chimera-repeater('rare-equipment')
       +chimera-block('delete')
         .gear
-          - const [name] = spine.rare - equipment.delete;
+          - const [name] = spine.equipment.delete;
           +chimera-span(name)
       +chimera-block('edit')
         .gear
-          each field in spine.rare-equipment.hidden
+          each field in spine.equipment.hidden
             +chimera-hidden(field)
-          each field in spine.rare-equipment.fields
+          each field in spine.equipment.fields
             +chimera-input(field)

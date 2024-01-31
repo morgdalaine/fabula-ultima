@@ -57,6 +57,11 @@
         content: '✦';
       }
     }
+    &--reverse {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 4px;
+    }
 
     &--helptext {
       .chimera-value {

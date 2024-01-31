@@ -16,5 +16,9 @@ mixin fabula-check(att1, att2, precision, damage)
       span +
       +chimera-span(damage).fabula-check__damage
 
-mixin fabula-diamond
-  span.fabula-diamond ⬥
+mixin fabula-diamond(modifiers=[])
+  -
+    const css = modifiers.length ?
+      Object.assign([], modifiers).map((mod) => `fabula-diamond--${mod}`).join(' ') :
+      `fabula-diamond`;
+  span(class=css) ⬥
