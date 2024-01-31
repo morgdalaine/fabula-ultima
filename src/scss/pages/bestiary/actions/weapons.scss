@@ -1,4 +1,3 @@
-@use '../../../common/vars' as *;
 @use '../../../common/vars' as mixins;
 
 .weapons {
@@ -11,7 +10,7 @@
 
   &--delete {
     .weapon {
-      @include fabula-check;
+      // @include fabula-check;
     }
   }
 

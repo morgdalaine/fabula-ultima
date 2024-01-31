@@ -4,7 +4,37 @@
       name: 'attacks',
       label: 'Basic Attacks',
     },
-    hidden: [
+    hidden: ['attack_range'],
+    view: [
+      {
+        name: 'attack_name',
+        css: { names: ['attack__name'], modifiers: [] },
+      },
+      {
+        name: 'attack_check_1',
+        dynamic: true,
+        css: { names: ['attack__check_1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_check_2',
+        dynamic: true,
+        css: { names: ['attack__check_2'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'attack_damage',
+        title: 'Damage',
+        css: { names: ['attack__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'attack_type',
+        title: 'Damage Type',
+        dynamic: true,
+        css: { names: ['attack__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'attack_special',
+        css: { names: ['attack__special'], modifiers: [] },
+      },
     ],
     delete: [
       {

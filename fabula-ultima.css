@@ -747,6 +747,117 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   opacity: 1;
 }
 
+.fabula-ultima .attacks__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .attacks__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .attacks--view input[name*=attack_range][value=melee] ~ .attack__range--melee {
+  display: block;
+}
+.fabula-ultima .attacks--view input[name*=attack_range][value=distance] ~ .attack__range--distance {
+  display: block;
+}
+.fabula-ultima .attacks--view .attack {
+  display: grid;
+  grid-template-columns: var(--button-component-size) 1fr repeat(4, auto);
+  gap: 4px;
+}
+.fabula-ultima .attacks--view .attack .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .attacks--view .attack__range--melee, .fabula-ultima .attacks--view .attack__range--distance {
+  display: none;
+  grid-row: span 2;
+}
+.fabula-ultima .attacks--view .attack__name, .fabula-ultima .attacks--view .attack__type {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .attacks--view .attack__special {
+  grid-column: span 6;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.fabula-ultima .attacks--edit .attack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .attacks--edit .attack__special {
+  grid-column: 1/-1;
+}
+.fabula-ultima .attacks--edit .attack__name {
+  grid-column: span 3;
+}
+
+.spells--heading {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.spells--edit .spell {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+  gap: 4px;
+}
+.spells--edit .spell__special, .spells--edit .spell__effect {
+  grid-column: 1/-1;
+}
+.spells--edit .spell__name {
+  grid-column: span 2;
+}
+
+.weapons--heading {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.weapons--edit .weapon {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 4px;
+}
+.weapons--edit .weapon__special {
+  grid-column: 1/-1;
+}
+.weapons--edit .weapon__name {
+  grid-column: span 3;
+}
 .bestiary--view {
   margin: 8px;
   max-width: 500px;
@@ -1067,11 +1178,25 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   margin: 0;
   filter: none;
 }
+.bestiary--view .attacks__name {
+  grid-column: span 3;
+  background-image: var(--fabula-gradient-primary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.bestiary--view .attacks__name span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
 .bestiary--edit {
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
@@ -1105,144 +1230,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 8px;
   padding: 8px;
   background-color: var(--background);
-}
-.bestiary--edit .attacks--heading {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.bestiary--edit .attacks--delete .attack {
-  display: flex;
-  gap: 4px;
-}
-.bestiary--edit .attacks--delete .attack span {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  line-height: 140%;
-}
-.bestiary--edit .attacks--delete .attack .fabula-check span, .bestiary--edit .attacks--delete .attack .fabula-check::before, .bestiary--edit .attacks--delete .attack .fabula-check::after {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%;
-  text-transform: uppercase;
-}
-.bestiary--edit .attacks--delete .attack .fabula-check::before {
-  margin: 0px 2.4px 0px -8px;
-}
-.bestiary--edit .attacks--delete .attack .fabula-check::after {
-  margin: 0px -5.6px 0px 0px;
-}
-.bestiary--edit .attacks--edit .attack {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-}
-.bestiary--edit .attacks--edit .attack__special {
-  grid-column: 1/-1;
-}
-.bestiary--edit .attacks--edit .attack__name {
-  grid-column: span 3;
-}
-.bestiary--edit .spells--heading {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.bestiary--edit .spells--delete .spell {
-  display: flex;
-  gap: 4px;
-}
-.bestiary--edit .spells--delete .spell span {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  line-height: 140%;
-}
-.bestiary--edit .spells--delete .spell .fabula-check span, .bestiary--edit .spells--delete .spell .fabula-check::before, .bestiary--edit .spells--delete .spell .fabula-check::after {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%;
-  text-transform: uppercase;
-}
-.bestiary--edit .spells--delete .spell .fabula-check::before {
-  margin: 0px 2.4px 0px -8px;
-}
-.bestiary--edit .spells--delete .spell .fabula-check::after {
-  margin: 0px -5.6px 0px 0px;
-}
-.bestiary--edit .spells--edit .spell {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
-  gap: 4px;
-}
-.bestiary--edit .spells--edit .spell__special, .bestiary--edit .spells--edit .spell__effect {
-  grid-column: 1/-1;
-}
-.bestiary--edit .spells--edit .spell__name {
-  grid-column: span 2;
-}
-.bestiary--edit .weapons--heading {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.bestiary--edit .weapons--delete .weapon {
-  display: flex;
-  gap: 4px;
-}
-.bestiary--edit .weapons--delete .weapon span {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  line-height: 140%;
-}
-.bestiary--edit .weapons--delete .weapon .fabula-check span, .bestiary--edit .weapons--delete .weapon .fabula-check::before, .bestiary--edit .weapons--delete .weapon .fabula-check::after {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 125%;
-  text-transform: uppercase;
-}
-.bestiary--edit .weapons--delete .weapon .fabula-check::before {
-  margin: 0px 2.4px 0px -8px;
-}
-.bestiary--edit .weapons--delete .weapon .fabula-check::after {
-  margin: 0px -5.6px 0px 0px;
-}
-.bestiary--edit .weapons--edit .weapon {
-  display: grid;
-  grid-template-columns: 1fr repeat(3, auto);
-  gap: 4px;
-}
-.bestiary--edit .weapons--edit .weapon__special {
-  grid-column: 1/-1;
-}
-.bestiary--edit .weapons--edit .weapon__name {
-  grid-column: span 3;
 }
 .bestiary--edit .armor {
   display: grid;
@@ -1566,6 +1553,7 @@ html {
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #b9a9be 100%);
   --fabula-gradient-primary-border: linear-gradient(45deg, #674168, #fff) 1;
+  --fabula-gradient-secondary: linear-gradient(90deg, #6e468d 0%, #fff 100%);
   --fabula-gradient-secondary-border: linear-gradient(45deg, #b9a9be 0%, #fff 100%) 1;
   --fabula-gradient-dark-border: linear-gradient(90deg, #341b35, #6d5072) 1;
   --color-fabula0: #281127;

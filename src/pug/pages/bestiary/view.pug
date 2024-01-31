@@ -2,8 +2,7 @@ mixin bestiary-view(spine)
   header.bestiary--view
     .bio
       -
-        const bio = spine.bio.fields
-          .reduce((memo, val) => ((memo[val.name] = structuredClone(val)), memo), {});
+        const bio = fieldDictionary(spine.bio.fields)
 
       +chimera-hidden('character_avatar', '')
       .bio__avatar
@@ -30,8 +29,7 @@ mixin bestiary-view(spine)
 
       .points
         -
-          const points = spine.points.fields
-            .reduce((memo, val) => ((memo[val.name] = structuredClone(val)), memo), {});
+          const points = fieldDictionary(spine.points.fields)
 
         .points__label
           label(data-i18n='hp') HP
@@ -65,3 +63,5 @@ mixin bestiary-view(spine)
     .status-effects
       each field in spine.statuses.fields
         +chimera-input(field)
+
+    +basic-attacks-view(spine)

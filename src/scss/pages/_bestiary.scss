@@ -1,6 +1,15 @@
 @use '../common/vars' as *;
 @use '../common/vars' as mixins;
 
+@use 'bestiary/actions';
+// @use 'bestiary/equipment';
+// @use 'bestiary/affinity';
+// @use 'bestiary/attributes';
+// @use 'bestiary/defenses';
+// @use 'bestiary/extras';
+// @use 'bestiary/bio';
+// @use 'bestiary/other';
+
 .bestiary {
   $this: '.bestiary';
 
@@ -304,10 +313,31 @@
         filter: none;
       }
     }
+
+    .attacks {
+      &--delete {
+        .attack {
+          // @include fabula-check;
+        }
+      }
+      &__name {
+        grid-column: span 3;
+        background-image: var(--fabula-gradient-primary);
+        color: var(--color-on-dark);
+        padding-left: 16px;
+        padding-right: 16px;
+        span {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          @include mixins.text-xxl-500-fabula;
+        }
+      }
+    }
   }
 
   &--edit {
-    @import 'bestiary/actions';
+    // @import 'bestiary/actions';
     @import 'bestiary/equipment';
     @import 'bestiary/affinity';
     @import 'bestiary/attributes';

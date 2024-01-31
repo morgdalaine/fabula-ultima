@@ -39,6 +39,8 @@ html {
 
   --fabula-gradient-primary: #{linear-gradient(90deg, colors.$fabula1 0%, colors.$fabula2 100%)};
   --fabula-gradient-primary-border: #{linear-gradient(45deg, colors.$fabula1, colors.$white) 1};
+
+  --fabula-gradient-secondary: #{linear-gradient(90deg, colors.$fabula3 0%, colors.$white 100%)};
   --fabula-gradient-secondary-border: #{linear-gradient(
       45deg,
       colors.$fabula2 0%,

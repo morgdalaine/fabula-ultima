@@ -35,34 +35,20 @@ mixin bestiary-edit(spine)
         +chimera-input(field)
 
     .armor
-      h2.armor--heading(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+      h2.armor__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
       each field in spine.armor.hidden
         +chimera-hidden(field)
       each field in spine.armor.fields
         +chimera-input(field)
     .shield
-      h2.shield--heading(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+      h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
       each field in spine.shield.fields
         +chimera-input(field)
 
-    .attacks
-      h2.attacks--heading(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
-      +chimera-repeater('attacks')
-        +chimera-block('delete')
-          .attack
-            - const [name, att1, att2] = spine.attacks.delete;
-            +chimera-span(name)
-            span ✦
-            +fabula-check(att1, att2)
-        +chimera-block('edit')
-          .attack
-            each field in spine.attacks.hidden
-              +chimera-hidden(field)
-            each field in spine.attacks.fields
-              +chimera-input(field)
+    +basic-attacks-edit(spine)
 
     .weapons
-      h2.weapons--heading(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+      h2.weapons__heading--edit(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
       +chimera-repeater('weapons')
         +chimera-block('delete')
           .weapon
@@ -78,7 +64,7 @@ mixin bestiary-edit(spine)
               +chimera-input(field)
 
     .spells
-      h2.spells--heading(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+      h2.spells__heading--edit(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
       +chimera-repeater('spells')
         +chimera-block('delete')
           .spell
@@ -94,7 +80,7 @@ mixin bestiary-edit(spine)
               +chimera-input(field)
 
     .notes
-      h2.notes--heading(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+      h2.notes__heading--edit(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
       +chimera-repeater('notes')
         +chimera-block('delete')
           .note
@@ -108,7 +94,7 @@ mixin bestiary-edit(spine)
               +chimera-input(field)
 
     .specials
-      h2.specials--heading(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
+      h2.specials__heading--edit(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
       +chimera-repeater('specials')
         +chimera-block('delete')
           .special
@@ -122,7 +108,7 @@ mixin bestiary-edit(spine)
               +chimera-input(field)
 
     .actions
-      h2.actions--heading(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+      h2.actions__heading--edit(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
       +chimera-repeater('actions')
         +chimera-block('delete')
           .action
@@ -136,7 +122,7 @@ mixin bestiary-edit(spine)
               +chimera-input(field)
 
     .raregear
-      h2.raregear--heading(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+      h2.raregear__heading--edit(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
       +chimera-repeater('rare-gear')
         +chimera-block('delete')
           .gear

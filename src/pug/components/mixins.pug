@@ -1,5 +1,5 @@
 //-【INS + WLP】
-mixin fabula-check(att1, att2, precision)
+mixin fabula-check(att1, att2, precision, damage)
   .fabula-check
     +chimera-span(att1)
     span +
@@ -8,6 +8,13 @@ mixin fabula-check(att1, att2, precision)
       input(name=`attr_${precision.name}`, type='hidden')
       span.fabula-check__precision +
       +chimera-span(precision).fabula-check__precision
+
+  if damage
+    +fabula-diamond
+    .fabula-check
+      span(data-i18n='hr') HR
+      span +
+      +chimera-span(damage).fabula-check__damage
 
 mixin fabula-diamond
   span.fabula-diamond ⬥

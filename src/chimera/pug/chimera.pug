@@ -7,6 +7,14 @@
     return css;
   };
 
+  const fieldDictionary = (fields, removePrefix='') => {
+    return fields.reduce((memo, val) => {
+      const key = removePrefix ? val.name.replace(`${removePrefix}_`, '') : val.name;
+      memo[key] = structuredClone(val);
+      return memo
+    }, {});
+  }
+
 //- https://github.com/pugjs/pug/issues/1693#issuecomment-894801220
 //- https://codepen.io/Vectorjon/pen/GRmYWjN
 mixin chimera-block(key, marker=false)
@@ -32,19 +40,19 @@ mixin chimera-switch(blob)
       each option in blob.options
         label.chimera-switch__label
           input(id=blob.name, name=blob.attr, type='radio', value=option.value)
-          +chimera-icon({ icon: option.image })
+          +chimera-icon({ icon: option.icon })
           span(data-i18n=option.value)= option.text
 
 mixin chimera-checkbox(blob)
   - const namespace = 'chimera-checkbox';
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
   - const attr = `attr_${blob.name}`;
-  - const image = blob.image ?? 'checkbox';
+  - const icon = blob.icon ?? 'checkbox';
   - const blobTitle = blob.title ?? blob.label;
   label(class=css, data-i18n-title=`${blob.name}_title`, title=blobTitle)
     .chimera-checkbox__field
       input(id=blob.name, name=attr, type='checkbox', value=blob.value)
-      +chimera-icon({ icon: image })
+      +chimera-icon({ icon: icon })
     span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
 mixin chimera-hidden(field, value)
@@ -105,7 +113,7 @@ mixin chimera-html-element(blob)
 
 mixin chimera-icon(blob)
   - const { src, title } = assets[blob.icon];
-  img(data-i18n-title=`${blob.icon}_title`, src=src, title=title)
+  img(data-i18n-title=`${blob.icon}_title`, src=src, title=title)&attributes(attributes)
 
 mixin chimera-input(blob)
   - const namespace = 'chimera-input';

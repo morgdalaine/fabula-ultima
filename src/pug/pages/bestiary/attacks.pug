@@ -1,0 +1,41 @@
+mixin basic-attacks-view(spine)
+  .attacks
+    h2.attacks__heading--view(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
+    +chimera-repeater('attacks')
+      +chimera-block('delete')
+        .attack
+          - const [name, att1, att2] = spine.attacks.delete;
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('view')
+        .attack
+          - const attack = fieldDictionary(spine.attacks.view, 'attack');
+          each field in spine.attacks.hidden
+            +chimera-hidden(field)
+
+          each range in rangeOptions
+            +chimera-icon(range)(class=`attack__range--${range.name}`)
+
+          +chimera-value(attack.name)
+          +fabula-check(attack.check_1, attack.check_2, attack.precision, attack.damage)
+
+          +chimera-value(attack.type)
+          +chimera-value(attack.special)
+
+mixin basic-attacks-edit(spine)
+  .attacks
+    h2.attacks__heading--edit(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
+    +chimera-repeater('attacks')
+      +chimera-block('delete')
+        .attack
+          - const [name, att1, att2] = spine.attacks.delete;
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2)
+      +chimera-block('edit')
+        .attack
+          each field in spine.attacks.hidden
+            +chimera-hidden(field)
+          each field in spine.attacks.fields
+            +chimera-input(field)
