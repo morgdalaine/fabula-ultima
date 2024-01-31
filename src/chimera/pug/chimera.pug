@@ -40,7 +40,8 @@ mixin chimera-checkbox(blob)
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
   - const attr = `attr_${blob.name}`;
   - const image = blob.image ?? 'checkbox';
-  label(class=css)
+  - const blobTitle = blob.title ?? blob.label;
+  label(class=css, data-i18n-title=`${blob.name}_title`, title=blobTitle)
     .chimera-checkbox__field
       input(id=blob.name, name=attr, type='checkbox', value=blob.value)
       +chimera-icon({ icon: image })
@@ -78,10 +79,10 @@ mixin chimera-input-element(blob)
           option(data-i18n=option.name, selected=isSelected, value=option.value)= option.text
 
     when 'checkbox'
-      +chimera-checkbox(blob)
+      +chimera-checkbox({...blob, title: blobTitle})
 
     when 'switch'
-      +chimera-switch(blob)
+      +chimera-switch({...blob, title: blobTitle})
 
     when 'number'
     when 'text'

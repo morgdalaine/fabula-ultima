@@ -759,10 +759,37 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--view .bio {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
+  grid-template-rows: auto 1fr;
   gap: 4px;
 }
+.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__avatar {
+  display: block;
+  grid-row: span 3;
+}
+.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__name {
+  grid-column: span 2;
+}
+.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__description,
+.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__traits {
+  grid-column: 2/span 3;
+}
+.bestiary--view .bio__avatar {
+  display: none;
+  border: 1px solid var(--color-fabula0);
+  -o-border-image: var(--fabula-gradient-dark-border);
+     border-image: var(--fabula-gradient-dark-border);
+  height: 10rem;
+}
+.bestiary--view .bio__avatar img,
+.bestiary--view .bio__avatar svg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
 .bestiary--view .bio__name {
+  grid-column: span 3;
   background-image: var(--fabula-gradient-primary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -801,7 +828,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 0;
 }
 .bestiary--view .bio__description {
-  grid-column: span 2;
+  grid-column: 1/-1;
   border-bottom: 1px solid var(--color-fabula2);
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
@@ -813,7 +840,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 120%;
 }
 .bestiary--view .bio__traits {
-  grid-column: span 2;
+  grid-column: 1/-1;
   padding: 4px 16px;
 }
 .bestiary--view .bio__traits label {
@@ -966,7 +993,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(9, minmax(3rem, auto));
-  gap: 4px;
+  gap: 2px;
   text-align: center;
   border: 1px solid var(--color-fabula0);
   border-right: none;
@@ -1015,11 +1042,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--view .statistics .affinity--cell:nth-of-type(8) {
   border-right: 1px solid color-mix(in srgb, white 96%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell input:not([value]) + img,
-.bestiary--view .statistics .affinity--cell input[value=""] + img {
-  opacity: 0.25;
-  filter: grayscale(1);
-}
 .bestiary--view .statistics .affinity--cell label {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1029,6 +1051,21 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   padding: 0;
   position: absolute;
   width: 1px;
+}
+.bestiary--view .statistics .affinity--cell input:not([value]) + img,
+.bestiary--view .statistics .affinity--cell input[value=""] + img {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+.bestiary--view .status-effects {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+.bestiary--view .status-effect img,
+.bestiary--view .status-effect svg {
+  margin: 0;
+  filter: none;
 }
 .bestiary--edit {
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");

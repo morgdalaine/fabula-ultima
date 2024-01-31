@@ -4,9 +4,12 @@
     character: {},
     bestiary: {},
     gm: {},
+
+    misc: {},
   };
 
 include constants.spine.pug
+include statuses.spine.pug
 include bestiary/actions.spine.pug
 include bestiary/affinities.spine.pug
 include bestiary/attributes.spine.pug
@@ -15,3 +18,7 @@ include bestiary/defenses.spine.pug
 include bestiary/other.spine.pug
 include bestiary/points.spine.pug
 include gm/gm.spine.pug
+
+-
+  spine.character.statuses = structuredClone(spine.misc.statuses);
+  spine.bestiary.statuses = structuredClone(spine.misc.statuses);

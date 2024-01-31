@@ -4,6 +4,10 @@ mixin bestiary-view(spine)
       -
         const bio = spine.bio.fields
           .reduce((memo, val) => ((memo[val.name] = structuredClone(val)), memo), {});
+
+      +chimera-hidden('character_avatar', '')
+      .bio__avatar
+        img(name='attr_character_avatar')
       .bio__name
         +chimera-span(bio.character_name)
       .bio__meta
@@ -53,10 +57,11 @@ mixin bestiary-view(spine)
 
       .affinities
         each field in spine.affinities.fields
-          - console.log(field);
           .affinity--cell(class=`affinity--${field.name}`)
             +chimera-hidden(field.name)
             +chimera-icon({ icon: field.name, title: field.text })
             +chimera-value(field)
-            //- span.affinity__label(data-i18n=field.name)= field.text
-            //- span(name=`attr_${field.name}`)
+
+    .status-effects
+      each field in spine.statuses.fields
+        +chimera-input(field)

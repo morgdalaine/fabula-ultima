@@ -18,6 +18,8 @@
       <main class="bestiary">
             <header class="bestiary--view">
               <div class="bio">
+                <input class="chimera-hidden" name="attr_character_avatar" type="hidden" value=""/>
+                <div class="bio__avatar"><img name="attr_character_avatar"/></div>
                 <div class="bio__name"><span name="attr_character_name"></span>
                 </div>
                 <div class="bio__meta">
@@ -125,6 +127,38 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="status-effects">
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
+                </label>
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
+                </label>
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
+                </label>
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
+                </label>
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
+                </label>
+                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
+                </label>
               </div>
             </header>
             <header class="bestiary--edit">
@@ -399,17 +433,17 @@
                 </div>
               </div>
               <div class="extras extra--checkboxes">
-                <label class="chimera-checkbox extra extra__initiative_bonus">
+                <label class="chimera-checkbox extra extra__initiative_bonus" data-i18n-title="initiative_bonus_title" title="+4 Initiative">
                   <div class="chimera-checkbox__field">
                     <input id="initiative_bonus" name="attr_initiative_bonus" type="checkbox" value="4"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="initiative_bonus" for="initiative_bonus">+4 Initiative</span>
                 </label>
-                <label class="chimera-checkbox extra extra__accuracy_bonus">
+                <label class="chimera-checkbox extra extra__accuracy_bonus" data-i18n-title="accuracy_bonus_title" title="+3 bonus to all Accuracy checks">
                   <div class="chimera-checkbox__field">
                     <input id="accuracy_bonus" name="attr_accuracy_bonus" type="checkbox" value="3"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="accuracy_bonus" for="accuracy_bonus">+3 bonus to all Accuracy checks</span>
                 </label>
-                <label class="chimera-checkbox extra extra__magic_bonus">
+                <label class="chimera-checkbox extra extra__magic_bonus" data-i18n-title="magic_bonus_title" title="+3 bonus to all Magic checks">
                   <div class="chimera-checkbox__field">
                     <input id="magic_bonus" name="attr_magic_bonus" type="checkbox" value="3"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="magic_bonus" for="magic_bonus">+3 bonus to all Magic checks</span>
@@ -422,7 +456,7 @@
                   <label class="chimera-input__label" data-i18n="armor_name" for="armor_name">Name</label>
                   <input class="chimera-input__field" data-i18n-title="armor_name_title" id="armor_name" name="attr_armor_name" title="Name" type="text"/>
                 </div>
-                <label class="chimera-checkbox armor__martial chimera-checkbox--column">
+                <label class="chimera-checkbox armor__martial chimera-checkbox--column" data-i18n-title="armor_is_martial_title" title="Martial">
                   <div class="chimera-checkbox__field">
                     <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
@@ -454,7 +488,7 @@
                   <label class="chimera-input__label" data-i18n="shield_name" for="shield_name">Name</label>
                   <input class="chimera-input__field" data-i18n-title="shield_name_title" id="shield_name" name="attr_shield_name" title="Name" type="text"/>
                 </div>
-                <label class="chimera-checkbox shield__martial chimera-checkbox--column">
+                <label class="chimera-checkbox shield__martial chimera-checkbox--column" data-i18n-title="shield_is_martial_title" title="Martial">
                   <div class="chimera-checkbox__field">
                     <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
@@ -537,7 +571,7 @@
                               <option data-i18n="poison" value="poison">Poison</option>
                             </select>
                           </div>
-                          <label class="chimera-checkbox attack__extra_damage chimera-checkbox--column">
+                          <label class="chimera-checkbox attack__extra_damage chimera-checkbox--column" data-i18n-title="attack_extra_damage_title" title="Extra Damage">
                             <div class="chimera-checkbox__field">
                               <input id="attack_extra_damage" name="attr_attack_extra_damage" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                             </div><span class="chimera-checkbox__label" data-i18n="attack_extra_damage" for="attack_extra_damage">Extra Damage</span>
@@ -664,7 +698,7 @@
                             <label class="chimera-input__label" data-i18n="weapon_attack_damage" for="weapon_attack_damage">Attack Damage</label>
                             <input class="chimera-input__field" data-i18n-title="weapon_attack_damage_title" id="weapon_attack_damage" min="0" name="attr_weapon_attack_damage" title="Attack Damage" type="number"/>
                           </div>
-                          <label class="chimera-checkbox weapon__extra_damage chimera-checkbox--column">
+                          <label class="chimera-checkbox weapon__extra_damage chimera-checkbox--column" data-i18n-title="weapon_extra_damage_title" title="Extra Damage">
                             <div class="chimera-checkbox__field">
                               <input id="weapon_extra_damage" name="attr_weapon_extra_damage" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                             </div><span class="chimera-checkbox__label" data-i18n="weapon_extra_damage" for="weapon_extra_damage">Extra Damage</span>
@@ -703,7 +737,7 @@
                             <label class="chimera-input__label" data-i18n="spell_name" for="spell_name">Spell Name</label>
                             <input class="chimera-input__field" data-i18n-title="spell_name_title" id="spell_name" name="attr_spell_name" title="Spell Name" type="text"/>
                           </div>
-                          <label class="chimera-checkbox spell__offensive chimera-checkbox--column">
+                          <label class="chimera-checkbox spell__offensive chimera-checkbox--column" data-i18n-title="spell_offensive_title" title="Is Offensive">
                             <div class="chimera-checkbox__field">
                               <input id="spell_offensive" name="attr_spell_offensive" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                             </div><span class="chimera-checkbox__label" data-i18n="spell_offensive" for="spell_offensive">Is Offensive</span>
