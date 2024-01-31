@@ -1,27 +1,46 @@
 @use '../../../common/vars' as mixins;
 
-.shield {
-  $this: '.shield';
+.fabula-ultima {
+  .shield {
+    $this: '.shield';
 
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 4px;
+    @include mixins.repeater-heading;
 
-  &--heading {
-    grid-column: 1/-1;
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+    &--view {
+    }
 
-  &__name {
-    grid-column: span 3;
-  }
+    &--edit {
+      .shield {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        gap: 4px;
 
-  &__initiative,
-  &__cost,
-  &__defense,
-  &__defense_bonus,
-  &__magic_defense,
-  &__magic_defense_bonus {
+        &__name {
+          grid-column: span 3;
+          grid-column: 1/-1;
+        }
+
+        &__initiative,
+        &__cost,
+        &__defense,
+        &__defense_bonus,
+        &__magic_defense,
+        &__magic_defense_bonus {
+        }
+      }
+    }
+
+    input[name*='is_martial'] {
+      &[value='on'] ~ {
+        #{$this}__defense_bonus {
+          display: none;
+        }
+      }
+      &[value='0'] ~ {
+        #{$this}__defense {
+          display: none;
+        }
+      }
+    }
   }
 }

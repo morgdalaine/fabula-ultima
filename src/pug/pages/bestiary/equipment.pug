@@ -1,0 +1,23 @@
+mixin armor-view(spine)
+  //-
+
+mixin armor-edit(spine)
+  .armor--edit
+    h2.armor__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+    .armor
+      each field in spine.armor.hidden
+        +chimera-hidden(field)
+      each field in spine.armor.fields
+        +chimera-input(field)
+
+mixin shield-view(spine)
+  //-
+
+mixin shield-edit(spine)
+  .shield--edit
+    h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+    .shield
+      each field in spine.shield.hidden
+        +chimera-hidden(field)
+      each field in spine.shield.fields
+        +chimera-input(field)

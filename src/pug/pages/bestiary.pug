@@ -1,5 +1,6 @@
 include bestiary/basic-attacks
 include bestiary/notes
+include bestiary/equipment
 include bestiary/other-actions
 include bestiary/rare-equipment
 include bestiary/special-rules
@@ -100,7 +101,7 @@ mixin bestiary-edit(spine)
       each field in spine.affinities.skillcost
         +chimera-value(field)
 
-    .defenses
+    .defenses--edit
       each field in spine.defenses.fields
         +chimera-input(field)
 
@@ -112,17 +113,8 @@ mixin bestiary-edit(spine)
       each field in spine.extras.checkboxes
         +chimera-input(field)
 
-    .armor
-      h2.armor__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
-      each field in spine.armor.hidden
-        +chimera-hidden(field)
-      each field in spine.armor.fields
-        +chimera-input(field)
-
-    .shield
-      h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
-      each field in spine.shield.fields
-        +chimera-input(field)
+    +armor-edit(spine)
+    +shield-edit(spine)
 
     +basic-attacks-edit(spine)
     +weapons-edit(spine)

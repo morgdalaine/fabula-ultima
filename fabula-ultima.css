@@ -1010,6 +1010,84 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .weapons--edit .weapon__name {
   grid-column: span 3;
 }
+.fabula-ultima .armor__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .armor__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .armor--edit .armor {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .armor--edit .armor__name {
+  grid-column: span 3;
+  grid-column: 1/-1;
+}
+.fabula-ultima .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.fabula-ultima .armor input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
+}
+
+.fabula-ultima .shield__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .shield__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .shield--edit .shield {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .shield--edit .shield__name {
+  grid-column: span 3;
+  grid-column: 1/-1;
+}
+.fabula-ultima .shield input[name*=is_martial][value=on] ~ .shield__defense_bonus {
+  display: none;
+}
+.fabula-ultima .shield input[name*=is_martial][value="0"] ~ .shield__defense {
+  display: none;
+}
+
+.equipment {
+  grid-column: 1/-1;
+}
+
 .fabula-ultima .notes {
   grid-column: span 2;
 }
@@ -1581,60 +1659,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   padding: 8px;
   background-color: var(--background);
-}
-.bestiary--edit .armor {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 4px;
-}
-.bestiary--edit .armor--heading {
-  grid-column: 1/-1;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.bestiary--edit .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
-  display: none;
-}
-.bestiary--edit .armor input[name*=is_martial][value="0"] ~ .armor__defense {
-  display: none;
-}
-.bestiary--edit .armor__name {
-  grid-column: span 3;
-}
-.bestiary--edit .shield {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 4px;
-}
-.bestiary--edit .shield--heading {
-  grid-column: 1/-1;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.bestiary--edit .shield__name {
-  grid-column: span 3;
-}
-.bestiary--edit .equipment {
-  grid-column: 1/-1;
 }
 .bestiary--edit .affinities {
   display: grid;
@@ -1786,11 +1815,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 4;
   align-self: flex-end;
 }
-.bestiary--edit .shield,
+.bestiary--edit .shield--edit,
 .bestiary--edit .weapons {
   grid-column: 3/span 2;
 }
-.bestiary--edit .armor,
+.bestiary--edit .armor--edit,
 .bestiary--edit .basic-attacks {
   grid-column: 1/span 2;
 }

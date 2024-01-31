@@ -6,6 +6,8 @@
 
     @include mixins.repeater-heading;
 
+    // TODO delete styling
+
     &--view {
       input[name*='weapon_range'] {
         &[value='melee'] {

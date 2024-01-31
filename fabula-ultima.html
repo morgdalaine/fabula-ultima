@@ -617,7 +617,7 @@
                 <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_absorption">Use 2 skill per Absorption</span>
                 </div>
               </div>
-              <div class="defenses">
+              <div class="defenses--edit">
                 <div class="chimera-input defense defense__quick chimera-input--center">
                   <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
                   <select class="chimera-input__field" data-i18n-title="defense_quick_title" id="defense_quick" name="attr_defense_quick" title="Defense Quick Select">
@@ -670,67 +670,71 @@
                   </div><span class="chimera-checkbox__label" data-i18n="magic_bonus" for="magic_bonus">+3 bonus to all Magic checks</span>
                 </label>
               </div>
-              <div class="armor">
-                <h2 class="armor__heading--edit" data-i18n="armor">Armor</h2>
-                <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
-                <div class="chimera-input armor__name">
-                  <label class="chimera-input__label" data-i18n="armor_name" for="armor_name">Name</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_name_title" id="armor_name" name="attr_armor_name" title="Name" type="text"/>
-                </div>
-                <label class="chimera-checkbox armor__martial chimera-checkbox--column" data-i18n-title="armor_is_martial_title" title="Martial">
-                  <div class="chimera-checkbox__field">
-                    <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                  </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
-                </label>
-                <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="armor_defense" for="armor_defense">DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_defense_title" id="armor_defense" name="attr_armor_defense" title="Defense" type="number"/>
-                </div>
-                <div class="chimera-input armor__defense_bonus chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="armor_defense_bonus" for="armor_defense_bonus">+DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_defense_bonus_title" id="armor_defense_bonus" name="attr_armor_defense_bonus" title="Defense Bonus" type="number"/>
-                </div>
-                <div class="chimera-input armor__magic_defense_bonus chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="armor_magic_defense_bonus" for="armor_magic_defense_bonus">+M.DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_magic_defense_bonus_title" id="armor_magic_defense_bonus" name="attr_armor_magic_defense_bonus" title="Magic Defense Bonus" type="number"/>
-                </div>
-                <div class="chimera-input armor__initiative chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="armor_initiative" for="armor_initiative">Initiative</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_initiative_title" id="armor_initiative" name="attr_armor_initiative" title="Initiative" type="number"/>
-                </div>
-                <div class="chimera-input armor__cost chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="armor_cost" for="armor_cost">Cost</label>
-                  <input class="chimera-input__field" data-i18n-title="armor_cost_title" id="armor_cost" min="0" name="attr_armor_cost" step="50" title="Cost" type="number"/>
-                </div>
-              </div>
-              <div class="shield">
-                <h2 class="shield__heading--edit" data-i18n="shield">Shield</h2>
-                <div class="chimera-input shield__name">
-                  <label class="chimera-input__label" data-i18n="shield_name" for="shield_name">Name</label>
-                  <input class="chimera-input__field" data-i18n-title="shield_name_title" id="shield_name" name="attr_shield_name" title="Name" type="text"/>
-                </div>
-                <label class="chimera-checkbox shield__martial chimera-checkbox--column" data-i18n-title="shield_is_martial_title" title="Martial">
-                  <div class="chimera-checkbox__field">
-                    <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                  </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
-                </label>
-                <div class="chimera-input shield__defense_bonus chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="shield_defense_bonus" for="shield_defense_bonus">+DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="shield_defense_bonus_title" id="shield_defense_bonus" name="attr_shield_defense_bonus" title="Defense Bonus" type="number"/>
-                </div>
-                <div class="chimera-input shield__magic_defense_bonus chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="shield_magic_defense_bonus" for="shield_magic_defense_bonus">+M.DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="shield_magic_defense_bonus_title" id="shield_magic_defense_bonus" name="attr_shield_magic_defense_bonus" title="Magic Defense Bonus" type="number"/>
-                </div>
-                <div class="chimera-input shield__initiative chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="shield_initiative" for="shield_initiative">Initiative</label>
-                  <input class="chimera-input__field" data-i18n-title="shield_initiative_title" id="shield_initiative" name="attr_shield_initiative" title="Initiative" type="number"/>
-                </div>
-                <div class="chimera-input shield__cost chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="shield_cost" for="shield_cost">Cost</label>
-                  <input class="chimera-input__field" data-i18n-title="shield_cost_title" id="shield_cost" min="0" name="attr_shield_cost" step="50" title="Cost" type="number"/>
-                </div>
-              </div>
+                  <div class="armor--edit">
+                    <h2 class="armor__heading--edit" data-i18n="armor">Armor</h2>
+                    <div class="armor">
+                      <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
+                      <div class="chimera-input armor__name">
+                        <label class="chimera-input__label" data-i18n="armor_name" for="armor_name">Name</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_name_title" id="armor_name" name="attr_armor_name" title="Name" type="text"/>
+                      </div>
+                      <label class="chimera-checkbox armor__martial chimera-checkbox--column" data-i18n-title="armor_is_martial_title" title="Martial">
+                        <div class="chimera-checkbox__field">
+                          <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                        </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
+                      </label>
+                      <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="armor_defense" for="armor_defense">DEF</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_defense_title" id="armor_defense" name="attr_armor_defense" title="Defense" type="number"/>
+                      </div>
+                      <div class="chimera-input armor__defense_bonus chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="armor_defense_bonus" for="armor_defense_bonus">+DEF</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_defense_bonus_title" id="armor_defense_bonus" name="attr_armor_defense_bonus" title="Defense Bonus" type="number"/>
+                      </div>
+                      <div class="chimera-input armor__magic_defense_bonus chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="armor_magic_defense_bonus" for="armor_magic_defense_bonus">+M.DEF</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_magic_defense_bonus_title" id="armor_magic_defense_bonus" name="attr_armor_magic_defense_bonus" title="Magic Defense Bonus" type="number"/>
+                      </div>
+                      <div class="chimera-input armor__initiative chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="armor_initiative" for="armor_initiative">Initiative</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_initiative_title" id="armor_initiative" name="attr_armor_initiative" title="Initiative" type="number"/>
+                      </div>
+                      <div class="chimera-input armor__cost chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="armor_cost" for="armor_cost">Cost</label>
+                        <input class="chimera-input__field" data-i18n-title="armor_cost_title" id="armor_cost" min="0" name="attr_armor_cost" step="50" title="Cost" type="number"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shield--edit">
+                    <h2 class="shield__heading--edit" data-i18n="shield">Shield</h2>
+                    <div class="shield">
+                      <div class="chimera-input shield__name">
+                        <label class="chimera-input__label" data-i18n="shield_name" for="shield_name">Name</label>
+                        <input class="chimera-input__field" data-i18n-title="shield_name_title" id="shield_name" name="attr_shield_name" title="Name" type="text"/>
+                      </div>
+                      <label class="chimera-checkbox shield__martial chimera-checkbox--column" data-i18n-title="shield_is_martial_title" title="Martial">
+                        <div class="chimera-checkbox__field">
+                          <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                        </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
+                      </label>
+                      <div class="chimera-input shield__defense_bonus chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="shield_defense_bonus" for="shield_defense_bonus">+DEF</label>
+                        <input class="chimera-input__field" data-i18n-title="shield_defense_bonus_title" id="shield_defense_bonus" name="attr_shield_defense_bonus" title="Defense Bonus" type="number"/>
+                      </div>
+                      <div class="chimera-input shield__magic_defense_bonus chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="shield_magic_defense_bonus" for="shield_magic_defense_bonus">+M.DEF</label>
+                        <input class="chimera-input__field" data-i18n-title="shield_magic_defense_bonus_title" id="shield_magic_defense_bonus" name="attr_shield_magic_defense_bonus" title="Magic Defense Bonus" type="number"/>
+                      </div>
+                      <div class="chimera-input shield__initiative chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="shield_initiative" for="shield_initiative">Initiative</label>
+                        <input class="chimera-input__field" data-i18n-title="shield_initiative_title" id="shield_initiative" name="attr_shield_initiative" title="Initiative" type="number"/>
+                      </div>
+                      <div class="chimera-input shield__cost chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="shield_cost" for="shield_cost">Cost</label>
+                        <input class="chimera-input__field" data-i18n-title="shield_cost_title" id="shield_cost" min="0" name="attr_shield_cost" step="50" title="Cost" type="number"/>
+                      </div>
+                    </div>
+                  </div>
                   <div class="basic-attacks">
                     <h2 class="basic-attacks__heading--edit" data-i18n="basic_attacks">Basic Attacks</h2>
                     <div class="chimera-repeater">

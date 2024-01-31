@@ -2,13 +2,13 @@
 @use '../common/vars' as mixins;
 
 @use 'bestiary/actions';
-// @use 'bestiary/equipment';
+@use 'bestiary/equipment';
+@use 'bestiary/other';
 // @use 'bestiary/affinity';
 // @use 'bestiary/attributes';
 // @use 'bestiary/defenses';
 // @use 'bestiary/extras';
 // @use 'bestiary/bio';
-@use 'bestiary/other';
 
 .bestiary {
   $this: '.bestiary';
@@ -324,7 +324,6 @@
   }
 
   &--edit {
-    @import 'bestiary/equipment';
     @import 'bestiary/affinity';
     @import 'bestiary/attributes';
     @import 'bestiary/defenses';
@@ -371,12 +370,12 @@
       align-self: flex-end;
     }
 
-    .shield,
+    .shield--edit,
     .weapons {
       grid-column: 3 / span 2;
     }
 
-    .armor,
+    .armor--edit,
     .basic-attacks {
       grid-column: 1 / span 2;
     }
