@@ -2,50 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-:root,
-html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-}
-
 html {
   box-sizing: border-box;
   font-size: 12px;
@@ -362,6 +318,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: 5rem;
   align-self: center;
   text-align: center;
+}
+.fabula-ultima .chimera-input--nowrap .chimera-input__label {
+  white-space: nowrap;
 }
 .fabula-ultima .chimera-input__label {
   font-family: var(--font-body);
@@ -707,6 +666,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__precision {
   display: none;
 }
+.fabula-ultima .fabula-diamond {
+  margin-top: -3px;
+}
 .fabula-ultima select {
   align-self: normal;
 }
@@ -739,7 +701,7 @@ html .characterviewer .charsheet {
 }
 html .characterviewer .nav-tabs {
   padding-block-start: 8px;
-  margin-block-end: 8px;
+  margin-block-end: 0px;
   border: none;
 }
 html .characterviewer .nav-tabs > li {
@@ -748,7 +710,7 @@ html .characterviewer .nav-tabs > li {
 html .characterviewer .nav-tabs > li.active > a {
   opacity: 1 !important;
   color: white;
-  background: var(--header-gradient-dark);
+  background: var(--fabula-gradient-primary);
 }
 html .characterviewer .nav-tabs > li > a {
   border: none !important;
@@ -764,7 +726,7 @@ html .characterviewer .nav-tabs > li > a:hover, html .characterviewer .nav-tabs 
   /* Fallback: Set a background color. */
   background-color: lime;
   /* Create the gradient. */
-  background-image: var(--header-gradient-dark);
+  background-image: var(--fabula-gradient-primary);
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
@@ -793,6 +755,125 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   opacity: 1;
 }
 
+.bestiary--view {
+  margin: 8px;
+  max-width: 500px;
+  background-color: var(--suface-container-lowest);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bestiary--view .bio {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+}
+.bestiary--view .bio__name {
+  background-image: var(--fabula-gradient-primary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.bestiary--view .bio__name span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.bestiary--view .bio__meta {
+  display: flex;
+  gap: 4px;
+  padding: 4px 16px;
+  border-left: 2px solid var(--color-fabula2);
+  border-bottom: 2px solid var(--color-fabula2);
+  -o-border-image: var(--fabula-gradient-secondary);
+     border-image: var(--fabula-gradient-secondary);
+}
+.bestiary--view .bio__meta span {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.bestiary--view .bio__meta input[value=soldier] ~ span[name*=rank] {
+  font-size: 0;
+}
+.bestiary--view .bio__description {
+  grid-column: span 2;
+  border-bottom: 1px solid var(--color-fabula2);
+  -o-border-image: var(--fabula-gradient-primary-border);
+     border-image: var(--fabula-gradient-primary-border);
+  padding: 4px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.bestiary--view .bio__traits {
+  grid-column: span 2;
+  padding: 4px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.bestiary--view .bio__traits span:first-of-type {
+  font-weight: 700;
+}
+.bestiary--view .bio__traits span:first-of-type::after {
+  content: ":";
+}
+.bestiary--view .statistics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.bestiary--view .statistics .attributes {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  height: -moz-min-content;
+  height: min-content;
+  text-align: center;
+  border: 1px solid var(--color-fabula0);
+  border-left: none;
+  -o-border-image: var(--fabula-gradient-dark-border);
+     border-image: var(--fabula-gradient-dark-border);
+  margin: 2px 2px 2px 0px;
+}
+.bestiary--view .statistics .attributes .chimera-value {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.bestiary--view .statistics .attributes .chimera-value:nth-of-type(1) {
+  background-color: color-mix(in srgb, white 10%, var(--color-fabula2));
+}
+.bestiary--view .statistics .attributes .chimera-value:nth-of-type(2) {
+  background-color: color-mix(in srgb, white 20%, var(--color-fabula2));
+}
+.bestiary--view .statistics .attributes .chimera-value:nth-of-type(3) {
+  background-color: color-mix(in srgb, white 30%, var(--color-fabula2));
+}
+.bestiary--view .statistics .attributes .chimera-value:nth-of-type(4) {
+  background-color: color-mix(in srgb, white 40%, var(--color-fabula2));
+}
 .bestiary--edit {
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
@@ -831,49 +912,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 8px;
   padding: 8px;
   background-color: var(--background);
-}
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .attacks--heading {
   font-family: var(--font-title);
@@ -1013,49 +1051,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .weapons--edit .weapon__name {
   grid-column: span 3;
 }
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-}
 .bestiary--edit .armor {
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -1101,49 +1096,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .equipment {
   grid-column: 1/-1;
 }
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-}
 .bestiary--edit .affinities {
   display: grid;
   flex-wrap: wrap;
@@ -1162,49 +1114,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 120%;
   align-self: center;
-}
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .attributes {
   display: flex;
@@ -1240,49 +1149,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--edit .distribution:last-of-type {
   padding-block-start: 4px;
 }
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-}
 .bestiary--edit .defenses {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -1302,49 +1168,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
   grid-template-columns: 1fr;
 }
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
-}
 .bestiary--edit .extras {
   display: flex;
   flex-direction: column;
@@ -1359,49 +1182,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
   align-items: center;
   justify-content: center;
-}
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .bio {
   display: grid;
@@ -1434,49 +1214,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .bio__description {
   grid-column: 1/-1;
-}
-.bestiary--edit :root,
-.bestiary--edit html {
-  --background: #e2f3ee;
-  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
-  --button-background-color: rgba(26, 35, 126, 0.2);
-  --button-background-color-active: rgba(26, 35, 126, 0.2);
-  --button-background-color-focus: rgba(63, 81, 181, 0.1);
-  --button-background-color-hover: rgba(63, 81, 181, 0.1);
-  --button-border-color: rgba(26, 35, 126, 0.2);
-  --button-border-color-active: #1a237e;
-  --button-border-color-focus: rgba(63, 81, 181, 0.1);
-  --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
-  --button-color-hover: #1a237e;
-  --button-component-size: 2.5rem;
-  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --header-gradient-dark: linear-gradient(90deg, #664168 0%, #b8a8bd 100%);
-  --icon-component-size: 1.5rem;
-  --input-background-color: rgba(26, 35, 126, 0.2);
-  --input-background-color-active: rgba(26, 35, 126, 0.2);
-  --input-background-color-focus: rgba(63, 81, 181, 0.1);
-  --input-background-color-hover: rgba(63, 81, 181, 0.1);
-  --input-border-color: rgba(26, 35, 126, 0.2);
-  --input-border-color-active: #1a237e;
-  --input-border-color-focus: #1a237e;
-  --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
-  --input-color-hover: #1a237e;
-  --input-component-size: 2.5rem;
-  --nav-color-focus: #664168;
-  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
-  --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
 }
 .bestiary--edit .notes {
   grid-column: span 2;
@@ -1601,6 +1338,70 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 
+:root,
+html .sheet-darkmode {
+  --background: #1f1f1f;
+  --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #1f1f1f 50%);
+}
+
+.sheet-darkmode .sheetform {
+  background-color: var(--background);
+}
+
+:root,
+html {
+  --background: #e2f3ee;
+  --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --button-background-color: rgba(26, 35, 126, 0.2);
+  --button-background-color-active: rgba(26, 35, 126, 0.2);
+  --button-background-color-focus: rgba(63, 81, 181, 0.1);
+  --button-background-color-hover: rgba(63, 81, 181, 0.1);
+  --button-border-color: rgba(26, 35, 126, 0.2);
+  --button-border-color-active: #1a237e;
+  --button-border-color-focus: rgba(63, 81, 181, 0.1);
+  --button-border-color-hover: #1a237e;
+  --button-color: #1a237e;
+  --button-color-active: #000;
+  --button-color-focus: #000;
+  --button-color-hover: #1a237e;
+  --button-component-size: 2.5rem;
+  --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+  --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #b9a9be 100%);
+  --fabula-gradient-secondary: linear-gradient(45deg, #b9a9be 0%, #fff 100%) 1;
+  --fabula-gradient-primary-border: linear-gradient(45deg, #674168, #fff) 1;
+  --fabula-gradient-dark-border: linear-gradient(90deg, #341b35, #6d5072) 1;
+  --color-fabula0: #281127;
+  --color-fabula1: #674168;
+  --color-fabula2: #b9a9be;
+  --color-fabula3: #6e468d;
+  --color-fabula4: #6d5072;
+  --color-fabula5: #341b35;
+  --icon-component-size: 1.5rem;
+  --color-on-dark: #ffffff;
+  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color-active: rgba(26, 35, 126, 0.2);
+  --input-background-color-focus: rgba(63, 81, 181, 0.1);
+  --input-background-color-hover: rgba(63, 81, 181, 0.1);
+  --input-border-color: rgba(26, 35, 126, 0.2);
+  --input-border-color-active: #1a237e;
+  --input-border-color-focus: #1a237e;
+  --input-border-color-hover: rgba(63, 81, 181, 0.1);
+  --input-color: #1a237e;
+  --input-color-active: #000;
+  --input-color-focus: #000;
+  --input-color-hover: #1a237e;
+  --input-component-size: 2.5rem;
+  --nav-color-focus: #674168;
+  --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
+  --surface-container-lowest: #ffffff;
+  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
+}
+
 html .character,
 html .charsheet .character {
   display: none;
@@ -1624,6 +1425,14 @@ html .charsheet .gm {
 html input[name*=sheet_type][value=gm] ~ * main.gm,
 html .charsheet input[name*=sheet_type][value=gm] ~ * main.gm {
   display: grid;
+}
+html .sheet-type,
+html .charsheet .sheet-type {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px;
+  width: auto;
 }
 html .fabula-ultima,
 html .charsheet .fabula-ultima {

@@ -1,0 +1,14 @@
+@use '../common/breakpoints' as *;
+@use '../common/colors' as colors;
+@use '../common/components' as *;
+@use '../common/fonts' as fonts;
+
+:root,
+html .sheet-darkmode {
+  --background: #{colors.$dark-surface1};
+  --fabula-gradient-primary: #{linear-gradient(90deg, colors.$fabula1 0%, colors.$dark-surface1 50%)};
+}
+
+.sheet-darkmode .sheetform {
+  background-color: var(--background);
+}

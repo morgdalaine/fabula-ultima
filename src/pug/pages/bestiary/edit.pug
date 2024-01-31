@@ -1,150 +1,151 @@
 mixin bestiary-edit(spine)
-  .bio
-    each field in spine.bio.hidden
-      +chimera-hidden(field)
-    each field in spine.bio.fields
-      +chimera-input(field)
+  header.bestiary--edit
+    .bio
+      each field in spine.bio.hidden
+        +chimera-hidden(field)
+      each field in spine.bio.fields
+        +chimera-input(field)
 
-  .attributes
-    each field in spine.attributes.fields
-      +chimera-input(field)
+    .attributes
+      each field in spine.attributes.fields
+        +chimera-input(field)
 
-  .attributes__distribution.chimera-container--shadow
-    each field in spine.attributes.distribution
-      +chimera-value(field)
+    .attributes__distribution.chimera-container--shadow
+      each field in spine.attributes.distribution
+        +chimera-value(field)
 
-  .affinities
-    each field in spine.affinities.fields
-      +chimera-input(field)
+    .affinities
+      each field in spine.affinities.fields
+        +chimera-input(field)
 
-  .affinities__skillcost.chimera-container--shadow
-    each field in spine.affinities.skillcost
-      +chimera-value(field)
+    .affinities__skillcost.chimera-container--shadow
+      each field in spine.affinities.skillcost
+        +chimera-value(field)
 
-  .defenses
-    each field in spine.defenses.fields
-      +chimera-input(field)
+    .defenses
+      each field in spine.defenses.fields
+        +chimera-input(field)
 
-  .extras
-    each field in spine.extras.fields
-      +chimera-input(field)
+    .extras
+      each field in spine.extras.fields
+        +chimera-input(field)
 
-  .extras.extra--checkboxes
-    each field in spine.extras.checkboxes
-      +chimera-value(field)
-      +chimera-input(field)
+    .extras.extra--checkboxes
+      each field in spine.extras.checkboxes
+        +chimera-value(field)
+        +chimera-input(field)
 
-  .armor
-    h2.armor--heading(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
-    each field in spine.armor.hidden
-      +chimera-hidden(field)
-    each field in spine.armor.fields
-      +chimera-input(field)
-  .shield
-    h2.shield--heading(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
-    each field in spine.shield.fields
-      +chimera-input(field)
+    .armor
+      h2.armor--heading(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+      each field in spine.armor.hidden
+        +chimera-hidden(field)
+      each field in spine.armor.fields
+        +chimera-input(field)
+    .shield
+      h2.shield--heading(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+      each field in spine.shield.fields
+        +chimera-input(field)
 
-  .attacks
-    h2.attacks--heading(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
-    +chimera-repeater('attacks')
-      +chimera-block('delete')
-        .attack
-          - const [name, att1, att2] = spine.attacks.delete;
-          +chimera-span(name)
-          span ✦
-          +fabula-check(att1, att2)
-      +chimera-block('edit')
-        .attack
-          each field in spine.attacks.hidden
-            +chimera-hidden(field)
-          each field in spine.attacks.fields
-            +chimera-input(field)
+    .attacks
+      h2.attacks--heading(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
+      +chimera-repeater('attacks')
+        +chimera-block('delete')
+          .attack
+            - const [name, att1, att2] = spine.attacks.delete;
+            +chimera-span(name)
+            span ✦
+            +fabula-check(att1, att2)
+        +chimera-block('edit')
+          .attack
+            each field in spine.attacks.hidden
+              +chimera-hidden(field)
+            each field in spine.attacks.fields
+              +chimera-input(field)
 
-  .weapons
-    h2.weapons--heading(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
-    +chimera-repeater('weapons')
-      +chimera-block('delete')
-        .weapon
-          - const [name, att1, att2, precision] = spine.weapons.delete;
-          +chimera-span(name)
-          span ✦
-          +fabula-check(att1, att2, precision)
-      +chimera-block('edit')
-        .weapon
-          each field in spine.weapons.hidden
-            +chimera-hidden(field)
-          each field in spine.weapons.fields
-            +chimera-input(field)
+    .weapons
+      h2.weapons--heading(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+      +chimera-repeater('weapons')
+        +chimera-block('delete')
+          .weapon
+            - const [name, att1, att2, precision] = spine.weapons.delete;
+            +chimera-span(name)
+            span ✦
+            +fabula-check(att1, att2, precision)
+        +chimera-block('edit')
+          .weapon
+            each field in spine.weapons.hidden
+              +chimera-hidden(field)
+            each field in spine.weapons.fields
+              +chimera-input(field)
 
-  .spells
-    h2.spells--heading(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
-    +chimera-repeater('spells')
-      +chimera-block('delete')
-        .spell
-          - const [name, att1, att2] = spine.spells.delete;
-          +chimera-span(name)
-          span ✦
-          +fabula-check(att1, att2)
-      +chimera-block('edit')
-        .spell
-          each field in spine.spells.hidden
-            +chimera-hidden(field)
-          each field in spine.spells.fields
-            +chimera-input(field)
+    .spells
+      h2.spells--heading(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+      +chimera-repeater('spells')
+        +chimera-block('delete')
+          .spell
+            - const [name, att1, att2] = spine.spells.delete;
+            +chimera-span(name)
+            span ✦
+            +fabula-check(att1, att2)
+        +chimera-block('edit')
+          .spell
+            each field in spine.spells.hidden
+              +chimera-hidden(field)
+            each field in spine.spells.fields
+              +chimera-input(field)
 
-  .notes
-    h2.notes--heading(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
-    +chimera-repeater('notes')
-      +chimera-block('delete')
-        .note
-          - const [name] = spine.notes.delete;
-          +chimera-span(name)
-      +chimera-block('edit')
-        .note
-          each field in spine.notes.hidden
-            +chimera-hidden(field)
-          each field in spine.notes.fields
-            +chimera-input(field)
+    .notes
+      h2.notes--heading(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+      +chimera-repeater('notes')
+        +chimera-block('delete')
+          .note
+            - const [name] = spine.notes.delete;
+            +chimera-span(name)
+        +chimera-block('edit')
+          .note
+            each field in spine.notes.hidden
+              +chimera-hidden(field)
+            each field in spine.notes.fields
+              +chimera-input(field)
 
-  .specials
-    h2.specials--heading(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
-    +chimera-repeater('specials')
-      +chimera-block('delete')
-        .special
-          - const [name] = spine.specials.delete;
-          +chimera-span(name)
-      +chimera-block('edit')
-        .special
-          each field in spine.specials.hidden
-            +chimera-hidden(field)
-          each field in spine.specials.fields
-            +chimera-input(field)
+    .specials
+      h2.specials--heading(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
+      +chimera-repeater('specials')
+        +chimera-block('delete')
+          .special
+            - const [name] = spine.specials.delete;
+            +chimera-span(name)
+        +chimera-block('edit')
+          .special
+            each field in spine.specials.hidden
+              +chimera-hidden(field)
+            each field in spine.specials.fields
+              +chimera-input(field)
 
-  .actions
-    h2.actions--heading(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
-    +chimera-repeater('actions')
-      +chimera-block('delete')
-        .action
-          - const [name] = spine.actions.delete;
-          +chimera-span(name)
-      +chimera-block('edit')
-        .action
-          each field in spine.actions.hidden
-            +chimera-hidden(field)
-          each field in spine.actions.fields
-            +chimera-input(field)
+    .actions
+      h2.actions--heading(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+      +chimera-repeater('actions')
+        +chimera-block('delete')
+          .action
+            - const [name] = spine.actions.delete;
+            +chimera-span(name)
+        +chimera-block('edit')
+          .action
+            each field in spine.actions.hidden
+              +chimera-hidden(field)
+            each field in spine.actions.fields
+              +chimera-input(field)
 
-  .raregear
-    h2.raregear--heading(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
-    +chimera-repeater('rare-gear')
-      +chimera-block('delete')
-        .gear
-          - const [name] = spine.raregear.delete;
-          +chimera-span(name)
-      +chimera-block('edit')
-        .gear
-          each field in spine.raregear.hidden
-            +chimera-hidden(field)
-          each field in spine.raregear.fields
-            +chimera-input(field)
+    .raregear
+      h2.raregear--heading(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+      +chimera-repeater('rare-gear')
+        +chimera-block('delete')
+          .gear
+            - const [name] = spine.raregear.delete;
+            +chimera-span(name)
+        +chimera-block('edit')
+          .gear
+            each field in spine.raregear.hidden
+              +chimera-hidden(field)
+            each field in spine.raregear.fields
+              +chimera-input(field)

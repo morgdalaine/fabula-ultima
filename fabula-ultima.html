@@ -4,56 +4,32 @@
     <link href="fabula-ultima.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <select name="attr_sheet_type">
-      <option data-i18n="character" value="character">CHARACTER</option>
-      <option data-i18n="bestiary" value="bestiary">BESTIARY</option>
-      <option data-i18n="gm" value="gm">GM</option>
-    </select>
     <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="bestiary"/>
     <div class="fabula-ultima">
+      <div class="chimera-input sheet-type chimera-input--flex-row chimera-input--nowrap">
+        <label class="chimera-input__label" data-i18n="sheet_type" for="sheet_type">Sheet Type</label>
+        <select class="chimera-input__field" data-i18n-title="sheet_type_title" id="sheet_type" name="attr_sheet_type" title="Sheet Type">
+          <option data-i18n="character" selected="selected" value="character">Character</option>
+          <option data-i18n="bestiary" selected="selected" value="bestiary">Bestiary</option>
+          <option data-i18n="gm" value="gm">GM</option>
+        </select>
+      </div>
       <main class="character"><span>[CHARACTER]</span></main>
       <main class="bestiary">
-        <header class="bestiary--view">
-              <div class="bio" style="display: flex; gap: 4px">
-                <div class="chimera-value bio__name">
-                  <label class="chimera-value__label" data-i18n="character_name" for="character_name">Name</label><span class="chimera-value__value" name="attr_character_name"></span>
+            <header class="bestiary--view">
+              <div class="bio">
+                <div class="bio__name"><span name="attr_character_name"></span>
                 </div>
-                <div class="chimera-value bio__traits">
-                  <label class="chimera-value__label" data-i18n="traits" for="traits">Traits</label><span class="chimera-value__value" name="attr_traits"></span>
+                <div class="bio__meta"><span data-i18n="lv">Lv</span>
+                  <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
                 </div>
-                <div class="chimera-value bio__level chimera-value--center chimera-value--small">
-                  <label class="chimera-value__label" data-i18n="level" for="level">Level</label><span class="chimera-value__value" name="attr_level"></span>
+                <div class="bio__description"><span name="attr_description"></span>
                 </div>
-                <div class="chimera-value bio__species">
-                  <label class="chimera-value__label" data-i18n="species" for="species">Species</label><span class="chimera-value__value" name="attr_species"></span>
-                </div>
-                <div class="chimera-value bio__rank">
-                  <label class="chimera-value__label" data-i18n="rank" for="rank">Rank</label><span class="chimera-value__value" name="attr_rank"></span>
-                </div>
-                <div class="chimera-value bio__villain">
-                  <label class="chimera-value__label" data-i18n="villain" for="villain">Villain</label><span class="chimera-value__value" name="attr_villain"></span>
-                </div>
-                <div class="chimera-value bio__companion_skill_level chimera-value--center chimera-value--small">
-                  <label class="chimera-value__label" data-i18n="companion_skill_level" for="companion_skill_level">Skill Level</label><span class="chimera-value__value" name="attr_companion_skill_level"></span>
-                </div>
-                <div class="chimera-value bio__pc_level chimera-value--center chimera-value--small">
-                  <label class="chimera-value__label" data-i18n="pc_level" for="pc_level">PC Level</label><span class="chimera-value__value" name="attr_pc_level"></span>
-                </div>
-                <div class="chimera-value bio__multipart">
-                  <label class="chimera-value__label" data-i18n="multipart" for="multipart">Multi-Part</label><span class="chimera-value__value" name="attr_multipart"></span>
-                </div>
-                <div class="chimera-value bio__phases chimera-value--center chimera-value--small">
-                  <label class="chimera-value__label" data-i18n="phases" for="phases">Phases</label><span class="chimera-value__value" name="attr_phases"></span>
-                </div>
-                <div class="chimera-value bio__createdby">
-                  <label class="chimera-value__label" data-i18n="createdby" for="createdby">Created By</label><span class="chimera-value__value" name="attr_createdby"></span>
-                </div>
-                <div class="chimera-value bio__description">
-                  <label class="chimera-value__label" data-i18n="description" for="description">Description</label><span class="chimera-value__value" name="attr_description"></span>
+                <div class="bio__traits"><span data-i18n="typical_traits">Typical Traits</span><span name="attr_traits"></span>
                 </div>
               </div>
-              <div class="statistics" style="display: grid; grid-template-columns: repeat(4, 1fr)">
-                <div class="attributes" style="grid-column: span 2">
+              <div class="statistics">
+                <div class="attributes">
                   <div class="chimera-value">
                     <label class="chimera-value__label" data-i18n="dexterity" for="dexterity">DEX</label><span class="chimera-value__value" name="attr_dexterity"></span>
                   </div>
@@ -119,8 +95,8 @@
                   </div>
                 </div>
               </div>
-        </header>
-        <header class="bestiary--edit">
+            </header>
+            <header class="bestiary--edit">
               <div class="bio">
                 <input class="chimera-hidden" name="attr_rank" type="hidden"/>
                 <div class="chimera-input bio__name">
@@ -890,7 +866,7 @@
                   </fieldset>
                 </div>
               </div>
-        </header>
+            </header>
       </main>
       <main class="gm"><span>[GM]</span></main>
       <footer></footer>

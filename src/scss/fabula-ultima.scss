@@ -13,7 +13,8 @@
 @use 'layout/characterviewer';
 @use 'pages/bestiary';
 
-// @use 'themes/default';
+@use 'themes/darkmode';
+@use 'themes/default';
 
 @forward '../chimera/scss/chimera';
 @forward 'common/mixins';
@@ -34,6 +35,14 @@ html .charsheet {
         }
       }
     }
+  }
+
+  .sheet-type {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px;
+    width: auto;
   }
 
   .fabula-ultima {

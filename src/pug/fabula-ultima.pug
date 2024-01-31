@@ -10,12 +10,9 @@ mixin html
       block
 
 +html
-  select(name='attr_sheet_type')
-    each type in spine.sheets
-      option(data-i18n=type, value=type)= type.toUpperCase()
-
   +chimera-hidden('sheet_type', 'bestiary')
   .fabula-ultima
+    +chimera-input(spine.gm.sheet)
     main.character
       span [CHARACTER]
     main.bestiary

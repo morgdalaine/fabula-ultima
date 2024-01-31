@@ -27,6 +27,13 @@
         text-align: center;
       }
     }
+
+    &--nowrap {
+      .chimera-input__label {
+        white-space: nowrap;
+      }
+    }
+
     display: flex;
     flex-direction: column;
     gap: 4px;

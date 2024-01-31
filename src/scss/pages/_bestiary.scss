@@ -1,5 +1,5 @@
-// @use '../common/vars' as *;
-// @use '../common/mixins' as mixins;
+@use '../common/vars' as *;
+@use '../common/vars' as mixins;
 
 .bestiary {
   $this: '.bestiary';
@@ -13,7 +13,104 @@
     border-radius: 4px;
 
     display: flex;
+    flex-direction: column;
     gap: 4px;
+
+    .bio {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px;
+
+      &__name {
+        background-image: var(--fabula-gradient-primary);
+        color: var(--color-on-dark);
+        padding-left: 16px;
+        padding-right: 16px;
+        span {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          @include mixins.text-xxl-500-fabula;
+        }
+      }
+
+      &__meta {
+        display: flex;
+        gap: 4px;
+
+        padding: 4px 16px;
+        border-left: 2px solid var(--color-fabula2);
+        border-bottom: 2px solid var(--color-fabula2);
+        border-image: var(--fabula-gradient-secondary);
+
+        span {
+          @include mixins.text-xl-500-fabula;
+        }
+
+        input[value='soldier'] {
+          ~ span[name*='rank'] {
+            font-size: 0;
+          }
+        }
+      }
+
+      &__description {
+        grid-column: span 2;
+        border-bottom: 1px solid var(--color-fabula2);
+        border-image: var(--fabula-gradient-primary-border);
+        padding: 4px 16px;
+        @include mixins.text-base-400;
+      }
+      &__traits {
+        grid-column: span 2;
+        padding: 4px 16px;
+        @include mixins.text-base-400;
+
+        span:first-of-type {
+          font-weight: 700;
+          &::after {
+            content: ':';
+          }
+        }
+      }
+    }
+
+    .statistics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+
+      .attributes {
+        grid-column: span 2;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+
+        align-items: center;
+        justify-content: space-between;
+
+        height: min-content;
+
+        text-align: center;
+
+        border: 1px solid var(--color-fabula0);
+        border-left: none;
+        border-image: var(--fabula-gradient-dark-border);
+
+        margin: 2px 2px 2px 0px;
+
+        .chimera-value {
+          @include mixins.text-lg-700-fabula;
+
+          @each $attr in 1, 2, 3, 4 {
+            &:nth-of-type(#{$attr}) {
+              background-color: color-mix(in srgb, white #{$attr * 10%}, var(--color-fabula2));
+            }
+          }
+        }
+      }
+    }
   }
 
   &--edit {
