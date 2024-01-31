@@ -7,7 +7,7 @@ mixin bestiary-view(spine)
       .bio__name
         +chimera-span(bio.character_name)
       .bio__meta
-        span(data-i18n='lv') Lv
+        label(data-i18n='lv') Lv
         +chimera-hidden(bio.rank.name)
         +chimera-span(bio.level)
         +chimera-span(bio.rank)
@@ -16,75 +16,47 @@ mixin bestiary-view(spine)
       .bio__description
         +chimera-span(bio.description)
       .bio__traits
-        span(data-i18n='typical_traits') Typical Traits
+        label(data-i18n='typical_traits') Typical Traits
         +chimera-span(bio.traits)
 
     .statistics
       .attributes
         each field in spine.attributes.view
-          +chimera-value(field)
-      .points(style='grid-column: span 2')
-        - let { hp, crisis, mp, initiative } = spine.points;
-        each field in Object.values(spine.points)
-          +chimera-value(field)
-          if field.name === 'hp' || field.name === 'mp'
-            span /
-            span(name=`attr_${field.name}_max`)
-      .defenses
-        each field in spine.defenses.view
-          +chimera-value(field)
-      .affinities(style='grid-column: span 3')
-        each field in spine.affinities.fields
-          +chimera-value(field)
-
-    //- .bio
-      .bio__level-rank-species
-        p
-          span(data-i18n=`Lv`) Lv
-          +chimera-span(vbio.level)
-          +chimera-span(vbio.rank)
-          span.fabula-diamond ⬥
-          +chimera-span(vbio.species)
-      .bio__description
-        //- +chimera-span(description)
-        span(name=`attr_description`)
-      .bio__traits
-        span(data-i18n='traits') Traits
-        //- +chimera-value(traits)
-        span(name=`attr_traits`)
-
-    //- .statistics
-      .attributes
-        each field in attributes.view
-          .attribute(class=`attribute--${field.name}`)
-            +chimera-value(field)
+          +chimera-value(field).attribute
 
       .points
-        .hp--label
-          span(data-i18n='hp') HP
-        .hp
+        -
+          const points = spine.points.fields
+            .reduce((memo, val) => ((memo[val.name] = structuredClone(val)), memo), {});
+
+        .points__label
+          label(data-i18n='hp') HP
+        .points__hp
           +chimera-span(points.hp)
-          span.fabula-diamond ⬥
-          +chimera-span(points.crisis)
-        .mp--label
-          span(data-i18n=`mp`) MP
-        .mp
+          +fabula-diamond
+          +chimera-span(points.hp_crisis)
+
+        .points__label
+          label(data-i18n='mp') MP
+        .points__mp
           +chimera-span(points.mp)
-        .initiative
-          +chimera-value(points.initiative)
+
+        .points__initiative
+          label(data-i18n='init') Init.
+          +chimera-span(points.initiative)
 
       .defenses
-        - const vdefense = defenses.view.reduce((memo, val) =>  (memo[val.name] = structuredClone(val), memo), {})
-        .defense.defense--def
-          +chimera-value(vdefense.defense)
-        .defense.defense--mdef
-          +chimera-value(vdefense.magic_defense)
+        each field in spine.defenses.hidden
+          +chimera-hidden(field)
+        each field in spine.defenses.view
+          +chimera-value(field)
 
       .affinities
-        each dtype in damageTypeOptions
-          .affinity(class=`affinity--${dtype.name}`)
-            input(name=`attr_${dtype.name}`, type='hidden')
-            +chimera-icon({ icon: dtype.name, title: dtype.text })
-            +chimera-value(dtype)
-            //- span.affinity__label(data-i18n=dtype.name)= dtype.text
-            //- span(name=`attr_${dtype.name}`)
+        each field in spine.affinities.fields
+          - console.log(field);
+          .affinity--cell(class=`affinity--${field.name}`)
+            +chimera-hidden(field.name)
+            +chimera-icon({ icon: field.name, title: field.text })
+            +chimera-value(field)
+            //- span.affinity__label(data-i18n=field.name)= field.text
+            //- span(name=`attr_${field.name}`)

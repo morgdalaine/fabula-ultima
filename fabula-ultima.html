@@ -20,44 +20,48 @@
               <div class="bio">
                 <div class="bio__name"><span name="attr_character_name"></span>
                 </div>
-                <div class="bio__meta"><span data-i18n="lv">Lv</span>
+                <div class="bio__meta">
+                  <label data-i18n="lv">Lv</label>
                   <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
                 </div>
                 <div class="bio__description"><span name="attr_description"></span>
                 </div>
-                <div class="bio__traits"><span data-i18n="typical_traits">Typical Traits</span><span name="attr_traits"></span>
+                <div class="bio__traits">
+                  <label data-i18n="typical_traits">Typical Traits</label><span name="attr_traits"></span>
                 </div>
               </div>
               <div class="statistics">
                 <div class="attributes">
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute">
                     <label class="chimera-value__label" data-i18n="dexterity" for="dexterity">DEX</label><span class="chimera-value__value" name="attr_dexterity"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute">
                     <label class="chimera-value__label" data-i18n="insight" for="insight">INS</label><span class="chimera-value__value" name="attr_insight"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute">
                     <label class="chimera-value__label" data-i18n="might" for="might">MIG</label><span class="chimera-value__value" name="attr_might"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute">
                     <label class="chimera-value__label" data-i18n="willpower" for="willpower">WLP</label><span class="chimera-value__value" name="attr_willpower"></span>
                   </div>
                 </div>
-                <div class="points" style="grid-column: span 2">
-                  <div class="chimera-value points__hp">
-                    <label class="chimera-value__label" data-i18n="hp" for="hp">HP</label><span class="chimera-value__value" name="attr_hp"></span>
-                  </div><span>/</span><span name="attr_hp_max"></span>
-                  <div class="chimera-value points__hp_crisis">
-                    <label class="chimera-value__label" data-i18n="hp_crisis" for="hp_crisis">Crisis</label><span class="chimera-value__value" name="attr_hp_crisis"></span>
+                <div class="points">
+                  <div class="points__label">
+                    <label data-i18n="hp">HP</label>
                   </div>
-                  <div class="chimera-value points__mp">
-                    <label class="chimera-value__label" data-i18n="mp" for="mp">MP</label><span class="chimera-value__value" name="attr_mp"></span>
-                  </div><span>/</span><span name="attr_mp_max"></span>
-                  <div class="chimera-value points__initiative">
-                    <label class="chimera-value__label" data-i18n="initiative" for="initiative">Init.</label><span class="chimera-value__value" name="attr_initiative"></span>
+                  <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond">⬥</span><span name="attr_hp_crisis"></span>
+                  </div>
+                  <div class="points__label">
+                    <label data-i18n="mp">MP</label>
+                  </div>
+                  <div class="points__mp"><span name="attr_mp"></span>
+                  </div>
+                  <div class="points__initiative">
+                    <label data-i18n="init">Init.</label><span name="attr_initiative"></span>
                   </div>
                 </div>
                 <div class="defenses">
+                  <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
                   <div class="chimera-value">
                     <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
                   </div>
@@ -65,33 +69,60 @@
                     <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
                   </div>
                 </div>
-                <div class="affinities" style="grid-column: span 3">
-                  <div class="chimera-value affinity affinity--physical chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="physical" for="physical">Physical</label><span class="chimera-value__value" name="attr_physical"></span>
+                <div class="affinities">
+                  <div class="affinity--cell affinity--physical">
+                    <input class="chimera-hidden" name="attr_physical" type="hidden"/><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical"/>
+                    <div class="chimera-value affinity affinity--physical chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="physical" for="physical">Physical</label><span class="chimera-value__value" name="attr_physical"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--air chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="air" for="air">Air</label><span class="chimera-value__value" name="attr_air"></span>
+                  <div class="affinity--cell affinity--air">
+                    <input class="chimera-hidden" name="attr_air" type="hidden"/><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air"/>
+                    <div class="chimera-value affinity affinity--air chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="air" for="air">Air</label><span class="chimera-value__value" name="attr_air"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--bolt chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="bolt" for="bolt">Bolt</label><span class="chimera-value__value" name="attr_bolt"></span>
+                  <div class="affinity--cell affinity--bolt">
+                    <input class="chimera-hidden" name="attr_bolt" type="hidden"/><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt"/>
+                    <div class="chimera-value affinity affinity--bolt chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="bolt" for="bolt">Bolt</label><span class="chimera-value__value" name="attr_bolt"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--dark chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="dark" for="dark">Dark</label><span class="chimera-value__value" name="attr_dark"></span>
+                  <div class="affinity--cell affinity--dark">
+                    <input class="chimera-hidden" name="attr_dark" type="hidden"/><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark"/>
+                    <div class="chimera-value affinity affinity--dark chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="dark" for="dark">Dark</label><span class="chimera-value__value" name="attr_dark"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--earth chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="earth" for="earth">Earth</label><span class="chimera-value__value" name="attr_earth"></span>
+                  <div class="affinity--cell affinity--earth">
+                    <input class="chimera-hidden" name="attr_earth" type="hidden"/><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth"/>
+                    <div class="chimera-value affinity affinity--earth chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="earth" for="earth">Earth</label><span class="chimera-value__value" name="attr_earth"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--fire chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="fire" for="fire">Fire</label><span class="chimera-value__value" name="attr_fire"></span>
+                  <div class="affinity--cell affinity--fire">
+                    <input class="chimera-hidden" name="attr_fire" type="hidden"/><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire"/>
+                    <div class="chimera-value affinity affinity--fire chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="fire" for="fire">Fire</label><span class="chimera-value__value" name="attr_fire"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--ice chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="ice" for="ice">Ice</label><span class="chimera-value__value" name="attr_ice"></span>
+                  <div class="affinity--cell affinity--ice">
+                    <input class="chimera-hidden" name="attr_ice" type="hidden"/><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice"/>
+                    <div class="chimera-value affinity affinity--ice chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="ice" for="ice">Ice</label><span class="chimera-value__value" name="attr_ice"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--light chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="light" for="light">Light</label><span class="chimera-value__value" name="attr_light"></span>
+                  <div class="affinity--cell affinity--light">
+                    <input class="chimera-hidden" name="attr_light" type="hidden"/><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light"/>
+                    <div class="chimera-value affinity affinity--light chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="light" for="light">Light</label><span class="chimera-value__value" name="attr_light"></span>
+                    </div>
                   </div>
-                  <div class="chimera-value affinity affinity--poison chimera-value--center">
-                    <label class="chimera-value__label" data-i18n="poison" for="poison">Poison</label><span class="chimera-value__value" name="attr_poison"></span>
+                  <div class="affinity--cell affinity--poison">
+                    <input class="chimera-hidden" name="attr_poison" type="hidden"/><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison"/>
+                    <div class="chimera-value affinity affinity--poison chimera-value--center">
+                      <label class="chimera-value__label" data-i18n="poison" for="poison">Poison</label><span class="chimera-value__value" name="attr_poison"></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -210,18 +241,18 @@
                 </div>
               </div>
               <div class="attributes__distribution chimera-container--shadow">
-                <div class="chimera-value distribution"><span class="chimera-value__value" data-i18n="attribute_distribution">Distribute one of the following arrays among the NPC's Attributes.</span>
+                <div class="chimera-value distribution chimera-value--helptext"><span class="chimera-value__value" data-i18n="attribute_distribution">Distribute one of the following arrays among the NPC's Attributes.</span>
                 </div>
-                <div class="chimera-value distribution chimera-value--bullet">
-                  <label class="chimera-value__label" data-i18n="jack_of all trades">Jack of All Trades</label><span class="chimera-value__value">d8, d8, d8, d8</span>
+                <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
+                  <label class="chimera-value__label" data-i18n="jack_of_all_trades">Jack of All Trades</label><span class="chimera-value__value">d8, d8, d8, d8</span>
                 </div>
-                <div class="chimera-value distribution chimera-value--bullet">
+                <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
                   <label class="chimera-value__label" data-i18n="standard">Standard</label><span class="chimera-value__value">d10, d8, d8, d6</span>
                 </div>
-                <div class="chimera-value distribution chimera-value--bullet">
+                <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
                   <label class="chimera-value__label" data-i18n="specialized">Specialized</label><span class="chimera-value__value">d10, d10, d6, d6</span>
                 </div>
-                <div class="chimera-value distribution chimera-value--bullet">
+                <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
                   <label class="chimera-value__label" data-i18n="super_specialized">Super Specialized</label><span class="chimera-value__value">d12, d8, d6, d6</span>
                 </div>
                 <div class="chimera-value distribution"><span class="chimera-value__value" data-i18n="attribute_higher_levels">Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).</span>
@@ -320,15 +351,15 @@
                 </div>
               </div>
               <div class="affinities__skillcost chimera-container--shadow">
-                <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_vulnerability">Gain 1 skill per vulnerability</span>
+                <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_vulnerability">Gain 1 skill per vulnerability</span>
                 </div>
-                <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_physical_vulnerability">Gain 2 skills per physical vulnerability</span>
+                <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_physical_vulnerability">Gain 2 skills per physical vulnerability</span>
                 </div>
-                <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_resistance">Use 0.5 skill per Resistance</span>
+                <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_resistance">Use 0.5 skill per Resistance</span>
                 </div>
-                <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_immunity">Use 1 skill per Immunity</span>
+                <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_immunity">Use 1 skill per Immunity</span>
                 </div>
-                <div class="chimera-value"><span class="chimera-value__value" data-i18n="affinity_absorption">Use 2 skill per Absorption</span>
+                <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_absorption">Use 2 skill per Absorption</span>
                 </div>
               </div>
               <div class="defenses">
@@ -368,25 +399,16 @@
                 </div>
               </div>
               <div class="extras extra--checkboxes">
-                <div class="chimera-value extra extra__initiative_bonus">
-                  <label class="chimera-value__label" data-i18n="initiative_bonus" for="initiative_bonus">+4 Initiative</label><span class="chimera-value__value" name="attr_initiative_bonus"></span>
-                </div>
                 <label class="chimera-checkbox extra extra__initiative_bonus">
                   <div class="chimera-checkbox__field">
                     <input id="initiative_bonus" name="attr_initiative_bonus" type="checkbox" value="4"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="initiative_bonus" for="initiative_bonus">+4 Initiative</span>
                 </label>
-                <div class="chimera-value extra extra__accuracy_bonus">
-                  <label class="chimera-value__label" data-i18n="accuracy_bonus" for="accuracy_bonus">+3 bonus to all Accuracy checks</label><span class="chimera-value__value" name="attr_accuracy_bonus"></span>
-                </div>
                 <label class="chimera-checkbox extra extra__accuracy_bonus">
                   <div class="chimera-checkbox__field">
                     <input id="accuracy_bonus" name="attr_accuracy_bonus" type="checkbox" value="3"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="accuracy_bonus" for="accuracy_bonus">+3 bonus to all Accuracy checks</span>
                 </label>
-                <div class="chimera-value extra extra__magic_bonus">
-                  <label class="chimera-value__label" data-i18n="magic_bonus" for="magic_bonus">+3 bonus to all Magic checks</label><span class="chimera-value__value" name="attr_magic_bonus"></span>
-                </div>
                 <label class="chimera-checkbox extra extra__magic_bonus">
                   <div class="chimera-checkbox__field">
                     <input id="magic_bonus" name="attr_magic_bonus" type="checkbox" value="3"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>

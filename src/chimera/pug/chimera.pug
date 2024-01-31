@@ -134,9 +134,9 @@ mixin chimera-value(blob)
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
   - const valueClass = `${namespace}__field`;
   - const attr = `attr_${blob.name}`;
-  div(class=css)
+  div(class=css)&attributes(attributes)
     if blob.label
-      - const datai18n = blob.name ?? blob.label.replace(' ', '_').toLowerCase();
+      - const datai18n = blob.name ?? blob.label.replace(/\s/g, '_').toLowerCase();
       label.chimera-value__label(data-i18n=datai18n, for=blob.name)= blob.label
 
     if blob.content
@@ -144,7 +144,7 @@ mixin chimera-value(blob)
 
     else
       - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
-      span.chimera-value__value(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)&attributes(attributes)
+      span.chimera-value__value(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)
 
 mixin chimera-span(blob)
   - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;

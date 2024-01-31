@@ -79,11 +79,6 @@ html .charactersheet {
   border-color: unset;
 }
 
-.charsheet * {
-  font-size: 1rem;
-  box-sizing: border-box;
-  font-family: inherit;
-}
 .charsheet fieldset {
   background: transparent;
 }
@@ -334,6 +329,15 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-value--bullet::before {
   content: "✦";
+}
+.fabula-ultima .chimera-value--helptext .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.fabula-ultima .chimera-value--helptext .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: normal;
@@ -341,19 +345,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   line-height: 120%;
 }
 .fabula-ultima .chimera-value__label {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
   margin-inline-end: 4px;
-}
-.fabula-ultima .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
 }
 .fabula-ultima .chimera-checkbox {
   display: flex;
@@ -793,9 +785,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   padding: 4px 16px;
   border-left: 2px solid var(--color-fabula2);
   border-bottom: 2px solid var(--color-fabula2);
-  -o-border-image: var(--fabula-gradient-secondary);
-     border-image: var(--fabula-gradient-secondary);
+  -o-border-image: var(--fabula-gradient-secondary-border);
+     border-image: var(--fabula-gradient-secondary-border);
 }
+.bestiary--view .bio__meta label,
 .bestiary--view .bio__meta span {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -822,17 +815,23 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .bestiary--view .bio__traits {
   grid-column: span 2;
   padding: 4px 16px;
+}
+.bestiary--view .bio__traits label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.bestiary--view .bio__traits label::after {
+  content: ":";
+}
+.bestiary--view .bio__traits span {
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-}
-.bestiary--view .bio__traits span:first-of-type {
-  font-weight: 700;
-}
-.bestiary--view .bio__traits span:first-of-type::after {
-  content: ":";
 }
 .bestiary--view .statistics {
   display: grid;
@@ -853,26 +852,183 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   border-left: none;
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
-  margin: 2px 2px 2px 0px;
 }
 .bestiary--view .statistics .attributes .chimera-value {
+  padding: 4px;
+}
+.bestiary--view .statistics .attributes .chimera-value label {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
+.bestiary--view .statistics .attributes .chimera-value span {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.bestiary--view .statistics .attributes .chimera-value span::before {
+  content: "d";
+  text-transform: lowercase;
+}
 .bestiary--view .statistics .attributes .chimera-value:nth-of-type(1) {
-  background-color: color-mix(in srgb, white 10%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
 }
 .bestiary--view .statistics .attributes .chimera-value:nth-of-type(2) {
-  background-color: color-mix(in srgb, white 20%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
 }
 .bestiary--view .statistics .attributes .chimera-value:nth-of-type(3) {
-  background-color: color-mix(in srgb, white 30%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 80%, var(--color-fabula2));
 }
 .bestiary--view .statistics .attributes .chimera-value:nth-of-type(4) {
-  background-color: color-mix(in srgb, white 40%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 90%, var(--color-fabula2));
+}
+.bestiary--view .statistics .points {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(4, auto) 1fr;
+  gap: 4px;
+  text-align: center;
+  border: 1px solid var(--color-fabula0);
+  border-right: none;
+  -o-border-image: var(--fabula-gradient-secondary-border);
+     border-image: var(--fabula-gradient-secondary-border);
+}
+.bestiary--view .statistics .points label,
+.bestiary--view .statistics .points span {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-align: center;
+}
+.bestiary--view .statistics .points__label {
+  width: var(--input-component-size);
+}
+.bestiary--view .statistics .points__label, .bestiary--view .statistics .points__hp, .bestiary--view .statistics .points__mp, .bestiary--view .statistics .points__initiative {
+  padding: 4px;
+}
+.bestiary--view .statistics .points__hp, .bestiary--view .statistics .points__mp {
+  padding-inline: 8px;
+  color: var(--color-on-dark);
+}
+.bestiary--view .statistics .points__hp {
+  display: flex;
+  gap: 4px;
+  background-color: var(--color-hp);
+}
+.bestiary--view .statistics .points__mp {
+  min-width: 4rem;
+  background-color: var(--color-mp);
+}
+.bestiary--view .statistics .defenses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  height: -moz-min-content;
+  height: min-content;
+  text-align: center;
+  border: 1px solid var(--color-fabula0);
+  border-left: none;
+  -o-border-image: var(--fabula-gradient-dark-border);
+     border-image: var(--fabula-gradient-dark-border);
+}
+.bestiary--view .statistics .defenses .chimera-value {
+  padding: 4px;
+}
+.bestiary--view .statistics .defenses .chimera-value label {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.bestiary--view .statistics .defenses .chimera-value span {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.bestiary--view .statistics .defenses .chimera-value:nth-of-type(1) {
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
+}
+.bestiary--view .statistics .defenses .chimera-value:nth-of-type(2) {
+  background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
+}
+.bestiary--view .statistics .affinities {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(3rem, auto));
+  gap: 4px;
+  text-align: center;
+  border: 1px solid var(--color-fabula0);
+  border-right: none;
+  -o-border-image: var(--fabula-gradient-primary-border);
+     border-image: var(--fabula-gradient-primary-border);
+}
+.bestiary--view .statistics .affinities label,
+.bestiary--view .statistics .affinities span {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--color-hp);
+  text-transform: uppercase;
+}
+.bestiary--view .statistics .affinity--cell {
+  display: grid;
+  grid-template-columns: 1.5rem auto;
+  align-items: center;
+  padding: 2px;
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(1) {
+  border-right: 1px solid color-mix(in srgb, white 12%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(2) {
+  border-right: 1px solid color-mix(in srgb, white 24%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(3) {
+  border-right: 1px solid color-mix(in srgb, white 36%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(4) {
+  border-right: 1px solid color-mix(in srgb, white 48%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(5) {
+  border-right: 1px solid color-mix(in srgb, white 60%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(6) {
+  border-right: 1px solid color-mix(in srgb, white 72%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(7) {
+  border-right: 1px solid color-mix(in srgb, white 84%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell:nth-of-type(8) {
+  border-right: 1px solid color-mix(in srgb, white 96%, var(--color-fabula5));
+}
+.bestiary--view .statistics .affinity--cell input:not([value]) + img,
+.bestiary--view .statistics .affinity--cell input[value=""] + img {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+.bestiary--view .statistics .affinity--cell label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 .bestiary--edit {
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
@@ -1372,8 +1528,8 @@ html {
   --font-serif: PT Serif, Comic Sans MS, serif;
   --font-title: Antonio, Comic Sans MS, sans-serif;
   --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #b9a9be 100%);
-  --fabula-gradient-secondary: linear-gradient(45deg, #b9a9be 0%, #fff 100%) 1;
   --fabula-gradient-primary-border: linear-gradient(45deg, #674168, #fff) 1;
+  --fabula-gradient-secondary-border: linear-gradient(45deg, #b9a9be 0%, #fff 100%) 1;
   --fabula-gradient-dark-border: linear-gradient(90deg, #341b35, #6d5072) 1;
   --color-fabula0: #281127;
   --color-fabula1: #674168;
@@ -1381,6 +1537,8 @@ html {
   --color-fabula3: #6e468d;
   --color-fabula4: #6d5072;
   --color-fabula5: #341b35;
+  --color-hp: #d1232a;
+  --color-mp: #00aeef;
   --icon-component-size: 1.5rem;
   --color-on-dark: #ffffff;
   --input-background-color: rgba(26, 35, 126, 0.2);

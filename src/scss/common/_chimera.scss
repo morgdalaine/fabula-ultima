@@ -55,16 +55,24 @@
     &--bullet {
       &::before {
         content: '✦';
-        @include mixins.text-base-400;
+      }
+    }
+
+    &--helptext {
+      .chimera-value {
+        &__label {
+          @include mixins.text-base-700;
+        }
+        &__value {
+          @include mixins.text-base-400;
+        }
       }
     }
 
     &__label {
-      @include mixins.text-base-700;
       margin-inline-end: 4px;
     }
     &__value {
-      @include mixins.text-base-400;
     }
   }
 
