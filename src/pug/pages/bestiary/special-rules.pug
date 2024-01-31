@@ -1,0 +1,17 @@
+mixin special-rules-view(spine)
+  //-
+
+mixin special-rules-edit(spine)
+  .specials
+    h2.specials__heading--edit(data-i18n=spine.specials.heading.name)= spine.specials.heading.label
+    +chimera-repeater('specials')
+      +chimera-block('delete')
+        .special
+          - const [name] = spine.specials.delete;
+          +chimera-span(name)
+      +chimera-block('edit')
+        .special
+          each field in spine.specials.hidden
+            +chimera-hidden(field)
+          each field in spine.specials.fields
+            +chimera-input(field)

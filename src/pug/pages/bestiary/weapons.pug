@@ -1,0 +1,19 @@
+mixin weapons-view(spine)
+  //-
+
+mixin weapons-edit(spine)
+  .weapons
+    h2.weapons__heading--edit(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+    +chimera-repeater('weapons')
+      +chimera-block('delete')
+        .weapon
+          - const [name, att1, att2, precision] = spine.weapons.delete;
+          +chimera-span(name)
+          span ✦
+          +fabula-check(att1, att2, precision)
+      +chimera-block('edit')
+        .weapon
+          each field in spine.weapons.hidden
+            +chimera-hidden(field)
+          each field in spine.weapons.fields
+            +chimera-input(field)

@@ -1,35 +1,27 @@
 @use '../../../common/vars' as mixins;
 
-.weapons {
-  $this: '.weapons';
+.fabula-ultima {
+  .weapons {
+    $this: '.weapons';
 
-  &--heading {
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+    @include mixins.repeater-heading;
 
-  &--delete {
-    .weapon {
-      // @include fabula-check;
-    }
-  }
+    &--edit {
+      .weapon {
+        display: grid;
+        grid-template-columns: 1fr repeat(3, auto);
+        // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+        gap: 4px;
 
-  &--edit {
-    .weapon {
-      display: grid;
-      grid-template-columns: 1fr repeat(3, auto);
-      // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-      gap: 4px;
+        &__special {
+          grid-column: 1/-1;
+        }
 
-      &__special {
-        grid-column: 1/-1;
-      }
-
-      &__name {
-        grid-column: span 3;
-      }
-      &__category {
-        // grid-column: span 2;
+        &__name {
+          grid-column: span 3;
+        }
+        &__category {
+        }
       }
     }
   }

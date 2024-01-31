@@ -1,0 +1,17 @@
+mixin rare-equipment-view(spine)
+  //-
+
+mixin rare-equipment-edit(spine)
+  .raregear
+    h2.raregear__heading--edit(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+    +chimera-repeater('rare-gear')
+      +chimera-block('delete')
+        .gear
+          - const [name] = spine.raregear.delete;
+          +chimera-span(name)
+      +chimera-block('edit')
+        .gear
+          each field in spine.raregear.hidden
+            +chimera-hidden(field)
+          each field in spine.raregear.fields
+            +chimera-input(field)

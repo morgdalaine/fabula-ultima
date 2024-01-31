@@ -130,12 +130,12 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .ui-dialog .charsheet .repcontainer .repitem {
   margin-block-end: 4px;
+  border-bottom: 1px solid var(--color-fabula1);
+  -o-border-image: var(--fabula-gradient-secondary-border);
+     border-image: var(--fabula-gradient-secondary-border);
 }
 .ui-dialog .charsheet .repcontainer .repitem .itemcontrol {
   background-color: transparent;
-}
-.ui-dialog .charsheet .repcontrol {
-  margin-block-start: 8px;
 }
 .ui-dialog .charsheet .repcontrol_add, .ui-dialog .charsheet .repcontrol_edit, .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
   position: relative;
@@ -644,6 +644,13 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima span[name] {
   white-space: pre-wrap;
 }
+.fabula-ultima span[name]:empty {
+  text-align: center;
+}
+.fabula-ultima span[name]:empty:before {
+  display: inline;
+  content: "—";
+}
 .fabula-ultima .fabula-check {
   position: relative;
   display: flex;
@@ -798,7 +805,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
 }
 .fabula-ultima .attacks--view .attack__special {
-  grid-column: span 6;
+  grid-column: span 5;
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -817,7 +824,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: span 3;
 }
 
-.spells--heading {
+.fabula-ultima .spells__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -826,19 +833,31 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.spells--edit .spell {
+.fabula-ultima .spells__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .spells--edit .spell {
   display: grid;
   grid-template-columns: repeat(2, 1fr) repeat(3, auto);
   gap: 4px;
 }
-.spells--edit .spell__special, .spells--edit .spell__effect {
+.fabula-ultima .spells--edit .spell__special, .fabula-ultima .spells--edit .spell__effect {
   grid-column: 1/-1;
 }
-.spells--edit .spell__name {
+.fabula-ultima .spells--edit .spell__name {
   grid-column: span 2;
 }
 
-.weapons--heading {
+.fabula-ultima .weapons__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -847,15 +866,27 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.weapons--edit .weapon {
+.fabula-ultima .weapons__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .weapons--edit .weapon {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto);
   gap: 4px;
 }
-.weapons--edit .weapon__special {
+.fabula-ultima .weapons--edit .weapon__special {
   grid-column: 1/-1;
 }
-.weapons--edit .weapon__name {
+.fabula-ultima .weapons--edit .weapon__name {
   grid-column: span 3;
 }
 .bestiary--view {

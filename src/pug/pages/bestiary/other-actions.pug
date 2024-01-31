@@ -1,0 +1,17 @@
+mixin other-actions-view(spine)
+  //-
+
+mixin other-actions-edit(spine)
+  .actions
+    h2.actions__heading--edit(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+    +chimera-repeater('actions')
+      +chimera-block('delete')
+        .action
+          - const [name] = spine.actions.delete;
+          +chimera-span(name)
+      +chimera-block('edit')
+        .action
+          each field in spine.actions.hidden
+            +chimera-hidden(field)
+          each field in spine.actions.fields
+            +chimera-input(field)

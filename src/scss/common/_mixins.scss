@@ -142,6 +142,22 @@
   height: min-content;
 }
 
+@mixin repeater-heading {
+  &__heading {
+    &--edit {
+      @include text-xl-400-fabula;
+      text-transform: capitalize;
+    }
+    &--view {
+      background-image: var(--fabula-gradient-secondary);
+      color: var(--color-on-dark);
+      padding-left: 16px;
+      padding-right: 16px;
+      @include text-xxl-500-fabula;
+    }
+  }
+}
+
 // @mixin fabula-check {
 //   display: flex;
 //   gap: 4px;

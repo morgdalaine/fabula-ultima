@@ -1,6 +1,136 @@
-include bestiary/view
-include bestiary/edit
-include bestiary/attacks
+include bestiary/basic-attacks
+include bestiary/notes
+include bestiary/other-actions
+include bestiary/rare-equipment
+include bestiary/special-rules
+include bestiary/spells
+include bestiary/weapons
 
-+bestiary-view(spine.bestiary)
-+bestiary-edit(spine.bestiary)
+mixin bestiary-view(spine.bestiary)
+  header.bestiary--view
+    .bio
+      -
+        const bio = fieldDictionary(spine.bio.fields)
+
+      +chimera-hidden('character_avatar', '')
+      .bio__avatar
+        img(name='attr_character_avatar')
+      .bio__name
+        +chimera-span(bio.character_name)
+      .bio__meta
+        label(data-i18n='lv') Lv
+        +chimera-hidden(bio.rank.name)
+        +chimera-span(bio.level)
+        +chimera-span(bio.rank)
+        +fabula-diamond
+        +chimera-span(bio.species)
+      .bio__description
+        +chimera-span(bio.description)
+      .bio__traits
+        label(data-i18n='typical_traits') Typical Traits
+        +chimera-span(bio.traits)
+
+    .statistics
+      .attributes
+        each field in spine.attributes.view
+          +chimera-value(field).attribute
+
+      .points
+        -
+          const points = fieldDictionary(spine.points.fields)
+
+        .points__label
+          label(data-i18n='hp') HP
+        .points__hp
+          +chimera-span(points.hp)
+          +fabula-diamond
+          +chimera-span(points.hp_crisis)
+
+        .points__label
+          label(data-i18n='mp') MP
+        .points__mp
+          +chimera-span(points.mp)
+
+        .points__initiative
+          label(data-i18n='init') Init.
+          +chimera-span(points.initiative)
+
+      .defenses
+        each field in spine.defenses.hidden
+          +chimera-hidden(field)
+        each field in spine.defenses.view
+          +chimera-value(field)
+
+      .affinities
+        each field in spine.affinities.fields
+          .affinity--cell(class=`affinity--${field.name}`)
+            +chimera-hidden(field.name)
+            +chimera-icon({ icon: field.name, title: field.text })
+            +chimera-value(field)
+
+    .status-effects
+      each field in spine.statuses.fields
+        +chimera-input(field)
+
+    +basic-attacks-view(spine)
+    +weapons-view(spine)
+    +spells-view(spine)
+    +other-actions-view(spine)
+    +special-rules-view(spine)
+    +rare-equipment-view(spine)
+    +notes-view(spine)
+
+mixin bestiary-edit(spine.bestiary)
+  section.bestiary--edit
+    .bio
+      each field in spine.bio.hidden
+        +chimera-hidden(field)
+      each field in spine.bio.fields
+        +chimera-input(field)
+
+    .attributes
+      each field in spine.attributes.fields
+        +chimera-input(field)
+
+    .attributes__distribution.chimera-container--shadow
+      each field in spine.attributes.distribution
+        +chimera-value(field)
+
+    .affinities
+      each field in spine.affinities.fields
+        +chimera-input(field)
+
+    .affinities__skillcost.chimera-container--shadow
+      each field in spine.affinities.skillcost
+        +chimera-value(field)
+
+    .defenses
+      each field in spine.defenses.fields
+        +chimera-input(field)
+
+    .extras
+      each field in spine.extras.fields
+        +chimera-input(field)
+
+    .extras.extra--checkboxes
+      each field in spine.extras.checkboxes
+        +chimera-input(field)
+
+    .armor
+      h2.armor__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+      each field in spine.armor.hidden
+        +chimera-hidden(field)
+      each field in spine.armor.fields
+        +chimera-input(field)
+    .shield
+      h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+      each field in spine.shield.fields
+        +chimera-input(field)
+
+    +basic-attacks-edit(spine)
+    +weapons-edit(spine)
+    +spells-edit(spine)
+    +other-actions-edit(spine)
+    +special-rules-edit(spine)
+    +rare-equipment-edit(spine)
+    +notes-edit(spine)

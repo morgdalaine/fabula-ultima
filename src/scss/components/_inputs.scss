@@ -101,13 +101,13 @@
 
   span[name] {
     white-space: pre-wrap;
-    // &:empty {
-    //   text-align: center;
-    //   &:before {
-    //     display: inline;
-    //     content: '—';
-    //   }
-    // }
+    &:empty {
+      text-align: center;
+      &:before {
+        display: inline;
+        content: '—';
+      }
+    }
   }
 
   // label {

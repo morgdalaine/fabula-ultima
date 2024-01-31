@@ -1,0 +1,17 @@
+mixin notes-view(spine)
+  //-
+
+mixin notes-edit(spine)
+  .notes
+    h2.notes__heading--edit(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+    +chimera-repeater('notes')
+      +chimera-block('delete')
+        .note
+          - const [name] = spine.notes.delete;
+          +chimera-span(name)
+      +chimera-block('edit')
+        .note
+          each field in spine.notes.hidden
+            +chimera-hidden(field)
+          each field in spine.notes.fields
+            +chimera-input(field)

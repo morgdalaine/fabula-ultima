@@ -4,25 +4,7 @@
   .attacks {
     $this: '.attacks';
 
-    &__heading {
-      &--edit {
-        @include mixins.text-xl-400-fabula;
-        text-transform: capitalize;
-      }
-      &--view {
-        background-image: var(--fabula-gradient-secondary);
-        color: var(--color-on-dark);
-        padding-left: 16px;
-        padding-right: 16px;
-        @include mixins.text-xxl-500-fabula;
-      }
-    }
-
-    &--delete {
-      .attack {
-        // // @include fabula-check;
-      }
-    }
+    @include mixins.repeater-heading;
 
     &--view {
       input[name*='attack_range'] {
@@ -41,15 +23,11 @@
       .attack {
         display: grid;
         grid-template-columns: var(--button-component-size) 1fr repeat(4, auto);
-        // &--top {
-        //   display: flex;
-        //   flex-wrap: nowrap;
         gap: 4px;
 
         .fabula-check span {
           @include mixins.text-lg-700;
         }
-        // }
 
         &__range {
           &--melee,
@@ -65,7 +43,7 @@
         }
 
         &__special {
-          grid-column: span 6;
+          grid-column: span 5;
           @include mixins.text-lg-400;
         }
       }

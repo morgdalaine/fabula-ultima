@@ -1,33 +1,26 @@
 @use '../../../common/vars' as mixins;
 
-.spells {
-  $this: '.spells';
+.fabula-ultima {
+  .spells {
+    $this: '.spells';
 
-  &--heading {
-    @include mixins.text-xl-400-fabula;
-    text-transform: capitalize;
-  }
+    @include mixins.repeater-heading;
 
-  &--delete {
-    .spell {
-      // @include fabula-check;
-    }
-  }
+    &--edit {
+      .spell {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+        // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+        gap: 4px;
 
-  &--edit {
-    .spell {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr) repeat(3, auto);
-      // grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-      gap: 4px;
+        &__special,
+        &__effect {
+          grid-column: 1/-1;
+        }
 
-      &__special,
-      &__effect {
-        grid-column: 1/-1;
-      }
-
-      &__name {
-        grid-column: span 2;
+        &__name {
+          grid-column: span 2;
+        }
       }
     }
   }
