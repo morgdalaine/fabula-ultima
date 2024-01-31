@@ -1332,24 +1332,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   margin: 0;
   filter: none;
 }
-.bestiary--view .attacks__name {
-  grid-column: span 3;
-  background-image: var(--fabula-gradient-primary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.bestiary--view .attacks__name span {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
 .bestiary--edit {
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
