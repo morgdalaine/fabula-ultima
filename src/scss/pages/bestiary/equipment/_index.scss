@@ -1,7 +1,4 @@
 @use '../../../common/vars' as mixins;
 @use 'armor';
+@use 'equipment';
 @use 'shield';
-
-.equipment {
-  grid-column: 1/-1;
-}

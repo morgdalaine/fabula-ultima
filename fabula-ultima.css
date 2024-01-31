@@ -1047,6 +1047,92 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: none;
 }
 
+.fabula-ultima .equipment__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .equipment__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .equipment--view input[name*=equipment_range][value=melee] ~ .equipment__range--melee {
+  display: block;
+}
+.fabula-ultima .equipment--view input[name*=equipment_range][value=distance] ~ .equipment__range--distance {
+  display: block;
+}
+.fabula-ultima .equipment--view .equipment {
+  display: grid;
+  grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+  gap: 4px;
+}
+.fabula-ultima .equipment--view .equipment .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .equipment--view .equipment__range--melee, .fabula-ultima .equipment--view .equipment__range--distance {
+  display: none;
+  grid-row: span 2;
+}
+.fabula-ultima .equipment--view .equipment__attack, .fabula-ultima .equipment--view .equipment__attack_name, .fabula-ultima .equipment--view .equipment__type {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .equipment--view .equipment__attack {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .equipment--view .equipment__name {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .equipment--view .equipment__name::before {
+  content: "(";
+}
+.fabula-ultima .equipment--view .equipment__name::after {
+  content: ")";
+}
+.fabula-ultima .equipment--view .equipment__special {
+  grid-column: 2/span 4;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .equipment--edit .equipment {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 4px;
+}
+.fabula-ultima .equipment--edit .equipment__special {
+  grid-column: 1/-1;
+}
+.fabula-ultima .equipment--edit .equipment__name {
+  grid-column: span 3;
+}
 .fabula-ultima .shield__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1082,10 +1168,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .shield input[name*=is_martial][value="0"] ~ .shield__defense {
   display: none;
-}
-
-.equipment {
-  grid-column: 1/-1;
 }
 
 .fabula-ultima .notes {

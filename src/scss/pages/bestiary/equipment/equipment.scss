@@ -1,0 +1,87 @@
+@use '../../../common/vars' as mixins;
+
+.fabula-ultima {
+  .equipment {
+    $this: '.equipment';
+
+    @include mixins.repeater-heading;
+
+    // TODO delete styling
+
+    &--view {
+      input[name*='equipment_range'] {
+        &[value='melee'] {
+          ~ .equipment__range--melee {
+            display: block;
+          }
+        }
+        &[value='distance'] {
+          ~ .equipment__range--distance {
+            display: block;
+          }
+        }
+      }
+
+      .equipment {
+        display: grid;
+        grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+        gap: 4px;
+
+        .fabula-check span {
+          @include mixins.text-lg-700;
+        }
+
+        &__range {
+          &--melee,
+          &--distance {
+            display: none;
+            grid-row: span 2;
+          }
+        }
+
+        &__attack,
+        &__attack_name,
+        &__type {
+          @include mixins.text-lg-700;
+        }
+
+        &__attack {
+          display: flex;
+          gap: 4px;
+        }
+        &__name {
+          @include mixins.text-lg-400;
+          &::before {
+            content: '(';
+          }
+          &::after {
+            content: ')';
+          }
+        }
+
+        &__special {
+          grid-column: 2 / span 4;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
+    &--edit {
+      .equipment {
+        display: grid;
+        grid-template-columns: 1fr repeat(3, auto);
+        gap: 4px;
+
+        &__special {
+          grid-column: 1/-1;
+        }
+
+        &__name {
+          grid-column: span 3;
+        }
+        &__category {
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-mixin armor-view(spine)
-  //-
+mixin equipment-view(spine)
+  h2.equipment__heading--view(data-i18n='equipment') Equipment
 
 mixin armor-edit(spine)
   .armor--edit
@@ -9,9 +9,6 @@ mixin armor-edit(spine)
         +chimera-hidden(field)
       each field in spine.armor.fields
         +chimera-input(field)
-
-mixin shield-view(spine)
-  //-
 
 mixin shield-edit(spine)
   .shield--edit
