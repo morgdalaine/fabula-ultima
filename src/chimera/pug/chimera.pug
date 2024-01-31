@@ -42,7 +42,7 @@ mixin chimera-checkbox(blob)
   - const image = blob.image ?? 'checkbox';
   label(class=css)
     .chimera-checkbox__field
-      input(id=blob.name, name=attr, type='checkbox')
+      input(id=blob.name, name=attr, type='checkbox', value=blob.value)
       +chimera-icon({ icon: image })
     span.chimera-checkbox__label(data-i18n=blob.name, for=blob.name)= blob.label
 
@@ -153,7 +153,7 @@ mixin chimera-span(blob)
 mixin chimera-repeater(fieldset)
   block
   .chimera-repeater
-    +chimera-hidden(fieldset, 0).chimera-repeater--is-empty
+    +chimera-hidden(`${fieldset}_empty`, 0).chimera-repeater--is-empty
     .chimera-repeater__empty
       - const emptyKey = `none_${fieldset}_repeating`;
       - const emptyHeader = `No ${fieldset.replace(/[-_]+/g, ' ')} saved.`;

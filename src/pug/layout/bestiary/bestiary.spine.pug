@@ -18,9 +18,10 @@
         name: 'level',
         label: 'Level',
         type: 'number',
+        value: 5,
         min: 5,
         step: 5,
-        max: 50,
+        max: 60,
         css: { names: ['bio__level'], modifiers: ['center', 'small'] },
       },
       {
@@ -116,118 +117,4 @@
       type: 'number',
       css: { names: ['points__initiative'] },
     },
-  };
-
-  spine.bestiary.armor = {
-    heading: { name: 'armor', label: 'Armor' },
-    fields: [
-      {
-        name: 'armor_name',
-        label: 'Name',
-        title: 'Name',
-        type: 'text',
-        css: { names: ['armor__name'] },
-      },
-      {
-        name: 'armor_initiative',
-        label: 'Initiative',
-        title: 'Initiative',
-        type: 'number',
-        css: { names: ['armor__initiative'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'armor_cost',
-        label: 'Cost',
-        title: 'Cost',
-        min: 0,
-        step: 50,
-        type: 'number',
-        css: { names: ['armor__cost'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'armor_defense',
-        label: 'DEF',
-        title: 'Defense',
-        type: 'number',
-        css: { names: ['armor__defense'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'armor_defense_bonus',
-        label: 'DEF Bonus',
-        title: 'Defense Bonus',
-        type: 'number',
-        css: { names: ['armor__defense_bonus'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'armor_magic_defense',
-        label: 'M.DEF',
-        title: 'Magic Defense',
-        type: 'number',
-        css: { names: ['armor__magic_defense'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'armor_magic_defense_bonus',
-        label: 'M.DEF Bonus',
-        title: 'Magic Defense Bonus',
-        type: 'number',
-        css: { names: ['armor__magic_defense_bonus'], modifiers: ['center', 'small'] },
-      },
-    ],
-  };
-
-  spine.bestiary.shield = {
-    heading: { name: 'shield', label: 'Shield' },
-    fields: [
-      {
-        name: 'shield_name',
-        label: 'Name',
-        title: 'Name',
-        type: 'text',
-        css: { names: ['shield__name'] },
-      },
-      {
-        name: 'shield_initiative',
-        label: 'Initiative',
-        title: 'Initiative',
-        type: 'number',
-        css: { names: ['shield__initiative'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'shield_cost',
-        label: 'Cost',
-        title: 'Cost',
-        type: 'number',
-        min: 0,
-        step: 50,
-        css: { names: ['shield__cost'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'shield_defense',
-        label: 'DEF',
-        title: 'Defense',
-        type: 'number',
-        css: { names: ['shield__defense'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'shield_defense_bonus',
-        label: 'DEF Bonus',
-        title: 'Defense Bonus',
-        type: 'number',
-        css: { names: ['shield__defense_bonus'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'shield_magic_defense',
-        label: 'M.DEF',
-        title: 'Magic Defense',
-        type: 'number',
-        css: { names: ['shield__magic_defense'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'shield_magic_defense_bonus',
-        label: 'M.DEF Bonus',
-        title: 'Magic Defense Bonus',
-        type: 'number',
-        css: { names: ['shield__magic_defense_bonus'], modifiers: ['center', 'small'] },
-      },
-    ],
   };

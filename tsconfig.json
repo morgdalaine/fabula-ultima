@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "system",
+    "module": "amd",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -8,5 +8,5 @@
     "outFile": "src/fabula-ultima.js",
     "lib": ["ES2023", "DOM"],
   },
-  "include": ["src/ts/**/*"],
+  "include": ["src/ts/**/*", "src/chimera/ts/**.*"],
 }

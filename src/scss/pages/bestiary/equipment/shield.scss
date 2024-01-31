@@ -5,7 +5,7 @@
   $this: '.shield';
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
   gap: 4px;
 
   &--heading {
@@ -14,15 +14,10 @@
     text-transform: capitalize;
   }
 
-  &--edit {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+  &__name {
+    grid-column: span 3;
   }
 
-  &__name {
-    grid-column: span 2;
-  }
   &__initiative,
   &__cost,
   &__defense,

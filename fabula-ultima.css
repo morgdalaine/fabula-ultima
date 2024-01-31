@@ -793,15 +793,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   opacity: 1;
 }
 
-.bestiary--view {
-  margin: 8px;
-  max-width: 500px;
-  background-color: var(--suface-container-lowest);
-  box-shadow: var(--box-shadow-light);
-  border-radius: 4px;
-  display: flex;
-  gap: 4px;
-}
 .bestiary--edit {
   @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
   @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
@@ -1067,7 +1058,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .bestiary--edit .armor {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
   gap: 4px;
 }
 .bestiary--edit .armor--heading {
@@ -1080,17 +1071,18 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.bestiary--edit .armor--edit {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+.bestiary--edit .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.bestiary--edit .armor input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
 }
 .bestiary--edit .armor__name {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 .bestiary--edit .shield {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
   gap: 4px;
 }
 .bestiary--edit .shield--heading {
@@ -1103,13 +1095,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.bestiary--edit .shield--edit {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-}
 .bestiary--edit .shield__name {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 .bestiary--edit .equipment {
   grid-column: 1/-1;

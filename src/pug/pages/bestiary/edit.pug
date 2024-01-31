@@ -31,10 +31,13 @@ mixin bestiary-edit(spine)
 
   .extras.extra--checkboxes
     each field in spine.extras.checkboxes
+      +chimera-value(field)
       +chimera-input(field)
 
   .armor
     h2.armor--heading(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+    each field in spine.armor.hidden
+      +chimera-hidden(field)
     each field in spine.armor.fields
       +chimera-input(field)
   .shield
