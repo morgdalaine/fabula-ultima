@@ -1173,7 +1173,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
   line-height: 180%;
-  color: hotpink;
 }
 .fabula-ultima .equipments .equipment__armor, .fabula-ultima .equipments .equipment__shield, .fabula-ultima .equipments .equipment__weapon {
   display: flex;
