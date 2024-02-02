@@ -935,13 +935,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .spells--view .spell {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr repeat(3, auto);
+  grid-template-columns: var(--icon-component-size) 1fr repeat(2, auto);
   gap: 4px;
 }
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .fabula-check,
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .fabula-diamond--toggle,
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .fabula-check,
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .fabula-diamond--toggle {
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
+.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
   display: none;
 }
 .fabula-ultima .spells--view .spell__name .chimera-value__value, .fabula-ultima .spells--view .spell__type .chimera-value__value {
@@ -950,6 +948,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+}
+.fabula-ultima .spells--view .spell__offensive {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
 }
 .fabula-ultima .spells--view .spell .fabula-check span {
   font-family: var(--font-body);
@@ -979,7 +982,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 2/-1;
   grid-row-start: 2;
   display: flex;
-  justify-content: flex-end;
   gap: 4px;
 }
 .fabula-ultima .spells--view .spell__effect {
@@ -988,14 +990,23 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .spells--edit .spell {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+  grid-template-columns: repeat(5, auto);
   gap: 4px;
 }
 .fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_1,
 .fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__precision,
 .fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2 {
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
+.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__precision {
   display: none;
+}
+.fabula-ultima .spells--edit .spell__name, .fabula-ultima .spells--edit .spell__offensive, .fabula-ultima .spells--edit .spell__mp {
+  grid-row: 1;
 }
 .fabula-ultima .spells--edit .spell__name {
   grid-column: span 2;
@@ -1003,8 +1014,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .spells--edit .spell__offensive {
   grid-column-start: -2;
 }
-.fabula-ultima .spells--edit .spell__mp, .fabula-ultima .spells--edit .spell__target, .fabula-ultima .spells--edit .spell__duration, .fabula-ultima .spells--edit .spell__precision, .fabula-ultima .spells--edit .spell__damage {
+.fabula-ultima .spells--edit .spell__check_1, .fabula-ultima .spells--edit .spell__check_2, .fabula-ultima .spells--edit .spell__precision, .fabula-ultima .spells--edit .spell__damage, .fabula-ultima .spells--edit .spell__type {
   grid-row: 2;
+}
+.fabula-ultima .spells--edit .spell__target, .fabula-ultima .spells--edit .spell__duration {
+  grid-column: span 2;
 }
 .fabula-ultima .spells--edit .spell__special, .fabula-ultima .spells--edit .spell__effect {
   grid-column: 1/-1;

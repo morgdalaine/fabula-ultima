@@ -23,7 +23,7 @@
       {
         name: 'attack_damage',
         title: 'Damage',
-        css: { names: ['basic-attack__type'], modifiers: ['center'] },
+        css: { names: ['basic-attack__damage'], modifiers: ['center'] },
       },
       {
         name: 'attack_type',
@@ -135,12 +135,12 @@
       {
         name: 'weapon_precision_total',
         title: 'Accuracy',
-        css: { names: ['weapon__type'], modifiers: [] },
+        css: { names: ['weapon__precision'], modifiers: [] },
       },
       {
         name: 'weapon_damage_total',
         title: 'Damage',
-        css: { names: ['weapon__type'], modifiers: [] },
+        css: { names: ['weapon__damage'], modifiers: [] },
       },
       {
         name: 'weapon_type',
@@ -321,13 +321,16 @@
         css: { names: ['spell__damage_total'], modifiers: ['center'] },
       },
       {
+        name: 'spell_type',
+        dynamic: true,
+        css: { names: ['spell__type'], modifiers: ['no-label-bold'] },
+      },
+      {
         name: 'spell_target',
-        title: 'Target',
         css: { names: ['spell__target'], modifiers: ['center'] },
       },
       {
         name: 'spell_duration',
-        title: 'Duration',
         css: { names: ['spell__duration'], modifiers: ['center'] },
       },
       {
@@ -363,24 +366,51 @@
         css: { names: ['spell__name'], modifiers: [] },
       },
       {
-        name: 'spell_check_1',
-        label: 'Attr 1',
-        type: 'select',
-        options: attributeOptions,
-        css: { names: ['spell__check_1'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'spell_check_2',
-        label: 'Attr 2',
-        type: 'select',
-        options: attributeOptions,
-        css: { names: ['spell__check_2'], modifiers: ['small', 'center'] },
+        name: 'spell_mp',
+        label: 'MP',
+        type: 'text',
+        css: { names: ['spell__mp'], modifiers: ['center', 'small'] },
       },
       {
         name: 'spell_is_offensive',
         label: 'Is Offensive',
         type: 'checkbox',
         css: { names: ['spell__offensive'], modifiers: ['column'] },
+      },
+      {
+        name: 'spell_check_1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spell__check_1'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_check_2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spell__check_2'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_precision',
+        label: 'Accuracy',
+        type: 'number',
+        min: 0,
+        css: { names: ['spell__precision'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'spell_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        css: { names: ['spell__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_damage',
+        label: 'Damage',
+        type: 'number',
+        min: 0,
+        css: { names: ['spell__damage'], modifiers: ['small', 'center'] },
       },
       {
         name: 'spell_target',
@@ -393,26 +423,6 @@
         label: 'Duration',
         type: 'text',
         css: { names: ['spell__duration'], modifiers: [] },
-      },
-      {
-        name: 'spell_mp',
-        label: 'MP',
-        type: 'text',
-        css: { names: ['spell__mp'], modifiers: ['center', 'small'] },
-      },
-      {
-        name: 'spell_precision',
-        label: 'Accuracy',
-        type: 'number',
-        min: 0,
-        css: { names: ['spell__precision'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'spell_damage',
-        label: 'Damage',
-        type: 'number',
-        min: 0,
-        css: { names: ['spell__damage'], modifiers: ['small', 'center'] },
       },
       {
         name: 'spell_effect',

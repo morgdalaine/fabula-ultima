@@ -29,14 +29,13 @@
     &--view {
       .spell {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr repeat(3, auto);
+        grid-template-columns: var(--icon-component-size) 1fr repeat(2, auto);
         gap: 4px;
 
         input[name*='spell_is_offensive'] {
           &[value='0'],
           :not([value]) {
-            ~ .fabula-check,
-            ~ .fabula-diamond--toggle {
+            ~ .spell__offensive {
               display: none;
             }
           }
@@ -49,6 +48,12 @@
               @include mixins.text-lg-700;
             }
           }
+        }
+
+        &__offensive {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 4px;
         }
 
         .fabula-check {
@@ -76,7 +81,6 @@
           grid-column: 2 / -1;
           grid-row-start: 2;
           display: flex;
-          justify-content: flex-end;
           gap: 4px;
         }
         &__effect {
@@ -89,19 +93,27 @@
     &--edit {
       .spell {
         display: grid;
-        grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+        grid-template-columns: repeat(5, auto);
         gap: 4px;
 
         input[name*='spell_is_offensive'] {
           &[value='0'],
           :not([value]) {
             ~ .spell__check_1,
-            ~ .spell__check_2 {
+            ~ .spell__check_2,
+            ~ .spell__damage,
+            ~ .spell__type,
+            ~ .spell__precision {
               display: none;
             }
           }
         }
 
+        &__name,
+        &__offensive,
+        &__mp {
+          grid-row: 1;
+        }
         &__name {
           grid-column: span 2;
         }
@@ -109,12 +121,17 @@
           grid-column-start: -2;
         }
 
-        &__mp,
-        &__target,
-        &__duration,
+        &__check_1,
+        &__check_2,
         &__precision,
-        &__damage {
+        &__damage,
+        &__type {
           grid-row: 2;
+        }
+
+        &__target,
+        &__duration {
+          grid-column: span 2;
         }
 
         &__special,

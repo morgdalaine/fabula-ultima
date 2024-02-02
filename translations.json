@@ -241,6 +241,8 @@
   "spell_target": "Target",
   "spell_target_title": "Target",
   "spell_title": "Spell",
+  "spell_type": "Damage Type",
+  "spell_type_title": "Damage Type",
   "spells": "Spells",
   "standard": "Standard",
   "super_specialized": "Super Specialized",

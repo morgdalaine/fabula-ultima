@@ -353,10 +353,18 @@
                               <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
                               <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                <!-- TODO calculate precision_total-->
-                                <input name="attr_spell_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision_total"></span>
-                              </div><span class="fabula-diamond fabula-diamond--toggle">⬥</span>
+                              <div class="spell__offensive">
+                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
+                                  <!-- TODO calculate precision_total-->
+                                  <input name="attr_spell_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision_total"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
+                                  <input name="attr_spell_damage_total" type="hidden" value="0"/>
+                                  <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_spell_damage_total"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="chimera-value spell__type chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_type"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                              </div>
                               <div class="chimera-value spell__mp chimera-value--reverse">
                                 <label class="chimera-value__label" data-i18n="spell_mp" for="spell_mp">MP</label><span class="chimera-value__value" name="attr_spell_mp"></span>
                               </div>
@@ -1135,7 +1143,16 @@
                                 <label class="chimera-input__label" data-i18n="spell_name" for="spell_name">Spell Name</label>
                                 <input class="chimera-input__field" data-i18n-title="spell_name_title" id="spell_name" name="attr_spell_name" title="Spell Name" type="text"/>
                               </div>
-                              <div class="chimera-input spell__check_1 chimera-input--small chimera-input--center">
+                              <div class="chimera-input spell__mp chimera-input--center chimera-input--small">
+                                <label class="chimera-input__label" data-i18n="spell_mp" for="spell_mp">MP</label>
+                                <input class="chimera-input__field" data-i18n-title="spell_mp_title" id="spell_mp" name="attr_spell_mp" title="MP" type="text"/>
+                              </div>
+                              <label class="chimera-checkbox spell__offensive chimera-checkbox--column" data-i18n-title="spell_is_offensive_title" title="Is Offensive">
+                                <div class="chimera-checkbox__field">
+                                  <input id="spell_is_offensive" name="attr_spell_is_offensive" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                </div><span class="chimera-checkbox__label" data-i18n="spell_is_offensive" for="spell_is_offensive">Is Offensive</span>
+                              </label>
+                              <div class="chimera-input spell__check_1 chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="spell_check_1" for="spell_check_1">Attr 1</label>
                                 <select class="chimera-input__field" data-i18n-title="spell_check_1_title" id="spell_check_1" name="attr_spell_check_1" title="Attr 1">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -1144,7 +1161,7 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input spell__check_2 chimera-input--small chimera-input--center">
+                              <div class="chimera-input spell__check_2 chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="spell_check_2" for="spell_check_2">Attr 2</label>
                                 <select class="chimera-input__field" data-i18n-title="spell_check_2_title" id="spell_check_2" name="attr_spell_check_2" title="Attr 2">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -1153,11 +1170,28 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <label class="chimera-checkbox spell__offensive chimera-checkbox--column" data-i18n-title="spell_is_offensive_title" title="Is Offensive">
-                                <div class="chimera-checkbox__field">
-                                  <input id="spell_is_offensive" name="attr_spell_is_offensive" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                                </div><span class="chimera-checkbox__label" data-i18n="spell_is_offensive" for="spell_is_offensive">Is Offensive</span>
-                              </label>
+                              <div class="chimera-input spell__precision chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_precision" for="spell_precision">Accuracy</label>
+                                <input class="chimera-input__field" data-i18n-title="spell_precision_title" id="spell_precision" min="0" name="attr_spell_precision" title="Accuracy" type="number"/>
+                              </div>
+                              <div class="chimera-input spell__type chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_type" for="spell_type">Damage Type</label>
+                                <select class="chimera-input__field" data-i18n-title="spell_type_title" id="spell_type" name="attr_spell_type" title="Damage Type">
+                                  <option data-i18n="physical" selected="selected" value="physical">Physical</option>
+                                  <option data-i18n="air" value="air">Air</option>
+                                  <option data-i18n="bolt" value="bolt">Bolt</option>
+                                  <option data-i18n="dark" value="dark">Dark</option>
+                                  <option data-i18n="earth" value="earth">Earth</option>
+                                  <option data-i18n="fire" value="fire">Fire</option>
+                                  <option data-i18n="ice" value="ice">Ice</option>
+                                  <option data-i18n="light" value="light">Light</option>
+                                  <option data-i18n="poison" value="poison">Poison</option>
+                                </select>
+                              </div>
+                              <div class="chimera-input spell__damage chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_damage" for="spell_damage">Damage</label>
+                                <input class="chimera-input__field" data-i18n-title="spell_damage_title" id="spell_damage" min="0" name="attr_spell_damage" title="Damage" type="number"/>
+                              </div>
                               <div class="chimera-input spell__target">
                                 <label class="chimera-input__label" data-i18n="spell_target" for="spell_target">Target</label>
                                 <input class="chimera-input__field" data-i18n-title="spell_target_title" id="spell_target" name="attr_spell_target" title="Target" type="text"/>
@@ -1165,18 +1199,6 @@
                               <div class="chimera-input spell__duration">
                                 <label class="chimera-input__label" data-i18n="spell_duration" for="spell_duration">Duration</label>
                                 <input class="chimera-input__field" data-i18n-title="spell_duration_title" id="spell_duration" name="attr_spell_duration" title="Duration" type="text"/>
-                              </div>
-                              <div class="chimera-input spell__mp chimera-input--center chimera-input--small">
-                                <label class="chimera-input__label" data-i18n="spell_mp" for="spell_mp">MP</label>
-                                <input class="chimera-input__field" data-i18n-title="spell_mp_title" id="spell_mp" name="attr_spell_mp" title="MP" type="text"/>
-                              </div>
-                              <div class="chimera-input spell__precision chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="spell_precision" for="spell_precision">Accuracy</label>
-                                <input class="chimera-input__field" data-i18n-title="spell_precision_title" id="spell_precision" min="0" name="attr_spell_precision" title="Accuracy" type="number"/>
-                              </div>
-                              <div class="chimera-input spell__damage chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="spell_damage" for="spell_damage">Damage</label>
-                                <input class="chimera-input__field" data-i18n-title="spell_damage_title" id="spell_damage" min="0" name="attr_spell_damage" title="Damage" type="number"/>
                               </div>
                               <div class="chimera-input spell__effect">
                                 <label class="chimera-input__label" data-i18n="spell_effect" for="spell_effect">Effect</label>

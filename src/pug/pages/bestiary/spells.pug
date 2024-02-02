@@ -20,9 +20,11 @@ mixin spells-view(spine)
 
           +chimera-value(spell.name)
 
-          //- TODO damage and type
-          +fabula-check(spell.check_1, spell.check_2, spell.precision_total)
-          +fabula-diamond(['toggle'])
+          .spell__offensive
+            +fabula-check(spell.check_1, spell.check_2, spell.precision_total, spell.damage_total)
+            +fabula-diamond
+            +chimera-value(spell.type)
+            +fabula-diamond
 
           +chimera-value(spell.mp)
 
