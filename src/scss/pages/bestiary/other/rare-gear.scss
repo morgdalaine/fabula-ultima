@@ -4,8 +4,6 @@
   .rare-gears {
     $this: '.rare-gears';
 
-    grid-column: span 2;
-
     @include mixins.repeater-heading;
 
     &--delete {

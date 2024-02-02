@@ -157,15 +157,15 @@
                     <label data-i18n="init">Init.</label><span name="attr_initiative"></span>
                   </div>
                 </div>
-                <div class="defenses">
-                  <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
-                  <div class="chimera-value">
-                    <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
-                  </div>
-                  <div class="chimera-value">
-                    <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
-                  </div>
-                </div>
+                    <div class="defenses">
+                      <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
+                      </div>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
+                      </div>
+                    </div>
                 <div class="affinities">
                   <div class="affinity--cell affinity--physical">
                     <input class="chimera-hidden" name="attr_physical" type="hidden"/><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical"/>
@@ -795,28 +795,28 @@
                 <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_absorption">Use 2 skill per Absorption</span>
                 </div>
               </div>
-              <div class="defenses--edit">
-                <div class="chimera-input defense defense__quick chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
-                  <select class="chimera-input__field" data-i18n-title="defense_quick_title" id="defense_quick" name="attr_defense_quick" title="Defense Quick Select">
-                    <option data-i18n="extra_defense_null" selected="selected" value="">—</option>
-                    <option data-i18n="extra_defense_00" value="0/0">+0 Def / +0 M. Def</option>
-                    <option data-i18n="extra_defense_12" value="1/2">+1 Def / +2 M. Def</option>
-                    <option data-i18n="extra_defense_21" value="2/1">+2 Def / +1 M. Def</option>
-                    <option data-i18n="extra_defense_33" value="3/3">+3 Def / +3 M. Def</option>
-                    <option data-i18n="extra_defense_24" value="2/4">+2 Def / +4 M. Def</option>
-                    <option data-i18n="extra_defense_42" value="4/2">+4 Def / +2 M. Def</option>
-                  </select>
-                </div>
-                <div class="chimera-input defense defense__def chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="defense_extra" for="defense_extra">+DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="defense_extra_title" id="defense_extra" name="attr_defense_extra" title="+DEF" type="number"/>
-                </div>
-                <div class="chimera-input defense defense__mdef chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="magic_defense_extra" for="magic_defense_extra">+M.DEF</label>
-                  <input class="chimera-input__field" data-i18n-title="magic_defense_extra_title" id="magic_defense_extra" name="attr_magic_defense_extra" title="+M.DEF" type="number"/>
-                </div>
-              </div>
+                  <div class="defenses--edit">
+                    <div class="chimera-input defense defense__quick chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
+                      <select class="chimera-input__field" data-i18n-title="defense_quick_title" id="defense_quick" name="attr_defense_quick" title="Defense Quick Select">
+                        <option data-i18n="extra_defense_null" selected="selected" value="">—</option>
+                        <option data-i18n="extra_defense_00" value="0/0">+0 Def / +0 M. Def</option>
+                        <option data-i18n="extra_defense_12" value="1/2">+1 Def / +2 M. Def</option>
+                        <option data-i18n="extra_defense_21" value="2/1">+2 Def / +1 M. Def</option>
+                        <option data-i18n="extra_defense_33" value="3/3">+3 Def / +3 M. Def</option>
+                        <option data-i18n="extra_defense_24" value="2/4">+2 Def / +4 M. Def</option>
+                        <option data-i18n="extra_defense_42" value="4/2">+4 Def / +2 M. Def</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input defense defense__def chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="defense_extra" for="defense_extra">+DEF</label>
+                      <input class="chimera-input__field" data-i18n-title="defense_extra_title" id="defense_extra" name="attr_defense_extra" title="+DEF" type="number"/>
+                    </div>
+                    <div class="chimera-input defense defense__mdef chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="magic_defense_extra" for="magic_defense_extra">+M.DEF</label>
+                      <input class="chimera-input__field" data-i18n-title="magic_defense_extra_title" id="magic_defense_extra" name="attr_magic_defense_extra" title="+M.DEF" type="number"/>
+                    </div>
+                  </div>
               <div class="extras">
                 <div class="chimera-input extra extra__hp_extra chimera-input--flex-row chimera-input--small">
                   <label class="chimera-input__label" data-i18n="hp_extra" for="hp_extra">Extra HP</label>

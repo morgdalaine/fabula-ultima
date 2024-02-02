@@ -1,7 +1,8 @@
 include bestiary/basic-attacks
-include bestiary/notes
 include bestiary/bio
+include bestiary/defenses
 include bestiary/equipment
+include bestiary/notes
 include bestiary/other-actions
 include bestiary/rare-gear
 include bestiary/special-rules
@@ -35,11 +36,7 @@ mixin bestiary-view(spine)
           label(data-i18n='init') Init.
           +chimera-span(points.initiative)
 
-      .defenses
-        each field in spine.defenses.hidden
-          +chimera-hidden(field)
-        each field in spine.defenses.view
-          +chimera-value(field)
+      +defenses-view(spine)
 
       .affinities
         each field in spine.affinities.fields
@@ -83,9 +80,7 @@ mixin bestiary-edit(spine)
       each field in spine.affinities.skillcost
         +chimera-value(field)
 
-    .defenses--edit
-      each field in spine.defenses.fields
-        +chimera-input(field)
+    +defenses-edit(spine)
 
     .extras
       each field in spine.extras.fields

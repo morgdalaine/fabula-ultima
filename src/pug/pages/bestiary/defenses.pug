@@ -1,0 +1,11 @@
+mixin defenses-view(spine)
+  .defenses
+    each field in spine.defenses.hidden
+      +chimera-hidden(field)
+    each field in spine.defenses.view
+      +chimera-value(field)
+
+mixin defenses-edit(spine)
+  .defenses--edit
+    each field in spine.defenses.fields
+      +chimera-input(field)

@@ -4,8 +4,6 @@
   .notes {
     $this: '.notes';
 
-    grid-column: span 2;
-
     @include mixins.repeater-heading;
 
     &--delete {

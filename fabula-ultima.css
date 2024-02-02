@@ -130,7 +130,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .ui-dialog .charsheet .repcontainer .repitem {
   margin-block-end: 4px;
-  border-top: 1px solid var(--color-fabula1);
+  border-bottom: 1px solid var(--color-fabula1);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -1422,9 +1422,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: none;
 }
 
-.fabula-ultima .bestiary .notes {
-  grid-column: span 2;
-}
 .fabula-ultima .bestiary .notes__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1485,9 +1482,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .bestiary .rare-gears {
-  grid-column: span 2;
-}
 .fabula-ultima .bestiary .rare-gears__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1548,9 +1542,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .bestiary .other-actions {
-  grid-column: span 2;
-}
 .fabula-ultima .bestiary .other-actions__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1611,9 +1602,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .bestiary .special-rules {
-  grid-column: span 2;
-}
 .fabula-ultima .bestiary .special-rules__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1700,7 +1688,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 .fabula-ultima .bestiary .attributes__distribution {
-  grid-column: span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1729,24 +1716,26 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   padding-block-start: 4px;
 }
 
-.fabula-ultima .bestiary .defenses {
+.fabula-ultima .bestiary .defenses--edit {
   display: grid;
-  grid-template-columns: repeat(2, auto);
   gap: 4px;
 }
-.fabula-ultima .bestiary .defenses__container {
-  grid-column: span 2;
-}
-.fabula-ultima .bestiary .defense {
+.fabula-ultima .bestiary .defenses--edit .defense {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4px;
-  align-items: center;
-  justify-content: center;
 }
-.fabula-ultima .bestiary .defense__quick {
+.fabula-ultima .bestiary .defenses--edit .defense__quick {
   grid-column: 1/-1;
   grid-template-columns: 1fr;
+}
+.fabula-ultima .bestiary .defenses--edit .defense__quick .chimera-input__label {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
 }
 
 .fabula-ultima .bestiary .extras {
@@ -1766,6 +1755,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary--view {
+  min-width: 480px;
   margin: 8px;
   max-width: 500px;
   background-color: var(--suface-container-lowest);
@@ -1990,7 +1980,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary--edit {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   padding: 8px;
   background-color: var(--background);
@@ -1999,43 +1988,91 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   height: -moz-min-content;
   height: min-content;
 }
-.fabula-ultima .bestiary--edit .bio--edit {
-  grid-column: 1/span 3;
+@media (min-width: 768px) {
+  .fabula-ultima .bestiary--edit {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .fabula-ultima .bestiary--edit .bio--edit {
+    grid-column: 1/span 3;
+  }
+  .fabula-ultima .bestiary--edit .attributes {
+    grid-column-start: 1;
+  }
+  .fabula-ultima .bestiary--edit .attributes__distribution {
+    grid-column: span 3;
+  }
+  .fabula-ultima .bestiary--edit .affinities {
+    grid-row: 3/span 2;
+  }
+  .fabula-ultima .bestiary--edit .affinities__skillcost {
+    grid-column: span 3;
+  }
+  .fabula-ultima .bestiary--edit .defenses--edit {
+    grid-column: 2;
+    align-self: flex-end;
+  }
+  .fabula-ultima .bestiary--edit .extras {
+    grid-column: 3;
+    align-self: flex-end;
+  }
+  .fabula-ultima .bestiary--edit .extra--checkboxes {
+    grid-column: 4;
+    align-self: flex-end;
+  }
+  .fabula-ultima .bestiary--edit .shield--edit,
+  .fabula-ultima .bestiary--edit .weapons {
+    grid-column: 3/span 2;
+  }
+  .fabula-ultima .bestiary--edit .armor--edit,
+  .fabula-ultima .bestiary--edit .basic-attacks {
+    grid-column: 1/span 2;
+  }
+  .fabula-ultima .bestiary--edit .spells {
+    grid-column: 1/-1;
+  }
+  .fabula-ultima .bestiary--edit .other-actions,
+  .fabula-ultima .bestiary--edit .special-rules,
+  .fabula-ultima .bestiary--edit .rare-gears,
+  .fabula-ultima .bestiary--edit .notes {
+    grid-column: span 2;
+  }
 }
-.fabula-ultima .bestiary--edit .attributes {
-  grid-column-start: 1;
+@media (max-width: 768px) {
+  .fabula-ultima .bestiary--edit {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fabula-ultima .bestiary--edit .bio--edit {
+    grid-column: 1/-1;
+  }
+  .fabula-ultima .bestiary--edit .attributes__distribution {
+    grid-column: span 2;
+  }
+  .fabula-ultima .bestiary--edit .affinities__skillcost {
+    grid-column: span 2;
+  }
+  .fabula-ultima .bestiary--edit .defenses--edit,
+  .fabula-ultima .bestiary--edit .extras,
+  .fabula-ultima .bestiary--edit .extra--checkboxes {
+    align-self: flex-end;
+  }
+  .fabula-ultima .bestiary--edit .shield--edit,
+  .fabula-ultima .bestiary--edit .weapons,
+  .fabula-ultima .bestiary--edit .armor--edit,
+  .fabula-ultima .bestiary--edit .basic-attacks,
+  .fabula-ultima .bestiary--edit .spells,
+  .fabula-ultima .bestiary--edit .other-actions,
+  .fabula-ultima .bestiary--edit .special-rules,
+  .fabula-ultima .bestiary--edit .rare-gears,
+  .fabula-ultima .bestiary--edit .notes {
+    grid-column: 1/-1;
+  }
 }
-.fabula-ultima .bestiary--edit .attributes__distribution {
-  grid-column: span 3;
-}
-.fabula-ultima .bestiary--edit .affinities {
-  grid-row: 3/span 2;
-}
-.fabula-ultima .bestiary--edit .affinities__skillcost {
-  grid-column: span 2;
-}
-.fabula-ultima .bestiary--edit .defenses {
-  grid-column: 2;
-  align-self: flex-end;
-}
-.fabula-ultima .bestiary--edit .extras {
-  grid-column: 3;
-  align-self: flex-end;
-}
-.fabula-ultima .bestiary--edit .extra--checkboxes {
-  grid-column: 4;
-  align-self: flex-end;
-}
-.fabula-ultima .bestiary--edit .shield--edit,
-.fabula-ultima .bestiary--edit .weapons {
-  grid-column: 3/span 2;
-}
-.fabula-ultima .bestiary--edit .armor--edit,
-.fabula-ultima .bestiary--edit .basic-attacks {
-  grid-column: 1/span 2;
-}
-.fabula-ultima .bestiary--edit .spells {
-  grid-column: 1/-1;
+@media (max-width: 480px) {
+  .fabula-ultima .bestiary--edit .defenses--edit,
+  .fabula-ultima .bestiary--edit .extras,
+  .fabula-ultima .bestiary--edit .extra--checkboxes {
+    grid-column: 1/-1;
+  }
 }
 
 .attribute-status-effects .attribute,

@@ -15,6 +15,7 @@
     $this: '.bestiary';
 
     &--view {
+      min-width: $breakpoint-xs;
       margin: 8px;
       max-width: 500px;
       background-color: var(--suface-container-lowest);
@@ -326,10 +327,8 @@
       }
     }
 
-    // TODO Breakpoints
     &--edit {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
 
       padding: 8px;
@@ -339,47 +338,102 @@
         height: min-content;
       }
 
-      .bio--edit {
-        grid-column: 1 / span 3;
-      }
-      .attributes {
-        grid-column-start: 1;
-      }
-      .attributes__distribution {
-        grid-column: span 3;
-      }
-      .affinities {
-        grid-row: 3 / span 2;
-      }
-      .affinities__skillcost {
-        grid-column: span 2;
+      @media (min-width: $breakpoint-sm) {
+        grid-template-columns: repeat(4, 1fr);
+
+        .bio--edit {
+          grid-column: 1 / span 3;
+        }
+        .attributes {
+          grid-column-start: 1;
+          &__distribution {
+            grid-column: span 3;
+          }
+        }
+        .affinities {
+          grid-row: 3 / span 2;
+          &__skillcost {
+            grid-column: span 3;
+          }
+        }
+
+        .defenses--edit {
+          grid-column: 2;
+          align-self: flex-end;
+        }
+        .extras {
+          grid-column: 3;
+          align-self: flex-end;
+        }
+        .extra--checkboxes {
+          grid-column: 4;
+          align-self: flex-end;
+        }
+
+        .shield--edit,
+        .weapons {
+          grid-column: 3 / span 2;
+        }
+
+        .armor--edit,
+        .basic-attacks {
+          grid-column: 1 / span 2;
+        }
+
+        .spells {
+          grid-column: 1/-1;
+        }
+
+        .other-actions,
+        .special-rules,
+        .rare-gears,
+        .notes {
+          grid-column: span 2;
+        }
       }
 
-      .defenses {
-        grid-column: 2;
-        align-self: flex-end;
-      }
-      .extras {
-        grid-column: 3;
-        align-self: flex-end;
-      }
-      .extra--checkboxes {
-        grid-column: 4;
-        align-self: flex-end;
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: repeat(3, 1fr);
+
+        .bio--edit {
+          grid-column: 1/-1;
+        }
+        .attributes {
+          &__distribution {
+            grid-column: span 2;
+          }
+        }
+        .affinities {
+          &__skillcost {
+            grid-column: span 2;
+          }
+        }
+
+        .defenses--edit,
+        .extras,
+        .extra--checkboxes {
+          align-self: flex-end;
+        }
+
+        .shield--edit,
+        .weapons,
+        .armor--edit,
+        .basic-attacks,
+        .spells,
+        .other-actions,
+        .special-rules,
+        .rare-gears,
+        .notes {
+          grid-column: 1/-1;
+        }
       }
 
-      .shield--edit,
-      .weapons {
-        grid-column: 3 / span 2;
-      }
-
-      .armor--edit,
-      .basic-attacks {
-        grid-column: 1 / span 2;
-      }
-
-      .spells {
-        grid-column: 1/-1;
+      @media (max-width: $breakpoint-xs) {
+        .defenses--edit,
+        .extras,
+        .extra--checkboxes {
+          grid-column: 1/-1;
+        }
       }
     }
   }

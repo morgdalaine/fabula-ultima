@@ -4,26 +4,28 @@
   .defenses {
     $this: '.defenses';
 
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 4px;
-
-    &__container {
-      grid-column: span 2;
+    &--view {
     }
-  }
+    &--edit {
+      display: grid;
+      gap: 4px;
 
-  .defense {
-    display: grid;
-    grid-template-columns: 1fr auto;
+      .defense {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4px;
 
-    gap: 4px;
-    align-items: center;
-    justify-content: center;
+        &__quick {
+          grid-column: 1/-1;
+          grid-template-columns: 1fr;
 
-    &__quick {
-      grid-column: 1/-1;
-      grid-template-columns: 1fr;
+          .chimera-input {
+            &__label {
+              @include mixins.text-xl-400-fabula;
+            }
+          }
+        }
+      }
     }
   }
 }
