@@ -124,9 +124,11 @@
 
     &::before {
       content: '【';
+      line-height: 160%;
     }
     &::after {
       content: '】';
+      line-height: 160%;
     }
 
     input[value='0'] {
@@ -137,9 +139,7 @@
   }
 
   .fabula-diamond {
-    &--adjusted {
-      margin-top: -3px;
-    }
+    @include mixins.text-base-400;
   }
 
   select {

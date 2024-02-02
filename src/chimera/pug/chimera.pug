@@ -144,6 +144,10 @@ mixin chimera-value(blob)
   - const valueClass = `${namespace}__field`;
   - const attr = `attr_${blob.name}`;
   div(class=css)&attributes(attributes)
+    if blob.labelOverride
+      - const { key, label } = blob.labelOverride;
+      label.chimera-value__label(data-i18n=key, for=blob.name)= label
+
     if blob.label
       - const datai18n = blob.name ?? blob.label.replace(/\s/g, '_').toLowerCase();
       label.chimera-value__label(data-i18n=datai18n, for=blob.name)= blob.label
@@ -156,8 +160,9 @@ mixin chimera-value(blob)
       span.chimera-value__value(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)
 
 mixin chimera-span(blob)
-  - const dynamic_i18n = blob.dynamic ? 'data-i18n-dynamic' : null;
-  span(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)&attributes(attributes)
+  - const name = blob?.name;
+  - const dynamic_i18n = blob?.dynamic ? 'data-i18n-dynamic' : null;
+  span(data-i18n-dynamic=dynamic_i18n, name=`attr_${name}`)&attributes(attributes)
 
 mixin chimera-repeater(fieldset)
   block
@@ -171,8 +176,17 @@ mixin chimera-repeater(fieldset)
     fieldset(class=`repeating_${fieldset}`)
       .chimera-repeater__content
         .chimera-repeater--edit(class=`${fieldset}--edit`)
+          //- - console.log(`> EDIT ${fieldset}`);
           +chimera-block('edit', true)
         .chimera-repeater--delete(class=`${fieldset}--delete`)
+          //- - console.log(`> DELETE ${fieldset}`);
           +chimera-block('delete', true)
         .chimera-repeater--view(class=`${fieldset}--view`)
+          //- - console.log(`> VIEW ${fieldset}`);
           +chimera-block('view', true)
+
+mixin chimera-repeater-simple(fieldset)
+  .chimera-repeater--simple
+    +chimera-hidden(`${fieldset}_empty`, 0).chimera-repeater--is-empty
+    fieldset(class=`repeating_${fieldset}`)
+      block

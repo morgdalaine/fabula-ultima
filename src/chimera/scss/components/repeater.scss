@@ -10,10 +10,12 @@
   }
 
   &--empty-hide-next {
-    &[value='0'] + {
-      div,
-      section,
-      article {
+    &[value='0'],
+    &[value=''],
+    &:not([value]) {
+      + div,
+      + section,
+      + article {
         display: none;
       }
     }

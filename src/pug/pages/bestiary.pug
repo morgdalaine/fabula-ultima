@@ -2,13 +2,13 @@ include bestiary/basic-attacks
 include bestiary/notes
 include bestiary/equipment
 include bestiary/other-actions
-include bestiary/rare-equipment
+include bestiary/rare-gear
 include bestiary/special-rules
 include bestiary/spells
 include bestiary/weapons
 
 mixin bestiary-view(spine)
-  header.bestiary--view
+  section.bestiary--view
     .bio
       - const bio = fieldDictionary(spine.bio.fields);
       +chimera-hidden('character_avatar', '')
@@ -21,12 +21,12 @@ mixin bestiary-view(spine)
         +chimera-hidden(bio.rank.name)
         +chimera-span(bio.level)
         +chimera-span(bio.rank)
-        +fabula-diamond(['adjusted'])
+        +fabula-diamond
         +chimera-span(bio.species)
       .bio__description
         +chimera-span(bio.description)
       .bio__traits
-        label(data-i18n='typical_traits') Typical Traits
+        label.label--colon(data-i18n='typical_traits') Typical Traits
         +chimera-span(bio.traits)
 
     .statistics
@@ -40,7 +40,7 @@ mixin bestiary-view(spine)
           label(data-i18n='hp') HP
         .points__hp
           +chimera-span(points.hp)
-          +fabula-diamond(['adjusted'])
+          +fabula-diamond
           +chimera-span(points.hp_crisis)
 
         .points__label
@@ -75,7 +75,7 @@ mixin bestiary-view(spine)
     +other-actions-view(spine)
     +special-rules-view(spine)
     +equipment-view(spine)
-    +rare-equipment-view(spine)
+    +rare-gear-view(spine)
     +notes-view(spine)
 
 mixin bestiary-edit(spine)
@@ -122,8 +122,5 @@ mixin bestiary-edit(spine)
     +spells-edit(spine)
     +other-actions-edit(spine)
     +special-rules-edit(spine)
-    +rare-equipment-edit(spine)
+    +rare-gear-edit(spine)
     +notes-edit(spine)
-
-+bestiary-view(spine.bestiary)
-+bestiary-edit(spine.bestiary)

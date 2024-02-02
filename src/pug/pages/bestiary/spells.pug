@@ -5,10 +5,11 @@ mixin spells-view(spine)
     +chimera-repeater('spells')
       +chimera-block('delete')
         .spell
-          - const [name, att1, att2] = spine.spells.delete;
+          - const [name, att1, att2, precision] = spine.spells.delete;
           +chimera-span(name)
           span ✦
-          +fabula-check(att1, att2)
+          +fabula-check(att1, att2, precision)
+
       +chimera-block('view')
         .spell
           - const spell = fieldDictionary(spine.spells.view, 'spell');
@@ -19,6 +20,7 @@ mixin spells-view(spine)
 
           +chimera-value(spell.name)
 
+          //- TODO damage and type
           +fabula-check(spell.check_1, spell.check_2, spell.precision_total)
           +fabula-diamond(['toggle'])
 
@@ -38,7 +40,7 @@ mixin spells-edit(spine)
       +chimera-block('delete')
         .spell
           - const [name, att1, att2] = spine.spells.delete;
-          +chimera-span(name)
+          +chimera-value(name)
           span ✦
           +fabula-check(att1, att2)
       +chimera-block('edit')

@@ -3,9 +3,28 @@
 
 G_REPEATING.forEach((fieldset) => {
   on(`sheet:opened change:repeating_${fieldset} remove:repeating_${fieldset}`, (eventInfo) => {
-    console.log('REPEATING');
     RepeatingModule.isFieldsetEmpty(fieldset);
   });
+});
+
+on(`sheet:opened ${listeners(G_STAT_UPDATES.equipments_empty)}`, (eventInfo) => {
+  console.group('equipment view');
+  console.log(eventInfo);
+  getAttrs(G_STAT_UPDATES.equipments_empty, (v) => {
+    console.log(G_STAT_UPDATES.equipments_empty);
+    console.log(v);
+    console.log('--end equipment view');
+
+    const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
+    console.log('equipments_empty: ', equipments_empty);
+    setAttrs(
+      {
+        equipments_empty,
+      },
+      { silent: true }
+    );
+  });
+  console.groupEnd();
 });
 
 on('change:defense_quick', (eventInfo) => {

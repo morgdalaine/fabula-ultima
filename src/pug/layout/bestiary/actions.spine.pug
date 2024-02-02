@@ -8,7 +8,7 @@
     view: [
       {
         name: 'attack_name',
-        css: { names: ['basic-attack__name'], modifiers: [] },
+        css: { names: ['basic-attack__name'], modifiers: ['no-label-bold'] },
       },
       {
         name: 'attack_check_1',
@@ -39,18 +39,21 @@
     delete: [
       {
         name: 'attack_name',
-        label: 'Attack Name',
-        css: { names: ['basic-attack__name'], modifiers: [] },
+        css: { names: ['basic-attack__name'], modifiers: ['no-label-bold'] },
       },
       {
         name: 'attack_check_1',
         dynamic: true,
-        css: { names: ['basic-attack__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_1'], modifiers: [] },
       },
       {
         name: 'attack_check_2',
         dynamic: true,
-        css: { names: ['basic-attack__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['basic-attack__check_2'], modifiers: [] },
+      },
+      {
+        name: 'attack_precision_total',
+        css: { names: ['basic-attack__precision_total'], modifiers: [] },
       },
     ],
     fields: [
@@ -112,37 +115,42 @@
     view: [
       {
         name: 'weapon_attack_name',
-        css: { names: ['weapon__attack_name'], modifiers: [] },
+        css: { names: ['weapon__attack_name'], modifiers: ['no-label-bold'] },
       },
       {
         name: 'weapon_name',
-        css: { names: ['weapon__name'], modifiers: [] },
+        labelOverride: { key: 'weapon', label: 'Weapon' },
+        css: { names: ['weapon__name'], modifiers: ['colon'] },
       },
       {
         name: 'weapon_check_1',
         dynamic: true,
-        css: { names: ['weapon__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['weapon__check_1'], modifiers: [] },
       },
       {
         name: 'weapon_check_2',
         dynamic: true,
-        css: { names: ['weapon__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['weapon__check_2'], modifiers: [] },
       },
       {
         name: 'weapon_precision_total',
         title: 'Accuracy',
-        css: { names: ['weapon__type'], modifiers: ['center'] },
+        css: { names: ['weapon__type'], modifiers: [] },
       },
       {
         name: 'weapon_damage_total',
         title: 'Damage',
-        css: { names: ['weapon__type'], modifiers: ['center'] },
+        css: { names: ['weapon__type'], modifiers: [] },
       },
       {
         name: 'weapon_type',
         title: 'Damage Type',
         dynamic: true,
-        css: { names: ['weapon__type'], modifiers: ['center'] },
+        css: { names: ['weapon__type'], modifiers: [] },
+      },
+      {
+        name: 'weapon_cost',
+        css: { names: ['weapon__cost'], modifiers: [] },
       },
       {
         name: 'weapon_special',
@@ -152,7 +160,6 @@
     delete: [
       {
         name: 'weapon_name',
-        label: 'Weapon Name',
         css: { names: ['weapon__name'], modifiers: [] },
       },
       {
@@ -285,12 +292,8 @@
     hidden: ['spell_is_offensive'],
     view: [
       {
-        name: 'spell_attack_name',
-        css: { names: ['spell__attack_name'], modifiers: [] },
-      },
-      {
         name: 'spell_name',
-        css: { names: ['spell__name'], modifiers: [] },
+        css: { names: ['spell__name'], modifiers:  ['no-label-bold'] },
       },
       {
         name: 'spell_check_1',
@@ -341,12 +344,16 @@
       {
         name: 'spell_check_1',
         dynamic: true,
-        css: { names: ['spell__check_1'], modifiers: ['small', 'center'] },
+        css: { names: ['spell__check_1'], modifiers: [] },
       },
       {
         name: 'spell_check_2',
         dynamic: true,
-        css: { names: ['spell__check_2'], modifiers: ['small', 'center'] },
+        css: { names: ['spell__check_2'], modifiers: [] },
+      },
+      {
+        name: 'spell_precision',
+        css: { names: ['spell__precision'], modifiers: [] },
       },
     ],
     fields: [

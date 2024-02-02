@@ -21,7 +21,7 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 150%;
 }
 
 @mixin text-sm-700-fabula {
@@ -29,7 +29,7 @@
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%;
+  line-height: 150%;
   text-transform: uppercase;
 }
 
@@ -38,7 +38,7 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 150%;
 }
 
 @mixin text-base-700 {
@@ -46,7 +46,7 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%;
+  line-height: 150%;
 }
 
 @mixin text-lg-400 {
@@ -157,28 +157,3 @@
     }
   }
 }
-
-// @mixin fabula-check {
-//   display: flex;
-//   gap: 4px;
-
-//   span {
-//     @include text-xl-400;
-//     line-height: 140%;
-//   }
-
-//   .fabula-check {
-//     span,
-//     &::before,
-//     &::after {
-//       @include text-xl-700;
-//     }
-
-//     &::before {
-//       margin: 0px 2.4px 0px -8px;
-//     }
-//     &::after {
-//       margin: 0px -5.6px 0px 0px;
-//     }
-//   }
-// }

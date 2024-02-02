@@ -5,7 +5,7 @@ const G_REPEATING = [
   'spells',
   'other-actions',
   'special-rules',
-  'rare-equipments',
+  'rare-gears',
   'notes',
 ];
 
@@ -50,11 +50,27 @@ const G_STAT_UPDATES = {
     'armor_magic_defense_bonus',
     'shield_magic_defense_bonus',
   ],
+
+  equipments_empty: [
+    'weapons_empty',
+    'armor_name',
+    'armor_defense',
+    'armor_defense_bonus',
+    'armor_magic_defense_bonus',
+    'armor_initiative',
+    'armor_cost',
+    'shield_name',
+    'shield_defense',
+    'shield_defense_bonus',
+    'shield_magic_defense_bonus',
+    'shield_initiative',
+    'shield_cost',
+  ],
 } as Record<string, string[]>;
 
 const listenersByKey = (obj: object) => {
   return Object.entries(obj).reduce((memo: Record<string, string>, [key, arr]) => {
-    memo[key] = (arr as string[]).map((str: string) => `change:${str}`).join(' ');
+    memo[key] = listeners(arr);
     return memo;
   }, {});
 };

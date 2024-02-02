@@ -14,9 +14,12 @@ mixin html
   .fabula-ultima
     +chimera-input(spine.gm.sheet)
     main.character
-      span [CHARACTER]
+      include pages/character
+      +character-edit(spine.character)
     main.bestiary
       include pages/bestiary
+      +bestiary-view(spine.bestiary)
+      +bestiary-edit(spine.bestiary)
     main.gm
       span [GM]
 

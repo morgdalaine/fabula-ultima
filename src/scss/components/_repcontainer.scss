@@ -40,10 +40,8 @@
 
       margin-block-end: 4px;
 
-      // &:not(:last-of-type) {
-      border-bottom: 1px solid var(--color-fabula1);
+      border-top: 1px solid var(--color-fabula1);
       border-image: var(--fabula-gradient-secondary-border);
-      // }
     }
     .repitem {
       .itemcontrol {

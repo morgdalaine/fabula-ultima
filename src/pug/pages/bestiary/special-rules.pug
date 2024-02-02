@@ -17,7 +17,7 @@ mixin special-rules-edit(spine)
       +chimera-block('delete')
         .special-rule
           - const [name] = spine.specials.delete;
-          +chimera-span(name)
+          +chimera-value(name)
       +chimera-block('edit')
         .special-rule
           each field in spine.specials.hidden

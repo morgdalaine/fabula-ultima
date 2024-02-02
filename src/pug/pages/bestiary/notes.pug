@@ -17,7 +17,7 @@ mixin notes-edit(spine)
       +chimera-block('delete')
         .note
           - const [name] = spine.notes.delete;
-          +chimera-span(name)
+          +chimera-value(name)
       +chimera-block('edit')
         .note
           each field in spine.notes.hidden

@@ -5,15 +5,18 @@
     view: [
       {
         name: 'armor_name',
-        css: { names: ['armor__name'] },
+        labelOverride: { key: 'armor', label: 'Armor' },
+        css: { names: ['armor__name'], modifiers: ['colon'] },
       },
       {
         name: 'armor_defense',
         label: 'DEF',
+        css: { names: ['armor__defense'] },
       },
       {
         name: 'armor_defense_bonus',
         label: '+DEF',
+        css: { names: ['armor__defense_bonus'] },
       },
       {
         name: 'armor_magic_defense_bonus',
@@ -21,10 +24,11 @@
       },
       {
         name: 'armor_initiative',
-        label: 'Initiative',
+        labelOverride: { key: 'init', label: 'Init.' },
       },
       {
         name: 'armor_cost',
+        css: { names: ['armor__cost'] },
       },
     ],
     fields: [
@@ -98,15 +102,18 @@
     view: [
       {
         name: 'shield_name',
-        css: { names: ['shield__name'] },
+        labelOverride: { key: 'shield', label: 'Shield' },
+        css: { names: ['shield__name'], modifiers: ['colon'] },
       },
       {
         name: 'shield_defense',
         label: 'DEF',
+        css: { names: ['shield__defense'] },
       },
       {
         name: 'shield_defense_bonus',
         label: '+DEF',
+        css: { names: ['shield__defense_bonus'] },
       },
       {
         name: 'shield_magic_defense_bonus',
@@ -114,10 +121,11 @@
       },
       {
         name: 'shield_initiative',
-        label: 'Initiative',
+        labelOverride: { key: 'init', label: 'Init.' },
       },
       {
         name: 'shield_cost',
+        css: { names: ['armor__cost'] },
       },
     ],
     fields: [
@@ -194,7 +202,7 @@
     view: [
       {
         name: 'raregear_name',
-        css: { names: ['rare-gear__name'], modifiers: [] },
+        css: { names: ['rare-gear__name'], modifiers:  ['no-label-bold'] },
       },
       {
         name: 'raregear_effect',

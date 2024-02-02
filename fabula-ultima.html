@@ -14,9 +14,102 @@
           <option data-i18n="gm" value="gm">GM</option>
         </select>
       </div>
-      <main class="character"><span>[CHARACTER]</span></main>
+      <main class="character">
+            <section class="character--edit">
+                  <div class="traits">
+                    <div class="chimera-input trait__name">
+                      <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
+                      <input class="chimera-input__field" data-i18n-title="character_name_title" id="character_name" name="attr_character_name" title="Name" type="text"/>
+                    </div>
+                    <div class="chimera-input trait__pronouns">
+                      <label class="chimera-input__label" data-i18n="pronouns" for="pronouns">Pronouns</label>
+                      <input class="chimera-input__field" data-i18n-title="pronouns_title" id="pronouns" name="attr_pronouns" title="Pronouns" type="text"/>
+                    </div>
+                    <div class="chimera-input trait__identity">
+                      <label class="chimera-input__label" data-i18n="identity" for="identity">Identity</label>
+                      <input class="chimera-input__field" data-i18n-title="identity_title" id="identity" name="attr_identity" title="Identity" type="text"/>
+                    </div>
+                    <div class="chimera-input trait__theme">
+                      <label class="chimera-input__label" data-i18n="theme" for="theme">Theme</label>
+                      <input class="chimera-input__field" data-i18n-title="theme_title" id="theme" name="attr_theme" title="Theme" type="text"/>
+                    </div>
+                    <div class="chimera-input trait__origin">
+                      <label class="chimera-input__label" data-i18n="origin" for="origin">Origin</label>
+                      <input class="chimera-input__field" data-i18n-title="origin_title" id="origin" name="attr_origin" title="Origin" type="text"/>
+                    </div>
+                  </div>
+              <div class="attribute-status-effects" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px">
+                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                  <label class="chimera-input__label" data-i18n="dexterity_max" for="dexterity_max">DEX</label>
+                  <select class="chimera-input__field" data-i18n-title="dexterity_max_title" id="dexterity_max" name="attr_dexterity_max" title="Dexterity">
+                    <option data-i18n="d6" selected="selected" value="6">d6</option>
+                    <option data-i18n="d8" selected="selected" value="8">d8</option>
+                    <option data-i18n="d10" value="10">d10</option>
+                    <option data-i18n="d12" value="12">d12</option>
+                  </select>
+                </div>
+                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                  <label class="chimera-input__label" data-i18n="insight_max" for="insight_max">INS</label>
+                  <select class="chimera-input__field" data-i18n-title="insight_max_title" id="insight_max" name="attr_insight_max" title="Insight">
+                    <option data-i18n="d6" selected="selected" value="6">d6</option>
+                    <option data-i18n="d8" selected="selected" value="8">d8</option>
+                    <option data-i18n="d10" value="10">d10</option>
+                    <option data-i18n="d12" value="12">d12</option>
+                  </select>
+                </div>
+                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                  <label class="chimera-input__label" data-i18n="might_max" for="might_max">MIG</label>
+                  <select class="chimera-input__field" data-i18n-title="might_max_title" id="might_max" name="attr_might_max" title="Might">
+                    <option data-i18n="d6" selected="selected" value="6">d6</option>
+                    <option data-i18n="d8" selected="selected" value="8">d8</option>
+                    <option data-i18n="d10" value="10">d10</option>
+                    <option data-i18n="d12" value="12">d12</option>
+                  </select>
+                </div>
+                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                  <label class="chimera-input__label" data-i18n="willpower_max" for="willpower_max">WLP</label>
+                  <select class="chimera-input__field" data-i18n-title="willpower_max_title" id="willpower_max" name="attr_willpower_max" title="Willpower">
+                    <option data-i18n="d6" selected="selected" value="6">d6</option>
+                    <option data-i18n="d8" selected="selected" value="8">d8</option>
+                    <option data-i18n="d10" value="10">d10</option>
+                    <option data-i18n="d12" value="12">d12</option>
+                  </select>
+                </div>
+                <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--center chimera-checkbox--small" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
+                </label>
+                <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--center chimera-checkbox--small" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
+                </label>
+                <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--center chimera-checkbox--small" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
+                </label>
+                <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--center chimera-checkbox--small" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
+                </label>
+                <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--center chimera-checkbox--small" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
+                </label>
+                <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--center chimera-checkbox--small" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
+                  <div class="chimera-checkbox__field">
+                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                  </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
+                </label>
+              </div>
+            </section>
+      </main>
       <main class="bestiary">
-            <header class="bestiary--view">
+            <section class="bestiary--view">
               <div class="bio">
                 <input class="chimera-hidden" name="attr_character_avatar" type="hidden" value=""/>
                 <div class="bio__avatar"><img name="attr_character_avatar"/></div>
@@ -24,12 +117,12 @@
                 </div>
                 <div class="bio__meta">
                   <label data-i18n="lv">Lv</label>
-                  <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond--adjusted">⬥</span><span name="attr_species"></span>
+                  <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
                 </div>
                 <div class="bio__description"><span name="attr_description"></span>
                 </div>
                 <div class="bio__traits">
-                  <label data-i18n="typical_traits">Typical Traits</label><span name="attr_traits"></span>
+                  <label class="label--colon" data-i18n="typical_traits">Typical Traits</label><span name="attr_traits"></span>
                 </div>
               </div>
               <div class="statistics">
@@ -51,7 +144,7 @@
                   <div class="points__label">
                     <label data-i18n="hp">HP</label>
                   </div>
-                  <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond--adjusted">⬥</span><span name="attr_hp_crisis"></span>
+                  <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond">⬥</span><span name="attr_hp_crisis"></span>
                   </div>
                   <div class="points__label">
                     <label data-i18n="mp">MP</label>
@@ -129,32 +222,32 @@
                 </div>
               </div>
               <div class="status-effects">
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
+                <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--center chimera-checkbox--small" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
                   <div class="chimera-checkbox__field">
                     <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
                 </label>
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
+                <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--center chimera-checkbox--small" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
                   <div class="chimera-checkbox__field">
                     <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
                 </label>
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
+                <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--center chimera-checkbox--small" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
                   <div class="chimera-checkbox__field">
                     <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
                 </label>
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
+                <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--center chimera-checkbox--small" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
                   <div class="chimera-checkbox__field">
                     <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
                 </label>
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
+                <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--center chimera-checkbox--small" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
                   <div class="chimera-checkbox__field">
                     <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
                 </label>
-                <label class="chimera-checkbox status-effect chimera-checkbox--center chimera-checkbox--small" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
+                <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--center chimera-checkbox--small" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
                   <div class="chimera-checkbox__field">
                     <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
@@ -181,11 +274,13 @@
                           <div class="chimera-repeater--view basic-attacks--view">
                             <div class="basic-attack">
                               <input class="chimera-hidden" name="attr_attack_range" type="hidden"/><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
-                              <div class="chimera-value basic-attack__name"><span class="chimera-value__value" name="attr_attack_name"></span>
+                              <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_attack_damage"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
+                                <input name="attr_attack_damage" type="hidden" value="0"/>
+                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_attack_damage"></span>
                               </div>
                               <div class="chimera-value basic-attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
                               </div>
@@ -209,10 +304,6 @@
                           <div class="chimera-repeater--edit weapons--edit">
                           </div>
                           <div class="chimera-repeater--delete weapons--delete">
-                            <div class="weapon"><span name="attr_weapon_name"></span><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                              </div>
-                            </div>
                           </div>
                           <div class="chimera-repeater--view weapons--view">
                             <div class="weapon">
@@ -220,11 +311,14 @@
                               <div class="weapon__attack"><span name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <input name="attr_weapon_precision_total" type="hidden"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision_total"></span>
+                                <!-- TODO calculate precision_total-->
+                                <input name="attr_weapon_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision_total"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
+                                <input name="attr_weapon_damage_total" type="hidden" value="0"/>
+                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
                               </div>
-                              <div class="chimera-value weapon__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
+                              <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div>
                               <div class="chimera-value weapon__special"><span class="chimera-value__value" name="attr_weapon_special"></span>
                               </div>
@@ -249,17 +343,20 @@
                           <div class="chimera-repeater--delete spells--delete">
                             <div class="spell"><span name="attr_spell_name"></span><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
+                                <!-- TODO calculate precision_total-->
+                                <input name="attr_spell_precision" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision"></span>
                               </div>
                             </div>
                           </div>
                           <div class="chimera-repeater--view spells--view">
                             <div class="spell">
                               <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
-                              <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
+                              <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                <input name="attr_spell_precision_total" type="hidden"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision_total"></span>
-                              </div><span class="fabula-diamond--toggle">⬥</span>
+                                <!-- TODO calculate precision_total-->
+                                <input name="attr_spell_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision_total"></span>
+                              </div><span class="fabula-diamond fabula-diamond--toggle">⬥</span>
                               <div class="chimera-value spell__mp chimera-value--reverse">
                                 <label class="chimera-value__label" data-i18n="spell_mp" for="spell_mp">MP</label><span class="chimera-value__value" name="attr_spell_mp"></span>
                               </div>
@@ -293,7 +390,7 @@
                           </div>
                           <div class="chimera-repeater--view other-actions--view">
                             <div class="other-action"><img class="other-action__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
-                              <div class="chimera-value other-action__name"><span class="chimera-value__value" name="attr_action_name"></span>
+                              <div class="chimera-value other-action__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_action_name"></span>
                               </div>
                               <div class="chimera-value other-action__effect"><span class="chimera-value__value" name="attr_action_effect"></span>
                               </div>
@@ -319,7 +416,7 @@
                           </div>
                           <div class="chimera-repeater--view special-rules--view">
                             <div class="special-rule"><img class="special-rule__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
-                              <div class="chimera-value special-rule__name"><span class="chimera-value__value" name="attr_special_name"></span>
+                              <div class="chimera-value special-rule__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_special_name"></span>
                               </div>
                               <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
                               </div>
@@ -329,26 +426,93 @@
                       </fieldset>
                     </div>
                   </div>
-                  <h2 class="equipment__heading--view" data-i18n="equipment">Equipment</h2>
-                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_rare-equipments_empty" type="hidden"/>
-                  <div class="rare-equipments">
-                    <h2 class="rare-equipments__heading--view" data-i18n="rare_equipment">Rare Equipment</h2>
-                    <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-equipments_empty" type="hidden" value="0"/>
-                      <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-equipments_repeating">No rare equipments saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
-                      </div>
-                      <fieldset class="repeating_rare-equipments">
-                        <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit rare-equipments--edit">
-                          </div>
-                          <div class="chimera-repeater--delete rare-equipments--delete">
-                          </div>
-                          <div class="chimera-repeater--view rare-equipments--view">
-                            <div class="rare-equipment"><img class="rare-equipment__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
-                              <div class="chimera-value rare-equipment__name"><span class="chimera-value__value" name="attr_equipment_name"></span>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_equipments_empty" type="hidden"/>
+                  <div class="equipments">
+                    <h2 class="equipments__heading--view" data-i18n="equipment">Equipment</h2>
+                    <div class="equipment">
+                      <div class="equipment__weapons">
+                        <div class="chimera-repeater--simple">
+                          <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
+                          <fieldset class="repeating_weapons">
+                            <div class="equipment__weapon">
+                              <div class="chimera-value weapon__name chimera-value--colon">
+                                <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
+                                <!-- TODO calculate precision_total-->
+                                <input name="attr_weapon_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision_total"></span>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
+                                <input name="attr_weapon_damage_total" type="hidden" value="0"/>
+                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="chimera-value weapon__cost"><span class="chimera-value__value" name="attr_weapon_cost"></span>
                               </div>
-                              <div class="chimera-value rare-equipment__effect"><span class="chimera-value__value" name="attr_equipment_effect"></span>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_armor_name" type="hidden"/>
+                      <div class="equipment__armor">
+                        <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden" value="0"/>
+                        <div class="chimera-value armor__name chimera-value--colon">
+                          <label class="chimera-value__label" data-i18n="armor" for="armor_name">Armor</label><span class="chimera-value__value" name="attr_armor_name"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value armor__defense">
+                          <label class="chimera-value__label" data-i18n="armor_defense" for="armor_defense">DEF</label><span class="chimera-value__value" name="attr_armor_defense"></span>
+                        </div>
+                        <div class="chimera-value armor__defense_bonus">
+                          <label class="chimera-value__label" data-i18n="armor_defense_bonus" for="armor_defense_bonus">+DEF</label><span class="chimera-value__value" name="attr_armor_defense_bonus"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value">
+                          <label class="chimera-value__label" data-i18n="armor_magic_defense_bonus" for="armor_magic_defense_bonus">+M.DEF</label><span class="chimera-value__value" name="attr_armor_magic_defense_bonus"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value">
+                          <label class="chimera-value__label" data-i18n="init" for="armor_initiative">Init.</label><span class="chimera-value__value" name="attr_armor_initiative"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_armor_cost"></span>
+                        </div>
+                      </div>
+                      <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_shield_name" type="hidden"/>
+                      <div class="equipment__shield">
+                        <div class="chimera-value shield__name chimera-value--colon">
+                          <label class="chimera-value__label" data-i18n="shield" for="shield_name">Shield</label><span class="chimera-value__value" name="attr_shield_name"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value shield__defense_bonus">
+                          <label class="chimera-value__label" data-i18n="shield_defense_bonus" for="shield_defense_bonus">+DEF</label><span class="chimera-value__value" name="attr_shield_defense_bonus"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value">
+                          <label class="chimera-value__label" data-i18n="shield_magic_defense_bonus" for="shield_magic_defense_bonus">+M.DEF</label><span class="chimera-value__value" name="attr_shield_magic_defense_bonus"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value">
+                          <label class="chimera-value__label" data-i18n="init" for="shield_initiative">Init.</label><span class="chimera-value__value" name="attr_shield_initiative"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_shield_cost"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_rare-gears_empty" type="hidden"/>
+                  <div class="rare-gears">
+                    <h2 class="rare-gears__heading--view" data-i18n="rare_gear">rare gear</h2>
+                    <div class="chimera-repeater">
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-gears_empty" type="hidden" value="0"/>
+                      <div class="chimera-repeater__empty">
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-gears_repeating">No rare gears saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                      </div>
+                      <fieldset class="repeating_rare-gears">
+                        <div class="chimera-repeater__content">
+                          <div class="chimera-repeater--edit rare-gears--edit">
+                          </div>
+                          <div class="chimera-repeater--delete rare-gears--delete">
+                          </div>
+                          <div class="chimera-repeater--view rare-gears--view">
+                            <div class="rare-gear"><img class="rare-gear__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
+                              <div class="chimera-value rare-gear__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_raregear_name"></span>
+                              </div>
+                              <div class="chimera-value rare-gear__effect"><span class="chimera-value__value" name="attr_raregear_effect"></span>
                               </div>
                             </div>
                           </div>
@@ -372,7 +536,7 @@
                           </div>
                           <div class="chimera-repeater--view notes--view">
                             <div class="note"><img class="note__icon" data-i18n-title="book_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/book.svg" title="Book"/>
-                              <div class="chimera-value note__name"><span class="chimera-value__value" name="attr_note_name"></span>
+                              <div class="chimera-value note__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_note_name"></span>
                               </div>
                               <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
                               </div>
@@ -382,7 +546,7 @@
                       </fieldset>
                     </div>
                   </div>
-            </header>
+            </section>
             <section class="bestiary--edit">
               <div class="bio">
                 <input class="chimera-hidden" name="attr_rank" type="hidden"/>
@@ -810,7 +974,9 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete basic-attacks--delete">
-                            <div class="basic-attack"><span name="attr_attack_name"></span><span>✦</span>
+                            <div class="basic-attack">
+                              <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
+                              </div><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
                               </div>
                             </div>
@@ -938,9 +1104,12 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete weapons--delete">
-                            <div class="weapon"><span name="attr_weapon_name"></span><span>✦</span>
+                            <div class="weapon">
+                              <div class="chimera-value weapon__name"><span class="chimera-value__value" name="attr_weapon_name"></span>
+                              </div><span class="fabula-diamond">⬥</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <input name="attr_weapon_precision" type="hidden"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision"></span>
+                                <!-- TODO calculate precision_total-->
+                                <input name="attr_weapon_precision" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision"></span>
                               </div>
                             </div>
                           </div>
@@ -1016,7 +1185,10 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete spells--delete">
-                            <div class="spell"><span name="attr_spell_name"></span><span>✦</span>
+                            <div class="spell">
+                              <div class="chimera-value spell__name">
+                                <label class="chimera-value__label" data-i18n="spell_name" for="spell_name">spell Name</label><span class="chimera-value__value" name="attr_spell_name"></span>
+                              </div><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
                               </div>
                             </div>
@@ -1049,7 +1221,10 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete other-actions--delete">
-                            <div class="other-action"><span name="attr_action_name"></span>
+                            <div class="other-action">
+                              <div class="chimera-value other-action__name">
+                                <label class="chimera-value__label" data-i18n="action_name" for="action_name">Action</label><span class="chimera-value__value" name="attr_action_name"></span>
+                              </div>
                             </div>
                           </div>
                           <div class="chimera-repeater--view other-actions--view">
@@ -1080,7 +1255,10 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete special-rules--delete">
-                            <div class="special-rule"><span name="attr_special_name"></span>
+                            <div class="special-rule">
+                              <div class="chimera-value special__name">
+                                <label class="chimera-value__label" data-i18n="special_name" for="special_name">Special</label><span class="chimera-value__value" name="attr_special_name"></span>
+                              </div>
                             </div>
                           </div>
                           <div class="chimera-repeater--view special-rules--view">
@@ -1089,32 +1267,34 @@
                       </fieldset>
                     </div>
                   </div>
-                  <div class="rare-equipments">
-                    <h2 class="rare-equipments__heading--edit" data-i18n="rare_equipment">Rare Equipment</h2>
+                  <div class="rare-gears">
+                    <h2 class="rare-gears__heading--edit" data-i18n="rare_gear">rare gear</h2>
                     <div class="chimera-repeater">
-                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-equipments_empty" type="hidden" value="0"/>
+                      <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rare-gears_empty" type="hidden" value="0"/>
                       <div class="chimera-repeater__empty">
-                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-equipments_repeating">No rare equipments saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        <h2 class="chimera-repeater__empty-header" data-i18n="none_rare-gears_repeating">No rare gears saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
                       </div>
-                      <fieldset class="repeating_rare-equipments">
+                      <fieldset class="repeating_rare-gears">
                         <div class="chimera-repeater__content">
-                          <div class="chimera-repeater--edit rare-equipments--edit">
-                            <div class="rare-equipment">
-                              <div class="chimera-input rare-equipment__name">
-                                <label class="chimera-input__label" data-i18n="equipment_name" for="equipment_name">Equipment</label>
-                                <input class="chimera-input__field" data-i18n-title="equipment_name_title" id="equipment_name" name="attr_equipment_name" title="Equipment" type="text"/>
+                          <div class="chimera-repeater--edit rare-gears--edit">
+                            <div class="rare-gear">
+                              <div class="chimera-input rare-gear__name">
+                                <label class="chimera-input__label" data-i18n="raregear_name" for="raregear_name">Equipment</label>
+                                <input class="chimera-input__field" data-i18n-title="raregear_name_title" id="raregear_name" name="attr_raregear_name" title="Equipment" type="text"/>
                               </div>
-                              <div class="chimera-input rare-equipment__effect">
-                                <label class="chimera-input__label" data-i18n="equipment_effect" for="equipment_effect">Effect</label>
-                                <textarea class="chimera-input__field" data-i18n-title="equipment_effect_title" id="equipment_effect" name="attr_equipment_effect" title="Effect" type="textarea"></textarea>
+                              <div class="chimera-input rare-gear__effect">
+                                <label class="chimera-input__label" data-i18n="raregear_effect" for="raregear_effect">Effect</label>
+                                <textarea class="chimera-input__field" data-i18n-title="raregear_effect_title" id="raregear_effect" name="attr_raregear_effect" title="Effect" type="textarea"></textarea>
                               </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--delete rare-equipments--delete">
-                            <div class="rare-equipment"><span name="attr_equipment_name"></span>
+                          <div class="chimera-repeater--delete rare-gears--delete">
+                            <div class="rare-gear">
+                              <div class="chimera-value rare-gear__name"><span class="chimera-value__value" name="attr_raregear_name"></span>
+                              </div>
                             </div>
                           </div>
-                          <div class="chimera-repeater--view rare-equipments--view">
+                          <div class="chimera-repeater--view rare-gears--view">
                           </div>
                         </div>
                       </fieldset>
@@ -1142,7 +1322,10 @@
                             </div>
                           </div>
                           <div class="chimera-repeater--delete notes--delete">
-                            <div class="note"><span name="attr_note_name"></span>
+                            <div class="note">
+                              <div class="chimera-value note__name">
+                                <label class="chimera-value__label" data-i18n="note_name" for="note_name">Note</label><span class="chimera-value__value" name="attr_note_name"></span>
+                              </div>
                             </div>
                           </div>
                           <div class="chimera-repeater--view notes--view">
@@ -1172,7 +1355,7 @@ var G_REPEATING = [
     'spells',
     'other-actions',
     'special-rules',
-    'rare-equipments',
+    'rare-gears',
     'notes',
 ];
 var G_DIE_SIZES = [6, 8, 10, 12];
@@ -1208,11 +1391,26 @@ var G_STAT_UPDATES = {
         'armor_magic_defense_bonus',
         'shield_magic_defense_bonus',
     ],
+    equipments_empty: [
+        'weapons_empty',
+        'armor_name',
+        'armor_defense',
+        'armor_defense_bonus',
+        'armor_magic_defense_bonus',
+        'armor_initiative',
+        'armor_cost',
+        'shield_name',
+        'shield_defense',
+        'shield_defense_bonus',
+        'shield_magic_defense_bonus',
+        'shield_initiative',
+        'shield_cost',
+    ],
 };
 var listenersByKey = function (obj) {
     return Object.entries(obj).reduce(function (memo, _a) {
         var key = _a[0], arr = _a[1];
-        memo[key] = arr.map(function (str) { return "change:".concat(str); }).join(' ');
+        memo[key] = listeners(arr);
         return memo;
     }, {});
 };
@@ -1238,9 +1436,23 @@ var RepeatingModule = (function () {
 }());
 G_REPEATING.forEach(function (fieldset) {
     on("sheet:opened change:repeating_".concat(fieldset, " remove:repeating_").concat(fieldset), function (eventInfo) {
-        console.log('REPEATING');
         RepeatingModule.isFieldsetEmpty(fieldset);
     });
+});
+on("sheet:opened ".concat(listeners(G_STAT_UPDATES.equipments_empty)), function (eventInfo) {
+    console.group('equipment view');
+    console.log(eventInfo);
+    getAttrs(G_STAT_UPDATES.equipments_empty, function (v) {
+        console.log(G_STAT_UPDATES.equipments_empty);
+        console.log(v);
+        console.log('--end equipment view');
+        var equipments_empty = Object.values(v).reduce(function (memo, val) { return memo + +!!val; }, 0);
+        console.log('equipments_empty: ', equipments_empty);
+        setAttrs({
+            equipments_empty: equipments_empty,
+        }, { silent: true });
+    });
+    console.groupEnd();
 });
 on('change:defense_quick', function (eventInfo) {
     calculateQuickDefenses(eventInfo.newValue);

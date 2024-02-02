@@ -17,7 +17,7 @@ mixin other-actions-edit(spine)
       +chimera-block('delete')
         .other-action
           - const [name] = spine.actions.delete;
-          +chimera-span(name)
+          +chimera-value(name)
       +chimera-block('edit')
         .other-action
           each field in spine.actions.hidden

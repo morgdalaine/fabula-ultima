@@ -31,7 +31,7 @@ mixin basic-attacks-edit(spine)
       +chimera-block('delete')
         .basic-attack
           - const [name, att1, att2] = spine.attacks.delete;
-          +chimera-span(name)
+          +chimera-value(name)
           span ✦
           +fabula-check(att1, att2)
       +chimera-block('edit')

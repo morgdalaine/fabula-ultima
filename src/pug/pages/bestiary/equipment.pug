@@ -1,5 +1,51 @@
 mixin equipment-view(spine)
-  h2.equipment__heading--view(data-i18n='equipment') Equipment
+  //- TODO hide if none equipment
+  +chimera-hidden('equipments_empty').chimera-repeater--empty-hide-next
+  .equipments
+    h2.equipments__heading--view(data-i18n='equipment') Equipment
+    .equipment
+      .equipment__weapons
+        +chimera-repeater-simple('weapons')
+          .equipment__weapon
+            - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
+            +chimera-value(weapon.name)
+            +fabula-diamond
+            +fabula-check(weapon.check_1, weapon.check_2, weapon.precision_total, weapon.damage_total)
+            +fabula-diamond
+            +chimera-value(weapon.type)
+            +fabula-diamond
+            +chimera-value(weapon.cost)
+
+      +chimera-hidden('armor_name').chimera-repeater--empty-hide-next
+      .equipment__armor
+        each field in spine.armor.hidden
+          +chimera-hidden(field, 0)
+        - const armor = fieldDictionary(spine.armor.view, 'armor');
+        +chimera-value(armor.name)
+        +fabula-diamond
+        +chimera-value(armor.defense)
+        +chimera-value(armor.defense_bonus)
+        +fabula-diamond
+        +chimera-value(armor.magic_defense_bonus)
+        +fabula-diamond
+        +chimera-value(armor.initiative)
+        +fabula-diamond
+        +chimera-value(armor.cost)
+
+      +chimera-hidden('shield_name').chimera-repeater--empty-hide-next
+      .equipment__shield
+        each field in spine.shield.hidden
+          +chimera-hidden(field)
+        - const shield = fieldDictionary(spine.shield.view, 'shield');
+        +chimera-value(shield.name)
+        +fabula-diamond
+        +chimera-value(shield.defense_bonus)
+        +fabula-diamond
+        +chimera-value(shield.magic_defense_bonus)
+        +fabula-diamond
+        +chimera-value(shield.initiative)
+        +fabula-diamond
+        +chimera-value(shield.cost)
 
 mixin armor-edit(spine)
   .armor--edit

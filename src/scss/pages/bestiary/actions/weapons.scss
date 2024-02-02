@@ -6,7 +6,26 @@
 
     @include mixins.repeater-heading;
 
-    // TODO delete styling
+    &--delete {
+      .weapon {
+        display: flex;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+
+      .fabula-check {
+        span {
+          @include mixins.text-lg-700;
+        }
+      }
+    }
 
     &--view {
       input[name*='weapon_range'] {
@@ -39,16 +58,20 @@
           }
         }
 
-        &__attack,
-        &__attack_name,
-        &__type {
-          @include mixins.text-lg-700;
-        }
-
         &__attack {
           display: flex;
           gap: 4px;
+          @include mixins.text-lg-700;
         }
+
+        &__type {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
+        }
+
         &__name {
           @include mixins.text-lg-400;
           &::before {

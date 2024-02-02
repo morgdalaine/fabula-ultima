@@ -6,6 +6,19 @@
 
     @include mixins.repeater-heading;
 
+    &--delete {
+      .basic-attack {
+        display: flex;
+        gap: 4px;
+      }
+
+      .fabula-check {
+        span {
+          @include mixins.text-lg-700;
+        }
+      }
+    }
+
     &--view {
       input[name*='attack_range'] {
         &[value='melee'] {
@@ -39,7 +52,11 @@
 
         &__name,
         &__type {
-          @include mixins.text-lg-700;
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
         }
 
         &__special {

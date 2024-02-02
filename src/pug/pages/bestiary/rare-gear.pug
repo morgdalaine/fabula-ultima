@@ -6,7 +6,6 @@ mixin rare-gear-view(spine)
       +chimera-block('view')
         .rare-gear
           - const raregear = fieldDictionary(spine.raregear.view, 'raregear');
-          - console.log(raregear);
           +chimera-icon({ icon: 'equipment' }).rare-gear__icon
           +chimera-value(raregear.name)
           +chimera-value(raregear.effect)
@@ -18,7 +17,7 @@ mixin rare-gear-edit(spine)
       +chimera-block('delete')
         .rare-gear
           - const [name] = spine.raregear.delete;
-          +chimera-span(name)
+          +chimera-value(name)
       +chimera-block('edit')
         .rare-gear
           each field in spine.raregear.hidden

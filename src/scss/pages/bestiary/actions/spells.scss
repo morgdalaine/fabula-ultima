@@ -6,6 +6,19 @@
 
     @include mixins.repeater-heading;
 
+    &--delete {
+      .spell {
+        display: flex;
+        gap: 4px;
+      }
+
+      .fabula-check {
+        span {
+          @include mixins.text-lg-700;
+        }
+      }
+    }
+
     &--view {
       .spell {
         display: grid;
@@ -22,6 +35,15 @@
           }
         }
 
+        &__name,
+        &__type {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
+        }
+
         .fabula-check {
           span {
             @include mixins.text-lg-700;
@@ -32,11 +54,15 @@
           grid-row: span 2;
         }
 
-        &__name,
-        &__mp,
-        &__target,
-        &__duration {
-          @include mixins.text-lg-700;
+        &__mp {
+          .chimera-value {
+            &__label {
+              @include mixins.text-lg-700;
+            }
+            &__value {
+              @include mixins.text-lg-400;
+            }
+          }
         }
 
         &__target-duration {
@@ -49,7 +75,6 @@
         &__effect {
           grid-column: 2 / -1;
           grid-row-start: 3;
-          @include mixins.text-lg-400;
         }
       }
     }

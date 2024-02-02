@@ -24,8 +24,13 @@
         &__icon {
           grid-row: span 2;
         }
+
         &__name {
-          @include mixins.text-lg-700;
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
         }
 
         &__special,
