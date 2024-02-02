@@ -110,21 +110,23 @@
       </main>
       <main class="bestiary">
             <section class="bestiary--view">
-              <div class="bio">
-                <input class="chimera-hidden" name="attr_character_avatar" type="hidden" value=""/>
-                <div class="bio__avatar"><img name="attr_character_avatar"/></div>
-                <div class="bio__name"><span name="attr_character_name"></span>
-                </div>
-                <div class="bio__meta">
-                  <label data-i18n="lv">Lv</label>
-                  <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
-                </div>
-                <div class="bio__description"><span name="attr_description"></span>
-                </div>
-                <div class="bio__traits">
-                  <label class="label--colon" data-i18n="typical_traits">Typical Traits</label><span name="attr_traits"></span>
-                </div>
-              </div>
+                  <div class="bio--view">
+                    <div class="bio">
+                      <input class="chimera-hidden" name="attr_character_avatar" type="hidden" value=""/>
+                      <div class="bio__avatar"><img name="attr_character_avatar"/></div>
+                      <div class="bio__name"><span name="attr_character_name"></span>
+                      </div>
+                      <div class="bio__meta">
+                        <label data-i18n="lv">Lv</label>
+                        <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
+                      </div>
+                      <div class="bio__description"><span name="attr_description"></span>
+                      </div>
+                      <div class="bio__traits">
+                        <label class="label--colon" data-i18n="typical_traits">Typical Traits</label><span name="attr_traits"></span>
+                      </div>
+                    </div>
+                  </div>
               <div class="statistics">
                 <div class="attributes">
                   <div class="chimera-value attribute">
@@ -556,80 +558,83 @@
                   </div>
             </section>
             <section class="bestiary--edit">
-              <div class="bio">
-                <input class="chimera-hidden" name="attr_rank" type="hidden"/>
-                <div class="chimera-input bio__name">
-                  <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
-                  <input class="chimera-input__field" data-i18n-title="character_name_title" id="character_name" name="attr_character_name" title="Name" type="text"/>
-                </div>
-                <div class="chimera-input bio__traits">
-                  <label class="chimera-input__label" data-i18n="traits" for="traits">Traits</label>
-                  <input class="chimera-input__field" data-i18n-title="traits_title" id="traits" name="attr_traits" title="Traits" type="text"/>
-                </div>
-                <div class="chimera-input bio__level chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="level" for="level">Level</label>
-                  <input class="chimera-input__field" data-i18n-title="level_title" id="level" max="60" min="5" name="attr_level" step="5" title="Level" type="number" value="5"/>
-                </div>
-                <div class="chimera-input bio__species">
-                  <label class="chimera-input__label" data-i18n="species" for="species">Species</label>
-                  <select class="chimera-input__field" data-i18n-title="species_title" id="species" name="attr_species" title="Species">
-                    <option data-i18n="beast" selected="selected" value="Beast">Beast</option>
-                    <option data-i18n="construct" value="Construct">Construct</option>
-                    <option data-i18n="demon" value="Demon">Demon</option>
-                    <option data-i18n="elemental" value="Elemental">Elemental</option>
-                    <option data-i18n="monster" value="Monster">Monster</option>
-                    <option data-i18n="plant" value="Plant">Plant</option>
-                    <option data-i18n="undead" value="Undead">Undead</option>
-                    <option data-i18n="humanoid" value="Humanoid">Humanoid</option>
-                  </select>
-                </div>
-                <div class="chimera-input bio__rank">
-                  <label class="chimera-input__label" data-i18n="rank" for="rank">Rank</label>
-                  <select class="chimera-input__field" data-i18n-title="rank_title" id="rank" name="attr_rank" title="Rank">
-                    <option data-i18n="soldier" selected="selected" value="soldier">Soldier</option>
-                    <option data-i18n="elite" value="elite">Elite</option>
-                    <option data-i18n="champion" value="champion">Champion</option>
-                    <option data-i18n="champion2" value="champion2">Champion (2)</option>
-                    <option data-i18n="champion3" value="champion3">Champion (3)</option>
-                    <option data-i18n="champion4" value="champion4">Champion (4)</option>
-                    <option data-i18n="champion5" value="champion5">Champion (5)</option>
-                    <option data-i18n="companion" value="companion">Companion</option>
-                  </select>
-                </div>
-                <div class="chimera-input bio__villain">
-                  <label class="chimera-input__label" data-i18n="villain" for="villain">Villain</label>
-                  <select class="chimera-input__field" data-i18n-title="villain_title" id="villain" name="attr_villain" title="Villain">
-                    <option data-i18n="none" selected="selected" value="">—</option>
-                    <option data-i18n="minor" value="minor">Minor</option>
-                    <option data-i18n="major" value="major">Major</option>
-                    <option data-i18n="supreme" value="supreme">Supreme</option>
-                  </select>
-                </div>
-                <div class="chimera-input bio__companion_skill_level chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="companion_skill_level" for="companion_skill_level">Skill Level</label>
-                  <input class="chimera-input__field" data-i18n-title="companion_skill_level_title" id="companion_skill_level" max="5" min="1" name="attr_companion_skill_level" title="Skill Level" type="number"/>
-                </div>
-                <div class="chimera-input bio__pc_level chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="pc_level" for="pc_level">PC Level</label>
-                  <input class="chimera-input__field" data-i18n-title="pc_level_title" id="pc_level" max="50" min="5" name="attr_pc_level" title="PC Level" type="number"/>
-                </div>
-                <div class="chimera-input bio__multipart">
-                  <label class="chimera-input__label" data-i18n="multipart" for="multipart">Multi-Part</label>
-                  <input class="chimera-input__field" data-i18n-title="multipart_title" id="multipart" name="attr_multipart" title="Multi-Part" type="text"/>
-                </div>
-                <div class="chimera-input bio__phases chimera-input--center chimera-input--small">
-                  <label class="chimera-input__label" data-i18n="phases" for="phases">Phases</label>
-                  <input class="chimera-input__field" data-i18n-title="phases_title" id="phases" min="0" name="attr_phases" title="Phases" type="number"/>
-                </div>
-                <div class="chimera-input bio__createdby">
-                  <label class="chimera-input__label" data-i18n="createdby" for="createdby">Created By</label>
-                  <input class="chimera-input__field" data-i18n-title="createdby_title" id="createdby" name="attr_createdby" title="Created By" type="text"/>
-                </div>
-                <div class="chimera-input bio__description">
-                  <label class="chimera-input__label" data-i18n="description" for="description">Description</label>
-                  <textarea class="chimera-input__field" data-i18n-title="description_title" id="description" name="attr_description" title="Description" type="textarea"></textarea>
-                </div>
-              </div>
+                  <div class="bio--edit">
+                    <div class="bio">
+                      <input class="chimera-hidden" name="attr_rank" type="hidden"/>
+                      <div class="chimera-input bio__name">
+                        <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
+                        <input class="chimera-input__field" data-i18n-title="character_name_title" id="character_name" name="attr_character_name" title="Name" type="text"/>
+                      </div>
+                      <div class="chimera-input bio__traits">
+                        <label class="chimera-input__label" data-i18n="traits" for="traits">Traits</label>
+                        <input class="chimera-input__field" data-i18n-title="traits_title" id="traits" name="attr_traits" title="Traits" type="text"/>
+                      </div>
+                      <div class="chimera-input bio__level chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="level" for="level">Level</label>
+                        <input class="chimera-input__field" data-i18n-title="level_title" id="level" max="60" min="5" name="attr_level" step="5" title="Level" type="number" value="5"/>
+                      </div>
+                      <div class="chimera-input bio__species">
+                        <label class="chimera-input__label" data-i18n="species" for="species">Species</label>
+                        <select class="chimera-input__field" data-i18n-title="species_title" id="species" name="attr_species" title="Species">
+                          <option data-i18n="beast" selected="selected" value="Beast">Beast</option>
+                          <option data-i18n="construct" value="Construct">Construct</option>
+                          <option data-i18n="demon" value="Demon">Demon</option>
+                          <option data-i18n="elemental" value="Elemental">Elemental</option>
+                          <option data-i18n="monster" value="Monster">Monster</option>
+                          <option data-i18n="plant" value="Plant">Plant</option>
+                          <option data-i18n="undead" value="Undead">Undead</option>
+                          <option data-i18n="humanoid" value="Humanoid">Humanoid</option>
+                        </select>
+                      </div>
+                      <div class="chimera-input bio__rank">
+                        <label class="chimera-input__label" data-i18n="rank" for="rank">Rank</label>
+                        <select class="chimera-input__field" data-i18n-title="rank_title" id="rank" name="attr_rank" title="Rank">
+                          <option data-i18n="soldier" selected="selected" value="soldier">Soldier</option>
+                          <option data-i18n="elite" value="elite">Elite</option>
+                          <option data-i18n="champion" value="champion">Champion</option>
+                          <option data-i18n="champion2" value="champion2">Champion (2)</option>
+                          <option data-i18n="champion3" value="champion3">Champion (3)</option>
+                          <option data-i18n="champion4" value="champion4">Champion (4)</option>
+                          <option data-i18n="champion5" value="champion5">Champion (5)</option>
+                          <option data-i18n="companion" value="companion">Companion</option>
+                        </select>
+                      </div>
+                      <div class="chimera-input bio__villain">
+                        <label class="chimera-input__label" data-i18n="villain" for="villain">Villain</label>
+                        <select class="chimera-input__field" data-i18n-title="villain_title" id="villain" name="attr_villain" title="Villain">
+                          <option data-i18n="none" selected="selected" value="">—</option>
+                          <option data-i18n="minor" value="minor">Minor</option>
+                          <option data-i18n="major" value="major">Major</option>
+                          <option data-i18n="supreme" value="supreme">Supreme</option>
+                        </select>
+                      </div>
+                      <div class="chimera-input bio__companion_skill_level chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="companion_skill_level" for="companion_skill_level">Skill Level</label>
+                        <input class="chimera-input__field" data-i18n-title="companion_skill_level_title" id="companion_skill_level" max="5" min="1" name="attr_companion_skill_level" title="Skill Level" type="number"/>
+                      </div>
+                      <div class="chimera-input bio__pc_level chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="pc_level" for="pc_level">PC Level</label>
+                        <input class="chimera-input__field" data-i18n-title="pc_level_title" id="pc_level" max="50" min="5" name="attr_pc_level" title="PC Level" type="number"/>
+                      </div>
+                      <div class="chimera-input bio__multipart">
+                        <label class="chimera-input__label" data-i18n="multipart" for="multipart">Multi-Part</label>
+                        <input class="chimera-input__field" data-i18n-title="multipart_title" id="multipart" name="attr_multipart" title="Multi-Part" type="text"/>
+                      </div>
+                      <div class="chimera-input bio__phases chimera-input--center chimera-input--small">
+                        <label class="chimera-input__label" data-i18n="phases" for="phases">Phases</label>
+                        <input class="chimera-input__field" data-i18n-title="phases_title" id="phases" min="0" name="attr_phases" title="Phases" type="number"/>
+                      </div>
+                      <div class="chimera-input bio__createdby">
+                        <label class="chimera-input__label" data-i18n="createdby" for="createdby">Created By</label>
+                        <input class="chimera-input__field" data-i18n-title="createdby_title" id="createdby" name="attr_createdby" title="Created By" type="text"/>
+                      </div>
+                      <div class="chimera-input bio__description">
+                        <label class="chimera-input__label" data-i18n="description" for="description">Description</label>
+                        <textarea class="chimera-input__field" data-i18n-title="description_title" id="description" name="attr_description" title="Description" type="textarea"></textarea>
+                      </div>
+                    </div>
+                  </div>
+              <!-- TODO NPC Builder-->
               <div class="attributes">
                 <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
                   <label class="chimera-input__label" data-i18n="dexterity_max" for="dexterity_max">DEX</label>

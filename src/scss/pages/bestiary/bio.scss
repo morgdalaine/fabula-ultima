@@ -1,64 +1,165 @@
-@use '../../common/vars' as *;
 @use '../../common/vars' as mixins;
 
-.bio {
-  $this: '.bio';
+.fabula-ultima .bestiary {
+  .bio {
+    $this: '.bio';
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
-  gap: 4px;
+    &--view {
+      .bio {
+        display: grid;
+        grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
+        grid-template-rows: auto 1fr;
+        gap: 4px;
 
-  input[name*='rank'] {
-    &[value='companion'] ~ #{$this} {
-      &__villain {
-        display: none;
+        input[name*='character_avatar']:not([value='']) ~ {
+          .bio__avatar {
+            display: block;
+            grid-row: span 3;
+          }
+          .bio__name {
+            grid-column: span 2;
+          }
+          .bio__description,
+          .bio__traits {
+            grid-column: 2 / span 3;
+          }
+        }
+
+        &__avatar {
+          display: none;
+
+          border: 1px solid var(--color-fabula0);
+          border-image: var(--fabula-gradient-dark-border);
+          height: 10rem;
+
+          img,
+          svg {
+            // max-height: calc(4 * var(--input-component-size));
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &__name {
+          grid-column: span 3;
+          background-image: var(--fabula-gradient-primary);
+          color: var(--color-on-dark);
+          padding-left: 16px;
+          padding-right: 16px;
+          span {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            @include mixins.text-xxl-500-fabula;
+          }
+        }
+
+        &__meta {
+          display: flex;
+          gap: 4px;
+
+          padding: 4px 16px;
+          border-left: 2px solid var(--color-fabula2);
+          border-bottom: 2px solid var(--color-fabula2);
+          border-image: var(--fabula-gradient-secondary-border);
+
+          label,
+          span {
+            @include mixins.text-xl-500-fabula;
+          }
+
+          input[value='soldier'] {
+            ~ span[name*='rank'] {
+              font-size: 0;
+            }
+          }
+        }
+
+        &__description {
+          grid-column: 1/-1;
+          border-bottom: 1px solid var(--color-fabula2);
+          border-image: var(--fabula-gradient-primary-border);
+          padding: 4px 16px;
+          @include mixins.text-base-400;
+        }
+        &__traits {
+          grid-column: 1/-1;
+          padding: 4px 16px;
+
+          label {
+            @include mixins.text-base-700;
+            &::after {
+              content: ':';
+            }
+          }
+          span {
+            @include mixins.text-base-400;
+          }
+        }
       }
     }
-    &:not([value='companion']) ~ #{$this} {
-      &__companion_skill_level,
-      &__pc_level {
-        display: none;
+
+    &--edit {
+      .bio {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+        gap: 4px;
+
+        input[name*='rank'] {
+          &[value='companion'] ~ #{$this} {
+            &__villain {
+              display: none;
+            }
+          }
+          &:not([value='companion']) ~ #{$this} {
+            &__companion_skill_level,
+            &__pc_level {
+              display: none;
+            }
+          }
+        }
+
+        &__name {
+          // grid-column: span 2;
+        }
+
+        &__traits {
+          grid-column: span 3;
+        }
+
+        &__rank,
+        &__villain,
+        &__multipart,
+        &__createdby {
+          grid-column: span 2;
+        }
+
+        &__species,
+        &__rank,
+        &__villain,
+        &__companion_skill_level,
+        &__pc_level {
+          grid-row: 2;
+        }
+
+        &__companion_skill_level {
+          grid-column: 4;
+        }
+        &__pc_level {
+          grid-column: 5;
+        }
+
+        &__phases,
+        &__multipart,
+        &__createdby {
+          grid-row-start: 3;
+        }
+
+        &__description {
+          grid-column: 1/-1;
+        }
       }
     }
-  }
-
-  &__name {
-    // grid-column: span 2;
-  }
-
-  &__traits {
-    grid-column: span 3;
-  }
-
-  &__rank,
-  &__villain,
-  &__multipart,
-  &__createdby {
-    grid-column: span 2;
-  }
-
-  &__species,
-  &__rank,
-  &__villain,
-  &__companion_skill_level,
-  &__pc_level {
-    grid-row: 2;
-  }
-
-  &__companion_skill_level {
-    grid-column: 4;
-  }
-  &__pc_level {
-    grid-column: 5;
-  }
-
-  &__phases,
-  &__multipart,
-  &__createdby {
-    grid-row-start: 3;
-  }
-
-  &__description {
-    grid-column: 1/-1;
   }
 }

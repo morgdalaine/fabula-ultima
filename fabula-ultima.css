@@ -804,7 +804,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   opacity: 1;
 }
 
-.fabula-ultima .basic-attacks__heading--edit {
+.fabula-ultima .bestiary .basic-attacks__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -813,7 +813,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .basic-attacks__heading--view {
+.fabula-ultima .bestiary .basic-attacks__heading--view {
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -825,55 +825,55 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .basic-attacks--delete .basic-attack {
+.fabula-ultima .bestiary .basic-attacks--delete .basic-attack {
   display: flex;
   gap: 4px;
 }
-.fabula-ultima .basic-attacks--delete .basic-attack__name .chimera-value__value {
+.fabula-ultima .bestiary .basic-attacks--delete .basic-attack__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
 }
-.fabula-ultima .basic-attacks--delete .fabula-diamond,
-.fabula-ultima .basic-attacks--delete .fabula-check span {
+.fabula-ultima .bestiary .basic-attacks--delete .fabula-diamond,
+.fabula-ultima .bestiary .basic-attacks--delete .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .basic-attacks--view input[name*=attack_range][value=melee] ~ .basic-attack__range--melee {
+.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=melee] ~ .basic-attack__range--melee {
   display: block;
 }
-.fabula-ultima .basic-attacks--view input[name*=attack_range][value=distance] ~ .basic-attack__range--distance {
+.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=distance] ~ .basic-attack__range--distance {
   display: block;
 }
-.fabula-ultima .basic-attacks--view .basic-attack {
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack {
   display: grid;
   grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
   gap: 4px;
 }
-.fabula-ultima .basic-attacks--view .basic-attack .fabula-check span {
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .basic-attacks--view .basic-attack__range--melee, .fabula-ultima .basic-attacks--view .basic-attack__range--distance {
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--melee, .fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--distance {
   display: none;
   grid-row: span 2;
 }
-.fabula-ultima .basic-attacks--view .basic-attack__name .chimera-value__value, .fabula-ultima .basic-attacks--view .basic-attack__type .chimera-value__value {
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__name .chimera-value__value, .fabula-ultima .bestiary .basic-attacks--view .basic-attack__type .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .basic-attacks--view .basic-attack__special {
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__special {
   grid-column: span 5;
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -881,19 +881,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .basic-attacks--edit .basic-attack {
+.fabula-ultima .bestiary .basic-attacks--edit .basic-attack {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-.fabula-ultima .basic-attacks--edit .basic-attack__special {
+.fabula-ultima .bestiary .basic-attacks--edit .basic-attack__special {
   grid-column: 1/-1;
 }
-.fabula-ultima .basic-attacks--edit .basic-attack__name {
+.fabula-ultima .bestiary .basic-attacks--edit .basic-attack__name {
   grid-column: span 3;
 }
 
-.fabula-ultima .spells__heading--edit {
+.fabula-ultima .bestiary .spells__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -902,7 +902,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .spells__heading--view {
+.fabula-ultima .bestiary .spells__heading--view {
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -914,117 +914,117 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .spells--delete .spell {
+.fabula-ultima .bestiary .spells--delete .spell {
   display: flex;
   gap: 4px;
 }
-.fabula-ultima .spells--delete .spell__name .chimera-value__value {
+.fabula-ultima .bestiary .spells--delete .spell__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
 }
-.fabula-ultima .spells--delete .fabula-diamond,
-.fabula-ultima .spells--delete .fabula-check span {
+.fabula-ultima .bestiary .spells--delete .fabula-diamond,
+.fabula-ultima .bestiary .spells--delete .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .spells--view .spell {
+.fabula-ultima .bestiary .spells--view .spell {
   display: grid;
   grid-template-columns: var(--icon-component-size) 1fr repeat(2, auto);
   gap: 4px;
 }
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
-.fabula-ultima .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
+.fabula-ultima .bestiary .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
+.fabula-ultima .bestiary .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
   display: none;
 }
-.fabula-ultima .spells--view .spell__name .chimera-value__value, .fabula-ultima .spells--view .spell__type .chimera-value__value {
+.fabula-ultima .bestiary .spells--view .spell__name .chimera-value__value, .fabula-ultima .bestiary .spells--view .spell__type .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .spells--view .spell__offensive {
+.fabula-ultima .bestiary .spells--view .spell__offensive {
   display: flex;
   flex-wrap: nowrap;
   gap: 4px;
 }
-.fabula-ultima .spells--view .spell .fabula-check span {
+.fabula-ultima .bestiary .spells--view .spell .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .spells--view .spell__icon {
+.fabula-ultima .bestiary .spells--view .spell__icon {
   grid-row: span 2;
 }
-.fabula-ultima .spells--view .spell__mp .chimera-value__label {
+.fabula-ultima .bestiary .spells--view .spell__mp .chimera-value__label {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .spells--view .spell__mp .chimera-value__value {
+.fabula-ultima .bestiary .spells--view .spell__mp .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .spells--view .spell__target-duration {
+.fabula-ultima .bestiary .spells--view .spell__target-duration {
   grid-column: 2/-1;
   grid-row-start: 2;
   display: flex;
   gap: 4px;
 }
-.fabula-ultima .spells--view .spell__effect {
+.fabula-ultima .bestiary .spells--view .spell__effect {
   grid-column: 2/-1;
   grid-row-start: 3;
 }
-.fabula-ultima .spells--edit .spell {
+.fabula-ultima .bestiary .spells--edit .spell {
   display: grid;
   grid-template-columns: repeat(5, auto);
   gap: 4px;
 }
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_1,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__precision,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
-.fabula-ultima .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__precision {
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_1,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__precision,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__precision {
   display: none;
 }
-.fabula-ultima .spells--edit .spell__name, .fabula-ultima .spells--edit .spell__offensive, .fabula-ultima .spells--edit .spell__mp {
+.fabula-ultima .bestiary .spells--edit .spell__name, .fabula-ultima .bestiary .spells--edit .spell__offensive, .fabula-ultima .bestiary .spells--edit .spell__mp {
   grid-row: 1;
 }
-.fabula-ultima .spells--edit .spell__name {
+.fabula-ultima .bestiary .spells--edit .spell__name {
   grid-column: span 2;
 }
-.fabula-ultima .spells--edit .spell__offensive {
+.fabula-ultima .bestiary .spells--edit .spell__offensive {
   grid-column-start: -2;
 }
-.fabula-ultima .spells--edit .spell__check_1, .fabula-ultima .spells--edit .spell__check_2, .fabula-ultima .spells--edit .spell__precision, .fabula-ultima .spells--edit .spell__damage, .fabula-ultima .spells--edit .spell__type {
+.fabula-ultima .bestiary .spells--edit .spell__check_1, .fabula-ultima .bestiary .spells--edit .spell__check_2, .fabula-ultima .bestiary .spells--edit .spell__precision, .fabula-ultima .bestiary .spells--edit .spell__damage, .fabula-ultima .bestiary .spells--edit .spell__type {
   grid-row: 2;
 }
-.fabula-ultima .spells--edit .spell__target, .fabula-ultima .spells--edit .spell__duration {
+.fabula-ultima .bestiary .spells--edit .spell__target, .fabula-ultima .bestiary .spells--edit .spell__duration {
   grid-column: span 2;
 }
-.fabula-ultima .spells--edit .spell__special, .fabula-ultima .spells--edit .spell__effect {
+.fabula-ultima .bestiary .spells--edit .spell__special, .fabula-ultima .bestiary .spells--edit .spell__effect {
   grid-column: 1/-1;
 }
 
-.fabula-ultima .weapons__heading--edit {
+.fabula-ultima .bestiary .weapons__heading--edit {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1033,7 +1033,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .weapons__heading--view {
+.fabula-ultima .bestiary .weapons__heading--view {
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1045,48 +1045,48 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .weapons--delete .weapon {
+.fabula-ultima .bestiary .weapons--delete .weapon {
   display: flex;
   gap: 4px;
 }
-.fabula-ultima .weapons--delete .weapon__name .chimera-value__value {
+.fabula-ultima .bestiary .weapons--delete .weapon__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%;
 }
-.fabula-ultima .weapons--delete .fabula-diamond,
-.fabula-ultima .weapons--delete .fabula-check span {
+.fabula-ultima .bestiary .weapons--delete .fabula-diamond,
+.fabula-ultima .bestiary .weapons--delete .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .weapons--view input[name*=weapon_range][value=melee] ~ .weapon__range--melee {
+.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=melee] ~ .weapon__range--melee {
   display: block;
 }
-.fabula-ultima .weapons--view input[name*=weapon_range][value=distance] ~ .weapon__range--distance {
+.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=distance] ~ .weapon__range--distance {
   display: block;
 }
-.fabula-ultima .weapons--view .weapon {
+.fabula-ultima .bestiary .weapons--view .weapon {
   display: grid;
   grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
   gap: 4px;
 }
-.fabula-ultima .weapons--view .weapon .fabula-check span {
+.fabula-ultima .bestiary .weapons--view .weapon .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .weapons--view .weapon__range--melee, .fabula-ultima .weapons--view .weapon__range--distance {
+.fabula-ultima .bestiary .weapons--view .weapon__range--melee, .fabula-ultima .bestiary .weapons--view .weapon__range--distance {
   display: none;
   grid-row: span 2;
 }
-.fabula-ultima .weapons--view .weapon__attack {
+.fabula-ultima .bestiary .weapons--view .weapon__attack {
   display: flex;
   gap: 4px;
   font-family: var(--font-body);
@@ -1095,27 +1095,27 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .weapons--view .weapon__type .chimera-value__value {
+.fabula-ultima .bestiary .weapons--view .weapon__type .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .weapons--view .weapon__name {
+.fabula-ultima .bestiary .weapons--view .weapon__name {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .weapons--view .weapon__name::before {
+.fabula-ultima .bestiary .weapons--view .weapon__name::before {
   content: "(";
 }
-.fabula-ultima .weapons--view .weapon__name::after {
+.fabula-ultima .bestiary .weapons--view .weapon__name::after {
   content: ")";
 }
-.fabula-ultima .weapons--view .weapon__special {
+.fabula-ultima .bestiary .weapons--view .weapon__special {
   grid-column: 2/span 4;
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -1123,464 +1123,56 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .weapons--edit .weapon {
+.fabula-ultima .bestiary .weapons--edit .weapon {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto);
   gap: 4px;
 }
-.fabula-ultima .weapons--edit .weapon__special {
+.fabula-ultima .bestiary .weapons--edit .weapon__special {
   grid-column: 1/-1;
 }
-.fabula-ultima .weapons--edit .weapon__name {
+.fabula-ultima .bestiary .weapons--edit .weapon__name {
   grid-column: span 3;
 }
-.fabula-ultima .armor__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .armor__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .armor--edit .armor {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 4px;
-}
-.fabula-ultima .armor--edit .armor__name {
-  grid-column: span 3;
-  grid-column: 1/-1;
-}
-.fabula-ultima .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
-  display: none;
-}
-.fabula-ultima .armor input[name*=is_martial][value="0"] ~ .armor__defense {
-  display: none;
-}
-
-.fabula-ultima .equipments__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .equipments__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .equipments .equipment {
-  display: grid;
-  gap: 4px;
-  padding: 8px;
-}
-.fabula-ultima .equipments .equipment .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-  line-height: 180%;
-}
-.fabula-ultima .equipments .equipment__armor, .fabula-ultima .equipments .equipment__shield, .fabula-ultima .equipments .equipment__weapon {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .equipments .equipment input[name*=is_martial][value=on] ~ .armor__defense_bonus {
-  display: none;
-}
-.fabula-ultima .equipments .equipment input[name*=is_martial][value="0"] ~ .armor__defense {
-  display: none;
-}
-.fabula-ultima .equipments .equipment .armor__name .chimera-value__label,
-.fabula-ultima .equipments .equipment .shield__name .chimera-value__label,
-.fabula-ultima .equipments .equipment .weapon__name .chimera-value__label {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .equipments .equipment .armor__cost .chimera-value__value::after,
-.fabula-ultima .equipments .equipment .shield__cost .chimera-value__value::after,
-.fabula-ultima .equipments .equipment .weapon__cost .chimera-value__value::after {
-  content: "z";
-}
-.fabula-ultima--edit .equipment {
-  display: grid;
-  grid-template-columns: 1fr repeat(3, auto);
-  gap: 4px;
-}
-.fabula-ultima--edit .equipment__special {
-  grid-column: 1/-1;
-}
-.fabula-ultima--edit .equipment__name {
-  grid-column: span 3;
-}
-.fabula-ultima .shield__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .shield__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .shield--edit .shield {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 4px;
-}
-.fabula-ultima .shield--edit .shield__name {
-  grid-column: span 3;
-  grid-column: 1/-1;
-}
-.fabula-ultima .shield input[name*=is_martial][value=on] ~ .shield__defense_bonus {
-  display: none;
-}
-.fabula-ultima .shield input[name*=is_martial][value="0"] ~ .shield__defense {
-  display: none;
-}
-
-.fabula-ultima .notes {
-  grid-column: span 2;
-}
-.fabula-ultima .notes__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .notes__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .notes--delete .note {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .notes--delete .note__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-}
-.fabula-ultima .notes--view .note {
-  display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr;
-  gap: 4px;
-}
-.fabula-ultima .notes--view .note__icon {
-  grid-row: span 2;
-}
-.fabula-ultima .notes--view .note__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .notes--view .note__special, .fabula-ultima .notes--view .note__effect {
-  grid-column: 2/-1;
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .notes--edit .note {
-  display: grid;
-  gap: 4px;
-}
-
-.fabula-ultima .rare-gears {
-  grid-column: span 2;
-}
-.fabula-ultima .rare-gears__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .rare-gears__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .rare-gears--delete .rare-gear {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .rare-gears--delete .rare-gear__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-}
-.fabula-ultima .rare-gears--view .rare-gear {
-  display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr;
-  gap: 4px;
-}
-.fabula-ultima .rare-gears--view .rare-gear__icon {
-  grid-row: span 2;
-}
-.fabula-ultima .rare-gears--view .rare-gear__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .rare-gears--view .rare-gear__special, .fabula-ultima .rare-gears--view .rare-gear__effect {
-  grid-column: 2/-1;
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .rare-gears--edit .rare-gear {
-  display: grid;
-  gap: 4px;
-}
-
-.fabula-ultima .other-actions {
-  grid-column: span 2;
-}
-.fabula-ultima .other-actions__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .other-actions__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .other-actions--delete .other-action {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .other-actions--delete .other-action__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-}
-.fabula-ultima .other-actions--view .other-action {
-  display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr;
-  gap: 4px;
-}
-.fabula-ultima .other-actions--view .other-action__icon {
-  grid-row: span 2;
-}
-.fabula-ultima .other-actions--view .other-action__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .other-actions--view .other-action__special, .fabula-ultima .other-actions--view .other-action__effect {
-  grid-column: 2/-1;
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .other-actions--edit .other-action {
-  display: grid;
-  gap: 4px;
-}
-
-.fabula-ultima .special-rules {
-  grid-column: span 2;
-}
-.fabula-ultima .special-rules__heading--edit {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .special-rules__heading--view {
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .special-rules--delete .special-rule {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .special-rules--delete .special-rule__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-}
-.fabula-ultima .special-rules--view .special-rule {
-  display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr;
-  gap: 4px;
-}
-.fabula-ultima .special-rules--view .special-rule__icon {
-  grid-row: span 2;
-}
-.fabula-ultima .special-rules--view .special-rule__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .special-rules--view .special-rule__special, .fabula-ultima .special-rules--view .special-rule__effect {
-  grid-column: 2/-1;
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .special-rules--edit .special-rule {
-  display: grid;
-  gap: 4px;
-}
-
-.bestiary--view {
-  margin: 8px;
-  max-width: 500px;
-  background-color: var(--suface-container-lowest);
-  box-shadow: var(--box-shadow-light);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.bestiary--view * ~ .repcontrol {
-  display: none;
-}
-.bestiary--view .bio {
+.fabula-ultima .bestiary .bio--view .bio {
   display: grid;
   grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
   grid-template-rows: auto 1fr;
   gap: 4px;
 }
-.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__avatar {
+.fabula-ultima .bestiary .bio--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__avatar {
   display: block;
   grid-row: span 3;
 }
-.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__name {
+.fabula-ultima .bestiary .bio--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__name {
   grid-column: span 2;
 }
-.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__description,
-.bestiary--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__traits {
+.fabula-ultima .bestiary .bio--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__description,
+.fabula-ultima .bestiary .bio--view .bio input[name*=character_avatar]:not([value=""]) ~ .bio__traits {
   grid-column: 2/span 3;
 }
-.bestiary--view .bio__avatar {
+.fabula-ultima .bestiary .bio--view .bio__avatar {
   display: none;
   border: 1px solid var(--color-fabula0);
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
   height: 10rem;
 }
-.bestiary--view .bio__avatar img,
-.bestiary--view .bio__avatar svg {
+.fabula-ultima .bestiary .bio--view .bio__avatar img,
+.fabula-ultima .bestiary .bio--view .bio__avatar svg {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
   width: 100%;
 }
-.bestiary--view .bio__name {
+.fabula-ultima .bestiary .bio--view .bio__name {
   grid-column: span 3;
   background-image: var(--fabula-gradient-primary);
   color: var(--color-on-dark);
   padding-left: 16px;
   padding-right: 16px;
 }
-.bestiary--view .bio__name span {
+.fabula-ultima .bestiary .bio--view .bio__name span {
   display: flex;
   align-items: center;
   height: 100%;
@@ -1591,7 +1183,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.bestiary--view .bio__meta {
+.fabula-ultima .bestiary .bio--view .bio__meta {
   display: flex;
   gap: 4px;
   padding: 4px 16px;
@@ -1600,8 +1192,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
-.bestiary--view .bio__meta label,
-.bestiary--view .bio__meta span {
+.fabula-ultima .bestiary .bio--view .bio__meta label,
+.fabula-ultima .bestiary .bio--view .bio__meta span {
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1609,10 +1201,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.bestiary--view .bio__meta input[value=soldier] ~ span[name*=rank] {
+.fabula-ultima .bestiary .bio--view .bio__meta input[value=soldier] ~ span[name*=rank] {
   font-size: 0;
 }
-.bestiary--view .bio__description {
+.fabula-ultima .bestiary .bio--view .bio__description {
   grid-column: 1/-1;
   border-bottom: 1px solid var(--color-fabula2);
   -o-border-image: var(--fabula-gradient-primary-border);
@@ -1624,33 +1216,574 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.bestiary--view .bio__traits {
+.fabula-ultima .bestiary .bio--view .bio__traits {
   grid-column: 1/-1;
   padding: 4px 16px;
 }
-.bestiary--view .bio__traits label {
+.fabula-ultima .bestiary .bio--view .bio__traits label {
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.bestiary--view .bio__traits label::after {
+.fabula-ultima .bestiary .bio--view .bio__traits label::after {
   content: ":";
 }
-.bestiary--view .bio__traits span {
+.fabula-ultima .bestiary .bio--view .bio__traits span {
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
 }
-.bestiary--view .statistics {
+.fabula-ultima .bestiary .bio--edit .bio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
+  gap: 4px;
+}
+.fabula-ultima .bestiary .bio--edit .bio input[name*=rank][value=companion] ~ .bio__villain {
+  display: none;
+}
+.fabula-ultima .bestiary .bio--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level, .fabula-ultima .bestiary .bio--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level {
+  display: none;
+}
+.fabula-ultima .bestiary .bio--edit .bio__traits {
+  grid-column: span 3;
+}
+.fabula-ultima .bestiary .bio--edit .bio__rank, .fabula-ultima .bestiary .bio--edit .bio__villain, .fabula-ultima .bestiary .bio--edit .bio__multipart, .fabula-ultima .bestiary .bio--edit .bio__createdby {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .bio--edit .bio__species, .fabula-ultima .bestiary .bio--edit .bio__rank, .fabula-ultima .bestiary .bio--edit .bio__villain, .fabula-ultima .bestiary .bio--edit .bio__companion_skill_level, .fabula-ultima .bestiary .bio--edit .bio__pc_level {
+  grid-row: 2;
+}
+.fabula-ultima .bestiary .bio--edit .bio__companion_skill_level {
+  grid-column: 4;
+}
+.fabula-ultima .bestiary .bio--edit .bio__pc_level {
+  grid-column: 5;
+}
+.fabula-ultima .bestiary .bio--edit .bio__phases, .fabula-ultima .bestiary .bio--edit .bio__multipart, .fabula-ultima .bestiary .bio--edit .bio__createdby {
+  grid-row-start: 3;
+}
+.fabula-ultima .bestiary .bio--edit .bio__description {
+  grid-column: 1/-1;
+}
+
+.fabula-ultima .bestiary .armor__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .armor__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .armor--edit .armor {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .bestiary .armor--edit .armor__name {
+  grid-column: span 3;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.fabula-ultima .bestiary .armor input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
+}
+
+.fabula-ultima .bestiary .equipments__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .equipments__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .equipments .equipment {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+}
+.fabula-ultima .bestiary .equipments .equipment .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  line-height: 180%;
+}
+.fabula-ultima .bestiary .equipments .equipment__armor, .fabula-ultima .bestiary .equipments .equipment__shield, .fabula-ultima .bestiary .equipments .equipment__weapon {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .equipments .equipment input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.fabula-ultima .bestiary .equipments .equipment input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
+}
+.fabula-ultima .bestiary .equipments .equipment .armor__name .chimera-value__label,
+.fabula-ultima .bestiary .equipments .equipment .shield__name .chimera-value__label,
+.fabula-ultima .bestiary .equipments .equipment .weapon__name .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .equipments .equipment .armor__name .chimera-value__value,
+.fabula-ultima .bestiary .equipments .equipment .shield__name .chimera-value__value,
+.fabula-ultima .bestiary .equipments .equipment .weapon__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .equipments .equipment .armor__cost .chimera-value__value::after,
+.fabula-ultima .bestiary .equipments .equipment .shield__cost .chimera-value__value::after,
+.fabula-ultima .bestiary .equipments .equipment .weapon__cost .chimera-value__value::after {
+  content: "z";
+}
+.fabula-ultima .bestiary--edit .equipment {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 4px;
+}
+.fabula-ultima .bestiary--edit .equipment__special {
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary--edit .equipment__name {
+  grid-column: span 3;
+}
+.fabula-ultima .bestiary .shield__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .shield__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .shield--edit .shield {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .bestiary .shield--edit .shield__name {
+  grid-column: span 3;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary .shield input[name*=is_martial][value=on] ~ .shield__defense_bonus {
+  display: none;
+}
+.fabula-ultima .bestiary .shield input[name*=is_martial][value="0"] ~ .shield__defense {
+  display: none;
+}
+
+.fabula-ultima .bestiary .notes {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .notes__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .notes__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .notes--delete .note {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .notes--delete .note__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .notes--view .note {
+  display: grid;
+  grid-template-columns: var(--icon-component-size) 1fr;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .notes--view .note__icon {
+  grid-row: span 2;
+}
+.fabula-ultima .bestiary .notes--view .note__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .notes--view .note__special, .fabula-ultima .bestiary .notes--view .note__effect {
+  grid-column: 2/-1;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .notes--edit .note {
+  display: grid;
+  gap: 4px;
+}
+
+.fabula-ultima .bestiary .rare-gears {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .rare-gears__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .rare-gears__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .rare-gears--delete .rare-gear {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .rare-gears--delete .rare-gear__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .rare-gears--view .rare-gear {
+  display: grid;
+  grid-template-columns: var(--icon-component-size) 1fr;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .rare-gears--view .rare-gear__icon {
+  grid-row: span 2;
+}
+.fabula-ultima .bestiary .rare-gears--view .rare-gear__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .rare-gears--view .rare-gear__special, .fabula-ultima .bestiary .rare-gears--view .rare-gear__effect {
+  grid-column: 2/-1;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .rare-gears--edit .rare-gear {
+  display: grid;
+  gap: 4px;
+}
+
+.fabula-ultima .bestiary .other-actions {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .other-actions__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .other-actions__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .other-actions--delete .other-action {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .other-actions--delete .other-action__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .other-actions--view .other-action {
+  display: grid;
+  grid-template-columns: var(--icon-component-size) 1fr;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .other-actions--view .other-action__icon {
+  grid-row: span 2;
+}
+.fabula-ultima .bestiary .other-actions--view .other-action__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .other-actions--view .other-action__special, .fabula-ultima .bestiary .other-actions--view .other-action__effect {
+  grid-column: 2/-1;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .other-actions--edit .other-action {
+  display: grid;
+  gap: 4px;
+}
+
+.fabula-ultima .bestiary .special-rules {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .special-rules__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .special-rules__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .special-rules--delete .special-rule {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .special-rules--delete .special-rule__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .special-rules--view .special-rule {
+  display: grid;
+  grid-template-columns: var(--icon-component-size) 1fr;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .special-rules--view .special-rule__icon {
+  grid-row: span 2;
+}
+.fabula-ultima .bestiary .special-rules--view .special-rule__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .special-rules--view .special-rule__special, .fabula-ultima .bestiary .special-rules--view .special-rule__effect {
+  grid-column: 2/-1;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .special-rules--edit .special-rule {
+  display: grid;
+  gap: 4px;
+}
+
+.fabula-ultima .bestiary .affinities {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .affinity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+  align-items: center;
+}
+.fabula-ultima .bestiary .affinity .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  align-self: center;
+}
+
+.fabula-ultima .bestiary .attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .attributes__distribution {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .attribute {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .attribute .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .attribute .chimera-input__field {
+  align-self: normal;
+}
+.fabula-ultima .bestiary .distribution:first-of-type {
+  padding-block-end: 4px;
+}
+.fabula-ultima .bestiary .distribution:last-of-type {
+  padding-block-start: 4px;
+}
+
+.fabula-ultima .bestiary .defenses {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 4px;
+}
+.fabula-ultima .bestiary .defenses__container {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .defense {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .defense__quick {
+  grid-column: 1/-1;
+  grid-template-columns: 1fr;
+}
+
+.fabula-ultima .bestiary .extras {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .extras__container {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .extra.chimera-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.fabula-ultima .bestiary--view {
+  margin: 8px;
+  max-width: 500px;
+  background-color: var(--suface-container-lowest);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fabula-ultima .bestiary--view * ~ .repcontrol {
+  display: none;
+}
+.fabula-ultima .bestiary--view .statistics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
 }
-.bestiary--view .statistics .attributes {
+.fabula-ultima .bestiary--view .statistics .attributes {
   grid-column: span 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1665,40 +1798,40 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
 }
-.bestiary--view .statistics .attributes .chimera-value {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value {
   padding: 4px;
 }
-.bestiary--view .statistics .attributes .chimera-value label {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value label {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.bestiary--view .statistics .attributes .chimera-value span {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value span {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.bestiary--view .statistics .attributes .chimera-value span::before {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value span::before {
   content: "d";
   text-transform: lowercase;
 }
-.bestiary--view .statistics .attributes .chimera-value:nth-of-type(1) {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value:nth-of-type(1) {
   background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
 }
-.bestiary--view .statistics .attributes .chimera-value:nth-of-type(2) {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value:nth-of-type(2) {
   background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
 }
-.bestiary--view .statistics .attributes .chimera-value:nth-of-type(3) {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value:nth-of-type(3) {
   background-color: color-mix(in srgb, white 80%, var(--color-fabula2));
 }
-.bestiary--view .statistics .attributes .chimera-value:nth-of-type(4) {
+.fabula-ultima .bestiary--view .statistics .attributes .chimera-value:nth-of-type(4) {
   background-color: color-mix(in srgb, white 90%, var(--color-fabula2));
 }
-.bestiary--view .statistics .points {
+.fabula-ultima .bestiary--view .statistics .points {
   grid-column: span 2;
   display: grid;
   grid-template-columns: repeat(4, auto) 1fr;
@@ -1709,8 +1842,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
-.bestiary--view .statistics .points label,
-.bestiary--view .statistics .points span {
+.fabula-ultima .bestiary--view .statistics .points label,
+.fabula-ultima .bestiary--view .statistics .points span {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
@@ -1718,30 +1851,30 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-align: center;
 }
-.bestiary--view .statistics .points__label {
+.fabula-ultima .bestiary--view .statistics .points__label {
   width: var(--input-component-size);
 }
-.bestiary--view .statistics .points__label, .bestiary--view .statistics .points__hp, .bestiary--view .statistics .points__mp, .bestiary--view .statistics .points__initiative {
+.fabula-ultima .bestiary--view .statistics .points__label, .fabula-ultima .bestiary--view .statistics .points__hp, .fabula-ultima .bestiary--view .statistics .points__mp, .fabula-ultima .bestiary--view .statistics .points__initiative {
   padding: 4px;
 }
-.bestiary--view .statistics .points__hp, .bestiary--view .statistics .points__mp {
+.fabula-ultima .bestiary--view .statistics .points__hp, .fabula-ultima .bestiary--view .statistics .points__mp {
   padding-inline: 8px;
   color: var(--color-on-dark);
 }
-.bestiary--view .statistics .points__hp {
+.fabula-ultima .bestiary--view .statistics .points__hp {
   display: flex;
   gap: 4px;
   background-color: var(--color-hp);
 }
-.bestiary--view .statistics .points__mp {
+.fabula-ultima .bestiary--view .statistics .points__mp {
   min-width: 4rem;
   background-color: var(--color-mp);
 }
-.bestiary--view .statistics .points__initiative {
+.fabula-ultima .bestiary--view .statistics .points__initiative {
   display: flex;
   justify-content: space-evenly;
 }
-.bestiary--view .statistics .defenses {
+.fabula-ultima .bestiary--view .statistics .defenses {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
@@ -1755,30 +1888,30 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
 }
-.bestiary--view .statistics .defenses .chimera-value {
+.fabula-ultima .bestiary--view .statistics .defenses .chimera-value {
   padding: 4px;
 }
-.bestiary--view .statistics .defenses .chimera-value label {
+.fabula-ultima .bestiary--view .statistics .defenses .chimera-value label {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.bestiary--view .statistics .defenses .chimera-value span {
+.fabula-ultima .bestiary--view .statistics .defenses .chimera-value span {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.bestiary--view .statistics .defenses .chimera-value:nth-of-type(1) {
+.fabula-ultima .bestiary--view .statistics .defenses .chimera-value:nth-of-type(1) {
   background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
 }
-.bestiary--view .statistics .defenses .chimera-value:nth-of-type(2) {
+.fabula-ultima .bestiary--view .statistics .defenses .chimera-value:nth-of-type(2) {
   background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
 }
-.bestiary--view .statistics .affinities {
+.fabula-ultima .bestiary--view .statistics .affinities {
   grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(9, minmax(3rem, auto));
@@ -1789,8 +1922,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
 }
-.bestiary--view .statistics .affinities label,
-.bestiary--view .statistics .affinities span {
+.fabula-ultima .bestiary--view .statistics .affinities label,
+.fabula-ultima .bestiary--view .statistics .affinities span {
   font-family: var(--font-title);
   font-size: 1.125rem;
   font-style: normal;
@@ -1801,37 +1934,37 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   color: var(--color-hp);
   text-transform: uppercase;
 }
-.bestiary--view .statistics .affinity--cell {
+.fabula-ultima .bestiary--view .statistics .affinity--cell {
   display: grid;
   grid-template-columns: 1.5rem auto;
   align-items: center;
   padding: 2px;
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(1) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(1) {
   border-right: 1px solid color-mix(in srgb, white 12%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(2) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(2) {
   border-right: 1px solid color-mix(in srgb, white 24%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(3) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(3) {
   border-right: 1px solid color-mix(in srgb, white 36%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(4) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(4) {
   border-right: 1px solid color-mix(in srgb, white 48%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(5) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(5) {
   border-right: 1px solid color-mix(in srgb, white 60%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(6) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(6) {
   border-right: 1px solid color-mix(in srgb, white 72%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(7) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(7) {
   border-right: 1px solid color-mix(in srgb, white 84%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell:nth-of-type(8) {
+.fabula-ultima .bestiary--view .statistics .affinity--cell:nth-of-type(8) {
   border-right: 1px solid color-mix(in srgb, white 96%, var(--color-fabula5));
 }
-.bestiary--view .statistics .affinity--cell label {
+.fabula-ultima .bestiary--view .statistics .affinity--cell label {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -1841,206 +1974,67 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   position: absolute;
   width: 1px;
 }
-.bestiary--view .statistics .affinity--cell input:not([value]) + img,
-.bestiary--view .statistics .affinity--cell input[value=""] + img {
+.fabula-ultima .bestiary--view .statistics .affinity--cell input:not([value]) + img,
+.fabula-ultima .bestiary--view .statistics .affinity--cell input[value=""] + img {
   opacity: 0.25;
   filter: grayscale(1);
 }
-.bestiary--view .status-effects {
+.fabula-ultima .bestiary--view .status-effects {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 4px;
 }
-.bestiary--view .status-effect img,
-.bestiary--view .status-effect svg {
+.fabula-ultima .bestiary--view .status-effect img,
+.fabula-ultima .bestiary--view .status-effect svg {
   filter: none;
 }
-.bestiary--edit {
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
-  @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+.fabula-ultima .bestiary--edit {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   padding: 8px;
   background-color: var(--background);
 }
-.bestiary--edit .affinities {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-.bestiary--edit .affinity {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 4px;
-  align-items: center;
-}
-.bestiary--edit .affinity .chimera-input__label {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  align-self: center;
-}
-.bestiary--edit .attributes {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.bestiary--edit .attributes__distribution {
-  grid-column: span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.bestiary--edit .attribute {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-}
-.bestiary--edit .attribute .chimera-input__label {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-}
-.bestiary--edit .attribute .chimera-input__field {
-  align-self: normal;
-}
-.bestiary--edit .distribution:first-of-type {
-  padding-block-end: 4px;
-}
-.bestiary--edit .distribution:last-of-type {
-  padding-block-start: 4px;
-}
-.bestiary--edit .defenses {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 4px;
-}
-.bestiary--edit .defenses__container {
-  grid-column: span 2;
-}
-.bestiary--edit .defense {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-}
-.bestiary--edit .defense__quick {
-  grid-column: 1/-1;
-  grid-template-columns: 1fr;
-}
-.bestiary--edit .extras {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.bestiary--edit .extras__container {
-  grid-column: span 2;
-}
-.bestiary--edit .extra.chimera-input {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-}
-.bestiary--edit .bio {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(3, auto);
-  gap: 4px;
-}
-.bestiary--edit .bio input[name*=rank][value=companion] ~ .bio__villain {
-  display: none;
-}
-.bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__companion_skill_level, .bestiary--edit .bio input[name*=rank]:not([value=companion]) ~ .bio__pc_level {
-  display: none;
-}
-.bestiary--edit .bio__traits {
-  grid-column: span 3;
-}
-.bestiary--edit .bio__rank, .bestiary--edit .bio__villain, .bestiary--edit .bio__multipart, .bestiary--edit .bio__createdby {
-  grid-column: span 2;
-}
-.bestiary--edit .bio__species, .bestiary--edit .bio__rank, .bestiary--edit .bio__villain, .bestiary--edit .bio__companion_skill_level, .bestiary--edit .bio__pc_level {
-  grid-row: 2;
-}
-.bestiary--edit .bio__companion_skill_level {
-  grid-column: 4;
-}
-.bestiary--edit .bio__pc_level {
-  grid-column: 5;
-}
-.bestiary--edit .bio__phases, .bestiary--edit .bio__multipart, .bestiary--edit .bio__createdby {
-  grid-row-start: 3;
-}
-.bestiary--edit .bio__description {
-  grid-column: 1/-1;
-}
-.bestiary--edit > div {
+.fabula-ultima .bestiary--edit > div {
   height: -moz-min-content;
   height: min-content;
 }
-.bestiary--edit .bio {
+.fabula-ultima .bestiary--edit .bio--edit {
   grid-column: 1/span 3;
 }
-.bestiary--edit .attributes {
+.fabula-ultima .bestiary--edit .attributes {
   grid-column-start: 1;
 }
-.bestiary--edit .attributes__distribution {
+.fabula-ultima .bestiary--edit .attributes__distribution {
   grid-column: span 3;
 }
-.bestiary--edit .affinities {
+.fabula-ultima .bestiary--edit .affinities {
   grid-row: 3/span 2;
 }
-.bestiary--edit .affinities__skillcost {
+.fabula-ultima .bestiary--edit .affinities__skillcost {
   grid-column: span 2;
 }
-.bestiary--edit .defenses {
+.fabula-ultima .bestiary--edit .defenses {
   grid-column: 2;
   align-self: flex-end;
 }
-.bestiary--edit .extras {
+.fabula-ultima .bestiary--edit .extras {
   grid-column: 3;
   align-self: flex-end;
 }
-.bestiary--edit .extra--checkboxes {
+.fabula-ultima .bestiary--edit .extra--checkboxes {
   grid-column: 4;
   align-self: flex-end;
 }
-.bestiary--edit .shield--edit,
-.bestiary--edit .weapons {
+.fabula-ultima .bestiary--edit .shield--edit,
+.fabula-ultima .bestiary--edit .weapons {
   grid-column: 3/span 2;
 }
-.bestiary--edit .armor--edit,
-.bestiary--edit .basic-attacks {
+.fabula-ultima .bestiary--edit .armor--edit,
+.fabula-ultima .bestiary--edit .basic-attacks {
   grid-column: 1/span 2;
 }
-.bestiary--edit .spells {
+.fabula-ultima .bestiary--edit .spells {
   grid-column: 1/-1;
 }
 

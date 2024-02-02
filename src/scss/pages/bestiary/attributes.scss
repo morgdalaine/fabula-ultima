@@ -1,44 +1,45 @@
-@use '../../common/vars' as *;
 @use '../../common/vars' as mixins;
 
-.attributes {
-  $this: '.attributes';
-
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  &__distribution {
-    grid-column: span 2;
+.fabula-ultima .bestiary {
+  .attributes {
+    $this: '.attributes';
 
     display: flex;
     flex-direction: column;
+    gap: 4px;
+
+    &__distribution {
+      grid-column: span 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .attribute {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    gap: 4px;
+    align-items: center;
     justify-content: center;
-  }
-}
 
-.attribute {
-  display: grid;
-  grid-template-columns: 1fr auto;
+    .chimera-input__label {
+      @include mixins.text-xl-400;
+    }
 
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-
-  .chimera-input__label {
-    @include mixins.text-xl-400;
+    .chimera-input__field {
+      align-self: normal;
+    }
   }
 
-  .chimera-input__field {
-    align-self: normal;
-  }
-}
-
-.distribution {
-  &:first-of-type {
-    padding-block-end: 4px;
-  }
-  &:last-of-type {
-    padding-block-start: 4px;
+  .distribution {
+    &:first-of-type {
+      padding-block-end: 4px;
+    }
+    &:last-of-type {
+      padding-block-start: 4px;
+    }
   }
 }

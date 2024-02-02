@@ -1,6 +1,6 @@
 @use '../../../common/vars' as mixins;
 
-.fabula-ultima {
+.fabula-ultima .bestiary {
   .equipments {
     $this: '.equipment';
 
@@ -52,6 +52,9 @@
           .chimera-value {
             &__label {
               @include mixins.text-lg-700;
+            }
+            &__value {
+              @include mixins.text-lg-400;
             }
           }
         }

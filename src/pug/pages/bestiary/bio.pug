@@ -1,0 +1,29 @@
+mixin bio-view(spine)
+  .bio--view
+    .bio
+      - const bio = fieldDictionary(spine.bio.fields);
+      +chimera-hidden('character_avatar', '')
+      .bio__avatar
+        img(name='attr_character_avatar')
+      .bio__name
+        +chimera-span(bio.character_name)
+      .bio__meta
+        label(data-i18n='lv') Lv
+        +chimera-hidden(bio.rank.name)
+        +chimera-span(bio.level)
+        +chimera-span(bio.rank)
+        +fabula-diamond
+        +chimera-span(bio.species)
+      .bio__description
+        +chimera-span(bio.description)
+      .bio__traits
+        label.label--colon(data-i18n='typical_traits') Typical Traits
+        +chimera-span(bio.traits)
+
+mixin bio-edit(spine)
+  .bio--edit
+    .bio
+      each field in spine.bio.hidden
+        +chimera-hidden(field)
+      each field in spine.bio.fields
+        +chimera-input(field)

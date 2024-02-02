@@ -1,24 +1,24 @@
-@use '../../common/vars' as *;
 @use '../../common/vars' as mixins;
 
-.affinities {
-  display: grid;
-  // grid-template-columns: repeat(3, 1fr);
-  flex-wrap: wrap;
-  gap: 4px;
-
-  &__shield-cost {
+.fabula-ultima .bestiary {
+  .affinities {
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    gap: 4px;
   }
-}
 
-.affinity {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 4px;
-  align-items: center;
+  .affinity {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 4px;
+    align-items: center;
 
-  .chimera-input__label {
-    @include mixins.text-lg-400;
-    align-self: center;
+    .chimera-input {
+      &__label {
+        @include mixins.text-lg-400;
+        align-self: center;
+      }
+    }
   }
 }
