@@ -20,10 +20,9 @@
         }
       }
 
-      .fabula-check {
-        span {
-          @include mixins.text-lg-700;
-        }
+      .fabula-diamond,
+      .fabula-check span {
+        @include mixins.text-lg-700;
       }
     }
 

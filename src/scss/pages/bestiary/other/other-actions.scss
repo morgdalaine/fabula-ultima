@@ -12,6 +12,14 @@
       .other-action {
         display: flex;
         gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
       }
     }
 

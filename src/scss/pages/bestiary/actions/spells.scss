@@ -10,12 +10,19 @@
       .spell {
         display: flex;
         gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
       }
 
-      .fabula-check {
-        span {
-          @include mixins.text-lg-700;
-        }
+      .fabula-diamond,
+      .fabula-check span {
+        @include mixins.text-lg-700;
       }
     }
 
