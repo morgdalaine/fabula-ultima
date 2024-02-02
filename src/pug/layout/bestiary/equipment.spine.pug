@@ -2,6 +2,27 @@
   spine.bestiary.armor = {
     heading: { name: 'armor', label: 'Armor' },
     hidden: [ 'armor_is_martial' ],
+    view: [
+      {
+        name: 'armor_name',
+        css: { names: ['armor__name'] },
+      },
+      {
+        name: 'armor_defense',
+        label: 'DEF',
+      },{
+              name: 'armor_defense_bonus',
+              label: '+DEF',
+      },{
+              name: 'armor_magic_defense_bonus',
+              label: '+M.DEF',
+      },{
+              name: 'armor_initiative',
+              label: 'Initiative',
+      },{
+              name: 'armor_cost',
+              }
+    ],
     fields: [
       {
         name: 'armor_name',
@@ -67,6 +88,28 @@
   spine.bestiary.shield = {
     heading: { name: 'shield', label: 'Shield' },
     hidden: [],
+    view: [
+      {
+        name: 'shield_name',
+        css: { names: ['shield__name'] },
+      },
+      {
+        name: 'shield_defense',
+        label: 'DEF',
+
+      },{
+              name: 'shield_defense_bonus',
+              label: '+DEF',
+      },{
+              name: 'shield_magic_defense_bonus',
+              label: '+M.DEF',
+      },{
+              name: 'shield_initiative',
+              label: 'Initiative',
+      },{
+              name: 'shield_cost',
+              }
+    ],
     fields: [
       {
         name: 'shield_name',
@@ -129,41 +172,41 @@
     ],
   };
 
-  spine.bestiary.equipment = {
+  spine.bestiary.raregear = {
     heading: {
-      name: "rare_equipment",
-      label: "Rare Equipment",
+      name: "rare_gear",
+      label: "rare gear",
     },
     hidden: [],
     view: [
       {
-        name: 'equipment_name',
-        css: { names: ['rare-equipment__name'], modifiers: [] },
+        name: 'raregear_name',
+        css: { names: ['rare-gear__name'], modifiers: [] },
       },
       {
-        name: 'equipment_effect',
-        css: { names: ['rare-equipment__effect'], modifiers: [] },
+        name: 'raregear_effect',
+        css: { names: ['rare-gear__effect'], modifiers: [] },
       },
     ],
     delete: [
       {
-        name: "equipment_name",
+        name: "raregear_name",
         label: "Equipment",
-        css: { names: ["rare-equipment__name"], modifiers: [] },
+        css: { names: ["rare-gear__name"], modifiers: [] },
       },
     ],
     fields: [
       {
-        name: "equipment_name",
+        name: "raregear_name",
         label: "Equipment",
         type: "text",
-        css: { names: ["rare-equipment__name"], modifiers: [] },
+        css: { names: ["rare-gear__name"], modifiers: [] },
       },
       {
-        name: "equipment_effect",
+        name: "raregear_effect",
         label: "Effect",
         type: "textarea",
-        css: { names: ["rare-equipment__effect"], modifiers: [] },
+        css: { names: ["rare-gear__effect"], modifiers: [] },
       },
     ],
   };

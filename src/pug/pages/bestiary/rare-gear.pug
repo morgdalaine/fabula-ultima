@@ -1,0 +1,27 @@
+mixin rare-gear-view(spine)
+  +chimera-hidden('rare-gears_empty').chimera-repeater--empty-hide-next
+  .rare-gears
+    h2.rare-gears__heading--view(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+    +chimera-repeater('rare-gears')
+      +chimera-block('view')
+        .rare-gear
+          - const raregear = fieldDictionary(spine.raregear.view, 'raregear');
+          - console.log(raregear);
+          +chimera-icon({ icon: 'equipment' }).rare-gear__icon
+          +chimera-value(raregear.name)
+          +chimera-value(raregear.effect)
+
+mixin rare-gear-edit(spine)
+  .rare-gears
+    h2.rare-gears__heading--edit(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+    +chimera-repeater('rare-gears')
+      +chimera-block('delete')
+        .rare-gear
+          - const [name] = spine.raregear.delete;
+          +chimera-span(name)
+      +chimera-block('edit')
+        .rare-gear
+          each field in spine.raregear.hidden
+            +chimera-hidden(field)
+          each field in spine.raregear.fields
+            +chimera-input(field)

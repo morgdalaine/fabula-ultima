@@ -1,22 +1,22 @@
 @use '../../../common/vars' as mixins;
 
 .fabula-ultima {
-  .rare-equipments {
-    $this: '.rare-equipments';
+  .rare-gears {
+    $this: '.rare-gears';
 
     grid-column: span 2;
 
     @include mixins.repeater-heading;
 
     &--delete {
-      .rare-equipment {
+      .rare-gear {
         display: flex;
         gap: 4px;
       }
     }
 
     &--view {
-      .rare-equipment {
+      .rare-gear {
         display: grid;
         grid-template-columns: var(--icon-component-size) 1fr;
         gap: 4px;
@@ -37,7 +37,7 @@
     }
 
     &--edit {
-      .rare-equipment {
+      .rare-gear {
         display: grid;
         gap: 4px;
       }
