@@ -11,8 +11,12 @@ mixin html
 
 +html
   +chimera-hidden('sheet_type', 'bestiary')
+  +chimera-hidden(spine.shared.modes.name)
   .fabula-ultima
-    +chimera-input(spine.gm.sheet)
+    header.fabula-ultima__header
+      +chimera-input(spine.shared.modes, 0)
+      +chimera-input(spine.gm.sheet)
+
     main.character
       include pages/character
       +character-edit(spine.character)

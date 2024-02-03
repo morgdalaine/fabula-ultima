@@ -1,0 +1,16 @@
+@use '../common/vars' as *;
+@use '../common/vars' as mixins;
+
+.fabula-ultima {
+  &__header {
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+
+    margin-inline: 8px;
+
+    .sheet-type {
+      justify-content: flex-end;
+    }
+  }
+}

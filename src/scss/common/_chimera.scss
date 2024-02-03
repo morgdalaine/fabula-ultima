@@ -23,8 +23,10 @@
     &--small {
       .chimera-input__field {
         width: 5rem;
-        align-self: center;
         text-align: center;
+        &:has(input) {
+          align-self: center;
+        }
       }
     }
 
@@ -138,6 +140,7 @@
         img,
         svg {
           filter: none;
+          opacity: 1;
         }
       }
 
@@ -187,7 +190,8 @@
         aspect-ratio: 1;
         margin-left: 3px;
 
-        filter: invert(0.5);
+        // filter: invert(0.5);
+        opacity: 0.5;
       }
 
       input[type='checkbox'] {
@@ -255,7 +259,8 @@
         height: var(--icon-component-size);
         aspect-ratio: 1;
 
-        filter: invert(0.5);
+        // filter: invert(0.5);
+        opacity: 0.5;
       }
 
       &:has(:checked) {
@@ -263,6 +268,7 @@
         img,
         svg {
           filter: none;
+          opacity: 1;
         }
       }
 
@@ -347,7 +353,8 @@
         height: var(--icon-component-size);
         aspect-ratio: 1;
 
-        filter: invert(0.5);
+        // filter: invert(0.5);
+        opacity: 0.5;
       }
     }
   }

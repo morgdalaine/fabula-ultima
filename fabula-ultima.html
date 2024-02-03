@@ -5,15 +5,23 @@
   </head>
   <body>
     <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="bestiary"/>
+    <input class="chimera-hidden" name="attr_sheet_mode" type="hidden"/>
     <div class="fabula-ultima">
-      <div class="chimera-input sheet-type chimera-input--flex-row chimera-input--nowrap">
-        <label class="chimera-input__label" data-i18n="sheet_type" for="sheet_type">Sheet Type</label>
-        <select class="chimera-input__field" data-i18n-title="sheet_type_title" id="sheet_type" name="attr_sheet_type" title="Sheet Type">
-          <option data-i18n="character" selected="selected" value="character">Character</option>
-          <option data-i18n="bestiary" selected="selected" value="bestiary">Bestiary</option>
-          <option data-i18n="gm" value="gm">GM</option>
-        </select>
-      </div>
+      <header class="fabula-ultima__header">
+        <label class="chimera-checkbox sheet_mode" data-i18n-title="sheet_mode_title" title="Edit">
+          <div class="chimera-checkbox__field">
+            <input id="sheet_mode" name="attr_sheet_mode" type="checkbox"/><img data-i18n-title="feather_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png" title="Feather"/>
+          </div><span class="chimera-checkbox__label" data-i18n="sheet_mode" for="sheet_mode">Edit</span>
+        </label>
+        <div class="chimera-input sheet-type chimera-input--flex-row chimera-input--nowrap chimera-input--small">
+          <label class="chimera-input__label" data-i18n="sheet_type" for="sheet_type">Sheet Type</label>
+          <select class="chimera-input__field" data-i18n-title="sheet_type_title" id="sheet_type" name="attr_sheet_type" title="Sheet Type">
+            <option data-i18n="character" selected="selected" value="character">Character</option>
+            <option data-i18n="bestiary" selected="selected" value="bestiary">Bestiary</option>
+            <option data-i18n="gm" value="gm">GM</option>
+          </select>
+        </div>
+      </header>
       <main class="character">
             <section class="character--edit">
                   <div class="traits">
@@ -110,7 +118,6 @@
       </main>
       <main class="bestiary">
         <!-- TODO Study Roll-->
-        <!-- TODO Toggle Edit / View-->
             <section class="bestiary--view">
                   <div class="bio--view">
                     <div class="bio">
