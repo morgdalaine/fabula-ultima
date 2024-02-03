@@ -1,22 +1,18 @@
-mixin fabula-check(att1, att2, precision, damage)
+mixin fabula-check(att1, att2, accuracy, damage)
   .fabula-check
     +chimera-span(att1)
     span +
     +chimera-span(att2)
-
-    if precision
-      // TODO calculate precision_total
-      input(name=`attr_${precision.name}`, type='hidden', value=0)
-      span.fabula-check__precision +
-      +chimera-span(precision).fabula-check__precision
+    if accuracy
+      +chimera-hidden(accuracy.name, 0)
+      span.fabula-check__accuracy +
+      +chimera-span(accuracy).fabula-check__accuracy
 
   if damage
     +fabula-diamond
     .fabula-check
       span(data-i18n='hr') HR
       span +
-      input(name=`attr_${damage.name}`, type='hidden', value=0)
-      // TODO calculate damage_total
       +chimera-span(damage).fabula-check__damage
 
 mixin fabula-diamond(modifiers=[])

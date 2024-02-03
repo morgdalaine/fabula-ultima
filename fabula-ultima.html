@@ -109,6 +109,7 @@
             </section>
       </main>
       <main class="bestiary">
+            <!-- TODO HP MP Controls-->
             <section class="bestiary--view">
                   <div class="bio--view">
                     <div class="bio">
@@ -268,21 +269,18 @@
                           <div class="chimera-repeater--edit basic-attacks--edit">
                           </div>
                           <div class="chimera-repeater--delete basic-attacks--delete">
-                            <div class="basic-attack"><span name="attr_attack_name"></span><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
-                              </div>
-                            </div>
                           </div>
                           <div class="chimera-repeater--view basic-attacks--view">
                             <div class="basic-attack">
-                              <input class="chimera-hidden" name="attr_attack_range" type="hidden"/><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
+                              <input class="chimera-hidden" name="attr_attack_range" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_attack_damage_total" type="hidden"/><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
                               <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
+                                <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_attack_accuracy_total"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
-                                <input name="attr_attack_damage" type="hidden" value="0"/>
-                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_attack_damage"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_attack_damage_total"></span>
                               </div>
                               <div class="chimera-value basic-attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
                               </div>
@@ -313,12 +311,9 @@
                               <div class="weapon__attack"><span name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
                               </div>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <!-- TODO calculate precision_total-->
-                                <input name="attr_weapon_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision_total"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy_total"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
-                                <input name="attr_weapon_damage_total" type="hidden" value="0"/>
-                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
                               </div>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div>
@@ -345,24 +340,22 @@
                           <div class="chimera-repeater--delete spells--delete">
                             <div class="spell"><span name="attr_spell_name"></span><span>✦</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                <!-- TODO calculate precision_total-->
-                                <input name="attr_spell_precision" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision"></span>
+                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_spell_accuracy"></span>
                               </div>
                             </div>
                           </div>
                           <div class="chimera-repeater--view spells--view">
                             <div class="spell">
-                              <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
+                              <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_damage_total" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
                               <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div>
                               <div class="spell__offensive">
                                 <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                  <!-- TODO calculate precision_total-->
-                                  <input name="attr_spell_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_spell_precision_total"></span>
+                                  <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_spell_accuracy_total"></span>
                                 </div><span class="fabula-diamond">⬥</span>
-                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
-                                  <input name="attr_spell_damage_total" type="hidden" value="0"/>
-                                  <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_spell_damage_total"></span>
+                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_spell_damage_total"></span>
                                 </div><span class="fabula-diamond">⬥</span>
                                 <div class="chimera-value spell__type chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_type"></span>
                                 </div><span class="fabula-diamond">⬥</span>
@@ -449,12 +442,9 @@
                                 <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <!-- TODO calculate precision_total-->
-                                <input name="attr_weapon_precision_total" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision_total"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span>
-                                <input name="attr_weapon_damage_total" type="hidden" value="0"/>
-                                <!-- TODO calculate damage_total--><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_weapon_damage"></span>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div><span class="fabula-diamond">⬥</span>
@@ -925,6 +915,8 @@
                           <div class="chimera-repeater--edit basic-attacks--edit">
                             <div class="basic-attack">
                               <input class="chimera-hidden" name="attr_attack_range" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_attack_damage_total" type="hidden"/>
                               <div class="chimera-input basic-attack__name">
                                 <label class="chimera-input__label" data-i18n="attack_name" for="attack_name">Attack Name</label>
                                 <input class="chimera-input__field" data-i18n-title="attack_name_title" id="attack_name" name="attr_attack_name" title="Attack Name" type="text"/>
@@ -977,7 +969,7 @@
                               </div>
                               <label class="chimera-checkbox basic-attack__extra_damage chimera-checkbox--column-reverse" data-i18n-title="attack_extra_damage_title" title="Extra Damage">
                                 <div class="chimera-checkbox__field">
-                                  <input id="attack_extra_damage" name="attr_attack_extra_damage" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  <input id="attack_extra_damage" name="attr_attack_extra_damage" type="checkbox" value="5"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                                 </div><span class="chimera-checkbox__label" data-i18n="attack_extra_damage" for="attack_extra_damage">Extra Damage</span>
                               </label>
                               <div class="chimera-input basic-attack__special">
@@ -1063,9 +1055,9 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input weapon__precision chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="weapon_precision" for="weapon_precision">Accuracy</label>
-                                <input class="chimera-input__field" data-i18n-title="weapon_precision_title" id="weapon_precision" min="0" name="attr_weapon_precision" title="Accuracy" type="number"/>
+                              <div class="chimera-input weapon__accuracy chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="weapon_accuracy" for="weapon_accuracy">Accuracy</label>
+                                <input class="chimera-input__field" data-i18n-title="weapon_accuracy_title" id="weapon_accuracy" min="0" name="attr_weapon_accuracy" title="Accuracy" type="number"/>
                               </div>
                               <div class="chimera-input weapon__type chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="weapon_type" for="weapon_type">Damage Type</label>
@@ -1097,9 +1089,9 @@
                                 <label class="chimera-input__label" data-i18n="weapon_attack_name" for="weapon_attack_name">Attack Name</label>
                                 <input class="chimera-input__field" data-i18n-title="weapon_attack_name_title" id="weapon_attack_name" name="attr_weapon_attack_name" title="Attack Name" type="text"/>
                               </div>
-                              <div class="chimera-input weapon__attack_precision chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="weapon_attack_precision" for="weapon_attack_precision">Attack Accuracy</label>
-                                <input class="chimera-input__field" data-i18n-title="weapon_attack_precision_title" id="weapon_attack_precision" min="0" name="attr_weapon_attack_precision" title="Attack Accuracy" type="number"/>
+                              <div class="chimera-input weapon__attack_accuracy chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="weapon_attack_accuracy" for="weapon_attack_accuracy">Attack Accuracy</label>
+                                <input class="chimera-input__field" data-i18n-title="weapon_attack_accuracy_title" id="weapon_attack_accuracy" min="0" name="attr_weapon_attack_accuracy" title="Attack Accuracy" type="number"/>
                               </div>
                               <div class="chimera-input weapon__attack_damage chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="weapon_attack_damage" for="weapon_attack_damage">Attack Damage</label>
@@ -1107,7 +1099,7 @@
                               </div>
                               <label class="chimera-checkbox weapon__extra_damage chimera-checkbox--column-reverse" data-i18n-title="weapon_extra_damage_title" title="Extra Damage">
                                 <div class="chimera-checkbox__field">
-                                  <input id="weapon_extra_damage" name="attr_weapon_extra_damage" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  <input id="weapon_extra_damage" name="attr_weapon_extra_damage" type="checkbox" value="5"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                                 </div><span class="chimera-checkbox__label" data-i18n="weapon_extra_damage" for="weapon_extra_damage">Extra Damage</span>
                               </label>
                               <div class="chimera-input weapon__special">
@@ -1121,8 +1113,7 @@
                               <div class="chimera-value weapon__name"><span class="chimera-value__value" name="attr_weapon_name"></span>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <!-- TODO calculate precision_total-->
-                                <input name="attr_weapon_precision" type="hidden" value="0"/><span class="fabula-check__precision">+</span><span class="fabula-check__precision" name="attr_weapon_precision"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy"></span>
                               </div>
                             </div>
                           </div>
@@ -1144,6 +1135,8 @@
                           <div class="chimera-repeater--edit spells--edit">
                             <div class="spell">
                               <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_damage_total" type="hidden"/>
                               <div class="chimera-input spell__name">
                                 <label class="chimera-input__label" data-i18n="spell_name" for="spell_name">Spell Name</label>
                                 <input class="chimera-input__field" data-i18n-title="spell_name_title" id="spell_name" name="attr_spell_name" title="Spell Name" type="text"/>
@@ -1175,9 +1168,9 @@
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input spell__precision chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="spell_precision" for="spell_precision">Accuracy</label>
-                                <input class="chimera-input__field" data-i18n-title="spell_precision_title" id="spell_precision" min="0" name="attr_spell_precision" title="Accuracy" type="number"/>
+                              <div class="chimera-input spell__accuracy chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_accuracy" for="spell_accuracy">Accuracy</label>
+                                <input class="chimera-input__field" data-i18n-title="spell_accuracy_title" id="spell_accuracy" min="0" name="attr_spell_accuracy" title="Accuracy" type="number"/>
                               </div>
                               <div class="chimera-input spell__type chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="spell_type" for="spell_type">Damage Type</label>
@@ -1362,16 +1355,7 @@
       <main class="gm"><span>[GM]</span></main>
       <footer></footer>
     </div>
-    <script type="text/worker">var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-var G_REPEATING = [
+    <script type="text/worker">const REPEATING = [
     'bonds',
     'basic-attacks',
     'weapons',
@@ -1381,8 +1365,8 @@ var G_REPEATING = [
     'rare-gears',
     'notes',
 ];
-var G_DIE_SIZES = [6, 8, 10, 12];
-var G_STATUS_EFFECTS = {
+const DIE_SIZES = [6, 8, 10, 12];
+const STATUS_EFFECTS = {
     dazed: -1,
     enraged: -1,
     poisoned: -1,
@@ -1390,7 +1374,7 @@ var G_STATUS_EFFECTS = {
     slow: -1,
     weak: -1,
 };
-var G_STAT_UPDATES = {
+const ATTR_WATCH = {
     dexterity: ['dexterity_max', 'slow', 'enraged'],
     insight: ['insight_max', 'dazed', 'enraged'],
     might: ['might_max', 'weak', 'poisoned'],
@@ -1414,6 +1398,32 @@ var G_STAT_UPDATES = {
         'armor_magic_defense_bonus',
         'shield_magic_defense_bonus',
     ],
+    basic_attacks: [
+        'sheet_type',
+        'level',
+        'accuracy_bonus',
+        'magic_bonus',
+        'repeating_basic-attacks:attack_extra_damage',
+    ],
+    weapons: [
+        'sheet_type',
+        'level',
+        'accuracy_bonus',
+        'magic_bonus',
+        'repeating_weapons:weapon_accuracy',
+        'repeating_weapons:weapon_damage',
+        'repeating_weapons:weapon_attack_accuracy',
+        'repeating_weapons:weapon_attack_damage',
+        'repeating_weapons:weapon_extra_damage',
+    ],
+    spells: [
+        'sheet_type',
+        'level',
+        'accuracy_bonus',
+        'magic_bonus',
+        'repeating_spells:spell_accuracy',
+        'repeating_spells:spell_damage',
+    ],
     equipments_empty: [
         'weapons_empty',
         'armor_name',
@@ -1430,180 +1440,310 @@ var G_STAT_UPDATES = {
         'shield_cost',
     ],
 };
-var G_REPEATING_PRECISION_DAMAGE = [];
-var listenersByKey = function (obj) {
-    return Object.entries(obj).reduce(function (memo, _a) {
-        var key = _a[0], arr = _a[1];
+const BASIC_ACCURACY_DAMAGE = [
+    {
+        section: 'repeating_basic-attacks',
+        fields: ['attack_extra_damage'],
+    },
+];
+const WEAPON_ACCURACY_DAMAGE = [
+    {
+        section: 'repeating_weapons',
+        fields: [
+            'weapon_accuracy',
+            'weapon_damage',
+            'weapon_attack_accuracy',
+            'weapon_attack_damage',
+            'weapon_extra_damage',
+        ],
+    },
+];
+const SPELL_ACCURACY_DAMAGE = [
+    {
+        section: 'repeating_spells',
+        fields: ['spell_accuracy', 'spell_damage'],
+    },
+];
+const STATIC_ACCURACY_DAMAGE = ['sheet_type', 'accuracy_bonus', 'magic_bonus'];
+const listenersByKey = (obj) => {
+    return Object.entries(obj).reduce((memo, [key, arr]) => {
         memo[key] = listeners(arr);
         return memo;
     }, {});
 };
-var listeners = function (arr) {
-    return arr.map(function (str) { return "change:".concat(str); }).join(' ');
+const listeners = (arr) => {
+    return arr.map((str) => `change:${str}`).join(' ');
 };
-var RepeatingModule = (function () {
-    function RepeatingModule() {
-    }
-    RepeatingModule.isFieldsetEmpty = function (section, suffix) {
-        if (suffix === void 0) { suffix = 'empty'; }
-        console.log('isFieldsetEmpty');
-        getSectionIDs(section, function (id) {
-            var _a, _b;
-            console.log((_a = {}, _a["".concat(section, "_").concat(suffix)] = id.length, _a));
-            setAttrs((_b = {}, _b["".concat(section, "_").concat(suffix)] = id.length, _b));
+class RepeatingModule {
+    static isFieldsetEmpty(section, suffix = 'empty') {
+        getSectionIDs(section, (id) => {
+            setAttrs({ [`${section}_${suffix}`]: id.length });
         });
-    };
-    RepeatingModule.prototype.getRepID = function (sourceAttribute) {
+    }
+    getRepID(sourceAttribute) {
         sourceAttribute.split('_').at(2);
-    };
-    return RepeatingModule;
-}());
-G_REPEATING.forEach(function (fieldset) {
-    on("sheet:opened change:repeating_".concat(fieldset, " remove:repeating_").concat(fieldset), function (eventInfo) {
+    }
+    static getAllAttrs(sectionDetails, getArray = [], callback) {
+        const args = new Array(arguments.length);
+        for (var i = 0; i < args.length; ++i)
+            args[i] = arguments[i];
+        sectionDetails = structuredClone(args.shift());
+        callback = args.pop();
+        if (typeof callback !== 'function')
+            return;
+        if (args.length > 0)
+            getArray = structuredClone(args.shift());
+        else
+            getArray = [];
+        this.getSections(getArray, sectionDetails, {}, (getArr, sections) => {
+            getAttrs(getArr, (attributes) => {
+                callback(attributes, sections);
+            });
+        });
+    }
+    static getSections(getArray = [], sectionDetails = [], sections = {}, callback) {
+        let section = sectionDetails.shift();
+        getSectionIDs(section.section, (idArray) => {
+            sections[section.section] = [...idArray];
+            getArray.push(`_reporder_${section.section}`);
+            idArray.forEach((id) => {
+                section.fields.forEach((field) => {
+                    getArray.push(`${section.section}_${id}_${field}`);
+                });
+            });
+            if (sectionDetails[0]) {
+                this.getSections(getArray, sectionDetails, sections, callback);
+            }
+            else {
+                callback(getArray, sections);
+            }
+        });
+    }
+}
+REPEATING.forEach((fieldset) => {
+    on(`sheet:opened change:repeating_${fieldset} remove:repeating_${fieldset}`, (eventInfo) => {
         RepeatingModule.isFieldsetEmpty(fieldset);
     });
 });
-on("sheet:opened ".concat(listeners(G_STAT_UPDATES.equipments_empty)), function (eventInfo) {
-    getAttrs(G_STAT_UPDATES.equipments_empty, function (v) {
-        var equipments_empty = Object.values(v).reduce(function (memo, val) { return memo + +!!val; }, 0);
+on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
+    getAttrs(ATTR_WATCH.equipments_empty, (v) => {
+        const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
         setAttrs({
-            equipments_empty: equipments_empty,
+            equipments_empty,
         }, { silent: true });
     });
 });
-Object.keys(G_STAT_UPDATES).forEach(function (attr) {
-    on(listeners(G_STAT_UPDATES[attr]), function () { return handleCalculations(attr); });
+Object.keys(ATTR_WATCH).forEach((attr) => {
+    on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
 });
-on('change:defense_quick', function (eventInfo) {
+on('change:defense_quick', (eventInfo) => {
     calculateQuickDefenses(eventInfo.newValue);
 });
-on('change:defense_extra change:magic_defense_extra', function () {
+on('change:defense_extra change:magic_defense_extra', () => {
     updateQuickDefenseDropdown();
 });
-var handleCalculations = function (attr) {
+const handleCalculations = (attr) => {
     switch (attr) {
         case 'dexterity':
         case 'insight':
         case 'might':
         case 'willpower':
-            return calculateAttribute(attr, G_STAT_UPDATES[attr]);
+            return calculateAttribute(attr, ATTR_WATCH[attr]);
         case 'hp':
-            return calculateMaxHP(G_STAT_UPDATES[attr]);
+            return calculateMaxHP(ATTR_WATCH[attr]);
         case 'mp':
-            return calculateMaxMP(G_STAT_UPDATES[attr]);
+            return calculateMaxMP(ATTR_WATCH[attr]);
         case 'initiative':
-            return calculateInitiative(G_STAT_UPDATES[attr]);
+            return calculateInitiative(ATTR_WATCH[attr]);
         case 'defense':
-            return calculateDefense(G_STAT_UPDATES[attr]);
+            return calculateDefense(ATTR_WATCH[attr]);
         case 'magic_defense':
-            return calculateMagicDefense(G_STAT_UPDATES[attr]);
+            return calculateMagicDefense(ATTR_WATCH[attr]);
+        case 'basic_attacks':
+            return calculateBasicAccuracyDamage(ATTR_WATCH[attr]);
+        case 'weapons':
+            return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
+        case 'spells':
+            return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
     }
 };
-var calculateAttribute = function (attr, request) {
-    getAttrs(request, function (v) {
-        var _a;
-        var die = calculateStatusEffects(attr, v);
-        setAttrs((_a = {}, _a[attr] = die, _a));
+const calculateAttribute = (attr, request) => {
+    getAttrs(request, (v) => {
+        const die = calculateStatusEffects(attr, v);
+        setAttrs({ [attr]: die });
     });
 };
-var calculateStatusEffects = function (attr, v) {
-    var _a;
-    var die = (_a = +v["".concat(attr, "_max")]) !== null && _a !== void 0 ? _a : 0;
-    var currentStep = G_DIE_SIZES.findIndex(function (size) { return size == die; });
-    var debuffs = G_STAT_UPDATES[attr]
-        .filter(function (a) { return !a.includes('max'); })
-        .reduce(function (memo, status) { return memo + (v[status] === 'on' ? G_STATUS_EFFECTS[status] : 0); }, 0);
-    var newSize = Math.max(0, Math.min(G_DIE_SIZES.length - 1, currentStep + debuffs));
-    return G_DIE_SIZES.at(newSize);
+const calculateStatusEffects = (attr, v) => {
+    const die = +v[`${attr}_max`] ?? 0;
+    const currentStep = DIE_SIZES.findIndex((size) => size == die);
+    const debuffs = ATTR_WATCH[attr]
+        .filter((a) => !a.includes('max'))
+        .reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
+    const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
+    return DIE_SIZES.at(newSize);
 };
-var calculateMaxHP = function (request) {
-    getAttrs(request, function (v) {
-        var _a, _b, _c;
-        var might_max = (_a = +v.might_max) !== null && _a !== void 0 ? _a : 0;
-        var level = (_b = +v.level) !== null && _b !== void 0 ? _b : 0;
-        var hp_extra = (_c = +v.hp_extra) !== null && _c !== void 0 ? _c : 0;
-        var hp_max;
+const calculateMaxHP = (request) => {
+    getAttrs(request, (v) => {
+        if (!['character', 'bestiary'].includes(v.sheet_type))
+            return;
+        const might_max = +v.might_max ?? 0;
+        const level = +v.level ?? 0;
+        const hp_extra = +v.hp_extra ?? 0;
+        let hp_max;
         if (v.sheet_type === 'character') {
             hp_max = might_max * 5 + level + hp_extra;
         }
         if (v.sheet_type === 'bestiary') {
             hp_max = might_max * 5 + level * 2 + hp_extra;
         }
-        var hp_crisis = Math.floor(hp_max / 2);
-        setAttrs({ hp_max: hp_max, hp_crisis: hp_crisis }, { silent: true });
+        const hp_crisis = Math.floor(hp_max / 2);
+        setAttrs({ hp_max, hp_crisis }, { silent: true });
     });
 };
-var calculateMaxMP = function (request) {
-    getAttrs(request, function (v) {
-        var _a, _b, _c;
-        var willpower_max = (_a = +v.willpower_max) !== null && _a !== void 0 ? _a : 0;
-        var level = (_b = +v.level) !== null && _b !== void 0 ? _b : 0;
-        var mp_extra = (_c = +v.mp_extra) !== null && _c !== void 0 ? _c : 0;
-        var mp_max;
+const calculateMaxMP = (request) => {
+    getAttrs(request, (v) => {
+        if (!['character', 'bestiary'].includes(v.sheet_type))
+            return;
+        const willpower_max = +v.willpower_max ?? 0;
+        const level = +v.level ?? 0;
+        const mp_extra = +v.mp_extra ?? 0;
+        let mp_max;
         if (v.sheet_type === 'character') {
             mp_max = willpower_max * 5 + level;
         }
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
-        setAttrs({ mp_max: mp_max }, { silent: true });
+        setAttrs({ mp_max }, { silent: true });
     });
 };
-var calculateDefense = function (request) {
-    getAttrs(request, function (v) {
-        var _a, _b, _c, _d, _e;
-        var dexterity = (_a = +v.dexterity) !== null && _a !== void 0 ? _a : 0;
-        var defense_extra = (_b = +v.defense_extra) !== null && _b !== void 0 ? _b : 0;
-        var is_martial = v.armor_is_martial === 'on';
-        var armor_defense = (_c = +v.armor_defense) !== null && _c !== void 0 ? _c : 0;
-        var armor_defense_bonus = (_d = +v.armor_defense_bonus) !== null && _d !== void 0 ? _d : 0;
-        var shield_defense_bonus = (_e = +v.shield_defense_bonus) !== null && _e !== void 0 ? _e : 0;
-        var defense = (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
+const calculateDefense = (request) => {
+    getAttrs(request, (v) => {
+        const dexterity = +v.dexterity ?? 0;
+        const defense_extra = +v.defense_extra ?? 0;
+        const is_martial = v.armor_is_martial === 'on';
+        const armor_defense = +v.armor_defense ?? 0;
+        const armor_defense_bonus = +v.armor_defense_bonus ?? 0;
+        const shield_defense_bonus = +v.shield_defense_bonus ?? 0;
+        const defense = (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
             shield_defense_bonus +
             defense_extra;
-        setAttrs({ defense: defense }, { silent: true });
+        setAttrs({ defense }, { silent: true });
     });
 };
-var calculateMagicDefense = function (request) {
-    getAttrs(request, function (v) {
-        var _a, _b, _c, _d;
-        var willpower = (_a = +v.willpower) !== null && _a !== void 0 ? _a : 0;
-        var magic_defense_extra = (_b = +v.magic_defense_extra) !== null && _b !== void 0 ? _b : 0;
-        var armor_magic_defense_bonus = (_c = +v.armor_magic_defense_bonus) !== null && _c !== void 0 ? _c : 0;
-        var shield_magic_defense_bonus = (_d = +v.shield_magic_defense_bonus) !== null && _d !== void 0 ? _d : 0;
-        var magic_defense = willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
-        setAttrs({ magic_defense: magic_defense }, { silent: true });
+const calculateMagicDefense = (request) => {
+    getAttrs(request, (v) => {
+        const willpower = +v.willpower ?? 0;
+        const magic_defense_extra = +v.magic_defense_extra ?? 0;
+        const armor_magic_defense_bonus = +v.armor_magic_defense_bonus ?? 0;
+        const shield_magic_defense_bonus = +v.shield_magic_defense_bonus ?? 0;
+        const magic_defense = willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
+        setAttrs({ magic_defense }, { silent: true });
     });
 };
-var calculateQuickDefenses = function (value) {
+const calculateQuickDefenses = (value) => {
     if (!value)
         return;
-    var _a = value.split('/'), def = _a[0], mdef = _a[1];
+    const [def, mdef] = value.split('/');
     setAttrs({
         defense_extra: def,
         magic_defense_extra: mdef,
     }, { silent: true });
 };
-var updateQuickDefenseDropdown = function () {
-    getAttrs(['defense_extra', 'magic_defense_extra'], function (v) {
-        var defense_quick = "".concat(v.defense_extra, "/").concat(v.magic_defense_extra);
+const updateQuickDefenseDropdown = () => {
+    getAttrs(['defense_extra', 'magic_defense_extra'], (v) => {
+        const defense_quick = `${v.defense_extra}/${v.magic_defense_extra}`;
         setAttrs({ defense_quick: defense_quick }, { silent: true });
     });
 };
-var calculateInitiative = function (request) {
-    getAttrs(__spreadArray(['sheet_type'], request, true), function (v) {
-        var _a, _b, _c, _d;
-        var dexterity = (_a = +v.dexterity) !== null && _a !== void 0 ? _a : 0;
-        var insight = (_b = +v.insight) !== null && _b !== void 0 ? _b : 0;
-        var initiative_bonus = (_c = +v.initiative_bonus) !== null && _c !== void 0 ? _c : 0;
-        var initiative_extra = (_d = +v.initiative_extra) !== null && _d !== void 0 ? _d : 0;
-        var initiative;
+const calculateInitiative = (request) => {
+    getAttrs(['sheet_type', ...request], (v) => {
+        if (!['character', 'bestiary'].includes(v.sheet_type))
+            return;
+        const dexterity = +v.dexterity ?? 0;
+        const insight = +v.insight ?? 0;
+        const initiative_bonus = +v.initiative_bonus ?? 0;
+        const initiative_extra = +v.initiative_extra ?? 0;
+        let initiative;
         if (v.sheet_type === 'character') {
         }
         if (v.sheet_type === 'bestiary') {
             initiative = (dexterity + insight) / 2 + initiative_bonus + initiative_extra;
         }
         setAttrs({ initiative: initiative }, { silent: true });
+    });
+};
+const calculateLevelAccuracyBonus = (level) => Math.floor(level / 10);
+const calculateLevelDamageBonus = (level) => level === 60 ? 15 : level >= 40 ? 10 : level >= 20 ? 5 : 0;
+const calculateBasicAccuracyDamage = (request) => {
+    RepeatingModule.getAllAttrs(BASIC_ACCURACY_DAMAGE, request, (attributes, sections) => {
+        if (!['character', 'bestiary'].includes(attributes.sheet_type))
+            return;
+        const update = {};
+        if (attributes.sheet_type === 'bestiary') {
+            const level = +attributes.level ?? 0;
+            const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+            const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+            const levelDamageBonus = calculateLevelDamageBonus(level);
+            const [section, ids] = Object.entries(sections).at(0);
+            ids.forEach((id) => {
+                const prefix = `${section}_${id}_`;
+                const extra_damage = +attributes[prefix + 'attack_extra_damage'] ?? 0;
+                update[prefix + 'attack_accuracy_total'] = accuracy_bonus + levelAccuracyBonus;
+                update[prefix + 'attack_damage_total'] = 5 + extra_damage + levelDamageBonus;
+            });
+            setAttrs(update, { silent: true });
+        }
+    });
+};
+const calculateWeaponAccuracyDamage = (request) => {
+    RepeatingModule.getAllAttrs(WEAPON_ACCURACY_DAMAGE, request, (attributes, sections) => {
+        if (!['character', 'bestiary'].includes(attributes.sheet_type))
+            return;
+        const update = {};
+        if (attributes.sheet_type === 'bestiary') {
+            const level = +attributes.level ?? 0;
+            const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+            const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+            const levelDamageBonus = calculateLevelDamageBonus(level);
+            const [section, ids] = Object.entries(sections).at(0);
+            ids.forEach((id) => {
+                const prefix = `${section}_${id}_`;
+                const weapon_accuracy = +attributes[prefix + 'weapon_accuracy'] ?? 0;
+                const weapon_damage = +attributes[prefix + 'weapon_damage'] ?? 0;
+                const attack_accuracy = +attributes[prefix + 'weapon_attack_accuracy'] ?? 0;
+                const attack_damage = +attributes[prefix + 'weapon_attack_damage'] ?? 0;
+                const extra_damage = +attributes[prefix + 'weapon_extra_damage'] ?? 0;
+                update[prefix + 'weapon_accuracy_total'] =
+                    weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
+                update[prefix + 'weapon_damage_total'] =
+                    weapon_damage + attack_damage + extra_damage + levelDamageBonus;
+            });
+            setAttrs(update, { silent: true });
+        }
+    });
+};
+const calculateSpellAccuracyDamage = (request) => {
+    RepeatingModule.getAllAttrs(SPELL_ACCURACY_DAMAGE, request, (attributes, sections) => {
+        if (!['character', 'bestiary'].includes(attributes.sheet_type))
+            return;
+        const update = {};
+        if (attributes.sheet_type === 'bestiary') {
+            const level = +attributes.level ?? 0;
+            const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+            const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+            const levelDamageBonus = calculateLevelDamageBonus(level);
+            const [section, ids] = Object.entries(sections).at(0);
+            ids.forEach((id) => {
+                const prefix = `${section}_${id}_`;
+                const spell_accuracy = +attributes[prefix + 'spell_accuracy'] ?? 0;
+                const spell_damage = +attributes[prefix + 'spell_damage'] ?? 0;
+                update[prefix + 'spell_accuracy_total'] =
+                    spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+                update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
+            });
+            setAttrs(update, { silent: true });
+        }
     });
 };
 

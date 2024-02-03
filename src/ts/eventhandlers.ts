@@ -1,14 +1,14 @@
 /// <reference path="constants.ts" />
 /// <reference path="../chimera/ts/repeating.ts" />
 
-G_REPEATING.forEach((fieldset) => {
+REPEATING.forEach((fieldset) => {
   on(`sheet:opened change:repeating_${fieldset} remove:repeating_${fieldset}`, (eventInfo) => {
     RepeatingModule.isFieldsetEmpty(fieldset);
   });
 });
 
-on(`sheet:opened ${listeners(G_STAT_UPDATES.equipments_empty)}`, (eventInfo) => {
-  getAttrs(G_STAT_UPDATES.equipments_empty, (v) => {
+on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
+  getAttrs(ATTR_WATCH.equipments_empty, (v) => {
     const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
     setAttrs(
       {
@@ -19,8 +19,8 @@ on(`sheet:opened ${listeners(G_STAT_UPDATES.equipments_empty)}`, (eventInfo) => 
   });
 });
 
-Object.keys(G_STAT_UPDATES).forEach((attr) => {
-  on(listeners(G_STAT_UPDATES[attr]), () => handleCalculations(attr));
+Object.keys(ATTR_WATCH).forEach((attr) => {
+  on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
 });
 
 on('change:defense_quick', (eventInfo) => {

@@ -5,10 +5,10 @@ mixin spells-view(spine)
     +chimera-repeater('spells')
       +chimera-block('delete')
         .spell
-          - const [name, att1, att2, precision] = spine.spells.delete;
+          - const [name, att1, att2, accuracy] = spine.spells.delete;
           +chimera-span(name)
           span ✦
-          +fabula-check(att1, att2, precision)
+          +fabula-check(att1, att2, accuracy)
 
       +chimera-block('view')
         .spell
@@ -21,7 +21,7 @@ mixin spells-view(spine)
           +chimera-value(spell.name)
 
           .spell__offensive
-            +fabula-check(spell.check_1, spell.check_2, spell.precision_total, spell.damage_total)
+            +fabula-check(spell.check_1, spell.check_2, spell.accuracy_total, spell.damage_total)
             +fabula-diamond
             +chimera-value(spell.type)
             +fabula-diamond

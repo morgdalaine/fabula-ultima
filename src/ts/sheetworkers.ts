@@ -4,22 +4,29 @@ const handleCalculations = (attr: string) => {
     case 'insight':
     case 'might':
     case 'willpower':
-      return calculateAttribute(attr, G_STAT_UPDATES[attr]);
+      return calculateAttribute(attr, ATTR_WATCH[attr]);
 
     case 'hp':
-      return calculateMaxHP(G_STAT_UPDATES[attr]);
+      return calculateMaxHP(ATTR_WATCH[attr]);
 
     case 'mp':
-      return calculateMaxMP(G_STAT_UPDATES[attr]);
+      return calculateMaxMP(ATTR_WATCH[attr]);
 
     case 'initiative':
-      return calculateInitiative(G_STAT_UPDATES[attr]);
+      return calculateInitiative(ATTR_WATCH[attr]);
 
     case 'defense':
-      return calculateDefense(G_STAT_UPDATES[attr]);
+      return calculateDefense(ATTR_WATCH[attr]);
 
     case 'magic_defense':
-      return calculateMagicDefense(G_STAT_UPDATES[attr]);
+      return calculateMagicDefense(ATTR_WATCH[attr]);
+
+    case 'basic_attacks':
+      return calculateBasicAccuracyDamage(ATTR_WATCH[attr]);
+    case 'weapons':
+      return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
+    case 'spells':
+      return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
   }
 };
 
@@ -32,16 +39,16 @@ const calculateAttribute = (attr: string, request: string[]) => {
 
 const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
   const die = +v[`${attr}_max`] ?? 0;
-  const currentStep = G_DIE_SIZES.findIndex((size) => size == die);
+  const currentStep = DIE_SIZES.findIndex((size) => size == die);
 
-  const debuffs = G_STAT_UPDATES[attr]
+  const debuffs = ATTR_WATCH[attr]
     .filter((a) => !a.includes('max'))
-    .reduce((memo, status) => memo + (v[status] === 'on' ? G_STATUS_EFFECTS[status] : 0), 0);
+    .reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
 
   // TODO Awaken (stat buffs)
 
-  const newSize = Math.max(0, Math.min(G_DIE_SIZES.length - 1, currentStep + debuffs));
-  return G_DIE_SIZES.at(newSize);
+  const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
+  return DIE_SIZES.at(newSize);
 };
 
 /**
@@ -50,6 +57,8 @@ const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
  */
 const calculateMaxHP = (request: string[]) => {
   getAttrs(request, (v) => {
+    if (!['character', 'bestiary'].includes(v.sheet_type)) return;
+
     const might_max: number = +v.might_max ?? 0;
     const level: number = +v.level ?? 0;
     const hp_extra: number = +v.hp_extra ?? 0;
@@ -63,7 +72,6 @@ const calculateMaxHP = (request: string[]) => {
     }
 
     const hp_crisis = Math.floor(hp_max / 2);
-
     setAttrs({ hp_max, hp_crisis }, { silent: true });
   });
 };
@@ -74,6 +82,8 @@ const calculateMaxHP = (request: string[]) => {
  */
 const calculateMaxMP = (request: string[]) => {
   getAttrs(request, (v) => {
+    if (!['character', 'bestiary'].includes(v.sheet_type)) return;
+
     const willpower_max: number = +v.willpower_max ?? 0;
     const level: number = +v.level ?? 0;
     const mp_extra: number = +v.mp_extra ?? 0;
@@ -146,6 +156,8 @@ const updateQuickDefenseDropdown = () => {
 
 const calculateInitiative = (request: string[]) => {
   getAttrs(['sheet_type', ...request], (v) => {
+    if (!['character', 'bestiary'].includes(v.sheet_type)) return;
+
     const dexterity: number = +v.dexterity ?? 0;
     const insight: number = +v.insight ?? 0;
     const initiative_bonus: number = +v.initiative_bonus ?? 0;
@@ -160,4 +172,119 @@ const calculateInitiative = (request: string[]) => {
 
     setAttrs({ initiative: initiative }, { silent: true });
   });
+};
+
+/**
+ * NPCs gain a bonus to Accuracy Checks and Magic Checks equal to【 their level,
+ * divided by ten and rounded down to a minimum of 0】.
+ * Furthermore, all NPCs that are level 20 or higher deal 5 extra damage with their
+ * attacks and spells. This bonus increases to 10 extra damage for NPCs level 40 or
+ * higher, and 15 extra damage for NPCs of level 60.
+ */
+const calculateLevelAccuracyBonus = (level: number) => Math.floor(level / 10);
+const calculateLevelDamageBonus = (level: number) =>
+  level === 60 ? 15 : level >= 40 ? 10 : level >= 20 ? 5 : 0;
+
+const calculateBasicAccuracyDamage = (request: string[]) => {
+  RepeatingModule.getAllAttrs(
+    BASIC_ACCURACY_DAMAGE,
+    request,
+    (attributes: Record<string, string>, sections) => {
+      if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
+
+      const update: Record<string, any> = {};
+
+      if (attributes.sheet_type === 'bestiary') {
+        const level: number = +attributes.level ?? 0;
+        const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
+
+        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        const levelDamageBonus = calculateLevelDamageBonus(level);
+
+        const [section, ids] = Object.entries(sections).at(0);
+        ids.forEach((id) => {
+          const prefix = `${section}_${id}_`;
+
+          const extra_damage: number = +attributes[prefix + 'attack_extra_damage'] ?? 0;
+
+          update[prefix + 'attack_accuracy_total'] = accuracy_bonus + levelAccuracyBonus;
+          update[prefix + 'attack_damage_total'] = 5 + extra_damage + levelDamageBonus;
+        });
+
+        setAttrs(update, { silent: true });
+      }
+    }
+  );
+};
+
+const calculateWeaponAccuracyDamage = (request: string[]) => {
+  RepeatingModule.getAllAttrs(
+    WEAPON_ACCURACY_DAMAGE,
+    request,
+    (attributes: Record<string, string>, sections) => {
+      if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
+
+      const update: Record<string, any> = {};
+
+      if (attributes.sheet_type === 'bestiary') {
+        const level: number = +attributes.level ?? 0;
+        const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
+
+        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        const levelDamageBonus = calculateLevelDamageBonus(level);
+
+        const [section, ids] = Object.entries(sections).at(0);
+        ids.forEach((id) => {
+          const prefix = `${section}_${id}_`;
+
+          const weapon_accuracy: number = +attributes[prefix + 'weapon_accuracy'] ?? 0;
+          const weapon_damage: number = +attributes[prefix + 'weapon_damage'] ?? 0;
+          const attack_accuracy: number = +attributes[prefix + 'weapon_attack_accuracy'] ?? 0;
+          const attack_damage: number = +attributes[prefix + 'weapon_attack_damage'] ?? 0;
+          const extra_damage: number = +attributes[prefix + 'weapon_extra_damage'] ?? 0;
+
+          update[prefix + 'weapon_accuracy_total'] =
+            weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
+          update[prefix + 'weapon_damage_total'] =
+            weapon_damage + attack_damage + extra_damage + levelDamageBonus;
+        });
+
+        setAttrs(update, { silent: true });
+      }
+    }
+  );
+};
+
+const calculateSpellAccuracyDamage = (request: string[]) => {
+  RepeatingModule.getAllAttrs(
+    SPELL_ACCURACY_DAMAGE,
+    request,
+    (attributes: Record<string, string>, sections) => {
+      if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
+
+      const update: Record<string, any> = {};
+
+      if (attributes.sheet_type === 'bestiary') {
+        const level: number = +attributes.level ?? 0;
+        const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
+
+        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        const levelDamageBonus = calculateLevelDamageBonus(level);
+
+        const [section, ids] = Object.entries(sections).at(0);
+        ids.forEach((id) => {
+          const prefix = `${section}_${id}_`;
+
+          const spell_accuracy: number = +attributes[prefix + 'spell_accuracy'] ?? 0;
+          const spell_damage: number = +attributes[prefix + 'spell_damage'] ?? 0;
+
+          update[prefix + 'spell_accuracy_total'] =
+            spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+          update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
+        });
+
+        setAttrs(update, { silent: true });
+      }
+    }
+  );
 };

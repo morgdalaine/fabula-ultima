@@ -7,6 +7,7 @@
     "sourceMap": false,
     "outFile": "src/fabula-ultima.js",
     "lib": ["ES2023", "DOM"],
+    "target": "ES2022",
   },
   "include": ["src/ts/**/*", "src/chimera/ts/**.*"],
 }

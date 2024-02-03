@@ -711,7 +711,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   content: "】";
   line-height: 160%;
 }
-.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__precision {
+.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__accuracy {
   display: none;
 }
 .fabula-ultima .fabula-diamond {
@@ -1000,12 +1000,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__precision,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__accuracy,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__precision {
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__accuracy {
   display: none;
 }
 .fabula-ultima .bestiary .spells--edit .spell__name, .fabula-ultima .bestiary .spells--edit .spell__offensive, .fabula-ultima .bestiary .spells--edit .spell__mp {
@@ -1017,7 +1017,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .spells--edit .spell__offensive {
   grid-column-start: -2;
 }
-.fabula-ultima .bestiary .spells--edit .spell__check_1, .fabula-ultima .bestiary .spells--edit .spell__check_2, .fabula-ultima .bestiary .spells--edit .spell__precision, .fabula-ultima .bestiary .spells--edit .spell__damage, .fabula-ultima .bestiary .spells--edit .spell__type {
+.fabula-ultima .bestiary .spells--edit .spell__check_1, .fabula-ultima .bestiary .spells--edit .spell__check_2, .fabula-ultima .bestiary .spells--edit .spell__accuracy, .fabula-ultima .bestiary .spells--edit .spell__damage, .fabula-ultima .bestiary .spells--edit .spell__type {
   grid-row: 2;
 }
 .fabula-ultima .bestiary .spells--edit .spell__target, .fabula-ultima .bestiary .spells--edit .spell__duration {

@@ -4,7 +4,7 @@
       name: 'basic_attacks',
       label: 'Basic Attacks',
     },
-    hidden: ['attack_range'],
+    hidden: ['attack_range', 'attack_accuracy_total', 'attack_damage_total'],
     view: [
       {
         name: 'attack_name',
@@ -21,9 +21,12 @@
         css: { names: ['basic-attack__check_2'], modifiers: ['small', 'center'] },
       },
       {
-        name: 'attack_damage',
-        title: 'Damage',
-        css: { names: ['basic-attack__damage'], modifiers: ['center'] },
+        name: 'attack_accuracy_total',
+        css: { names: ['basic-attack__accuracy'], modifiers: ['center'] },
+      },
+      {
+        name: 'attack_damage_total',
+        css: { names: ['basic-attack__damage_total'], modifiers: ['center'] },
       },
       {
         name: 'attack_type',
@@ -52,8 +55,8 @@
         css: { names: ['basic-attack__check_2'], modifiers: [] },
       },
       {
-        name: 'attack_precision_total',
-        css: { names: ['basic-attack__precision_total'], modifiers: [] },
+        name: 'attack_accuracy_total',
+        css: { names: ['basic-attack__accuracy_total'], modifiers: [] },
       },
     ],
     fields: [
@@ -95,6 +98,7 @@
         name: 'attack_extra_damage',
         label: 'Extra Damage',
         type: 'checkbox',
+        value: 5,
         css: { names: ['basic-attack__extra_damage'], modifiers: ['column-reverse'] },
       },
       {
@@ -133,9 +137,19 @@
         css: { names: ['weapon__check_2'], modifiers: [] },
       },
       {
-        name: 'weapon_precision_total',
+        name: 'weapon_accuracy',
         title: 'Accuracy',
-        css: { names: ['weapon__precision'], modifiers: [] },
+        css: { names: ['weapon__accuracy'], modifiers: [] },
+      },
+      {
+        name: 'weapon_damage',
+        title: 'Damage',
+        css: { names: ['weapon__damage'], modifiers: [] },
+      },
+      {
+        name: 'weapon_accuracy_total',
+        title: 'Accuracy',
+        css: { names: ['weapon__accuracy'], modifiers: [] },
       },
       {
         name: 'weapon_damage_total',
@@ -173,8 +187,8 @@
         css: { names: ['weapon__check_2'], modifiers: ['small', 'center'] },
       },
       {
-        name: 'weapon_precision',
-        css: { names: ['weapon__precision'], modifiers: ['small', 'center'] },
+        name: 'weapon_accuracy',
+        css: { names: ['weapon__accuracy'], modifiers: ['small', 'center'] },
       },
     ],
     fields: [
@@ -213,11 +227,11 @@
         css: { names: ['weapon__check_2'], modifiers: ['small', 'center'] },
       },
       {
-        name: 'weapon_precision',
+        name: 'weapon_accuracy',
         label: 'Accuracy',
         type: 'number',
         min: 0,
-        css: { names: ['weapon__precision'], modifiers: ['small', 'center'] },
+        css: { names: ['weapon__accuracy'], modifiers: ['small', 'center'] },
       },
       {
         name: 'weapon_type',
@@ -256,11 +270,11 @@
         css: { names: ['weapon__attack_name'] },
       },
       {
-        name: 'weapon_attack_precision',
+        name: 'weapon_attack_accuracy',
         label: 'Attack Accuracy',
         type: 'number',
         min: 0,
-        css: { names: ['weapon__attack_precision'], modifiers: ['small', 'center'] },
+        css: { names: ['weapon__attack_accuracy'], modifiers: ['small', 'center'] },
       },
       {
         name: 'weapon_attack_damage',
@@ -273,6 +287,7 @@
         name: 'weapon_extra_damage',
         label: 'Extra Damage',
         type: 'checkbox',
+        value: 5,
         css: { names: ['weapon__extra_damage'], modifiers: ['column-reverse'] },
       },
       {
@@ -289,7 +304,7 @@
       name: 'spells',
       label: 'Spells',
     },
-    hidden: ['spell_is_offensive'],
+    hidden: ['spell_is_offensive', 'spell_accuracy_total', 'spell_damage_total'],
     view: [
       {
         name: 'spell_name',
@@ -311,9 +326,9 @@
         css: { names: ['spell__mp'], modifiers: ['reverse'] },
       },
       {
-        name: 'spell_precision_total',
+        name: 'spell_accuracy_total',
         title: 'Accuracy',
-        css: { names: ['spell__precision_total'], modifiers: ['center'] },
+        css: { names: ['spell__accuracy_total'], modifiers: ['center'] },
       },
       {
         name: 'spell_damage_total',
@@ -354,8 +369,8 @@
         css: { names: ['spell__check_2'], modifiers: [] },
       },
       {
-        name: 'spell_precision',
-        css: { names: ['spell__precision'], modifiers: [] },
+        name: 'spell_accuracy',
+        css: { names: ['spell__accuracy'], modifiers: [] },
       },
     ],
     fields: [
@@ -392,11 +407,11 @@
         css: { names: ['spell__check_2'], modifiers: ['center'] },
       },
       {
-        name: 'spell_precision',
+        name: 'spell_accuracy',
         label: 'Accuracy',
         type: 'number',
         min: 0,
-        css: { names: ['spell__precision'], modifiers: ['small', 'center'] },
+        css: { names: ['spell__accuracy'], modifiers: ['small', 'center'] },
       },
       {
         name: 'spell_type',

@@ -103,7 +103,7 @@
             ~ .spell__check_2,
             ~ .spell__damage,
             ~ .spell__type,
-            ~ .spell__precision {
+            ~ .spell__accuracy {
               display: none;
             }
           }
@@ -123,7 +123,7 @@
 
         &__check_1,
         &__check_2,
-        &__precision,
+        &__accuracy,
         &__damage,
         &__type {
           grid-row: 2;

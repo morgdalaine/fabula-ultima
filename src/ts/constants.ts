@@ -1,4 +1,4 @@
-const G_REPEATING = [
+const REPEATING = [
   'bonds',
   'basic-attacks',
   'weapons',
@@ -9,18 +9,18 @@ const G_REPEATING = [
   'notes',
 ];
 
-const G_DIE_SIZES = [6, 8, 10, 12];
+const DIE_SIZES = [6, 8, 10, 12];
 
-const G_STATUS_EFFECTS = {
+const STATUS_EFFECTS: Record<string, number> = {
   dazed: -1,
   enraged: -1,
   poisoned: -1,
   shaken: -1,
   slow: -1,
   weak: -1,
-} as Record<string, number>;
+};
 
-const G_STAT_UPDATES = {
+const ATTR_WATCH: Record<string, string[]> = {
   dexterity: ['dexterity_max', 'slow', 'enraged'],
   insight: ['insight_max', 'dazed', 'enraged'],
   might: ['might_max', 'weak', 'poisoned'],
@@ -51,6 +51,33 @@ const G_STAT_UPDATES = {
     'shield_magic_defense_bonus',
   ],
 
+  basic_attacks: [
+    'sheet_type',
+    'level',
+    'accuracy_bonus',
+    'magic_bonus',
+    'repeating_basic-attacks:attack_extra_damage',
+  ],
+  weapons: [
+    'sheet_type',
+    'level',
+    'accuracy_bonus',
+    'magic_bonus',
+    'repeating_weapons:weapon_accuracy',
+    'repeating_weapons:weapon_damage',
+    'repeating_weapons:weapon_attack_accuracy',
+    'repeating_weapons:weapon_attack_damage',
+    'repeating_weapons:weapon_extra_damage',
+  ],
+  spells: [
+    'sheet_type',
+    'level',
+    'accuracy_bonus',
+    'magic_bonus',
+    'repeating_spells:spell_accuracy',
+    'repeating_spells:spell_damage',
+  ],
+
   equipments_empty: [
     'weapons_empty',
     'armor_name',
@@ -66,9 +93,36 @@ const G_STAT_UPDATES = {
     'shield_initiative',
     'shield_cost',
   ],
-} as Record<string, string[]>;
+};
 
-const G_REPEATING_PRECISION_DAMAGE = [];
+const BASIC_ACCURACY_DAMAGE: SectionDetails[] = [
+  {
+    section: 'repeating_basic-attacks',
+    fields: ['attack_extra_damage'],
+  },
+];
+
+const WEAPON_ACCURACY_DAMAGE: SectionDetails[] = [
+  {
+    section: 'repeating_weapons',
+    fields: [
+      'weapon_accuracy',
+      'weapon_damage',
+      'weapon_attack_accuracy',
+      'weapon_attack_damage',
+      'weapon_extra_damage',
+    ],
+  },
+];
+
+const SPELL_ACCURACY_DAMAGE: SectionDetails[] = [
+  {
+    section: 'repeating_spells',
+    fields: ['spell_accuracy', 'spell_damage'],
+  },
+];
+
+const STATIC_ACCURACY_DAMAGE = ['sheet_type', 'accuracy_bonus', 'magic_bonus'];
 
 const listenersByKey = (obj: object) => {
   return Object.entries(obj).reduce((memo: Record<string, string>, [key, arr]) => {

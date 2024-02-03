@@ -16,7 +16,7 @@ mixin weapons-view(spine)
             +chimera-span(weapon.attack_name)
             +chimera-span(weapon.name).weapon__name
 
-          +fabula-check(weapon.check_1, weapon.check_2, weapon.precision_total, weapon.damage_total)
+          +fabula-check(weapon.check_1, weapon.check_2, weapon.accuracy_total, weapon.damage_total)
 
           +chimera-value(weapon.type)
           +chimera-value(weapon.special)
@@ -27,10 +27,10 @@ mixin weapons-edit(spine)
     +chimera-repeater('weapons')
       +chimera-block('delete')
         .weapon
-          - const [name, att1, att2, precision] = spine.weapons.delete;
+          - const [name, att1, att2, accuracy] = spine.weapons.delete;
           +chimera-value(name)
           +fabula-diamond
-          +fabula-check(att1, att2, precision)
+          +fabula-check(att1, att2, accuracy)
       +chimera-block('edit')
         .weapon
           each field in spine.weapons.hidden
