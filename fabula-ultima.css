@@ -299,7 +299,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-input {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   width: 100%;
   width: -webkit-fill-available;
   width: -moz-available;
@@ -342,7 +342,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-value--reverse {
   display: flex;
   flex-direction: row-reverse;
-  gap: 4px;
+  gap: 2px;
 }
 .fabula-ultima .chimera-value--colon .chimera-value__label::after {
   content: ":";
@@ -369,7 +369,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   line-height: 150%;
 }
 .fabula-ultima .chimera-value__label {
-  margin-inline-end: 4px;
+  margin-inline-end: 2px;
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: normal;
@@ -386,7 +386,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-checkbox {
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  gap: 2px;
   align-items: center;
   width: 100%;
   width: -webkit-fill-available;
@@ -394,6 +394,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: stretch;
 }
 .fabula-ultima .chimera-checkbox--column {
+  flex-direction: column;
+}
+.fabula-ultima .chimera-checkbox--column-reverse {
   flex-direction: column-reverse;
 }
 .fabula-ultima .chimera-checkbox--flex-row {
@@ -470,7 +473,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-switch__group {
   display: flex;
   flex-wrap: nowrap;
-  gap: 4px;
+  gap: 2px;
   justify-content: center;
 }
 .fabula-ultima .chimera-switch__label {

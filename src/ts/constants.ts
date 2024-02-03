@@ -12,19 +12,19 @@ const G_REPEATING = [
 const G_DIE_SIZES = [6, 8, 10, 12];
 
 const G_STATUS_EFFECTS = {
-  dazed: ['insight'],
-  enraged: ['dexterity', 'insight'],
-  poisoned: ['might', 'willpower'],
-  shaken: ['willpower'],
-  slow: ['dexterity'],
-  weak: ['might'],
-};
+  dazed: -1,
+  enraged: -1,
+  poisoned: -1,
+  shaken: -1,
+  slow: -1,
+  weak: -1,
+} as Record<string, number>;
 
 const G_STAT_UPDATES = {
-  dexterity: ['dexterity_max', 'poisoned', 'dazed', 'enraged', 'slow'],
-  insight: ['insight_max', 'poisoned', 'dazed', 'enraged', 'slow'],
-  might: ['might_max', 'poisoned', 'dazed', 'enraged', 'slow'],
-  willpower: ['willpower_max', 'poisoned', 'dazed', 'enraged', 'slow'],
+  dexterity: ['dexterity_max', 'slow', 'enraged'],
+  insight: ['insight_max', 'dazed', 'enraged'],
+  might: ['might_max', 'weak', 'poisoned'],
+  willpower: ['willpower_max', 'shaken', 'poisoned'],
 
   hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
@@ -67,6 +67,8 @@ const G_STAT_UPDATES = {
     'shield_cost',
   ],
 } as Record<string, string[]>;
+
+const G_REPEATING_PRECISION_DAMAGE = [];
 
 const listenersByKey = (obj: object) => {
   return Object.entries(obj).reduce((memo: Record<string, string>, [key, arr]) => {

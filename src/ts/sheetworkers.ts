@@ -1,11 +1,48 @@
+const handleCalculations = (attr: string) => {
+  switch (attr) {
+    case 'dexterity':
+    case 'insight':
+    case 'might':
+    case 'willpower':
+      return calculateAttribute(attr, G_STAT_UPDATES[attr]);
+
+    case 'hp':
+      return calculateMaxHP(G_STAT_UPDATES[attr]);
+
+    case 'mp':
+      return calculateMaxMP(G_STAT_UPDATES[attr]);
+
+    case 'initiative':
+      return calculateInitiative(G_STAT_UPDATES[attr]);
+
+    case 'defense':
+      return calculateDefense(G_STAT_UPDATES[attr]);
+
+    case 'magic_defense':
+      return calculateMagicDefense(G_STAT_UPDATES[attr]);
+  }
+};
+
 const calculateAttribute = (attr: string, request: string[]) => {
   getAttrs(request, (v) => {
-    const die = +v[`${attr}_max`] ?? 0;
-    setAttrs({ [attr]: die }, { silent: true });
+    const die = calculateStatusEffects(attr, v);
+    setAttrs({ [attr]: die });
   });
 };
 
-const calculateStatusEffects = (v: Record<string, string>) => {};
+const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
+  const die = +v[`${attr}_max`] ?? 0;
+  const currentStep = G_DIE_SIZES.findIndex((size) => size == die);
+
+  const debuffs = G_STAT_UPDATES[attr]
+    .filter((a) => !a.includes('max'))
+    .reduce((memo, status) => memo + (v[status] === 'on' ? G_STATUS_EFFECTS[status] : 0), 0);
+
+  // TODO Awaken (stat buffs)
+
+  const newSize = Math.max(0, Math.min(G_DIE_SIZES.length - 1, currentStep + debuffs));
+  return G_DIE_SIZES.at(newSize);
+};
 
 /**
  * HP Max = (might_base * 5) + level + hp_other
@@ -13,10 +50,6 @@ const calculateStatusEffects = (v: Record<string, string>) => {};
  */
 const calculateMaxHP = (request: string[]) => {
   getAttrs(request, (v) => {
-    console.group('calculcalculateMaxHPateHP');
-    console.log(request);
-    console.log(v);
-
     const might_max: number = +v.might_max ?? 0;
     const level: number = +v.level ?? 0;
     const hp_extra: number = +v.hp_extra ?? 0;
@@ -31,9 +64,7 @@ const calculateMaxHP = (request: string[]) => {
 
     const hp_crisis = Math.floor(hp_max / 2);
 
-    console.log('save:', { hp_max, hp_crisis });
     setAttrs({ hp_max, hp_crisis }, { silent: true });
-    console.groupEnd();
   });
 };
 
@@ -43,10 +74,6 @@ const calculateMaxHP = (request: string[]) => {
  */
 const calculateMaxMP = (request: string[]) => {
   getAttrs(request, (v) => {
-    console.group('calculateMaxMP');
-    console.log(request);
-    console.log(v);
-
     const willpower_max: number = +v.willpower_max ?? 0;
     const level: number = +v.level ?? 0;
     const mp_extra: number = +v.mp_extra ?? 0;
@@ -59,18 +86,12 @@ const calculateMaxMP = (request: string[]) => {
       mp_max = willpower_max * 5 + level + mp_extra;
     }
 
-    console.log('save:', { mp_max });
     setAttrs({ mp_max }, { silent: true });
-    console.groupEnd();
   });
 };
 
 const calculateDefense = (request: string[]) => {
   getAttrs(request, (v) => {
-    console.group('calculateDefenses');
-    console.log(request);
-    console.log(v);
-
     const dexterity: number = +v.dexterity ?? 0;
     const defense_extra: number = +v.defense_extra ?? 0;
 
@@ -85,17 +106,11 @@ const calculateDefense = (request: string[]) => {
       defense_extra;
 
     setAttrs({ defense }, { silent: true });
-    console.log('save:', { defense });
-    console.groupEnd();
   });
 };
 
 const calculateMagicDefense = (request: string[]) => {
   getAttrs(request, (v) => {
-    console.group('calculateMagicDefense');
-    console.log(request);
-    console.log(v);
-
     const willpower: number = +v.willpower ?? 0;
     const magic_defense_extra: number = +v.magic_defense_extra ?? 0;
 
@@ -106,8 +121,6 @@ const calculateMagicDefense = (request: string[]) => {
       willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
 
     setAttrs({ magic_defense }, { silent: true });
-    console.log('save:', { magic_defense });
-    console.groupEnd();
   });
 };
 
@@ -115,7 +128,6 @@ const calculateQuickDefenses = (value: any) => {
   if (!value) return;
 
   const [def, mdef] = value.split('/');
-  console.log({ def, mdef });
   setAttrs(
     {
       defense_extra: def,
@@ -146,7 +158,6 @@ const calculateInitiative = (request: string[]) => {
       initiative = (dexterity + insight) / 2 + initiative_bonus + initiative_extra;
     }
 
-    console.log({ initiative });
     setAttrs({ initiative: initiative }, { silent: true });
   });
 };
