@@ -121,5 +121,10 @@ input[type='number'] {
   }
   .charsheet {
     padding: 0;
+
+    input[type='number'] {
+      width: unset;
+      max-width: 5rem;
+    }
   }
 }

@@ -103,6 +103,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .ui-dialog .charsheet {
   padding: 0;
 }
+.ui-dialog .charsheet input[type=number] {
+  width: unset;
+  max-width: 5rem;
+}
 
 .ui-dialog .charsheet .repcontainer {
   display: grid;
@@ -307,6 +311,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-input--column {
   flex-direction: row;
+}
+.fabula-ultima .chimera-input--column-reverse {
+  flex-direction: column-reverse;
 }
 .fabula-ultima .chimera-input--flex-row {
   flex-direction: row;
@@ -1421,6 +1428,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 125%;
   text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .fabula-ultima .bestiary .armor__heading--edit {
@@ -1831,10 +1839,47 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
+.fabula-ultima .bestiary .points--view {
+  display: grid;
+  gap: 4px;
+  padding-inline: 4px;
+}
+.fabula-ultima .bestiary .points--view input[name*=villain][value="0"] ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain]:not([value]) ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain][value=""] ~ .points__ultima {
+  display: none;
+}
+.fabula-ultima .bestiary .points--view .points__ultima {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .points--view .point__ultima .chimera-input__field {
+  font-size: 2.5rem;
+  align-self: center;
+}
+.fabula-ultima .bestiary .points--view .point__spending-ultima {
+  padding: 4px;
+}
+.fabula-ultima .bestiary .points--view .point__spending-ultima .spending-ultima .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .points--view .point__spending-ultima .spending-ultima:first-of-type .chimera-value__value {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
 .fabula-ultima .bestiary .points-controller {
   display: flex;
   gap: 4px;
-  padding-inline: 4px;
 }
 .fabula-ultima .bestiary .points-controller .chimera-arithmetic__label {
   width: var(--input-component-size);
@@ -1849,6 +1894,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .points-controller__mp .chimera-arithmetic__label {
   background-color: var(--color-mp);
+  color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .points-controller__up .chimera-arithmetic__label {
+  background-color: var(--color-up);
   color: var(--color-on-dark);
 }
 
@@ -2077,6 +2126,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   filter: none;
 }
 .fabula-ultima .bestiary--edit {
+  min-width: 360px;
   display: grid;
   gap: 8px;
   margin: 8px;
@@ -2240,6 +2290,7 @@ html {
   --color-fabula5: #341b35;
   --color-hp: #d1232a;
   --color-mp: #00aeef;
+  --color-up: #674168;
   --icon-component-size: 1.5rem;
   --color-on-dark: #ffffff;
   --input-background-color: rgba(26, 35, 126, 0.2);

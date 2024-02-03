@@ -5,6 +5,9 @@
     &--column {
       flex-direction: row;
     }
+    &--column-reverse {
+      flex-direction: column-reverse;
+    }
 
     &--flex-row {
       flex-direction: row;

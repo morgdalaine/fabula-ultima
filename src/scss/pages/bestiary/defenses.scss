@@ -22,6 +22,7 @@
           .chimera-input {
             &__label {
               @include mixins.text-xl-400-fabula;
+              text-transform: capitalize;
             }
           }
         }

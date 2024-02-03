@@ -1,4 +1,32 @@
 mixin hp-mp-controller(spine)
-  .points-controller
-    each field in spine.points.arithmetics
-      +chimera-arithmetic(field)
+  .points--view
+    each field in spine.points.hidden
+      +chimera-hidden(field, 0)
+    .points-controller
+      each field in spine.points.arithmetics
+        +chimera-arithmetic(field)
+    .points__ultima
+      - const points = fieldDictionary(spine.points.fields);
+      +chimera-input(points.ultima_points)
+      .point__spending-ultima
+        each field in spine.points.spendingultima
+          +chimera-value(field)
+
+mixin points-view(spine)
+  .points
+    - const points = fieldDictionary(spine.points.fields);
+    .points__label
+      label(data-i18n='hp') HP
+    .points__hp
+      +chimera-span(points.hp)
+      +fabula-diamond
+      +chimera-span(points.hp_crisis)
+
+    .points__label
+      label(data-i18n='mp') MP
+    .points__mp
+      +chimera-span(points.mp)
+
+    .points__initiative
+      label(data-i18n='init') Init.
+      +chimera-span(points.initiative)

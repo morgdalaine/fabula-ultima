@@ -8,9 +8,10 @@ const handleCalculations = (attr: string) => {
 
     case 'hp':
       return calculateMaxHP(ATTR_WATCH[attr]);
-
     case 'mp':
       return calculateMaxMP(ATTR_WATCH[attr]);
+    case 'ultima_points':
+      return calculateUltimaPoints(ATTR_WATCH[attr]);
 
     case 'initiative':
       return calculateInitiative(ATTR_WATCH[attr]);
@@ -97,6 +98,17 @@ const calculateMaxMP = (request: string[]) => {
     }
 
     setAttrs({ mp_max }, { silent: true });
+  });
+};
+
+const calculateUltimaPoints = (request: string[]) => {
+  getAttrs(request, (v) => {
+    if (v.sheet_type !== 'bestiary') return;
+
+    const villain: string = v.villain ?? '';
+    const ultima_points = VILLAIN_ULTIMA_POINTS[villain] ?? 0;
+    console.log({ ultima_points });
+    setAttrs({ ultima_points }, { silent: true });
   });
 };
 

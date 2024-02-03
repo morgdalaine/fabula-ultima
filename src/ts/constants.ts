@@ -10,6 +10,11 @@ const REPEATING = [
 ];
 
 const DIE_SIZES = [6, 8, 10, 12];
+const VILLAIN_ULTIMA_POINTS: Record<string, number> = {
+  minor: 5,
+  major: 10,
+  supreme: 15,
+};
 
 const STATUS_EFFECTS: Record<string, number> = {
   dazed: -1,
@@ -28,6 +33,7 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
+  ultima_points: ['sheet_type', 'villain'],
 
   initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
 

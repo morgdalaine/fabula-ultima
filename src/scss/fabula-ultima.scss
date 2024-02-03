@@ -11,7 +11,10 @@
 @use 'common/chimera' as chimera;
 @use 'components/inputs';
 @use 'layout/characterviewer';
+
+@use 'pages/header';
 @use 'pages/bestiary';
+@use 'pages/character';
 
 @use 'themes/darkmode';
 @use 'themes/default';
@@ -35,26 +38,36 @@ html .charsheet {
         }
       }
     }
-  }
 
-  .sheet-type {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 4px;
-    width: auto;
+    input[name*='sheet_mode'] {
+      &[value='on'] {
+        ~ * .bestiary--edit,
+        ~ * .character--edit {
+          display: grid !important;
+        }
+        ~ * .bestiary--view,
+        ~ * .character--view {
+          display: none !important;
+        }
+      }
+
+      &[value='0'],
+      &[value=''],
+      &:not([value]) {
+        ~ * .bestiary--edit,
+        ~ * .character--edit {
+          display: none !important;
+        }
+        ~ * .bestiary--view,
+        ~ * .character--view {
+          display: flex !important;
+        }
+      }
+    }
   }
 
   .fabula-ultima {
     margin: 4px;
     margin-right: 12px;
-
-    // @import '../chimera/scss/chimera';
-
-    // @import 'common/chimera';
-    // @import 'components/inputs';
-
-    // // @import 'pages/character';
-    // @import 'pages/bestiary';
   }
 }

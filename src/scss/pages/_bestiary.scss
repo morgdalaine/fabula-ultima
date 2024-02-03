@@ -32,100 +32,6 @@
         display: none;
       }
 
-      // .bio {
-      //   display: grid;
-      //   grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
-      //   grid-template-rows: auto 1fr;
-      //   gap: 4px;
-
-      //   input[name*='character_avatar']:not([value='']) ~ {
-      //     .bio__avatar {
-      //       display: block;
-      //       grid-row: span 3;
-      //     }
-      //     .bio__name {
-      //       grid-column: span 2;
-      //     }
-      //     .bio__description,
-      //     .bio__traits {
-      //       grid-column: 2 / span 3;
-      //     }
-      //   }
-
-      //   &__avatar {
-      //     display: none;
-
-      //     border: 1px solid var(--color-fabula0);
-      //     border-image: var(--fabula-gradient-dark-border);
-      //     height: 10rem;
-
-      //     img,
-      //     svg {
-      //       // max-height: calc(4 * var(--input-component-size));
-      //       object-fit: cover;
-      //       height: 100%;
-      //       width: 100%;
-      //     }
-      //   }
-
-      //   &__name {
-      //     grid-column: span 3;
-      //     background-image: var(--fabula-gradient-primary);
-      //     color: var(--color-on-dark);
-      //     padding-left: 16px;
-      //     padding-right: 16px;
-      //     span {
-      //       display: flex;
-      //       align-items: center;
-      //       height: 100%;
-      //       @include mixins.text-xxl-500-fabula;
-      //     }
-      //   }
-
-      //   &__meta {
-      //     display: flex;
-      //     gap: 4px;
-
-      //     padding: 4px 16px;
-      //     border-left: 2px solid var(--color-fabula2);
-      //     border-bottom: 2px solid var(--color-fabula2);
-      //     border-image: var(--fabula-gradient-secondary-border);
-
-      //     label,
-      //     span {
-      //       @include mixins.text-xl-500-fabula;
-      //     }
-
-      //     input[value='soldier'] {
-      //       ~ span[name*='rank'] {
-      //         font-size: 0;
-      //       }
-      //     }
-      //   }
-
-      //   &__description {
-      //     grid-column: 1/-1;
-      //     border-bottom: 1px solid var(--color-fabula2);
-      //     border-image: var(--fabula-gradient-primary-border);
-      //     padding: 4px 16px;
-      //     @include mixins.text-base-400;
-      //   }
-      //   &__traits {
-      //     grid-column: 1/-1;
-      //     padding: 4px 16px;
-
-      //     label {
-      //       @include mixins.text-base-700;
-      //       &::after {
-      //         content: ':';
-      //       }
-      //     }
-      //     span {
-      //       @include mixins.text-base-400;
-      //     }
-      //   }
-      // }
-
       .statistics {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -329,6 +235,7 @@
     }
 
     &--edit {
+      min-width: $breakpoint-xxs;
       display: grid;
       gap: 8px;
       margin: 8px;

@@ -5,7 +5,51 @@
     $this: '.point';
 
     &--view {
+      display: grid;
+      gap: 4px;
+      padding-inline: 4px;
+
+      input[name*='villain'] {
+        &[value='0'],
+        &:not([value]),
+        &[value=''] {
+          ~ .points__ultima {
+            display: none;
+          }
+        }
+      }
+
+      .points {
+        &__ultima {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 4px;
+
+          align-items: center;
+          justify-content: center;
+        }
+      }
       .point {
+        &__ultima {
+          .chimera-input__field {
+            font-size: 2.5rem;
+            align-self: center;
+          }
+        }
+        &__spending-ultima {
+          padding: 4px;
+          .spending-ultima {
+            .chimera-value__label {
+              @include mixins.text-lg-700;
+            }
+            &:first-of-type {
+              .chimera-value__value {
+                @include mixins.text-xl-400-fabula;
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
       }
     }
 
@@ -18,8 +62,6 @@
   .points-controller {
     display: flex;
     gap: 4px;
-
-    padding-inline: 4px;
 
     .chimera-arithmetic {
       &__label {
@@ -43,6 +85,14 @@
       .chimera-arithmetic {
         &__label {
           background-color: var(--color-mp);
+          color: var(--color-on-dark);
+        }
+      }
+    }
+    &__up {
+      .chimera-arithmetic {
+        &__label {
+          background-color: var(--color-up);
           color: var(--color-on-dark);
         }
       }

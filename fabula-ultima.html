@@ -152,21 +152,21 @@
                     <label class="chimera-value__label" data-i18n="willpower" for="willpower">WLP</label><span class="chimera-value__value" name="attr_willpower"></span>
                   </div>
                 </div>
-                <div class="points">
-                  <div class="points__label">
-                    <label data-i18n="hp">HP</label>
-                  </div>
-                  <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond">⬥</span><span name="attr_hp_crisis"></span>
-                  </div>
-                  <div class="points__label">
-                    <label data-i18n="mp">MP</label>
-                  </div>
-                  <div class="points__mp"><span name="attr_mp"></span>
-                  </div>
-                  <div class="points__initiative">
-                    <label data-i18n="init">Init.</label><span name="attr_initiative"></span>
-                  </div>
-                </div>
+                    <div class="points">
+                      <div class="points__label">
+                        <label data-i18n="hp">HP</label>
+                      </div>
+                      <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond">⬥</span><span name="attr_hp_crisis"></span>
+                      </div>
+                      <div class="points__label">
+                        <label data-i18n="mp">MP</label>
+                      </div>
+                      <div class="points__mp"><span name="attr_mp"></span>
+                      </div>
+                      <div class="points__initiative">
+                        <label data-i18n="init">Init.</label><span name="attr_initiative"></span>
+                      </div>
+                    </div>
                     <div class="defenses">
                       <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
                       <div class="chimera-value">
@@ -265,22 +265,44 @@
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
                 </label>
               </div>
-                  <div class="points-controller">
-                    <div class="chimera-arithmetic chimera-arithmetic points-controller__hp">
-                      <label class="chimera-arithmetic__label" data-i18n="hp-control" for="hp-control">HP</label>
-                      <button class="chimera-arithmetic__add" name="act_hp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
-                      </button>
-                      <input class="chimera-arithmetic__field" data-i18n-title="hp-control_title" id="hp-control" name="attr_hp-control" title="HP" type="number" value="1"/>
-                      <button class="chimera-arithmetic__subtract" name="act_hp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
-                      </button>
+                  <div class="points--view">
+                    <input class="chimera-hidden" name="attr_villain" type="hidden" value="0"/>
+                    <div class="points-controller">
+                      <div class="chimera-arithmetic chimera-arithmetic points-controller__hp">
+                        <label class="chimera-arithmetic__label" data-i18n="hp-control" for="hp-control">HP</label>
+                        <button class="chimera-arithmetic__add" name="act_hp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                        </button>
+                        <input class="chimera-arithmetic__field" data-i18n-title="hp-control_title" id="hp-control" name="attr_hp-control" title="Health Points" type="number" value="1"/>
+                        <button class="chimera-arithmetic__subtract" name="act_hp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                        </button>
+                      </div>
+                      <div class="chimera-arithmetic chimera-arithmetic points-controller__mp">
+                        <label class="chimera-arithmetic__label" data-i18n="mp-control" for="mp-control">MP</label>
+                        <button class="chimera-arithmetic__add" name="act_mp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                        </button>
+                        <input class="chimera-arithmetic__field" data-i18n-title="mp-control_title" id="mp-control" name="attr_mp-control" title="Mind Points" type="number" value="1"/>
+                        <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                        </button>
+                      </div>
                     </div>
-                    <div class="chimera-arithmetic chimera-arithmetic points-controller__mp">
-                      <label class="chimera-arithmetic__label" data-i18n="mp-control" for="mp-control">MP</label>
-                      <button class="chimera-arithmetic__add" name="act_mp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
-                      </button>
-                      <input class="chimera-arithmetic__field" data-i18n-title="mp-control_title" id="mp-control" name="attr_mp-control" title="MP" type="number" value="1"/>
-                      <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
-                      </button>
+                    <div class="points__ultima">
+                      <div class="chimera-input point__ultima chimera-input--small chimera-input--center chimera-input--column-reverse">
+                        <label class="chimera-input__label" data-i18n="ultima_points" for="ultima_points">Ultima Points</label>
+                        <input class="chimera-input__field" data-i18n-title="ultima_points_title" id="ultima_points" max="15" min="0" name="attr_ultima_points" title="Ultima Points" type="number"/>
+                      </div>
+                      <div class="point__spending-ultima">
+                        <div class="chimera-value spending-ultima chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n="spending_ultima_points">Spending Ultima Points</span>
+                        </div>
+                        <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                          <label class="chimera-value__label" data-i18n="escape" for="ultima_escape">Escape</label><span class="chimera-value__value" data-i18n="ultima_escape">A Villain may spend 1 Ultima Point to safely leave the scene — the Game Master describes how they do so, perhaps leaving a few henchmen behind to &quot;keep the heroes company&quot;.</span>
+                        </div>
+                        <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                          <label class="chimera-value__label" data-i18n="invoke_trait" for="ultima_invoke_trait">Invoke Trait</label><span class="chimera-value__value" data-i18n="ultima_invoke_trait">After performing a Check, a Villain may spend 1 Ultima Point to invoke one of their Traits and reroll one or both dice (this follows the same rules seen on page 46).</span>
+                        </div>
+                        <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                          <label class="chimera-value__label" data-i18n="recover" for="ultima_recovery">Recovery</label><span class="chimera-value__value" data-i18n="ultima_recovery">A Villain may use an action and spend 1 Ultima Point to recover from all status effects and also recover 50 Mind Points.</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="basic-attacks">
@@ -705,7 +727,7 @@
                 <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
                   <label class="chimera-value__label" data-i18n="super_specialized">Super Specialized</label><span class="chimera-value__value">d12, d8, d6, d6</span>
                 </div>
-                <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext"><span class="chimera-value__value" data-i18n="attribute_higher_levels">Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).</span>
+                <div class="chimera-value distribution chimera-value--helptext"><span class="chimera-value__value" data-i18n="attribute_higher_levels">Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).</span>
                 </div>
               </div>
               <div class="affinities">
@@ -1393,6 +1415,11 @@
     'notes',
 ];
 const DIE_SIZES = [6, 8, 10, 12];
+const VILLAIN_ULTIMA_POINTS = {
+    minor: 5,
+    major: 10,
+    supreme: 15,
+};
 const STATUS_EFFECTS = {
     dazed: -1,
     enraged: -1,
@@ -1408,6 +1435,7 @@ const ATTR_WATCH = {
     willpower: ['willpower_max', 'shaken', 'poisoned'],
     hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
     mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
+    ultima_points: ['sheet_type', 'villain'],
     initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
     defense: [
         'dexterity',
@@ -1587,6 +1615,8 @@ const handleCalculations = (attr) => {
             return calculateMaxHP(ATTR_WATCH[attr]);
         case 'mp':
             return calculateMaxMP(ATTR_WATCH[attr]);
+        case 'ultima_points':
+            return calculateUltimaPoints(ATTR_WATCH[attr]);
         case 'initiative':
             return calculateInitiative(ATTR_WATCH[attr]);
         case 'defense':
@@ -1649,6 +1679,16 @@ const calculateMaxMP = (request) => {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
         setAttrs({ mp_max }, { silent: true });
+    });
+};
+const calculateUltimaPoints = (request) => {
+    getAttrs(request, (v) => {
+        if (v.sheet_type !== 'bestiary')
+            return;
+        const villain = v.villain ?? '';
+        const ultima_points = VILLAIN_ULTIMA_POINTS[villain] ?? 0;
+        console.log({ ultima_points });
+        setAttrs({ ultima_points }, { silent: true });
     });
 };
 const updatePoints = (attr, direction) => {
