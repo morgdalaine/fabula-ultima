@@ -16,6 +16,7 @@ mixin bestiary-view(spine)
   section.bestiary--view
     +bio-view(spine)
 
+    // TODO Move to mixin
     .statistics
       .attributes
         each field in spine.attributes.view
@@ -52,7 +53,6 @@ mixin bestiary-view(spine)
       each field in spine.statuses.fields
         +chimera-input(field)
 
-    // TODO HP MP Controls
     +hp-mp-controller(spine)
 
     +basic-attacks-view(spine)
