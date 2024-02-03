@@ -1,0 +1,51 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima .bestiary {
+  .points {
+    $this: '.point';
+
+    &--view {
+      .point {
+      }
+    }
+
+    &--edit {
+      .point {
+      }
+    }
+  }
+
+  .points-controller {
+    display: flex;
+    gap: 4px;
+
+    padding-inline: 4px;
+
+    .chimera-arithmetic {
+      &__label {
+        width: var(--input-component-size);
+        padding: 4px;
+      }
+      &__field {
+        background-color: var(--color-on-dark);
+      }
+    }
+
+    &__hp {
+      .chimera-arithmetic {
+        &__label {
+          background-color: var(--color-hp);
+          color: var(--color-on-dark);
+        }
+      }
+    }
+    &__mp {
+      .chimera-arithmetic {
+        &__label {
+          background-color: var(--color-mp);
+          color: var(--color-on-dark);
+        }
+      }
+    }
+  }
+}

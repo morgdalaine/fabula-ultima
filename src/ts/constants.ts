@@ -95,6 +95,11 @@ const ATTR_WATCH: Record<string, string[]> = {
   ],
 };
 
+const BUTTON_ACTIONS: Record<string, string[]> = {
+  hp: ['hp-control-add', 'hp-control-subtract'],
+  mp: ['mp-control-add', 'mp-control-subtract'],
+};
+
 const BASIC_ACCURACY_DAMAGE: SectionDetails[] = [
   {
     section: 'repeating_basic-attacks',

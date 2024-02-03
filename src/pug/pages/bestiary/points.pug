@@ -1,0 +1,4 @@
+mixin hp-mp-controller(spine)
+  .points-controller
+    each field in spine.points.arithmetics
+      +chimera-arithmetic(field)

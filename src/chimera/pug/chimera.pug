@@ -58,6 +58,32 @@ mixin chimera-checkbox(blob)
 mixin chimera-hidden(field, value)
   input.chimera-hidden(name=`attr_${field}`, type='hidden', value=value)&attributes(attributes)
 
+mixin chimera-arithmetic(blob)
+  - const namespace = 'chimera-arithmetic';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const attr = `attr_${blob.name}`;
+  - const blobTitle = blob.title ?? blob.label;
+  - const inputClass = `${namespace}__field`;
+
+  .chimera-arithmetic(class=css)
+    label.chimera-arithmetic__label(data-i18n=blob.name, for=blob.name)= blob.label
+    button.chimera-arithmetic__add(name=`act_${blob.name}-add`, type='action')
+      +chimera-icon({ icon: 'plus' })
+    input(
+      class=inputClass,
+      data-i18n-title=`${blob.name}_title`,
+      id=blob.name,
+      max=blob.max,
+      min=blob.min,
+      name=attr,
+      step=blob.step,
+      title=blobTitle,
+      type='number',
+      value=blob.value
+    )
+    button.chimera-arithmetic__subtract(name=`act_${blob.name}-subtract`, type='action')
+      +chimera-icon({ icon: 'minus' })
+
 mixin chimera-input-element(blob)
   - const blobTitle = blob.title ?? blob.label;
   case blob.type
@@ -86,11 +112,11 @@ mixin chimera-input-element(blob)
           - const isSelected = index === 0 || option.value === blob.value || option.selected;
           option(data-i18n=option.name, selected=isSelected, value=option.value)= option.text
 
-    when 'checkbox'
-      +chimera-checkbox({...blob, title: blobTitle})
-
     when 'switch'
-      +chimera-switch({...blob, title: blobTitle})
+      +chimera-switch({ ...blob, title: blobTitle })
+
+    //- when 'arithmetic'
+      +chimera-arithmetic({ ...blob, title: blobTitle })
 
     when 'number'
     when 'text'
@@ -123,6 +149,9 @@ mixin chimera-input(blob)
 
   if blob.type === 'checkbox'
     +chimera-checkbox(blob)
+
+  else if blob.type === 'arithmetic'
+    +chimera-arithmetic(blob)
 
   else
     div(class=css)

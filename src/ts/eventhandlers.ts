@@ -10,12 +10,8 @@ REPEATING.forEach((fieldset) => {
 on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
   getAttrs(ATTR_WATCH.equipments_empty, (v) => {
     const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
-    setAttrs(
-      {
-        equipments_empty,
-      },
-      { silent: true }
-    );
+
+    setAttrs({ equipments_empty }, { silent: true });
   });
 });
 
@@ -30,3 +26,12 @@ on('change:defense_quick', (eventInfo) => {
 on('change:defense_extra change:magic_defense_extra', () => {
   updateQuickDefenseDropdown();
 });
+
+on(
+  'clicked:hp-control-add clicked:hp-control-subtract ' +
+    'clicked:mp-control-add clicked:mp-control-subtract ',
+  (eventInfo: EventInfo) => {
+    const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
+    updatePoints(attr, direction);
+  }
+);

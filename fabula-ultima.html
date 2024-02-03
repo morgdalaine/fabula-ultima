@@ -109,7 +109,8 @@
             </section>
       </main>
       <main class="bestiary">
-            <!-- TODO HP MP Controls-->
+        <!-- TODO Study Roll-->
+        <!-- TODO Toggle Edit / View-->
             <section class="bestiary--view">
                   <div class="bio--view">
                     <div class="bio">
@@ -256,6 +257,25 @@
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
                 </label>
               </div>
+              <!-- TODO HP MP Controls-->
+                  <div class="points-controller">
+                    <div class="chimera-arithmetic chimera-arithmetic points-controller__hp">
+                      <label class="chimera-arithmetic__label" data-i18n="hp-control" for="hp-control">HP</label>
+                      <button class="chimera-arithmetic__add" name="act_hp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                      </button>
+                      <input class="chimera-arithmetic__field" data-i18n-title="hp-control_title" id="hp-control" name="attr_hp-control" title="HP" type="number" value="1"/>
+                      <button class="chimera-arithmetic__subtract" name="act_hp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                      </button>
+                    </div>
+                    <div class="chimera-arithmetic chimera-arithmetic points-controller__mp">
+                      <label class="chimera-arithmetic__label" data-i18n="mp-control" for="mp-control">MP</label>
+                      <button class="chimera-arithmetic__add" name="act_mp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                      </button>
+                      <input class="chimera-arithmetic__field" data-i18n-title="mp-control_title" id="mp-control" name="attr_mp-control" title="MP" type="number" value="1"/>
+                      <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                      </button>
+                    </div>
+                  </div>
                   <div class="basic-attacks">
                     <h2 class="basic-attacks__heading--view" data-i18n="basic_attacks">Basic Attacks</h2>
                     <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_basic-attacks_empty" type="hidden"/>
@@ -1440,6 +1460,10 @@ const ATTR_WATCH = {
         'shield_cost',
     ],
 };
+const BUTTON_ACTIONS = {
+    hp: ['hp-control-add', 'hp-control-subtract'],
+    mp: ['mp-control-add', 'mp-control-subtract'],
+};
 const BASIC_ACCURACY_DAMAGE = [
     {
         section: 'repeating_basic-attacks',
@@ -1528,9 +1552,7 @@ REPEATING.forEach((fieldset) => {
 on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
     getAttrs(ATTR_WATCH.equipments_empty, (v) => {
         const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
-        setAttrs({
-            equipments_empty,
-        }, { silent: true });
+        setAttrs({ equipments_empty }, { silent: true });
     });
 });
 Object.keys(ATTR_WATCH).forEach((attr) => {
@@ -1541,6 +1563,11 @@ on('change:defense_quick', (eventInfo) => {
 });
 on('change:defense_extra change:magic_defense_extra', () => {
     updateQuickDefenseDropdown();
+});
+on('clicked:hp-control-add clicked:hp-control-subtract ' +
+    'clicked:mp-control-add clicked:mp-control-subtract ', (eventInfo) => {
+    const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
+    updatePoints(attr, direction);
 });
 const handleCalculations = (attr) => {
     switch (attr) {
@@ -1615,6 +1642,16 @@ const calculateMaxMP = (request) => {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
         setAttrs({ mp_max }, { silent: true });
+    });
+};
+const updatePoints = (attr, direction) => {
+    getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
+        const xp = +v[attr] ?? 0;
+        const xp_max = +v[`${attr}_max`] ?? 0;
+        const xp_control = +v[`${attr}-control`] ?? 0;
+        const sign = direction === 'add' ? 1 : -1;
+        const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
+        setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
     });
 };
 const calculateDefense = (request) => {

@@ -4,6 +4,7 @@ declare type EventInfo = {
   previousValue: string;
   newValue: string;
   removedInfo: string;
+  triggerName: string;
 };
 
 declare type AttributeContent = string | number | boolean;

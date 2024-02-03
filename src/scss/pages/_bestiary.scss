@@ -2,13 +2,14 @@
 @use '../common/vars' as mixins;
 
 @use 'bestiary/actions';
-@use 'bestiary/bio';
-@use 'bestiary/equipment';
-@use 'bestiary/other';
 @use 'bestiary/affinity';
 @use 'bestiary/attributes';
+@use 'bestiary/bio';
 @use 'bestiary/defenses';
+@use 'bestiary/equipment';
 @use 'bestiary/extras';
+@use 'bestiary/other';
+@use 'bestiary/points';
 
 .fabula-ultima {
   .bestiary {

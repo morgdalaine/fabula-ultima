@@ -100,6 +100,19 @@ const calculateMaxMP = (request: string[]) => {
   });
 };
 
+const updatePoints = (attr: string, direction: string) => {
+  getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
+    const xp: number = +v[attr] ?? 0;
+    const xp_max: number = +v[`${attr}_max`] ?? 0;
+    const xp_control: number = +v[`${attr}-control`] ?? 0;
+
+    const sign: number = direction === 'add' ? 1 : -1;
+
+    const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
+    setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
+  });
+};
+
 const calculateDefense = (request: string[]) => {
   getAttrs(request, (v) => {
     const dexterity: number = +v.dexterity ?? 0;

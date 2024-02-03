@@ -553,6 +553,66 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   height: -moz-min-content;
   height: min-content;
 }
+.fabula-ultima .chimera-arithmetic {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+}
+.fabula-ultima .chimera-arithmetic__label {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-align: center;
+}
+.fabula-ultima .chimera-arithmetic__add, .fabula-ultima .chimera-arithmetic__subtract, .fabula-ultima .chimera-arithmetic__button {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
+  aspect-ratio: 1;
+  color: var(--input-color);
+  background: transparent;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+}
+.fabula-ultima .chimera-arithmetic__add:active, .fabula-ultima .chimera-arithmetic__add:hover, .fabula-ultima .chimera-arithmetic__add:focus, .fabula-ultima .chimera-arithmetic__subtract:active, .fabula-ultima .chimera-arithmetic__subtract:hover, .fabula-ultima .chimera-arithmetic__subtract:focus, .fabula-ultima .chimera-arithmetic__button:active, .fabula-ultima .chimera-arithmetic__button:hover, .fabula-ultima .chimera-arithmetic__button:focus {
+  outline: transparent;
+}
+.fabula-ultima .chimera-arithmetic__add:hover, .fabula-ultima .chimera-arithmetic__subtract:hover, .fabula-ultima .chimera-arithmetic__button:hover {
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.fabula-ultima .chimera-arithmetic__add:focus, .fabula-ultima .chimera-arithmetic__subtract:focus, .fabula-ultima .chimera-arithmetic__button:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.fabula-ultima .chimera-arithmetic__add:active, .fabula-ultima .chimera-arithmetic__subtract:active, .fabula-ultima .chimera-arithmetic__button:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
+}
+.fabula-ultima .chimera-arithmetic__add img,
+.fabula-ultima .chimera-arithmetic__add svg, .fabula-ultima .chimera-arithmetic__subtract img,
+.fabula-ultima .chimera-arithmetic__subtract svg, .fabula-ultima .chimera-arithmetic__button img,
+.fabula-ultima .chimera-arithmetic__button svg {
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
+  aspect-ratio: 1;
+  filter: invert(0.5);
+}
 .fabula-ultima .chimera-repeater--simple .repcontainer {
   gap: 4px;
 }
@@ -593,7 +653,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   min-height: var(--input-component-size);
   color: var(--input-color);
   background: transparent;
-  padding-inline-start: 4px;
+  padding-inline: 4px;
   padding-block: 1px;
   border: 2px solid var(--input-border-color);
   border-radius: 4px;
@@ -654,7 +714,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   height: var(--input-component-size);
   color: var(--input-color);
   background: transparent;
-  padding-inline-start: 4px;
+  padding-inline: 4px;
   padding-block: 1px;
   border: 2px solid var(--input-border-color);
   border-radius: 4px;
@@ -1137,6 +1197,60 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .weapons--edit .weapon__name {
   grid-column: span 3;
 }
+.fabula-ultima .bestiary .affinities {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .affinity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+  align-items: center;
+}
+.fabula-ultima .bestiary .affinity .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  align-self: center;
+}
+
+.fabula-ultima .bestiary .attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .attributes__distribution {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .attribute {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .attribute .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+}
+.fabula-ultima .bestiary .attribute .chimera-input__field {
+  align-self: normal;
+}
+.fabula-ultima .bestiary .distribution:first-of-type {
+  padding-block-end: 4px;
+}
+.fabula-ultima .bestiary .distribution:last-of-type {
+  padding-block-start: 4px;
+}
+
 .fabula-ultima .bestiary .bio--view .bio {
   display: grid;
   grid-template-columns: calc(4 * var(--input-component-size)) repeat(3, auto);
@@ -1271,6 +1385,28 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .bio--edit .bio__description {
   grid-column: 1/-1;
+}
+
+.fabula-ultima .bestiary .defenses--edit {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .defenses--edit .defense {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .defenses--edit .defense__quick {
+  grid-column: 1/-1;
+  grid-template-columns: 1fr;
+}
+.fabula-ultima .bestiary .defenses--edit .defense__quick .chimera-input__label {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
 }
 
 .fabula-ultima .bestiary .armor__heading--edit {
@@ -1423,6 +1559,22 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .shield input[name*=is_martial][value="0"] ~ .shield__defense {
   display: none;
+}
+
+.fabula-ultima .bestiary .extras {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .extras__container {
+  grid-column: span 2;
+}
+.fabula-ultima .bestiary .extra.chimera-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
 }
 
 .fabula-ultima .bestiary .notes__heading--edit {
@@ -1665,96 +1817,25 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .bestiary .affinities {
-  display: grid;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-.fabula-ultima .bestiary .affinity {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 4px;
-  align-items: center;
-}
-.fabula-ultima .bestiary .affinity .chimera-input__label {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  align-self: center;
-}
-
-.fabula-ultima .bestiary .attributes {
+.fabula-ultima .bestiary .points-controller {
   display: flex;
-  flex-direction: column;
   gap: 4px;
+  padding-inline: 4px;
 }
-.fabula-ultima .bestiary .attributes__distribution {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.fabula-ultima .bestiary .points-controller .chimera-arithmetic__label {
+  width: var(--input-component-size);
+  padding: 4px;
 }
-.fabula-ultima .bestiary .attribute {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
+.fabula-ultima .bestiary .points-controller .chimera-arithmetic__field {
+  background-color: var(--color-on-dark);
 }
-.fabula-ultima .bestiary .attribute .chimera-input__label {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
+.fabula-ultima .bestiary .points-controller__hp .chimera-arithmetic__label {
+  background-color: var(--color-hp);
+  color: var(--color-on-dark);
 }
-.fabula-ultima .bestiary .attribute .chimera-input__field {
-  align-self: normal;
-}
-.fabula-ultima .bestiary .distribution:first-of-type {
-  padding-block-end: 4px;
-}
-.fabula-ultima .bestiary .distribution:last-of-type {
-  padding-block-start: 4px;
-}
-
-.fabula-ultima .bestiary .defenses--edit {
-  display: grid;
-  gap: 4px;
-}
-.fabula-ultima .bestiary .defenses--edit .defense {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-}
-.fabula-ultima .bestiary .defenses--edit .defense__quick {
-  grid-column: 1/-1;
-  grid-template-columns: 1fr;
-}
-.fabula-ultima .bestiary .defenses--edit .defense__quick .chimera-input__label {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  text-transform: uppercase;
-}
-
-.fabula-ultima .bestiary .extras {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.fabula-ultima .bestiary .extras__container {
-  grid-column: span 2;
-}
-.fabula-ultima .bestiary .extra.chimera-input {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
+.fabula-ultima .bestiary .points-controller__mp .chimera-arithmetic__label {
+  background-color: var(--color-mp);
+  color: var(--color-on-dark);
 }
 
 .fabula-ultima .bestiary--view {

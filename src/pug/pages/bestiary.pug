@@ -8,9 +8,11 @@ include bestiary/rare-gear
 include bestiary/special-rules
 include bestiary/spells
 include bestiary/weapons
+include bestiary/points
 
+// TODO Study Roll
+// TODO Toggle Edit / View
 mixin bestiary-view(spine)
-  // TODO HP MP Controls
   section.bestiary--view
     +bio-view(spine)
 
@@ -49,6 +51,9 @@ mixin bestiary-view(spine)
     .status-effects
       each field in spine.statuses.fields
         +chimera-input(field)
+
+    // TODO HP MP Controls
+    +hp-mp-controller(spine)
 
     +basic-attacks-view(spine)
     +weapons-view(spine)
