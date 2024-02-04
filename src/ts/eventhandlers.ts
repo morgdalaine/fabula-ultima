@@ -7,14 +7,6 @@ REPEATING.forEach((fieldset) => {
   });
 });
 
-on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
-  getAttrs(ATTR_WATCH.equipments_empty, (v) => {
-    const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
-
-    setAttrs({ equipments_empty }, { silent: true });
-  });
-});
-
 Object.keys(ATTR_WATCH).forEach((attr) => {
   on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
 });

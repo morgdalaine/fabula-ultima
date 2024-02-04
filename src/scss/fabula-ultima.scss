@@ -43,11 +43,11 @@ html .charsheet {
       &[value='on'] {
         ~ * .bestiary--edit,
         ~ * .character--edit {
-          display: grid !important;
+          display: grid;
         }
         ~ * .bestiary--view,
         ~ * .character--view {
-          display: none !important;
+          display: none;
         }
       }
 
@@ -56,11 +56,11 @@ html .charsheet {
       &:not([value]) {
         ~ * .bestiary--edit,
         ~ * .character--edit {
-          display: none !important;
+          display: none;
         }
         ~ * .bestiary--view,
         ~ * .character--view {
-          display: flex !important;
+          display: flex;
         }
       }
     }

@@ -85,32 +85,32 @@
                 </div>
                 <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Dexterity die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Insight die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Dexterity and Insight die sizes by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Might die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Willpower die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Might and Willpower die sizes by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
                 </label>
               </div>
@@ -122,12 +122,16 @@
                   <div class="bio--view">
                     <div class="bio">
                       <input class="chimera-hidden" name="attr_character_avatar" type="hidden" value=""/>
-                      <div class="bio__avatar"><img name="attr_character_avatar"/></div>
+                      <div class="bio__avatar"><img data-i18n-title="avatar" name="attr_character_avatar" title="Your Avatar"/></div>
                       <div class="bio__name"><span name="attr_character_name"></span>
                       </div>
                       <div class="bio__meta">
                         <label data-i18n="lv">Lv</label>
                         <input class="chimera-hidden" name="attr_rank" type="hidden"/><span name="attr_level"></span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_rank"></span><span class="fabula-diamond">⬥</span><span name="attr_species"></span>
+                      </div>
+                      <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_villain_empty" type="hidden"/>
+                      <div class="bio__villain"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_villain"></span><span class="bio__phases">
+                          <label data-i18n="phase">Phase</label><span name="attr_phases"></span></span><span name="attr_multipart"></span>
                       </div>
                       <div class="bio__description"><span name="attr_description"></span>
                       </div>
@@ -236,32 +240,32 @@
               <div class="status-effects">
                 <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Temporarily reduces your Dexterity die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Dexterity die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_title" title="Temporarily reduces your Insight die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Insight die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_title" title="Temporarily reduces your Dexterity and Insight die sizes by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Dexterity and Insight die sizes by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_title" title="Temporarily reduces your Might die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Might die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_title" title="Temporarily reduces your Willpower die size by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Willpower die size by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
                 </label>
                 <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_title" title="Temporarily reduces your Might and Willpower die sizes by one.">
                   <div class="chimera-checkbox__field">
-                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Temporarily reduces your Might and Willpower die sizes by one."/>
                   </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
                 </label>
               </div>
@@ -467,9 +471,9 @@
                           <div class="chimera-repeater--delete special-rules--delete">
                           </div>
                           <div class="chimera-repeater--view special-rules--view">
-                            <div class="special-rule"><img class="special-rule__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
+                            <div class="special-rule">
                               <div class="chimera-value special-rule__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_special_name"></span>
-                              </div>
+                              </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
                               </div>
                             </div>
@@ -641,7 +645,7 @@
                       <div class="chimera-input bio__villain">
                         <label class="chimera-input__label" data-i18n="villain" for="villain">Villain</label>
                         <select class="chimera-input__field" data-i18n-title="villain_title" id="villain" name="attr_villain" title="Villain">
-                          <option data-i18n="none" selected="selected" value="">—</option>
+                          <option data-i18n="none" selected="selected" value="none">—</option>
                           <option data-i18n="minor" value="minor">Minor</option>
                           <option data-i18n="major" value="major">Major</option>
                           <option data-i18n="supreme" value="supreme">Supreme</option>
@@ -731,7 +735,7 @@
                 </div>
               </div>
               <div class="affinities">
-                <div class="chimera-input affinity affinity--physical chimera-input--center"><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical"/>
+                <div class="chimera-input affinity affinity--physical chimera-input--center"><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical Affinity"/>
                   <label class="chimera-input__label" data-i18n="physical" for="physical">Physical</label>
                   <select class="chimera-input__field" data-i18n-title="physical_title" id="physical" name="attr_physical" title="Physical Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -741,7 +745,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--air chimera-input--center"><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air"/>
+                <div class="chimera-input affinity affinity--air chimera-input--center"><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air Affinity"/>
                   <label class="chimera-input__label" data-i18n="air" for="air">Air</label>
                   <select class="chimera-input__field" data-i18n-title="air_title" id="air" name="attr_air" title="Air Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -751,7 +755,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--bolt chimera-input--center"><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt"/>
+                <div class="chimera-input affinity affinity--bolt chimera-input--center"><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt Affinity"/>
                   <label class="chimera-input__label" data-i18n="bolt" for="bolt">Bolt</label>
                   <select class="chimera-input__field" data-i18n-title="bolt_title" id="bolt" name="attr_bolt" title="Bolt Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -761,7 +765,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--dark chimera-input--center"><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark"/>
+                <div class="chimera-input affinity affinity--dark chimera-input--center"><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark Affinity"/>
                   <label class="chimera-input__label" data-i18n="dark" for="dark">Dark</label>
                   <select class="chimera-input__field" data-i18n-title="dark_title" id="dark" name="attr_dark" title="Dark Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -771,7 +775,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--earth chimera-input--center"><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth"/>
+                <div class="chimera-input affinity affinity--earth chimera-input--center"><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth Affinity"/>
                   <label class="chimera-input__label" data-i18n="earth" for="earth">Earth</label>
                   <select class="chimera-input__field" data-i18n-title="earth_title" id="earth" name="attr_earth" title="Earth Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -781,7 +785,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--fire chimera-input--center"><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire"/>
+                <div class="chimera-input affinity affinity--fire chimera-input--center"><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire Affinity"/>
                   <label class="chimera-input__label" data-i18n="fire" for="fire">Fire</label>
                   <select class="chimera-input__field" data-i18n-title="fire_title" id="fire" name="attr_fire" title="Fire Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -791,7 +795,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--ice chimera-input--center"><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice"/>
+                <div class="chimera-input affinity affinity--ice chimera-input--center"><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice Affinity"/>
                   <label class="chimera-input__label" data-i18n="ice" for="ice">Ice</label>
                   <select class="chimera-input__field" data-i18n-title="ice_title" id="ice" name="attr_ice" title="Ice Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -801,7 +805,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--light chimera-input--center"><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light"/>
+                <div class="chimera-input affinity affinity--light chimera-input--center"><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light Affinity"/>
                   <label class="chimera-input__label" data-i18n="light" for="light">Light</label>
                   <select class="chimera-input__field" data-i18n-title="light_title" id="light" name="attr_light" title="Light Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -811,7 +815,7 @@
                     <option data-i18n="absorbs" value="ab">Absorbs</option>
                   </select>
                 </div>
-                <div class="chimera-input affinity affinity--poison chimera-input--center"><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison"/>
+                <div class="chimera-input affinity affinity--poison chimera-input--center"><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison Affinity"/>
                   <label class="chimera-input__label" data-i18n="poison" for="poison">Poison</label>
                   <select class="chimera-input__field" data-i18n-title="poison_title" id="poison" name="attr_poison" title="Poison Affinity">
                     <option data-i18n="none" selected="selected" value="">—</option>
@@ -897,7 +901,7 @@
                       </div>
                       <label class="chimera-checkbox armor__martial chimera-checkbox--column-reverse" data-i18n-title="armor_is_martial_title" title="Martial">
                         <div class="chimera-checkbox__field">
-                          <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                          <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="armor_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
                         </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
                       </label>
                       <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
@@ -918,7 +922,7 @@
                       </div>
                       <div class="chimera-input armor__cost chimera-input--center chimera-input--small">
                         <label class="chimera-input__label" data-i18n="armor_cost" for="armor_cost">Cost</label>
-                        <input class="chimera-input__field" data-i18n-title="armor_cost_title" id="armor_cost" min="0" name="attr_armor_cost" step="50" title="Cost" type="number"/>
+                        <input class="chimera-input__field" data-i18n-title="armor_cost_title" id="armor_cost" min="0" name="attr_armor_cost" step="50" title="Cost" type="number" value="0"/>
                       </div>
                     </div>
                   </div>
@@ -931,7 +935,7 @@
                       </div>
                       <label class="chimera-checkbox shield__martial chimera-checkbox--column-reverse" data-i18n-title="shield_is_martial_title" title="Martial">
                         <div class="chimera-checkbox__field">
-                          <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                          <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="shield_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
                         </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
                       </label>
                       <div class="chimera-input shield__defense_bonus chimera-input--center chimera-input--small">
@@ -948,7 +952,7 @@
                       </div>
                       <div class="chimera-input shield__cost chimera-input--center chimera-input--small">
                         <label class="chimera-input__label" data-i18n="shield_cost" for="shield_cost">Cost</label>
-                        <input class="chimera-input__field" data-i18n-title="shield_cost_title" id="shield_cost" min="0" name="attr_shield_cost" step="50" title="Cost" type="number"/>
+                        <input class="chimera-input__field" data-i18n-title="shield_cost_title" id="shield_cost" min="0" name="attr_shield_cost" step="50" title="Cost" type="number" value="0"/>
                       </div>
                     </div>
                   </div>
@@ -1436,6 +1440,7 @@ const ATTR_WATCH = {
     hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
     mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
     ultima_points: ['sheet_type', 'villain'],
+    villain_empty: ['villain', 'multipart', 'phases'],
     initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
     defense: [
         'dexterity',
@@ -1584,12 +1589,6 @@ REPEATING.forEach((fieldset) => {
         RepeatingModule.isFieldsetEmpty(fieldset);
     });
 });
-on(`sheet:opened ${listeners(ATTR_WATCH.equipments_empty)}`, (eventInfo) => {
-    getAttrs(ATTR_WATCH.equipments_empty, (v) => {
-        const equipments_empty = Object.values(v).reduce((memo, val) => memo + +!!val, 0);
-        setAttrs({ equipments_empty }, { silent: true });
-    });
-});
 Object.keys(ATTR_WATCH).forEach((attr) => {
     on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
 });
@@ -1629,7 +1628,16 @@ const handleCalculations = (attr) => {
             return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
         case 'spells':
             return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
+        case 'equipments_empty':
+        case 'villain_empty':
+            return isFieldEmpty(attr, ATTR_WATCH[attr]);
     }
+};
+const isFieldEmpty = (attr, request) => {
+    getAttrs(request, (v) => {
+        const isEmpty = Object.values(v).every((val) => !val.trim() || val === 'none') ? 0 : 1;
+        setAttrs({ [attr]: isEmpty }, { silent: true });
+    });
 };
 const calculateAttribute = (attr, request) => {
     getAttrs(request, (v) => {
@@ -1687,7 +1695,6 @@ const calculateUltimaPoints = (request) => {
             return;
         const villain = v.villain ?? '';
         const ultima_points = VILLAIN_ULTIMA_POINTS[villain] ?? 0;
-        console.log({ ultima_points });
         setAttrs({ ultima_points }, { silent: true });
     });
 };

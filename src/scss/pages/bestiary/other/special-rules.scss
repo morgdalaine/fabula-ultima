@@ -23,13 +23,9 @@
 
     &--view {
       .special-rule {
-        display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr;
+        display: flex;
+        flex-direction: row;
         gap: 4px;
-
-        &__icon {
-          grid-row: span 2;
-        }
 
         &__name {
           .chimera-value {
@@ -41,7 +37,6 @@
 
         &__special,
         &__effect {
-          grid-column: 2/-1;
           @include mixins.text-lg-400;
         }
       }

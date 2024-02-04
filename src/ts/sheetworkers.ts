@@ -28,7 +28,18 @@ const handleCalculations = (attr: string) => {
       return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
     case 'spells':
       return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
+
+    case 'equipments_empty':
+    case 'villain_empty':
+      return isFieldEmpty(attr, ATTR_WATCH[attr]);
   }
+};
+
+const isFieldEmpty = (attr: string, request: string[]) => {
+  getAttrs(request, (v) => {
+    const isEmpty = Object.values(v).every((val) => !val.trim() || val === 'none') ? 0 : 1;
+    setAttrs({ [attr]: isEmpty }, { silent: true });
+  });
 };
 
 const calculateAttribute = (attr: string, request: string[]) => {
@@ -107,7 +118,6 @@ const calculateUltimaPoints = (request: string[]) => {
 
     const villain: string = v.villain ?? '';
     const ultima_points = VILLAIN_ULTIMA_POINTS[villain] ?? 0;
-    console.log({ ultima_points });
     setAttrs({ ultima_points }, { silent: true });
   });
 };

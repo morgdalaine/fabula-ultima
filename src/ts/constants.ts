@@ -35,6 +35,8 @@ const ATTR_WATCH: Record<string, string[]> = {
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
   ultima_points: ['sheet_type', 'villain'],
 
+  villain_empty: ['villain', 'multipart', 'phases'],
+
   initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
 
   defense: [

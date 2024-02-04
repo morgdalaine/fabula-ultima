@@ -6,8 +6,9 @@ mixin special-rules-view(spine)
       +chimera-block('view')
         .special-rule
           - const rule = fieldDictionary(spine.specials.view, 'special');
-          +chimera-icon({ icon: 'cog' }).special-rule__icon
+          //- +chimera-icon({ icon: 'cog' }).special-rule__icon
           +chimera-value(rule.name)
+          +fabula-diamond
           +chimera-value(rule.effect)
 
 mixin special-rules-edit(spine)
