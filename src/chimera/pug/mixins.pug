@@ -147,6 +147,16 @@ mixin chimera-icon(blob)
     }
   img(data-i18n-title=`${i18nTitle}_title`, src=src, title=blob.title || title)&attributes(attributes)
 
+mixin chimera-action(blob)
+  - const namespace = 'chimera-action';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const actionClass = `${namespace}__field`;
+  - const attr = `act_${blob.name}`;
+  - const blobTitle = blob.title ?? blob.label;
+  button(class=css, data-i18n-title=blob.name, name=attr, title=blobTitle, type='action')&attributes(attributes)
+    //- +chimera-icon(blob)
+    block
+
 mixin chimera-input(blob)
   - const namespace = 'chimera-input';
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
