@@ -99,8 +99,8 @@
         input[name*='spell_is_offensive'] {
           &[value='0'],
           :not([value]) {
-            ~ .spell__check_1,
-            ~ .spell__check_2,
+            ~ .spell__attr1,
+            ~ .spell__attr2,
             ~ .spell__damage,
             ~ .spell__type,
             ~ .spell__accuracy {
@@ -121,8 +121,8 @@
           grid-column-start: -2;
         }
 
-        &__check_1,
-        &__check_2,
+        &__attr1,
+        &__attr2,
         &__accuracy,
         &__damage,
         &__type {

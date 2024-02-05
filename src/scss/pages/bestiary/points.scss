@@ -10,9 +10,10 @@
       padding-inline: 4px;
 
       input[name*='villain'] {
+        &[value=''],
         &[value='0'],
-        &:not([value]),
-        &[value=''] {
+        &[value='none'],
+        &:not([value]) {
           ~ .points__ultima {
             display: none;
           }

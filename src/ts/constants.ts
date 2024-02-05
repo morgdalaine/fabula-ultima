@@ -25,6 +25,13 @@ const STATUS_EFFECTS: Record<string, number> = {
   weak: -1,
 };
 
+const ATTR_ABBREVIATIONS = {
+  dexterity: 'dex',
+  insight: 'ins',
+  might: 'mig',
+  willpower: 'wlp',
+};
+
 const ATTR_WATCH: Record<string, string[]> = {
   dexterity: ['dexterity_max', 'slow', 'enraged'],
   insight: ['insight_max', 'dazed', 'enraged'],
@@ -106,6 +113,21 @@ const ATTR_WATCH: Record<string, string[]> = {
 const BUTTON_ACTIONS: Record<string, string[]> = {
   hp: ['hp-control-add', 'hp-control-subtract'],
   mp: ['mp-control-add', 'mp-control-subtract'],
+};
+
+const SEND_TO_CHAT: Record<string, string[]> = {
+  basicattack: [
+    'attack_name',
+    'attack_range',
+    'attack_attr1',
+    'attack_attr2',
+    'attack_accuracy_total',
+    'attack_damage_total',
+    'attack_type',
+    'attack_special',
+  ],
+  weapon: [],
+  spell: [],
 };
 
 const BASIC_ACCURACY_DAMAGE: SectionDetails[] = [

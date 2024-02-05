@@ -29,12 +29,12 @@
     &--view {
       input[name*='attack_range'] {
         &[value='melee'] {
-          ~ .basic-attack__range--melee {
+          ~ * .basic-attack__range--melee {
             display: block;
           }
         }
         &[value='distance'] {
-          ~ .basic-attack__range--distance {
+          ~ * .basic-attack__range--distance {
             display: block;
           }
         }
@@ -42,8 +42,11 @@
 
       .basic-attack {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+        grid-template-columns: 1fr auto 0.5fr;
+        // grid-template-columns: 1fr auto 0.5fr var(--button-component-size);
         gap: 4px;
+
+        align-items: center;
 
         .fabula-check span {
           @include mixins.text-lg-700;
@@ -53,8 +56,13 @@
           &--melee,
           &--distance {
             display: none;
-            grid-row: span 2;
           }
+        }
+
+        &__check {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
         }
 
         &__name,
@@ -64,6 +72,10 @@
               @include mixins.text-lg-700;
             }
           }
+        }
+
+        &__type {
+          text-align: end;
         }
 
         &__special {

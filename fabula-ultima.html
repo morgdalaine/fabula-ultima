@@ -1,4 +1,4 @@
-
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span>
 <html>
   <head>
     <link href="fabula-ultima.css" rel="stylesheet" type="text/css"/>
@@ -327,13 +327,17 @@
                             <div class="basic-attack">
                               <input class="chimera-hidden" name="attr_attack_range" type="hidden"/>
                               <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden"/>
-                              <input class="chimera-hidden" name="attr_attack_damage_total" type="hidden"/><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
-                              <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
-                              </div>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
-                                <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_attack_accuracy_total"></span>
-                              </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_attack_damage_total"></span>
+                              <input class="chimera-hidden" name="attr_attack_damage_total" type="hidden"/>
+                              <button class="chimera-action basic-attack__roll" data-i18n-title="basicattack" name="act_basicattack" type="action"><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
+                                <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
+                                </div>
+                              </button>
+                              <div class="basic-attack__check">
+                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span>
+                                  <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_attack_accuracy_total"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_attack_damage_total"></span>
+                                </div>
                               </div>
                               <div class="chimera-value basic-attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
                               </div>
@@ -363,10 +367,10 @@
                               <input class="chimera-hidden" name="attr_weapon_range" type="hidden"/><img class="weapon__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="weapon__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
                               <div class="weapon__attack"><span name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
                               </div>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy_total"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_weapon_damage_total"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage_total"></span>
                               </div>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div>
@@ -392,8 +396,8 @@
                           </div>
                           <div class="chimera-repeater--delete spells--delete">
                             <div class="spell"><span name="attr_spell_name"></span><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_spell_accuracy"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
+                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy"></span>
                               </div>
                             </div>
                           </div>
@@ -405,10 +409,10 @@
                               <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div>
                               <div class="spell__offensive">
-                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
-                                  <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_spell_accuracy_total"></span>
+                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
+                                  <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy_total"></span>
                                 </div><span class="fabula-diamond">⬥</span>
-                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_spell_damage_total"></span>
+                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_spell_damage_total"></span>
                                 </div><span class="fabula-diamond">⬥</span>
                                 <div class="chimera-value spell__type chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_type"></span>
                                 </div><span class="fabula-diamond">⬥</span>
@@ -494,10 +498,10 @@
                               <div class="chimera-value weapon__name chimera-value--colon">
                                 <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-check__damage" name="attr_weapon_damage"></span>
+                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage"></span>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div><span class="fabula-diamond">⬥</span>
@@ -843,7 +847,7 @@
                       <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
                       <select class="chimera-input__field" data-i18n-title="defense_quick_title" id="defense_quick" name="attr_defense_quick" title="Defense Quick Select">
                         <option data-i18n="extra_defense_null" selected="selected" value="">—</option>
-                        <option data-i18n="extra_defense_00" value="0/0">+0 Def / +0 M. Def</option>
+                        <option data-i18n="extra_defense_00" selected="selected" value="0/0">+0 Def / +0 M. Def</option>
                         <option data-i18n="extra_defense_12" value="1/2">+1 Def / +2 M. Def</option>
                         <option data-i18n="extra_defense_21" value="2/1">+2 Def / +1 M. Def</option>
                         <option data-i18n="extra_defense_33" value="3/3">+3 Def / +3 M. Def</option>
@@ -988,18 +992,18 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="chimera-input basic-attack__check_1 chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="attack_check_1" for="attack_check_1">Attr 1</label>
-                                <select class="chimera-input__field" data-i18n-title="attack_check_1_title" id="attack_check_1" name="attr_attack_check_1" title="Attr 1">
+                              <div class="chimera-input basic-attack__attr1 chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="attack_attr1" for="attack_attr1">Attr 1</label>
+                                <select class="chimera-input__field" data-i18n-title="attack_attr1_title" id="attack_attr1" name="attr_attack_attr1" title="Attr 1">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input basic-attack__check_2 chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="attack_check_2" for="attack_check_2">Attr 2</label>
-                                <select class="chimera-input__field" data-i18n-title="attack_check_2_title" id="attack_check_2" name="attr_attack_check_2" title="Attr 2">
+                              <div class="chimera-input basic-attack__attr2 chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="attack_attr2" for="attack_attr2">Attr 2</label>
+                                <select class="chimera-input__field" data-i18n-title="attack_attr2_title" id="attack_attr2" name="attr_attack_attr2" title="Attr 2">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
@@ -1035,7 +1039,7 @@
                             <div class="basic-attack">
                               <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
                               </div><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_check_2"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span>
                               </div>
                             </div>
                           </div>
@@ -1085,23 +1089,23 @@
                                   <option data-i18n="spear" value="spear">Spear</option>
                                   <option data-i18n="thrown" value="thrown">Thrown</option>
                                   <option data-i18n="heavy" value="heavy">Heavy</option>
-                                  <option data-i18n="dagger" value="dagger">Dagger</option>
+                                  <option data-i18n="dagger" selected="selected" value="dagger">Dagger</option>
                                   <option data-i18n="brawling" value="brawling">Brawling</option>
                                   <option data-i18n="sword" value="sword">Sword</option>
                                 </select>
                               </div>
-                              <div class="chimera-input weapon__check_1 chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="weapon_check_1" for="weapon_check_1">Attr 1</label>
-                                <select class="chimera-input__field" data-i18n-title="weapon_check_1_title" id="weapon_check_1" name="attr_weapon_check_1" title="Attr 1">
+                              <div class="chimera-input weapon__attr1 chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="weapon_attr1" for="weapon_attr1">Attr 1</label>
+                                <select class="chimera-input__field" data-i18n-title="weapon_attr1_title" id="weapon_attr1" name="attr_weapon_attr1" title="Attr 1">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input weapon__check_2 chimera-input--small chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="weapon_check_2" for="weapon_check_2">Attr 2</label>
-                                <select class="chimera-input__field" data-i18n-title="weapon_check_2_title" id="weapon_check_2" name="attr_weapon_check_2" title="Attr 2">
+                              <div class="chimera-input weapon__attr2 chimera-input--small chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="weapon_attr2" for="weapon_attr2">Attr 2</label>
+                                <select class="chimera-input__field" data-i18n-title="weapon_attr2_title" id="weapon_attr2" name="attr_weapon_attr2" title="Attr 2">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
@@ -1165,8 +1169,8 @@
                             <div class="weapon">
                               <div class="chimera-value weapon__name"><span class="chimera-value__value" name="attr_weapon_name"></span>
                               </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_check_2"></span>
-                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-check__accuracy">+</span><span class="fabula-check__accuracy" name="attr_weapon_accuracy"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
                               </div>
                             </div>
                           </div>
@@ -1203,18 +1207,18 @@
                                   <input id="spell_is_offensive" name="attr_spell_is_offensive" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                                 </div><span class="chimera-checkbox__label" data-i18n="spell_is_offensive" for="spell_is_offensive">Is Offensive</span>
                               </label>
-                              <div class="chimera-input spell__check_1 chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="spell_check_1" for="spell_check_1">Attr 1</label>
-                                <select class="chimera-input__field" data-i18n-title="spell_check_1_title" id="spell_check_1" name="attr_spell_check_1" title="Attr 1">
+                              <div class="chimera-input spell__attr1 chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_attr1" for="spell_attr1">Attr 1</label>
+                                <select class="chimera-input__field" data-i18n-title="spell_attr1_title" id="spell_attr1" name="attr_spell_attr1" title="Attr 1">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
                                   <option data-i18n="willpower" value="willpower">WLP</option>
                                 </select>
                               </div>
-                              <div class="chimera-input spell__check_2 chimera-input--center">
-                                <label class="chimera-input__label" data-i18n="spell_check_2" for="spell_check_2">Attr 2</label>
-                                <select class="chimera-input__field" data-i18n-title="spell_check_2_title" id="spell_check_2" name="attr_spell_check_2" title="Attr 2">
+                              <div class="chimera-input spell__attr2 chimera-input--center">
+                                <label class="chimera-input__label" data-i18n="spell_attr2" for="spell_attr2">Attr 2</label>
+                                <select class="chimera-input__field" data-i18n-title="spell_attr2_title" id="spell_attr2" name="attr_spell_attr2" title="Attr 2">
                                   <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
                                   <option data-i18n="insight" value="insight">INS</option>
                                   <option data-i18n="might" value="might">MIG</option>
@@ -1261,7 +1265,7 @@
                             <div class="spell">
                               <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
                               </div><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_check_2"></span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
                               </div>
                             </div>
                           </div>
@@ -1408,6 +1412,23 @@
       <main class="gm"><span>[GM]</span></main>
       <footer></footer>
     </div>
+    <rolltemplate class="sheet-rolltemplate-fabula-attack">
+      <div class="sheet-roll">
+        <div class="sheet-roll-header">
+          <div class="sheet-character"><span>{{ character }}</span></div>
+          <div class="sheet-roll-type"><span>{{ action }}</span></div>
+        </div>{{#^rollTotal() computed::critical 0}}
+        <div class="sheet-special">{{#rollGreater() computed::critical 0}}<span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}<span class="sheet-fabula-important" data-i18n="is_fumble">Critical Fumble!</span>{{/rollLess() computed::critical 0}}
+        </div>{{/^rollTotal() computed::critical 0}}
+        <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>
+        </div>
+        <div class="sheet-action">
+          <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>
+          <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-span">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>
+        </div>
+        <div class="sheet-footer"><span class="sheet-fabula-span">{{ special }}</span></div>
+      </div>
+    </rolltemplate>
     <script type="text/worker">const REPEATING = [
     'bonds',
     'basic-attacks',
@@ -1431,6 +1452,12 @@ const STATUS_EFFECTS = {
     shaken: -1,
     slow: -1,
     weak: -1,
+};
+const ATTR_ABBREVIATIONS = {
+    dexterity: 'dex',
+    insight: 'ins',
+    might: 'mig',
+    willpower: 'wlp',
 };
 const ATTR_WATCH = {
     dexterity: ['dexterity_max', 'slow', 'enraged'],
@@ -1504,6 +1531,20 @@ const BUTTON_ACTIONS = {
     hp: ['hp-control-add', 'hp-control-subtract'],
     mp: ['mp-control-add', 'mp-control-subtract'],
 };
+const SEND_TO_CHAT = {
+    basicattack: [
+        'attack_name',
+        'attack_range',
+        'attack_attr1',
+        'attack_attr2',
+        'attack_accuracy_total',
+        'attack_damage_total',
+        'attack_type',
+        'attack_special',
+    ],
+    weapon: [],
+    spell: [],
+};
 const BASIC_ACCURACY_DAMAGE = [
     {
         section: 'repeating_basic-attacks',
@@ -1538,14 +1579,99 @@ const listenersByKey = (obj) => {
 const listeners = (arr) => {
     return arr.map((str) => `change:${str}`).join(' ');
 };
+function chimeraRoll(template, attributes, rolls, callback) {
+    const x = Object.entries(attributes)
+        .map(([key, val]) => `{{${key}=${val}}}`)
+        .join(' ');
+    const r = Object.entries(rolls)
+        .map(([key, val]) => `{{${key}=[[${val}]]}}`)
+        .join(' ');
+    const rollstring = `&{template:${template}} ${x} ${r}`;
+    console.log(rollstring);
+    startRoll(rollstring, callback);
+}
+on(`clicked:repeating_basic-attacks:sendattack`, async (eventInfo) => {
+    console.log(eventInfo);
+    sendToChat('basicattack', eventInfo);
+});
+on(`clicked:repeating_basic-attacks:basicattack`, async (eventInfo) => {
+    rollAction('basicattack', eventInfo);
+});
+const checkForCritical = (dice) => {
+    return dice.every((die) => die === 1)
+        ? -1
+        : dice.every((die) => die >= 6 && die === dice.at(0))
+            ? 1
+            : 0;
+};
+const sendToChat = async (chat, eventInfo) => {
+    console.group('sendToChat > ', chat);
+    const id = RepeatingModule.getRepId(eventInfo.sourceAttribute);
+    console.groupEnd();
+};
+const rollAction = async (action, eventInfo) => {
+    const id = RepeatingModule.getRepId(eventInfo.sourceAttribute);
+    console.group('rollAction => ', action);
+    switch (action) {
+        case 'basicattack':
+            return rollBasicAttack(id);
+        case 'weaponattack':
+        case 'spellattack':
+            break;
+    }
+    console.groupEnd();
+};
+const rollBasicAttack = async (id) => {
+    const prefix = `repeating_basic-attacks_${id}_`;
+    const attributes = SEND_TO_CHAT['basicattack'].reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+    const request = Object.values(attributes);
+    getAttrs(request, (v) => {
+        console.log(v);
+        const att1 = v[prefix + 'attack_attr1'];
+        const att2 = v[prefix + 'attack_attr2'];
+        const att1_i18n = getTranslationByKey(att1) || att1;
+        const att2_i18n = getTranslationByKey(att2) || att2;
+        const hr_i18n = getTranslationByKey('hr') || 'HR';
+        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
+        const accuracy = +v[prefix + 'attack_accuracy_total'] ?? 0;
+        const damage = v[prefix + 'attack_damage_total'];
+        const action = getTranslationByKey('attack') || 'Attack';
+        const range = v[prefix + 'attack_range'];
+        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const damageRoll = `【 HR + ${damage} 】`;
+        chimeraRoll('fabula-attack', {
+            action: action,
+            character: `@{character_name}`,
+            name: v[prefix + 'attack_name'],
+            type: getTranslationByKey(v[prefix + 'attack_type']) || '',
+            special: v[prefix + 'attack_special'],
+            check: accuracyRoll,
+            hr: damageRoll,
+            [range]: range,
+        }, {
+            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
+            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
+            critical: '0',
+        }, ({ rollId, results }) => {
+            console.log('results');
+            console.log(results);
+            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
+            const critical = checkForCritical(results.roll.dice);
+            finishRoll(rollId, {
+                damage: hr + results.damage.result,
+                critical: critical,
+            });
+        });
+    });
+};
 class RepeatingModule {
     static isFieldsetEmpty(section, suffix = 'empty') {
         getSectionIDs(section, (id) => {
             setAttrs({ [`${section}_${suffix}`]: id.length });
         });
     }
-    getRepID(sourceAttribute) {
-        sourceAttribute.split('_').at(2);
+    static getRepId(sourceAttribute) {
+        return sourceAttribute.split('_').at(2);
     }
     static getAllAttrs(sectionDetails, getArray = [], callback) {
         const args = new Array(arguments.length);

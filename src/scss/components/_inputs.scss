@@ -118,7 +118,7 @@
   // }
 
   .fabula-check {
-    position: relative;
+    // position: relative;
     display: flex;
     gap: 4px;
 
@@ -132,7 +132,7 @@
     }
 
     input[value='0'] {
-      ~ .fabula-check__accuracy {
+      ~ .fabula-attr__accuracy {
         display: none;
       }
     }
@@ -140,6 +140,14 @@
 
   .fabula-diamond {
     @include mixins.text-base-400;
+  }
+
+  .send-to-chat {
+    aspect-ratio: 1;
+
+    span {
+      @include mixins.sr-only;
+    }
   }
 
   select {
@@ -158,4 +166,8 @@
       @include text-base-400;
     }
   }
+}
+
+.fabula-translation {
+  display: none;
 }

@@ -1,0 +1,22 @@
+mixin tags(tags)
+  each tag in tags
+    if (tag[0] === "^")
+      | {{#{ tag }}}
+    else
+      | {{##{ tag }}}
+  if block
+    block
+  each tag in tags.reverse()
+    if (tag[0] === "^")
+      - tag = tag.slice(1);
+      | {{/#{ tag }}}
+    else
+      | {{/#{ tag }}}
+
+mixin rollFunctions(functions)
+  each tag in functions
+    | {{##{ tag }}}
+  if block
+    block
+  each tag in functions.reverse()
+    | {{/#{ tag }}}

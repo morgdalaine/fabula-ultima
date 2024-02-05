@@ -9,13 +9,16 @@ mixin basic-attacks-view(spine)
           each field in spine.attacks.hidden
             +chimera-hidden(field)
 
-          each range in rangeOptions
-            +chimera-icon(range)(class=`basic-attack__range--${range.name}`)
+          +chimera-action({ name: 'basicattack' }).basic-attack__roll
+            each range in rangeOptions
+              +chimera-icon(range)(class=`basic-attack__range--${range.name}`)
+            +chimera-value(attack.name)
 
-          +chimera-value(attack.name)
-          +fabula-check(attack.check_1, attack.check_2, attack.accuracy_total, attack.damage_total)
+          .basic-attack__check
+            +fabula-check(attack.attr1, attack.attr2, attack.accuracy_total, attack.damage_total)
 
           +chimera-value(attack.type)
+
           +chimera-value(attack.special)
 
 mixin basic-attacks-edit(spine)

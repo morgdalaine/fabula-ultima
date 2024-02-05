@@ -147,58 +147,10 @@
         }
       }
 
-      position: relative;
-      display: flex;
-      cursor: pointer;
-
-      align-items: center;
-      justify-content: center;
-
-      width: var(--input-component-size);
-      height: var(--input-component-size);
-      aspect-ratio: 1;
-
-      color: var(--input-color);
-      background: transparent;
-
-      border: 2px solid var(--input-border-color);
-      border-radius: 4px;
-
-      &:active,
-      &:hover,
-      &:focus {
-        outline: transparent;
-      }
-      &:hover {
-        color: var(--button-color-hover);
-        border-color: var(--button-border-color-hover);
-        background-color: var(--button-background-color-hover);
-      }
-      &:focus {
-        color: var(--button-color-focus);
-        border-color: var(--button-border-color-focus);
-        background-color: var(--button-background-color-focus);
-      }
-      &:active {
-        color: var(--button-color-active);
-        box-shadow: var(--button-shadow-active);
-        background-color: var(--button-background-color-active);
-        border-color: var(--button-border-color-active);
-      }
-
-      img,
-      svg {
-        width: var(--icon-component-size);
-        height: var(--icon-component-size);
-        aspect-ratio: 1;
-        margin-left: 3px;
-
-        // filter: invert(0.5);
-        opacity: 0.5;
-      }
+      @include mixins.action-button;
 
       input[type='checkbox'] {
-        position: absolute;
+        // position: absolute;
         opacity: 0;
         width: 0;
         height: 0;
@@ -215,56 +167,9 @@
     }
 
     &__label {
-      position: relative;
-      display: flex;
-      cursor: pointer;
-
-      align-items: center;
-      justify-content: center;
-
-      width: var(--input-component-size);
-      height: var(--input-component-size);
-      aspect-ratio: 1;
-
-      color: var(--input-color);
-      background: transparent;
-
-      border: 2px solid var(--input-border-color);
-      border-radius: 4px;
-
       @include mixins.text-base-400;
 
-      &:active,
-      &:hover,
-      &:focus {
-        outline: transparent;
-      }
-      &:hover {
-        color: var(--button-color-hover);
-        border-color: var(--button-border-color-hover);
-        background-color: var(--button-background-color-hover);
-      }
-      &:focus {
-        color: var(--button-color-focus);
-        border-color: var(--button-border-color-focus);
-        background-color: var(--button-background-color-focus);
-      }
-      &:active {
-        color: var(--button-color-active);
-        box-shadow: var(--button-shadow-active);
-        background-color: var(--button-background-color-active);
-        border-color: var(--button-border-color-active);
-      }
-
-      img,
-      svg {
-        width: var(--icon-component-size);
-        height: var(--icon-component-size);
-        aspect-ratio: 1;
-
-        // filter: invert(0.5);
-        opacity: 0.5;
-      }
+      @include mixins.action-button;
 
       &:has(:checked) {
         background: var(--input-background-color-active);
@@ -276,7 +181,7 @@
       }
 
       input[type='radio'] {
-        position: absolute;
+        // position: absolute;
         opacity: 0;
         width: 0;
         height: 0;
@@ -311,54 +216,7 @@
     &__add,
     &__subtract,
     &__button {
-      position: relative;
-      display: flex;
-      cursor: pointer;
-
-      align-items: center;
-      justify-content: center;
-
-      width: var(--input-component-size);
-      height: var(--input-component-size);
-      aspect-ratio: 1;
-
-      color: var(--input-color);
-      background: transparent;
-
-      border: 2px solid var(--input-border-color);
-      border-radius: 4px;
-
-      &:active,
-      &:hover,
-      &:focus {
-        outline: transparent;
-      }
-      &:hover {
-        color: var(--button-color-hover);
-        border-color: var(--button-border-color-hover);
-        background-color: var(--button-background-color-hover);
-      }
-      &:focus {
-        color: var(--button-color-focus);
-        border-color: var(--button-border-color-focus);
-        background-color: var(--button-background-color-focus);
-      }
-      &:active {
-        color: var(--button-color-active);
-        box-shadow: var(--button-shadow-active);
-        background-color: var(--button-background-color-active);
-        border-color: var(--button-border-color-active);
-      }
-
-      img,
-      svg {
-        width: var(--icon-component-size);
-        height: var(--icon-component-size);
-        aspect-ratio: 1;
-
-        // filter: invert(0.5);
-        opacity: 0.5;
-      }
+      @include mixins.action-button;
     }
   }
 
@@ -387,6 +245,20 @@
     }
     &__empty-subtitle {
       @include mixins.text-sm-400;
+    }
+  }
+
+  .chimera-action {
+    @include mixins.action-button;
+    padding-inline: 4px;
+    gap: 4px;
+
+    width: fit-content;
+    aspect-ratio: auto;
+
+    img,
+    svg {
+      opacity: 1;
     }
   }
 }

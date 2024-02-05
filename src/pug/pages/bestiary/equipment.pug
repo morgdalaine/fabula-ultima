@@ -10,7 +10,7 @@ mixin equipment-view(spine)
             - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
             +chimera-value(weapon.name)
             +fabula-diamond
-            +fabula-check(weapon.check_1, weapon.check_2, weapon.accuracy, weapon.damage)
+            +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy, weapon.damage)
             +fabula-diamond
             +chimera-value(weapon.type)
             +fabula-diamond

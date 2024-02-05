@@ -4,7 +4,10 @@
 @use '../common/fonts' as fonts;
 
 :root,
-html {
+html,
+.sheet-rolltemplate-fabula-attack {
+  --container-background: #{colors.$white};
+
   --background: #{colors.$background};
   --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
     rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
@@ -20,9 +23,9 @@ html {
   --button-border-color-focus: #{rgb(colors.$indigo, 0.1)};
   --button-border-color-hover: #{colors.$indigo-d40};
 
-  --button-color: #{colors.$indigo-d40};
-  --button-color-active: #{colors.$black};
-  --button-color-focus: #{colors.$black};
+  --button-color: #{colors.$black};
+  --button-color-active: #{colors.$indigo-d40};
+  --button-color-focus: #{colors.$indigo-d40};
   --button-color-hover: #{colors.$indigo-d40};
 
   --button-component-size: #{$component-size-base};
@@ -75,7 +78,7 @@ html {
   --input-border-color-focus: #{colors.$indigo-d40};
   --input-border-color-hover: #{rgb(colors.$indigo, 0.1)};
 
-  --input-color: #{colors.$indigo-d40};
+  --input-color: #{colors.$black};
   --input-color-active: #{colors.$black};
   --input-color-focus: #{colors.$black};
   --input-color-hover: #{colors.$indigo-d40};
@@ -88,15 +91,4 @@ html {
 
   --surface-container-lowest: #{colors.$surface-container-lowest};
   --tertiary-gradient-light: #{linear-gradient(90deg, colors.$light-green-d40 0%, transparent 100%)};
-
-  // --button-background-color-disabled: #{rgb($green-light, 0.1)};
-  // --button-background: #{rgb($green-light, 0.5)};
-  // --button-border-color-disabled: #{gray};
-  // --button-color-disabled: #{gray};
-  // --input-background-color-disabled: #{rgb($green-light, 0.1)};
-  // --input-background: #{rgb($green-light, 0.5)};
-  // --input-border-color-disabled: #{gray};
-  // --input-color-disabled: #{gray};
-  // Fonts
-  // Inputs
 }

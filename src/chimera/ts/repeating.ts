@@ -20,8 +20,8 @@ class RepeatingModule {
     });
   }
 
-  private getRepID(sourceAttribute: string) {
-    sourceAttribute.split('_').at(2);
+  static getRepId(sourceAttribute: string) {
+    return sourceAttribute.split('_').at(2);
   }
 
   // /**

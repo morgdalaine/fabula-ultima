@@ -19,6 +19,8 @@
 @use 'themes/darkmode';
 @use 'themes/default';
 
+@use 'templates/rolltemplate';
+
 @forward '../chimera/scss/chimera';
 @forward 'common/mixins';
 @forward 'common/vars';

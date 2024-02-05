@@ -1,0 +1,38 @@
+rolltemplate.sheet-rolltemplate-fabula-attack
+  .sheet-roll
+    .sheet-roll-header
+      .sheet-character
+        span {{ character }}
+      .sheet-roll-type
+        span {{ action }}
+
+    +rollFunctions([`^rollTotal() computed::critical 0`])
+      .sheet-special
+        +rollFunctions([`rollGreater() computed::critical 0`])
+          span.sheet-fabula-important(data-i18n='is_critical') Critical Success!
+        +rollFunctions([`rollLess() computed::critical 0`])
+          span.sheet-fabula-important(data-i18n='is_fumble') Critical Fumble!
+
+    .sheet-header
+      +tags(['melee'])
+        img(src=assets.melee.src)
+      +tags(['distance'])
+        img(src=assets.distance.src)
+      +tags(['spell'])
+        img(src=assets.spell.src)
+
+      span.sheet-fabula-label {{ name }}
+
+    .sheet-action
+      div
+        span.sheet-fabula-label {{ check }}
+        span.sheet-fabula-span {{ roll }}
+
+      div
+        span.span.sheet-fabula-label {{ hr }}
+        span.sheet-fabula-span {{ computed::damage }}
+        span.sheet-fabula-span ⬥
+        span.sheet-fabula-span {{ type }}
+
+    .sheet-footer
+      span.sheet-fabula-span {{ special }}

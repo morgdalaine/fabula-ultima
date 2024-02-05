@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Antonio:300:400:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Antonio:400:500:700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300:400:700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=PT+Serif:400:700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400:700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;700&display=swap");
 html {
   box-sizing: border-box;
   font-size: 12px;
@@ -125,7 +127,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--delete {
   display: grid !important;
   left: var(--button-component-size);
-  position: relative;
   width: calc(100% - 2 * var(--button-component-size));
 }
 .ui-dialog .charsheet .repcontainer.editmode .chimera-repeater--view,
@@ -142,7 +143,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-color: transparent;
 }
 .ui-dialog .charsheet .repcontrol_add, .ui-dialog .charsheet .repcontrol_edit, .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
-  position: relative;
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -197,7 +197,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_del, .ui-dialog .charsheet .repcontrol_move {
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -272,7 +271,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: grid;
 }
 .chimera-repeater__edit, .chimera-repeater__content {
-  position: relative;
   padding: 8px;
 }
 .chimera-repeater__delete {
@@ -471,11 +469,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
-  margin-left: 3px;
   opacity: 0.5;
 }
 .fabula-ultima .chimera-checkbox__field input[type=checkbox] {
-  position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
@@ -487,6 +483,11 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   justify-content: center;
 }
 .fabula-ultima .chimera-switch__label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
   position: relative;
   display: flex;
   cursor: pointer;
@@ -499,11 +500,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background: transparent;
   border: 2px solid var(--input-border-color);
   border-radius: 4px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 .fabula-ultima .chimera-switch__label:active, .fabula-ultima .chimera-switch__label:hover, .fabula-ultima .chimera-switch__label:focus {
   outline: transparent;
@@ -540,7 +536,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   opacity: 1;
 }
 .fabula-ultima .chimera-switch__label input[type=radio] {
-  position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
@@ -552,7 +547,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
   width: 1px;
 }
 .fabula-ultima .chimera-container--shadow {
@@ -651,6 +645,55 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+.fabula-ultima .chimera-action {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
+  aspect-ratio: 1;
+  color: var(--input-color);
+  background: transparent;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+  padding-inline: 4px;
+  gap: 4px;
+  width: -moz-fit-content;
+  width: fit-content;
+  aspect-ratio: auto;
+}
+.fabula-ultima .chimera-action:active, .fabula-ultima .chimera-action:hover, .fabula-ultima .chimera-action:focus {
+  outline: transparent;
+}
+.fabula-ultima .chimera-action:hover {
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.fabula-ultima .chimera-action:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.fabula-ultima .chimera-action:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
+}
+.fabula-ultima .chimera-action img,
+.fabula-ultima .chimera-action svg {
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
+  aspect-ratio: 1;
+  opacity: 0.5;
+}
+.fabula-ultima .chimera-action img,
+.fabula-ultima .chimera-action svg {
+  opacity: 1;
 }
 
 .fabula-ultima input[type=number],
@@ -770,7 +813,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   content: "—";
 }
 .fabula-ultima .fabula-check {
-  position: relative;
   display: flex;
   gap: 4px;
 }
@@ -782,7 +824,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   content: "】";
   line-height: 160%;
 }
-.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__accuracy {
+.fabula-ultima .fabula-check input[value="0"] ~ .fabula-attr__accuracy {
   display: none;
 }
 .fabula-ultima .fabula-diamond {
@@ -791,6 +833,18 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+.fabula-ultima .send-to-chat {
+  aspect-ratio: 1;
+}
+.fabula-ultima .send-to-chat span {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
 }
 .fabula-ultima select {
   align-self: normal;
@@ -803,6 +857,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+
+.fabula-translation {
+  display: none;
 }
 
 div#tab-content.tab-content .attributesabilities {
@@ -928,16 +986,17 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=melee] ~ .basic-attack__range--melee {
+.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=melee] ~ * .basic-attack__range--melee {
   display: block;
 }
-.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=distance] ~ .basic-attack__range--distance {
+.fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=distance] ~ * .basic-attack__range--distance {
   display: block;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+  grid-template-columns: 1fr auto 0.5fr;
   gap: 4px;
+  align-items: center;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack .fabula-check span {
   font-family: var(--font-body);
@@ -948,7 +1007,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--melee, .fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--distance {
   display: none;
-  grid-row: span 2;
+}
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__check {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__name .chimera-value__value, .fabula-ultima .bestiary .basic-attacks--view .basic-attack__type .chimera-value__value {
   font-family: var(--font-body);
@@ -956,6 +1019,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+}
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__type {
+  text-align: end;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__special {
   grid-column: span 5;
@@ -1077,13 +1143,13 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: repeat(5, auto);
   gap: 4px;
 }
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_1,
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__check_2,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr1,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr2,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__accuracy,
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_1,
-.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__check_2,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr1,
+.fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr2,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
 .fabula-ultima .bestiary .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__accuracy {
@@ -1098,7 +1164,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .spells--edit .spell__offensive {
   grid-column-start: -2;
 }
-.fabula-ultima .bestiary .spells--edit .spell__check_1, .fabula-ultima .bestiary .spells--edit .spell__check_2, .fabula-ultima .bestiary .spells--edit .spell__accuracy, .fabula-ultima .bestiary .spells--edit .spell__damage, .fabula-ultima .bestiary .spells--edit .spell__type {
+.fabula-ultima .bestiary .spells--edit .spell__attr1, .fabula-ultima .bestiary .spells--edit .spell__attr2, .fabula-ultima .bestiary .spells--edit .spell__accuracy, .fabula-ultima .bestiary .spells--edit .spell__damage, .fabula-ultima .bestiary .spells--edit .spell__type {
   grid-row: 2;
 }
 .fabula-ultima .bestiary .spells--edit .spell__target, .fabula-ultima .bestiary .spells--edit .spell__duration {
@@ -1873,7 +1939,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
   padding-inline: 4px;
 }
-.fabula-ultima .bestiary .points--view input[name*=villain][value="0"] ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain]:not([value]) ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain][value=""] ~ .points__ultima {
+.fabula-ultima .bestiary .points--view input[name*=villain][value=""] ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain][value="0"] ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain][value=none] ~ .points__ultima, .fabula-ultima .bestiary .points--view input[name*=villain]:not([value]) ~ .points__ultima {
   display: none;
 }
 .fabula-ultima .bestiary .points--view .points__ultima {
@@ -2137,7 +2203,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
   width: 1px;
 }
 .fabula-ultima .bestiary--view .statistics .affinity--cell input:not([value]) + img,
@@ -2284,7 +2349,9 @@ html .sheet-darkmode {
 }
 
 :root,
-html {
+html,
+.sheet-rolltemplate-fabula-attack {
+  --container-background: #fff;
   --background: #e2f3ee;
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
   --button-background-color: rgba(26, 35, 126, 0.2);
@@ -2295,9 +2362,9 @@ html {
   --button-border-color-active: #1a237e;
   --button-border-color-focus: rgba(63, 81, 181, 0.1);
   --button-border-color-hover: #1a237e;
-  --button-color: #1a237e;
-  --button-color-active: #000;
-  --button-color-focus: #000;
+  --button-color: #1f1f1f;
+  --button-color-active: #1a237e;
+  --button-color-focus: #1a237e;
   --button-color-hover: #1a237e;
   --button-component-size: 2.5rem;
   --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
@@ -2330,15 +2397,142 @@ html {
   --input-border-color-active: #1a237e;
   --input-border-color-focus: #1a237e;
   --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1a237e;
-  --input-color-active: #000;
-  --input-color-focus: #000;
+  --input-color: #1f1f1f;
+  --input-color-active: #1f1f1f;
+  --input-color-focus: #1f1f1f;
   --input-color-hover: #1a237e;
   --input-component-size: 2.5rem;
   --nav-color-focus: #674168;
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --surface-container-lowest: #ffffff;
   --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
+}
+
+.sheet-rolltemplate-fabula-attack .inlinerollresult {
+  display: block;
+  text-align: center;
+  padding: 2px;
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
+  color: black;
+  border: none;
+  border-radius: 4px;
+  min-height: 24px;
+  aspect-ratio: 1;
+}
+.sheet-rolltemplate-fabula-attack .inlinerollresult.fullcrit, .sheet-rolltemplate-fabula-attack .inlinerollresult.fullfail, .sheet-rolltemplate-fabula-attack .inlinerollresult.importantroll {
+  border: none;
+}
+.sheet-rolltemplate-fabula-attack .sheet-roll {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: var(--container-background);
+  max-width: 500px;
+  box-shadow: var(--box-shadow-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.sheet-rolltemplate-fabula-attack .sheet-roll-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+}
+.sheet-rolltemplate-fabula-attack .sheet-character {
+  background-image: var(--fabula-gradient-primary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.sheet-rolltemplate-fabula-attack .sheet-character span {
+  font-family: var(--font-title);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.sheet-rolltemplate-fabula-attack .sheet-roll-type {
+  display: flex;
+  gap: 4px;
+  padding: 4px 16px;
+  border-left: 2px solid var(--color-fabula2);
+  border-bottom: 2px solid var(--color-fabula2);
+  -o-border-image: var(--fabula-gradient-secondary-border);
+     border-image: var(--fabula-gradient-secondary-border);
+}
+.sheet-rolltemplate-fabula-attack .sheet-roll-type span {
+  font-family: var(--font-title);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sheet-rolltemplate-fabula-attack .sheet-header {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  align-items: center;
+}
+.sheet-rolltemplate-fabula-attack .sheet-footer {
+  display: grid;
+  gap: 4px;
+  padding: 4px;
+  align-items: center;
+}
+.sheet-rolltemplate-fabula-attack .sheet-footer:has(span:empty) {
+  display: none;
+}
+.sheet-rolltemplate-fabula-attack .sheet-action {
+  padding: 4px;
+  border-top: 1px solid var(--color-fabula2);
+  border-bottom: 1px solid var(--color-fabula2);
+  -o-border-image: var(--fabula-gradient-primary-border);
+     border-image: var(--fabula-gradient-primary-border);
+}
+.sheet-rolltemplate-fabula-attack .sheet-action div {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+.sheet-rolltemplate-fabula-attack .sheet-description {
+  padding: 4px;
+}
+.sheet-rolltemplate-fabula-attack .sheet-special {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline: 16px;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-span {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-important {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  text-transform: uppercase;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-diamond {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 html .character,

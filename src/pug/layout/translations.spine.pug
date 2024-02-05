@@ -1,0 +1,12 @@
+-
+  // translations
+  const TRANSLATIONS = {
+    'damage': 'Damage',
+    'dmg': 'DMG',
+    'HR': 'HR',
+    'high_roll': 'HR',
+    'action': 'Action'
+  };
+
+each word in Object.keys(TRANSLATIONS)
+  span.fabula-translation(data-i18n=word)= TRANSLATIONS[word]

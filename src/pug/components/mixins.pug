@@ -5,18 +5,23 @@ mixin fabula-check(att1, att2, accuracy, damage)
     +chimera-span(att2)
     if accuracy
       +chimera-hidden(accuracy.name, 0)
-      span.fabula-check__accuracy +
-      +chimera-span(accuracy).fabula-check__accuracy
+      span.fabula-attr__accuracy +
+      +chimera-span(accuracy).fabula-attr__accuracy
 
   if damage
     +fabula-diamond
     .fabula-check
       span(data-i18n='hr') HR
       span +
-      +chimera-span(damage).fabula-check__damage
+      +chimera-span(damage).fabula-attr__damage
 
 mixin fabula-diamond(modifiers=[])
   -
     const css = modifiers.length ?
       Object.assign([], modifiers).map((mod) => `fabula-diamond--${mod}`).join(' ') : ``;
   span.fabula-diamond(class=css) ⬥
+
+mixin send-to-chat(attr)
+  +chimera-action({ title: 'Send to Chat', name:`${attr}` }).send-to-chat
+    +chimera-icon({ icon: 'chat' })
+    span(data-i18n='send_to_chat') Send to Chat
