@@ -9,7 +9,7 @@ mixin basic-attacks-view(spine)
           each field in spine.attacks.hidden
             +chimera-hidden(field)
 
-          +chimera-action({ name: 'basicattack' }).basic-attack__roll
+          +chimera-action({ name: 'basicattack', title: 'Basic Attack' }).basic-attack__roll
             each range in rangeOptions
               +chimera-icon(range)(class=`basic-attack__range--${range.name}`)
             +chimera-value(attack.name)

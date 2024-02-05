@@ -29,12 +29,12 @@
     &--view {
       input[name*='weapon_range'] {
         &[value='melee'] {
-          ~ .weapon__range--melee {
+          ~ * .weapon__range--melee {
             display: block;
           }
         }
         &[value='distance'] {
-          ~ .weapon__range--distance {
+          ~ * .weapon__range--distance {
             display: block;
           }
         }
@@ -42,8 +42,10 @@
 
       .weapon {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+        grid-template-columns: 1fr repeat(4, auto) var(--button-component-size);
         gap: 4px;
+
+        align-items: center;
 
         .fabula-check span {
           @include mixins.text-lg-700;
@@ -61,6 +63,15 @@
           display: flex;
           gap: 4px;
           @include mixins.text-lg-700;
+
+          &:has([name*='attack_name']:empty) {
+            .weapon__attack_name {
+              display: none;
+            }
+            .weapon__name {
+              display: inline;
+            }
+          }
         }
 
         &__type {
@@ -72,17 +83,12 @@
         }
 
         &__name {
-          @include mixins.text-lg-400;
-          &::before {
-            content: '(';
-          }
-          &::after {
-            content: ')';
-          }
+          display: none;
         }
 
         &__special {
-          grid-column: 2 / span 4;
+          grid-column: 1/-1;
+          // grid-column: 2 / span 4;
           @include mixins.text-lg-400;
         }
       }

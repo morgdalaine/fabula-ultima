@@ -328,7 +328,7 @@
                               <input class="chimera-hidden" name="attr_attack_range" type="hidden"/>
                               <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden"/>
                               <input class="chimera-hidden" name="attr_attack_damage_total" type="hidden"/>
-                              <button class="chimera-action basic-attack__roll" data-i18n-title="basicattack" name="act_basicattack" type="action"><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
+                              <button class="chimera-action basic-attack__roll" data-i18n-title="basicattack" name="act_basicattack" title="Basic Attack" type="action"><img class="basic-attack__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="basic-attack__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
                                 <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
                                 </div>
                               </button>
@@ -364,9 +364,11 @@
                           </div>
                           <div class="chimera-repeater--view weapons--view">
                             <div class="weapon">
-                              <input class="chimera-hidden" name="attr_weapon_range" type="hidden"/><img class="weapon__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="weapon__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
-                              <div class="weapon__attack"><span name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
-                              </div>
+                              <input class="chimera-hidden" name="attr_weapon_range" type="hidden"/>
+                              <button class="chimera-action weapon__roll" data-i18n-title="weaponattack" name="act_weaponattack" title="Weapon Attack" type="action"><img class="weapon__range--melee" data-i18n-title="melee_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg" title="Melee"/><img class="weapon__range--distance" data-i18n-title="distance_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg" title="Distance"/>
+                                <div class="weapon__attack"><span class="weapon__attack_name" name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
+                                </div>
+                              </button>
                               <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
                                 <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
                               </div><span class="fabula-diamond">⬥</span>
@@ -374,6 +376,8 @@
                               </div>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="weapon-chat" name="act_weapon-chat" title="Send weapon info to chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                               <div class="chimera-value weapon__special"><span class="chimera-value__value" name="attr_weapon_special"></span>
                               </div>
                             </div>

@@ -1024,7 +1024,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-align: end;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__special {
-  grid-column: span 5;
+  grid-column: 1/-1;
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -1214,16 +1214,17 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=melee] ~ .weapon__range--melee {
+.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=melee] ~ * .weapon__range--melee {
   display: block;
 }
-.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=distance] ~ .weapon__range--distance {
+.fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=distance] ~ * .weapon__range--distance {
   display: block;
 }
 .fabula-ultima .bestiary .weapons--view .weapon {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr repeat(4, auto);
+  grid-template-columns: 1fr repeat(4, auto) var(--button-component-size);
   gap: 4px;
+  align-items: center;
 }
 .fabula-ultima .bestiary .weapons--view .weapon .fabula-check span {
   font-family: var(--font-body);
@@ -1245,6 +1246,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
+.fabula-ultima .bestiary .weapons--view .weapon__attack:has([name*=attack_name]:empty) .weapon__attack_name {
+  display: none;
+}
+.fabula-ultima .bestiary .weapons--view .weapon__attack:has([name*=attack_name]:empty) .weapon__name {
+  display: inline;
+}
 .fabula-ultima .bestiary .weapons--view .weapon__type .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -1253,20 +1260,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
 }
 .fabula-ultima .bestiary .weapons--view .weapon__name {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .bestiary .weapons--view .weapon__name::before {
-  content: "(";
-}
-.fabula-ultima .bestiary .weapons--view .weapon__name::after {
-  content: ")";
+  display: none;
 }
 .fabula-ultima .bestiary .weapons--view .weapon__special {
-  grid-column: 2/span 4;
+  grid-column: 1/-1;
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
