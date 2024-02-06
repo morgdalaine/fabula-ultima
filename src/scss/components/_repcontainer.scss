@@ -20,7 +20,7 @@
       .chimera-repeater--delete {
         display: grid !important;
         left: var(--button-component-size);
-        // position: relative;
+        position: relative;
         width: calc(100% - 2 * var(--button-component-size));
       }
       .chimera-repeater--view,
@@ -56,7 +56,7 @@
     &_edit,
     &_del,
     &_move {
-      // position: relative;
+      position: relative;
       display: flex;
       cursor: pointer;
       align-items: center;
@@ -128,7 +128,7 @@
 
     &_del,
     &_move {
-      // position: absolute;
+      position: absolute;
       top: 50%;
       transform: translateY(-50%);
     }

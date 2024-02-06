@@ -12,6 +12,5 @@ function chimeraRoll<T extends string>(
     .map(([key, val]) => `{{${key}=[[${val}]]}}`)
     .join(' ');
   const rollstring = `&{template:${template}} ${x} ${r}`;
-  console.log(rollstring);
   startRoll(rollstring, callback);
 }

@@ -17,11 +17,12 @@ mixin weapons-view(spine)
               +chimera-span(weapon.attack_name).weapon__attack_name
               +chimera-span(weapon.name).weapon__name
 
-          +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy_total, weapon.damage_total)
+          .weapon__check
+            +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy_total, weapon.damage_total)
 
           +chimera-value(weapon.type)
 
-          +send-to-chat('weapon', 'Send weapon info to chat')
+          //- +send-to-chat('weapon', 'Send weapon info to chat')
 
           +chimera-value(weapon.special)
 

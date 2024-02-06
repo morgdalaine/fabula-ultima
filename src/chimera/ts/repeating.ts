@@ -21,7 +21,7 @@ class RepeatingModule {
   }
 
   static getRepId(sourceAttribute: string) {
-    return sourceAttribute.split('_').at(2);
+    return sourceAttribute?.split('_').at(2);
   }
 
   // /**

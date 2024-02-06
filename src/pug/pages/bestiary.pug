@@ -25,6 +25,7 @@ mixin bestiary-view(spine)
 
       +defenses-view(spine)
 
+      //- TODO A11Y "DARK VULNERABILITY DAMAGE DOUBLED"
       .affinities
         each field in spine.affinities.fields
           .affinity--cell(class=`affinity--${field.name}`)

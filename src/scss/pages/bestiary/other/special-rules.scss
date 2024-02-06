@@ -23,8 +23,9 @@
 
     &--view {
       .special-rule {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr var(--button-component-size);
+        align-items: center;
         gap: 4px;
 
         &__name {
@@ -37,6 +38,7 @@
 
         &__special,
         &__effect {
+          grid-column: 1/-1;
           @include mixins.text-lg-400;
         }
       }

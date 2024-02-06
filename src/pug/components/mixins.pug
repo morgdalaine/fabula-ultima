@@ -23,6 +23,6 @@ mixin fabula-diamond(modifiers=[])
 
 mixin send-to-chat(attr, title)
   - const buttonTitle = title ?? 'Send to Chat';
-  +chimera-action({ title: buttonTitle, name:`${attr}-chat` }).send-to-chat
+  +chimera-action({ title: buttonTitle, name:`${attr}chat` }).send-to-chat
     +chimera-icon({ icon: 'chat' })
     span(data-i18n='send_to_chat') Send to Chat

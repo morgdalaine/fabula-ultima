@@ -15,6 +15,7 @@ mixin equipment-view(spine)
             +chimera-value(weapon.type)
             +fabula-diamond
             +chimera-value(weapon.cost)
+            +send-to-chat('weapon')
 
       +chimera-hidden('armor_name').chimera-repeater--empty-hide-next
       .equipment__armor
@@ -31,6 +32,7 @@ mixin equipment-view(spine)
         +chimera-value(armor.initiative)
         +fabula-diamond
         +chimera-value(armor.cost)
+        +send-to-chat('armor')
 
       +chimera-hidden('shield_name').chimera-repeater--empty-hide-next
       .equipment__shield
@@ -46,6 +48,7 @@ mixin equipment-view(spine)
         +chimera-value(shield.initiative)
         +fabula-diamond
         +chimera-value(shield.cost)
+        +send-to-chat('shield')
 
 mixin armor-edit(spine)
   .armor--edit

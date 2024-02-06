@@ -1,16 +1,21 @@
+mixin rollheader
+  .sheet-roll-header
+    +tags(['avatar'])
+      .sheet-avatar [avatar]({{ avatar }})
+    .sheet-character
+      span {{ character }}
+    .sheet-roll-type
+      span {{ action }}
+
 rolltemplate.sheet-rolltemplate-fabula-attack
   .sheet-roll
-    .sheet-roll-header
-      .sheet-character
-        span {{ character }}
-      .sheet-roll-type
-        span {{ action }}
-
+    +rollheader
     +rollFunctions([`^rollTotal() computed::critical 0`])
-      .sheet-special
-        +rollFunctions([`rollGreater() computed::critical 0`])
+      +rollFunctions([`rollGreater() computed::critical 0`])
+        .sheet-critical-success
           span.sheet-fabula-important(data-i18n='is_critical') Critical Success!
-        +rollFunctions([`rollLess() computed::critical 0`])
+      +rollFunctions([`rollLess() computed::critical 0`])
+        .sheet-critical-fumble
           span.sheet-fabula-important(data-i18n='is_fumble') Critical Fumble!
 
     .sheet-header
@@ -23,16 +28,89 @@ rolltemplate.sheet-rolltemplate-fabula-attack
 
       span.sheet-fabula-label {{ name }}
 
-    .sheet-action
-      div
-        span.sheet-fabula-label {{ check }}
-        span.sheet-fabula-span {{ roll }}
+    +tags(['^noaction'])
+      .sheet-action
+        div
+          span.sheet-fabula-label {{ check }}
+          span.sheet-fabula-span {{ roll }}
 
-      div
-        span.span.sheet-fabula-label {{ hr }}
-        span.sheet-fabula-span {{ computed::damage }}
-        span.sheet-fabula-span ⬥
-        span.sheet-fabula-span {{ type }}
+        div
+          span.span.sheet-fabula-label {{ hr }}
+          span.sheet-fabula-span {{ computed::damage }}
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ type }}
 
-    .sheet-footer
-      span.sheet-fabula-span {{ special }}
+    .sheet-details
+      +tags(['mp'])
+        div
+          span.sheet-fabula-span {{ mp }}
+          span.sheet-fabula-label(data-i18n='mp') MP
+      +tags(['target'])
+        div
+          span.sheet-fabula-label(data-i18n='target') Target
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ target }}
+      +tags(['duration'])
+        div
+          span.sheet-fabula-label(data-i18n='duration') Duration
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ duration }}
+
+      +tags(['special'])
+        span.sheet-fabula-span {{ special }}
+
+rolltemplate.sheet-rolltemplate-fabula-chat
+  .sheet-roll
+    +rollheader
+
+    .sheet-header
+      +tags(['melee'])
+        img(src=assets.melee.src)
+      +tags(['distance'])
+        img(src=assets.distance.src)
+      +tags(['spell'])
+        img(src=assets.spell.src)
+
+      span.sheet-fabula-label {{ name }}
+      +tags(['martial'])
+        span.sheet-fabula-diamond ✦
+
+    .sheet-details
+      +tags(['accuracy'])
+        div
+          span.sheet-fabula-label {{ accuracy }}
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-label {{ damage }}
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ type }}
+      +tags(['category', 'hands'])
+        div
+          span.sheet-fabula-span {{ category }}
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span(data-i18n='{{ hands }}-handed')
+      +tags(['def'])
+        div
+          span.sheet-fabula-label(data-i18n='defense_full') Defense
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ def }}
+      +tags(['mdef'])
+        div
+          span.sheet-fabula-label(data-i18n='mdefense_full') M. Defense
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ mdef }}
+      +tags(['init'])
+        div
+          span.sheet-fabula-label(data-i18n='init') Init.
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ init }}
+      +tags(['cost'])
+        div
+          span.sheet-fabula-label(data-i18n='cost') Cost
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ cost }}
+
+      +tags(['effect'])
+        span.sheet-fabula-span {{ effect }}
+
+      +tags(['special'])
+        span.sheet-fabula-span {{ special }}

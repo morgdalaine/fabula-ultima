@@ -1,7 +1,8 @@
 @use '../common/vars' as *;
 @use '../common/vars' as mixins;
 
-.sheet-rolltemplate-fabula-attack {
+.sheet-rolltemplate-fabula-attack,
+.sheet-rolltemplate-fabula-chat {
   .inlinerollresult {
     display: block;
     text-align: center;
@@ -28,7 +29,7 @@
       flex-direction: column;
       gap: 4px;
 
-      background-color: var(--container-background);
+      background-color: var(--surface-background);
 
       max-width: 500px;
 
@@ -37,16 +38,25 @@
       overflow: hidden;
 
       &-header {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto 1fr;
+        display: flex;
+
+        background-image: var(--fabula-gradient-primary);
+        color: var(--color-on-dark);
+      }
+    }
+    &-avatar {
+      object-fit: cover;
+      max-width: 36px;
+
+      img {
+        max-height: 36px;
+        border-top-left-radius: 4px;
+        border: 2px solid var(--color-fabula1);
       }
     }
     &-character {
-      background-image: var(--fabula-gradient-primary);
-      color: var(--color-on-dark);
-      padding-left: 16px;
-      padding-right: 16px;
+      flex: 1;
+      padding-inline: 16px;
 
       span {
         font-family: var(--font-title);
@@ -58,11 +68,14 @@
       }
     }
     &-roll-type {
-      display: flex;
-      gap: 4px;
+      padding: 8px;
+      align-self: center;
 
-      padding: 4px 16px;
-      border-left: 2px solid var(--color-fabula2);
+      border-top-right-radius: 4px;
+
+      background-color: var(--surface-background);
+      color: var(--text-color);
+
       border-bottom: 2px solid var(--color-fabula2);
       border-image: var(--fabula-gradient-secondary-border);
 
@@ -82,39 +95,42 @@
       padding: 4px;
       align-items: center;
     }
-    &-footer {
+    &-action,
+    &-details {
       display: grid;
       gap: 4px;
-      padding: 4px;
-      align-items: center;
 
-      // border-top: 1px solid var(--color-fabula2);
-      // border-image: var(--fabula-gradient-primary-border);
-
-      &:has(span:empty) {
-        display: none;
-      }
-    }
-    &-action {
       padding: 4px;
 
       border-top: 1px solid var(--color-fabula2);
-      border-bottom: 1px solid var(--color-fabula2);
       border-image: var(--fabula-gradient-primary-border);
 
       div {
         display: flex;
         flex-direction: row;
-        gap: 4px;
+        gap: 2px;
         align-items: center;
       }
+
+      span.sheet-fabula-label,
+      span.sheet-fabula-span {
+        font-size: 14px;
+      }
     }
-    &-description {
-      padding: 4px;
+    &-details {
+      &:not(:has(span)) {
+        display: none;
+      }
     }
-    &-special {
-      background-image: var(--fabula-gradient-secondary);
+
+    &-critical-success {
       color: var(--color-on-dark);
+      background-image: var(--fabula-gradient-success);
+      padding-inline: 16px;
+    }
+    &-critical-fumble {
+      color: var(--color-on-dark);
+      background-image: var(--fabula-gradient-fumble);
       padding-inline: 16px;
     }
   }
@@ -125,9 +141,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
-    // &::after {
-    //   content: ':';
-    // }
   }
   span.sheet-fabula-span {
     font-family: var(--font-body);
@@ -146,7 +159,7 @@
   }
   span.sheet-fabula-diamond {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;

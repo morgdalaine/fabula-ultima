@@ -8,6 +8,9 @@ mixin other-actions-view(spine)
           - const action = fieldDictionary(spine.actions.view, 'action');
           +chimera-icon({ icon: 'cog' }).other-action__icon
           +chimera-value(action.name)
+
+          +send-to-chat('otheraction')
+
           +chimera-value(action.effect)
 
 mixin other-actions-edit(spine)

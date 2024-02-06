@@ -5,8 +5,9 @@
 
 :root,
 html,
-.sheet-rolltemplate-fabula-attack {
-  --container-background: #{colors.$white};
+.sheet-rolltemplate-fabula-attack,
+.sheet-rolltemplate-fabula-chat {
+  --surface-background: #{colors.$white};
 
   --background: #{colors.$background};
   --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
@@ -52,6 +53,9 @@ html,
     1};
   --fabula-gradient-dark-border: #{linear-gradient(90deg, colors.$fabula5, colors.$fabula4) 1};
 
+  --fabula-gradient-success: #{linear-gradient(90deg, colors.$success-gold 40%, colors.$white 100%)};
+  --fabula-gradient-fumble: #{linear-gradient(90deg, colors.$fumble-red 40%, colors.$white 100%)};
+
   --color-fabula0: #{colors.$fabula0};
   --color-fabula1: #{colors.$fabula1};
   --color-fabula2: #{colors.$fabula2};
@@ -66,6 +70,7 @@ html,
   --icon-component-size: #{$component-size-xs};
 
   --color-on-dark: #{colors.$surface};
+  --text-color: #{colors.$black};
 
   // Inputs
   --input-background-color: #{rgb(colors.$indigo-d40, 0.2)};

@@ -3,22 +3,15 @@ mixin spells-view(spine)
   .spells
     h2.spells__heading--view(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
     +chimera-repeater('spells')
-      +chimera-block('delete')
-        .spell
-          - const [name, att1, att2, accuracy] = spine.spells.delete;
-          +chimera-span(name)
-          span ✦
-          +fabula-check(att1, att2, accuracy)
-
       +chimera-block('view')
         .spell
           - const spell = fieldDictionary(spine.spells.view, 'spell');
           each field in spine.spells.hidden
             +chimera-hidden(field)
 
-          +chimera-icon({ icon: 'spell' }).spell__icon
-
-          +chimera-value(spell.name)
+          +chimera-action({ name: 'spell', title: 'Spell' }).spell__roll
+            +chimera-icon({ icon: 'spell' }).spell__icon
+            +chimera-value(spell.name)
 
           .spell__offensive
             +fabula-check(spell.attr1, spell.attr2, spell.accuracy_total, spell.damage_total)
@@ -41,10 +34,16 @@ mixin spells-edit(spine)
     +chimera-repeater('spells')
       +chimera-block('delete')
         .spell
-          - const [name, att1, att2] = spine.spells.delete;
+          - const [name, att1, att2, accuracy] = spine.spells.delete;
+          each field in spine.spells.hidden
+            +chimera-hidden(field)
+
           +chimera-value(name)
-          span ✦
-          +fabula-check(att1, att2)
+
+          .spell__offensive
+            +fabula-diamond
+            +fabula-check(att1, att2, accuracy)
+
       +chimera-block('edit')
         .spell
           each field in spine.spells.hidden

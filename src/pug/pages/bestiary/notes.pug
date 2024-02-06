@@ -8,6 +8,8 @@ mixin notes-view(spine)
           - const note = fieldDictionary(spine.notes.view, 'note');
           +chimera-icon({ icon: 'book' }).note__icon
           +chimera-value(note.name)
+          +send-to-chat('note')
+
           +chimera-value(note.effect)
 
 mixin notes-edit(spine)

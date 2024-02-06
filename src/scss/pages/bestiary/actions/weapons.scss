@@ -42,7 +42,7 @@
 
       .weapon {
         display: grid;
-        grid-template-columns: 1fr repeat(4, auto) var(--button-component-size);
+        grid-template-columns: 1fr auto 0.5fr;
         gap: 4px;
 
         align-items: center;
@@ -55,7 +55,6 @@
           &--melee,
           &--distance {
             display: none;
-            grid-row: span 2;
           }
         }
 
@@ -74,10 +73,17 @@
           }
         }
 
+        &__check {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+
         &__type {
+          text-align: end;
           .chimera-value {
             &__value {
-              @include mixins.text-lg-700;
+              @include mixins.text-lg-400;
             }
           }
         }
@@ -88,7 +94,6 @@
 
         &__special {
           grid-column: 1/-1;
-          // grid-column: 2 / span 4;
           @include mixins.text-lg-400;
         }
       }
@@ -105,7 +110,7 @@
         }
 
         &__name {
-          grid-column: span 3;
+          grid-column: span 2;
         }
         &__category {
         }

@@ -11,12 +11,27 @@
         display: flex;
         gap: 4px;
 
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .spell__offensive {
+              display: none;
+            }
+          }
+        }
+
         &__name {
           .chimera-value {
             &__value {
               @include mixins.text-xl-400;
             }
           }
+        }
+
+        &__offensive {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 4px;
         }
       }
 
@@ -29,7 +44,7 @@
     &--view {
       .spell {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr repeat(2, auto);
+        grid-template-columns: 1fr repeat(2, auto);
         gap: 4px;
 
         input[name*='spell_is_offensive'] {
@@ -41,11 +56,18 @@
           }
         }
 
-        &__name,
-        &__type {
+        &__name {
           .chimera-value {
             &__value {
               @include mixins.text-lg-700;
+            }
+          }
+        }
+
+        &__type {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-400;
             }
           }
         }
@@ -62,10 +84,6 @@
           }
         }
 
-        &__icon {
-          grid-row: span 2;
-        }
-
         &__mp {
           .chimera-value {
             &__label {
@@ -78,13 +96,13 @@
         }
 
         &__target-duration {
-          grid-column: 2 / -1;
+          grid-column: 1/-1;
           grid-row-start: 2;
           display: flex;
           gap: 4px;
         }
         &__effect {
-          grid-column: 2 / -1;
+          grid-column: 1/-1;
           grid-row-start: 3;
         }
       }
@@ -93,7 +111,7 @@
     &--edit {
       .spell {
         display: grid;
-        grid-template-columns: repeat(5, auto);
+        grid-template-columns: 1fr 1fr 5rem auto 5rem;
         gap: 4px;
 
         input[name*='spell_is_offensive'] {
@@ -129,9 +147,11 @@
           grid-row: 2;
         }
 
-        &__target,
-        &__duration {
+        &__target {
           grid-column: span 2;
+        }
+        &__duration {
+          grid-column: span 3;
         }
 
         &__special,

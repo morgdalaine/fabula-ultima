@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span>
 <html>
   <head>
     <link href="fabula-ultima.css" rel="stylesheet" type="text/css"/>
@@ -369,15 +369,15 @@
                                 <div class="weapon__attack"><span class="weapon__attack_name" name="attr_weapon_attack_name"></span><span class="weapon__name" name="attr_weapon_name"></span>
                                 </div>
                               </button>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
-                              </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage_total"></span>
+                              <div class="weapon__check">
+                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
+                                  <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage_total"></span>
+                                </div>
                               </div>
                               <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                               </div>
-                              <button class="chimera-action send-to-chat" data-i18n-title="weapon-chat" name="act_weapon-chat" title="Send weapon info to chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
-                              </button>
                               <div class="chimera-value weapon__special"><span class="chimera-value__value" name="attr_weapon_special"></span>
                               </div>
                             </div>
@@ -399,19 +399,16 @@
                           <div class="chimera-repeater--edit spells--edit">
                           </div>
                           <div class="chimera-repeater--delete spells--delete">
-                            <div class="spell"><span name="attr_spell_name"></span><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
-                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy"></span>
-                              </div>
-                            </div>
                           </div>
                           <div class="chimera-repeater--view spells--view">
                             <div class="spell">
                               <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/>
                               <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden"/>
-                              <input class="chimera-hidden" name="attr_spell_damage_total" type="hidden"/><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
-                              <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
-                              </div>
+                              <input class="chimera-hidden" name="attr_spell_damage_total" type="hidden"/>
+                              <button class="chimera-action spell__roll" data-i18n-title="spell" name="act_spell" title="Spell" type="action"><img class="spell__icon" data-i18n-title="spell_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg" title="Spell"/>
+                                <div class="chimera-value spell__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_spell_name"></span>
+                                </div>
+                              </button>
                               <div class="spell__offensive">
                                 <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
                                   <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy_total"></span>
@@ -456,6 +453,8 @@
                             <div class="other-action"><img class="other-action__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
                               <div class="chimera-value other-action__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_action_name"></span>
                               </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="otheractionchat" name="act_otheractionchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                               <div class="chimera-value other-action__effect"><span class="chimera-value__value" name="attr_action_effect"></span>
                               </div>
                             </div>
@@ -481,7 +480,9 @@
                           <div class="chimera-repeater--view special-rules--view">
                             <div class="special-rule">
                               <div class="chimera-value special-rule__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_special_name"></span>
-                              </div><span class="fabula-diamond">⬥</span>
+                              </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="specialrulechat" name="act_specialrulechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                               <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
                               </div>
                             </div>
@@ -511,6 +512,8 @@
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value weapon__cost"><span class="chimera-value__value" name="attr_weapon_cost"></span>
                               </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                             </div>
                           </fieldset>
                         </div>
@@ -535,6 +538,8 @@
                         </div><span class="fabula-diamond">⬥</span>
                         <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_armor_cost"></span>
                         </div>
+                        <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                        </button>
                       </div>
                       <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_shield_name" type="hidden"/>
                       <div class="equipment__shield">
@@ -552,6 +557,8 @@
                         </div><span class="fabula-diamond">⬥</span>
                         <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_shield_cost"></span>
                         </div>
+                        <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -573,6 +580,8 @@
                             <div class="rare-gear"><img class="rare-gear__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
                               <div class="chimera-value rare-gear__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_raregear_name"></span>
                               </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="raregearchat" name="act_raregearchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                               <div class="chimera-value rare-gear__effect"><span class="chimera-value__value" name="attr_raregear_effect"></span>
                               </div>
                             </div>
@@ -599,6 +608,8 @@
                             <div class="note"><img class="note__icon" data-i18n-title="book_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/book.svg" title="Book"/>
                               <div class="chimera-value note__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_note_name"></span>
                               </div>
+                              <button class="chimera-action send-to-chat" data-i18n-title="notechat" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                              </button>
                               <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
                               </div>
                             </div>
@@ -1069,6 +1080,11 @@
                                 <label class="chimera-input__label" data-i18n="weapon_name" for="weapon_name">Weapon Name</label>
                                 <input class="chimera-input__field" data-i18n-title="weapon_name_title" id="weapon_name" name="attr_weapon_name" title="Weapon Name" type="text"/>
                               </div>
+                              <label class="chimera-checkbox weapon__martial chimera-checkbox--column-reverse" data-i18n-title="weapon_is_martial_title" title="Martial">
+                                <div class="chimera-checkbox__field">
+                                  <input id="weapon_is_martial" name="attr_weapon_is_martial" type="checkbox"/><img data-i18n-title="weapon_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                                </div><span class="chimera-checkbox__label" data-i18n="weapon_is_martial" for="weapon_is_martial">Martial</span>
+                              </label>
                               <div class="chimera-input weapon__range chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="weapon_range" for="weapon_range">Range</label>
                                 <div class="chimera-switch">
@@ -1267,9 +1283,15 @@
                           </div>
                           <div class="chimera-repeater--delete spells--delete">
                             <div class="spell">
+                              <input class="chimera-hidden" name="attr_spell_is_offensive" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden"/>
+                              <input class="chimera-hidden" name="attr_spell_damage_total" type="hidden"/>
                               <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
-                              </div><span>✦</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
+                              </div>
+                              <div class="spell__offensive"><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
+                                  <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy"></span>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1418,19 +1440,43 @@
     </div>
     <rolltemplate class="sheet-rolltemplate-fabula-attack">
       <div class="sheet-roll">
-        <div class="sheet-roll-header">
+        <div class="sheet-roll-header">{{#avatar}}
+          <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
           <div class="sheet-character"><span>{{ character }}</span></div>
           <div class="sheet-roll-type"><span>{{ action }}</span></div>
-        </div>{{#^rollTotal() computed::critical 0}}
-        <div class="sheet-special">{{#rollGreater() computed::critical 0}}<span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}<span class="sheet-fabula-important" data-i18n="is_fumble">Critical Fumble!</span>{{/rollLess() computed::critical 0}}
-        </div>{{/^rollTotal() computed::critical 0}}
+        </div>{{#^rollTotal() computed::critical 0}}{{#rollGreater() computed::critical 0}}
+        <div class="sheet-critical-success"><span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span></div>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}
+        <div class="sheet-critical-fumble"><span class="sheet-fabula-important" data-i18n="is_fumble">Critical Fumble!</span></div>{{/rollLess() computed::critical 0}}{{/^rollTotal() computed::critical 0}}
         <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>
-        </div>
+        </div>{{^noaction}}
         <div class="sheet-action">
           <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>
-          <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-span">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>
+          <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>
+        </div>{{/noaction}}
+        <div class="sheet-details">{{#mp}}
+          <div><span class="sheet-fabula-span">{{ mp }}</span><span class="sheet-fabula-label" data-i18n="mp">MP</span></div>{{/mp}}{{#target}}
+          <div><span class="sheet-fabula-label" data-i18n="target">Target</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ target }}</span></div>{{/target}}{{#duration}}
+          <div><span class="sheet-fabula-label" data-i18n="duration">Duration</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ duration }}</span></div>{{/duration}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
         </div>
-        <div class="sheet-footer"><span class="sheet-fabula-span">{{ special }}</span></div>
+      </div>
+    </rolltemplate>
+    <rolltemplate class="sheet-rolltemplate-fabula-chat">
+      <div class="sheet-roll">
+        <div class="sheet-roll-header">{{#avatar}}
+          <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
+          <div class="sheet-character"><span>{{ character }}</span></div>
+          <div class="sheet-roll-type"><span>{{ action }}</span></div>
+        </div>
+        <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
+        </div>
+        <div class="sheet-details">{{#accuracy}}
+          <div><span class="sheet-fabula-label">{{ accuracy }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-label">{{ damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/accuracy}}{{#category}}{{#hands}}
+          <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed"></span></div>{{/hands}}{{/category}}{{#def}}
+          <div><span class="sheet-fabula-label" data-i18n="defense_full">Defense</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ def }}</span></div>{{/def}}{{#mdef}}
+          <div><span class="sheet-fabula-label" data-i18n="mdefense_full">M. Defense</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ mdef }}</span></div>{{/mdef}}{{#init}}
+          <div><span class="sheet-fabula-label" data-i18n="init">Init.</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ init }}</span></div>{{/init}}{{#cost}}
+          <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
+        </div>
       </div>
     </rolltemplate>
     <script type="text/worker">const REPEATING = [
@@ -1535,6 +1581,18 @@ const BUTTON_ACTIONS = {
     hp: ['hp-control-add', 'hp-control-subtract'],
     mp: ['mp-control-add', 'mp-control-subtract'],
 };
+const CLICK_LISTENERS = {
+    'repeating_basic-attacks:basicattack': 'basicattack',
+    'repeating_weapons:weaponattack': 'weaponattack',
+    'repeating_weapons:weaponchat': 'weaponchat',
+    'repeating_spells:spell': 'spell',
+    'repeating_other-actions:otheractionchat': 'otheractionchat',
+    'repeating_special-rules:specialrulechat': 'specialrulechat',
+    'repeating_rare-gears:raregearchat': 'raregearchat',
+    'repeating_notes:notechat': 'notechat',
+    'armorchat': 'armorchat',
+    'shieldchat': 'shieldchat',
+};
 const SEND_TO_CHAT = {
     basicattack: [
         'attack_name',
@@ -1546,9 +1604,76 @@ const SEND_TO_CHAT = {
         'attack_type',
         'attack_special',
     ],
-    weapon: [],
-    spell: [],
+    weaponattack: [
+        'weapon_name',
+        'weapon_accuracy_total',
+        'weapon_attack_accuracy',
+        'weapon_attack_damage',
+        'weapon_attack_name',
+        'weapon_attr1',
+        'weapon_attr2',
+        'weapon_category',
+        'weapon_damage_total',
+        'weapon_extra_damage',
+        'weapon_hands',
+        'weapon_name',
+        'weapon_range',
+        'weapon_special',
+        'weapon_type',
+    ],
+    spell: [
+        'spell_name',
+        'spell_is_offensive',
+        'spell_accuracy_total',
+        'spell_attr1',
+        'spell_attr2',
+        'spell_damage_total',
+        'spell_duration',
+        'spell_effect',
+        'spell_mp',
+        'spell_name',
+        'spell_target',
+        'spell_type',
+    ],
+    otheractionchat: ['action_name', 'action_effect'],
+    specialrulechat: ['special_name', 'special_effect'],
+    raregearchat: ['raregear_name', 'raregear_effect'],
+    notechat: ['note_name', 'note_effect'],
+    armorchat: [
+        'armor_is_martial',
+        'armor_name',
+        'armor_defense',
+        'armor_defense_bonus',
+        'armor_magic_defense_bonus',
+        'armor_initiative',
+        'armor_cost',
+    ],
+    shieldchat: [
+        'shield_name',
+        'shield_is_martial',
+        'shield_defense_bonus',
+        'shield_magic_defense_bonus',
+        'shield_initiative',
+        'shield_cost',
+    ],
+    weaponchat: [
+        'weapon_name',
+        'weapon_is_martial',
+        'weapon_range',
+        'weapon_category',
+        'weapon_attr1',
+        'weapon_attr2',
+        'weapon_accuracy',
+        'weapon_type',
+        'weapon_hands',
+        'weapon_damage',
+        'weapon_cost',
+        'weapon_attack_name',
+        'weapon_extra_damage',
+        'weapon_special',
+    ],
 };
+const ROLLTEMPLATE_REQUESTS = ['character_avatar'];
 const BASIC_ACCURACY_DAMAGE = [
     {
         section: 'repeating_basic-attacks',
@@ -1573,7 +1698,6 @@ const SPELL_ACCURACY_DAMAGE = [
         fields: ['spell_accuracy', 'spell_damage'],
     },
 ];
-const STATIC_ACCURACY_DAMAGE = ['sheet_type', 'accuracy_bonus', 'magic_bonus'];
 const listenersByKey = (obj) => {
     return Object.entries(obj).reduce((memo, [key, arr]) => {
         memo[key] = listeners(arr);
@@ -1591,15 +1715,13 @@ function chimeraRoll(template, attributes, rolls, callback) {
         .map(([key, val]) => `{{${key}=[[${val}]]}}`)
         .join(' ');
     const rollstring = `&{template:${template}} ${x} ${r}`;
-    console.log(rollstring);
     startRoll(rollstring, callback);
 }
-on(`clicked:repeating_basic-attacks:sendattack`, async (eventInfo) => {
-    console.log(eventInfo);
-    sendToChat('basicattack', eventInfo);
-});
-on(`clicked:repeating_basic-attacks:basicattack`, async (eventInfo) => {
-    rollAction('basicattack', eventInfo);
+Object.entries(CLICK_LISTENERS).forEach(([btn, key]) => {
+    on(`clicked:${btn}`, async (eventInfo) => {
+        const id = RepeatingModule.getRepId(eventInfo?.sourceAttribute);
+        return handleClick(key, id);
+    });
 });
 const checkForCritical = (dice) => {
     return dice.every((die) => die === 1)
@@ -1608,29 +1730,181 @@ const checkForCritical = (dice) => {
             ? 1
             : 0;
 };
-const sendToChat = async (chat, eventInfo) => {
-    console.group('sendToChat > ', chat);
-    const id = RepeatingModule.getRepId(eventInfo.sourceAttribute);
-    console.groupEnd();
+const handleClick = async (btn, id) => {
+    switch (btn) {
+        case 'basicattack':
+        case 'weaponattack':
+        case 'spell':
+            return rollAction(btn, id);
+        case 'otheractionchat':
+        case 'specialrulechat':
+        case 'raregearchat':
+        case 'notechat':
+        case 'weaponchat':
+        case 'shieldchat':
+        case 'armorchat':
+            return sendToChat(btn, id);
+    }
 };
-const rollAction = async (action, eventInfo) => {
-    const id = RepeatingModule.getRepId(eventInfo.sourceAttribute);
-    console.group('rollAction => ', action);
+const rollAction = async (action, id) => {
     switch (action) {
         case 'basicattack':
             return rollBasicAttack(id);
         case 'weaponattack':
-        case 'spellattack':
-            break;
+            return rollWeaponAttack(id);
+        case 'spell':
+            return rollSpellAction(id);
     }
-    console.groupEnd();
+};
+const getSendChatRequest = (key, id) => {
+    const entries = Object.entries(CLICK_LISTENERS);
+    const entry = entries.filter(([rpt, val]) => key === val).at(0) ?? [''];
+    const fieldset = entry.at(0).split(':').at(0);
+    let request;
+    let prefix = '';
+    if (fieldset.includes('repeating')) {
+        prefix = `${fieldset}_${id}_`;
+        const attributes = SEND_TO_CHAT[key].reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+        request = Object.values(attributes);
+    }
+    else {
+        request = SEND_TO_CHAT[key];
+    }
+    return { request, prefix };
+};
+const chatData = (chat, prefix, values) => {
+    const attrPrefix = (function () {
+        switch (chat) {
+            case 'otheractionchat':
+                return 'action_';
+            case 'specialrulechat':
+                return 'special_';
+            case 'raregearchat':
+                return 'raregear_';
+            case 'notechat':
+                return 'note_';
+            case 'armorchat':
+                return 'armor_';
+            case 'shieldchat':
+                return 'shield_';
+            case 'weaponchat':
+                return 'weapon_';
+        }
+    })();
+    return SEND_TO_CHAT[chat].reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
+};
+const signedInteger = (value) => {
+    return +value < 0 ? `${value}` : `+${value}`;
+};
+const simpleTemplate = (values) => {
+    const template = {};
+    template.name = values.name;
+    if (values.special)
+        template.special = values.special;
+    if (values.effect)
+        template.effect = values.effect;
+    return template;
+};
+const armorTemplate = (values) => {
+    const template = {};
+    let martial = values.is_martial === 'on';
+    if (martial) {
+        template.def = values.defense;
+        template.martial = 'true';
+    }
+    else {
+        template.def = 'DEX size ' + signedInteger(values.defense_bonus);
+    }
+    template.name = values.name;
+    template.mdef = 'INS size ' + signedInteger(values.magic_defense_bonus);
+    template.init = signedInteger(values.initiative);
+    template.cost = values.cost;
+    if (values.special)
+        template.special = values.special;
+    if (values.effect)
+        template.effect = values.effect;
+    return template;
+};
+const shieldTemplate = (values) => {
+    const template = {};
+    let martial = values.is_martial === 'on';
+    if (martial) {
+        template.martial = 'true';
+    }
+    template.name = values.name;
+    template.def = signedInteger(values.defense_bonus);
+    template.mdef = signedInteger(values.magic_defense_bonus);
+    template.init = signedInteger(values.initiative);
+    template.cost = values.cost;
+    if (values.special)
+        template.special = values.special;
+    if (values.effect)
+        template.effect = values.effect;
+    return template;
+};
+const weaponTemplate = (values) => {
+    const template = {};
+    let martial = values.is_martial === 'on';
+    if (martial) {
+        template.martial = 'true';
+    }
+    template[values.range] = 'true';
+    template.type = getTranslationByKey(values.type) || values.type;
+    template.category = getTranslationByKey(values.category) || values.category;
+    template.name = values.name;
+    template.cost = values.cost;
+    const att1_i18n = getTranslationByKey(values.attr1) || values.attr;
+    const att2_i18n = getTranslationByKey(values.attr2) || values.attr;
+    const hr_i18n = getTranslationByKey('hr') || 'HR';
+    const accuracy = `【 ${att1_i18n} + ${att2_i18n}` +
+        (+values.accuracy > 0 ? ` + ${values.accuracy}` : ``) +
+        ` 】`;
+    const damage = `【 ${hr_i18n} + ${values.damage + values.extra_damage} 】`;
+    template.accuracy = accuracy;
+    template.damage = damage;
+    template.hands = values.hands;
+    if (values.special)
+        template.special = values.special;
+    if (values.effect)
+        template.effect = values.effect;
+    return template;
+};
+const sendToChat = async (chat, id) => {
+    const { request, prefix } = getSendChatRequest(chat, id);
+    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
+        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+        const action = getTranslationByKey('info') || 'Info';
+        const data = chatData(chat, prefix, v);
+        const template = (function () {
+            switch (chat) {
+                case 'otheractionchat':
+                case 'specialrulechat':
+                case 'raregearchat':
+                case 'notechat':
+                    return simpleTemplate(data);
+                case 'armorchat':
+                    return armorTemplate(data);
+                case 'shieldchat':
+                    return shieldTemplate(data);
+                case 'weaponchat':
+                    return weaponTemplate(data);
+            }
+        })();
+        chimeraRoll('fabula-chat', {
+            avatar: avatar,
+            action: action,
+            character: `@{character_name}`,
+            ...template,
+        }, {}, ({ rollId, results }) => {
+            finishRoll(rollId, results);
+        });
+    });
 };
 const rollBasicAttack = async (id) => {
     const prefix = `repeating_basic-attacks_${id}_`;
-    const attributes = SEND_TO_CHAT['basicattack'].reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+    const attributes = SEND_TO_CHAT.basicattack.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
     const request = Object.values(attributes);
-    getAttrs(request, (v) => {
-        console.log(v);
+    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const att1 = v[prefix + 'attack_attr1'];
         const att2 = v[prefix + 'attack_attr2'];
         const att1_i18n = getTranslationByKey(att1) || att1;
@@ -1642,8 +1916,10 @@ const rollBasicAttack = async (id) => {
         const action = getTranslationByKey('attack') || 'Attack';
         const range = v[prefix + 'attack_range'];
         const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-        const damageRoll = `【 HR + ${damage} 】`;
+        const damageRoll = `【 ${hr_i18n} + ${damage} 】`;
+        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         chimeraRoll('fabula-attack', {
+            avatar: avatar,
             action: action,
             character: `@{character_name}`,
             name: v[prefix + 'attack_name'],
@@ -1657,8 +1933,97 @@ const rollBasicAttack = async (id) => {
             damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
             critical: '0',
         }, ({ rollId, results }) => {
-            console.log('results');
-            console.log(results);
+            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
+            const critical = checkForCritical(results.roll.dice);
+            finishRoll(rollId, {
+                damage: hr + results.damage.result,
+                critical: critical,
+            });
+        });
+    });
+};
+const rollWeaponAttack = async (id) => {
+    const prefix = `repeating_weapons_${id}_`;
+    const attributes = SEND_TO_CHAT.weaponattack.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+    const request = Object.values(attributes);
+    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
+        const att1 = v[prefix + 'weapon_attr1'];
+        const att2 = v[prefix + 'weapon_attr2'];
+        const attackName = v[prefix + 'weapon_attack_name'] || v[prefix + 'weapon_name'];
+        const att1_i18n = getTranslationByKey(att1) || att1;
+        const att2_i18n = getTranslationByKey(att2) || att2;
+        const hr_i18n = getTranslationByKey('hr') || 'HR';
+        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
+        const accuracy = +v[prefix + 'weapon_accuracy_total'] ?? 0;
+        const damage = v[prefix + 'weapon_damage_total'];
+        const action = getTranslationByKey('attack') || 'Attack';
+        const range = v[prefix + 'weapon_range'];
+        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const damageRoll = `【 HR + ${damage} 】`;
+        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+        chimeraRoll('fabula-attack', {
+            avatar: avatar,
+            action: action,
+            character: `@{character_name}`,
+            name: attackName,
+            type: getTranslationByKey(v[prefix + 'weapon_type']) || '',
+            special: v[prefix + 'weapon_special'],
+            check: accuracyRoll,
+            hr: damageRoll,
+            [range]: range,
+        }, {
+            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
+            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
+            critical: '0',
+        }, ({ rollId, results }) => {
+            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
+            const critical = checkForCritical(results.roll.dice);
+            finishRoll(rollId, {
+                damage: hr + results.damage.result,
+                critical: critical,
+            });
+        });
+    });
+};
+const rollSpellAction = async (id) => {
+    const prefix = `repeating_spells_${id}_`;
+    const attributes = SEND_TO_CHAT.spell.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+    const request = Object.values(attributes);
+    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
+        const att1 = v[prefix + 'spell_attr1'];
+        const att2 = v[prefix + 'spell_attr2'];
+        const attackName = v[prefix + 'spell_attack_name'] || v[prefix + 'spell_name'];
+        const att1_i18n = getTranslationByKey(att1) || att1;
+        const att2_i18n = getTranslationByKey(att2) || att2;
+        const hr_i18n = getTranslationByKey('hr') || 'HR';
+        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
+        const accuracy = +v[prefix + 'spell_accuracy_total'] ?? 0;
+        const damage = v[prefix + 'spell_damage_total'];
+        const action = getTranslationByKey('spell') || 'Spell';
+        const range = 'spell';
+        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const damageRoll = `【 HR + ${damage} 】`;
+        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+        const noaction = v[prefix + 'spell_is_offensive'] === 'on' ? null : 'noaction';
+        chimeraRoll('fabula-attack', {
+            avatar: avatar,
+            action: action,
+            character: `@{character_name}`,
+            name: attackName,
+            type: getTranslationByKey(v[prefix + 'spell_type']) || '',
+            mp: v[prefix + 'spell_mp'],
+            target: v[prefix + 'spell_target'],
+            duration: v[prefix + 'spell_duration'],
+            special: v[prefix + 'spell_effect'],
+            check: accuracyRoll,
+            hr: damageRoll,
+            [range]: range,
+            [noaction]: 'true',
+        }, {
+            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
+            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
+            critical: '0',
+        }, ({ rollId, results }) => {
             const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
             const critical = checkForCritical(results.roll.dice);
             finishRoll(rollId, {
@@ -1675,7 +2040,7 @@ class RepeatingModule {
         });
     }
     static getRepId(sourceAttribute) {
-        return sourceAttribute.split('_').at(2);
+        return sourceAttribute?.split('_').at(2);
     }
     static getAllAttrs(sectionDetails, getArray = [], callback) {
         const args = new Array(arguments.length);

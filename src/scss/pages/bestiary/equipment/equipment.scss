@@ -13,9 +13,6 @@
       padding: 8px;
 
       .fabula-check {
-        &::before,
-        &::after {
-        }
         span {
           @include mixins.text-base-700;
           line-height: 180%;
@@ -29,7 +26,12 @@
       &__shield,
       &__weapon {
         display: flex;
+        align-items: center;
         gap: 4px;
+
+        .send-to-chat {
+          margin-left: auto;
+        }
       }
 
       input[name*='is_martial'] {
@@ -62,7 +64,7 @@
           .chimera-value {
             &__value {
               &::after {
-                content: 'z';
+                content: ' z';
               }
             }
           }

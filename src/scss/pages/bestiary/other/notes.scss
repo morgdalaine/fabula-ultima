@@ -24,12 +24,9 @@
     &--view {
       .note {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr;
+        grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+        align-items: center;
         gap: 4px;
-
-        &__icon {
-          grid-row: span 2;
-        }
 
         &__name {
           .chimera-value {
@@ -41,7 +38,7 @@
 
         &__special,
         &__effect {
-          grid-column: 2/-1;
+          grid-column: 1/-1;
           @include mixins.text-lg-400;
         }
       }

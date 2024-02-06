@@ -20,6 +20,7 @@ on('change:defense_extra change:magic_defense_extra', () => {
 });
 
 on(
+  // TODO move this to a loop for all controls
   'clicked:hp-control-add clicked:hp-control-subtract ' +
     'clicked:mp-control-add clicked:mp-control-subtract ',
   (eventInfo: EventInfo) => {

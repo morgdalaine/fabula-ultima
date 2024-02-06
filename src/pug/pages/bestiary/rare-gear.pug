@@ -8,6 +8,8 @@ mixin rare-gear-view(spine)
           - const raregear = fieldDictionary(spine.raregear.view, 'raregear');
           +chimera-icon({ icon: 'equipment' }).rare-gear__icon
           +chimera-value(raregear.name)
+          +send-to-chat('raregear')
+
           +chimera-value(raregear.effect)
 
 mixin rare-gear-edit(spine)

@@ -21,28 +21,6 @@
     }
   }
 
-  // &__controller {
-  //   &[value='0'] {
-  //     ~ * #{$this}__view {
-  //       display: grid;
-  //     }
-  //     ~ .repcontrol {
-  //       display: none;
-  //     }
-  //     ~ * .itemcontrol * {
-  //       display: none;
-  //     }
-  //     ~ * #{$this}__delete {
-  //       display: none;
-  //     }
-  //   }
-  //   &[value='on'] {
-  //     ~ * #{$this}__edit {
-  //       display: grid;
-  //     }
-  //   }
-  // }
-
   &__empty {
     display: none;
   }
@@ -69,7 +47,6 @@
 
   &__edit,
   &__content {
-    // position: relative;
     padding: 8px;
   }
 

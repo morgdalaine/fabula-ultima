@@ -1,7 +1,17 @@
 // background-color: color-mix(in srgb, white 10%, #f44336);
 
+// custom colors
 $hp-red: #d1232a;
 $mp-blue: #00aeef;
+$success-gold: #906318;
+$fumble-red: #b22222;
+
+$fabula0: #281127;
+$fabula1: #674168;
+$fabula2: #b9a9be;
+$fabula3: #6e468d;
+$fabula4: #6d5072;
+$fabula5: #341b35;
 
 $surface-dim: #d9dbd1;
 $surface: #ffffff;
@@ -19,13 +29,6 @@ $dark-surface1: #1f1f1f;
 
 $outline: #74796d;
 $outline-variant: #c3c8bb;
-
-$fabula0: #281127;
-$fabula1: #674168;
-$fabula2: #b9a9be;
-$fabula3: #6e468d;
-$fabula4: #6d5072;
-$fabula5: #341b35;
 
 $primary-l40: #386a1f;
 $on-primary-l100: $surface-container-lowest;
