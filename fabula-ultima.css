@@ -2025,6 +2025,22 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   background-color: var(--color-up);
   color: var(--color-on-dark);
 }
+.fabula-ultima .bestiary .study {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .study__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .study .chimera-value__label {
+  margin-left: 4px;
+}
 
 .fabula-ultima .bestiary--view {
   min-width: 480px;
@@ -2460,6 +2476,40 @@ html,
 .sheet-rolltemplate-fabula-chat .inlinerollresult.importantroll {
   border: none;
 }
+.sheet-rolltemplate-fabula-attack .sheet-flex.sheet-flex,
+.sheet-rolltemplate-fabula-chat .sheet-flex.sheet-flex {
+  display: flex;
+}
+.sheet-rolltemplate-fabula-attack .sheet-grid.sheet-grid,
+.sheet-rolltemplate-fabula-chat .sheet-grid.sheet-grid {
+  display: grid;
+}
+.sheet-rolltemplate-fabula-attack .sheet-space-around,
+.sheet-rolltemplate-fabula-chat .sheet-space-around {
+  justify-content: space-around;
+}
+.sheet-rolltemplate-fabula-attack .sheet-uppercase,
+.sheet-rolltemplate-fabula-chat .sheet-uppercase {
+  text-transform: uppercase;
+}
+.sheet-rolltemplate-fabula-attack .sheet-sr-only,
+.sheet-rolltemplate-fabula-chat .sheet-sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+.sheet-rolltemplate-fabula-attack .sheet-hp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat .sheet-hp .sheet-fabula-label {
+  color: var(--color-hp);
+}
+.sheet-rolltemplate-fabula-attack .sheet-mp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat .sheet-mp .sheet-fabula-label {
+  color: var(--color-mp);
+}
 .sheet-rolltemplate-fabula-attack .sheet-roll,
 .sheet-rolltemplate-fabula-chat .sheet-roll {
   display: flex;
@@ -2528,7 +2578,7 @@ html,
 .sheet-rolltemplate-fabula-chat .sheet-header {
   display: flex;
   gap: 4px;
-  padding: 4px;
+  padding-inline: 4px;
   align-items: center;
 }
 .sheet-rolltemplate-fabula-attack .sheet-action, .sheet-rolltemplate-fabula-attack .sheet-details,
@@ -2558,9 +2608,21 @@ html,
 .sheet-rolltemplate-fabula-chat .sheet-details span.sheet-fabula-span {
   font-size: 14px;
 }
+.sheet-rolltemplate-fabula-attack .sheet-action:has(.sheet-detail-banner), .sheet-rolltemplate-fabula-attack .sheet-details:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-chat .sheet-action:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-chat .sheet-details:has(.sheet-detail-banner) {
+  border-top: none;
+  padding-top: 0;
+}
 .sheet-rolltemplate-fabula-attack .sheet-details:not(:has(span)),
 .sheet-rolltemplate-fabula-chat .sheet-details:not(:has(span)) {
-  display: none;
+  display: none !important;
+}
+.sheet-rolltemplate-fabula-attack .sheet-detail-banner,
+.sheet-rolltemplate-fabula-chat .sheet-detail-banner {
+  color: var(--color-on-dark);
+  background-image: var(--fabula-gradient-secondary);
+  padding-inline: 16px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-critical-success,
 .sheet-rolltemplate-fabula-chat .sheet-critical-success {
@@ -2573,6 +2635,15 @@ html,
   color: var(--color-on-dark);
   background-image: var(--fabula-gradient-fumble);
   padding-inline: 16px;
+}
+.sheet-rolltemplate-fabula-attack .sheet-affinity .sheet-fabula-span,
+.sheet-rolltemplate-fabula-chat .sheet-affinity .sheet-fabula-span {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-hp);
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-label,
 .sheet-rolltemplate-fabula-chat span.sheet-fabula-label {

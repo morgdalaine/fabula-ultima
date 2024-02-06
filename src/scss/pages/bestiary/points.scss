@@ -59,7 +59,6 @@
       }
     }
   }
-
   .points-controller {
     display: flex;
     gap: 4px;
@@ -97,6 +96,20 @@
           color: var(--color-on-dark);
         }
       }
+    }
+  }
+
+  .study {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &__label {
+      @include mixins.text-lg-400;
+      text-transform: uppercase;
+    }
+    .chimera-value__label {
+      margin-left: 4px;
     }
   }
 }

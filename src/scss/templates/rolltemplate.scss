@@ -23,6 +23,33 @@
     }
   }
 
+  .sheet-flex.sheet-flex {
+    display: flex;
+  }
+  .sheet-grid.sheet-grid {
+    display: grid;
+  }
+  .sheet-space-around {
+    justify-content: space-around;
+  }
+  .sheet-uppercase {
+    text-transform: uppercase;
+  }
+  .sheet-sr-only {
+    @include mixins.sr-only;
+  }
+
+  .sheet-hp {
+    .sheet-fabula-label {
+      color: var(--color-hp);
+    }
+  }
+  .sheet-mp {
+    .sheet-fabula-label {
+      color: var(--color-mp);
+    }
+  }
+
   .sheet {
     &-roll {
       display: flex;
@@ -92,7 +119,7 @@
     &-header {
       display: flex;
       gap: 4px;
-      padding: 4px;
+      padding-inline: 4px;
       align-items: center;
     }
     &-action,
@@ -116,13 +143,23 @@
       span.sheet-fabula-span {
         font-size: 14px;
       }
+
+      &:has(.sheet-detail-banner) {
+        border-top: none;
+        padding-top: 0;
+      }
     }
     &-details {
       &:not(:has(span)) {
-        display: none;
+        display: none !important;
       }
     }
 
+    &-detail-banner {
+      color: var(--color-on-dark);
+      background-image: var(--fabula-gradient-secondary);
+      padding-inline: 16px;
+    }
     &-critical-success {
       color: var(--color-on-dark);
       background-image: var(--fabula-gradient-success);
@@ -132,6 +169,17 @@
       color: var(--color-on-dark);
       background-image: var(--fabula-gradient-fumble);
       padding-inline: 16px;
+    }
+  }
+
+  .sheet-affinity {
+    .sheet-fabula-span {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      color: var(--color-hp);
     }
   }
 

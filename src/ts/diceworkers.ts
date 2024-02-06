@@ -19,6 +19,9 @@ const handleClick = async (btn: string, id: string) => {
     case 'weaponchat':
     case 'shieldchat':
     case 'armorchat':
+    case 'study7':
+    case 'study10':
+    case 'study13':
       return sendToChat(btn, id);
   }
 };
@@ -176,6 +179,73 @@ const weaponTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const studyValues = {
+  rank: 'champion',
+  species: 'Humanoid',
+  hp: 32,
+  hp_max: 70,
+  mp_max: 50,
+  traits: ' boastful, irritable, proud, strong',
+  dexterity_max: '6',
+  insight_max: '8',
+  might_max: '10',
+  willpower_max: '10',
+  defense: 12,
+  magic_defense: 11,
+  physical: '',
+  air: '',
+  bolt: '',
+  dark: '',
+  earth: 'rs',
+  fire: '',
+  ice: 'rs',
+  light: '',
+  poison: '',
+};
+const studyTemplate = (chat: string, values: { [key: string]: string }) => {
+  const study = +chat.match(/\d+/)?.shift();
+  const template: { [key: string]: string } = {};
+  console.log(values);
+
+  template.action = getTranslationByKey('study') || 'Study';
+  template.study = 'true';
+
+  // The NPCs Rank, Species, maximum HP, and maximum MP.
+  if (study >= STUDY_THRESHOLDS[0]) {
+    template.rank = getTranslationByKey(values.rank) || '';
+    template.species = values.species;
+    template.hp_max = values.hp_max;
+    if (+values.hp <= +values.hp_crisis) template.crisis = 'true';
+
+    template.mp_max = values.mp_max;
+  }
+
+  // All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities.
+  if (study >= STUDY_THRESHOLDS[1]) {
+    template.traits = values.traits;
+    Object.keys(ATTR_ABBREVIATIONS).forEach((attr) => {
+      template[attr] = values[`${attr}_max`];
+    });
+
+    template.def = values.defense;
+    template.mdef = values.magic_defense;
+
+    AFFINITIES.forEach((affinity) => {
+      if (values[affinity] !== '') {
+        template[affinity] = getTranslationByKey(values[affinity]) || values[affinity];
+      }
+    });
+  }
+
+  // All the above, plus basic attacks and spells.
+  if (study >= STUDY_THRESHOLDS[2]) {
+    template.basicattacks = '// TODO Reveal Basic Attacks';
+    template.spells = '// TODO Reveal Spells';
+  }
+
+  return template;
+};
+
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -196,8 +266,14 @@ const sendToChat = async (chat: string, id: string) => {
           return shieldTemplate(data);
         case 'weaponchat':
           return weaponTemplate(data);
+        case 'study7':
+        case 'study10':
+        case 'study13':
+          return studyTemplate(chat, data);
       }
     })();
+
+    console.log(template);
 
     chimeraRoll(
       'fabula-chat',

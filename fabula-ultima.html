@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span>
 <html>
   <head>
     <link href="fabula-ultima.css" rel="stylesheet" type="text/css"/>
@@ -288,6 +288,21 @@
                         <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
                         </button>
                       </div>
+                          <div class="study">
+                            <label class="study__label" data-i18n="study">Study</label>
+                            <button class="chimera-action study__roll" data-i18n-title="study7" name="act_study7" title="Study 7+ The NPCs Rank, Species, maximum HP, and maximum MP." type="action">
+                              <label class="chimera-value__label">7+</label>
+                              <label class="sr-only" data-i18n="study7_caption">The NPCs Rank, Species, maximum HP, and maximum MP.</label>
+                            </button>
+                            <button class="chimera-action study__roll" data-i18n-title="study10" name="act_study10" title="Study 10+ All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities." type="action">
+                              <label class="chimera-value__label">10+</label>
+                              <label class="sr-only" data-i18n="study10_caption">All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities.</label>
+                            </button>
+                            <button class="chimera-action study__roll" data-i18n-title="study13" name="act_study13" title="Study 13+ All the above, plus basic attacks and spells." type="action">
+                              <label class="chimera-value__label">13+</label>
+                              <label class="sr-only" data-i18n="study13_caption">All the above, plus basic attacks and spells.</label>
+                            </button>
+                          </div>
                     </div>
                     <div class="points__ultima">
                       <div class="chimera-input point__ultima chimera-input--small chimera-input--center chimera-input--column-reverse">
@@ -1452,6 +1467,8 @@
         <div class="sheet-action">
           <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>
           <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>
+          <!-- TODO Vunerable and Resistance calculations-->
+          <!-- preferrably shown by hover or something?-->
         </div>{{/noaction}}
         <div class="sheet-details">{{#mp}}
           <div><span class="sheet-fabula-span">{{ mp }}</span><span class="sheet-fabula-label" data-i18n="mp">MP</span></div>{{/mp}}{{#target}}
@@ -1466,16 +1483,53 @@
           <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
           <div class="sheet-character"><span>{{ character }}</span></div>
           <div class="sheet-roll-type"><span>{{ action }}</span></div>
-        </div>
+        </div>{{#name}}
         <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
+        </div>{{/name}}{{#study}}
+        <div class="sheet-header sheet-space-around">{{#rank}}{{#species}}<span class="sheet-fabula-span">{{ rank }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ species }}</span>{{/species}}{{/rank}}{{#hp_max}}{{#mp_max}}<span class="sheet-fabula-diamond">⬥</span>
+          <div class="sheet-hp"><span class="sheet-fabula-span">{{ hp_max }}</span><span class="sheet-fabula-label" data-i18n="hp_max">HP</span></div><span class="sheet-fabula-diamond">⬥</span>
+          <div class="sheet-mp"><span class="sheet-fabula-span">{{ mp_max }}</span><span class="sheet-fabula-label" data-i18n="mp_max">MP</span></div>{{/mp_max}}{{/hp_max}}
+        </div>{{/study}}{{#dexterity}}{{#insight}}{{#might}}{{#willpower}}
+        <div class="sheet-details">
+          <div class="sheet-attributes sheet-space-around">
+            <div class="sheet-attribute"><span class="sheet-fabula-label" data-i18n="dexterity">DEX</span><span class="sheet-fabula-span">{{ dexterity }}</span></div><span class="sheet-fabula-diamond">⬥</span>
+            <div class="sheet-attribute"><span class="sheet-fabula-label" data-i18n="insight">INS</span><span class="sheet-fabula-span">{{ insight }}</span></div><span class="sheet-fabula-diamond">⬥</span>
+            <div class="sheet-attribute"><span class="sheet-fabula-label" data-i18n="might">MIG</span><span class="sheet-fabula-span">{{ might }}</span></div><span class="sheet-fabula-diamond">⬥</span>
+            <div class="sheet-attribute"><span class="sheet-fabula-label" data-i18n="willpower">WLP</span><span class="sheet-fabula-span">{{ willpower }}</span></div>
+          </div>
+        </div>{{/willpower}}{{/might}}{{/insight}}{{/dexterity}}
+        <div class="sheet-details sheet-flex">{{#physical}}
+          <div class="sheet-affinity"><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="physical">Physical</span><span class="sheet-fabula-span sheet-uppercase">{{ physical }}</span>
+          </div>{{/physical}}{{#air}}
+          <div class="sheet-affinity"><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="air">Air</span><span class="sheet-fabula-span sheet-uppercase">{{ air }}</span>
+          </div>{{/air}}{{#bolt}}
+          <div class="sheet-affinity"><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="bolt">Bolt</span><span class="sheet-fabula-span sheet-uppercase">{{ bolt }}</span>
+          </div>{{/bolt}}{{#dark}}
+          <div class="sheet-affinity"><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="dark">Dark</span><span class="sheet-fabula-span sheet-uppercase">{{ dark }}</span>
+          </div>{{/dark}}{{#earth}}
+          <div class="sheet-affinity"><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="earth">Earth</span><span class="sheet-fabula-span sheet-uppercase">{{ earth }}</span>
+          </div>{{/earth}}{{#fire}}
+          <div class="sheet-affinity"><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="fire">Fire</span><span class="sheet-fabula-span sheet-uppercase">{{ fire }}</span>
+          </div>{{/fire}}{{#ice}}
+          <div class="sheet-affinity"><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="ice">Ice</span><span class="sheet-fabula-span sheet-uppercase">{{ ice }}</span>
+          </div>{{/ice}}{{#light}}
+          <div class="sheet-affinity"><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="light">Light</span><span class="sheet-fabula-span sheet-uppercase">{{ light }}</span>
+          </div>{{/light}}{{#poison}}
+          <div class="sheet-affinity"><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="poison">Poison</span><span class="sheet-fabula-span sheet-uppercase">{{ poison }}</span>
+          </div>{{/poison}}
         </div>
         <div class="sheet-details">{{#accuracy}}
-          <div><span class="sheet-fabula-label">{{ accuracy }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-label">{{ damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/accuracy}}{{#category}}{{#hands}}
-          <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed"></span></div>{{/hands}}{{/category}}{{#def}}
-          <div><span class="sheet-fabula-label" data-i18n="defense_full">Defense</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ def }}</span></div>{{/def}}{{#mdef}}
-          <div><span class="sheet-fabula-label" data-i18n="mdefense_full">M. Defense</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ mdef }}</span></div>{{/mdef}}{{#init}}
+          <div><span class="sheet-fabula-label">{{ accuracy }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-label">{{ damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/accuracy}}{{#def}}{{#mdef}}
+          <div><span class="sheet-fabula-label" data-i18n="defense">DEF</span><span class="sheet-fabula-span">{{ def }}</span></div>
+          <div><span class="sheet-fabula-label" data-i18n="magic_defense">M.DEF</span><span class="sheet-fabula-span">{{ mdef }}</span></div>{{/mdef}}{{/def}}{{#category}}{{#hands}}
+          <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed">X-Handed</span></div>{{/hands}}{{/category}}{{#init}}
           <div><span class="sheet-fabula-label" data-i18n="init">Init.</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ init }}</span></div>{{/init}}{{#cost}}
-          <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
+          <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#traits}}
+          <div><span class="sheet-fabula-label" data-i18n="traits">Traits</span><span class="sheet-fabula-span">{{ traits }}</span></div>{{/traits}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
+        </div>
+        <div class="sheet-details">{{#basicattacks}}
+          <div class="sheet-detail-banner"><span class="sheet-fabula-important" data-i18n="basic_attacks">Basic Attacks</span></div><span class="sheet-fabula-span">...</span>{{/basicattacks}}{{#spells}}
+          <div class="sheet-detail-banner"><span class="sheet-fabula-important" data-i18n="spells">Spells</span></div><span class="sheet-fabula-span">...</span>{{/spells}}
         </div>
       </div>
     </rolltemplate>
@@ -1490,6 +1544,7 @@
     'notes',
 ];
 const DIE_SIZES = [6, 8, 10, 12];
+const STUDY_THRESHOLDS = [7, 10, 13];
 const VILLAIN_ULTIMA_POINTS = {
     minor: 5,
     major: 10,
@@ -1509,6 +1564,7 @@ const ATTR_ABBREVIATIONS = {
     might: 'mig',
     willpower: 'wlp',
 };
+const AFFINITIES = ['physical', 'air', 'bolt', 'dark', 'earth', 'fire', 'ice', 'light', 'poison'];
 const ATTR_WATCH = {
     dexterity: ['dexterity_max', 'slow', 'enraged'],
     insight: ['insight_max', 'dazed', 'enraged'],
@@ -1592,6 +1648,9 @@ const CLICK_LISTENERS = {
     'repeating_notes:notechat': 'notechat',
     'armorchat': 'armorchat',
     'shieldchat': 'shieldchat',
+    'study7': 'study7',
+    'study10': 'study10',
+    'study13': 'study13',
 };
 const SEND_TO_CHAT = {
     basicattack: [
@@ -1670,7 +1729,28 @@ const SEND_TO_CHAT = {
         'weapon_cost',
         'weapon_special',
     ],
+    study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
 };
+SEND_TO_CHAT.study10 = [
+    ...SEND_TO_CHAT.study7,
+    'traits',
+    'dexterity_max',
+    'insight_max',
+    'might_max',
+    'willpower_max',
+    'defense',
+    'magic_defense',
+    'physical',
+    'air',
+    'bolt',
+    'dark',
+    'earth',
+    'fire',
+    'ice',
+    'light',
+    'poison',
+];
+SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 const ROLLTEMPLATE_REQUESTS = ['character_avatar'];
 const BASIC_ACCURACY_DAMAGE = [
     {
@@ -1741,6 +1821,9 @@ const handleClick = async (btn, id) => {
         case 'weaponchat':
         case 'shieldchat':
         case 'armorchat':
+        case 'study7':
+        case 'study10':
+        case 'study13':
             return sendToChat(btn, id);
     }
 };
@@ -1867,6 +1950,62 @@ const weaponTemplate = (values) => {
         template.effect = values.effect;
     return template;
 };
+const studyValues = {
+    rank: 'champion',
+    species: 'Humanoid',
+    hp: 32,
+    hp_max: 70,
+    mp_max: 50,
+    traits: ' boastful, irritable, proud, strong',
+    dexterity_max: '6',
+    insight_max: '8',
+    might_max: '10',
+    willpower_max: '10',
+    defense: 12,
+    magic_defense: 11,
+    physical: '',
+    air: '',
+    bolt: '',
+    dark: '',
+    earth: 'rs',
+    fire: '',
+    ice: 'rs',
+    light: '',
+    poison: '',
+};
+const studyTemplate = (chat, values) => {
+    const study = +chat.match(/\d+/)?.shift();
+    const template = {};
+    console.log(values);
+    template.action = getTranslationByKey('study') || 'Study';
+    template.study = 'true';
+    if (study >= STUDY_THRESHOLDS[0]) {
+        template.rank = getTranslationByKey(values.rank) || '';
+        template.species = values.species;
+        template.hp_max = values.hp_max;
+        if (+values.hp <= +values.hp_crisis)
+            template.crisis = 'true';
+        template.mp_max = values.mp_max;
+    }
+    if (study >= STUDY_THRESHOLDS[1]) {
+        template.traits = values.traits;
+        Object.keys(ATTR_ABBREVIATIONS).forEach((attr) => {
+            template[attr] = values[`${attr}_max`];
+        });
+        template.def = values.defense;
+        template.mdef = values.magic_defense;
+        AFFINITIES.forEach((affinity) => {
+            if (values[affinity] !== '') {
+                template[affinity] = getTranslationByKey(values[affinity]) || values[affinity];
+            }
+        });
+    }
+    if (study >= STUDY_THRESHOLDS[2]) {
+        template.basicattacks = '// TODO Reveal Basic Attacks';
+        template.spells = '// TODO Reveal Spells';
+    }
+    return template;
+};
 const sendToChat = async (chat, id) => {
     const { request, prefix } = getSendChatRequest(chat, id);
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -1886,8 +2025,13 @@ const sendToChat = async (chat, id) => {
                     return shieldTemplate(data);
                 case 'weaponchat':
                     return weaponTemplate(data);
+                case 'study7':
+                case 'study10':
+                case 'study13':
+                    return studyTemplate(chat, data);
             }
         })();
+        console.log(template);
         chimeraRoll('fabula-chat', {
             avatar: avatar,
             action: action,

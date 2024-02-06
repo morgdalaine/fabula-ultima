@@ -40,6 +40,9 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ type }}
 
+        // TODO Vunerable and Resistance calculations
+        // preferrably shown by hover or something?
+
     .sheet-details
       +tags(['mp'])
         div
@@ -63,17 +66,57 @@ rolltemplate.sheet-rolltemplate-fabula-chat
   .sheet-roll
     +rollheader
 
-    .sheet-header
-      +tags(['melee'])
-        img(src=assets.melee.src)
-      +tags(['distance'])
-        img(src=assets.distance.src)
-      +tags(['spell'])
-        img(src=assets.spell.src)
+    +tags(['name'])
+      .sheet-header
+        +tags(['melee'])
+          img(src=assets.melee.src)
+        +tags(['distance'])
+          img(src=assets.distance.src)
+        +tags(['spell'])
+          img(src=assets.spell.src)
 
-      span.sheet-fabula-label {{ name }}
-      +tags(['martial'])
-        span.sheet-fabula-diamond ✦
+        span.sheet-fabula-label {{ name }}
+
+        +tags(['martial'])
+          span.sheet-fabula-diamond ✦
+
+    +tags(['study'])
+      .sheet-header.sheet-space-around
+        +tags(['rank', 'species'])
+          span.sheet-fabula-span {{ rank }}
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ species }}
+
+        +tags(['hp_max', 'mp_max'])
+          span.sheet-fabula-diamond ⬥
+
+          .sheet-hp
+            span.sheet-fabula-span {{ hp_max }}
+            span.sheet-fabula-label(data-i18n='hp_max') HP
+
+          span.sheet-fabula-diamond ⬥
+
+          .sheet-mp
+            span.sheet-fabula-span {{ mp_max }}
+            span.sheet-fabula-label(data-i18n='mp_max') MP
+
+    +tags(['dexterity', 'insight', 'might', 'willpower'])
+      .sheet-details
+        .sheet-attributes.sheet-space-around
+          each field, index in attributeOptions
+            if (index > 0)
+              span.sheet-fabula-diamond ⬥
+            .sheet-attribute
+              span.sheet-fabula-label(data-i18n=field.name)= field.text
+              span.sheet-fabula-span {{ #{ field.name } }}
+
+    .sheet-details.sheet-flex
+      each field in damageTypeOptions
+        +tags([field.name])
+          .sheet-affinity
+            +chimera-icon({ icon: field.name, title: field.text + ' Affinity' })
+            span.sheet-fabula-label.sheet-sr-only(data-i18n=field.name)= field.text
+            span.sheet-fabula-span.sheet-uppercase {{ #{ field.name } }}
 
     .sheet-details
       +tags(['accuracy'])
@@ -83,21 +126,22 @@ rolltemplate.sheet-rolltemplate-fabula-chat
           span.sheet-fabula-label {{ damage }}
           span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ type }}
+
+      +tags(['def', 'mdef'])
+        div
+          span.sheet-fabula-label(data-i18n='defense') DEF
+          span.sheet-fabula-span {{ def }}
+
+        div
+          span.sheet-fabula-label(data-i18n='magic_defense') M.DEF
+          span.sheet-fabula-span {{ mdef }}
+
       +tags(['category', 'hands'])
         div
           span.sheet-fabula-span {{ category }}
           span.sheet-fabula-diamond ⬥
-          span.sheet-fabula-span(data-i18n='{{ hands }}-handed')
-      +tags(['def'])
-        div
-          span.sheet-fabula-label(data-i18n='defense_full') Defense
-          span.sheet-fabula-diamond ⬥
-          span.sheet-fabula-span {{ def }}
-      +tags(['mdef'])
-        div
-          span.sheet-fabula-label(data-i18n='mdefense_full') M. Defense
-          span.sheet-fabula-diamond ⬥
-          span.sheet-fabula-span {{ mdef }}
+          span.sheet-fabula-span(data-i18n='{{ hands }}-handed') X-Handed
+
       +tags(['init'])
         div
           span.sheet-fabula-label(data-i18n='init') Init.
@@ -109,8 +153,23 @@ rolltemplate.sheet-rolltemplate-fabula-chat
           span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ cost }}
 
+      +tags(['traits'])
+        div
+          span.sheet-fabula-label(data-i18n='traits') Traits
+          span.sheet-fabula-span {{ traits }}
+
       +tags(['effect'])
         span.sheet-fabula-span {{ effect }}
 
       +tags(['special'])
         span.sheet-fabula-span {{ special }}
+
+    .sheet-details
+      +tags(['basicattacks'])
+        .sheet-detail-banner
+          span.sheet-fabula-important(data-i18n='basic_attacks') Basic Attacks
+        span.sheet-fabula-span ...
+      +tags(['spells'])
+        .sheet-detail-banner
+          span.sheet-fabula-important(data-i18n='spells') Spells
+        span.sheet-fabula-span ...

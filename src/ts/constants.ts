@@ -10,6 +10,10 @@ const REPEATING = [
 ];
 
 const DIE_SIZES = [6, 8, 10, 12];
+
+// const STUDY_THRESHOLDS = [10, 13, 16];
+const STUDY_THRESHOLDS = [7, 10, 13];
+
 const VILLAIN_ULTIMA_POINTS: Record<string, number> = {
   minor: 5,
   major: 10,
@@ -31,6 +35,8 @@ const ATTR_ABBREVIATIONS = {
   might: 'mig',
   willpower: 'wlp',
 };
+
+const AFFINITIES = ['physical', 'air', 'bolt', 'dark', 'earth', 'fire', 'ice', 'light', 'poison'];
 
 const ATTR_WATCH: Record<string, string[]> = {
   dexterity: ['dexterity_max', 'slow', 'enraged'],
@@ -126,7 +132,11 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_notes:notechat': 'notechat',
   'armorchat': 'armorchat',
   'shieldchat': 'shieldchat',
+  'study7': 'study7',
+  'study10': 'study10',
+  'study13': 'study13',
 };
+
 const SEND_TO_CHAT: Record<string, string[]> = {
   basicattack: [
     'attack_name',
@@ -204,7 +214,28 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'weapon_cost',
     'weapon_special',
   ],
+  study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
 };
+SEND_TO_CHAT.study10 = [
+  ...SEND_TO_CHAT.study7,
+  'traits',
+  'dexterity_max',
+  'insight_max',
+  'might_max',
+  'willpower_max',
+  'defense',
+  'magic_defense',
+  'physical',
+  'air',
+  'bolt',
+  'dark',
+  'earth',
+  'fire',
+  'ice',
+  'light',
+  'poison',
+];
+SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 
 const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar'];
 
