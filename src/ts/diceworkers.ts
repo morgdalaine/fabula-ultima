@@ -163,7 +163,7 @@ const weaponTemplate = (values: { [key: string]: string }) => {
     `【 ${att1_i18n} + ${att2_i18n}` +
     (+values.accuracy > 0 ? ` + ${values.accuracy}` : ``) +
     ` 】`;
-  const damage = `【 ${hr_i18n} + ${values.damage + values.extra_damage} 】`;
+  const damage = `【 ${hr_i18n} + ${values.damage} 】`;
 
   template.accuracy = accuracy;
   template.damage = damage;

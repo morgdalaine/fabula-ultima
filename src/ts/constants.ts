@@ -202,8 +202,6 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'weapon_hands',
     'weapon_damage',
     'weapon_cost',
-    'weapon_attack_name',
-    'weapon_extra_damage',
     'weapon_special',
   ],
 };

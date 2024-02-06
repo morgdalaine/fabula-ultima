@@ -1668,8 +1668,6 @@ const SEND_TO_CHAT = {
         'weapon_hands',
         'weapon_damage',
         'weapon_cost',
-        'weapon_attack_name',
-        'weapon_extra_damage',
         'weapon_special',
     ],
 };
@@ -1859,7 +1857,7 @@ const weaponTemplate = (values) => {
     const accuracy = `【 ${att1_i18n} + ${att2_i18n}` +
         (+values.accuracy > 0 ? ` + ${values.accuracy}` : ``) +
         ` 】`;
-    const damage = `【 ${hr_i18n} + ${values.damage + values.extra_damage} 】`;
+    const damage = `【 ${hr_i18n} + ${values.damage} 】`;
     template.accuracy = accuracy;
     template.damage = damage;
     template.hands = values.hands;
