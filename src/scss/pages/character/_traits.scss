@@ -1,30 +1,24 @@
-.traits {
-  $this: '.traits';
+@use '../../common/vars' as mixins;
 
-  &__content {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
-    gap: $m-lg;
-    padding: $p-md;
-  }
-}
+.fabula-ultima .character {
+  .traits {
+    $this: '.traits';
 
-.trait {
-  $this: '.trait';
+    @include mixins.repeater-heading;
 
-  display: grid;
-  grid-template-columns: 3rem 1fr;
-  align-items: center;
-  gap: $m-lg;
+    &--view {
+    }
 
-  &__label {
-    font-family: $header-font-stack;
-    font-weight: 700;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+    &--edit {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
 
-  &--identity {
-    grid-column: 1 / -1;
+      .trait {
+        &__name {
+          grid-column: span 2;
+        }
+      }
+    }
   }
 }

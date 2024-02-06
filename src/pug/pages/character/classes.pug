@@ -1,0 +1,21 @@
+mixin classes-edit(spine)
+  .classes
+    h2.classes__heading--edit(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
+    +chimera-repeater('classes')
+      +chimera-block('delete')
+        .class
+          - const [name, level] = spine.classes.delete;
+          +chimera-value(name)
+          +fabula-diamond
+          +chimera-value(level)
+      +chimera-block('edit')
+        .class
+          each field in spine.classes.hidden
+            +chimera-hidden(field)
+          each field in spine.classes.fields
+            +chimera-input(field)
+
+          .class__skill
+            each skill in spine.classes.skills
+              each field in skill
+                +chimera-input(field)

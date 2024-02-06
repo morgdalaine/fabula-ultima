@@ -17,6 +17,8 @@
     }
 
     &--center {
+      display: grid;
+      justify-content: center;
       .chimera-input__label,
       .chimera-input__field {
         text-align: center;
@@ -52,6 +54,9 @@
     &__field {
       &[type='number'] {
         text-align: center;
+      }
+      &:is(span) {
+        @include mixins.text-base-400;
       }
     }
   }
@@ -193,10 +198,8 @@
     }
   }
 
-  .chimera-container {
-    &--shadow {
-      @include mixins.shadow-box;
-    }
+  .chimera-shadow {
+    @include mixins.shadow-box;
   }
 
   .chimera-arithmetic {

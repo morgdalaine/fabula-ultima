@@ -5,10 +5,10 @@
 
 :root,
 html .sheet-darkmode {
-  --background: #{colors.$dark-surface1};
+  --bestiary-edit-background: #{colors.$dark-surface1};
   --fabula-gradient-primary: #{linear-gradient(90deg, colors.$fabula1 0%, colors.$dark-surface1 50%)};
 }
 
 .sheet-darkmode .sheetform {
-  background-color: var(--background);
+  background-color: var(--bestiary-edit-background);
 }

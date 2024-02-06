@@ -1,71 +1,39 @@
-.attributes-statuses {
-  $this: '.attributes-statuses';
+@use '../../common/vars' as mixins;
 
-  &__content {
-    display: grid;
-    grid-template-columns: repeat(2, auto) 1fr;
-    grid-template-columns: auto repeat(2, 4rem) auto 1fr;
-    gap: $m-md $m-lg;
-    padding: $p-md;
-    padding-left: $p-xl;
+.fabula-ultima .character {
+  .attributes {
+    $this: '.attributes';
 
-    background: linear-gradient(to right, $green-light, transparent);
-  }
-}
+    @include mixins.repeater-heading;
 
-.attribute {
-  $this: '.attribute';
-
-  display: grid;
-  grid-template-columns: 1fr auto 2rem;
-  justify-content: flex-end;
-  gap: $m-lg;
-
-  &__label {
-    font-family: $header-font-stack;
-    font-size: $font-xl;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: right;
-    align-self: center;
-
-    &--base,
-    &--current {
-      color: $green-dark;
-      text-align: center;
-      font-weight: 700;
-      font-variant: all-small-caps;
+    &__distribution {
+      grid-column: span 2;
     }
-  }
 
-  &--select,
-  &__current {
-    font-size: $font-xl;
-    text-align: center;
-  }
-
-  &__current {
-    &::before {
-      content: 'd';
+    &--view {
     }
-  }
-}
 
-.status {
-  $this: '.status';
+    &--edit {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
 
-  display: flex;
-  gap: $m-md;
-  align-items: center;
+      .attribute {
+        display: grid;
+        grid-template-columns: 1fr auto;
 
-  &__name {
-    font-family: $header-font-stack;
-    font-size: $font-xl;
-    text-transform: uppercase;
-  }
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
 
-  &--enraged,
-  &--poisoned {
-    grid-row: span 2;
+        .chimera-input__label {
+          @include mixins.text-xl-400;
+        }
+
+        .chimera-input__field {
+          align-self: normal;
+        }
+      }
+    }
   }
 }

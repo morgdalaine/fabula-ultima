@@ -322,6 +322,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-input--flex-row .chimera-input__label {
   align-self: center;
 }
+.fabula-ultima .chimera-input--center {
+  display: grid;
+  justify-content: center;
+}
 .fabula-ultima .chimera-input--center .chimera-input__label,
 .fabula-ultima .chimera-input--center .chimera-input__field {
   text-align: center;
@@ -345,6 +349,13 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-input__field[type=number] {
   text-align: center;
+}
+.fabula-ultima .chimera-input__field:is(span) {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 .fabula-ultima .chimera-value--bullet::before {
   content: "✦";
@@ -552,7 +563,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   padding: 0;
   width: 1px;
 }
-.fabula-ultima .chimera-container--shadow {
+.fabula-ultima .chimera-shadow {
   background-color: var(--surface-container-lowest);
   border-radius: 4px;
   box-shadow: var(--box-shadow-light);
@@ -573,7 +584,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-arithmetic__label {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -640,7 +651,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .chimera-repeater__empty-subtitle {
   font-family: var(--font-body);
@@ -710,6 +721,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   min-height: var(--input-component-size);
   color: var(--input-color);
   background: transparent;
+  background: var(--input-background-color);
   padding-inline: 4px;
   padding-block: 1px;
   border: 2px solid var(--input-border-color);
@@ -942,10 +954,13 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima__header {
   display: flex;
   gap: 4px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   justify-content: space-between;
   margin-inline: 8px;
 }
 .fabula-ultima__header .sheet-type {
+  grid-column: -1;
   justify-content: flex-end;
 }
 
@@ -954,7 +969,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -979,12 +994,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .basic-attacks--delete .fabula-diamond,
 .fabula-ultima .bestiary .basic-attacks--delete .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1003,7 +1018,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1018,7 +1033,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1028,7 +1043,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__type .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1036,7 +1051,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__special {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1058,7 +1073,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1087,7 +1102,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .spells--delete .spell__offensive {
   display: flex;
@@ -1097,7 +1112,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .spells--delete .fabula-diamond,
 .fabula-ultima .bestiary .spells--delete .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1113,14 +1128,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .spells--view .spell__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 .fabula-ultima .bestiary .spells--view .spell__type .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1132,21 +1147,21 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .spells--view .spell .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 .fabula-ultima .bestiary .spells--view .spell__mp .chimera-value__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 .fabula-ultima .bestiary .spells--view .spell__mp .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1205,7 +1220,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1230,12 +1245,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .weapons--delete .fabula-diamond,
 .fabula-ultima .bestiary .weapons--delete .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1254,7 +1269,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .weapons--view .weapon .fabula-check span {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1266,7 +1281,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   gap: 4px;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1287,7 +1302,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .weapons--view .weapon__type .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1298,7 +1313,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .weapons--view .weapon__special {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1327,7 +1342,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .affinity .chimera-input__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1356,7 +1371,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .attribute .chimera-input__field {
   align-self: normal;
@@ -1555,7 +1570,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1565,7 +1580,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1602,7 +1617,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1649,7 +1664,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .equipments .equipment .shield__name .chimera-value__label,
 .fabula-ultima .bestiary .equipments .equipment .weapon__name .chimera-value__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1658,7 +1673,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .equipments .equipment .shield__name .chimera-value__value,
 .fabula-ultima .bestiary .equipments .equipment .weapon__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1684,7 +1699,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1737,7 +1752,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1762,7 +1777,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .notes--view .note {
   display: grid;
@@ -1772,7 +1787,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .notes--view .note__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1780,7 +1795,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .notes--view .note__special, .fabula-ultima .bestiary .notes--view .note__effect {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1795,7 +1810,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1820,7 +1835,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .rare-gears--view .rare-gear {
   display: grid;
@@ -1830,7 +1845,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .rare-gears--view .rare-gear__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1838,7 +1853,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .rare-gears--view .rare-gear__special, .fabula-ultima .bestiary .rare-gears--view .rare-gear__effect {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1853,7 +1868,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1878,7 +1893,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .other-actions--view .other-action {
   display: grid;
@@ -1888,7 +1903,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .other-actions--view .other-action__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1896,7 +1911,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .other-actions--view .other-action__special, .fabula-ultima .bestiary .other-actions--view .other-action__effect {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1911,7 +1926,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -1936,7 +1951,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
 }
 .fabula-ultima .bestiary .special-rules--view .special-rule {
   display: grid;
@@ -1946,7 +1961,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .special-rules--view .special-rule__name .chimera-value__value {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1954,7 +1969,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .special-rules--view .special-rule__special, .fabula-ultima .bestiary .special-rules--view .special-rule__effect {
   grid-column: 1/-1;
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -1988,7 +2003,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .points--view .point__spending-ultima .spending-ultima .chimera-value__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -1998,7 +2013,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%;
+  line-height: 150%;
   text-transform: uppercase;
   text-transform: capitalize;
 }
@@ -2032,7 +2047,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .study__label {
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -2081,14 +2096,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary--view .statistics .attributes .chimera-value label {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 .fabula-ultima .bestiary--view .statistics .attributes .chimera-value span {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -2123,7 +2138,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary--view .statistics .points label,
 .fabula-ultima .bestiary--view .statistics .points span {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -2171,14 +2186,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary--view .statistics .defenses .chimera-value label {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
 .fabula-ultima .bestiary--view .statistics .defenses .chimera-value span {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -2203,7 +2218,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary--view .statistics .affinities label,
 .fabula-ultima .bestiary--view .statistics .affinities span {
   font-family: var(--font-title);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
@@ -2271,7 +2286,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 8px;
   margin: 8px;
   padding: 8px;
-  background-color: var(--background);
+  background-color: var(--bestiary-edit-background);
 }
 .fabula-ultima .bestiary--edit > div {
   height: -moz-min-content;
@@ -2364,34 +2379,242 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   }
 }
 
-.attribute-status-effects .attribute,
-.attribute-status-effects .status-effect {
-  align-items: center;
-  justify-content: center;
+.fabula-ultima .character .traits__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
 }
-
-.fabula-ultima .character--edit {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.fabula-ultima .character .traits__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
 }
-.fabula-ultima .character--edit .traits {
+.fabula-ultima .character .traits--edit {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4px;
 }
-.fabula-ultima .character--edit .traits__name {
+.fabula-ultima .character .traits--edit .trait__name {
   grid-column: span 2;
+}
+
+.fabula-ultima .character .attributes__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .attributes__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .attributes__distribution {
+  grid-column: span 2;
+}
+.fabula-ultima .character .attributes--edit {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .attributes--edit .attribute {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .character .attributes--edit .attribute .chimera-input__label {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .attributes--edit .attribute .chimera-input__field {
+  align-self: normal;
+}
+
+.fabula-ultima .character .classes__heading--edit {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .classes__heading--view {
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .classes--edit {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .character .classes--edit .class {
+  display: grid;
+  grid-template-columns: auto 1fr auto repeat(2, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .classes--edit .class__hide {
+  grid-column: 1;
+  grid-row: 1;
+}
+.fabula-ultima .character .classes--edit .class__name, .fabula-ultima .character .classes--edit .class__name--span {
+  grid-column: 2;
+  grid-row: 1;
+}
+.fabula-ultima .character .classes--edit .class__name--span {
+  display: none;
+  justify-content: space-between;
+}
+.fabula-ultima .character .classes--edit .class__name--span .chimera-input__field {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+.fabula-ultima .character .classes--edit .class__level {
+  grid-column: 3;
+  grid-row: 1;
+}
+.fabula-ultima .character .classes--edit .class__level .chimera-input__field {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+.fabula-ultima .character .classes--edit .class__special {
+  grid-column: 2;
+  grid-row: 2;
+}
+.fabula-ultima .character .classes--edit .class__martialmelee, .fabula-ultima .character .classes--edit .class__martialranged {
+  grid-row: 1;
+}
+.fabula-ultima .character .classes--edit .class__benefit, .fabula-ultima .character .classes--edit .class__martialarmor, .fabula-ultima .character .classes--edit .class__martialshield {
+  grid-row: 2;
+}
+.fabula-ultima .character .classes--edit .class__benefit {
+  grid-column: -4;
+}
+.fabula-ultima .character .classes--edit .class__martialarmor, .fabula-ultima .character .classes--edit .class__martialmelee {
+  grid-column: -3;
+}
+.fabula-ultima .character .classes--edit .class__martialranged, .fabula-ultima .character .classes--edit .class__martialshield {
+  grid-column: -2;
+}
+.fabula-ultima .character .classes--edit .class__description {
+  grid-column: 1/-1;
+}
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__name,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__special,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__martialmelee,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__martialranged,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__benefit,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__martialarmor,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__martialshield,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__description,
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__skill {
+  display: none;
+  background: yellow;
+}
+.fabula-ultima .character .classes--edit input[name*=class_hide][value=on] ~ .class__name--span {
+  display: flex;
+}
+.fabula-ultima .character .classes--edit .class__skill {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4px;
+  padding: 8px;
+  padding-top: 4px;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.fabula-ultima .character .classes--edit .class__skill_hide {
+  grid-row: span 2;
+  align-self: flex-start;
+}
+.fabula-ultima .character .classes--edit .class__skill_description {
+  grid-column: 2/-1;
+}
+
+.fabula-ultima .character__classes, .fabula-ultima .character__spells {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=classes] ~ * .character__classes {
+  display: grid;
+}
+.fabula-ultima .character input[name*=nav][value=spells] ~ * .character__spells {
+  display: grid;
+}
+.fabula-ultima .character--edit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 8px;
+  margin: 8px;
+  padding: 8px;
+  background-color: var(--character-edit-background);
+}
+.fabula-ultima .character--edit ~ div,
+.fabula-ultima .character--edit > div {
+  height: -moz-min-content;
+  height: min-content;
+  align-self: flex-end;
+}
+@media (min-width: 768px) {
+  .fabula-ultima .character--edit .attributes--edit {
+    grid-row: span 2;
+  }
 }
 
 :root,
 html .sheet-darkmode {
-  --background: #1f1f1f;
+  --bestiary-edit-background: #1f1f1f;
   --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #1f1f1f 50%);
 }
 
 .sheet-darkmode .sheetform {
-  background-color: var(--background);
+  background-color: var(--bestiary-edit-background);
 }
 
 :root,
@@ -2399,7 +2622,8 @@ html,
 .sheet-rolltemplate-fabula-attack,
 .sheet-rolltemplate-fabula-chat {
   --surface-background: #fff;
-  --background: #e2f3ee;
+  --bestiary-edit-background: #e2f3ee;
+  --character-edit-background: color-mix(in srgb, white 80%, #b9a9be);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
   --button-background-color: rgba(26, 35, 126, 0.2);
   --button-background-color-active: rgba(26, 35, 126, 0.2);
@@ -2439,7 +2663,7 @@ html,
   --icon-component-size: 1.5rem;
   --color-on-dark: #ffffff;
   --text-color: #1f1f1f;
-  --input-background-color: rgba(26, 35, 126, 0.2);
+  --input-background-color: rgba(255, 255, 255, 0.8);
   --input-background-color-active: rgba(26, 35, 126, 0.2);
   --input-background-color-focus: rgba(63, 81, 181, 0.1);
   --input-background-color-hover: rgba(63, 81, 181, 0.1);

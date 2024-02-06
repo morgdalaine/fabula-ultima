@@ -1,0 +1,126 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .classes {
+    $this: '.classes';
+
+    @include mixins.repeater-heading;
+
+    &--view {
+    }
+
+    &--edit {
+      display: grid;
+      gap: 4px;
+
+      // base class info
+      .class {
+        display: grid;
+        grid-template-columns: auto 1fr auto repeat(2, auto);
+        gap: 4px;
+
+        &__hide {
+          grid-column: 1;
+          grid-row: 1;
+          // align-self: flex-start;
+        }
+
+        &__name,
+        &__name--span {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        &__name--span {
+          display: none;
+          justify-content: space-between;
+          .chimera-input__field {
+            @include mixins.text-xxl-400;
+          }
+        }
+        &__level {
+          grid-column: 3;
+          grid-row: 1;
+          .chimera-input__field {
+            @include mixins.text-xxl-400;
+          }
+        }
+        &__special {
+          grid-column: 2;
+          grid-row: 2;
+        }
+
+        &__martialmelee,
+        &__martialranged {
+          grid-row: 1;
+        }
+        &__benefit,
+        &__martialarmor,
+        &__martialshield {
+          grid-row: 2;
+        }
+
+        &__benefit {
+          grid-column: -4;
+        }
+
+        &__martialarmor,
+        &__martialmelee {
+          grid-column: -3;
+        }
+        &__martialranged,
+        &__martialshield {
+          grid-column: -2;
+        }
+
+        &__description {
+          grid-column: 1/-1;
+        }
+      }
+
+      input[name*='class_hide'] {
+        &[value='on'] ~ {
+          .class__name,
+          .class__special,
+          .class__martialmelee,
+          .class__martialranged,
+          .class__benefit,
+          .class__martialarmor,
+          .class__martialshield,
+          .class__description,
+          .class__skill {
+            display: none;
+            background: yellow;
+          }
+          .class__name--span {
+            display: flex;
+          }
+        }
+      }
+
+      // class skills
+      .class__skill {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 4px;
+
+        padding: 8px;
+        padding-top: 4px;
+
+        border: 2px solid black;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+
+        background-color: rgba(black, 0.1);
+
+        &_hide {
+          grid-row: span 2;
+          align-self: flex-start;
+        }
+        &_description {
+          grid-column: 2/-1;
+        }
+      }
+    }
+  }
+}

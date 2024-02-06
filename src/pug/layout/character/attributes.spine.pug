@@ -1,0 +1,89 @@
+-
+  spine.character.attributes = {
+    attributes: ['dexterity', 'insight', 'might', 'willpower'],
+    view: [
+      {
+        name: 'dexterity',
+        label: 'DEX',
+        title: 'Dexterity',
+      },
+      {
+        name: 'insight',
+        label: 'INS',
+        title: 'Insight',
+      },
+      {
+        name: 'might',
+        label: 'MIG',
+        title: 'Might',
+      },
+      {
+        name: 'willpower',
+        label: 'WLP',
+        title: 'Willpower',
+      },
+    ],
+    fields: [
+      {
+        name: 'dexterity_max',
+        label: 'DEX',
+        title: 'Dexterity',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'insight_max',
+        label: 'INS',
+        title: 'Insight',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'might_max',
+        label: 'MIG',
+        title: 'Might',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'willpower_max',
+        label: 'WLP',
+        title: 'Willpower',
+        type: 'select',
+        options: dieSizeOptions,
+        css: {
+          names: ['attribute'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+    ],
+    distribution: [
+      {
+        label: 'Jack of All Trades',
+        content: 'd8, d8, d8, d8',
+        css: { names: ['distribution'], modifiers: ['bullet', 'helptext'] },
+      },
+      {
+        label: 'Standard',
+        content: 'd10, d8, d8, d6',
+        css: { names: ['distribution'], modifiers: ['bullet', 'helptext'] },
+      },
+      {
+        label: 'Specialized',
+        content: 'd10, d10, d6, d6',
+        css: { names: ['distribution'], modifiers: ['bullet', 'helptext'] },
+      },
+    ],
+  };

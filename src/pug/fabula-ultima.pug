@@ -19,6 +19,7 @@ mixin html
 
     main.character
       include pages/character
+      +chimera-hidden('nav', 'classes')
       +character-edit(spine.character)
     main.bestiary
       include pages/bestiary

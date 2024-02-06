@@ -1,0 +1,4 @@
+mixin traits-edit(spine)
+  .traits--edit
+    each field in spine.traits.fields
+      +chimera-input(field)

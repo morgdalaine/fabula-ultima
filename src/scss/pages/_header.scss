@@ -5,11 +5,14 @@
   &__header {
     display: flex;
     gap: 4px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     justify-content: space-between;
 
     margin-inline: 8px;
 
     .sheet-type {
+      grid-column: -1;
       justify-content: flex-end;
     }
   }

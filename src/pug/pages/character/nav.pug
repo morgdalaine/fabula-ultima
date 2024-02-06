@@ -1,0 +1,5 @@
+mixin navbar-edit(spine)
+  .nav(style='display: flex; flex-direction: row; gap: 4px')
+    each field in spine.nav
+      +chimera-action(field)
+        span.chimera-value__value(data-i18n=field.name)= field.label

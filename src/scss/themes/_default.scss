@@ -9,7 +9,9 @@ html,
 .sheet-rolltemplate-fabula-chat {
   --surface-background: #{colors.$white};
 
-  --background: #{colors.$background};
+  --bestiary-edit-background: #{colors.$background};
+  --character-edit-background: #{color-mix(in srgb, white 80%, colors.$fabula2)};
+
   --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
     rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
 
@@ -73,7 +75,8 @@ html,
   --text-color: #{colors.$black};
 
   // Inputs
-  --input-background-color: #{rgb(colors.$indigo-d40, 0.2)};
+  --input-background-color: #{rgb(colors.$white, 0.8)};
+  // --input-background-color: #{rgb(colors.$indigo-d40, 0.2)};
   --input-background-color-active: #{rgb(colors.$indigo-d40, 0.2)};
   --input-background-color-focus: #{rgb(colors.$indigo, 0.1)};
   --input-background-color-hover: #{rgb(colors.$indigo, 0.1)};

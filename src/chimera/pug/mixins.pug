@@ -115,8 +115,8 @@ mixin chimera-input-element(blob)
     when 'switch'
       +chimera-switch({ ...blob, title: blobTitle })
 
-    //- when 'arithmetic'
-      +chimera-arithmetic({ ...blob, title: blobTitle })
+    when 'span'
+      +chimera-span({ ...blob, title: blobTitle })(class=blob.inputClass)
 
     when 'number'
     when 'text'

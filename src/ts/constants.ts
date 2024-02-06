@@ -1,3 +1,5 @@
+const NAVBAR = ['classes', 'spells'];
+
 const REPEATING = [
   'bonds',
   'basic-attacks',
@@ -7,6 +9,7 @@ const REPEATING = [
   'special-rules',
   'rare-gears',
   'notes',
+  'classes',
 ];
 
 const DIE_SIZES = [6, 8, 10, 12];

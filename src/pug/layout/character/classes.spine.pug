@@ -1,0 +1,114 @@
+-
+  spine.character.classes = {
+    hidden: ['character_level', 'class_hide'],
+    heading: { name: 'classes', label: 'Classes' },
+    delete: [
+      {
+        name: 'class_name',
+        css: { names: ['class__name'], modifiers: [] },
+      },
+      {
+        name: 'class_level',
+        css: { names: ['class__level'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'class_hide',
+        label: 'Hide',
+        type: 'checkbox',
+        css: { names: ['class__hide'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'class_name',
+        label: 'Name',
+        type: 'span',
+        css: { names: ['class__name--span'], modifiers: [] },
+      },
+      {
+        name: 'class_name',
+        label: 'Name',
+        type: 'text',
+        css: { names: ['class__name'], modifiers: [] },
+      },
+      {
+        name: 'class_level',
+        label: 'Level',
+        type: 'span',
+        value: 0,
+        css: { names: ['class__level'], modifiers: ['disabled', 'center', 'small'] },
+      },
+      {
+        name: 'class_special',
+        label: 'Special',
+        type: 'text',
+        css: { names: ['class__special'], modifiers: [] },
+      },
+      {
+        name: 'class_benefit',
+        label: 'Free Benefit',
+        type: 'select',
+        options: freeBenefitOptions,
+        css: { names: ['class__benefit'], modifiers: ['center'] },
+      },
+      {
+        name: 'class_martialmelee',
+        label: 'Martial Melee',
+        type: 'checkbox',
+        css: { names: ['class__martialmelee'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'class_martialranged',
+        label: 'Martial Ranged',
+        type: 'checkbox',
+        css: { names: ['class__martialranged'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'class_martialarmor',
+        label: 'Martial Armor',
+        type: 'checkbox',
+        css: { names: ['class__martialarmor'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'class_martialshield',
+        label: 'Martial Shield',
+        type: 'checkbox',
+        css: { names: ['class__martialshield'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'class_description',
+        label: 'Description',
+        type: 'textarea',
+        css: { names: ['class__description'], modifiers: [] },
+      },
+    ],
+    skills: [1, 2, 3, 4, 5].map((skill) => [
+      {
+        name: `class_skill${skill}_hide`,
+        label: 'Hide',
+        type: 'checkbox',
+        css: { names: ['class__skill_hide'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: `class_skill${skill}_name`,
+        label: 'Skill Name',
+        type: 'text',
+        css: { names: ['class__skill_name'], modifiers: [] },
+      },
+      {
+        name: `class_skill${skill}_level`,
+        label: 'SL',
+        title: 'Skill Level',
+        type: 'number',
+        min: 0,
+        value: 0,
+        css: { names: ['class__skill_level'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: `class_skill${skill}_description`,
+        label: 'Description',
+        type: 'textarea',
+        css: { names: ['class__skill_description'], modifiers: [] },
+      },
+    ]),
+  };

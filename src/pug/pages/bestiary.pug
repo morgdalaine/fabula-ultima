@@ -58,7 +58,7 @@ mixin bestiary-edit(spine)
       each field in spine.attributes.fields
         +chimera-input(field)
 
-    .attributes__distribution.chimera-container--shadow
+    .attributes__distribution.chimera-shadow
       each field in spine.attributes.distribution
         +chimera-value(field)
 
@@ -66,7 +66,7 @@ mixin bestiary-edit(spine)
       each field in spine.affinities.fields
         +chimera-input(field)
 
-    .affinities__skillcost.chimera-container--shadow
+    .affinities__skillcost.chimera-shadow
       each field in spine.affinities.skillcost
         +chimera-value(field)
 

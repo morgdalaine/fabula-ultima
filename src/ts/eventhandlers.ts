@@ -1,6 +1,13 @@
 /// <reference path="constants.ts" />
 /// <reference path="../chimera/ts/repeating.ts" />
 
+NAVBAR.forEach((nav) => {
+  on(`clicked:${nav}`, (eventInfo) => {
+    console.log(nav, eventInfo);
+    setAttrs({ nav: nav }, { silent: true });
+  });
+});
+
 REPEATING.forEach((fieldset) => {
   on(`sheet:opened change:repeating_${fieldset} remove:repeating_${fieldset}`, (eventInfo) => {
     RepeatingModule.isFieldsetEmpty(fieldset);

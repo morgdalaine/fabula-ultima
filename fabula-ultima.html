@@ -13,7 +13,7 @@
             <input id="sheet_mode" name="attr_sheet_mode" type="checkbox"/><img data-i18n-title="sheet_mode_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png" title="Toggle edit mode"/>
           </div><span class="chimera-checkbox__label" data-i18n="sheet_mode" for="sheet_mode">Edit</span>
         </label>
-        <div class="chimera-input sheet-type chimera-input--flex-row chimera-input--nowrap chimera-input--small">
+        <div class="chimera-input sheet-type chimera-input--flex-row chimera-input--nowrap">
           <label class="chimera-input__label" data-i18n="sheet_type" for="sheet_type">Sheet Type</label>
           <select class="chimera-input__field" data-i18n-title="sheet_type_title" id="sheet_type" name="attr_sheet_type" title="Sheet Type">
             <option data-i18n="character" selected="selected" value="character">Character</option>
@@ -23,8 +23,9 @@
         </div>
       </header>
       <main class="character">
+        <input class="chimera-hidden" name="attr_nav" type="hidden" value="classes"/>
             <section class="character--edit">
-                  <div class="traits">
+                  <div class="traits--edit">
                     <div class="chimera-input trait__name">
                       <label class="chimera-input__label" data-i18n="character_name" for="character_name">Name</label>
                       <input class="chimera-input__field" data-i18n-title="character_name_title" id="character_name" name="attr_character_name" title="Name" type="text"/>
@@ -46,73 +47,232 @@
                       <input class="chimera-input__field" data-i18n-title="origin_title" id="origin" name="attr_origin" title="Origin" type="text"/>
                     </div>
                   </div>
-              <div class="attribute-status-effects" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px">
-                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="dexterity_max" for="dexterity_max">DEX</label>
-                  <select class="chimera-input__field" data-i18n-title="dexterity_max_title" id="dexterity_max" name="attr_dexterity_max" title="Dexterity">
-                    <option data-i18n="d6" selected="selected" value="6">d6</option>
-                    <option data-i18n="d8" selected="selected" value="8">d8</option>
-                    <option data-i18n="d10" value="10">d10</option>
-                    <option data-i18n="d12" value="12">d12</option>
-                  </select>
-                </div>
-                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="insight_max" for="insight_max">INS</label>
-                  <select class="chimera-input__field" data-i18n-title="insight_max_title" id="insight_max" name="attr_insight_max" title="Insight">
-                    <option data-i18n="d6" selected="selected" value="6">d6</option>
-                    <option data-i18n="d8" selected="selected" value="8">d8</option>
-                    <option data-i18n="d10" value="10">d10</option>
-                    <option data-i18n="d12" value="12">d12</option>
-                  </select>
-                </div>
-                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="might_max" for="might_max">MIG</label>
-                  <select class="chimera-input__field" data-i18n-title="might_max_title" id="might_max" name="attr_might_max" title="Might">
-                    <option data-i18n="d6" selected="selected" value="6">d6</option>
-                    <option data-i18n="d8" selected="selected" value="8">d8</option>
-                    <option data-i18n="d10" value="10">d10</option>
-                    <option data-i18n="d12" value="12">d12</option>
-                  </select>
-                </div>
-                <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
-                  <label class="chimera-input__label" data-i18n="willpower_max" for="willpower_max">WLP</label>
-                  <select class="chimera-input__field" data-i18n-title="willpower_max_title" id="willpower_max" name="attr_willpower_max" title="Willpower">
-                    <option data-i18n="d6" selected="selected" value="6">d6</option>
-                    <option data-i18n="d8" selected="selected" value="8">d8</option>
-                    <option data-i18n="d10" value="10">d10</option>
-                    <option data-i18n="d12" value="12">d12</option>
-                  </select>
-                </div>
-                <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Slow temporarily reduces your Dexterity die size by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Slow temporarily reduces your Dexterity die size by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
-                </label>
-                <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_title" title="Dazed temporarily reduces your Insight die size by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Dazed temporarily reduces your Insight die size by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
-                </label>
-                <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
-                </label>
-                <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_title" title="Weak temporarily reduces your Might die size by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Weak temporarily reduces your Might die size by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
-                </label>
-                <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_title" title="Shaken temporarily reduces your Willpower die size by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Shaken temporarily reduces your Willpower die size by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
-                </label>
-                <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
-                  <div class="chimera-checkbox__field">
-                    <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
-                  </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
-                </label>
+                  <div class="attributes--edit">
+                    <div class="attributes__distribution chimera-shadow">
+                      <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
+                        <label class="chimera-value__label" data-i18n="jack_of_all_trades">Jack of All Trades</label><span class="chimera-value__value">d8, d8, d8, d8</span>
+                      </div>
+                      <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
+                        <label class="chimera-value__label" data-i18n="standard">Standard</label><span class="chimera-value__value">d10, d8, d8, d6</span>
+                      </div>
+                      <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
+                        <label class="chimera-value__label" data-i18n="specialized">Specialized</label><span class="chimera-value__value">d10, d10, d6, d6</span>
+                      </div>
+                    </div>
+                    <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="dexterity_max" for="dexterity_max">DEX</label>
+                      <select class="chimera-input__field" data-i18n-title="dexterity_max_title" id="dexterity_max" name="attr_dexterity_max" title="Dexterity">
+                        <option data-i18n="d6" selected="selected" value="6">d6</option>
+                        <option data-i18n="d8" selected="selected" value="8">d8</option>
+                        <option data-i18n="d10" value="10">d10</option>
+                        <option data-i18n="d12" value="12">d12</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="insight_max" for="insight_max">INS</label>
+                      <select class="chimera-input__field" data-i18n-title="insight_max_title" id="insight_max" name="attr_insight_max" title="Insight">
+                        <option data-i18n="d6" selected="selected" value="6">d6</option>
+                        <option data-i18n="d8" selected="selected" value="8">d8</option>
+                        <option data-i18n="d10" value="10">d10</option>
+                        <option data-i18n="d12" value="12">d12</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="might_max" for="might_max">MIG</label>
+                      <select class="chimera-input__field" data-i18n-title="might_max_title" id="might_max" name="attr_might_max" title="Might">
+                        <option data-i18n="d6" selected="selected" value="6">d6</option>
+                        <option data-i18n="d8" selected="selected" value="8">d8</option>
+                        <option data-i18n="d10" value="10">d10</option>
+                        <option data-i18n="d12" value="12">d12</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="willpower_max" for="willpower_max">WLP</label>
+                      <select class="chimera-input__field" data-i18n-title="willpower_max_title" id="willpower_max" name="attr_willpower_max" title="Willpower">
+                        <option data-i18n="d6" selected="selected" value="6">d6</option>
+                        <option data-i18n="d8" selected="selected" value="8">d8</option>
+                        <option data-i18n="d10" value="10">d10</option>
+                        <option data-i18n="d12" value="12">d12</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
+                    <button class="chimera-action" data-i18n-title="classes" name="act_classes" title="Classes" type="action"><span class="chimera-value__value" data-i18n="classes">Classes</span>
+                    </button>
+                    <button class="chimera-action" data-i18n-title="spells" name="act_spells" title="Spells" type="action"><span class="chimera-value__value" data-i18n="spells">Spells</span>
+                    </button>
+                  </div>
+              <div class="character__classes">
+                    <div class="classes">
+                      <h2 class="classes__heading--edit" data-i18n="classes">Classes</h2>
+                      <div class="chimera-repeater">
+                        <input class="chimera-hidden chimera-repeater--is-empty" name="attr_classes_empty" type="hidden" value="0"/>
+                        <div class="chimera-repeater__empty">
+                          <h2 class="chimera-repeater__empty-header" data-i18n="none_classes_repeating">No classes saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                        </div>
+                        <fieldset class="repeating_classes">
+                          <div class="chimera-repeater__content">
+                            <div class="chimera-repeater--edit classes--edit">
+                              <div class="class">
+                                <input class="chimera-hidden" name="attr_character_level" type="hidden"/>
+                                <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
+                                <label class="chimera-checkbox class__hide chimera-checkbox--column-reverse" data-i18n-title="class_hide_title" title="Hide">
+                                  <div class="chimera-checkbox__field">
+                                    <input id="class_hide" name="attr_class_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  </div><span class="chimera-checkbox__label" data-i18n="class_hide" for="class_hide">Hide</span>
+                                </label>
+                                <div class="chimera-input class__name--span">
+                                  <label class="chimera-input__label" data-i18n="class_name" for="class_name">Name</label><span class="chimera-input__field" name="attr_class_name"></span>
+                                </div>
+                                <div class="chimera-input class__name">
+                                  <label class="chimera-input__label" data-i18n="class_name" for="class_name">Name</label>
+                                  <input class="chimera-input__field" data-i18n-title="class_name_title" id="class_name" name="attr_class_name" title="Name" type="text"/>
+                                </div>
+                                <div class="chimera-input class__level chimera-input--disabled chimera-input--center chimera-input--small">
+                                  <label class="chimera-input__label" data-i18n="class_level" for="class_level">Level</label><span class="chimera-input__field" name="attr_class_level"></span>
+                                </div>
+                                <div class="chimera-input class__special">
+                                  <label class="chimera-input__label" data-i18n="class_special" for="class_special">Special</label>
+                                  <input class="chimera-input__field" data-i18n-title="class_special_title" id="class_special" name="attr_class_special" title="Special" type="text"/>
+                                </div>
+                                <div class="chimera-input class__benefit chimera-input--center">
+                                  <label class="chimera-input__label" data-i18n="class_benefit" for="class_benefit">Free Benefit</label>
+                                  <select class="chimera-input__field" data-i18n-title="class_benefit_title" id="class_benefit" name="attr_class_benefit" title="Free Benefit">
+                                    <option data-i18n="plusHP" selected="selected" value="hp5">+5 HP</option>
+                                    <option data-i18n="plusMP" value="mp5">+5 MP</option>
+                                    <option data-i18n="plusIP" value="ip2">+2 IP</option>
+                                  </select>
+                                </div>
+                                <label class="chimera-checkbox class__martialmelee chimera-checkbox--column-reverse" data-i18n-title="class_martialmelee_title" title="Martial Melee">
+                                  <div class="chimera-checkbox__field">
+                                    <input id="class_martialmelee" name="attr_class_martialmelee" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  </div><span class="chimera-checkbox__label" data-i18n="class_martialmelee" for="class_martialmelee">Martial Melee</span>
+                                </label>
+                                <label class="chimera-checkbox class__martialranged chimera-checkbox--column-reverse" data-i18n-title="class_martialranged_title" title="Martial Ranged">
+                                  <div class="chimera-checkbox__field">
+                                    <input id="class_martialranged" name="attr_class_martialranged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  </div><span class="chimera-checkbox__label" data-i18n="class_martialranged" for="class_martialranged">Martial Ranged</span>
+                                </label>
+                                <label class="chimera-checkbox class__martialarmor chimera-checkbox--column-reverse" data-i18n-title="class_martialarmor_title" title="Martial Armor">
+                                  <div class="chimera-checkbox__field">
+                                    <input id="class_martialarmor" name="attr_class_martialarmor" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  </div><span class="chimera-checkbox__label" data-i18n="class_martialarmor" for="class_martialarmor">Martial Armor</span>
+                                </label>
+                                <label class="chimera-checkbox class__martialshield chimera-checkbox--column-reverse" data-i18n-title="class_martialshield_title" title="Martial Shield">
+                                  <div class="chimera-checkbox__field">
+                                    <input id="class_martialshield" name="attr_class_martialshield" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                  </div><span class="chimera-checkbox__label" data-i18n="class_martialshield" for="class_martialshield">Martial Shield</span>
+                                </label>
+                                <div class="chimera-input class__description">
+                                  <label class="chimera-input__label" data-i18n="class_description" for="class_description">Description</label>
+                                  <textarea class="chimera-input__field" data-i18n-title="class_description_title" id="class_description" name="attr_class_description" title="Description" type="textarea"></textarea>
+                                </div>
+                                <div class="class__skill">
+                                  <label class="chimera-checkbox class__skill_hide chimera-checkbox--column-reverse" data-i18n-title="class_skill1_hide_title" title="Hide">
+                                    <div class="chimera-checkbox__field">
+                                      <input id="class_skill1_hide" name="attr_class_skill1_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                    </div><span class="chimera-checkbox__label" data-i18n="class_skill1_hide" for="class_skill1_hide">Hide</span>
+                                  </label>
+                                  <div class="chimera-input class__skill_name">
+                                    <label class="chimera-input__label" data-i18n="class_skill1_name" for="class_skill1_name">Skill Name</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill1_name_title" id="class_skill1_name" name="attr_class_skill1_name" title="Skill Name" type="text"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
+                                    <label class="chimera-input__label" data-i18n="class_skill1_level" for="class_skill1_level">SL</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill1_level_title" id="class_skill1_level" min="0" name="attr_class_skill1_level" title="Skill Level" type="number" value="0"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_description">
+                                    <label class="chimera-input__label" data-i18n="class_skill1_description" for="class_skill1_description">Description</label>
+                                    <textarea class="chimera-input__field" data-i18n-title="class_skill1_description_title" id="class_skill1_description" name="attr_class_skill1_description" title="Description" type="textarea"></textarea>
+                                  </div>
+                                  <label class="chimera-checkbox class__skill_hide chimera-checkbox--column-reverse" data-i18n-title="class_skill2_hide_title" title="Hide">
+                                    <div class="chimera-checkbox__field">
+                                      <input id="class_skill2_hide" name="attr_class_skill2_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                    </div><span class="chimera-checkbox__label" data-i18n="class_skill2_hide" for="class_skill2_hide">Hide</span>
+                                  </label>
+                                  <div class="chimera-input class__skill_name">
+                                    <label class="chimera-input__label" data-i18n="class_skill2_name" for="class_skill2_name">Skill Name</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill2_name_title" id="class_skill2_name" name="attr_class_skill2_name" title="Skill Name" type="text"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
+                                    <label class="chimera-input__label" data-i18n="class_skill2_level" for="class_skill2_level">SL</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill2_level_title" id="class_skill2_level" min="0" name="attr_class_skill2_level" title="Skill Level" type="number" value="0"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_description">
+                                    <label class="chimera-input__label" data-i18n="class_skill2_description" for="class_skill2_description">Description</label>
+                                    <textarea class="chimera-input__field" data-i18n-title="class_skill2_description_title" id="class_skill2_description" name="attr_class_skill2_description" title="Description" type="textarea"></textarea>
+                                  </div>
+                                  <label class="chimera-checkbox class__skill_hide chimera-checkbox--column-reverse" data-i18n-title="class_skill3_hide_title" title="Hide">
+                                    <div class="chimera-checkbox__field">
+                                      <input id="class_skill3_hide" name="attr_class_skill3_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                    </div><span class="chimera-checkbox__label" data-i18n="class_skill3_hide" for="class_skill3_hide">Hide</span>
+                                  </label>
+                                  <div class="chimera-input class__skill_name">
+                                    <label class="chimera-input__label" data-i18n="class_skill3_name" for="class_skill3_name">Skill Name</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill3_name_title" id="class_skill3_name" name="attr_class_skill3_name" title="Skill Name" type="text"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
+                                    <label class="chimera-input__label" data-i18n="class_skill3_level" for="class_skill3_level">SL</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill3_level_title" id="class_skill3_level" min="0" name="attr_class_skill3_level" title="Skill Level" type="number" value="0"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_description">
+                                    <label class="chimera-input__label" data-i18n="class_skill3_description" for="class_skill3_description">Description</label>
+                                    <textarea class="chimera-input__field" data-i18n-title="class_skill3_description_title" id="class_skill3_description" name="attr_class_skill3_description" title="Description" type="textarea"></textarea>
+                                  </div>
+                                  <label class="chimera-checkbox class__skill_hide chimera-checkbox--column-reverse" data-i18n-title="class_skill4_hide_title" title="Hide">
+                                    <div class="chimera-checkbox__field">
+                                      <input id="class_skill4_hide" name="attr_class_skill4_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                    </div><span class="chimera-checkbox__label" data-i18n="class_skill4_hide" for="class_skill4_hide">Hide</span>
+                                  </label>
+                                  <div class="chimera-input class__skill_name">
+                                    <label class="chimera-input__label" data-i18n="class_skill4_name" for="class_skill4_name">Skill Name</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill4_name_title" id="class_skill4_name" name="attr_class_skill4_name" title="Skill Name" type="text"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
+                                    <label class="chimera-input__label" data-i18n="class_skill4_level" for="class_skill4_level">SL</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill4_level_title" id="class_skill4_level" min="0" name="attr_class_skill4_level" title="Skill Level" type="number" value="0"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_description">
+                                    <label class="chimera-input__label" data-i18n="class_skill4_description" for="class_skill4_description">Description</label>
+                                    <textarea class="chimera-input__field" data-i18n-title="class_skill4_description_title" id="class_skill4_description" name="attr_class_skill4_description" title="Description" type="textarea"></textarea>
+                                  </div>
+                                  <label class="chimera-checkbox class__skill_hide chimera-checkbox--column-reverse" data-i18n-title="class_skill5_hide_title" title="Hide">
+                                    <div class="chimera-checkbox__field">
+                                      <input id="class_skill5_hide" name="attr_class_skill5_hide" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                    </div><span class="chimera-checkbox__label" data-i18n="class_skill5_hide" for="class_skill5_hide">Hide</span>
+                                  </label>
+                                  <div class="chimera-input class__skill_name">
+                                    <label class="chimera-input__label" data-i18n="class_skill5_name" for="class_skill5_name">Skill Name</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill5_name_title" id="class_skill5_name" name="attr_class_skill5_name" title="Skill Name" type="text"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
+                                    <label class="chimera-input__label" data-i18n="class_skill5_level" for="class_skill5_level">SL</label>
+                                    <input class="chimera-input__field" data-i18n-title="class_skill5_level_title" id="class_skill5_level" min="0" name="attr_class_skill5_level" title="Skill Level" type="number" value="0"/>
+                                  </div>
+                                  <div class="chimera-input class__skill_description">
+                                    <label class="chimera-input__label" data-i18n="class_skill5_description" for="class_skill5_description">Description</label>
+                                    <textarea class="chimera-input__field" data-i18n-title="class_skill5_description_title" id="class_skill5_description" name="attr_class_skill5_description" title="Description" type="textarea"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="chimera-repeater--delete classes--delete">
+                              <div class="class">
+                                <div class="chimera-value class__name"><span class="chimera-value__value" name="attr_class_name"></span>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="chimera-value class__level"><span class="chimera-value__value" name="attr_class_level"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="chimera-repeater--view classes--view">
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+              </div>
+              <div class="character__spells">
+                    <h1>SPELLS</h1>
               </div>
             </section>
       </main>
@@ -750,7 +910,7 @@
                   </select>
                 </div>
               </div>
-              <div class="attributes__distribution chimera-container--shadow">
+              <div class="attributes__distribution chimera-shadow">
                 <div class="chimera-value distribution chimera-value--helptext"><span class="chimera-value__value" data-i18n="attribute_distribution">Distribute one of the following arrays among the NPC's Attributes.</span>
                 </div>
                 <div class="chimera-value distribution chimera-value--bullet chimera-value--helptext">
@@ -860,7 +1020,7 @@
                   </select>
                 </div>
               </div>
-              <div class="affinities__skillcost chimera-container--shadow">
+              <div class="affinities__skillcost chimera-shadow">
                 <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_vulnerability">Gain 1 skill per vulnerability</span>
                 </div>
                 <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_physical_vulnerability">Gain 2 skills per physical vulnerability</span>
@@ -1533,7 +1693,8 @@
         </div>
       </div>
     </rolltemplate>
-    <script type="text/worker">const REPEATING = [
+    <script type="text/worker">const NAVBAR = ['classes', 'spells'];
+const REPEATING = [
     'bonds',
     'basic-attacks',
     'weapons',
@@ -1542,6 +1703,7 @@
     'special-rules',
     'rare-gears',
     'notes',
+    'classes',
 ];
 const DIE_SIZES = [6, 8, 10, 12];
 const STUDY_THRESHOLDS = [7, 10, 13];
@@ -2221,6 +2383,12 @@ class RepeatingModule {
         });
     }
 }
+NAVBAR.forEach((nav) => {
+    on(`clicked:${nav}`, (eventInfo) => {
+        console.log(nav, eventInfo);
+        setAttrs({ nav: nav }, { silent: true });
+    });
+});
 REPEATING.forEach((fieldset) => {
     on(`sheet:opened change:repeating_${fieldset} remove:repeating_${fieldset}`, (eventInfo) => {
         RepeatingModule.isFieldsetEmpty(fieldset);

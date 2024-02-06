@@ -1,0 +1,21 @@
+include character/attributes
+include character/classes
+include character/nav
+include character/spells
+include character/traits
+
+mixin character-view(spine)
+  //-
+
+mixin character-edit(spine)
+  section.character--edit
+    +traits-edit(spine)
+    +attributes-edit(spine)
+    +navbar-edit(spine)
+
+    //- pages
+    .character__classes
+      +classes-edit(spine)
+
+    .character__spells
+      +spells-edit(spine)
