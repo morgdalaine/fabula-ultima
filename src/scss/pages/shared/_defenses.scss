@@ -1,0 +1,54 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .defenses {
+      $this: '.defenses';
+
+      &--view {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+
+        align-items: center;
+        justify-content: space-between;
+
+        height: min-content;
+
+        text-align: center;
+
+        border: 1px solid var(--color-fabula0);
+        border-left: none;
+        border-image: var(--fabula-gradient-dark-border);
+
+        .defense {
+          display: flex;
+          gap: 4px;
+          justify-content: center;
+          padding: 4px;
+
+          @each $attr in 1, 2 {
+            &:nth-of-type(#{$attr}) {
+              background-color: color-mix(
+                in srgb,
+                white #{50% + $attr * 10%},
+                var(--color-fabula2)
+              );
+            }
+          }
+
+          .chimera-value {
+            padding: 4px;
+            &__label {
+              @include mixins.text-lg-700-fabula;
+            }
+            &__value {
+              @include mixins.text-lg-500-fabula;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,25 @@
+mixin traits-view(spine)
+  .traits--view
+    - const traits = fieldDictionary(spine.traits.view);
+    +chimera-hidden('character_avatar', '')
+    .trait__avatar
+      img(
+        data-i18n-title='avatar',
+        name='attr_character_avatar',
+        title='Despite everything, it\'s still you.'
+      )
+    .trait__name
+      +chimera-span(traits.character_name)
+      +chimera-span(traits.pronouns).trait__pronouns
+    .trait__level
+      label(data-i18n='lv') Lv
+      +chimera-span(traits.level)
+
+    .trait__description
+      +chimera-value(traits.identity)
+      +chimera-value(traits.theme)
+      +chimera-value(traits.origin)
+
 mixin traits-edit(spine)
   .traits--edit
     each field in spine.traits.fields

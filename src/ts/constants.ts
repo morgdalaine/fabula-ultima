@@ -55,6 +55,16 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
 
+  level: [
+    'sheet_type',
+    // 'repeating_classes:class_level',
+    'repeating_classes:class_skill1_level',
+    'repeating_classes:class_skill2_level',
+    'repeating_classes:class_skill3_level',
+    'repeating_classes:class_skill4_level',
+    'repeating_classes:class_skill5_level',
+  ],
+
   defense: [
     'dexterity',
     'defense_quick',
@@ -241,6 +251,24 @@ SEND_TO_CHAT.study10 = [
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 
 const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar'];
+
+const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
+  {
+    section: 'repeating_classes',
+    fields: [
+      'class_skill1_name',
+      'class_skill1_level',
+      'class_skill2_name',
+      'class_skill2_level',
+      'class_skill3_name',
+      'class_skill3_level',
+      'class_skill4_name',
+      'class_skill4_level',
+      'class_skill5_name',
+      'class_skill5_level',
+    ],
+  },
+];
 
 const BASIC_ACCURACY_DAMAGE: SectionDetails[] = [
   {

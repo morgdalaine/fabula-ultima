@@ -1,0 +1,25 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .statistics {
+      $this: '.statistics';
+
+      &--view {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+
+        .attributes--view,
+        .points--view {
+          grid-column: span 2;
+        }
+        // .defenses--view { }
+        .affinities--view {
+          grid-column: span 3;
+        }
+      }
+    }
+  }
+}

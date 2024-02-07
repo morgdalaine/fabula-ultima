@@ -4,7 +4,11 @@ mixin bio-view(spine)
       - const bio = fieldDictionary(spine.bio.fields);
       +chimera-hidden('character_avatar', '')
       .bio__avatar
-        img(data-i18n-title='avatar', name='attr_character_avatar', title='Your Avatar')
+        img(
+          data-i18n-title='avatar',
+          name='attr_character_avatar',
+          title='Despite everything, it\'s still you.'
+        )
       .bio__name
         +chimera-span(bio.character_name)
       .bio__meta

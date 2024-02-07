@@ -3,11 +3,11 @@ include layout/spine
 include components/mixins
 
 mixin html
-  html
-    head
-      link(href='fabula-ultima.css', rel='stylesheet', type='text/css')
-    body
-      block
+  //- html
+  //-   head
+  //-     link(href='fabula-ultima.css', rel='stylesheet', type='text/css')
+  //-   body
+  block
 
 +html
   +chimera-hidden('sheet_type', 'bestiary')
@@ -20,6 +20,7 @@ mixin html
     main.character
       include pages/character
       +chimera-hidden('nav', 'classes')
+      +character-view(spine.character)
       +character-edit(spine.character)
     main.bestiary
       include pages/bestiary

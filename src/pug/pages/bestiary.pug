@@ -25,14 +25,6 @@ mixin bestiary-view(spine)
 
       +defenses-view(spine)
 
-      //- TODO A11Y "DARK VULNERABILITY DAMAGE DOUBLED"
-      .affinities
-        each field in spine.affinities.fields
-          .affinity--cell(class=`affinity--${field.name}`)
-            +chimera-hidden(field.name)
-            +chimera-icon({ icon: field.name, title: field.text })
-            +chimera-value(field)
-
     .status-effects
       each field in spine.statuses.fields
         +chimera-input(field)

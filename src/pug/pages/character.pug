@@ -3,9 +3,12 @@ include character/classes
 include character/nav
 include character/spells
 include character/traits
+include shared/shared
 
 mixin character-view(spine)
-  //-
+  section.character--view
+    +traits-view(spine)
+    +statistics-view(spine)
 
 mixin character-edit(spine)
   section.character--edit

@@ -1,0 +1,76 @@
+-
+  spine.character.points = {
+    hidden: ['hp_crisis'],
+    fields: [
+      {
+        name: 'hp',
+        label: 'HP',
+        title: 'Hit Points',
+        type: 'number',
+        css: { names: ['points__hp'] },
+      },
+      {
+        name: 'hp_crisis',
+        label: 'Crisis',
+        css: { names: ['points__hp_crisis'] },
+        type: 'number',
+      },
+      {
+        name: 'mp',
+        label: 'MP',
+        title: 'Mind Points',
+        type: 'number',
+        css: { names: ['points__mp'] },
+      },
+      {
+        name: 'initiative',
+        label: 'Init.',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['points__initiative'] },
+      },
+    ],
+    arithmetics: [
+      {
+        name: 'hp-control',
+        label: 'HP',
+        title: 'Health Points',
+        type: 'arithmetic',
+        value: 1,
+        css: { names: ['points-controller__hp'] },
+      },
+      {
+        name: 'mp-control',
+        label: 'MP',
+        title: 'Mind Points',
+        type: 'arithmetic',
+        value: 1,
+        css: { names: ['points-controller__mp'] },
+      },
+    ],
+    spendingultima: [
+      {
+        name: 'spending_ultima_points',
+        content: 'Spending Ultima Points',
+        css: { names : ['spending-ultima'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: 'ultima_escape',
+        labelOverride: { key: 'escape', label: 'Escape' },
+        content: 'A Villain may spend 1 Ultima Point to safely leave the scene — the Game Master describes how they do so, perhaps leaving a few henchmen behind to "keep the heroes company".',
+        css: { names : ['spending-ultima'], modifiers: ['bullet', 'helptext', 'colon'] },
+      },
+      {
+        name: 'ultima_invoke_trait',
+        labelOverride: { key: 'invoke_trait', label: 'Invoke Trait' },
+        content: 'After performing a Check, a Villain may spend 1 Ultima Point to invoke one of their Traits and reroll one or both dice (this follows the same rules seen on page 46).',
+        css: { names : ['spending-ultima'], modifiers: ['bullet', 'helptext', 'colon'] },
+      },
+      {
+        name: 'ultima_recovery',
+        labelOverride: { key: 'recover', label: 'Recovery' },
+        content: 'A Villain may use an action and spend 1 Ultima Point to recover from all status effects and also recover 50 Mind Points.',
+        css: { names : ['spending-ultima'], modifiers: ['bullet', 'helptext', 'colon'] },
+      },
+    ]
+  };

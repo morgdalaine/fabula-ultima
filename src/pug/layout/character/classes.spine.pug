@@ -1,6 +1,6 @@
 -
   spine.character.classes = {
-    hidden: ['character_level', 'class_hide'],
+    hidden: ['character_level', 'class_hide', 'class_skills_taken'],
     heading: { name: 'classes', label: 'Classes' },
     delete: [
       {
@@ -17,13 +17,14 @@
         name: 'class_hide',
         label: 'Hide',
         type: 'checkbox',
+        icon: 'hide',
         css: { names: ['class__hide'], modifiers: ['column-reverse'] },
       },
       {
         name: 'class_name',
         label: 'Name',
         type: 'span',
-        css: { names: ['class__name--span'], modifiers: [] },
+        css: { names: ['class__name--view'], modifiers: [] },
       },
       {
         name: 'class_name',
@@ -43,6 +44,12 @@
         label: 'Special',
         type: 'text',
         css: { names: ['class__special'], modifiers: [] },
+      },
+      {
+        name: 'class_skills_taken',
+        label: 'Skills Taken',
+        type: 'span',
+        css: { names: ['class__skills_taken'], modifiers: ['hide-label'] },
       },
       {
         name: 'class_benefit',
@@ -83,12 +90,12 @@
       },
     ],
     skills: [1, 2, 3, 4, 5].map((skill) => [
-      {
-        name: `class_skill${skill}_hide`,
-        label: 'Hide',
-        type: 'checkbox',
-        css: { names: ['class__skill_hide'], modifiers: ['column-reverse'] },
-      },
+      //- {
+      //-   name: `class_skill${skill}_hide`,
+      //-   label: 'Hide',
+      //-   type: 'checkbox',
+      //-   css: { names: ['class__skill_hide'], modifiers: ['column-reverse'] },
+      //- },
       {
         name: `class_skill${skill}_name`,
         label: 'Skill Name',
@@ -103,6 +110,12 @@
         min: 0,
         value: 0,
         css: { names: ['class__skill_level'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: `class_skill${skill}_modifiers`,
+        label: 'Modifiers',
+        type: 'text',
+        css: { names: ['class__skill_modifiers'], modifiers: [] },
       },
       {
         name: `class_skill${skill}_description`,

@@ -1,0 +1,60 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .points {
+      $this: '.points';
+
+      &--view {
+        display: grid;
+        grid-template-columns: repeat(2, var(--input-component-size) auto) auto;
+        gap: 4px;
+
+        border: 1px solid var(--color-fabula0);
+        border-right: none;
+        border-image: var(--fabula-gradient-secondary-border);
+
+        padding-inline: 4px;
+
+        .chimera-value {
+          &__label,
+          &__value {
+            @include mixins.text-lg-700-fabula;
+            text-align: center;
+          }
+          &__label {
+            align-self: center;
+            justify-self: center;
+          }
+        }
+
+        .fabula-diamond {
+          @include mixins.text-lg-400;
+        }
+
+        .point {
+          &__hp,
+          &__mp,
+          &__initiative {
+            display: flex;
+            gap: 4px;
+            padding: 4px;
+            justify-content: center;
+          }
+
+          &__hp {
+            padding-inline: 8px;
+            color: var(--color-on-dark);
+            background-color: var(--color-hp);
+          }
+          &__mp {
+            padding-inline: 8px;
+            color: var(--color-on-dark);
+            background-color: var(--color-mp);
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,14 +8,12 @@
     &--column-reverse {
       flex-direction: column-reverse;
     }
-
     &--flex-row {
       flex-direction: row;
       .chimera-input__label {
         align-self: center;
       }
     }
-
     &--center {
       display: grid;
       justify-content: center;
@@ -24,7 +22,6 @@
         text-align: center;
       }
     }
-
     &--small {
       .chimera-input__field {
         width: 5rem;
@@ -34,10 +31,14 @@
         }
       }
     }
-
     &--nowrap {
       .chimera-input__label {
         white-space: nowrap;
+      }
+    }
+    &--hide-label {
+      .chimera-input__label {
+        @include mixins.sr-only;
       }
     }
 
@@ -66,6 +67,10 @@
       &::before {
         content: '✦';
       }
+    }
+    &--column {
+      display: flex;
+      flex-direction: column;
     }
     &--reverse {
       display: flex;
@@ -155,7 +160,7 @@
       @include mixins.action-button;
 
       input[type='checkbox'] {
-        // position: absolute;
+        position: absolute;
         opacity: 0;
         width: 0;
         height: 0;

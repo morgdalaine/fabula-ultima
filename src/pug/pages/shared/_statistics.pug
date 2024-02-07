@@ -1,0 +1,10 @@
+mixin statistics-view(spine)
+  .statistics--view
+    .attributes--view
+      each field in spine.attributes.view
+        +chimera-value(field)
+
+    +points-view(spine)
+    +defenses-view(spine)
+    +affinities-view(spine)
+    //- +statuses-view(spine)

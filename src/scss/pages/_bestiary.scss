@@ -3,13 +3,14 @@
 
 @use 'bestiary/actions';
 @use 'bestiary/affinity';
-@use 'bestiary/attributes';
+// @use 'bestiary/attributes';
 @use 'bestiary/bio';
-@use 'bestiary/defenses';
+// @use 'bestiary/defenses';
 @use 'bestiary/equipment';
 @use 'bestiary/extras';
 @use 'bestiary/other';
-@use 'bestiary/points';
+// @use 'bestiary/points';
+// @use 'shared/statistics';
 
 .fabula-ultima {
   .bestiary {
@@ -33,140 +34,6 @@
       }
 
       .statistics {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4px;
-
-        .attributes {
-          grid-column: span 2;
-
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 4px;
-
-          align-items: center;
-          justify-content: space-between;
-
-          height: min-content;
-
-          text-align: center;
-
-          border: 1px solid var(--color-fabula0);
-          border-left: none;
-          border-image: var(--fabula-gradient-dark-border);
-
-          .chimera-value {
-            padding: 4px;
-            label {
-              @include mixins.text-lg-700-fabula;
-            }
-            span {
-              @include mixins.text-lg-700-fabula;
-              &::before {
-                content: 'd';
-                text-transform: lowercase;
-              }
-            }
-
-            @each $attr in 1, 2, 3, 4 {
-              &:nth-of-type(#{$attr}) {
-                background-color: color-mix(
-                  in srgb,
-                  white #{50% + $attr * 10%},
-                  var(--color-fabula2)
-                );
-              }
-            }
-          }
-        }
-
-        .points {
-          grid-column: span 2;
-
-          display: grid;
-          grid-template-columns: repeat(4, auto) 1fr;
-          gap: 4px;
-
-          text-align: center;
-
-          border: 1px solid var(--color-fabula0);
-          border-right: none;
-          border-image: var(--fabula-gradient-secondary-border);
-
-          label,
-          span {
-            @include mixins.text-lg-700-fabula;
-            text-align: center;
-          }
-
-          &__label {
-            width: var(--input-component-size);
-          }
-
-          &__label,
-          &__hp,
-          &__mp,
-          &__initiative {
-            padding: 4px;
-          }
-
-          &__hp,
-          &__mp {
-            padding-inline: 8px;
-            color: var(--color-on-dark);
-          }
-          &__hp {
-            display: flex;
-            gap: 4px;
-            background-color: var(--color-hp);
-          }
-          &__mp {
-            min-width: 4rem;
-            background-color: var(--color-mp);
-          }
-          &__initiative {
-            display: flex;
-            justify-content: space-evenly;
-          }
-        }
-
-        .defenses {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 4px;
-
-          align-items: center;
-          justify-content: space-between;
-
-          height: min-content;
-
-          text-align: center;
-
-          border: 1px solid var(--color-fabula0);
-          border-left: none;
-          border-image: var(--fabula-gradient-dark-border);
-
-          .chimera-value {
-            padding: 4px;
-            label {
-              @include mixins.text-lg-700-fabula;
-            }
-            span {
-              @include mixins.text-lg-700-fabula;
-            }
-
-            @each $attr in 1, 2 {
-              &:nth-of-type(#{$attr}) {
-                background-color: color-mix(
-                  in srgb,
-                  white #{50% + $attr * 10%},
-                  var(--color-fabula2)
-                );
-              }
-            }
-          }
-        }
-
         .affinities {
           grid-column: span 3;
 

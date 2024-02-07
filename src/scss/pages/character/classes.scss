@@ -6,6 +6,26 @@
 
     @include mixins.repeater-heading;
 
+    &--delete {
+      .class {
+        display: flex;
+        gap: 4px;
+
+        &__name,
+        &__level {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+
+      .fabula-diamond {
+        @include mixins.text-base-400;
+      }
+    }
+
     &--view {
     }
 
@@ -22,15 +42,15 @@
         &__hide {
           grid-column: 1;
           grid-row: 1;
-          // align-self: flex-start;
+          align-self: flex-start;
         }
 
         &__name,
-        &__name--span {
+        &__name--view {
           grid-column: 2;
           grid-row: 1;
         }
-        &__name--span {
+        &__name--view {
           display: none;
           justify-content: space-between;
           .chimera-input__field {
@@ -40,13 +60,27 @@
         &__level {
           grid-column: 3;
           grid-row: 1;
+          align-self: flex-start;
           .chimera-input__field {
             @include mixins.text-xxl-400;
           }
         }
-        &__special {
+        &__special,
+        &__skills_taken {
           grid-column: 2;
           grid-row: 2;
+        }
+        &__skills_taken {
+          display: none;
+          flex-direction: row;
+          .chimera-input {
+            &__label {
+              @include mixins.text-base-700;
+            }
+            &__field {
+              @include mixins.text-base-400;
+            }
+          }
         }
 
         &__martialmelee,
@@ -89,9 +123,14 @@
           .class__description,
           .class__skill {
             display: none;
-            background: yellow;
           }
-          .class__name--span {
+          .class__level,
+          .class__hide {
+            grid-row: span 2;
+          }
+
+          .class__name--view,
+          .class__skills_taken {
             display: flex;
           }
         }
@@ -101,24 +140,26 @@
       .class__skill {
         grid-column: 1/-1;
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 1fr auto;
         gap: 4px;
 
         padding: 8px;
         padding-top: 4px;
 
-        border: 2px solid black;
         border-top: none;
         border-radius: 0 0 4px 4px;
 
-        background-color: rgba(black, 0.1);
+        background-color: var(--character-edit-background-secondary);
 
-        &_hide {
-          grid-row: span 2;
-          align-self: flex-start;
-        }
+        &_modifiers,
         &_description {
-          grid-column: 2/-1;
+          grid-column: 1/-1;
+        }
+
+        &_description {
+          padding-bottom: 4px;
+          border-bottom: 2px solid var(--color-fabula2);
+          border-image: var(--fabula-gradient-secondary-border);
         }
       }
     }

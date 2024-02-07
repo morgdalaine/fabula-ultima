@@ -1,0 +1,9 @@
+mixin affinities-view(spine)
+  .affinities--view
+    each field in spine.affinities.fields
+      label.affinity__wrapper(class=`affinity--${field.name}`)
+        +chimera-hidden(field.name)
+        +chimera-icon({ icon: field.name, title: field.text })
+        +chimera-value(field)
+        each text in spine.affinities.help
+          +chimera-span(text)(class=text.name)

@@ -29,6 +29,9 @@ const handleCalculations = (attr: string) => {
     case 'spells':
       return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
 
+    case 'level':
+      return calculateCharacterLevel(ATTR_WATCH[attr]);
+
     case 'equipments_empty':
     case 'villain_empty':
       return isFieldEmpty(attr, ATTR_WATCH[attr]);
@@ -167,6 +170,53 @@ const calculateMagicDefense = (request: string[]) => {
 
     setAttrs({ magic_defense }, { silent: true });
   });
+};
+
+const calculateCharacterLevel = (request: string[]) => {
+  RepeatingModule.getAllAttrs(
+    CHARACTER_SKILL_LEVEL,
+    request,
+    (attributes: Record<string, string>, sections) => {
+      if (attributes.sheet_type != 'character') return;
+
+      console.group('calculateCharacterLevel');
+      console.log(attributes);
+      console.log(sections);
+      console.groupEnd();
+
+      const update: { [key: string]: string | number } = {};
+      let level = 0;
+      sections.repeating_classes.forEach((id) => {
+        const prefix = `repeating_classes_${id}_`;
+
+        const keys = Object.keys(attributes).filter((key) => key.includes(id));
+        const classLevel = keys.reduce((memo, level) => {
+          return memo + (level.includes('level') ? +attributes[level] : 0);
+        }, 0);
+
+        level += classLevel;
+        update[prefix + 'class_level'] = classLevel;
+
+        // builid a string of current class levels
+        const skillsTaken: string[] = [];
+        [1, 2, 3, 4, 5].forEach((skill) => {
+          const skillPrefix = `class_skill${skill}_`;
+          const skillName = attributes[prefix + skillPrefix + 'name'];
+          const skillLevel = attributes[prefix + skillPrefix + 'level'];
+          if (+skillLevel > 0) {
+            const sl = +skillLevel > 1 ? ` (SL ${skillLevel})` : '';
+            skillsTaken.push(`${skillName}${sl}`);
+          }
+        });
+
+        update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
+      });
+
+      update.level = level;
+      console.log(update);
+      setAttrs(update, { silent: true });
+    }
+  );
 };
 
 const calculateQuickDefenses = (value: any) => {

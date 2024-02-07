@@ -1,0 +1,47 @@
+-
+  spine.character.defenses = {
+    hidden: [],
+    view: [
+      {
+        name: 'defense',
+        label: 'DEF',
+        css: { names: ['defense'], modifiers: [] },
+      },
+      {
+        name: 'magic_defense',
+        label: 'M.DEF',
+        css: { names: ['defense'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'defense_quick',
+        label: 'Defenses',
+        title: 'Defense Quick Select',
+        type: 'select',
+        options: extraDefenseOptions,
+        css: {
+          names: ['defense', 'defense__quick'],
+          modifiers: ['center']
+        },
+      },
+      {
+        name: 'defense_extra',
+        label: '+DEF',
+        type: 'number',
+        css: {
+          names: ['defense', 'defense__def'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+      {
+        name: 'magic_defense_extra',
+        label: '+M.DEF',
+        type: 'number',
+        css: {
+          names: ['defense', 'defense__mdef'],
+          modifiers: ['flex-row', 'small', 'center'],
+        },
+      },
+    ]
+  };

@@ -1,0 +1,19 @@
+mixin points-view(spine)
+  .points--view
+    - const points = fieldDictionary(spine.points.fields);
+    each field in spine.points.hidden
+      +chimera-hidden(field)
+
+    label.chimera-value__label(data-i18n='hp') HP
+    .point__hp
+      +chimera-value({...points.hp, label: null })
+      +fabula-diamond
+      +chimera-value({...points.hp_crisis, label: null })
+
+    label.chimera-value__label(data-i18n='mp') MP
+    .point__mp
+      +chimera-value({...points.mp, label: null })
+
+    .point__initiative
+      label.chimera-value__label(data-i18n='init') Init.
+      +chimera-value({...points.initiative, label: null })

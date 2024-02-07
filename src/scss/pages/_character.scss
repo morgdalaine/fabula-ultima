@@ -4,6 +4,7 @@
 @use 'character/traits';
 @use 'character/attributes';
 @use 'character/classes';
+@use 'shared/shared';
 
 .fabula-ultima {
   .character {
@@ -24,6 +25,24 @@
             display: grid;
           }
         }
+      }
+    }
+
+    &--view {
+      min-width: $breakpoint-xs;
+      margin: 8px;
+      max-width: 500px;
+      background-color: var(--suface-container-lowest);
+
+      box-shadow: var(--box-shadow-light);
+      border-radius: 4px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      * ~ .repcontrol {
+        display: none;
       }
     }
 
