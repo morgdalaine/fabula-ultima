@@ -2,15 +2,14 @@
 @use '../common/vars' as mixins;
 
 @use 'bestiary/actions';
-@use 'bestiary/affinity';
-// @use 'bestiary/attributes';
+@use 'bestiary/affinities';
+@use 'bestiary/attributes';
+@use 'bestiary/defenses';
 @use 'bestiary/bio';
-// @use 'bestiary/defenses';
 @use 'bestiary/equipment';
 @use 'bestiary/extras';
 @use 'bestiary/other';
-// @use 'bestiary/points';
-// @use 'shared/statistics';
+@use 'shared/shared';
 
 .fabula-ultima {
   .bestiary {
@@ -31,59 +30,6 @@
 
       * ~ .repcontrol {
         display: none;
-      }
-
-      .statistics {
-        .affinities {
-          grid-column: span 3;
-
-          display: grid;
-          grid-template-columns: repeat(9, minmax(3rem, auto));
-          gap: 2px;
-
-          text-align: center;
-
-          border: 1px solid var(--color-fabula0);
-          border-right: none;
-          border-image: var(--fabula-gradient-primary-border);
-
-          label,
-          span {
-            @include mixins.text-lg-700-fabula;
-            text-align: center;
-            white-space: nowrap;
-            color: var(--color-hp);
-            text-transform: uppercase;
-          }
-        }
-
-        .affinity--cell {
-          display: grid;
-          grid-template-columns: 1.5rem auto;
-          align-items: center;
-
-          padding: 2px;
-
-          @each $attr in 1, 2, 3, 4, 5, 6, 7, 8 {
-            &:nth-of-type(#{$attr}) {
-              border-right: 1px
-                solid
-                color-mix(in srgb, white #{$attr * 12%}, var(--color-fabula5));
-            }
-          }
-
-          label {
-            @include mixins.sr-only;
-          }
-
-          input:not([value]),
-          input[value=''] {
-            + img {
-              opacity: 0.25;
-              filter: grayscale(1);
-            }
-          }
-        }
       }
 
       .status-effects {
@@ -120,14 +66,20 @@
         .bio--edit {
           grid-column: 1 / span 3;
         }
+
         .attributes {
-          grid-column-start: 1;
+          &--edit {
+            grid-column-start: 1;
+          }
           &__distribution {
             grid-column: span 3;
           }
         }
+
         .affinities {
-          grid-row: 3 / span 2;
+          &--edit {
+            grid-row: 3 / span 2;
+          }
           &__skillcost {
             grid-column: span 3;
           }
@@ -175,6 +127,7 @@
           grid-column: 1/-1;
         }
         .attributes {
+          // &--edit { }
           &__distribution {
             grid-column: span 2;
           }

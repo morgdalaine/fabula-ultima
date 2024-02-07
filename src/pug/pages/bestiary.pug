@@ -9,21 +9,14 @@ include bestiary/special-rules
 include bestiary/spells
 include bestiary/weapons
 include bestiary/points
+include shared/shared
 
 // TODO Study Roll
 mixin bestiary-view(spine)
   section.bestiary--view
     +bio-view(spine)
 
-    // TODO Move to mixin
-    .statistics
-      .attributes
-        each field in spine.attributes.view
-          +chimera-value(field).attribute
-
-      +points-view(spine)
-
-      +defenses-view(spine)
+    +statistics-view(spine)
 
     .status-effects
       each field in spine.statuses.fields
@@ -46,7 +39,7 @@ mixin bestiary-edit(spine)
 
     // TODO NPC Builder
 
-    .attributes
+    .attributes--edit
       each field in spine.attributes.fields
         +chimera-input(field)
 
@@ -54,7 +47,7 @@ mixin bestiary-edit(spine)
       each field in spine.attributes.distribution
         +chimera-value(field)
 
-    .affinities
+    .affinities--edit
       each field in spine.affinities.fields
         +chimera-input(field)
 

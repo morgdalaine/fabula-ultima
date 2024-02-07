@@ -416,47 +416,107 @@
                   </div>
                 </div>
               </div>
-          <!-- TODO Move to mixin-->
-          <div class="statistics">
-            <div class="attributes">
-              <div class="chimera-value attribute">
-                <label class="chimera-value__label" data-i18n="dexterity" for="dexterity">DEX</label><span class="chimera-value__value" name="attr_dexterity"></span>
-              </div>
-              <div class="chimera-value attribute">
-                <label class="chimera-value__label" data-i18n="insight" for="insight">INS</label><span class="chimera-value__value" name="attr_insight"></span>
-              </div>
-              <div class="chimera-value attribute">
-                <label class="chimera-value__label" data-i18n="might" for="might">MIG</label><span class="chimera-value__value" name="attr_might"></span>
-              </div>
-              <div class="chimera-value attribute">
-                <label class="chimera-value__label" data-i18n="willpower" for="willpower">WLP</label><span class="chimera-value__value" name="attr_willpower"></span>
-              </div>
-            </div>
-                <div class="points">
-                  <div class="points__label">
-                    <label data-i18n="hp">HP</label>
-                  </div>
-                  <div class="points__hp"><span name="attr_hp"></span><span class="fabula-diamond">⬥</span><span name="attr_hp_crisis"></span>
-                  </div>
-                  <div class="points__label">
-                    <label data-i18n="mp">MP</label>
-                  </div>
-                  <div class="points__mp"><span name="attr_mp"></span>
-                  </div>
-                  <div class="points__initiative">
-                    <label data-i18n="init">Init.</label><span name="attr_initiative"></span>
-                  </div>
-                </div>
-                <div class="defenses">
-                  <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
+              <div class="statistics--view">
+                <div class="attributes--view">
                   <div class="chimera-value">
-                    <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
+                    <label class="chimera-value__label" data-i18n="dexterity" for="dexterity">DEX</label><span class="chimera-value__value" name="attr_dexterity"></span>
                   </div>
                   <div class="chimera-value">
-                    <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
+                    <label class="chimera-value__label" data-i18n="insight" for="insight">INS</label><span class="chimera-value__value" name="attr_insight"></span>
+                  </div>
+                  <div class="chimera-value">
+                    <label class="chimera-value__label" data-i18n="might" for="might">MIG</label><span class="chimera-value__value" name="attr_might"></span>
+                  </div>
+                  <div class="chimera-value">
+                    <label class="chimera-value__label" data-i18n="willpower" for="willpower">WLP</label><span class="chimera-value__value" name="attr_willpower"></span>
                   </div>
                 </div>
-          </div>
+                    <div class="points--view">
+                      <input class="chimera-hidden" name="attr_villain" type="hidden"/>
+                      <label class="chimera-value__label" data-i18n="hp">HP</label>
+                      <div class="point__hp">
+                        <div class="chimera-value points__hp"><span class="chimera-value__value" name="attr_hp"></span>
+                        </div><span class="fabula-diamond">⬥</span>
+                        <div class="chimera-value points__hp_crisis"><span class="chimera-value__value" name="attr_hp_crisis"></span>
+                        </div>
+                      </div>
+                      <label class="chimera-value__label" data-i18n="mp">MP</label>
+                      <div class="point__mp">
+                        <div class="chimera-value points__mp"><span class="chimera-value__value" name="attr_mp"></span>
+                        </div>
+                      </div>
+                      <div class="point__initiative">
+                        <label class="chimera-value__label" data-i18n="init">Init.</label>
+                        <div class="chimera-value points__initiative"><span class="chimera-value__value" name="attr_initiative"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="defenses--view">
+                      <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
+                      </div>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
+                      </div>
+                    </div>
+                    <div class="affinities--view">
+                      <label class="affinity__wrapper affinity--physical">
+                        <input class="chimera-hidden" name="attr_physical" type="hidden"/><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="physical" for="physical">Physical</label><span class="chimera-value__value" name="attr_physical"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--air">
+                        <input class="chimera-hidden" name="attr_air" type="hidden"/><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="air" for="air">Air</label><span class="chimera-value__value" name="attr_air"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--bolt">
+                        <input class="chimera-hidden" name="attr_bolt" type="hidden"/><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="bolt" for="bolt">Bolt</label><span class="chimera-value__value" name="attr_bolt"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--dark">
+                        <input class="chimera-hidden" name="attr_dark" type="hidden"/><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="dark" for="dark">Dark</label><span class="chimera-value__value" name="attr_dark"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--earth">
+                        <input class="chimera-hidden" name="attr_earth" type="hidden"/><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="earth" for="earth">Earth</label><span class="chimera-value__value" name="attr_earth"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--fire">
+                        <input class="chimera-hidden" name="attr_fire" type="hidden"/><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="fire" for="fire">Fire</label><span class="chimera-value__value" name="attr_fire"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--ice">
+                        <input class="chimera-hidden" name="attr_ice" type="hidden"/><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="ice" for="ice">Ice</label><span class="chimera-value__value" name="attr_ice"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--light">
+                        <input class="chimera-hidden" name="attr_light" type="hidden"/><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="light" for="light">Light</label><span class="chimera-value__value" name="attr_light"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                      <label class="affinity__wrapper affinity--poison">
+                        <input class="chimera-hidden" name="attr_poison" type="hidden"/><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison"/>
+                        <div class="chimera-value affinity chimera-value--center">
+                          <label class="chimera-value__label" data-i18n="poison" for="poison">Poison</label><span class="chimera-value__value" name="attr_poison"></span>
+                        </div><span class="affinity_vu">A Vulnerable target loses twice the normal amount of Hit Points.</span><span class="affinity_rs">A Resistant target loses half the normal amount of Hit Points.</span><span class="affinity_im">An Immune target loses no Hit Points.</span><span class="affinity_ab">An Absorbing target recovers Hit Points equal to the damage suffered.</span>
+                      </label>
+                    </div>
+              </div>
           <div class="status-effects">
             <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Slow temporarily reduces your Dexterity die size by one.">
               <div class="chimera-checkbox__field">
@@ -932,7 +992,7 @@
                 </div>
               </div>
           <!-- TODO NPC Builder-->
-          <div class="attributes">
+          <div class="attributes--edit">
             <div class="chimera-input attribute chimera-input--flex-row chimera-input--small chimera-input--center">
               <label class="chimera-input__label" data-i18n="dexterity_max" for="dexterity_max">DEX</label>
               <select class="chimera-input__field" data-i18n-title="dexterity_max_title" id="dexterity_max" name="attr_dexterity_max" title="Dexterity">
@@ -988,7 +1048,7 @@
             <div class="chimera-value distribution chimera-value--helptext"><span class="chimera-value__value" data-i18n="attribute_higher_levels">Upon reaching levels 20, 40, and 60, the NPC chooses one of its Attributes and increases it by one die size (to a maximum of d12).</span>
             </div>
           </div>
-          <div class="affinities">
+          <div class="affinities--edit">
             <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical Affinity"/>
               <label class="chimera-input__label" data-i18n="physical" for="physical">Physical</label>
               <select class="chimera-input__field" data-i18n-title="physical_title" id="physical" name="attr_physical" title="Physical Affinity">

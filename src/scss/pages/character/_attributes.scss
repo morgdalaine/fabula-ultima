@@ -10,9 +10,6 @@
       grid-column: span 2;
     }
 
-    &--view {
-    }
-
     &--edit {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -21,17 +18,18 @@
       .attribute {
         display: grid;
         grid-template-columns: 1fr auto;
-
         gap: 4px;
+
         align-items: center;
         justify-content: center;
 
-        .chimera-input__label {
-          @include mixins.text-xl-400;
-        }
-
-        .chimera-input__field {
-          align-self: normal;
+        .chimera-input {
+          &__label {
+            @include mixins.text-xl-400;
+          }
+          &__field {
+            align-self: normal;
+          }
         }
       }
     }

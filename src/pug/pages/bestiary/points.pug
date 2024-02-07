@@ -28,22 +28,3 @@ mixin study-rolls
     +chimera-action({ name: 'study13', title: 'Study 13+ All the above, plus basic attacks and spells.'}).study__roll
       label.chimera-value__label 13+
       label.sr-only(data-i18n='study13_caption') All the above, plus basic attacks and spells.
-
-mixin points-view(spine)
-  .points
-    - const points = fieldDictionary(spine.points.fields);
-    .points__label
-      label(data-i18n='hp') HP
-    .points__hp
-      +chimera-span(points.hp)
-      +fabula-diamond
-      +chimera-span(points.hp_crisis)
-
-    .points__label
-      label(data-i18n='mp') MP
-    .points__mp
-      +chimera-span(points.mp)
-
-    .points__initiative
-      label(data-i18n='init') Init.
-      +chimera-span(points.initiative)

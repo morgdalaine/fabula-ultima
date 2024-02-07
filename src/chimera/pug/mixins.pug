@@ -169,6 +169,9 @@ mixin chimera-input(blob)
   else if blob.type === 'arithmetic'
     +chimera-arithmetic(blob)
 
+  else if blob.type === 'value'
+    +chimera-value(blob)
+
   else
     div(class=css)
       if blob.icon
@@ -205,9 +208,11 @@ mixin chimera-value(blob)
       span.chimera-value__value(data-i18n-dynamic=dynamic_i18n, name=`attr_${blob.name}`)
 
 mixin chimera-span(blob)
-  - const name = blob?.name;
+  - const namespace = 'chimera-span';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const attr = blob.content ? null : `attr_${blob.name}`;
   - const dynamic_i18n = blob?.dynamic ? 'data-i18n-dynamic' : null;
-  span(data-i18n-dynamic=dynamic_i18n, name=`attr_${name}`)&attributes(attributes)
+  span(data-i18n-dynamic=dynamic_i18n, name=attr)&attributes(attributes)= blob.content
 
 mixin chimera-repeater(fieldset)
   block

@@ -4,17 +4,12 @@
   .defenses {
     $this: '.defenses';
 
-    &--view {
-    }
     &--edit {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 4px;
 
       .defense {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 4px;
-
         &__quick {
           grid-column: 1/-1;
           grid-template-columns: 1fr;

@@ -15,8 +15,8 @@
       }
     }
     &--center {
-      display: grid;
-      justify-content: center;
+      display: flex;
+      align-items: center;
       .chimera-input__label,
       .chimera-input__field {
         text-align: center;
@@ -191,7 +191,7 @@
       }
 
       input[type='radio'] {
-        // position: absolute;
+        position: absolute;
         opacity: 0;
         width: 0;
         height: 0;
