@@ -981,6 +981,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .basic-attacks__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -990,6 +991,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .basic-attacks__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1085,6 +1087,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .spells__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1094,6 +1097,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .spells__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1232,6 +1236,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .weapons__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1241,6 +1246,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .weapons__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1580,6 +1586,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .armor__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1589,6 +1596,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .armor__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1617,6 +1625,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .equipments__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1626,6 +1635,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .equipments__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1699,6 +1709,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: span 3;
 }
 .fabula-ultima .bestiary .shield__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1708,6 +1719,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .shield__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1752,6 +1764,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .notes__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1761,6 +1774,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .notes__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1810,6 +1824,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .rare-gears__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1819,6 +1834,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .rare-gears__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1868,6 +1884,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .other-actions__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1877,6 +1894,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .other-actions__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -1926,6 +1944,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .bestiary .special-rules__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1935,6 +1954,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .bestiary .special-rules__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -2528,6 +2548,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .character .traits__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -2537,6 +2558,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .character .traits__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -2650,7 +2672,61 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: span 2;
 }
 
+.fabula-ultima .character .bonds__heading--edit {
+  grid-column: 1/-1;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .bonds__heading--view {
+  grid-column: 1/-1;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .bonds--edit {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .bonds--edit .bond {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .character .bonds--edit .bond:nth-child(n+3) ~ * .chimera-input__label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+.fabula-ultima .character .bonds--edit .bond:nth-child(2n) {
+  padding-right: 4px;
+  border-right: 2px dotted var(--color-fabula1);
+}
+
 .fabula-ultima .character .attributes__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -2660,6 +2736,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .character .attributes__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -2698,6 +2775,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 
 .fabula-ultima .character .classes__heading--edit {
+  grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -2707,6 +2785,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: capitalize;
 }
 .fabula-ultima .character .classes__heading--view {
+  grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
   padding-left: 16px;
@@ -2857,12 +2936,23 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
      border-image: var(--fabula-gradient-secondary-border);
 }
 
-.fabula-ultima .character__classes, .fabula-ultima .character__spells {
+.fabula-ultima .character__bonds {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=bonds] ~ * .character__bonds {
+  display: grid;
+}
+.fabula-ultima .character__classes {
   display: none;
   grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=classes] ~ * .character__classes {
   display: grid;
+}
+.fabula-ultima .character__spells {
+  display: none;
+  grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=spells] ~ * .character__spells {
   display: grid;
@@ -2902,6 +2992,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 @media (min-width: 768px) {
   .fabula-ultima .character--edit .attributes--edit {
     grid-row: span 2;
+  }
+  .fabula-ultima .character--edit .bonds--edit {
+    grid-column: 1/-1;
   }
 }
 

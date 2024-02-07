@@ -1,4 +1,4 @@
-const NAVBAR = ['classes', 'spells'];
+const NAVBAR = ['classes', 'spells', 'bonds'];
 
 const REPEATING = [
   'bonds',

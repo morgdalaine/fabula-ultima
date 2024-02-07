@@ -2,6 +2,7 @@
 @use '../common/vars' as mixins;
 
 @use 'character/traits';
+@use 'character/bonds';
 @use 'character/attributes';
 @use 'character/classes';
 @use 'shared/shared';
@@ -11,15 +12,14 @@
     $this: '.character';
 
     // navigation
-    &__classes,
-    &__spells {
-      display: none;
-      grid-column: 1/-1;
-    }
+    $pages: 'bonds', 'classes', 'spells';
+    @each $page in $pages {
+      &__#{$page} {
+        display: none;
+        grid-column: 1/-1;
+      }
 
-    input[name*='nav'] {
-      $pages: 'classes', 'spells';
-      @each $page in $pages {
+      input[name*='nav'] {
         &[value='#{$page}'] {
           ~ * #{$this}__#{$page} {
             display: grid;
@@ -70,6 +70,9 @@
       @media (min-width: $breakpoint-sm) {
         .attributes--edit {
           grid-row: span 2;
+        }
+        .bonds--edit {
+          grid-column: 1/-1;
         }
       }
     }

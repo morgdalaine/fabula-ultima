@@ -1,5 +1,5 @@
 mixin classes-edit(spine)
-  .classes
+  .classes--edit
     h2.classes__heading--edit(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
     +chimera-repeater('classes')
       +chimera-block('delete')

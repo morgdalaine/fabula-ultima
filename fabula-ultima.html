@@ -214,13 +214,206 @@
                 </div>
               </div>
               <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
+                <button class="chimera-action" data-i18n-title="bonds" name="act_bonds" title="Bonds" type="action"><span class="chimera-value__value" data-i18n="bonds">Bonds</span>
+                </button>
                 <button class="chimera-action" data-i18n-title="classes" name="act_classes" title="Classes" type="action"><span class="chimera-value__value" data-i18n="classes">Classes</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="spells" name="act_spells" title="Spells" type="action"><span class="chimera-value__value" data-i18n="spells">Spells</span>
                 </button>
               </div>
+          <div class="character__bonds">
+                <div class="bonds--edit">
+                  <h2 class="bonds__heading--edit" data-i18n="bonds">Bonds</h2>
+                  <div class="bond bond--1">
+                    <input class="chimera-hidden" name="attr_bond1_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond1_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond1_name_title" id="bond1_name" name="attr_bond1_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond1_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond1_approval_title" id="bond1_approval" name="attr_bond1_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond1_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond1_allegiance_title" id="bond1_allegiance" name="attr_bond1_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond1_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond1_fondness_title" id="bond1_fondness" name="attr_bond1_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bond bond--2">
+                    <input class="chimera-hidden" name="attr_bond2_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond2_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond2_name_title" id="bond2_name" name="attr_bond2_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond2_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond2_approval_title" id="bond2_approval" name="attr_bond2_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond2_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond2_allegiance_title" id="bond2_allegiance" name="attr_bond2_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond2_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond2_fondness_title" id="bond2_fondness" name="attr_bond2_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bond bond--3">
+                    <input class="chimera-hidden" name="attr_bond3_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond3_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond3_name_title" id="bond3_name" name="attr_bond3_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond3_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond3_approval_title" id="bond3_approval" name="attr_bond3_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond3_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond3_allegiance_title" id="bond3_allegiance" name="attr_bond3_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond3_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond3_fondness_title" id="bond3_fondness" name="attr_bond3_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bond bond--4">
+                    <input class="chimera-hidden" name="attr_bond4_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond4_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond4_name_title" id="bond4_name" name="attr_bond4_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond4_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond4_approval_title" id="bond4_approval" name="attr_bond4_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond4_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond4_allegiance_title" id="bond4_allegiance" name="attr_bond4_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond4_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond4_fondness_title" id="bond4_fondness" name="attr_bond4_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bond bond--5">
+                    <input class="chimera-hidden" name="attr_bond5_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond5_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond5_name_title" id="bond5_name" name="attr_bond5_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond5_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond5_approval_title" id="bond5_approval" name="attr_bond5_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond5_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond5_allegiance_title" id="bond5_allegiance" name="attr_bond5_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond5_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond5_fondness_title" id="bond5_fondness" name="attr_bond5_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bond bond--6">
+                    <input class="chimera-hidden" name="attr_bond6_level" type="hidden" value="0"/>
+                    <div class="chimera-input bond__name">
+                      <label class="chimera-input__label" data-i18n="bond_name" for="bond6_name">Bond Name</label>
+                      <input class="chimera-input__field" data-i18n-title="bond6_name_title" id="bond6_name" name="attr_bond6_name" type="text"/>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_approval" for="bond6_approval">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond6_approval_title" id="bond6_approval" name="attr_bond6_approval">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="admiration" value="admiration">Admiration</option>
+                        <option data-i18n="inferiority" value="inferiority">Inferiority</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_allegiance" for="bond6_allegiance">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond6_allegiance_title" id="bond6_allegiance" name="attr_bond6_allegiance">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="loyalty" value="loyalty">Loyalty</option>
+                        <option data-i18n="mistrust" value="mistrust">Mistrust</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input bond__emotion chimera-input--center">
+                      <label class="chimera-input__label" data-i18n="bond_fondness" for="bond6_fondness">Emotion</label>
+                      <select class="chimera-input__field" data-i18n-title="bond6_fondness_title" id="bond6_fondness" name="attr_bond6_fondness">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="affection" value="affection">Affection</option>
+                        <option data-i18n="hatred" value="hatred">Hatred</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+          </div>
           <div class="character__classes">
-                <div class="classes">
+                <div class="classes--edit">
                   <h2 class="classes__heading--edit" data-i18n="classes">Classes</h2>
                   <div class="chimera-repeater">
                     <input class="chimera-hidden chimera-repeater--is-empty" name="attr_classes_empty" type="hidden" value="0"/>
@@ -520,32 +713,32 @@
           <div class="status-effects">
             <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Slow temporarily reduces your Dexterity die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/slow.png" title="Slow temporarily reduces your Dexterity die size by one."/>
+                <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/slow.svg" title="Slow temporarily reduces your Dexterity die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_title" title="Dazed temporarily reduces your Insight die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/dazed.png" title="Dazed temporarily reduces your Insight die size by one."/>
+                <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/dazed.svg" title="Dazed temporarily reduces your Insight die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
               <div class="chimera-checkbox__field">
-                <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/enraged.png" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
+                <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/enraged.svg" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_title" title="Weak temporarily reduces your Might die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/weak.png" title="Weak temporarily reduces your Might die size by one."/>
+                <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/weak.svg" title="Weak temporarily reduces your Might die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_title" title="Shaken temporarily reduces your Willpower die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/shaken.png" title="Shaken temporarily reduces your Willpower die size by one."/>
+                <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/shaken.svg" title="Shaken temporarily reduces your Willpower die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
               <div class="chimera-checkbox__field">
-                <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
+                <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned.svg" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
             </label>
           </div>
@@ -748,7 +941,7 @@
                         <div class="other-action"><img class="other-action__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
                           <div class="chimera-value other-action__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_action_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="otheractionchat" name="act_otheractionchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="otheractionchat" name="act_otheractionchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value other-action__effect"><span class="chimera-value__value" name="attr_action_effect"></span>
                           </div>
@@ -776,7 +969,7 @@
                         <div class="special-rule">
                           <div class="chimera-value special-rule__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_special_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="specialrulechat" name="act_specialrulechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="specialrulechat" name="act_specialrulechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
                           </div>
@@ -807,7 +1000,7 @@
                           </div><span class="fabula-diamond">⬥</span>
                           <div class="chimera-value weapon__cost"><span class="chimera-value__value" name="attr_weapon_cost"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                         </div>
                       </fieldset>
@@ -833,7 +1026,7 @@
                     </div><span class="fabula-diamond">⬥</span>
                     <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_armor_cost"></span>
                     </div>
-                    <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                    <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                     </button>
                   </div>
                   <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_shield_name" type="hidden"/>
@@ -852,7 +1045,7 @@
                     </div><span class="fabula-diamond">⬥</span>
                     <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_shield_cost"></span>
                     </div>
-                    <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                    <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                     </button>
                   </div>
                 </div>
@@ -875,7 +1068,7 @@
                         <div class="rare-gear"><img class="rare-gear__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
                           <div class="chimera-value rare-gear__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_raregear_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="raregearchat" name="act_raregearchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="raregearchat" name="act_raregearchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value rare-gear__effect"><span class="chimera-value__value" name="attr_raregear_effect"></span>
                           </div>
@@ -903,7 +1096,7 @@
                         <div class="note"><img class="note__icon" data-i18n-title="book_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/book.svg" title="Book"/>
                           <div class="chimera-value note__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_note_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="notechat" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://www.svgrepo.com/show/354897/contact.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="notechat" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
                           </div>
@@ -1813,7 +2006,7 @@
     </div>
   </div>
 </rolltemplate>
-<script type="text/worker">const NAVBAR = ['classes', 'spells'];
+<script type="text/worker">const NAVBAR = ['classes', 'spells', 'bonds'];
 const REPEATING = [
     'bonds',
     'basic-attacks',

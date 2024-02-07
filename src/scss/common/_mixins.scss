@@ -169,10 +169,12 @@
 @mixin repeater-heading {
   &__heading {
     &--edit {
+      grid-column: 1/-1;
       @include text-xl-400-fabula;
       text-transform: capitalize;
     }
     &--view {
+      grid-column: 1/-1;
       background-image: var(--fabula-gradient-secondary);
       color: var(--color-on-dark);
       padding-left: 16px;

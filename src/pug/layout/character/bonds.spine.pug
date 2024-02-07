@@ -1,0 +1,40 @@
+-
+  spine.character.bonds = {
+    hidden: [],
+    heading: { name: 'bonds', label: 'Bonds' },
+    fields: [1, 2, 3, 4, 5, 6].map((bond) => [
+      {
+        name: `bond${bond}_level`,
+        type: 'hidden',
+        value: 0,
+        css: { names: ['bond__level'], modifiers: [] },
+      },
+      {
+        name: `bond${bond}_name`,
+        labelOverride: { key: `bond_name`, label: 'Bond Name' },
+        type: 'text',
+        css: { names: ['bond__name'], modifiers: [] },
+      },
+      {
+        name: `bond${bond}_approval`,
+        labelOverride: { key: `bond_approval`, label: 'Emotion' },
+        type: 'select',
+        options: bondApprovalOptions,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+      {
+        name: `bond${bond}_allegiance`,
+        labelOverride: { key: `bond_allegiance`, label: 'Emotion' },
+        type: 'select',
+        options: bondAllegianceOptions,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+      {
+        name: `bond${bond}_fondness`,
+        labelOverride: { key: `bond_fondness`, label: 'Emotion' },
+        type: 'select',
+        options: bondFondnessOptions,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+    ]),
+  }

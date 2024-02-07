@@ -34,6 +34,7 @@
     chat: { title: 'Send to Chat', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg'},
     info: { title: 'Info', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/info.svg'},
     dice: { title: 'Roll', src: 'https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/dice.svg'},
+    hide: { title: 'Hide', src: 'https://www.svgrepo.com/show/355029/form-view-hide.svg' },
   };
 
   const attributeOptions = [
@@ -76,6 +77,22 @@
     { name: 'champion5', value: 'champion5', text: 'Champion (5)' },
     { name: 'companion', value: 'companion', text: 'Companion' },
   ];
+
+  const bondApprovalOptions = [
+    { name: 'none', value: '', text: '—' },
+    { name: 'admiration', value: 'admiration', text: 'Admiration' },
+    { name: 'inferiority', value: 'inferiority', text: 'Inferiority' },
+  ]
+  const bondAllegianceOptions = [
+    { name: 'none', value: '', text: '—' },
+    { name: 'loyalty', value: 'loyalty', text: 'Loyalty' },
+    { name: 'mistrust', value: 'mistrust', text: 'Mistrust' },
+  ]
+  const bondFondnessOptions = [
+    { name: 'none', value: '', text: '—' },
+    { name: 'affection', value: 'affection', text: 'Affection' },
+    { name: 'hatred', value: 'hatred', text: 'Hatred' },
+  ]
 
   const villainOptions = [
     // FIXME villain empties to zero!?

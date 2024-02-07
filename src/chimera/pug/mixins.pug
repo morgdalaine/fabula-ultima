@@ -163,7 +163,10 @@ mixin chimera-input(blob)
   - const inputClass = `${namespace}__field`;
   - const attr = `attr_${blob.name}`;
 
-  if blob.type === 'checkbox'
+  if blob.type === 'hidden'
+    +chimera-hidden(blob.name, blob.value)
+
+  else if blob.type === 'checkbox'
     +chimera-checkbox(blob)
 
   else if blob.type === 'arithmetic'
@@ -179,6 +182,10 @@ mixin chimera-input(blob)
 
       if blob.label
         label.chimera-input__label(data-i18n=blob.name, for=blob.name)= blob.label
+
+      if blob.labelOverride
+        - const { key, label } = blob.labelOverride;
+        label.chimera-input__label(data-i18n=key, for=blob.name)= label
 
       if blob.type
         +chimera-input-element({ inputClass, attr, ...blob })

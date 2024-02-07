@@ -1,34 +1,46 @@
-// tied to whole thing, the panel
-.bonds {
-  $this: '.bonds';
+@use '../../common/vars' as mixins;
 
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 1fr repeat(3, auto);
-    gap: $grid-gutter;
-  }
-}
+.fabula-ultima .character {
+  .bonds {
+    $this: '.bonds';
 
-.bond {
-  $this: '.bond';
+    @include mixins.repeater-heading;
 
-  &__bond_name {
-    display: flex;
-  }
-  &__name {
-    font-size: 0;
-  }
+    &--edit {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
 
-  &__emotion {
-    display: flex;
-    flex-direction: column;
-    gap: $m-sm;
+      .bond {
+        display: grid;
+        grid-template-columns: 1fr repeat(3, auto);
+        gap: 4px;
 
-    padding-inline: $p-sm;
-    border-inline-end: 1px dashed black;
+        align-items: center;
+        justify-content: center;
 
-    &:last-of-type {
-      border-inline-end: none;
+        &:nth-child(n + 3) {
+          ~ * .chimera-input {
+            &__label {
+              @include mixins.sr-only;
+              @include mixins.hide-text;
+            }
+          }
+        }
+        &:nth-child(2n) {
+          padding-right: 4px;
+          border-right: 2px dotted var(--color-fabula1);
+        }
+
+        // .chimera-input {
+        //   &__label {
+        //     @include mixins.text-xl-400;
+        //   }
+        //   &__field {
+        //     align-self: normal;
+        //   }
+        // }
+      }
     }
   }
 }

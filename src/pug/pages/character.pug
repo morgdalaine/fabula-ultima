@@ -3,6 +3,7 @@ include character/classes
 include character/nav
 include character/spells
 include character/traits
+include character/bonds
 include shared/shared
 
 mixin character-view(spine)
@@ -17,6 +18,9 @@ mixin character-edit(spine)
     +navbar-edit(spine)
 
     //- pages
+    .character__bonds
+      +bonds-edit(spine)
+
     .character__classes
       +classes-edit(spine)
 
