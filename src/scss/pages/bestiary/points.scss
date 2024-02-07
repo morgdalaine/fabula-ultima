@@ -1,8 +1,8 @@
 @use '../../common/vars' as mixins;
 
 .fabula-ultima .bestiary {
-  .points {
-    $this: '.point';
+  .point-controllers {
+    $this: '.point-controllers';
 
     &--view {
       display: grid;
@@ -52,65 +52,60 @@
           }
         }
       }
-    }
 
-    &--edit {
-      .point {
-      }
-    }
-  }
-
-  .points-controller {
-    display: flex;
-    gap: 4px;
-
-    .chimera-arithmetic {
-      &__label {
-        width: var(--input-component-size);
-        padding: 4px;
-      }
-      &__field {
-        background-color: var(--color-on-dark);
-      }
-    }
-
-    &__hp {
       .chimera-arithmetic {
         &__label {
-          background-color: var(--color-hp);
-          color: var(--color-on-dark);
+          width: var(--input-component-size);
+          padding: 4px;
+        }
+        &__field {
+          background-color: var(--color-on-dark);
         }
       }
-    }
-    &__mp {
-      .chimera-arithmetic {
-        &__label {
-          background-color: var(--color-mp);
-          color: var(--color-on-dark);
-        }
-      }
-    }
-    &__up {
-      .chimera-arithmetic {
-        &__label {
-          background-color: var(--color-up);
-          color: var(--color-on-dark);
-        }
-      }
-    }
-  }
 
-  .study {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+      .point-controller {
+        display: flex;
+        gap: 4px;
 
-    &__label {
-      @include mixins.text-lg-400;
-      text-transform: uppercase;
-    }
-    .chimera-value__label {
-      margin-left: 4px;
+        &__hp {
+          .chimera-arithmetic {
+            &__label {
+              background-color: var(--color-hp);
+              color: var(--color-on-dark);
+            }
+          }
+        }
+        &__mp {
+          .chimera-arithmetic {
+            &__label {
+              background-color: var(--color-mp);
+              color: var(--color-on-dark);
+            }
+          }
+        }
+        &__up {
+          .chimera-arithmetic {
+            &__label {
+              background-color: var(--color-up);
+              color: var(--color-on-dark);
+            }
+          }
+        }
+      }
+
+      .study {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &__label {
+          @include mixins.text-lg-500-fabula;
+          text-transform: uppercase;
+        }
+        .chimera-value__label {
+          margin-left: 4px;
+        }
+      }
     }
   }
 }

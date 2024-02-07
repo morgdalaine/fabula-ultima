@@ -1,8 +1,8 @@
-mixin hp-mp-controller(spine)
-  .points--view
+mixin point-controllers(spine)
+  .point-controllers--view
     each field in spine.points.hidden
       +chimera-hidden(field, 0)
-    .points-controller
+    .point-controller
       each field in spine.points.arithmetics
         +chimera-arithmetic(field)
       +study-rolls

@@ -418,16 +418,16 @@
               </div>
               <div class="statistics--view">
                 <div class="attributes--view">
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute chimera-value--flex-row chimera-value--small chimera-value--center">
                     <label class="chimera-value__label" data-i18n="dexterity" for="dexterity">DEX</label><span class="chimera-value__value" name="attr_dexterity"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute chimera-value--flex-row chimera-value--small chimera-value--center">
                     <label class="chimera-value__label" data-i18n="insight" for="insight">INS</label><span class="chimera-value__value" name="attr_insight"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute chimera-value--flex-row chimera-value--small chimera-value--center">
                     <label class="chimera-value__label" data-i18n="might" for="might">MIG</label><span class="chimera-value__value" name="attr_might"></span>
                   </div>
-                  <div class="chimera-value">
+                  <div class="chimera-value attribute chimera-value--flex-row chimera-value--small chimera-value--center">
                     <label class="chimera-value__label" data-i18n="willpower" for="willpower">WLP</label><span class="chimera-value__value" name="attr_willpower"></span>
                   </div>
                 </div>
@@ -453,10 +453,10 @@
                     </div>
                     <div class="defenses--view">
                       <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
-                      <div class="chimera-value">
+                      <div class="chimera-value defense">
                         <label class="chimera-value__label" data-i18n="defense" for="defense">DEF</label><span class="chimera-value__value" name="attr_defense"></span>
                       </div>
-                      <div class="chimera-value">
+                      <div class="chimera-value defense">
                         <label class="chimera-value__label" data-i18n="magic_defense" for="magic_defense">M.DEF</label><span class="chimera-value__value" name="attr_magic_defense"></span>
                       </div>
                     </div>
@@ -549,10 +549,10 @@
               </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
             </label>
           </div>
-              <div class="points--view">
+              <div class="point-controllers--view">
                 <input class="chimera-hidden" name="attr_villain" type="hidden" value="0"/>
-                <div class="points-controller">
-                  <div class="chimera-arithmetic chimera-arithmetic points-controller__hp">
+                <div class="point-controller">
+                  <div class="chimera-arithmetic chimera-arithmetic point-controller__hp">
                     <label class="chimera-arithmetic__label" data-i18n="hp-control" for="hp-control">HP</label>
                     <button class="chimera-arithmetic__add" name="act_hp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
                     </button>
@@ -560,7 +560,7 @@
                     <button class="chimera-arithmetic__subtract" name="act_hp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
                     </button>
                   </div>
-                  <div class="chimera-arithmetic chimera-arithmetic points-controller__mp">
+                  <div class="chimera-arithmetic chimera-arithmetic point-controller__mp">
                     <label class="chimera-arithmetic__label" data-i18n="mp-control" for="mp-control">MP</label>
                     <button class="chimera-arithmetic__add" name="act_mp-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
                     </button>

@@ -1983,6 +1983,84 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
+.fabula-ultima .bestiary .point-controllers--view {
+  display: grid;
+  gap: 4px;
+  padding-inline: 4px;
+}
+.fabula-ultima .bestiary .point-controllers--view input[name*=villain][value=""] ~ .points__ultima, .fabula-ultima .bestiary .point-controllers--view input[name*=villain][value="0"] ~ .points__ultima, .fabula-ultima .bestiary .point-controllers--view input[name*=villain][value=none] ~ .points__ultima, .fabula-ultima .bestiary .point-controllers--view input[name*=villain]:not([value]) ~ .points__ultima {
+  display: none;
+}
+.fabula-ultima .bestiary .point-controllers--view .points__ultima {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .point-controllers--view .point__ultima .chimera-input__field {
+  font-size: 2.5rem;
+  align-self: center;
+}
+.fabula-ultima .bestiary .point-controllers--view .point__spending-ultima {
+  padding: 4px;
+}
+.fabula-ultima .bestiary .point-controllers--view .point__spending-ultima .spending-ultima .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .point-controllers--view .point__spending-ultima .spending-ultima:first-of-type .chimera-value__value {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .point-controllers--view .chimera-arithmetic__label {
+  width: var(--input-component-size);
+  padding: 4px;
+}
+.fabula-ultima .bestiary .point-controllers--view .chimera-arithmetic__field {
+  background-color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .point-controllers--view .point-controller {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .point-controllers--view .point-controller__hp .chimera-arithmetic__label {
+  background-color: var(--color-hp);
+  color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .point-controllers--view .point-controller__mp .chimera-arithmetic__label {
+  background-color: var(--color-mp);
+  color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .point-controllers--view .point-controller__up .chimera-arithmetic__label {
+  background-color: var(--color-up);
+  color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .point-controllers--view .study {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .point-controllers--view .study__label {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .point-controllers--view .study .chimera-value__label {
+  margin-left: 4px;
+}
+
 .fabula-ultima .bestiary .affinities--view,
 .fabula-ultima .character .affinities--view {
   display: grid;
