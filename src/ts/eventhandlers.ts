@@ -3,7 +3,6 @@
 
 NAVBAR.forEach((nav) => {
   on(`clicked:${nav}`, (eventInfo) => {
-    console.log(nav, eventInfo);
     setAttrs({ nav: nav }, { silent: true });
   });
 });

@@ -7,14 +7,120 @@
 html,
 .sheet-rolltemplate-fabula-attack,
 .sheet-rolltemplate-fabula-chat {
-  --surface-background: #{colors.$white};
+  // Fonts
+  --font-body: #{fonts.$font-pt-sans-narrow};
+  --font-nav: #{fonts.$font-antonio};
+  --font-serif: #{fonts.$font-pt-serif};
+  --font-title: #{fonts.$font-antonio};
 
-  --bestiary-edit-background: #{colors.$background};
-  --character-edit-background: #{color-mix(in srgb, white 80%, colors.$fabula2)};
-  --character-edit-background-secondary: #{rgba(colors.$fabula2, 0.4)};
+  // Colors
+  --color-hp: #{colors.$hp-red};
+  --color-mp: #{colors.$mp-blue};
+  --color-up: #{colors.$fabula-bestiary-base};
+
+  --color-fabula-darkest: #{colors.$fabula-default-darkest};
+  --color-fabula-dark: #{colors.$fabula-default-dark};
+  --color-fabula-base: #{colors.$fabula-default-base};
+  --color-fabula-lightest: #{colors.$fabula-default-lightest};
+  --color-fabula-light: #{colors.$fabula-default-light};
+  --color-fabula-accent: #{colors.$fabula-default-accent};
+
+  --surface-background: #{white};
+
+  --character-edit-background: #{colors.$background};
+  --character-edit-background-secondary: #{rgba(colors.$fabula-character-dark, 0.1)};
+
+  --bestiary-edit-background: #{color-mix(in srgb, white 80%, colors.$fabula-bestiary-lightest)};
+  --bestiary-edit-background-secondary: #{rgba(colors.$fabula-bestiary-lightest, 0.4)};
 
   --box-shadow-light: #{rgba(colors.$on-surface, 0.2) 0px 2px 1px -1px,
     rgba(colors.$on-surface, 0.14) 0px 1px 1px 0px, rgba(colors.$on-surface, 0.12) 0px 1px 3px 0px};
+
+  --fabula-gradient-primary: linear-gradient(
+    90deg,
+    var(--color-fabula-base) 0%,
+    var(--color-fabula-lightest) 100%
+  );
+  --fabula-gradient-primary-border: #{linear-gradient(45deg, var(--color-fabula-base), white) 1};
+  --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+  --fabula-gradient-secondary-border: linear-gradient(
+      45deg,
+      var(--color-fabula-lightest) 0%,
+      white 100%
+    )
+    1;
+
+  --fabula-gradient-dark-border: linear-gradient(
+      90deg,
+      var(--color-fabula-dark),
+      var(--color-fabula-light)
+    )
+    1;
+
+  .character,
+  .sheet-character {
+    --color-fabula-darkest: #{colors.$fabula-character-darkest};
+    --color-fabula-dark: #{colors.$fabula-character-dark};
+    --color-fabula-base: #{colors.$fabula-character-base};
+    --color-fabula-light: #{colors.$fabula-character-light};
+    --color-fabula-lightest: #{colors.$fabula-character-lightest};
+    --color-fabula-accent: #{colors.$fabula-character-accent};
+
+    --fabula-gradient-primary: linear-gradient(
+      90deg,
+      var(--color-fabula-base) 0%,
+      var(--color-fabula-lightest) 100%
+    );
+    --fabula-gradient-primary-border: #{linear-gradient(45deg, var(--color-fabula-base), white) 1};
+    --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+    --fabula-gradient-secondary-border: linear-gradient(
+        45deg,
+        var(--color-fabula-lightest) 0%,
+        white 100%
+      )
+      1;
+
+    --fabula-gradient-dark-border: linear-gradient(
+        90deg,
+        var(--color-fabula-dark),
+        var(--color-fabula-light)
+      )
+      1;
+  }
+
+  .bestiary,
+  .sheet-bestiary {
+    --color-fabula-darkest: #{colors.$fabula-bestiary-darkest};
+    --color-fabula-dark: #{colors.$fabula-bestiary-dark};
+    --color-fabula-base: #{colors.$fabula-bestiary-base};
+    --color-fabula-light: #{colors.$fabula-bestiary-light};
+    --color-fabula-lightest: #{colors.$fabula-bestiary-lightest};
+    --color-fabula-accent: #{colors.$fabula-bestiary-accent};
+
+    --fabula-gradient-primary: linear-gradient(
+      90deg,
+      var(--color-fabula-base) 0%,
+      var(--color-fabula-lightest) 100%
+    );
+    --fabula-gradient-primary-border: #{linear-gradient(45deg, var(--color-fabula-base), white) 1};
+    --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+    --fabula-gradient-secondary-border: linear-gradient(
+        45deg,
+        var(--color-fabula-lightest) 0%,
+        white 100%
+      )
+      1;
+
+    --fabula-gradient-dark-border: linear-gradient(
+        90deg,
+        var(--color-fabula-dark),
+        var(--color-fabula-light)
+      )
+      1;
+  }
+
+  --fabula-gradient-success: #{linear-gradient(90deg, colors.$success-gold 40%, white 100%)};
+  --fabula-gradient-fumble: #{linear-gradient(90deg, colors.$fumble-red 40%, white 100%)};
 
   // Buttons
   --button-background-color: #{rgb(colors.$indigo-d40, 0.2)};
@@ -38,45 +144,13 @@ html,
   --button-shadow-active: #{inset 0 2px 4px rgba(colors.$on-surface, 0.15),
     0 1px 2px rgba(colors.$on-surface, 0.05)};
 
-  // Fonts
-  --font-body: #{fonts.$font-pt-sans-narrow};
-  --font-nav: #{fonts.$font-antonio};
-  --font-serif: #{fonts.$font-pt-serif};
-  --font-title: #{fonts.$font-antonio};
-
-  --fabula-gradient-primary: #{linear-gradient(90deg, colors.$fabula1 0%, colors.$fabula2 100%)};
-  --fabula-gradient-primary-border: #{linear-gradient(45deg, colors.$fabula1, colors.$white) 1};
-
-  --fabula-gradient-secondary: #{linear-gradient(90deg, colors.$fabula3 0%, colors.$white 100%)};
-  --fabula-gradient-secondary-border: #{linear-gradient(
-      45deg,
-      colors.$fabula2 0%,
-      colors.$white 100%
-    )
-    1};
-  --fabula-gradient-dark-border: #{linear-gradient(90deg, colors.$fabula5, colors.$fabula4) 1};
-
-  --fabula-gradient-success: #{linear-gradient(90deg, colors.$success-gold 40%, colors.$white 100%)};
-  --fabula-gradient-fumble: #{linear-gradient(90deg, colors.$fumble-red 40%, colors.$white 100%)};
-
-  --color-fabula0: #{colors.$fabula0};
-  --color-fabula1: #{colors.$fabula1};
-  --color-fabula2: #{colors.$fabula2};
-  --color-fabula3: #{colors.$fabula3};
-  --color-fabula4: #{colors.$fabula4};
-  --color-fabula5: #{colors.$fabula5};
-
-  --color-hp: #{colors.$hp-red};
-  --color-mp: #{colors.$mp-blue};
-  --color-up: #{colors.$fabula1};
-
   --icon-component-size: #{$component-size-xs};
 
   --color-on-dark: #{colors.$surface};
   --text-color: #{colors.$black};
 
   // Inputs
-  --input-background-color: #{rgb(colors.$white, 0.8)};
+  --input-background-color: #{rgb(white, 0.8)};
   // --input-background-color: #{rgb(colors.$indigo-d40, 0.2)};
   --input-background-color-active: #{rgb(colors.$indigo-d40, 0.2)};
   --input-background-color-focus: #{rgb(colors.$indigo, 0.1)};
@@ -94,10 +168,9 @@ html,
 
   --input-component-size: #{$component-size-base};
 
-  --nav-color-focus: #{colors.$fabula1};
+  --nav-color-focus: #{colors.$fabula-bestiary-base};
 
   --repeating-empty-border-color: #{rgb(colors.$indigo-d40, 0.2)};
 
   --surface-container-lowest: #{colors.$surface-container-lowest};
-  --tertiary-gradient-light: #{linear-gradient(90deg, colors.$light-green-d40 0%, transparent 100%)};
 }

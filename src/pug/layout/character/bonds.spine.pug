@@ -1,7 +1,31 @@
 -
   spine.character.bonds = {
-    hidden: [],
+    hidden: [1, 2, 3, 4, 5, 6].map((bond) => `bond${bond}_level`),
     heading: { name: 'bonds', label: 'Bonds' },
+    view: [1, 2, 3, 4, 5, 6].map((bond) => [
+      {
+        name: `bond${bond}_name`,
+        css: { names: ['bond__name'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: `bond${bond}_approval`,
+        //- labelOverride: { key: `bond_approval`, label: 'Emotion' },
+        dynamic: true,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+      {
+        name: `bond${bond}_allegiance`,
+        //- labelOverride: { key: `bond_allegiance`, label: 'Emotion' },
+        dynamic: true,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+      {
+        name: `bond${bond}_fondness`,
+        //- labelOverride: { key: `bond_fondness`, label: 'Emotion' },
+        dynamic: true,
+        css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+    ]),
     fields: [1, 2, 3, 4, 5, 6].map((bond) => [
       {
         name: `bond${bond}_level`,
@@ -35,6 +59,12 @@
         type: 'select',
         options: bondFondnessOptions,
         css: { names: ['bond__emotion'], modifiers: ['center'] }
+      },
+      {
+        name: `bond${bond}_description`,
+        labelOverride: { key: `bond_description`, label: 'Description' },
+        type: 'text',
+        css: { names: ['bond__description'], modifiers: [] }
       },
     ]),
   }

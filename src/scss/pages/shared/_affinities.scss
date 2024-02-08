@@ -13,7 +13,7 @@
 
         text-align: center;
 
-        border: 1px solid var(--color-fabula0);
+        border: 1px solid var(--color-fabula-darkest);
         border-right: none;
         border-image: var(--fabula-gradient-primary-border);
 
@@ -51,7 +51,7 @@
               &:nth-of-type(#{$attr}) {
                 border-right: 1px
                   solid
-                  color-mix(in srgb, white #{$attr * 12%}, var(--color-fabula5));
+                  color-mix(in srgb, white #{$attr * 12%}, var(--color-fabula-dark));
               }
             }
           }

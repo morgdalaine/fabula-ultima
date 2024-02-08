@@ -268,5 +268,11 @@
     svg {
       opacity: 1;
     }
+    &:not(:has(div)) {
+      img,
+      svg {
+        position: absolute;
+      }
+    }
   }
 }

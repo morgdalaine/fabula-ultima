@@ -12,13 +12,19 @@ const handleClick = async (btn: string, id: string) => {
     case 'weaponattack':
     case 'spell':
       return rollAction(btn, id);
-    case 'otheractionchat':
-    case 'specialrulechat':
-    case 'raregearchat':
-    case 'notechat':
-    case 'weaponchat':
-    case 'shieldchat':
+    case 'bond1':
+    case 'bond2':
+    case 'bond3':
+    case 'bond4':
+    case 'bond5':
+    case 'bond6':
     case 'armorchat':
+    case 'shieldchat':
+    case 'weaponchat':
+    case 'specialrulechat':
+    case 'notechat':
+    case 'otheractionchat':
+    case 'raregearchat':
     case 'study7':
     case 'study10':
     case 'study13':
@@ -75,6 +81,13 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
         return 'shield_';
       case 'weaponchat':
         return 'weapon_';
+      case 'bond1':
+      case 'bond2':
+      case 'bond3':
+      case 'bond4':
+      case 'bond5':
+      case 'bond6':
+        return `${chat}_`;
     }
   })();
 
@@ -179,33 +192,9 @@ const weaponTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
-const studyValues = {
-  rank: 'champion',
-  species: 'Humanoid',
-  hp: 32,
-  hp_max: 70,
-  mp_max: 50,
-  traits: ' boastful, irritable, proud, strong',
-  dexterity_max: '6',
-  insight_max: '8',
-  might_max: '10',
-  willpower_max: '10',
-  defense: 12,
-  magic_defense: 11,
-  physical: '',
-  air: '',
-  bolt: '',
-  dark: '',
-  earth: 'rs',
-  fire: '',
-  ice: 'rs',
-  light: '',
-  poison: '',
-};
 const studyTemplate = (chat: string, values: { [key: string]: string }) => {
   const study = +chat.match(/\d+/)?.shift();
   const template: { [key: string]: string } = {};
-  console.log(values);
 
   template.action = getTranslationByKey('study') || 'Study';
   template.study = 'true';
@@ -246,11 +235,35 @@ const studyTemplate = (chat: string, values: { [key: string]: string }) => {
   return template;
 };
 
+const bondTemplate = (chat: string, values: { [key: string]: string }) => {
+  const study = +chat.match(/\d+/)?.shift();
+  const template: { [key: string]: string } = {};
+  console.group('bondTemplate');
+  console.log(chat);
+  console.log(values);
+  console.groupEnd();
+
+  template.action = getTranslationByKey('bond') || 'Bond';
+  template.name = values.name;
+  template.level = signedInteger(values.level);
+
+  template.bond = 'true';
+  template.approval = getTranslationByKey(values.approval) || '';
+  template.allegiance = getTranslationByKey(values.allegiance) || '';
+  template.fondness = getTranslationByKey(values.fondness) || '';
+
+  template.special = values.description;
+
+  return template;
+};
+
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
     const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
     const action = getTranslationByKey('info') || 'Info';
+
+    console.log(v);
 
     const data = chatData(chat, prefix, v);
     const template = (function () {
@@ -270,15 +283,21 @@ const sendToChat = async (chat: string, id: string) => {
         case 'study10':
         case 'study13':
           return studyTemplate(chat, data);
+        case 'bond1':
+        case 'bond2':
+        case 'bond3':
+        case 'bond4':
+        case 'bond5':
+        case 'bond6':
+          return bondTemplate(chat, data);
       }
     })();
-
-    console.log(template);
 
     chimeraRoll(
       'fabula-chat',
       {
         avatar: avatar,
+        sheet_type: v.sheet_type,
         action: action,
         character: `@{character_name}`,
         ...template,
@@ -326,6 +345,7 @@ const rollBasicAttack = async (id: string) => {
       'fabula-attack',
       {
         avatar: avatar,
+        sheet_type: v.sheet_type,
         action: action,
         character: `@{character_name}`,
         name: v[prefix + 'attack_name'],
@@ -392,6 +412,7 @@ const rollWeaponAttack = async (id: string) => {
       'fabula-attack',
       {
         avatar: avatar,
+        sheet_type: v.sheet_type,
         action: action,
         character: `@{character_name}`,
         name: attackName,
@@ -459,6 +480,7 @@ const rollSpellAction = async (id: string) => {
       'fabula-attack',
       {
         avatar: avatar,
+        sheet_type: v.sheet_type,
         action: action,
         character: `@{character_name}`,
         name: attackName,

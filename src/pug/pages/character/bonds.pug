@@ -7,3 +7,14 @@ mixin bonds-edit(spine)
       .bond(class=`bond--${index+1}`)
         each bond in bonds
           +chimera-input(bond)
+
+mixin bonds-view(spine)
+  .bonds--view
+    h2.bonds__heading--view(data-i18n=spine.bonds.heading.name)= spine.bonds.heading.label
+    each field in spine.bonds.hidden
+      +chimera-hidden(field, 0)
+    each bonds, index in spine.bonds.view
+      .bond(class=`bond--${index+1}`)
+        each bond in bonds
+          +chimera-value(bond)
+        +send-to-chat(`bond${index+1}`)

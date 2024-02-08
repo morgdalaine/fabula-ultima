@@ -136,7 +136,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .ui-dialog .charsheet .repcontainer .repitem {
   margin-block-end: 4px;
-  border-bottom: 1px solid var(--color-fabula1);
+  border-bottom: 1px solid var(--color-fabula-base);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -724,6 +724,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-action svg {
   opacity: 1;
 }
+.fabula-ultima .chimera-action:not(:has(div)) img,
+.fabula-ultima .chimera-action:not(:has(div)) svg {
+  position: absolute;
+}
 
 .fabula-ultima input[type=number],
 .fabula-ultima input[type=text],
@@ -866,6 +870,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .send-to-chat {
   border: none;
+  border-radius: 50%;
   aspect-ratio: 1;
 }
 .fabula-ultima .send-to-chat span {
@@ -1436,7 +1441,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .bio--view .bio__avatar {
   display: none;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
   height: 10rem;
@@ -1470,8 +1475,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   gap: 4px;
   padding: 4px 16px;
-  border-left: 2px solid var(--color-fabula2);
-  border-bottom: 2px solid var(--color-fabula2);
+  border-left: 2px solid var(--color-fabula-light);
+  border-bottom: 2px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -1494,7 +1499,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 4px;
-  border-bottom: 1px solid var(--color-fabula2);
+  border-bottom: 1px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
   padding: 4px;
@@ -1521,7 +1526,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .bio--view .bio__description {
   grid-column: 1/-1;
-  border-bottom: 1px solid var(--color-fabula2);
+  border-bottom: 1px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
   padding: 4px 16px;
@@ -2087,7 +2092,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: repeat(9, minmax(3rem, auto));
   gap: 2px;
   text-align: center;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   border-right: none;
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
@@ -2184,35 +2189,35 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(1),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(1) {
-  border-right: 1px solid color-mix(in srgb, white 12%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 12%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(2),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(2) {
-  border-right: 1px solid color-mix(in srgb, white 24%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 24%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(3),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(3) {
-  border-right: 1px solid color-mix(in srgb, white 36%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 36%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(4),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(4) {
-  border-right: 1px solid color-mix(in srgb, white 48%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 48%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(5),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(5) {
-  border-right: 1px solid color-mix(in srgb, white 60%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 60%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(6),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(6) {
-  border-right: 1px solid color-mix(in srgb, white 72%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 72%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(7),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(7) {
-  border-right: 1px solid color-mix(in srgb, white 84%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 84%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity__wrapper:nth-of-type(8),
 .fabula-ultima .character .affinities--view .affinity__wrapper:nth-of-type(8) {
-  border-right: 1px solid color-mix(in srgb, white 96%, var(--color-fabula5));
+  border-right: 1px solid color-mix(in srgb, white 96%, var(--color-fabula-dark));
 }
 .fabula-ultima .bestiary .affinities--view .affinity .chimera-value__label,
 .fabula-ultima .character .affinities--view .affinity .chimera-value__label {
@@ -2252,7 +2257,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   height: -moz-min-content;
   height: min-content;
   text-align: center;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   border-left: none;
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
@@ -2266,19 +2271,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .attributes--view .attribute:nth-of-type(1),
 .fabula-ultima .character .attributes--view .attribute:nth-of-type(1) {
-  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .attributes--view .attribute:nth-of-type(2),
 .fabula-ultima .character .attributes--view .attribute:nth-of-type(2) {
-  background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 70%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .attributes--view .attribute:nth-of-type(3),
 .fabula-ultima .character .attributes--view .attribute:nth-of-type(3) {
-  background-color: color-mix(in srgb, white 80%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 80%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .attributes--view .attribute:nth-of-type(4),
 .fabula-ultima .character .attributes--view .attribute:nth-of-type(4) {
-  background-color: color-mix(in srgb, white 90%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 90%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .attributes--view .attribute .chimera-value,
 .fabula-ultima .character .attributes--view .attribute .chimera-value {
@@ -2311,7 +2316,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   height: -moz-min-content;
   height: min-content;
   text-align: center;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   border-left: none;
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
@@ -2325,11 +2330,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .defenses--view .defense:nth-of-type(1),
 .fabula-ultima .character .defenses--view .defense:nth-of-type(1) {
-  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .defenses--view .defense:nth-of-type(2),
 .fabula-ultima .character .defenses--view .defense:nth-of-type(2) {
-  background-color: color-mix(in srgb, white 70%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 70%, var(--color-fabula-light));
 }
 .fabula-ultima .bestiary .defenses--view .defense .chimera-value,
 .fabula-ultima .character .defenses--view .defense .chimera-value {
@@ -2357,7 +2362,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   grid-template-columns: repeat(2, var(--input-component-size) auto) auto;
   gap: 4px;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   border-right: none;
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
@@ -2590,7 +2595,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .traits--view .trait__avatar {
   display: none;
-  border: 1px solid var(--color-fabula0);
+  border: 1px solid var(--color-fabula-darkest);
   -o-border-image: var(--fabula-gradient-dark-border);
      border-image: var(--fabula-gradient-dark-border);
   height: 10rem;
@@ -2636,8 +2641,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   gap: 4px;
   padding: 4px 16px;
-  border-left: 2px solid var(--color-fabula2);
-  border-bottom: 2px solid var(--color-fabula2);
+  border-left: 2px solid var(--color-fabula-light);
+  border-bottom: 2px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -2695,6 +2700,41 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
+.fabula-ultima .character .bonds--view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .bonds--view input[name*=bond1_level][value="0"] ~ .bond--1, .fabula-ultima .character .bonds--view input[name*=bond1_level][value=""] ~ .bond--1, .fabula-ultima .character .bonds--view input[name*=bond1_level]:not([value]) ~ .bond--1 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view input[name*=bond2_level][value="0"] ~ .bond--2, .fabula-ultima .character .bonds--view input[name*=bond2_level][value=""] ~ .bond--2, .fabula-ultima .character .bonds--view input[name*=bond2_level]:not([value]) ~ .bond--2 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view input[name*=bond3_level][value="0"] ~ .bond--3, .fabula-ultima .character .bonds--view input[name*=bond3_level][value=""] ~ .bond--3, .fabula-ultima .character .bonds--view input[name*=bond3_level]:not([value]) ~ .bond--3 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view input[name*=bond4_level][value="0"] ~ .bond--4, .fabula-ultima .character .bonds--view input[name*=bond4_level][value=""] ~ .bond--4, .fabula-ultima .character .bonds--view input[name*=bond4_level]:not([value]) ~ .bond--4 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view input[name*=bond5_level][value="0"] ~ .bond--5, .fabula-ultima .character .bonds--view input[name*=bond5_level][value=""] ~ .bond--5, .fabula-ultima .character .bonds--view input[name*=bond5_level]:not([value]) ~ .bond--5 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view input[name*=bond6_level][value="0"] ~ .bond--6, .fabula-ultima .character .bonds--view input[name*=bond6_level][value=""] ~ .bond--6, .fabula-ultima .character .bonds--view input[name*=bond6_level]:not([value]) ~ .bond--6 {
+  display: none;
+}
+.fabula-ultima .character .bonds--view .bond {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 0 8px;
+}
+.fabula-ultima .character .bonds--view .bond__name {
+  flex: 1;
+}
+.fabula-ultima .character .bonds--view .bond .chimera-value:has(span:empty) {
+  display: none;
+}
 .fabula-ultima .character .bonds--edit {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2706,23 +2746,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
   align-items: center;
   justify-content: center;
+  padding: 8px;
+  background-color: var(--character-edit-background-secondary);
 }
-.fabula-ultima .character .bonds--edit .bond:nth-child(n+3) ~ * .chimera-input__label {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  width: 1px;
-  overflow: hidden;
-  padding: 0; /* 1 */
-  text-indent: 101%;
-  white-space: nowrap;
-}
-.fabula-ultima .character .bonds--edit .bond:nth-child(2n) {
-  padding-right: 4px;
-  border-right: 2px dotted var(--color-fabula1);
+.fabula-ultima .character .bonds--edit .bond__description {
+  grid-column: 1/-1;
 }
 
 .fabula-ultima .character .attributes__heading--edit {
@@ -2931,7 +2959,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .classes--edit .class__skill_description {
   padding-bottom: 4px;
-  border-bottom: 2px solid var(--color-fabula2);
+  border-bottom: 2px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -3001,7 +3029,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 :root,
 html .sheet-darkmode {
   --bestiary-edit-background: #1f1f1f;
-  --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #1f1f1f 50%);
+  --fabula-gradient-primary: linear-gradient(90deg, #502d54 0%, #1f1f1f 50%);
 }
 
 .sheet-darkmode .sheetform {
@@ -3012,11 +3040,46 @@ html .sheet-darkmode {
 html,
 .sheet-rolltemplate-fabula-attack,
 .sheet-rolltemplate-fabula-chat {
-  --surface-background: #fff;
-  --bestiary-edit-background: #e2f3ee;
-  --character-edit-background: color-mix(in srgb, white 80%, #b9a9be);
-  --character-edit-background-secondary: rgba(185, 169, 190, 0.4);
+  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
+  --font-nav: Antonio, Comic Sans MS, sans-serif;
+  --font-serif: PT Serif, Comic Sans MS, serif;
+  --font-title: Antonio, Comic Sans MS, sans-serif;
+  --color-hp: #d1232a;
+  --color-mp: #00aeef;
+  --color-up: #502d54;
+  --color-fabula-darkest: #313f6d;
+  --color-fabula-dark: #295d95;
+  --color-fabula-base: #30669c;
+  --color-fabula-lightest: #c2cce0;
+  --color-fabula-light: #4575a3;
+  --color-fabula-accent: #b5613b;
+  --surface-background: white;
+  --character-edit-background: #e2f3ee;
+  --character-edit-background-secondary: rgba(72, 96, 88, 0.1);
+  --bestiary-edit-background: color-mix(in srgb, white 80%, #b9a9be);
+  --bestiary-edit-background-secondary: rgba(185, 169, 190, 0.4);
   --box-shadow-light: rgba(26, 28, 24, 0.2) 0px 2px 1px -1px, rgba(26, 28, 24, 0.14) 0px 1px 1px 0px, rgba(26, 28, 24, 0.12) 0px 1px 3px 0px;
+  --fabula-gradient-primary: linear-gradient(
+    90deg,
+    var(--color-fabula-base) 0%,
+    var(--color-fabula-lightest) 100%
+  );
+  --fabula-gradient-primary-border: linear-gradient(45deg, var(--color-fabula-base), white) 1;
+  --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+  --fabula-gradient-secondary-border: linear-gradient(
+      45deg,
+      var(--color-fabula-lightest) 0%,
+      white 100%
+    )
+    1;
+  --fabula-gradient-dark-border: linear-gradient(
+      90deg,
+      var(--color-fabula-dark),
+      var(--color-fabula-light)
+    )
+    1;
+  --fabula-gradient-success: linear-gradient(90deg, #906318 40%, white 100%);
+  --fabula-gradient-fumble: linear-gradient(90deg, #b22222 40%, white 100%);
   --button-background-color: rgba(26, 35, 126, 0.2);
   --button-background-color-active: rgba(26, 35, 126, 0.2);
   --button-background-color-focus: rgba(63, 81, 181, 0.1);
@@ -3025,36 +3088,16 @@ html,
   --button-border-color-active: #1a237e;
   --button-border-color-focus: rgba(63, 81, 181, 0.1);
   --button-border-color-hover: #1a237e;
-  --button-color: #1f1f1f;
+  --button-color: #1e1d1b;
   --button-color-active: #1a237e;
   --button-color-focus: #1a237e;
   --button-color-hover: #1a237e;
   --button-component-size: 2.5rem;
   --button-shadow-hover: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
   --button-shadow-active: inset 0 2px 4px rgba(26, 28, 24, 0.15), 0 1px 2px rgba(26, 28, 24, 0.05);
-  --font-body: PT Sans Narrow, Comic Sans MS, sans-serif;
-  --font-nav: Antonio, Comic Sans MS, sans-serif;
-  --font-serif: PT Serif, Comic Sans MS, serif;
-  --font-title: Antonio, Comic Sans MS, sans-serif;
-  --fabula-gradient-primary: linear-gradient(90deg, #674168 0%, #b9a9be 100%);
-  --fabula-gradient-primary-border: linear-gradient(45deg, #674168, #fff) 1;
-  --fabula-gradient-secondary: linear-gradient(90deg, #6e468d 0%, #fff 100%);
-  --fabula-gradient-secondary-border: linear-gradient(45deg, #b9a9be 0%, #fff 100%) 1;
-  --fabula-gradient-dark-border: linear-gradient(90deg, #341b35, #6d5072) 1;
-  --fabula-gradient-success: linear-gradient(90deg, #906318 40%, #fff 100%);
-  --fabula-gradient-fumble: linear-gradient(90deg, #b22222 40%, #fff 100%);
-  --color-fabula0: #281127;
-  --color-fabula1: #674168;
-  --color-fabula2: #b9a9be;
-  --color-fabula3: #6e468d;
-  --color-fabula4: #6d5072;
-  --color-fabula5: #341b35;
-  --color-hp: #d1232a;
-  --color-mp: #00aeef;
-  --color-up: #674168;
   --icon-component-size: 1.5rem;
   --color-on-dark: #ffffff;
-  --text-color: #1f1f1f;
+  --text-color: #1e1d1b;
   --input-background-color: rgba(255, 255, 255, 0.8);
   --input-background-color-active: rgba(26, 35, 126, 0.2);
   --input-background-color-focus: rgba(63, 81, 181, 0.1);
@@ -3063,15 +3106,82 @@ html,
   --input-border-color-active: #1a237e;
   --input-border-color-focus: #1a237e;
   --input-border-color-hover: rgba(63, 81, 181, 0.1);
-  --input-color: #1f1f1f;
-  --input-color-active: #1f1f1f;
-  --input-color-focus: #1f1f1f;
+  --input-color: #1e1d1b;
+  --input-color-active: #1e1d1b;
+  --input-color-focus: #1e1d1b;
   --input-color-hover: #1a237e;
   --input-component-size: 2.5rem;
-  --nav-color-focus: #674168;
+  --nav-color-focus: #502d54;
   --repeating-empty-border-color: rgba(26, 35, 126, 0.2);
   --surface-container-lowest: #ffffff;
-  --tertiary-gradient-light: linear-gradient(90deg, #33691e 0%, transparent 100%);
+}
+:root .character,
+:root .sheet-character,
+html .character,
+html .sheet-character,
+.sheet-rolltemplate-fabula-attack .character,
+.sheet-rolltemplate-fabula-attack .sheet-character,
+.sheet-rolltemplate-fabula-chat .character,
+.sheet-rolltemplate-fabula-chat .sheet-character {
+  --color-fabula-darkest: #324942;
+  --color-fabula-dark: #486058;
+  --color-fabula-base: #39662d;
+  --color-fabula-light: #b0bba0;
+  --color-fabula-lightest: #e5efe5;
+  --color-fabula-accent: #b5613b;
+  --fabula-gradient-primary: linear-gradient(
+    90deg,
+    var(--color-fabula-base) 0%,
+    var(--color-fabula-lightest) 100%
+  );
+  --fabula-gradient-primary-border: linear-gradient(45deg, var(--color-fabula-base), white) 1;
+  --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+  --fabula-gradient-secondary-border: linear-gradient(
+      45deg,
+      var(--color-fabula-lightest) 0%,
+      white 100%
+    )
+    1;
+  --fabula-gradient-dark-border: linear-gradient(
+      90deg,
+      var(--color-fabula-dark),
+      var(--color-fabula-light)
+    )
+    1;
+}
+:root .bestiary,
+:root .sheet-bestiary,
+html .bestiary,
+html .sheet-bestiary,
+.sheet-rolltemplate-fabula-attack .bestiary,
+.sheet-rolltemplate-fabula-attack .sheet-bestiary,
+.sheet-rolltemplate-fabula-chat .bestiary,
+.sheet-rolltemplate-fabula-chat .sheet-bestiary {
+  --color-fabula-darkest: #281127;
+  --color-fabula-dark: #341b35;
+  --color-fabula-base: #502d54;
+  --color-fabula-light: #6d5072;
+  --color-fabula-lightest: #b9a9be;
+  --color-fabula-accent: #6e468d;
+  --fabula-gradient-primary: linear-gradient(
+    90deg,
+    var(--color-fabula-base) 0%,
+    var(--color-fabula-lightest) 100%
+  );
+  --fabula-gradient-primary-border: linear-gradient(45deg, var(--color-fabula-base), white) 1;
+  --fabula-gradient-secondary: linear-gradient(90deg, var(--color-fabula-accent) 0%, white 100%);
+  --fabula-gradient-secondary-border: linear-gradient(
+      45deg,
+      var(--color-fabula-lightest) 0%,
+      white 100%
+    )
+    1;
+  --fabula-gradient-dark-border: linear-gradient(
+      90deg,
+      var(--color-fabula-dark),
+      var(--color-fabula-light)
+    )
+    1;
 }
 
 .sheet-rolltemplate-fabula-attack .inlinerollresult,
@@ -3079,7 +3189,7 @@ html,
   display: block;
   text-align: center;
   padding: 2px;
-  background-color: color-mix(in srgb, white 60%, var(--color-fabula2));
+  background-color: color-mix(in srgb, white 60%, var(--color-fabula-light));
   color: black;
   border: none;
   border-radius: 4px;
@@ -3126,6 +3236,10 @@ html,
 .sheet-rolltemplate-fabula-chat .sheet-mp .sheet-fabula-label {
   color: var(--color-mp);
 }
+.sheet-rolltemplate-fabula-attack .sheet-bonds,
+.sheet-rolltemplate-fabula-chat .sheet-bonds {
+  justify-content: space-evenly;
+}
 .sheet-rolltemplate-fabula-attack .sheet-roll,
 .sheet-rolltemplate-fabula-chat .sheet-roll {
   display: flex;
@@ -3153,15 +3267,15 @@ html,
 .sheet-rolltemplate-fabula-chat .sheet-avatar img {
   max-height: 36px;
   border-top-left-radius: 4px;
-  border: 2px solid var(--color-fabula1);
+  border: 2px solid var(--color-fabula-base);
 }
-.sheet-rolltemplate-fabula-attack .sheet-character,
-.sheet-rolltemplate-fabula-chat .sheet-character {
+.sheet-rolltemplate-fabula-attack .sheet-character-name,
+.sheet-rolltemplate-fabula-chat .sheet-character-name {
   flex: 1;
   padding-inline: 16px;
 }
-.sheet-rolltemplate-fabula-attack .sheet-character span,
-.sheet-rolltemplate-fabula-chat .sheet-character span {
+.sheet-rolltemplate-fabula-attack .sheet-character-name span,
+.sheet-rolltemplate-fabula-chat .sheet-character-name span {
   font-family: var(--font-title);
   font-size: 24px;
   font-style: normal;
@@ -3176,7 +3290,7 @@ html,
   border-top-right-radius: 4px;
   background-color: var(--surface-background);
   color: var(--text-color);
-  border-bottom: 2px solid var(--color-fabula2);
+  border-bottom: 2px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-secondary-border);
      border-image: var(--fabula-gradient-secondary-border);
 }
@@ -3203,7 +3317,7 @@ html,
   display: grid;
   gap: 4px;
   padding: 4px;
-  border-top: 1px solid var(--color-fabula2);
+  border-top: 1px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
 }

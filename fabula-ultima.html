@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="bestiary"/>
 <input class="chimera-hidden" name="attr_sheet_mode" type="hidden"/>
 <div class="fabula-ultima">
@@ -140,6 +140,87 @@
                       </label>
                     </div>
               </div>
+              <div class="bonds--view">
+                <h2 class="bonds__heading--view" data-i18n="bonds">Bonds</h2>
+                <input class="chimera-hidden" name="attr_bond1_level" type="hidden" value="0"/>
+                <input class="chimera-hidden" name="attr_bond2_level" type="hidden" value="0"/>
+                <input class="chimera-hidden" name="attr_bond3_level" type="hidden" value="0"/>
+                <input class="chimera-hidden" name="attr_bond4_level" type="hidden" value="0"/>
+                <input class="chimera-hidden" name="attr_bond5_level" type="hidden" value="0"/>
+                <input class="chimera-hidden" name="attr_bond6_level" type="hidden" value="0"/>
+                <div class="bond bond--1">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond1_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond1_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond1_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond1_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond1chat" name="act_bond1chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+                <div class="bond bond--2">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond2_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond2_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond2_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond2_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond2chat" name="act_bond2chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+                <div class="bond bond--3">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond3_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond3_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond3_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond3_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond3chat" name="act_bond3chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+                <div class="bond bond--4">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond4_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond4_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond4_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond4_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond4chat" name="act_bond4chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+                <div class="bond bond--5">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond5_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond5_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond5_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond5_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond5chat" name="act_bond5chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+                <div class="bond bond--6">
+                  <div class="chimera-value bond__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_bond6_name"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond6_approval"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond6_allegiance"></span>
+                  </div>
+                  <div class="chimera-value bond__emotion chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_bond6_fondness"></span>
+                  </div>
+                  <button class="chimera-action send-to-chat" data-i18n-title="bond6chat" name="act_bond6chat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                  </button>
+                </div>
+              </div>
         </section>
         <section class="character--edit">
               <div class="traits--edit">
@@ -224,6 +305,12 @@
           <div class="character__bonds">
                 <div class="bonds--edit">
                   <h2 class="bonds__heading--edit" data-i18n="bonds">Bonds</h2>
+                  <input class="chimera-hidden" name="attr_bond1_level" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_bond2_level" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_bond3_level" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_bond4_level" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_bond5_level" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_bond6_level" type="hidden" value="0"/>
                   <div class="bond bond--1">
                     <input class="chimera-hidden" name="attr_bond1_level" type="hidden" value="0"/>
                     <div class="chimera-input bond__name">
@@ -253,6 +340,10 @@
                         <option data-i18n="affection" value="affection">Affection</option>
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
+                    </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond1_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond1_description_title" id="bond1_description" name="attr_bond1_description" type="text"/>
                     </div>
                   </div>
                   <div class="bond bond--2">
@@ -285,6 +376,10 @@
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
                     </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond2_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond2_description_title" id="bond2_description" name="attr_bond2_description" type="text"/>
+                    </div>
                   </div>
                   <div class="bond bond--3">
                     <input class="chimera-hidden" name="attr_bond3_level" type="hidden" value="0"/>
@@ -315,6 +410,10 @@
                         <option data-i18n="affection" value="affection">Affection</option>
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
+                    </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond3_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond3_description_title" id="bond3_description" name="attr_bond3_description" type="text"/>
                     </div>
                   </div>
                   <div class="bond bond--4">
@@ -347,6 +446,10 @@
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
                     </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond4_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond4_description_title" id="bond4_description" name="attr_bond4_description" type="text"/>
+                    </div>
                   </div>
                   <div class="bond bond--5">
                     <input class="chimera-hidden" name="attr_bond5_level" type="hidden" value="0"/>
@@ -378,6 +481,10 @@
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
                     </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond5_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond5_description_title" id="bond5_description" name="attr_bond5_description" type="text"/>
+                    </div>
                   </div>
                   <div class="bond bond--6">
                     <input class="chimera-hidden" name="attr_bond6_level" type="hidden" value="0"/>
@@ -408,6 +515,10 @@
                         <option data-i18n="affection" value="affection">Affection</option>
                         <option data-i18n="hatred" value="hatred">Hatred</option>
                       </select>
+                    </div>
+                    <div class="chimera-input bond__description">
+                      <label class="chimera-input__label" data-i18n="bond_description" for="bond6_description">Description</label>
+                      <input class="chimera-input__field" data-i18n-title="bond6_description_title" id="bond6_description" name="attr_bond6_description" type="text"/>
                     </div>
                   </div>
                 </div>
@@ -713,32 +824,32 @@
           <div class="status-effects">
             <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_title" title="Slow temporarily reduces your Dexterity die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/slow.svg" title="Slow temporarily reduces your Dexterity die size by one."/>
+                <input id="slow" name="attr_slow" type="checkbox"/><img data-i18n-title="slow_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/slow.png" title="Slow temporarily reduces your Dexterity die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="slow" for="slow">Slow</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_title" title="Dazed temporarily reduces your Insight die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/dazed.svg" title="Dazed temporarily reduces your Insight die size by one."/>
+                <input id="dazed" name="attr_dazed" type="checkbox"/><img data-i18n-title="dazed_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/dazed.png" title="Dazed temporarily reduces your Insight die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="dazed" for="dazed">Dazed</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
               <div class="chimera-checkbox__field">
-                <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/enraged.svg" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
+                <input id="enraged" name="attr_enraged" type="checkbox"/><img data-i18n-title="enraged_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/enraged.png" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="enraged" for="enraged">Enraged</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_title" title="Weak temporarily reduces your Might die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/weak.svg" title="Weak temporarily reduces your Might die size by one."/>
+                <input id="weak" name="attr_weak" type="checkbox"/><img data-i18n-title="weak_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/weak.png" title="Weak temporarily reduces your Might die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="weak" for="weak">Weak</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_title" title="Shaken temporarily reduces your Willpower die size by one.">
               <div class="chimera-checkbox__field">
-                <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/shaken.svg" title="Shaken temporarily reduces your Willpower die size by one."/>
+                <input id="shaken" name="attr_shaken" type="checkbox"/><img data-i18n-title="shaken_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/shaken.png" title="Shaken temporarily reduces your Willpower die size by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="shaken" for="shaken">Shaken</span>
             </label>
             <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
               <div class="chimera-checkbox__field">
-                <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned.svg" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
+                <input id="poisoned" name="attr_poisoned" type="checkbox"/><img data-i18n-title="poisoned_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
               </div><span class="chimera-checkbox__label" data-i18n="poisoned" for="poisoned">Poisoned</span>
             </label>
           </div>
@@ -941,7 +1052,7 @@
                         <div class="other-action"><img class="other-action__icon" data-i18n-title="cog_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/cog.svg" title="Cog"/>
                           <div class="chimera-value other-action__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_action_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="otheractionchat" name="act_otheractionchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="otheractionchat" name="act_otheractionchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value other-action__effect"><span class="chimera-value__value" name="attr_action_effect"></span>
                           </div>
@@ -969,7 +1080,7 @@
                         <div class="special-rule">
                           <div class="chimera-value special-rule__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_special_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="specialrulechat" name="act_specialrulechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="specialrulechat" name="act_specialrulechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value special-rule__effect"><span class="chimera-value__value" name="attr_special_effect"></span>
                           </div>
@@ -1000,7 +1111,7 @@
                           </div><span class="fabula-diamond">⬥</span>
                           <div class="chimera-value weapon__cost"><span class="chimera-value__value" name="attr_weapon_cost"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                         </div>
                       </fieldset>
@@ -1026,7 +1137,7 @@
                     </div><span class="fabula-diamond">⬥</span>
                     <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_armor_cost"></span>
                     </div>
-                    <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                    <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                     </button>
                   </div>
                   <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_shield_name" type="hidden"/>
@@ -1045,7 +1156,7 @@
                     </div><span class="fabula-diamond">⬥</span>
                     <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_shield_cost"></span>
                     </div>
-                    <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                    <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                     </button>
                   </div>
                 </div>
@@ -1068,7 +1179,7 @@
                         <div class="rare-gear"><img class="rare-gear__icon" data-i18n-title="equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/equipment.svg" title="Equipment"/>
                           <div class="chimera-value rare-gear__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_raregear_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="raregearchat" name="act_raregearchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="raregearchat" name="act_raregearchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value rare-gear__effect"><span class="chimera-value__value" name="attr_raregear_effect"></span>
                           </div>
@@ -1096,7 +1207,7 @@
                         <div class="note"><img class="note__icon" data-i18n-title="book_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/book.svg" title="Book"/>
                           <div class="chimera-value note__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_note_name"></span>
                           </div>
-                          <button class="chimera-action send-to-chat" data-i18n-title="notechat" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          <button class="chimera-action send-to-chat" data-i18n-title="notechat" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                           </button>
                           <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
                           </div>
@@ -1930,7 +2041,7 @@
   <div class="sheet-roll">
     <div class="sheet-roll-header">{{#avatar}}
       <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
-      <div class="sheet-character"><span>{{ character }}</span></div>
+      <div class="sheet-character-name"><span>{{ character }}</span></div>
       <div class="sheet-roll-type"><span>{{ action }}</span></div>
     </div>{{#^rollTotal() computed::critical 0}}{{#rollGreater() computed::critical 0}}
     <div class="sheet-critical-success"><span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span></div>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}
@@ -1951,13 +2062,13 @@
   </div>
 </rolltemplate>
 <rolltemplate class="sheet-rolltemplate-fabula-chat">
-  <div class="sheet-roll">
+  <div class="sheet-roll sheet-{{sheet_type}}">
     <div class="sheet-roll-header">{{#avatar}}
       <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
-      <div class="sheet-character"><span>{{ character }}</span></div>
+      <div class="sheet-character-name"><span>{{ character }}</span></div>
       <div class="sheet-roll-type"><span>{{ action }}</span></div>
     </div>{{#name}}
-    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
+    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>{{#level}}<span class="sheet-fabula-span">{{ level }}</span>{{/level}}{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
     </div>{{/name}}{{#study}}
     <div class="sheet-header sheet-space-around">{{#rank}}{{#species}}<span class="sheet-fabula-span">{{ rank }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ species }}</span>{{/species}}{{/rank}}{{#hp_max}}{{#mp_max}}<span class="sheet-fabula-diamond">⬥</span>
       <div class="sheet-hp"><span class="sheet-fabula-span">{{ hp_max }}</span><span class="sheet-fabula-label" data-i18n="hp_max">HP</span></div><span class="sheet-fabula-diamond">⬥</span>
@@ -1998,7 +2109,9 @@
       <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed">X-Handed</span></div>{{/hands}}{{/category}}{{#init}}
       <div><span class="sheet-fabula-label" data-i18n="init">Init.</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ init }}</span></div>{{/init}}{{#cost}}
       <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#traits}}
-      <div><span class="sheet-fabula-label" data-i18n="traits">Traits</span><span class="sheet-fabula-span">{{ traits }}</span></div>{{/traits}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
+      <div><span class="sheet-fabula-label" data-i18n="traits">Traits</span><span class="sheet-fabula-span">{{ traits }}</span></div>{{/traits}}{{#bond}}
+      <div class="sheet-bonds">{{#approval}}<span class="sheet-fabula-span">{{ approval }}</span>{{/approval}}{{#allegiance}}<span class="sheet-fabula-span">{{ allegiance }}</span>{{/allegiance}}{{#fondness}}<span class="sheet-fabula-span">{{ fondness }}</span>{{/fondness}}
+      </div>{{/bond}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
     </div>
     <div class="sheet-details">{{#basicattacks}}
       <div class="sheet-detail-banner"><span class="sheet-fabula-important" data-i18n="basic_attacks">Basic Attacks</span></div><span class="sheet-fabula-span">...</span>{{/basicattacks}}{{#spells}}
@@ -2074,6 +2187,11 @@ const ATTR_WATCH = {
         'armor_magic_defense_bonus',
         'shield_magic_defense_bonus',
     ],
+    bonds: [1, 2, 3, 4, 5, 6].flatMap((bond) => [
+        `bond${bond}_approval`,
+        `bond${bond}_allegiance`,
+        `bond${bond}_fondness`,
+    ]),
     basic_attacks: [
         'sheet_type',
         'level',
@@ -2134,8 +2252,23 @@ const CLICK_LISTENERS = {
     'study7': 'study7',
     'study10': 'study10',
     'study13': 'study13',
+    'bond1chat': 'bond1',
+    'bond2chat': 'bond2',
+    'bond3chat': 'bond3',
+    'bond4chat': 'bond4',
+    'bond5chat': 'bond5',
+    'bond6chat': 'bond6',
 };
 const SEND_TO_CHAT = {
+    ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
+        `bond${bond}_name`,
+        `bond${bond}_level`,
+        `bond${bond}_approval`,
+        `bond${bond}_allegiance`,
+        `bond${bond}_fondness`,
+        `bond${bond}_description`,
+    ]),
+        memo), {}),
     basicattack: [
         'attack_name',
         'attack_range',
@@ -2234,7 +2367,7 @@ SEND_TO_CHAT.study10 = [
     'poison',
 ];
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
-const ROLLTEMPLATE_REQUESTS = ['character_avatar'];
+const ROLLTEMPLATE_REQUESTS = ['character_avatar', 'sheet_type'];
 const CHARACTER_SKILL_LEVEL = [
     {
         section: 'repeating_classes',
@@ -2314,13 +2447,19 @@ const handleClick = async (btn, id) => {
         case 'weaponattack':
         case 'spell':
             return rollAction(btn, id);
-        case 'otheractionchat':
-        case 'specialrulechat':
-        case 'raregearchat':
-        case 'notechat':
-        case 'weaponchat':
-        case 'shieldchat':
+        case 'bond1':
+        case 'bond2':
+        case 'bond3':
+        case 'bond4':
+        case 'bond5':
+        case 'bond6':
         case 'armorchat':
+        case 'shieldchat':
+        case 'weaponchat':
+        case 'specialrulechat':
+        case 'notechat':
+        case 'otheractionchat':
+        case 'raregearchat':
         case 'study7':
         case 'study10':
         case 'study13':
@@ -2370,6 +2509,13 @@ const chatData = (chat, prefix, values) => {
                 return 'shield_';
             case 'weaponchat':
                 return 'weapon_';
+            case 'bond1':
+            case 'bond2':
+            case 'bond3':
+            case 'bond4':
+            case 'bond5':
+            case 'bond6':
+                return `${chat}_`;
         }
     })();
     return SEND_TO_CHAT[chat].reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
@@ -2450,33 +2596,9 @@ const weaponTemplate = (values) => {
         template.effect = values.effect;
     return template;
 };
-const studyValues = {
-    rank: 'champion',
-    species: 'Humanoid',
-    hp: 32,
-    hp_max: 70,
-    mp_max: 50,
-    traits: ' boastful, irritable, proud, strong',
-    dexterity_max: '6',
-    insight_max: '8',
-    might_max: '10',
-    willpower_max: '10',
-    defense: 12,
-    magic_defense: 11,
-    physical: '',
-    air: '',
-    bolt: '',
-    dark: '',
-    earth: 'rs',
-    fire: '',
-    ice: 'rs',
-    light: '',
-    poison: '',
-};
 const studyTemplate = (chat, values) => {
     const study = +chat.match(/\d+/)?.shift();
     const template = {};
-    console.log(values);
     template.action = getTranslationByKey('study') || 'Study';
     template.study = 'true';
     if (study >= STUDY_THRESHOLDS[0]) {
@@ -2506,11 +2628,29 @@ const studyTemplate = (chat, values) => {
     }
     return template;
 };
+const bondTemplate = (chat, values) => {
+    const study = +chat.match(/\d+/)?.shift();
+    const template = {};
+    console.group('bondTemplate');
+    console.log(chat);
+    console.log(values);
+    console.groupEnd();
+    template.action = getTranslationByKey('bond') || 'Bond';
+    template.name = values.name;
+    template.level = signedInteger(values.level);
+    template.bond = 'true';
+    template.approval = getTranslationByKey(values.approval) || '';
+    template.allegiance = getTranslationByKey(values.allegiance) || '';
+    template.fondness = getTranslationByKey(values.fondness) || '';
+    template.special = values.description;
+    return template;
+};
 const sendToChat = async (chat, id) => {
     const { request, prefix } = getSendChatRequest(chat, id);
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         const action = getTranslationByKey('info') || 'Info';
+        console.log(v);
         const data = chatData(chat, prefix, v);
         const template = (function () {
             switch (chat) {
@@ -2529,11 +2669,18 @@ const sendToChat = async (chat, id) => {
                 case 'study10':
                 case 'study13':
                     return studyTemplate(chat, data);
+                case 'bond1':
+                case 'bond2':
+                case 'bond3':
+                case 'bond4':
+                case 'bond5':
+                case 'bond6':
+                    return bondTemplate(chat, data);
             }
         })();
-        console.log(template);
         chimeraRoll('fabula-chat', {
             avatar: avatar,
+            sheet_type: v.sheet_type,
             action: action,
             character: `@{character_name}`,
             ...template,
@@ -2562,6 +2709,7 @@ const rollBasicAttack = async (id) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         chimeraRoll('fabula-attack', {
             avatar: avatar,
+            sheet_type: v.sheet_type,
             action: action,
             character: `@{character_name}`,
             name: v[prefix + 'attack_name'],
@@ -2605,6 +2753,7 @@ const rollWeaponAttack = async (id) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         chimeraRoll('fabula-attack', {
             avatar: avatar,
+            sheet_type: v.sheet_type,
             action: action,
             character: `@{character_name}`,
             name: attackName,
@@ -2649,6 +2798,7 @@ const rollSpellAction = async (id) => {
         const noaction = v[prefix + 'spell_is_offensive'] === 'on' ? null : 'noaction';
         chimeraRoll('fabula-attack', {
             avatar: avatar,
+            sheet_type: v.sheet_type,
             action: action,
             character: `@{character_name}`,
             name: attackName,
@@ -2723,7 +2873,6 @@ class RepeatingModule {
 }
 NAVBAR.forEach((nav) => {
     on(`clicked:${nav}`, (eventInfo) => {
-        console.log(nav, eventInfo);
         setAttrs({ nav: nav }, { silent: true });
     });
 });
@@ -2773,6 +2922,8 @@ const handleCalculations = (attr) => {
             return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
         case 'level':
             return calculateCharacterLevel(ATTR_WATCH[attr]);
+        case 'bonds':
+            return calculateBondLevels(ATTR_WATCH[attr]);
         case 'equipments_empty':
         case 'villain_empty':
             return isFieldEmpty(attr, ATTR_WATCH[attr]);
@@ -2881,10 +3032,6 @@ const calculateCharacterLevel = (request) => {
     RepeatingModule.getAllAttrs(CHARACTER_SKILL_LEVEL, request, (attributes, sections) => {
         if (attributes.sheet_type != 'character')
             return;
-        console.group('calculateCharacterLevel');
-        console.log(attributes);
-        console.log(sections);
-        console.groupEnd();
         const update = {};
         let level = 0;
         sections.repeating_classes.forEach((id) => {
@@ -2908,7 +3055,19 @@ const calculateCharacterLevel = (request) => {
             update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
         });
         update.level = level;
-        console.log(update);
+        setAttrs(update, { silent: true });
+    });
+};
+const calculateBondLevels = (request) => {
+    getAttrs(request, (v) => {
+        const update = {};
+        [1, 2, 3, 4, 5, 6].forEach((bond) => {
+            const b = Object.entries(v)
+                .filter(([key, val]) => key.includes(String(bond)) && val.length)
+                .map(([key, val]) => val);
+            const level = b.reduce((memo, emotion) => memo + +!!emotion, 0);
+            update[`bond${bond}_level`] = String(level);
+        });
         setAttrs(update, { silent: true });
     });
 };

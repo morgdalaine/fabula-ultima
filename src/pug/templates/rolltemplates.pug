@@ -2,7 +2,7 @@ mixin rollheader
   .sheet-roll-header
     +tags(['avatar'])
       .sheet-avatar [avatar]({{ avatar }})
-    .sheet-character
+    .sheet-character-name
       span {{ character }}
     .sheet-roll-type
       span {{ action }}
@@ -63,7 +63,7 @@ rolltemplate.sheet-rolltemplate-fabula-attack
         span.sheet-fabula-span {{ special }}
 
 rolltemplate.sheet-rolltemplate-fabula-chat
-  .sheet-roll
+  .sheet-roll(class=`sheet-{{${'sheet_type'}}}`)
     +rollheader
 
     +tags(['name'])
@@ -76,6 +76,8 @@ rolltemplate.sheet-rolltemplate-fabula-chat
           img(src=assets.spell.src)
 
         span.sheet-fabula-label {{ name }}
+        +tags(['level'])
+          span.sheet-fabula-span {{ level }}
 
         +tags(['martial'])
           span.sheet-fabula-diamond ✦
@@ -158,12 +160,18 @@ rolltemplate.sheet-rolltemplate-fabula-chat
           span.sheet-fabula-label(data-i18n='traits') Traits
           span.sheet-fabula-span {{ traits }}
 
+      +tags(['bond'])
+        .sheet-bonds
+          each emotion in ['approval', 'allegiance', 'fondness']
+            +tags([emotion])
+              span.sheet-fabula-span {{ #{ emotion } }}
+
       +tags(['effect'])
         span.sheet-fabula-span {{ effect }}
-
       +tags(['special'])
         span.sheet-fabula-span {{ special }}
 
+    //- STUDY ROLL
     .sheet-details
       +tags(['basicattacks'])
         .sheet-detail-banner

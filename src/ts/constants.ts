@@ -85,6 +85,12 @@ const ATTR_WATCH: Record<string, string[]> = {
     'shield_magic_defense_bonus',
   ],
 
+  bonds: [1, 2, 3, 4, 5, 6].flatMap((bond) => [
+    `bond${bond}_approval`,
+    `bond${bond}_allegiance`,
+    `bond${bond}_fondness`,
+  ]),
+
   basic_attacks: [
     'sheet_type',
     'level',
@@ -148,9 +154,29 @@ const CLICK_LISTENERS: Record<string, string> = {
   'study7': 'study7',
   'study10': 'study10',
   'study13': 'study13',
+  'bond1chat': 'bond1',
+  'bond2chat': 'bond2',
+  'bond3chat': 'bond3',
+  'bond4chat': 'bond4',
+  'bond5chat': 'bond5',
+  'bond6chat': 'bond6',
 };
 
 const SEND_TO_CHAT: Record<string, string[]> = {
+  ...([1, 2, 3, 4, 5, 6] as any[]).reduce(
+    (memo: Record<string, string[]>, bond: number) => (
+      (memo[`bond${bond}`] = [
+        `bond${bond}_name`,
+        `bond${bond}_level`,
+        `bond${bond}_approval`,
+        `bond${bond}_allegiance`,
+        `bond${bond}_fondness`,
+        `bond${bond}_description`,
+      ]),
+      memo
+    ),
+    {} as Record<string, string[]>
+  ),
   basicattack: [
     'attack_name',
     'attack_range',
@@ -250,7 +276,7 @@ SEND_TO_CHAT.study10 = [
 ];
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 
-const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar'];
+const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar', 'sheet_type'];
 
 const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
   {

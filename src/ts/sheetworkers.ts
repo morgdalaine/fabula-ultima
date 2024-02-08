@@ -31,6 +31,8 @@ const handleCalculations = (attr: string) => {
 
     case 'level':
       return calculateCharacterLevel(ATTR_WATCH[attr]);
+    case 'bonds':
+      return calculateBondLevels(ATTR_WATCH[attr]);
 
     case 'equipments_empty':
     case 'villain_empty':
@@ -179,11 +181,6 @@ const calculateCharacterLevel = (request: string[]) => {
     (attributes: Record<string, string>, sections) => {
       if (attributes.sheet_type != 'character') return;
 
-      console.group('calculateCharacterLevel');
-      console.log(attributes);
-      console.log(sections);
-      console.groupEnd();
-
       const update: { [key: string]: string | number } = {};
       let level = 0;
       sections.repeating_classes.forEach((id) => {
@@ -213,10 +210,24 @@ const calculateCharacterLevel = (request: string[]) => {
       });
 
       update.level = level;
-      console.log(update);
       setAttrs(update, { silent: true });
     }
   );
+};
+
+const calculateBondLevels = (request: string[]) => {
+  getAttrs(request, (v) => {
+    const update: { [key: string]: string } = {};
+    [1, 2, 3, 4, 5, 6].forEach((bond) => {
+      const b = Object.entries(v)
+        .filter(([key, val]) => key.includes(String(bond)) && val.length)
+        .map(([key, val]) => val);
+      const level = b.reduce((memo, emotion) => memo + +!!emotion, 0);
+      update[`bond${bond}_level`] = String(level);
+    });
+
+    setAttrs(update, { silent: true });
+  });
 };
 
 const calculateQuickDefenses = (value: any) => {

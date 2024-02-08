@@ -31,7 +31,7 @@
         &__avatar {
           display: none;
 
-          border: 1px solid var(--color-fabula0);
+          border: 1px solid var(--color-fabula-darkest);
           border-image: var(--fabula-gradient-dark-border);
           height: 10rem;
 
@@ -74,8 +74,8 @@
           gap: 4px;
 
           padding: 4px 16px;
-          border-left: 2px solid var(--color-fabula2);
-          border-bottom: 2px solid var(--color-fabula2);
+          border-left: 2px solid var(--color-fabula-light);
+          border-bottom: 2px solid var(--color-fabula-light);
           border-image: var(--fabula-gradient-secondary-border);
 
           label,
@@ -96,7 +96,7 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
 
-          // border-bottom: 1px solid var(--color-fabula2);
+          // border-bottom: 1px solid var(--color-fabula-light);
           // border-image: var(--fabula-gradient-primary-border);
           padding: 4px;
         }

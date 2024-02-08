@@ -6,6 +6,40 @@
 
     @include mixins.repeater-heading;
 
+    &--view {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+
+      @each $bond in 1, 2, 3, 4, 5, 6 {
+        input[name*='bond#{$bond}_level'] {
+          &[value='0'],
+          &[value=''],
+          &:not([value]) {
+            ~ .bond--#{$bond} {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .bond {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+
+        padding: 0 8px;
+
+        &__name {
+          flex: 1;
+        }
+
+        .chimera-value:has(span:empty) {
+          display: none;
+        }
+      }
+    }
+
     &--edit {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -19,25 +53,19 @@
         align-items: center;
         justify-content: center;
 
-        &:nth-child(n + 3) {
-          ~ * .chimera-input {
-            &__label {
-              @include mixins.sr-only;
-              @include mixins.hide-text;
-            }
-          }
-        }
-        &:nth-child(2n) {
-          padding-right: 4px;
-          border-right: 2px dotted var(--color-fabula1);
+        padding: 8px;
+        background-color: var(--character-edit-background-secondary);
+
+        &__description {
+          grid-column: 1/-1;
         }
 
-        // .chimera-input {
-        //   &__label {
-        //     @include mixins.text-xl-400;
-        //   }
-        //   &__field {
-        //     align-self: normal;
+        // &:nth-child(n + 2) {
+        //   ~ * .chimera-input {
+        //     &__label {
+        //       @include mixins.sr-only;
+        //       @include mixins.hide-text;
+        //     }
         //   }
         // }
       }

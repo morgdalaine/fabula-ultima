@@ -6,12 +6,26 @@ $mp-blue: #00aeef;
 $success-gold: #906318;
 $fumble-red: #b22222;
 
-$fabula0: #281127;
-$fabula1: #674168;
-$fabula2: #b9a9be;
-$fabula3: #6e468d;
-$fabula4: #6d5072;
-$fabula5: #341b35;
+$fabula-default-darkest: #313f6d;
+$fabula-default-dark: #295d95;
+$fabula-default-base: #30669c;
+$fabula-default-light: #4575a3;
+$fabula-default-lightest: #c2cce0;
+$fabula-default-accent: #b5613b;
+
+$fabula-character-darkest: #324942;
+$fabula-character-dark: #486058;
+$fabula-character-base: #39662d;
+$fabula-character-light: #b0bba0;
+$fabula-character-lightest: #e5efe5;
+$fabula-character-accent: #b5613b;
+
+$fabula-bestiary-darkest: #281127;
+$fabula-bestiary-dark: #341b35;
+$fabula-bestiary-base: #502d54; // #674168;
+$fabula-bestiary-light: #6d5072;
+$fabula-bestiary-lightest: #b9a9be;
+$fabula-bestiary-accent: #6e468d;
 
 $surface-dim: #d9dbd1;
 $surface: #ffffff;
@@ -338,7 +352,7 @@ $blue-grey-d10: #546e7a;
 $blue-grey-d20: #455a64;
 $blue-grey-d30: #37474f;
 $blue-grey-d40: #263238;
-$black: #1f1f1f;
+$black: #1e1d1b;
 $white: #fff;
 
 // Tint a color: mix a color with white
