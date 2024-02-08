@@ -48,9 +48,11 @@
       .bond {
         display: grid;
         grid-template-columns: 1fr repeat(3, auto);
+        grid-template-rows: auto 1fr;
+
         gap: 4px;
 
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
 
         padding: 8px;

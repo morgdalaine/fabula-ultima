@@ -236,12 +236,7 @@ const studyTemplate = (chat: string, values: { [key: string]: string }) => {
 };
 
 const bondTemplate = (chat: string, values: { [key: string]: string }) => {
-  const study = +chat.match(/\d+/)?.shift();
   const template: { [key: string]: string } = {};
-  console.group('bondTemplate');
-  console.log(chat);
-  console.log(values);
-  console.groupEnd();
 
   template.action = getTranslationByKey('bond') || 'Bond';
   template.name = values.name;
@@ -262,8 +257,6 @@ const sendToChat = async (chat: string, id: string) => {
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
     const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
     const action = getTranslationByKey('info') || 'Info';
-
-    console.log(v);
 
     const data = chatData(chat, prefix, v);
     const template = (function () {

@@ -3,7 +3,9 @@
 
 @use 'character/traits';
 @use 'character/bonds';
+@use 'character/statistics';
 @use 'character/attributes';
+@use 'character/points';
 @use 'character/classes';
 @use 'shared/shared';
 
@@ -12,7 +14,7 @@
     $this: '.character';
 
     // navigation
-    $pages: 'bonds', 'classes', 'spells';
+    $pages: 'stats', 'bonds', 'classes', 'spells';
     @each $page in $pages {
       &__#{$page} {
         display: none;

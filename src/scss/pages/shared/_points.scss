@@ -6,6 +6,8 @@
     .points {
       $this: '.points';
 
+      @include mixins.repeater-heading;
+
       &--view {
         display: grid;
         grid-template-columns: repeat(2, var(--input-component-size) auto) auto;

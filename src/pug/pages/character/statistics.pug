@@ -1,0 +1,11 @@
+mixin statistics-edit(spine)
+  .statistics--edit
+    +points-edit(spine)
+    .affinities--edit
+      h2.affinities__heading--edit(data-i18n='damage_affinities') Damage Affinities
+      each field in spine.affinities.fields
+        +chimera-input(field)
+    .statuses--edit
+      h2.statuses__heading--edit(data-i18n='status_immunities') Status Immunities
+      each field in spine.statuses.fields
+        +chimera-input({...field, name: `${field.name}_immunity` })

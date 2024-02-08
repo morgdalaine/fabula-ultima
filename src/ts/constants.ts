@@ -1,4 +1,4 @@
-const NAVBAR = ['classes', 'spells', 'bonds'];
+const NAVBAR = ['stats', 'bonds', 'classes', 'spells'];
 
 const REPEATING = [
   'bonds',
@@ -49,6 +49,8 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
+  ip: ['sheet_type', 'ip_extra'],
+
   ultima_points: ['sheet_type', 'villain'],
 
   villain_empty: ['villain', 'multipart', 'phases'],

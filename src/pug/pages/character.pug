@@ -1,9 +1,11 @@
 include character/attributes
+include character/bonds
 include character/classes
 include character/nav
+include character/points
 include character/spells
+include character/statistics
 include character/traits
-include character/bonds
 include shared/shared
 
 mixin character-view(spine)
@@ -19,6 +21,9 @@ mixin character-edit(spine)
     +navbar-edit(spine)
 
     //- pages
+    .character__stats
+      +statistics-edit(spine)
+
     .character__bonds
       +bonds-edit(spine)
 

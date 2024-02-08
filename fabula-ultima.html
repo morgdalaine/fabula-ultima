@@ -295,6 +295,8 @@
                 </div>
               </div>
               <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
+                <button class="chimera-action" data-i18n-title="stats" name="act_stats" title="Stats" type="action"><span class="chimera-value__value" data-i18n="stats">Stats</span>
+                </button>
                 <button class="chimera-action" data-i18n-title="bonds" name="act_bonds" title="Bonds" type="action"><span class="chimera-value__value" data-i18n="bonds">Bonds</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="classes" name="act_classes" title="Classes" type="action"><span class="chimera-value__value" data-i18n="classes">Classes</span>
@@ -302,6 +304,185 @@
                 <button class="chimera-action" data-i18n-title="spells" name="act_spells" title="Spells" type="action"><span class="chimera-value__value" data-i18n="spells">Spells</span>
                 </button>
               </div>
+          <div class="character__stats">
+                <div class="statistics--edit">
+                      <div class="points--edit">
+                        <input class="chimera-hidden" name="attr_hp_crisis" type="hidden"/>
+                        <div class="point__hp">
+                          <div class="point__values">
+                            <h2 class="points__heading--edit" data-i18n="hit_points">Hit Points</h2>
+                            <div class="chimera-value points__hp"><span class="chimera-value__value" name="attr_hp_max"></span>
+                            </div><span class="fabula-diamond">⬥</span>
+                            <div class="chimera-value points__hp_crisis"><span class="chimera-value__value" name="attr_hp_crisis"></span>
+                            </div>
+                          </div>
+                          <div class="chimera-input point__hp-extra chimera-input--small chimera-input--center">
+                            <label class="chimera-input__label" data-i18n="hp_extra" for="hp_extra">Extra HP</label>
+                            <input class="chimera-input__field" data-i18n-title="hp_extra_title" id="hp_extra" name="attr_hp_extra" step="5" title="Extra HP" type="number"/>
+                          </div><span class="point__helptext" data-i18n="hp_calculation">(MIG x 5) + LEVEL + OTHER</span>
+                        </div>
+                        <div class="point__mp">
+                          <div class="point__values">
+                            <h2 class="points__heading--edit" data-i18n="mind_points">Mind Points</h2>
+                            <div class="chimera-value points__mp"><span class="chimera-value__value" name="attr_mp_max"></span>
+                            </div>
+                          </div>
+                          <div class="chimera-input point__mp-extra chimera-input--small chimera-input--center">
+                            <label class="chimera-input__label" data-i18n="mp_extra" for="mp_extra">Extra MP</label>
+                            <input class="chimera-input__field" data-i18n-title="mp_extra_title" id="mp_extra" name="attr_mp_extra" step="5" title="Extra MP" type="number"/>
+                          </div><span class="point__helptext" data-i18n="mp_calculation">(WLP x 5) + LEVEL + OTHER</span>
+                        </div>
+                        <div class="point__ip">
+                          <div class="point__values">
+                            <h2 class="points__heading--edit" data-i18n="inventory_points">Inventory Points</h2>
+                            <div class="chimera-value points__ip"><span class="chimera-value__value" name="attr_ip_max"></span>
+                            </div>
+                          </div>
+                          <div class="chimera-input point__mp-extra chimera-input--small chimera-input--center">
+                            <label class="chimera-input__label" data-i18n="ip_extra" for="ip_extra">Extra IP</label>
+                            <input class="chimera-input__field" data-i18n-title="ip_extra_title" id="ip_extra" name="attr_ip_extra" step="2" title="Extra IP" type="number"/>
+                          </div><span class="point__helptext" data-i18n="ip_calculation">6 + OTHER</span>
+                        </div>
+                        <div class="point__initiative">
+                          <div class="point__values">
+                            <h2 class="points__heading--edit" data-i18n="initiative">Initiative</h2>
+                            <div class="chimera-value points__initiative"><span class="chimera-value__value" name="attr_initiative"></span>
+                            </div>
+                          </div>
+                          <div class="chimera-input point__init-extra chimera-input--small chimera-input--center">
+                            <label class="chimera-input__label" data-i18n="initiative_extra" for="initiative_extra">Extra Initiative</label>
+                            <input class="chimera-input__field" data-i18n-title="initiative_extra_title" id="initiative_extra" name="attr_initiative_extra" title="Extra Initiative" type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                  <div class="affinities--edit">
+                    <h2 class="affinities__heading--edit" data-i18n="damage_affinities">Damage Affinities</h2>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="physical_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/physical.svg" title="Physical Affinity"/>
+                      <label class="chimera-input__label" data-i18n="physical" for="physical">Physical</label>
+                      <select class="chimera-input__field" data-i18n-title="physical_title" id="physical" name="attr_physical" title="Physical Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="air_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/air.svg" title="Air Affinity"/>
+                      <label class="chimera-input__label" data-i18n="air" for="air">Air</label>
+                      <select class="chimera-input__field" data-i18n-title="air_title" id="air" name="attr_air" title="Air Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="bolt_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/bolt.svg" title="Bolt Affinity"/>
+                      <label class="chimera-input__label" data-i18n="bolt" for="bolt">Bolt</label>
+                      <select class="chimera-input__field" data-i18n-title="bolt_title" id="bolt" name="attr_bolt" title="Bolt Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="dark_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/dark.svg" title="Dark Affinity"/>
+                      <label class="chimera-input__label" data-i18n="dark" for="dark">Dark</label>
+                      <select class="chimera-input__field" data-i18n-title="dark_title" id="dark" name="attr_dark" title="Dark Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="earth_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/earth.svg" title="Earth Affinity"/>
+                      <label class="chimera-input__label" data-i18n="earth" for="earth">Earth</label>
+                      <select class="chimera-input__field" data-i18n-title="earth_title" id="earth" name="attr_earth" title="Earth Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="fire_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/fire.svg" title="Fire Affinity"/>
+                      <label class="chimera-input__label" data-i18n="fire" for="fire">Fire</label>
+                      <select class="chimera-input__field" data-i18n-title="fire_title" id="fire" name="attr_fire" title="Fire Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="ice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/ice.svg" title="Ice Affinity"/>
+                      <label class="chimera-input__label" data-i18n="ice" for="ice">Ice</label>
+                      <select class="chimera-input__field" data-i18n-title="ice_title" id="ice" name="attr_ice" title="Ice Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="light_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/light.svg" title="Light Affinity"/>
+                      <label class="chimera-input__label" data-i18n="light" for="light">Light</label>
+                      <select class="chimera-input__field" data-i18n-title="light_title" id="light" name="attr_light" title="Light Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input affinity chimera-input--center"><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison Affinity"/>
+                      <label class="chimera-input__label" data-i18n="poison" for="poison">Poison</label>
+                      <select class="chimera-input__field" data-i18n-title="poison_title" id="poison" name="attr_poison" title="Poison Affinity">
+                        <option data-i18n="none" selected="selected" value="">—</option>
+                        <option data-i18n="vulnerable" value="vu">Vulnerable</option>
+                        <option data-i18n="resistant" value="rs">Resistant</option>
+                        <option data-i18n="immune" value="im">Immune</option>
+                        <option data-i18n="absorbs" value="ab">Absorbs</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="statuses--edit">
+                    <h2 class="statuses__heading--edit" data-i18n="status_immunities">Status Immunities</h2>
+                    <label class="chimera-checkbox status-effect status-effect--slow chimera-checkbox--column" data-i18n-title="slow_immunity_title" title="Slow temporarily reduces your Dexterity die size by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="slow_immunity" name="attr_slow_immunity" type="checkbox"/><img data-i18n-title="slow_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/slow.png" title="Slow temporarily reduces your Dexterity die size by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="slow_immunity" for="slow_immunity">Slow</span>
+                    </label>
+                    <label class="chimera-checkbox status-effect status-effect--dazed chimera-checkbox--column" data-i18n-title="dazed_immunity_title" title="Dazed temporarily reduces your Insight die size by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="dazed_immunity" name="attr_dazed_immunity" type="checkbox"/><img data-i18n-title="dazed_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/dazed.png" title="Dazed temporarily reduces your Insight die size by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="dazed_immunity" for="dazed_immunity">Dazed</span>
+                    </label>
+                    <label class="chimera-checkbox status-effect status-effect--enraged chimera-checkbox--column" data-i18n-title="enraged_immunity_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="enraged_immunity" name="attr_enraged_immunity" type="checkbox"/><img data-i18n-title="enraged_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/enraged.png" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="enraged_immunity" for="enraged_immunity">Enraged</span>
+                    </label>
+                    <label class="chimera-checkbox status-effect status-effect--weak chimera-checkbox--column" data-i18n-title="weak_immunity_title" title="Weak temporarily reduces your Might die size by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="weak_immunity" name="attr_weak_immunity" type="checkbox"/><img data-i18n-title="weak_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/weak.png" title="Weak temporarily reduces your Might die size by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="weak_immunity" for="weak_immunity">Weak</span>
+                    </label>
+                    <label class="chimera-checkbox status-effect status-effect--shaken chimera-checkbox--column" data-i18n-title="shaken_immunity_title" title="Shaken temporarily reduces your Willpower die size by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="shaken_immunity" name="attr_shaken_immunity" type="checkbox"/><img data-i18n-title="shaken_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/shaken.png" title="Shaken temporarily reduces your Willpower die size by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="shaken_immunity" for="shaken_immunity">Shaken</span>
+                    </label>
+                    <label class="chimera-checkbox status-effect status-effect--poisoned chimera-checkbox--column" data-i18n-title="poisoned_immunity_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
+                      <div class="chimera-checkbox__field">
+                        <input id="poisoned_immunity" name="attr_poisoned_immunity" type="checkbox"/><img data-i18n-title="poisoned_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
+                      </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
+                    </label>
+                  </div>
+                </div>
+          </div>
           <div class="character__bonds">
                 <div class="bonds--edit">
                   <h2 class="bonds__heading--edit" data-i18n="bonds">Bonds</h2>
@@ -343,7 +524,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond1_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond1_description_title" id="bond1_description" name="attr_bond1_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond1_description_title" id="bond1_description" name="attr_bond1_description" type="textarea"></textarea>
                     </div>
                   </div>
                   <div class="bond bond--2">
@@ -378,7 +559,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond2_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond2_description_title" id="bond2_description" name="attr_bond2_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond2_description_title" id="bond2_description" name="attr_bond2_description" type="textarea"></textarea>
                     </div>
                   </div>
                   <div class="bond bond--3">
@@ -413,7 +594,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond3_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond3_description_title" id="bond3_description" name="attr_bond3_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond3_description_title" id="bond3_description" name="attr_bond3_description" type="textarea"></textarea>
                     </div>
                   </div>
                   <div class="bond bond--4">
@@ -448,7 +629,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond4_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond4_description_title" id="bond4_description" name="attr_bond4_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond4_description_title" id="bond4_description" name="attr_bond4_description" type="textarea"></textarea>
                     </div>
                   </div>
                   <div class="bond bond--5">
@@ -483,7 +664,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond5_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond5_description_title" id="bond5_description" name="attr_bond5_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond5_description_title" id="bond5_description" name="attr_bond5_description" type="textarea"></textarea>
                     </div>
                   </div>
                   <div class="bond bond--6">
@@ -518,7 +699,7 @@
                     </div>
                     <div class="chimera-input bond__description">
                       <label class="chimera-input__label" data-i18n="bond_description" for="bond6_description">Description</label>
-                      <input class="chimera-input__field" data-i18n-title="bond6_description_title" id="bond6_description" name="attr_bond6_description" type="text"/>
+                      <textarea class="chimera-input__field" data-i18n-title="bond6_description_title" id="bond6_description" name="attr_bond6_description" type="textarea"></textarea>
                     </div>
                   </div>
                 </div>
@@ -2119,7 +2300,7 @@
     </div>
   </div>
 </rolltemplate>
-<script type="text/worker">const NAVBAR = ['classes', 'spells', 'bonds'];
+<script type="text/worker">const NAVBAR = ['stats', 'bonds', 'classes', 'spells'];
 const REPEATING = [
     'bonds',
     'basic-attacks',
@@ -2160,6 +2341,7 @@ const ATTR_WATCH = {
     willpower: ['willpower_max', 'shaken', 'poisoned'],
     hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
     mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
+    ip: ['sheet_type', 'ip_extra'],
     ultima_points: ['sheet_type', 'villain'],
     villain_empty: ['villain', 'multipart', 'phases'],
     initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
@@ -2629,12 +2811,7 @@ const studyTemplate = (chat, values) => {
     return template;
 };
 const bondTemplate = (chat, values) => {
-    const study = +chat.match(/\d+/)?.shift();
     const template = {};
-    console.group('bondTemplate');
-    console.log(chat);
-    console.log(values);
-    console.groupEnd();
     template.action = getTranslationByKey('bond') || 'Bond';
     template.name = values.name;
     template.level = signedInteger(values.level);
@@ -2650,7 +2827,6 @@ const sendToChat = async (chat, id) => {
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         const action = getTranslationByKey('info') || 'Info';
-        console.log(v);
         const data = chatData(chat, prefix, v);
         const template = (function () {
             switch (chat) {
@@ -2906,6 +3082,8 @@ const handleCalculations = (attr) => {
             return calculateMaxHP(ATTR_WATCH[attr]);
         case 'mp':
             return calculateMaxMP(ATTR_WATCH[attr]);
+        case 'ip':
+            return calculateMaxIP(ATTR_WATCH[attr]);
         case 'ultima_points':
             return calculateUltimaPoints(ATTR_WATCH[attr]);
         case 'initiative':
@@ -2931,7 +3109,7 @@ const handleCalculations = (attr) => {
 };
 const isFieldEmpty = (attr, request) => {
     getAttrs(request, (v) => {
-        const isEmpty = Object.values(v).every((val) => !val.trim() || val === 'none') ? 0 : 1;
+        const isEmpty = Object.values(v).every((val) => !String(val).trim() || val === 'none') ? 0 : 1;
         setAttrs({ [attr]: isEmpty }, { silent: true });
     });
 };
@@ -2977,12 +3155,21 @@ const calculateMaxMP = (request) => {
         const mp_extra = +v.mp_extra ?? 0;
         let mp_max;
         if (v.sheet_type === 'character') {
-            mp_max = willpower_max * 5 + level;
+            mp_max = willpower_max * 5 + level + mp_extra;
         }
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
         setAttrs({ mp_max }, { silent: true });
+    });
+};
+const calculateMaxIP = (request) => {
+    getAttrs(request, (v) => {
+        if (v.sheet_type !== 'character')
+            return;
+        const ip_extra = +v.ip_extra ?? 0;
+        const ip_max = 6 + ip_extra;
+        setAttrs({ ip_max }, { silent: true });
     });
 };
 const calculateUltimaPoints = (request) => {
@@ -3096,6 +3283,7 @@ const calculateInitiative = (request) => {
         const initiative_extra = +v.initiative_extra ?? 0;
         let initiative;
         if (v.sheet_type === 'character') {
+            initiative = (dexterity + insight) / 2 + initiative_extra;
         }
         if (v.sheet_type === 'bestiary') {
             initiative = (dexterity + insight) / 2 + initiative_bonus + initiative_extra;

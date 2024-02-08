@@ -10,6 +10,8 @@ const handleCalculations = (attr: string) => {
       return calculateMaxHP(ATTR_WATCH[attr]);
     case 'mp':
       return calculateMaxMP(ATTR_WATCH[attr]);
+    case 'ip':
+      return calculateMaxIP(ATTR_WATCH[attr]);
     case 'ultima_points':
       return calculateUltimaPoints(ATTR_WATCH[attr]);
 
@@ -42,7 +44,7 @@ const handleCalculations = (attr: string) => {
 
 const isFieldEmpty = (attr: string, request: string[]) => {
   getAttrs(request, (v) => {
-    const isEmpty = Object.values(v).every((val) => !val.trim() || val === 'none') ? 0 : 1;
+    const isEmpty = Object.values(v).every((val) => !String(val).trim() || val === 'none') ? 0 : 1;
     setAttrs({ [attr]: isEmpty }, { silent: true });
   });
 };
@@ -107,13 +109,28 @@ const calculateMaxMP = (request: string[]) => {
 
     let mp_max: number;
     if (v.sheet_type === 'character') {
-      mp_max = willpower_max * 5 + level; // + [class benefits]
+      mp_max = willpower_max * 5 + level + mp_extra; // + [class benefits]
     }
     if (v.sheet_type === 'bestiary') {
       mp_max = willpower_max * 5 + level + mp_extra;
     }
 
     setAttrs({ mp_max }, { silent: true });
+  });
+};
+
+/**
+ * IP Max = 6 + ip_other
+ * @param request
+ */
+const calculateMaxIP = (request: string[]) => {
+  getAttrs(request, (v) => {
+    if (v.sheet_type !== 'character') return;
+
+    const ip_extra: number = +v.ip_extra ?? 0;
+    const ip_max = 6 + ip_extra;
+
+    setAttrs({ ip_max }, { silent: true });
   });
 };
 
@@ -259,8 +276,10 @@ const calculateInitiative = (request: string[]) => {
     const initiative_bonus: number = +v.initiative_bonus ?? 0;
     const initiative_extra: number = +v.initiative_extra ?? 0;
 
+    // TODO Calculate modifiers from equipment
     let initiative: number;
     if (v.sheet_type === 'character') {
+      initiative = (dexterity + insight) / 2 + initiative_extra;
     }
     if (v.sheet_type === 'bestiary') {
       initiative = (dexterity + insight) / 2 + initiative_bonus + initiative_extra;

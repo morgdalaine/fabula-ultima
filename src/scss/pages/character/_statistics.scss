@@ -1,0 +1,15 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .character {
+    .statistics {
+      $this: '.statistics';
+
+      &--edit {
+        display: grid;
+        gap: 4px;
+        align-items: flex-start;
+      }
+    }
+  }
+}

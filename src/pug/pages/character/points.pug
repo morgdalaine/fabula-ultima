@@ -1,0 +1,38 @@
+mixin points-edit(spine)
+  .points--edit
+    - const points = fieldDictionary(spine.points.fields);
+    each field in spine.points.hidden
+      +chimera-hidden(field)
+
+    .point__hp
+      .point__values
+        h2.points__heading--edit(data-i18n='hit_points') Hit Points
+        //- label.chimera-value__label(data-i18n='hp') HP
+        +chimera-value({...points.hp_max, label: null })
+        +fabula-diamond
+        +chimera-value({...points.hp_crisis, label: null })
+      +chimera-input(points.hp_extra)
+      span.point__helptext(data-i18n='hp_calculation') (MIG x 5) + LEVEL + OTHER
+
+    .point__mp
+      .point__values
+        h2.points__heading--edit(data-i18n='mind_points') Mind Points
+        //- label.chimera-value__label(data-i18n='mp') MP
+        +chimera-value({...points.mp_max, label: null })
+      +chimera-input(points.mp_extra)
+      span.point__helptext(data-i18n='mp_calculation') (WLP x 5) + LEVEL + OTHER
+
+    .point__ip
+      .point__values
+        h2.points__heading--edit(data-i18n='inventory_points') Inventory Points
+        //- label.chimera-value__label(data-i18n='ip') IP
+        +chimera-value({...points.ip_max, label: null })
+      +chimera-input(points.ip_extra)
+      span.point__helptext(data-i18n='ip_calculation') 6 + OTHER
+
+    .point__initiative
+      .point__values
+        h2.points__heading--edit(data-i18n='initiative') Initiative
+        //- label.chimera-value__label(data-i18n='init') Init.
+        +chimera-value({...points.initiative, label: null })
+      +chimera-input(points.initiative_extra)
