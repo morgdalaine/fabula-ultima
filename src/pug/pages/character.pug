@@ -13,6 +13,21 @@ mixin character-view(spine)
     +traits-view(spine)
     +statistics-view(spine)
     +bonds-view(spine)
+    .traits--view
+      h2.traits__heading--view FABULA POINTS & EXPERIENCE
+    .traits--view
+      h2.traits__heading--view ATTACKS & SPELLS
+    .traits--view
+      h2.traits__heading--view BACKPACK
+      .chimera-value(
+        style='grid-column: 1/-1; display: flex; gap: 4px; padding: 8px; padding-top: 0px'
+      )
+        label.chimera-value__label May Equip:
+        span.chimera-value__value ✦ Martial Armor ✦ Martial Weapons
+    .traits--view
+      h2.traits__heading--view CLASS
+    .traits--view
+      h2.points__heading--view JOURNAL
 
 mixin character-edit(spine)
   section.character--edit
