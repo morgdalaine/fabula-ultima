@@ -1,0 +1,163 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .spells,
+  .rituals {
+    @include mixins.repeater-heading;
+
+    &--delete {
+      .spell {
+        display: flex;
+        gap: 4px;
+
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .spell__offensive {
+              display: none;
+            }
+          }
+        }
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+
+        &__offensive {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 4px;
+        }
+      }
+
+      .fabula-diamond,
+      .fabula-check span {
+        @include mixins.text-lg-700;
+      }
+    }
+
+    &--view {
+      .spell {
+        display: grid;
+        grid-template-columns: 1fr repeat(2, auto);
+        gap: 4px;
+
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .spell__offensive {
+              display: none;
+            }
+          }
+        }
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
+        }
+
+        &__type {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-400;
+            }
+          }
+        }
+
+        &__offensive {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 4px;
+        }
+
+        .fabula-check {
+          span {
+            @include mixins.text-lg-700;
+          }
+        }
+
+        &__mp {
+          .chimera-value {
+            &__label {
+              @include mixins.text-lg-700;
+            }
+            &__value {
+              @include mixins.text-lg-400;
+            }
+          }
+        }
+
+        &__target-duration {
+          grid-column: 1/-1;
+          grid-row-start: 2;
+          display: flex;
+          gap: 4px;
+        }
+        &__effect {
+          grid-column: 1/-1;
+          grid-row-start: 3;
+        }
+      }
+    }
+
+    &--edit {
+      .spell {
+        display: grid;
+        grid-template-columns: 1fr 1fr 5rem auto 5rem;
+        gap: 4px;
+
+        input[name*='spell_is_offensive'] {
+          &[value='0'],
+          :not([value]) {
+            ~ .spell__attr1,
+            ~ .spell__attr2,
+            ~ .spell__damage,
+            ~ .spell__type,
+            ~ .spell__accuracy {
+              display: none;
+            }
+          }
+        }
+
+        &__name,
+        &__offensive,
+        &__mp {
+          grid-row: 1;
+        }
+        &__name {
+          grid-column: span 2;
+        }
+        &__offensive {
+          grid-column-start: -2;
+        }
+
+        &__attr1,
+        &__attr2,
+        &__accuracy,
+        &__damage,
+        &__type {
+          grid-row: 2;
+        }
+
+        &__target {
+          grid-column: span 2;
+        }
+        &__duration {
+          grid-column: span 3;
+        }
+
+        &__special,
+        &__effect {
+          grid-column: 1/-1;
+        }
+      }
+    }
+  }
+}

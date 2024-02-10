@@ -1,0 +1,345 @@
+-
+  spine.character.spells = {
+    heading: {
+      name: 'spells',
+      label: 'Spells',
+    },
+    hidden: ['spell_is_offensive', 'spell_accuracy_total', 'spell_damage_total'],
+    view
+    : [
+        {
+          name: 'spell_name',
+          css: { names: ['spell__name'], modifiers:  ['no-label-bold'] },
+        },
+      {
+
+          name: 'spell_attr1',
+          dynamic: true,
+          css: { names: ['spell__attr1'], modifiers: ['small', 'center'] },
+        },
+      {
+
+          name: 'spell_attr2',
+          dynamic: true,
+          css: { names: ['spell__attr2'], modifiers: ['small', 'center'] },
+        },
+      {
+
+          name: 'spell_mp',
+          label: 'MP',
+          css: { names: ['spell__mp'], modifiers: ['reverse'] },
+        },
+      {
+
+          name: 'spell_accuracy_total',
+          title: 'Accuracy',
+          css: { names: ['spell__accuracy_total'], modifiers: ['center'] },
+        },
+      {
+
+          name: 'spell_damage_total',
+          title: 'Damage',
+          css: { names: ['spell__damage_total'], modifiers: ['center'] },
+        },
+      {
+        name: 'spell_type',
+        dynamic: true,
+        css: { names: ['spell__type'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: 'spell_target',
+        css: { names: ['spell__target'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_duration',
+        css: { names: ['spell__duration'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_effect',
+        css: { names: ['spell__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'spell_name',
+        css: { names: ['spell__name'], modifiers: [] },
+      },
+      {
+        name: 'spell_attr1',
+        dynamic: true,
+        css: { names: ['spell__attr1'], modifiers: [] },
+      },
+      {
+        name: 'spell_attr2',
+        dynamic: true,
+        css: { names: ['spell__attr2'], modifiers: [] },
+      },
+      {
+        name: 'spell_accuracy',
+        css: { names: ['spell__accuracy'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'spell_name',
+        label: 'Spell Name',
+        type: 'text',
+        css: { names: ['spell__name'], modifiers: [] },
+      },
+      {
+        name: 'spell_mp',
+        label: 'MP',
+        type: 'text',
+        css: { names: ['spell__mp'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'spell_is_offensive',
+        label: 'Is Offensive',
+        type: 'checkbox',
+        css: { names: ['spell__offensive'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'spell_attr1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spell__attr1'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_attr2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['spell__attr2'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_accuracy',
+        label: 'Accuracy',
+        type: 'number',
+        value: 0,
+        min: 0,
+        css: { names: ['spell__accuracy'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'spell_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        css: { names: ['spell__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_damage',
+        label: 'Damage',
+        type: 'number',
+        value: 0,
+        min: 0,
+        css: { names: ['spell__damage'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'spell_target',
+        label: 'Target',
+        type: 'text',
+        css: { names: ['spell__target'], modifiers: [] },
+      },
+      {
+        name: 'spell_duration',
+        label: 'Duration',
+        type: 'text',
+        css: { names: ['spell__duration'], modifiers: [] },
+      },
+      {
+        name: 'spell_effect',
+        label: 'Effect',
+        type: 'textarea',
+        css: { names: ['spell__effect'], modifiers: [] },
+      },
+      //- {
+      //-   name: 'spell_special',
+      //-   label: 'Special',
+      //-   type: 'textarea',
+      //-   css: { names: ['spell__special'], modifiers: [] },
+      //- },
+    ],
+  };
+
+  spine.character.rituals = {
+    heading: {
+      name: 'rituals',
+      label: 'Rituals',
+    },
+    hidden: ['ritual_accuracy_total'],
+    view: [
+      {
+        name: 'ritual_name',
+        css: { names: ['ritual__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'ritual_attr1',
+        dynamic: true,
+        css: { names: ['ritual__attr1'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'ritual_attr2',
+        dynamic: true,
+        css: { names: ['ritual__attr2'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'ritual_mp',
+        label: 'MP',
+        css: { names: ['ritual__mp'], modifiers: ['reverse'] },
+      },
+      {
+        name: 'ritual_accuracy_total',
+        title: 'Accuracy',
+        css: { names: ['ritual__accuracy_total'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_damage_total',
+        title: 'Damage',
+        css: { names: ['ritual__damage_total'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_type',
+        dynamic: true,
+        css: { names: ['ritual__type'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: 'ritual_target',
+        css: { names: ['ritual__target'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_duration',
+        css: { names: ['ritual__duration'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_effect',
+        css: { names: ['ritual__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'ritual_name',
+        css: { names: ['ritual__name'], modifiers: [] },
+      },
+      {
+        name: 'ritual_attr1',
+        dynamic: true,
+        css: { names: ['ritual__attr1'], modifiers: [] },
+      },
+      {
+        name: 'ritual_attr2',
+        dynamic: true,
+        css: { names: ['ritual__attr2'], modifiers: [] },
+      },
+      {
+        name: 'ritual_accuracy',
+        css: { names: ['ritual__accuracy'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'ritual_name',
+        label: 'Ritual Name',
+        type: 'text',
+        css: { names: ['ritual__name'], modifiers: [] },
+      },
+      {
+        name: 'ritual_potency',
+        label: 'Potency',
+        type: 'select',
+        options: ritualPotencyOptions,
+        css: { names: ['ritual__potency'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_area',
+        label: 'Area',
+        type: 'select',
+        options: ritualAreaOptions,
+        css: { names: ['ritual__area'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_difficulty',
+        label: 'Difficulty',
+        type: 'number',
+        css: { names: ['ritual__difficulty'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'ritual_attr1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['ritual__attr1'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_attr2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['ritual__attr2'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_accuracy',
+        label: 'Accuracy',
+        type: 'number',
+        min: 0,
+        value: 0,
+        css: { names: ['ritual__accuracy'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'ritual_mp',
+        label: 'MP',
+        type: 'text',
+        css: { names: ['ritual__mp'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'ritual_effect',
+        label: 'Effect',
+        type: 'textarea',
+        css: { names: ['ritual__effect'], modifiers: [] },
+      },
+      //- {
+      //-   name: 'ritual_special',
+      //-   label: 'Special',
+      //-   type: 'textarea',
+      //-   css: { names: ['ritual__special'], modifiers: [] },
+      //- },
+    ],
+    disciplines: [
+      {
+        name: 'arcanism',
+        label: 'Arcanism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+      {
+        name: 'chimerism',
+        label: 'Chimerism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+      {
+        name: 'elementalism',
+        label: 'Elementalism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+      {
+        name: 'entropism',
+        label: 'Entropism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+      {
+        name: 'ritualism',
+        label: 'Ritualism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+      {
+        name: 'spiritism',
+        label: 'Spiritism',
+        type: 'checkbox',
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+      },
+    ]
+  };

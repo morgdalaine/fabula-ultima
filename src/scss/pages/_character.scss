@@ -6,6 +6,8 @@
 @use 'character/statistics';
 @use 'character/attributes';
 @use 'character/points';
+@use 'character/equipment/equipment';
+@use 'character/magic';
 @use 'character/classes';
 @use 'shared/shared';
 
@@ -14,7 +16,7 @@
     $this: '.character';
 
     // navigation
-    $pages: 'stats', 'bonds', 'classes', 'spells';
+    $pages: 'stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings';
     @each $page in $pages {
       &__#{$page} {
         display: none;

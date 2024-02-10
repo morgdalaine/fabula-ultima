@@ -83,7 +83,8 @@
       &--edit {
         .affinity {
           display: grid;
-          grid-template-columns: auto 1fr auto;
+          // grid-template-columns: auto 1fr auto;
+          grid-template-columns: auto 1fr 2fr;
           gap: 4px;
           align-items: center;
 

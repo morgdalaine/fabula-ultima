@@ -1,0 +1,120 @@
+@use '../../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .weapons {
+    $this: '.weapons';
+
+    @include mixins.repeater-heading;
+
+    &--delete {
+      .weapon {
+        display: flex;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+
+      .fabula-diamond,
+      .fabula-check span {
+        @include mixins.text-lg-700;
+      }
+    }
+
+    &--view {
+      input[name*='weapon_range'] {
+        &[value='melee'] {
+          ~ * .weapon__range--melee {
+            display: block;
+          }
+        }
+        &[value='distance'] {
+          ~ * .weapon__range--distance {
+            display: block;
+          }
+        }
+      }
+
+      .weapon {
+        display: grid;
+        grid-template-columns: 1fr auto 0.5fr;
+        gap: 4px;
+
+        align-items: center;
+
+        .fabula-check span {
+          @include mixins.text-lg-700;
+        }
+
+        &__range {
+          &--melee,
+          &--distance {
+            display: none;
+          }
+        }
+
+        &__attack {
+          display: flex;
+          gap: 4px;
+          @include mixins.text-lg-700;
+
+          &:has([name*='attack_name']:empty) {
+            .weapon__attack_name {
+              display: none;
+            }
+            .weapon__name {
+              display: inline;
+            }
+          }
+        }
+
+        &__check {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+
+        &__type {
+          text-align: end;
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-400;
+            }
+          }
+        }
+
+        &__name {
+          display: none;
+        }
+
+        &__special {
+          grid-column: 1/-1;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
+    &--edit {
+      .weapon {
+        display: grid;
+        grid-template-columns: 1fr repeat(3, auto);
+        gap: 4px;
+
+        &__special {
+          grid-column: 1/-1;
+        }
+
+        &__name {
+          grid-column: span 2;
+        }
+        &__category {
+        }
+      }
+    }
+  }
+}

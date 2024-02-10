@@ -14,6 +14,7 @@ include translations.spine.pug
 include shared/affinities.spine.pug
 include shared/modes.spine.pug
 include shared/statuses.spine.pug
+include shared/settings.spine.pug
 
 include bestiary/actions.spine.pug
 include bestiary/affinities.spine.pug
@@ -25,7 +26,10 @@ include bestiary/other.spine.pug
 include bestiary/points.spine.pug
 
 include character/attributes.spine.pug
+include character/equipment/equipment.spine.pug
+include character/equipment/weapons.spine.pug
 include character/bonds.spine.pug
+include character/magic.spine.pug
 include character/classes.spine.pug
 include character/defenses.spine.pug
 include character/nav.spine.pug
@@ -48,3 +52,10 @@ include gm/gm.spine.pug
   spine.bestiary.statuses = {
     ...structuredClone(spine.shared.statuses),
     ...spine.bestiary.statuses };
+
+  spine.character.settings = {
+    ...structuredClone(spine.shared.settings),
+    ...spine.character.settings };
+  spine.bestiary.settings = {
+    ...structuredClone(spine.shared.settings),
+    ...spine.bestiary.settings };

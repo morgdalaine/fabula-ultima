@@ -1,0 +1,84 @@
+mixin spells-view(spine)
+  +chimera-hidden('spells_empty').chimera-repeater--empty-hide-next
+  .spells
+    h2.spells__heading--view(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    +chimera-repeater('spells')
+      +chimera-block('view')
+        .spell
+          - const spell = fieldDictionary(spine.spells.view, 'spell');
+          each field in spine.spells.hidden
+            +chimera-hidden(field)
+
+          +chimera-action({ name: 'spell', title: 'Spell' }).spell__roll
+            +chimera-icon({ icon: 'spell' }).spell__icon
+            +chimera-value(spell.name)
+
+          .spell__offensive
+            +fabula-check(spell.attr1, spell.attr2, spell.accuracy_total, spell.damage_total)
+            +fabula-diamond
+            +chimera-value(spell.type)
+            +fabula-diamond
+
+          +chimera-value(spell.mp)
+
+          .spell__target-duration
+            +chimera-value(spell.target)
+            +fabula-diamond
+            +chimera-value(spell.duration)
+
+          +chimera-value(spell.effect)
+
+mixin spells-edit(spine)
+  .spells
+    h2.spells__heading--edit(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    +chimera-repeater('spells')
+      +chimera-block('delete')
+        .spell
+          - const [name, att1, att2, accuracy] = spine.spells.delete;
+          each field in spine.spells.hidden
+            +chimera-hidden(field)
+
+          +chimera-value(name)
+
+          .spell__offensive
+            +fabula-diamond
+            +fabula-check(att1, att2, accuracy)
+
+      +chimera-block('edit')
+        .spell
+          each field in spine.spells.hidden
+            +chimera-hidden(field)
+          each field in spine.spells.fields
+            +chimera-input(field)
+
+mixin rituals-view(spine)
+  //-
+
+mixin rituals-edit(spine)
+  .rituals
+    h2.rituals__heading--edit(data-i18n=spine.rituals.heading.name)= spine.rituals.heading.label
+
+    .rituals-known
+      label(data-i18n='rituals_known') Rituals Known
+      each field in spine.rituals.disciplines
+        +chimera-input(field)
+
+    +chimera-repeater('rituals')
+      +chimera-block('delete')
+        .ritual
+          - const [name, att1, att2, accuracy] = spine.rituals.delete;
+          each field in spine.rituals.hidden
+            +chimera-hidden(field)
+
+          +chimera-value(name)
+
+          .ritual__offensive
+            +fabula-diamond
+            +fabula-check(att1, att2, accuracy)
+
+      +chimera-block('edit')
+        .ritual(style='display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 4px')
+          each field in spine.rituals.hidden
+            +chimera-hidden(field)
+          each field in spine.rituals.fields
+            +chimera-input(field)

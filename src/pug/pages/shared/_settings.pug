@@ -1,0 +1,6 @@
+mixin settings(spine)
+  .settings--edit
+    h2.spells__heading--edit(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    each field in spine.settings.fields
+      .setting
+        +chimera-input(field)

@@ -1,0 +1,42 @@
+mixin weapons-view(spine)
+  +chimera-hidden('weapons_empty').chimera-repeater--empty-hide-next
+  .weapons
+    h2.weapons__heading--view(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+    +chimera-repeater('weapons')
+      +chimera-block('view')
+        .weapon
+          - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
+          each field in spine.weapons.hidden
+            +chimera-hidden(field)
+
+          +chimera-action({ name: 'weaponattack', title: 'Weapon Attack' }).weapon__roll
+            each range in rangeOptions
+              +chimera-icon(range)(class=`weapon__range--${range.name}`)
+
+            .weapon__attack
+              +chimera-span(weapon.attack_name).weapon__attack_name
+              +chimera-span(weapon.name).weapon__name
+
+          .weapon__check
+            +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy_total, weapon.damage_total)
+
+          +chimera-value(weapon.type)
+
+          +chimera-value(weapon.special)
+
+mixin weapons-edit(spine)
+  .weapons
+    h2.weapons__heading--edit(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+    +chimera-repeater('weapons')
+      +chimera-block('delete')
+        .weapon
+          - const [name, att1, att2, accuracy] = spine.weapons.delete;
+          +chimera-value(name)
+          +fabula-diamond
+          +fabula-check(att1, att2, accuracy)
+      +chimera-block('edit')
+        .weapon
+          each field in spine.weapons.hidden
+            +chimera-hidden(field)
+          each field in spine.weapons.fields
+            +chimera-input(field)

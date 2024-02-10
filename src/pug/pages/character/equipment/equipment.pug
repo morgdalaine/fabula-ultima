@@ -1,0 +1,50 @@
+mixin shields-edit(spine)
+  .shields
+    h2.shields__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+    +chimera-repeater('shields')
+      //- +chimera-block('delete')
+        .shield
+          - const [name, att1, att2, accuracy] = spine.shield.delete;
+          +chimera-value(name)
+          +fabula-diamond
+          +fabula-check(att1, att2, accuracy)
+      +chimera-block('edit')
+        .shield
+          each field in spine.shield.hidden
+            +chimera-hidden(field)
+          each field in spine.shield.fields
+            +chimera-input(field)
+
+mixin armors-edit(spine)
+  .armors
+    h2.armors__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+    +chimera-repeater('armors')
+      //- +chimera-block('delete')
+        .armor
+          - const [name, att1, att2, accuracy] = spine.armor.delete;
+          +chimera-value(name)
+          +fabula-diamond
+          +fabula-check(att1, att2, accuracy)
+      +chimera-block('edit')
+        .armor
+          each field in spine.armor.hidden
+            +chimera-hidden(field)
+          each field in spine.armor.fields
+            +chimera-input(field)
+
+mixin accessories-edit(spine)
+  .accessories
+    h2.accessories__heading--edit(data-i18n=spine.accessory.heading.name)= spine.accessory.heading.label
+    +chimera-repeater('accessories')
+      +chimera-block('delete')
+        //- .accessory
+          - const [name, att1, att2, accuracy] = spine.accessory.delete;
+          +chimera-value(name)
+          +fabula-diamond
+          +fabula-check(att1, att2, accuracy)
+      +chimera-block('edit')
+        .accessory
+          each field in spine.accessory.hidden
+            +chimera-hidden(field)
+          each field in spine.accessory.fields
+            +chimera-input(field)

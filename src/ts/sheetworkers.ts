@@ -341,31 +341,33 @@ const calculateWeaponAccuracyDamage = (request: string[]) => {
 
       const update: Record<string, any> = {};
 
+      const level: number = +attributes.level ?? 0;
+      const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
+
+      let levelAccuracyBonus = 0;
+      let levelDamageBonus = 0;
       if (attributes.sheet_type === 'bestiary') {
-        const level: number = +attributes.level ?? 0;
-        const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
-
-        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
-        const levelDamageBonus = calculateLevelDamageBonus(level);
-
-        const [section, ids] = Object.entries(sections).at(0);
-        ids.forEach((id) => {
-          const prefix = `${section}_${id}_`;
-
-          const weapon_accuracy: number = +attributes[prefix + 'weapon_accuracy'] ?? 0;
-          const weapon_damage: number = +attributes[prefix + 'weapon_damage'] ?? 0;
-          const attack_accuracy: number = +attributes[prefix + 'weapon_attack_accuracy'] ?? 0;
-          const attack_damage: number = +attributes[prefix + 'weapon_attack_damage'] ?? 0;
-          const extra_damage: number = +attributes[prefix + 'weapon_extra_damage'] ?? 0;
-
-          update[prefix + 'weapon_accuracy_total'] =
-            weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
-          update[prefix + 'weapon_damage_total'] =
-            weapon_damage + attack_damage + extra_damage + levelDamageBonus;
-        });
-
-        setAttrs(update, { silent: true });
+        levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        levelDamageBonus = calculateLevelDamageBonus(level);
       }
+
+      const [section, ids] = Object.entries(sections).at(0);
+      ids.forEach((id) => {
+        const prefix = `${section}_${id}_`;
+
+        const weapon_accuracy: number = +attributes[prefix + 'weapon_accuracy'] ?? 0;
+        const weapon_damage: number = +attributes[prefix + 'weapon_damage'] ?? 0;
+        const attack_accuracy: number = +attributes[prefix + 'weapon_attack_accuracy'] ?? 0;
+        const attack_damage: number = +attributes[prefix + 'weapon_attack_damage'] ?? 0;
+        const extra_damage: number = +attributes[prefix + 'weapon_extra_damage'] ?? 0;
+
+        update[prefix + 'weapon_accuracy_total'] =
+          weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
+        update[prefix + 'weapon_damage_total'] =
+          weapon_damage + attack_damage + extra_damage + levelDamageBonus;
+      });
+
+      setAttrs(update, { silent: true });
     }
   );
 };

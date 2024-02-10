@@ -8,7 +8,7 @@ mixin rollheader
       span {{ action }}
 
 rolltemplate.sheet-rolltemplate-fabula-attack
-  .sheet-roll
+  .sheet-roll(class=`sheet-{{${'sheet_type'}}}`)
     +rollheader
     +rollFunctions([`^rollTotal() computed::critical 0`])
       +rollFunctions([`rollGreater() computed::critical 0`])

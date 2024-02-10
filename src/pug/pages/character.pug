@@ -1,9 +1,11 @@
 include character/attributes
 include character/bonds
 include character/classes
+include character/equipment/equipment
+include character/equipment/weapons
+include character/magic
 include character/nav
 include character/points
-include character/spells
 include character/statistics
 include character/traits
 include shared/shared
@@ -15,8 +17,11 @@ mixin character-view(spine)
     +bonds-view(spine)
     .traits--view
       h2.traits__heading--view FABULA POINTS & EXPERIENCE
-    .traits--view
-      h2.traits__heading--view ATTACKS & SPELLS
+
+    +weapons-view(spine)
+    +spells-view(spine)
+    +rituals-view(spine)
+
     .traits--view
       h2.traits__heading--view BACKPACK
       .chimera-value(
@@ -45,5 +50,18 @@ mixin character-edit(spine)
     .character__classes
       +classes-edit(spine)
 
-    .character__spells
+    .character__equipment
+      +weapons-edit(spine)
+      +shields-edit(spine)
+      +armors-edit(spine)
+      +accessories-edit(spine)
+
+    .character__magic
       +spells-edit(spine)
+      +rituals-edit(spine)
+
+    .character__journal
+      span journal
+
+    .character__settings
+      +settings(spine)

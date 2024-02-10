@@ -1,0 +1,333 @@
+-
+  spine.character.armor = {
+    heading: { name: 'armor', label: 'Armor' },
+    hidden: ['armor_is_martial', 'armor_is_equipped'],
+    delete: [],
+    view: [
+      {
+        name: 'armor_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['armor__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'armor_name',
+        labelOverride: { key: 'armor', label: 'Armor' },
+        css: { names: ['armor__name'], modifiers: ['colon'] },
+      },
+      {
+        name: 'armor_defense',
+        label: 'DEF',
+        css: { names: ['armor__defense'] },
+      },
+      {
+        name: 'armor_defense_bonus',
+        label: '+DEF',
+        css: { names: ['armor__defense_bonus'] },
+      },
+      {
+        name: 'armor_magic_defense_bonus',
+        label: '+M.DEF',
+      },
+      {
+        name: 'armor_initiative',
+        labelOverride: { key: 'init', label: 'Init.' },
+      },
+      {
+        name: 'armor_cost',
+        css: { names: ['armor__cost'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'armor_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['armor__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'armor_name',
+        label: 'Name',
+        title: 'Name',
+        type: 'text',
+        css: { names: ['armor__name'] },
+      },
+      {
+        name: 'armor_is_martial',
+        label: 'Martial',
+        title: 'Martial',
+        type: 'checkbox',
+        css: { names: ['armor__martial'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'armor_defense',
+        label: 'DEF',
+        title: 'Defense',
+        type: 'number',
+        css: { names: ['armor__defense'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_defense_bonus',
+        label: '+DEF',
+        title: 'Defense Bonus',
+        type: 'number',
+        css: { names: ['armor__defense_bonus'], modifiers: ['center', 'small'] },
+      },
+      //- {
+      //-   name: 'armor_magic_defense',
+      //-   label: 'M.DEF',
+      //-   title: 'Magic Defense',
+      //-   type: 'number',
+      //-   css: { names: ['armor__magic_defense'], modifiers: ['center', 'small'] },
+      //- },
+      {
+        name: 'armor_magic_defense_bonus',
+        label: '+M.DEF',
+        title: 'Magic Defense Bonus',
+        type: 'number',
+        css: {
+          names: ['armor__magic_defense_bonus'],
+          modifiers: ['center', 'small'],
+        },
+      },
+      {
+        name: 'armor_initiative',
+        label: 'Initiative',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['armor__initiative'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'armor_cost',
+        label: 'Cost',
+        title: 'Cost',
+        min: 0,
+        step: 50,
+        value: 0,
+        type: 'number',
+        css: { names: ['armor__cost'], modifiers: ['center', 'small'] },
+      },
+    ],
+  };
+
+  spine.character.shield = {
+    heading: { name: 'shield', label: 'Shield' },
+    hidden: [],
+    delete: [],
+    view: [
+      {
+        name: 'shield_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['shield__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'shield_name',
+        labelOverride: { key: 'shield', label: 'Shield' },
+        css: { names: ['shield__name'], modifiers: ['colon'] },
+      },
+      {
+        name: 'shield_defense',
+        label: 'DEF',
+        css: { names: ['shield__defense'] },
+      },
+      {
+        name: 'shield_defense_bonus',
+        label: '+DEF',
+        css: { names: ['shield__defense_bonus'] },
+      },
+      {
+        name: 'shield_magic_defense_bonus',
+        label: '+M.DEF',
+      },
+      {
+        name: 'shield_initiative',
+        labelOverride: { key: 'init', label: 'Init.' },
+      },
+      {
+        name: 'shield_cost',
+        css: { names: ['armor__cost'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'shield_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['shield__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'shield_name',
+        label: 'Name',
+        title: 'Name',
+        type: 'text',
+        css: { names: ['shield__name'] },
+      },
+      {
+        name: 'shield_is_martial',
+        label: 'Martial',
+        title: 'Martial',
+        type: 'checkbox',
+        css: { names: ['shield__martial'], modifiers: ['column-reverse'] },
+      },
+      //- {
+      //-   name: 'shield_defense',
+      //-   label: 'DEF',
+      //-   title: 'Defense',
+      //-   type: 'number',
+      //-   css: { names: ['shield__defense'], modifiers: ['center', 'small'] },
+      //- },
+      {
+        name: 'shield_defense_bonus',
+        label: '+DEF',
+        title: 'Defense Bonus',
+        type: 'number',
+        css: { names: ['shield__defense_bonus'], modifiers: ['center', 'small'] },
+      },
+      //- {
+      //-   name: 'shield_magic_defense',
+      //-   label: 'M.DEF',
+      //-   title: 'Magic Defense',
+      //-   type: 'number',
+      //-   css: { names: ['shield__magic_defense'], modifiers: ['center', 'small'] },
+      //- },
+      {
+        name: 'shield_magic_defense_bonus',
+        label: '+M.DEF',
+        title: 'Magic Defense Bonus',
+        type: 'number',
+        css: {
+          names: ['shield__magic_defense_bonus'],
+          modifiers: ['center', 'small'],
+        },
+      },
+      {
+        name: 'shield_initiative',
+        label: 'Initiative',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['shield__initiative'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'shield_cost',
+        label: 'Cost',
+        title: 'Cost',
+        type: 'number',
+        min: 0,
+        step: 50,
+        value: 0,
+        css: { names: ['shield__cost'], modifiers: ['center', 'small'] },
+      },
+    ],
+  };
+
+  spine.character.accessory = {
+    heading: { name: 'accessory', label: 'Accessory' },
+    hidden: [],
+    delete: [],
+    view: [
+      {
+        name: 'accessory_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['accessory__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'accessory_name',
+        labelOverride: { key: 'accessory', label: 'Accessory' },
+        css: { names: ['accessory__name'], modifiers: ['colon'] },
+      },
+      {
+        name: 'accessory_defense',
+        label: 'DEF',
+        css: { names: ['accessory__defense'] },
+      },
+      {
+        name: 'accessory_defense_bonus',
+        label: '+DEF',
+        css: { names: ['accessory__defense_bonus'] },
+      },
+      {
+        name: 'accessory_magic_defense_bonus',
+        label: '+M.DEF',
+      },
+      {
+        name: 'accessory_initiative',
+        labelOverride: { key: 'init', label: 'Init.' },
+      },
+      {
+        name: 'accessory_cost',
+        css: { names: ['armor__cost'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'accessory_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['accessory__is_equipped'], modifiers: ['column-reverse'] },
+      },
+      {
+        name: 'accessory_name',
+        label: 'Name',
+        title: 'Name',
+        type: 'text',
+        css: { names: ['accessory__name'] },
+      },
+      {
+        name: 'accessory_is_martial',
+        label: 'Martial',
+        title: 'Martial',
+        type: 'checkbox',
+        css: { names: ['accessory__martial'], modifiers: ['column-reverse'] },
+      },
+      //- {
+      //-   name: 'accessory_defense',
+      //-   label: 'DEF',
+      //-   title: 'Defense',
+      //-   type: 'number',
+      //-   css: { names: ['accessory__defense'], modifiers: ['center', 'small'] },
+      //- },
+      {
+        name: 'accessory_defense_bonus',
+        label: '+DEF',
+        title: 'Defense Bonus',
+        type: 'number',
+        css: { names: ['accessory__defense_bonus'], modifiers: ['center', 'small'] },
+      },
+      //- {
+      //-   name: 'accessory_magic_defense',
+      //-   label: 'M.DEF',
+      //-   title: 'Magic Defense',
+      //-   type: 'number',
+      //-   css: { names: ['accessory__magic_defense'], modifiers: ['center', 'small'] },
+      //- },
+      {
+        name: 'accessory_magic_defense_bonus',
+        label: '+M.DEF',
+        title: 'Magic Defense Bonus',
+        type: 'number',
+        css: {
+          names: ['accessory__magic_defense_bonus'],
+          modifiers: ['center', 'small'],
+        },
+      },
+      {
+        name: 'accessory_initiative',
+        label: 'Initiative',
+        title: 'Initiative',
+        type: 'number',
+        css: { names: ['accessory__initiative'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'accessory_cost',
+        label: 'Cost',
+        title: 'Cost',
+        type: 'number',
+        min: 0,
+        step: 50,
+        value: 0,
+        css: { names: ['accessory__cost'], modifiers: ['center', 'small'] },
+      },
+    ],
+  };
