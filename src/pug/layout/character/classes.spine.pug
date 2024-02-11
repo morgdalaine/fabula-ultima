@@ -2,6 +2,29 @@
   spine.character.classes = {
     hidden: ['character_level', 'class_hide', 'class_skills_taken'],
     heading: { name: 'classes', label: 'Classes' },
+    view: [
+      {
+        name: 'class_name',
+        css: { names: ['class__name'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: 'class_level',
+        labelOverride: { key: 'lv', label: 'Lv' },
+        css: { names: ['class__level'], modifiers: [] },
+      },
+      {
+        name: 'class_skills_taken',
+        css: { names: ['class__skills_taken'], modifiers: ['hide-label'] },
+      },
+      {
+        name: 'class_benefit',
+        css: { names: ['class__benefit'], modifiers: ['center'] },
+      },
+      {
+        name: 'class_description',
+        css: { names: ['class__description'], modifiers: [] },
+      },
+    ],
     delete: [
       {
         name: 'class_name',
@@ -37,7 +60,7 @@
         label: 'Level',
         type: 'span',
         value: 0,
-        css: { names: ['class__level'], modifiers: ['disabled', 'center', 'small'] },
+        css: { names: ['class__level'], modifiers: ['center', 'small'] },
       },
       {
         name: 'class_special',

@@ -1,15 +1,18 @@
 const NAVBAR = ['stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings'];
 
 const REPEATING = [
-  'bonds',
-  'basic-attacks',
   'weapons',
   'spells',
+  'rituals',
+
+  'classes',
+  'notes',
+
+  // bestiary
+  'basic-attacks',
   'other-actions',
   'special-rules',
   'rare-gears',
-  'notes',
-  'classes',
 ];
 
 const DIE_SIZES = [6, 8, 10, 12];
@@ -30,6 +33,36 @@ const STATUS_EFFECTS: Record<string, number> = {
   shaken: -1,
   slow: -1,
   weak: -1,
+};
+
+const RITUAL_DISCIPLINES = [
+  'arcanism',
+  'chimerism',
+  'elementalism',
+  'entropism',
+  'ritualism',
+  'spiritism',
+];
+
+const RITUAL_DIFFICULTY: Record<string, any> = {
+  difficulty: {
+    minor: 7,
+    medium: 10,
+    major: 13,
+    extreme: 16,
+  },
+  potency: {
+    minor: 20,
+    medium: 30,
+    major: 40,
+    extreme: 50,
+  },
+  area: {
+    individual: 1,
+    small: 2,
+    large: 3,
+    huge: 4,
+  },
 };
 
 const ATTR_ABBREVIATIONS = {
@@ -119,6 +152,14 @@ const ATTR_WATCH: Record<string, string[]> = {
     'repeating_spells:spell_accuracy',
     'repeating_spells:spell_damage',
   ],
+  rituals: [
+    'sheet_type',
+    'accuracy_bonus',
+    'repeating_rituals:ritual_accuracy',
+    'repeating_rituals:ritual_potency',
+    'repeating_rituals:ritual_area',
+    ...RITUAL_DISCIPLINES,
+  ],
 
   equipments_empty: [
     'weapons_empty',
@@ -147,10 +188,12 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_weapons:weaponattack': 'weaponattack',
   'repeating_weapons:weaponchat': 'weaponchat',
   'repeating_spells:spell': 'spell',
+  'repeating_rituals:ritual': 'ritual',
   'repeating_other-actions:otheractionchat': 'otheractionchat',
   'repeating_special-rules:specialrulechat': 'specialrulechat',
   'repeating_rare-gears:raregearchat': 'raregearchat',
   'repeating_notes:notechat': 'notechat',
+  'repeating_classes:classchat': 'classchat',
   'armorchat': 'armorchat',
   'shieldchat': 'shieldchat',
   'study7': 'study7',
@@ -220,6 +263,18 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'spell_target',
     'spell_type',
   ],
+  ritual: [
+    'ritual_name',
+    'ritual_discipline',
+    'ritual_attr1',
+    'ritual_attr2',
+    'ritual_accuracy_total',
+    'ritual_potency',
+    'ritual_area',
+    'ritual_difficulty',
+    'ritual_mp',
+    'ritual_effect',
+  ],
   otheractionchat: ['action_name', 'action_effect'],
   specialrulechat: ['special_name', 'special_effect'],
   raregearchat: ['raregear_name', 'raregear_effect'],
@@ -256,6 +311,14 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'weapon_special',
   ],
   study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
+  classchat: [
+    'class_name',
+    'class_level',
+    'class_skills_taken',
+    'class_benefit',
+    'level',
+    'class_description',
+  ],
 };
 SEND_TO_CHAT.study10 = [
   ...SEND_TO_CHAT.study7,
@@ -322,6 +385,13 @@ const SPELL_ACCURACY_DAMAGE: SectionDetails[] = [
   {
     section: 'repeating_spells',
     fields: ['spell_accuracy', 'spell_damage'],
+  },
+];
+
+const RITUAL_ACCURACY_DIFFICULTY: SectionDetails[] = [
+  {
+    section: 'repeating_rituals',
+    fields: ['ritual_accuracy', 'ritual_potency', 'ritual_area'],
   },
 ];
 

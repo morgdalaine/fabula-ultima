@@ -170,6 +170,11 @@
     hidden: ['ritual_accuracy_total'],
     view: [
       {
+        name: 'ritual_known',
+        label: 'Rituals Known',
+        css: { names: ['ritual__known'], modifiers:  ['colon'] },
+      },
+      {
         name: 'ritual_name',
         css: { names: ['ritual__name'], modifiers:  ['no-label-bold'] },
       },
@@ -194,22 +199,25 @@
         css: { names: ['ritual__accuracy_total'], modifiers: ['center'] },
       },
       {
-        name: 'ritual_damage_total',
-        title: 'Damage',
-        css: { names: ['ritual__damage_total'], modifiers: ['center'] },
+        name: 'ritual_difficulty',
+        label: 'DL',
+        title: 'Difficulty Level',
+        css: { names: ['ritual__difficulty'], modifiers: ['center', 'small'] },
       },
       {
-        name: 'ritual_type',
+        name: 'ritual_discipline',
         dynamic: true,
-        css: { names: ['ritual__type'], modifiers: ['no-label-bold'] },
+        css: { names: ['ritual__discipline'], modifiers: ['center'] },
       },
       {
-        name: 'ritual_target',
-        css: { names: ['ritual__target'], modifiers: ['center'] },
+        name: 'ritual_potency',
+        dynamic: true,
+        css: { names: ['ritual__potency'], modifiers: ['center'] },
       },
       {
-        name: 'ritual_duration',
-        css: { names: ['ritual__duration'], modifiers: ['center'] },
+        name: 'ritual_area',
+        dynamic: true,
+        css: { names: ['ritual__area'], modifiers: ['center'] },
       },
       {
         name: 'ritual_effect',
@@ -244,6 +252,13 @@
         css: { names: ['ritual__name'], modifiers: [] },
       },
       {
+        name: 'ritual_discipline',
+        label: 'Discipline',
+        type: 'select',
+        options: ritualDisciplineOptions,
+        css: { names: ['ritual__discipline'], modifiers: ['center'] },
+      },
+      {
         name: 'ritual_potency',
         label: 'Potency',
         type: 'select',
@@ -257,12 +272,12 @@
         options: ritualAreaOptions,
         css: { names: ['ritual__area'], modifiers: ['center'] },
       },
-      {
-        name: 'ritual_difficulty',
-        label: 'Difficulty',
-        type: 'number',
-        css: { names: ['ritual__difficulty'], modifiers: ['center', 'small'] },
-      },
+      //- {
+      //-   name: 'ritual_difficulty',
+      //-   label: 'Difficulty',
+      //-   type: 'number',
+      //-   css: { names: ['ritual__difficulty'], modifiers: ['center', 'small'] },
+      //- },
       {
         name: 'ritual_attr1',
         label: 'Attr 1',

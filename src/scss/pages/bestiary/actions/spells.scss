@@ -111,7 +111,7 @@
     &--edit {
       .spell {
         display: grid;
-        grid-template-columns: 1fr 1fr 5rem auto 5rem;
+        grid-template-columns: repeat(2, 1fr) 5rem 1fr 5rem;
         gap: 4px;
 
         input[name*='spell_is_offensive'] {

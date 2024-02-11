@@ -34,16 +34,28 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-label {{ check }}
           span.sheet-fabula-span {{ roll }}
 
-        div
-          span.span.sheet-fabula-label {{ hr }}
-          span.sheet-fabula-span {{ computed::damage }}
-          span.sheet-fabula-diamond ⬥
-          span.sheet-fabula-span {{ type }}
+        +tags(['damage'])
+          div
+            span.span.sheet-fabula-label {{ hr }}
+            span.sheet-fabula-span {{ computed::damage }}
+            span.sheet-fabula-diamond ⬥
+            span.sheet-fabula-span {{ type }}
 
         // TODO Vunerable and Resistance calculations
         // preferrably shown by hover or something?
 
     .sheet-details
+      +tags(['potency'])
+        div
+          span.sheet-fabula-label(data-i18n='potency') Potency
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ potency }}
+      +tags(['area'])
+        div
+          span.sheet-fabula-label(data-i18n='area') Area
+          span.sheet-fabula-diamond ⬥
+          span.sheet-fabula-span {{ area }}
+
       +tags(['mp'])
         div
           span.sheet-fabula-span {{ mp }}
@@ -58,6 +70,9 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-label(data-i18n='duration') Duration
           span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ duration }}
+
+      +tags(['effect'])
+        span.sheet-fabula-span {{ effect }}
 
       +tags(['special'])
         span.sheet-fabula-span {{ special }}

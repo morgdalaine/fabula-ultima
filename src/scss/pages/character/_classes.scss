@@ -27,6 +27,17 @@
     }
 
     &--view {
+      .class {
+        display: grid;
+        grid-template-columns: 1fr repeat(2, auto);
+        align-items: center;
+        gap: 4px;
+
+        &__skills_taken,
+        &__description {
+          grid-column: 1/-1;
+        }
+      }
     }
 
     &--edit {

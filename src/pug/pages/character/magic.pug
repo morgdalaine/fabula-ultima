@@ -52,14 +52,47 @@ mixin spells-edit(spine)
             +chimera-input(field)
 
 mixin rituals-view(spine)
-  //-
+  +chimera-hidden('rituals_empty').chimera-repeater--empty-hide-next
+  .rituals.rituals--view
+    - const ritual = fieldDictionary(spine.rituals.view, 'ritual');
+    h2.rituals__heading--view(data-i18n=spine.rituals.heading.name)= spine.rituals.heading.label
+
+    .rituals-known
+      +chimera-value(ritual.known)
+
+    +chimera-repeater('rituals')
+      +chimera-block('view')
+        .ritual
+          each field in spine.rituals.hidden
+            +chimera-hidden(field)
+
+          +chimera-action({ name: 'ritual', title: 'Ritual' }).ritual__roll
+            +chimera-icon({ icon: 'candle' }).ritual__icon
+            +chimera-value(ritual.name)
+
+          .ritual__check
+            +fabula-check(ritual.attr1, ritual.attr2, ritual.accuracy_total)
+            +fabula-diamond
+            +chimera-value(ritual.difficulty)
+            +fabula-diamond
+
+          +chimera-value(ritual.mp)
+
+          .ritual__potency-area
+            +chimera-value(ritual.discipline)
+            +fabula-diamond
+            +chimera-value(ritual.potency)
+            +fabula-diamond
+            +chimera-value(ritual.area)
+
+          +chimera-value(ritual.effect)
 
 mixin rituals-edit(spine)
   .rituals
     h2.rituals__heading--edit(data-i18n=spine.rituals.heading.name)= spine.rituals.heading.label
 
     .rituals-known
-      label(data-i18n='rituals_known') Rituals Known
+      label.chimera-value__label(data-i18n='ritual_known') Rituals Known
       each field in spine.rituals.disciplines
         +chimera-input(field)
 
@@ -77,7 +110,7 @@ mixin rituals-edit(spine)
             +fabula-check(att1, att2, accuracy)
 
       +chimera-block('edit')
-        .ritual(style='display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 4px')
+        .ritual
           each field in spine.rituals.hidden
             +chimera-hidden(field)
           each field in spine.rituals.fields

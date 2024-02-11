@@ -1,18 +1,29 @@
 @use '../../../common/vars' as mixins;
 
 .fabula-ultima .character {
-  .spells {
+  .rituals {
     @include mixins.repeater-heading;
 
+    &-known {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+
+      .chimera-value {
+        &__label {
+          grid-column: 1/-1;
+        }
+      }
+    }
+
     &--delete {
-      .spell {
+      .ritual {
         display: flex;
         gap: 4px;
 
-        input[name*='spell_is_offensive'] {
+        input[name*='ritual_is_offensive'] {
           &[value='0'],
           :not([value]) {
-            ~ .spell__offensive {
+            ~ .ritual__offensive {
               display: none;
             }
           }
@@ -40,15 +51,23 @@
     }
 
     &--view {
-      .spell {
+      .rituals-known {
+        grid-column: 1/-1;
+        padding: 4px 8px;
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+      }
+
+      .ritual {
         display: grid;
         grid-template-columns: 1fr repeat(2, auto);
         gap: 4px;
 
-        input[name*='spell_is_offensive'] {
+        input[name*='ritual_is_offensive'] {
           &[value='0'],
           :not([value]) {
-            ~ .spell__offensive {
+            ~ .ritual__offensive {
               display: none;
             }
           }
@@ -62,26 +81,13 @@
           }
         }
 
-        &__type {
-          .chimera-value {
-            &__value {
-              @include mixins.text-lg-400;
-            }
-          }
-        }
-
-        &__offensive {
-          display: flex;
-          flex-wrap: nowrap;
-          gap: 4px;
-        }
-
         .fabula-check {
           span {
             @include mixins.text-lg-700;
           }
         }
 
+        &__difficulty,
         &__mp {
           .chimera-value {
             &__label {
@@ -93,7 +99,13 @@
           }
         }
 
-        &__target-duration {
+        &__check {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 4px;
+        }
+
+        &__potency-area {
           grid-column: 1/-1;
           grid-row-start: 2;
           display: flex;
@@ -107,52 +119,15 @@
     }
 
     &--edit {
-      .spell {
+      .ritual {
         display: grid;
-        grid-template-columns: repeat(2, 1fr) 5rem 1fr 5rem;
+        grid-template-columns: repeat(2, 1fr) repeat(2, auto) repeat(2, 1fr);
         gap: 4px;
 
-        input[name*='spell_is_offensive'] {
-          &[value='0'],
-          :not([value]) {
-            ~ .spell__attr1,
-            ~ .spell__attr2,
-            ~ .spell__damage,
-            ~ .spell__type,
-            ~ .spell__accuracy {
-              display: none;
-            }
-          }
-        }
-
         &__name,
-        &__offensive,
-        &__mp {
-          grid-row: 1;
-        }
-        &__name {
+        &__discipline {
           grid-column: span 2;
         }
-        &__offensive {
-          grid-column-start: -2;
-        }
-
-        &__attr1,
-        &__attr2,
-        &__accuracy,
-        &__damage,
-        &__type {
-          grid-row: 2;
-        }
-
-        &__target {
-          grid-column: span 2;
-        }
-        &__duration {
-          grid-column: span 3;
-        }
-
-        &__special,
         &__effect {
           grid-column: 1/-1;
         }

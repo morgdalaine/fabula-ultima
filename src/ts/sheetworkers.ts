@@ -30,6 +30,8 @@ const handleCalculations = (attr: string) => {
       return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
     case 'spells':
       return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
+    case 'rituals':
+      return calculateRitualAccuracyDifficulty(ATTR_WATCH[attr]);
 
     case 'level':
       return calculateCharacterLevel(ATTR_WATCH[attr]);
@@ -402,6 +404,48 @@ const calculateSpellAccuracyDamage = (request: string[]) => {
 
         setAttrs(update, { silent: true });
       }
+    }
+  );
+};
+
+const calculateRitualAccuracyDifficulty = (request: string[]) => {
+  RepeatingModule.getAllAttrs(
+    RITUAL_ACCURACY_DIFFICULTY,
+    request,
+    (attributes: Record<string, string>, sections) => {
+      if (attributes.sheet_type !== 'character') return;
+
+      const update: Record<string, any> = {};
+      const accuracy_bonus: number = +attributes.accuracy_bonus ?? 0;
+
+      // Rituals Known
+      let ritual_known = '';
+      RITUAL_DISCIPLINES.forEach((discipline) => {
+        const checkbox = attributes[discipline] ?? '';
+        if (checkbox === 'on') {
+          ritual_known +=
+            (ritual_known.length ? ' ✦ ' : '') + getTranslationByKey(discipline) ?? discipline;
+        }
+      });
+
+      update['ritual_known'] = ritual_known;
+
+      const [section, ids] = Object.entries(sections).at(0);
+      ids.forEach((id) => {
+        const prefix = `${section}_${id}_`;
+        const ritual_accuracy: number = +attributes[prefix + 'ritual_accuracy'] ?? 0;
+        update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + accuracy_bonus;
+
+        const potency: string = attributes[prefix + 'ritual_potency'] ?? 'minor';
+        const area: string = attributes[prefix + 'ritual_area'] ?? 'individual';
+
+        const dl: number = RITUAL_DIFFICULTY.difficulty[potency];
+        const mp: number = RITUAL_DIFFICULTY.potency[potency] * RITUAL_DIFFICULTY.area[area];
+        update[prefix + 'ritual_difficulty'] = dl;
+        update[prefix + 'ritual_mp'] = mp;
+      });
+
+      setAttrs(update, { silent: true });
     }
   );
 };

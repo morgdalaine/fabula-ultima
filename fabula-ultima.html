@@ -312,15 +312,101 @@
                   </fieldset>
                 </div>
               </div>
+              <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_rituals_empty" type="hidden"/>
+              <div class="rituals rituals--view">
+                <h2 class="rituals__heading--view" data-i18n="rituals">Rituals</h2>
+                <div class="rituals-known">
+                  <div class="chimera-value ritual__known chimera-value--colon">
+                    <label class="chimera-value__label" data-i18n="ritual_known" for="ritual_known">Rituals Known</label><span class="chimera-value__value" name="attr_ritual_known"></span>
+                  </div>
+                </div>
+                <div class="chimera-repeater">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rituals_empty" type="hidden" value="0"/>
+                  <div class="chimera-repeater__empty">
+                    <h2 class="chimera-repeater__empty-header" data-i18n="none_rituals_repeating">No rituals saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                  </div>
+                  <fieldset class="repeating_rituals">
+                    <div class="chimera-repeater__content">
+                      <div class="chimera-repeater--edit rituals--edit">
+                      </div>
+                      <div class="chimera-repeater--delete rituals--delete">
+                      </div>
+                      <div class="chimera-repeater--view rituals--view">
+                        <div class="ritual">
+                          <input class="chimera-hidden" name="attr_ritual_accuracy_total" type="hidden"/>
+                          <button class="chimera-action ritual__roll" data-i18n-title="ritual" name="act_ritual" title="Ritual" type="action"><img class="ritual__icon" data-i18n-title="candle_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/candle.svg" title="Candle"/>
+                            <div class="chimera-value ritual__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_ritual_name"></span>
+                            </div>
+                          </button>
+                          <div class="ritual__check">
+                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr2"></span>
+                              <input class="chimera-hidden" name="attr_ritual_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_ritual_accuracy_total"></span>
+                            </div><span class="fabula-diamond">⬥</span>
+                            <div class="chimera-value ritual__difficulty chimera-value--center chimera-value--small">
+                              <label class="chimera-value__label" data-i18n="ritual_difficulty" for="ritual_difficulty">DL</label><span class="chimera-value__value" name="attr_ritual_difficulty"></span>
+                            </div><span class="fabula-diamond">⬥</span>
+                          </div>
+                          <div class="chimera-value ritual__mp chimera-value--reverse">
+                            <label class="chimera-value__label" data-i18n="ritual_mp" for="ritual_mp">MP</label><span class="chimera-value__value" name="attr_ritual_mp"></span>
+                          </div>
+                          <div class="ritual__potency-area">
+                            <div class="chimera-value ritual__discipline chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_discipline"></span>
+                            </div><span class="fabula-diamond">⬥</span>
+                            <div class="chimera-value ritual__potency chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_potency"></span>
+                            </div><span class="fabula-diamond">⬥</span>
+                            <div class="chimera-value ritual__area chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_area"></span>
+                            </div>
+                          </div>
+                          <div class="chimera-value ritual__effect"><span class="chimera-value__value" name="attr_ritual_effect"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
           <div class="traits--view">
             <h2 class="traits__heading--view">BACKPACK</h2>
             <div class="chimera-value" style="grid-column: 1/-1; display: flex; gap: 4px; padding: 8px; padding-top: 0px">
               <label class="chimera-value__label">May Equip:</label><span class="chimera-value__value">✦ Martial Armor ✦ Martial Weapons</span>
             </div>
           </div>
-          <div class="traits--view">
-            <h2 class="traits__heading--view">CLASS</h2>
-          </div>
+              <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_classes_empty" type="hidden"/>
+              <div class="classes">
+                <h2 class="classes__heading--view" data-i18n="classes">Classes</h2>
+                <div class="chimera-repeater">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_classes_empty" type="hidden" value="0"/>
+                  <div class="chimera-repeater__empty">
+                    <h2 class="chimera-repeater__empty-header" data-i18n="none_classes_repeating">No classes saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                  </div>
+                  <fieldset class="repeating_classes">
+                    <div class="chimera-repeater__content">
+                      <div class="chimera-repeater--edit classes--edit">
+                      </div>
+                      <div class="chimera-repeater--delete classes--delete">
+                      </div>
+                      <div class="chimera-repeater--view classes--view">
+                        <div class="class">
+                          <input class="chimera-hidden" name="attr_character_level" type="hidden"/>
+                          <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
+                          <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
+                          <div class="chimera-value class__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_name"></span>
+                          </div>
+                          <div class="chimera-value class__level">
+                            <label class="chimera-value__label" data-i18n="lv" for="class_level">Lv</label><span class="chimera-value__value" name="attr_class_level"></span>
+                          </div>
+                          <button class="chimera-action send-to-chat" data-i18n-title="classchat" name="act_classchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                          </button>
+                          <div class="chimera-value class__skills_taken chimera-value--hide-label"><span class="chimera-value__value" name="attr_class_skills_taken"></span>
+                          </div>
+                          <div class="chimera-value class__description"><span class="chimera-value__value" name="attr_class_description"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
           <div class="traits--view">
             <h2 class="points__heading--view">JOURNAL</h2>
           </div>
@@ -840,7 +926,7 @@
                               <label class="chimera-input__label" data-i18n="class_name" for="class_name">Name</label>
                               <input class="chimera-input__field" data-i18n-title="class_name_title" id="class_name" name="attr_class_name" title="Name" type="text"/>
                             </div>
-                            <div class="chimera-input class__level chimera-input--disabled chimera-input--center chimera-input--small">
+                            <div class="chimera-input class__level chimera-input--center chimera-input--small">
                               <label class="chimera-input__label" data-i18n="class_level" for="class_level">Level</label><span class="chimera-input__field" name="attr_class_level"></span>
                             </div>
                             <div class="chimera-input class__special">
@@ -1372,7 +1458,7 @@
                 <div class="rituals">
                   <h2 class="rituals__heading--edit" data-i18n="rituals">Rituals</h2>
                   <div class="rituals-known">
-                    <label data-i18n="rituals_known">Rituals Known</label>
+                    <label class="chimera-value__label" data-i18n="ritual_known">Rituals Known</label>
                     <label class="chimera-checkbox ritual-discipline chimera-checkbox--column-reverse" data-i18n-title="arcanism_title" title="Arcanism">
                       <div class="chimera-checkbox__field">
                         <input id="arcanism" name="attr_arcanism" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
@@ -1412,33 +1498,40 @@
                     <fieldset class="repeating_rituals">
                       <div class="chimera-repeater__content">
                         <div class="chimera-repeater--edit rituals--edit">
-                          <div class="ritual" style="display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 4px">
+                          <div class="ritual">
                             <input class="chimera-hidden" name="attr_ritual_accuracy_total" type="hidden"/>
                             <div class="chimera-input ritual__name">
                               <label class="chimera-input__label" data-i18n="ritual_name" for="ritual_name">Ritual Name</label>
                               <input class="chimera-input__field" data-i18n-title="ritual_name_title" id="ritual_name" name="attr_ritual_name" title="Ritual Name" type="text"/>
                             </div>
+                            <div class="chimera-input ritual__discipline chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="ritual_discipline" for="ritual_discipline">Discipline</label>
+                              <select class="chimera-input__field" data-i18n-title="ritual_discipline_title" id="ritual_discipline" name="attr_ritual_discipline" title="Discipline">
+                                <option data-i18n="arcanism" selected="selected" value="arcanism">Arcanism</option>
+                                <option data-i18n="chimerism" value="chimerism">Chimerism</option>
+                                <option data-i18n="elementalism" value="elementalism">Elementalism</option>
+                                <option data-i18n="entropism" value="entropism">Entropism</option>
+                                <option data-i18n="ritualism" value="ritualism">Ritualism</option>
+                                <option data-i18n="spiritism" value="spiritism">Spiritism</option>
+                              </select>
+                            </div>
                             <div class="chimera-input ritual__potency chimera-input--center">
                               <label class="chimera-input__label" data-i18n="ritual_potency" for="ritual_potency">Potency</label>
                               <select class="chimera-input__field" data-i18n-title="ritual_potency_title" id="ritual_potency" name="attr_ritual_potency" title="Potency">
-                                <option data-i18n="minor" selected="selected" value="20">Minor</option>
-                                <option data-i18n="medium" value="30">Medium</option>
-                                <option data-i18n="major" value="40">Major</option>
-                                <option data-i18n="extreme" value="50">Extreme</option>
+                                <option data-i18n="minor" selected="selected" value="minor">Minor</option>
+                                <option data-i18n="medium" value="medium">Medium</option>
+                                <option data-i18n="major" value="major">Major</option>
+                                <option data-i18n="extreme" value="extreme">Extreme</option>
                               </select>
                             </div>
                             <div class="chimera-input ritual__area chimera-input--center">
                               <label class="chimera-input__label" data-i18n="ritual_area" for="ritual_area">Area</label>
                               <select class="chimera-input__field" data-i18n-title="ritual_area_title" id="ritual_area" name="attr_ritual_area" title="Area">
-                                <option data-i18n="individual" selected="selected" value="1">Individual</option>
-                                <option data-i18n="small" value="2">Small</option>
-                                <option data-i18n="large" value="3">Large</option>
-                                <option data-i18n="huge" value="4">Huge</option>
+                                <option data-i18n="individual" selected="selected" value="individual">Individual</option>
+                                <option data-i18n="small" value="small">Small</option>
+                                <option data-i18n="large" value="large">Large</option>
+                                <option data-i18n="huge" value="huge">Huge</option>
                               </select>
-                            </div>
-                            <div class="chimera-input ritual__difficulty chimera-input--center chimera-input--small">
-                              <label class="chimera-input__label" data-i18n="ritual_difficulty" for="ritual_difficulty">Difficulty</label>
-                              <input class="chimera-input__field" data-i18n-title="ritual_difficulty_title" id="ritual_difficulty" name="attr_ritual_difficulty" title="Difficulty" type="number"/>
                             </div>
                             <div class="chimera-input ritual__attr1 chimera-input--center">
                               <label class="chimera-input__label" data-i18n="ritual_attr1" for="ritual_attr1">Attr 1</label>
@@ -1500,6 +1593,13 @@
                       <div class="chimera-checkbox__field">
                         <input id="high_fantasy_atlas" name="attr_high_fantasy_atlas" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
                       </div><span class="chimera-checkbox__label" data-i18n="high_fantasy_atlas" for="high_fantasy_atlas">Enable High Fantasy Atlas</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-checkbox settings_automatic_mp" data-i18n-title="automatic_mp_title" title="Automatically subtract MP when casting spells and rituals">
+                      <div class="chimera-checkbox__field">
+                        <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Automatically subtract MP when casting spells and rituals"/>
+                      </div><span class="chimera-checkbox__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
                     </label>
                   </div>
                 </div>
@@ -2859,15 +2959,17 @@
     <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>
     </div>{{^noaction}}
     <div class="sheet-action">
-      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>
-      <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>
+      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>{{#damage}}
+      <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}
       <!-- TODO Vunerable and Resistance calculations-->
       <!-- preferrably shown by hover or something?-->
     </div>{{/noaction}}
-    <div class="sheet-details">{{#mp}}
+    <div class="sheet-details">{{#potency}}
+      <div><span class="sheet-fabula-label" data-i18n="potency">Potency</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ potency }}</span></div>{{/potency}}{{#area}}
+      <div><span class="sheet-fabula-label" data-i18n="area">Area</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ area }}</span></div>{{/area}}{{#mp}}
       <div><span class="sheet-fabula-span">{{ mp }}</span><span class="sheet-fabula-label" data-i18n="mp">MP</span></div>{{/mp}}{{#target}}
       <div><span class="sheet-fabula-label" data-i18n="target">Target</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ target }}</span></div>{{/target}}{{#duration}}
-      <div><span class="sheet-fabula-label" data-i18n="duration">Duration</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ duration }}</span></div>{{/duration}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
+      <div><span class="sheet-fabula-label" data-i18n="duration">Duration</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ duration }}</span></div>{{/duration}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
     </div>
   </div>
 </rolltemplate>
@@ -2931,15 +3033,15 @@
 </rolltemplate>
 <script type="text/worker">const NAVBAR = ['stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings'];
 const REPEATING = [
-    'bonds',
-    'basic-attacks',
     'weapons',
     'spells',
+    'rituals',
+    'classes',
+    'notes',
+    'basic-attacks',
     'other-actions',
     'special-rules',
     'rare-gears',
-    'notes',
-    'classes',
 ];
 const DIE_SIZES = [6, 8, 10, 12];
 const STUDY_THRESHOLDS = [7, 10, 13];
@@ -2955,6 +3057,34 @@ const STATUS_EFFECTS = {
     shaken: -1,
     slow: -1,
     weak: -1,
+};
+const RITUAL_DISCIPLINES = [
+    'arcanism',
+    'chimerism',
+    'elementalism',
+    'entropism',
+    'ritualism',
+    'spiritism',
+];
+const RITUAL_DIFFICULTY = {
+    difficulty: {
+        minor: 7,
+        medium: 10,
+        major: 13,
+        extreme: 16,
+    },
+    potency: {
+        minor: 20,
+        medium: 30,
+        major: 40,
+        extreme: 50,
+    },
+    area: {
+        individual: 1,
+        small: 2,
+        large: 3,
+        huge: 4,
+    },
 };
 const ATTR_ABBREVIATIONS = {
     dexterity: 'dex',
@@ -3029,6 +3159,14 @@ const ATTR_WATCH = {
         'repeating_spells:spell_accuracy',
         'repeating_spells:spell_damage',
     ],
+    rituals: [
+        'sheet_type',
+        'accuracy_bonus',
+        'repeating_rituals:ritual_accuracy',
+        'repeating_rituals:ritual_potency',
+        'repeating_rituals:ritual_area',
+        ...RITUAL_DISCIPLINES,
+    ],
     equipments_empty: [
         'weapons_empty',
         'armor_name',
@@ -3054,10 +3192,12 @@ const CLICK_LISTENERS = {
     'repeating_weapons:weaponattack': 'weaponattack',
     'repeating_weapons:weaponchat': 'weaponchat',
     'repeating_spells:spell': 'spell',
+    'repeating_rituals:ritual': 'ritual',
     'repeating_other-actions:otheractionchat': 'otheractionchat',
     'repeating_special-rules:specialrulechat': 'specialrulechat',
     'repeating_rare-gears:raregearchat': 'raregearchat',
     'repeating_notes:notechat': 'notechat',
+    'repeating_classes:classchat': 'classchat',
     'armorchat': 'armorchat',
     'shieldchat': 'shieldchat',
     'study7': 'study7',
@@ -3121,6 +3261,18 @@ const SEND_TO_CHAT = {
         'spell_target',
         'spell_type',
     ],
+    ritual: [
+        'ritual_name',
+        'ritual_discipline',
+        'ritual_attr1',
+        'ritual_attr2',
+        'ritual_accuracy_total',
+        'ritual_potency',
+        'ritual_area',
+        'ritual_difficulty',
+        'ritual_mp',
+        'ritual_effect',
+    ],
     otheractionchat: ['action_name', 'action_effect'],
     specialrulechat: ['special_name', 'special_effect'],
     raregearchat: ['raregear_name', 'raregear_effect'],
@@ -3157,6 +3309,14 @@ const SEND_TO_CHAT = {
         'weapon_special',
     ],
     study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
+    classchat: [
+        'class_name',
+        'class_level',
+        'class_skills_taken',
+        'class_benefit',
+        'level',
+        'class_description',
+    ],
 };
 SEND_TO_CHAT.study10 = [
     ...SEND_TO_CHAT.study7,
@@ -3220,6 +3380,12 @@ const SPELL_ACCURACY_DAMAGE = [
         fields: ['spell_accuracy', 'spell_damage'],
     },
 ];
+const RITUAL_ACCURACY_DIFFICULTY = [
+    {
+        section: 'repeating_rituals',
+        fields: ['ritual_accuracy', 'ritual_potency', 'ritual_area'],
+    },
+];
 const listenersByKey = (obj) => {
     return Object.entries(obj).reduce((memo, [key, arr]) => {
         memo[key] = listeners(arr);
@@ -3257,23 +3423,25 @@ const handleClick = async (btn, id) => {
         case 'basicattack':
         case 'weaponattack':
         case 'spell':
+        case 'ritual':
             return rollAction(btn, id);
+        case 'armorchat':
         case 'bond1':
         case 'bond2':
         case 'bond3':
         case 'bond4':
         case 'bond5':
         case 'bond6':
-        case 'armorchat':
-        case 'shieldchat':
-        case 'weaponchat':
-        case 'specialrulechat':
+        case 'classchat':
         case 'notechat':
         case 'otheractionchat':
         case 'raregearchat':
+        case 'shieldchat':
+        case 'specialrulechat':
         case 'study7':
         case 'study10':
         case 'study13':
+        case 'weaponchat':
             return sendToChat(btn, id);
     }
 };
@@ -3285,6 +3453,8 @@ const rollAction = async (action, id) => {
             return rollWeaponAttack(id);
         case 'spell':
             return rollSpellAction(id);
+        case 'ritual':
+            return rollRitualAction(id);
     }
 };
 const getSendChatRequest = (key, id) => {
@@ -3439,7 +3609,7 @@ const studyTemplate = (chat, values) => {
     }
     return template;
 };
-const bondTemplate = (chat, values) => {
+const bondTemplate = (values) => {
     const template = {};
     template.action = getTranslationByKey('bond') || 'Bond';
     template.name = values.name;
@@ -3449,6 +3619,17 @@ const bondTemplate = (chat, values) => {
     template.allegiance = getTranslationByKey(values.allegiance) || '';
     template.fondness = getTranslationByKey(values.fondness) || '';
     template.special = values.description;
+    return template;
+};
+const classTemplate = (values) => {
+    const template = {};
+    console.log(values);
+    template.benefit = getTranslationByKey(values.benefit) || values.benefit;
+    template.name = values.class_name;
+    template.character_level = values.character_level;
+    template.level = values.class_level;
+    template.effect = values.class_skills_taken;
+    template.special = values.class_description;
     return template;
 };
 const sendToChat = async (chat, id) => {
@@ -3480,7 +3661,9 @@ const sendToChat = async (chat, id) => {
                 case 'bond4':
                 case 'bond5':
                 case 'bond6':
-                    return bondTemplate(chat, data);
+                    return bondTemplate(data);
+                case 'classchat':
+                    return classTemplate(data);
             }
         })();
         chimeraRoll('fabula-chat', {
@@ -3588,7 +3771,7 @@ const rollSpellAction = async (id) => {
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const att1 = v[prefix + 'spell_attr1'];
         const att2 = v[prefix + 'spell_attr2'];
-        const attackName = v[prefix + 'spell_attack_name'] || v[prefix + 'spell_name'];
+        const attackName = v[prefix + 'spell_name'];
         const att1_i18n = getTranslationByKey(att1) || att1;
         const att2_i18n = getTranslationByKey(att2) || att2;
         const hr_i18n = getTranslationByKey('hr') || 'HR';
@@ -3625,6 +3808,52 @@ const rollSpellAction = async (id) => {
             const critical = checkForCritical(results.roll.dice);
             finishRoll(rollId, {
                 damage: hr + results.damage.result,
+                critical: critical,
+            });
+        });
+    });
+};
+const rollRitualAction = async (id) => {
+    const prefix = `repeating_rituals_${id}_`;
+    const attributes = SEND_TO_CHAT.ritual.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+    const request = Object.values(attributes);
+    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
+        console.group('rollRitualAction');
+        console.log(v);
+        console.groupEnd();
+        const att1 = v[prefix + 'ritual_attr1'];
+        const att2 = v[prefix + 'ritual_attr2'];
+        const attackName = v[prefix + 'ritual_name'];
+        const att1_i18n = getTranslationByKey(att1) || att1;
+        const att2_i18n = getTranslationByKey(att2) || att2;
+        const hr_i18n = getTranslationByKey('hr') || 'HR';
+        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
+        const accuracy = +v[prefix + 'ritual_accuracy_total'] ?? 0;
+        const action = getTranslationByKey('ritual') || 'Ritual';
+        const range = 'ritual';
+        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+        chimeraRoll('fabula-attack', {
+            avatar: avatar,
+            sheet_type: v.sheet_type,
+            action: action,
+            character: `@{character_name}`,
+            name: attackName,
+            type: getTranslationByKey(v[prefix + 'ritual_type']) || '',
+            mp: v[prefix + 'ritual_mp'],
+            discipline: getTranslationByKey(v[prefix + 'ritual_discipline']) || '',
+            potency: getTranslationByKey(v[prefix + 'ritual_potency']) || '',
+            area: getTranslationByKey(v[prefix + 'ritual_area']) || '',
+            special: v[prefix + 'ritual_effect'],
+            check: accuracyRoll,
+            [range]: range,
+        }, {
+            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
+            critical: '0',
+        }, ({ rollId, results }) => {
+            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
+            const critical = checkForCritical(results.roll.dice);
+            finishRoll(rollId, {
                 critical: critical,
             });
         });
@@ -3727,6 +3956,8 @@ const handleCalculations = (attr) => {
             return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
         case 'spells':
             return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
+        case 'rituals':
+            return calculateRitualAccuracyDifficulty(ATTR_WATCH[attr]);
         case 'level':
             return calculateCharacterLevel(ATTR_WATCH[attr]);
         case 'bonds':
@@ -3993,6 +4224,36 @@ const calculateSpellAccuracyDamage = (request) => {
             });
             setAttrs(update, { silent: true });
         }
+    });
+};
+const calculateRitualAccuracyDifficulty = (request) => {
+    RepeatingModule.getAllAttrs(RITUAL_ACCURACY_DIFFICULTY, request, (attributes, sections) => {
+        if (attributes.sheet_type !== 'character')
+            return;
+        const update = {};
+        const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+        let ritual_known = '';
+        RITUAL_DISCIPLINES.forEach((discipline) => {
+            const checkbox = attributes[discipline] ?? '';
+            if (checkbox === 'on') {
+                ritual_known +=
+                    (ritual_known.length ? ' ✦ ' : '') + getTranslationByKey(discipline) ?? discipline;
+            }
+        });
+        update['ritual_known'] = ritual_known;
+        const [section, ids] = Object.entries(sections).at(0);
+        ids.forEach((id) => {
+            const prefix = `${section}_${id}_`;
+            const ritual_accuracy = +attributes[prefix + 'ritual_accuracy'] ?? 0;
+            update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + accuracy_bonus;
+            const potency = attributes[prefix + 'ritual_potency'] ?? 'minor';
+            const area = attributes[prefix + 'ritual_area'] ?? 'individual';
+            const dl = RITUAL_DIFFICULTY.difficulty[potency];
+            const mp = RITUAL_DIFFICULTY.potency[potency] * RITUAL_DIFFICULTY.area[area];
+            update[prefix + 'ritual_difficulty'] = dl;
+            update[prefix + 'ritual_mp'] = mp;
+        });
+        setAttrs(update, { silent: true });
     });
 };
 

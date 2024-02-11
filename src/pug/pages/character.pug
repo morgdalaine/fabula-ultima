@@ -29,8 +29,9 @@ mixin character-view(spine)
       )
         label.chimera-value__label May Equip:
         span.chimera-value__value ✦ Martial Armor ✦ Martial Weapons
-    .traits--view
-      h2.traits__heading--view CLASS
+
+    +classes-view(spine)
+
     .traits--view
       h2.points__heading--view JOURNAL
 

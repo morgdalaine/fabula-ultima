@@ -11,23 +11,25 @@ const handleClick = async (btn: string, id: string) => {
     case 'basicattack':
     case 'weaponattack':
     case 'spell':
+    case 'ritual':
       return rollAction(btn, id);
+    case 'armorchat':
     case 'bond1':
     case 'bond2':
     case 'bond3':
     case 'bond4':
     case 'bond5':
     case 'bond6':
-    case 'armorchat':
-    case 'shieldchat':
-    case 'weaponchat':
-    case 'specialrulechat':
+    case 'classchat':
     case 'notechat':
     case 'otheractionchat':
     case 'raregearchat':
+    case 'shieldchat':
+    case 'specialrulechat':
     case 'study7':
     case 'study10':
     case 'study13':
+    case 'weaponchat':
       return sendToChat(btn, id);
   }
 };
@@ -40,6 +42,8 @@ const rollAction = async (action: string, id: string) => {
       return rollWeaponAttack(id);
     case 'spell':
       return rollSpellAction(id);
+    case 'ritual':
+      return rollRitualAction(id);
   }
 };
 
@@ -81,6 +85,8 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
         return 'shield_';
       case 'weaponchat':
         return 'weapon_';
+      // case 'classchat':
+      //   return 'class_';
       case 'bond1':
       case 'bond2':
       case 'bond3':
@@ -235,7 +241,7 @@ const studyTemplate = (chat: string, values: { [key: string]: string }) => {
   return template;
 };
 
-const bondTemplate = (chat: string, values: { [key: string]: string }) => {
+const bondTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
   template.action = getTranslationByKey('bond') || 'Bond';
@@ -248,6 +254,22 @@ const bondTemplate = (chat: string, values: { [key: string]: string }) => {
   template.fondness = getTranslationByKey(values.fondness) || '';
 
   template.special = values.description;
+
+  return template;
+};
+
+const classTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  console.log(values);
+
+  template.benefit = getTranslationByKey(values.benefit) || values.benefit;
+  template.name = values.class_name;
+  template.character_level = values.character_level;
+  template.level = values.class_level;
+
+  template.effect = values.class_skills_taken;
+  template.special = values.class_description;
 
   return template;
 };
@@ -282,7 +304,9 @@ const sendToChat = async (chat: string, id: string) => {
         case 'bond4':
         case 'bond5':
         case 'bond6':
-          return bondTemplate(chat, data);
+          return bondTemplate(data);
+        case 'classchat':
+          return classTemplate(data);
       }
     })();
 
@@ -447,7 +471,7 @@ const rollSpellAction = async (id: string) => {
     const att1 = v[prefix + 'spell_attr1'];
     const att2 = v[prefix + 'spell_attr2'];
 
-    const attackName = v[prefix + 'spell_attack_name'] || v[prefix + 'spell_name'];
+    const attackName = v[prefix + 'spell_name'];
 
     const att1_i18n = getTranslationByKey(att1) || att1;
     const att2_i18n = getTranslationByKey(att2) || att2;
@@ -500,6 +524,75 @@ const rollSpellAction = async (id: string) => {
 
         finishRoll(rollId, {
           damage: hr + results.damage.result,
+          critical: critical,
+        });
+      }
+    );
+  });
+};
+
+const rollRitualAction = async (id: string) => {
+  const prefix = `repeating_rituals_${id}_`;
+  const attributes = SEND_TO_CHAT.ritual.reduce(
+    (memo: { [key: string]: string }, v: string) => ((memo[v] = prefix + v), memo),
+    {}
+  );
+
+  const request = Object.values(attributes);
+  getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
+    console.group('rollRitualAction');
+    console.log(v);
+    console.groupEnd();
+
+    const att1 = v[prefix + 'ritual_attr1'];
+    const att2 = v[prefix + 'ritual_attr2'];
+
+    const attackName = v[prefix + 'ritual_name'];
+
+    const att1_i18n = getTranslationByKey(att1) || att1;
+    const att2_i18n = getTranslationByKey(att2) || att2;
+
+    const hr_i18n = getTranslationByKey('hr') || 'HR';
+    const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
+
+    const accuracy = +v[prefix + 'ritual_accuracy_total'] ?? 0;
+
+    const action = getTranslationByKey('ritual') || 'Ritual';
+    const range = 'ritual';
+
+    const accuracyRoll =
+      `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
+
+    const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+
+    chimeraRoll(
+      'fabula-attack',
+      {
+        avatar: avatar,
+        sheet_type: v.sheet_type,
+        action: action,
+        character: `@{character_name}`,
+        name: attackName,
+        type: getTranslationByKey(v[prefix + 'ritual_type']) || '',
+        mp: v[prefix + 'ritual_mp'],
+        discipline: getTranslationByKey(v[prefix + 'ritual_discipline']) || '',
+        potency: getTranslationByKey(v[prefix + 'ritual_potency']) || '',
+        area: getTranslationByKey(v[prefix + 'ritual_area']) || '',
+        special: v[prefix + 'ritual_effect'],
+        check: accuracyRoll,
+
+        [range]: range,
+      },
+      {
+        roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
+        critical: '0',
+      },
+      ({ rollId, results }) => {
+        // HR + damage
+        const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
+        const critical = checkForCritical(results.roll.dice);
+
+        finishRoll(rollId, {
           critical: critical,
         });
       }

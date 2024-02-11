@@ -1,3 +1,22 @@
+mixin classes-view(spine)
+  +chimera-hidden('classes_empty').chimera-repeater--empty-hide-next
+  .classes
+    h2.classes__heading--view(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
+    +chimera-repeater('classes')
+      +chimera-block('view')
+        .class
+          - const job = fieldDictionary(spine.classes.view, 'class');
+          each field in spine.classes.hidden
+            +chimera-hidden(field)
+
+          +chimera-value(job.name)
+          +chimera-value(job.level)
+
+          +send-to-chat('class')
+
+          +chimera-value(job.skills_taken)
+          +chimera-value(job.description)
+
 mixin classes-edit(spine)
   .classes--edit
     h2.classes__heading--edit(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
