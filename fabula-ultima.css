@@ -647,8 +647,11 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   aspect-ratio: 1;
   opacity: 0.5;
 }
+.fabula-ultima .chimera-repeater--simple {
+  padding: 0 4px;
+}
 .fabula-ultima .chimera-repeater--simple .repcontainer {
-  gap: 4px;
+  gap: 0px;
 }
 .fabula-ultima .chimera-repeater--simple .repcontainer .repitem {
   margin-block-end: 0;
@@ -856,6 +859,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .fabula-check {
   display: flex;
+  flex-wrap: nowrap;
   gap: 4px;
 }
 .fabula-ultima .fabula-check::before {
@@ -865,6 +869,15 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .fabula-check::after {
   content: "】";
   line-height: 160%;
+}
+.fabula-ultima .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  white-space: nowrap;
+  color: hotpink;
 }
 .fabula-ultima .fabula-check input[value="0"] ~ .fabula-attr__accuracy {
   display: none;
@@ -1028,14 +1041,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .bestiary .basic-attacks--delete .fabula-diamond,
-.fabula-ultima .bestiary .basic-attacks--delete .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
 .fabula-ultima .bestiary .basic-attacks--view input[name*=attack_range][value=melee] ~ * .basic-attack__range--melee {
   display: block;
 }
@@ -1047,13 +1052,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: 1fr auto 0.5fr;
   gap: 4px;
   align-items: center;
-}
-.fabula-ultima .bestiary .basic-attacks--view .basic-attack .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
 }
 .fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--melee, .fabula-ultima .bestiary .basic-attacks--view .basic-attack__range--distance {
   display: none;
@@ -1143,14 +1141,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   flex-wrap: nowrap;
   gap: 4px;
 }
-.fabula-ultima .bestiary .spells--delete .fabula-diamond,
-.fabula-ultima .bestiary .spells--delete .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
 .fabula-ultima .bestiary .spells--view .spell {
   display: grid;
   grid-template-columns: 1fr repeat(2, auto);
@@ -1178,13 +1168,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   flex-wrap: nowrap;
   gap: 4px;
-}
-.fabula-ultima .bestiary .spells--view .spell .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
 }
 .fabula-ultima .bestiary .spells--view .spell__mp .chimera-value__label {
   font-family: var(--font-body);
@@ -1283,14 +1266,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .bestiary .weapons--delete .fabula-diamond,
-.fabula-ultima .bestiary .weapons--delete .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
 .fabula-ultima .bestiary .weapons--view input[name*=weapon_range][value=melee] ~ * .weapon__range--melee {
   display: block;
 }
@@ -1302,13 +1277,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: 1fr auto 0.5fr;
   gap: 4px;
   align-items: center;
-}
-.fabula-ultima .bestiary .weapons--view .weapon .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
 }
 .fabula-ultima .bestiary .weapons--view .weapon__range--melee, .fabula-ultima .bestiary .weapons--view .weapon__range--distance {
   display: none;
@@ -1651,14 +1619,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
   padding: 8px;
-}
-.fabula-ultima .bestiary .equipments .equipment .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-  line-height: 180%;
 }
 .fabula-ultima .bestiary .equipments .equipment__armor, .fabula-ultima .bestiary .equipments .equipment__shield, .fabula-ultima .bestiary .equipments .equipment__weapon {
   display: flex;
@@ -2561,7 +2521,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .status-effects--view {
   display: flex;
   gap: 4px;
-  padding: 4px;
   text-align: center;
   width: -moz-min-content;
   width: min-content;
@@ -2601,33 +2560,33 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=slow_immunity][value=on] ~ .status-effect--slow,
 .fabula-ultima .character .status-effects--view input[name*=slow_immunity][value=on] ~ .status-effect--slow {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=dazed_immunity][value=on] ~ .status-effect--dazed,
 .fabula-ultima .character .status-effects--view input[name*=dazed_immunity][value=on] ~ .status-effect--dazed {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=enraged_immunity][value=on] ~ .status-effect--enraged,
 .fabula-ultima .character .status-effects--view input[name*=enraged_immunity][value=on] ~ .status-effect--enraged {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=weak_immunity][value=on] ~ .status-effect--weak,
 .fabula-ultima .character .status-effects--view input[name*=weak_immunity][value=on] ~ .status-effect--weak {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=shaken_immunity][value=on] ~ .status-effect--shaken,
 .fabula-ultima .character .status-effects--view input[name*=shaken_immunity][value=on] ~ .status-effect--shaken {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--view input[name*=poisoned_immunity][value=on] ~ .status-effect--poisoned,
 .fabula-ultima .character .status-effects--view input[name*=poisoned_immunity][value=on] ~ .status-effect--poisoned {
-  pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 .fabula-ultima .bestiary .status-effects--edit .status-effect,
 .fabula-ultima .character .status-effects--edit .status-effect {
@@ -3340,7 +3299,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 
-.fabula-ultima .character .backpack__heading--edit {
+.fabula-ultima .character .equipment__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -3350,7 +3309,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .character .backpack__heading--view {
+.fabula-ultima .character .equipment__heading--view {
   grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
@@ -3363,29 +3322,62 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .character .backpack--view input[name*=backpack_range][value=melee] ~ * .backpack__range--melee {
+.fabula-ultima .character .equipment--view input[name*=backpack_range][value=melee] ~ * .equipment__range--melee {
   display: block;
 }
-.fabula-ultima .character .backpack--view input[name*=backpack_range][value=distance] ~ * .backpack__range--distance {
+.fabula-ultima .character .equipment--view input[name*=backpack_range][value=distance] ~ * .equipment__range--distance {
   display: block;
 }
-.fabula-ultima .character .backpack--view .backpack {
+.fabula-ultima .character .equipment--view .equipment__weapon, .fabula-ultima .character .equipment--view .equipment__armor, .fabula-ultima .character .equipment--view .equipment__shield, .fabula-ultima .character .equipment--view .equipment__accessory {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fabula-ultima .character .equipment--view .equipment__weapon .send-to-chat, .fabula-ultima .character .equipment--view .equipment__armor .send-to-chat, .fabula-ultima .character .equipment--view .equipment__shield .send-to-chat, .fabula-ultima .character .equipment--view .equipment__accessory .send-to-chat {
+  margin-left: auto;
+}
+.fabula-ultima .character .equipment--view .equipment input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.fabula-ultima .character .equipment--view .equipment input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
+}
+.fabula-ultima .character .equipment--view .armor__name .chimera-value__label,
+.fabula-ultima .character .equipment--view .shield__name .chimera-value__label,
+.fabula-ultima .character .equipment--view .accessory__name .chimera-value__label,
+.fabula-ultima .character .equipment--view .weapon__name .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .equipment--view .armor__name .chimera-value__value,
+.fabula-ultima .character .equipment--view .shield__name .chimera-value__value,
+.fabula-ultima .character .equipment--view .accessory__name .chimera-value__value,
+.fabula-ultima .character .equipment--view .weapon__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .equipment--view .armor__cost .chimera-value__value::after,
+.fabula-ultima .character .equipment--view .shield__cost .chimera-value__value::after,
+.fabula-ultima .character .equipment--view .accessory__cost .chimera-value__value::after,
+.fabula-ultima .character .equipment--view .weapon__cost .chimera-value__value::after {
+  content: " z";
+}
+.fabula-ultima .character .equipment--view .equipment {
   display: grid;
   grid-template-columns: 1fr auto 0.5fr;
   gap: 4px;
   align-items: center;
 }
-.fabula-ultima .character .backpack--view .backpack .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .backpack--view .backpack__range--melee, .fabula-ultima .character .backpack--view .backpack__range--distance {
+.fabula-ultima .character .equipment--view .equipment__range--melee, .fabula-ultima .character .equipment--view .equipment__range--distance {
   display: none;
 }
-.fabula-ultima .character .backpack--view .backpack__name {
+.fabula-ultima .character .equipment--view .equipment__name {
   display: flex;
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -3393,22 +3385,22 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .character .backpack--view .backpack__check {
+.fabula-ultima .character .equipment--view .equipment__check {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 }
-.fabula-ultima .character .backpack--view .backpack__type {
+.fabula-ultima .character .equipment--view .equipment__type {
   text-align: end;
 }
-.fabula-ultima .character .backpack--view .backpack__type .chimera-value__value {
+.fabula-ultima .character .equipment--view .equipment__type .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .character .backpack--view .backpack__special {
+.fabula-ultima .character .equipment--view .equipment__special {
   grid-column: 1/-1;
   font-family: var(--font-body);
   font-size: 1.125rem;
@@ -3416,17 +3408,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .character .backpack--edit .backpack {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) repeat(3, auto);
-  gap: 4px;
-}
-.fabula-ultima .character .backpack--edit .backpack__special {
-  grid-column: 1/-1;
-}
-.fabula-ultima .character .backpack--edit .backpack__name {
-  grid-column: span 3;
-}
+
 .fabula-ultima .character .shields__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
@@ -3517,8 +3499,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .character .weapons--delete .fabula-diamond,
-.fabula-ultima .character .weapons--delete .fabula-check span {
+.fabula-ultima .character .weapons--delete .fabula-diamond {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -3536,13 +3517,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: 1fr auto 0.5fr;
   gap: 4px;
   align-items: center;
-}
-.fabula-ultima .character .weapons--view .weapon .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
 }
 .fabula-ultima .character .weapons--view .weapon__range--melee, .fabula-ultima .character .weapons--view .weapon__range--distance {
   display: none;
@@ -3632,14 +3606,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   flex-wrap: nowrap;
   gap: 4px;
 }
-.fabula-ultima .character .spells--delete .fabula-diamond,
-.fabula-ultima .character .spells--delete .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
 .fabula-ultima .character .spells--view .spell {
   display: grid;
   grid-template-columns: 1fr repeat(2, auto);
@@ -3667,13 +3633,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: flex;
   flex-wrap: nowrap;
   gap: 4px;
-}
-.fabula-ultima .character .spells--view .spell .fabula-check span {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
 }
 .fabula-ultima .character .spells--view .spell__mp .chimera-value__label {
   font-family: var(--font-body);
@@ -3788,8 +3747,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   flex-wrap: nowrap;
   gap: 4px;
 }
-.fabula-ultima .character .rituals--delete .fabula-diamond,
-.fabula-ultima .character .rituals--delete .fabula-check span {
+.fabula-ultima .character .rituals--delete .fabula-diamond {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -3813,13 +3771,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: none;
 }
 .fabula-ultima .character .rituals--view .ritual__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--view .ritual .fabula-check span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -4105,6 +4056,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
+  padding: 0 4px;
 }
 .fabula-ultima .character--edit {
   display: flex;

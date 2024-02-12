@@ -503,9 +503,11 @@
           <!-- TODO Collapse sections-->
           <!-- TODO Equipment-->
           <!-- TODO Journal-->
-              <div class="backpack--view">
-                <h2 class="backpack__heading--view" data-i18n="backpack">Backpack</h2>
-                <label class="chimera-value__label">May Equip:</label><span class="chimera-value__value">✦ Martial Armor ✦ Martial Weapons</span>
+              <div class="equipment--view">
+                <h2 class="equipment__heading--view" data-i18n="equipment">Equipment</h2>
+                <div class="chimera-value chimera-value--colon">
+                  <label class="chimera-value__label" data-i18n="may_equip">May Equip</label><span class="chimera-value__value" name="attr_may_equip"></span>
+                </div>
                 <div class="chimera-repeater--simple">
                   <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
                   <fieldset class="repeating_weapons">
@@ -523,6 +525,75 @@
                       <div class="chimera-value weapon__cost"><span class="chimera-value__value" name="attr_weapon_cost"></span>
                       </div>
                       <button class="chimera-action send-to-chat" data-i18n-title="weaponchat" name="act_weaponchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_armors_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_armors">
+                    <div class="equipment__armor">
+                      <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden" value="0"/>
+                      <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden" value="0"/>
+                      <div class="chimera-value armor__name chimera-value--colon">
+                        <label class="chimera-value__label" data-i18n="armor" for="armor_name">Armor</label><span class="chimera-value__value" name="attr_armor_name"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value armor__defense">
+                        <label class="chimera-value__label" data-i18n="armor_defense" for="armor_defense">DEF</label><span class="chimera-value__value" name="attr_armor_defense"></span>
+                      </div>
+                      <div class="chimera-value armor__defense_bonus">
+                        <label class="chimera-value__label" data-i18n="armor_defense_bonus" for="armor_defense_bonus">+DEF</label><span class="chimera-value__value" name="attr_armor_defense_bonus"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="armor_magic_defense_bonus" for="armor_magic_defense_bonus">+M.DEF</label><span class="chimera-value__value" name="attr_armor_magic_defense_bonus"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="init" for="armor_initiative">Init.</label><span class="chimera-value__value" name="attr_armor_initiative"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_armor_cost"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="armorchat" name="act_armorchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_shields_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_shields">
+                    <div class="equipment__shield">
+                      <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden" value="0"/>
+                      <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden" value="0"/>
+                      <div class="chimera-value shield__name chimera-value--colon">
+                        <label class="chimera-value__label" data-i18n="shield" for="shield_name">Shield</label><span class="chimera-value__value" name="attr_shield_name"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value shield__defense_bonus">
+                        <label class="chimera-value__label" data-i18n="shield_defense_bonus" for="shield_defense_bonus">+DEF</label><span class="chimera-value__value" name="attr_shield_defense_bonus"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="shield_magic_defense_bonus" for="shield_magic_defense_bonus">+M.DEF</label><span class="chimera-value__value" name="attr_shield_magic_defense_bonus"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value">
+                        <label class="chimera-value__label" data-i18n="init" for="shield_initiative">Init.</label><span class="chimera-value__value" name="attr_shield_initiative"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_shield_cost"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="shieldchat" name="act_shieldchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_accessories_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_accessories">
+                    <div class="equipment__accessory">
+                      <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden" value="0"/>
+                      <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden" value="0"/>
+                      <div class="chimera-value accessory__name chimera-value--colon">
+                        <label class="chimera-value__label" data-i18n="accessory" for="accessory_name">Accessory</label><span class="chimera-value__value" name="attr_accessory_name"></span>
+                      </div><span class="fabula-diamond">⬥</span>
+                      <div class="chimera-value armor__cost"><span class="chimera-value__value" name="attr_accessory_cost"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="accessorychat" name="act_accessorychat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                       </button>
                     </div>
                   </fieldset>
@@ -1426,6 +1497,8 @@
                       <div class="chimera-repeater__content">
                         <div class="chimera-repeater--edit shields--edit">
                           <div class="shield">
+                            <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden"/>
+                            <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden"/>
                             <label class="chimera-checkbox shield__is_equipped chimera-checkbox--column-reverse" data-i18n-title="shield_is_equipped_title" title="Equipped">
                               <div class="chimera-checkbox__field">
                                 <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
@@ -1485,6 +1558,8 @@
                       <div class="chimera-repeater__content">
                         <div class="chimera-repeater--edit accessories--edit">
                           <div class="accessory">
+                            <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden"/>
+                            <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden"/>
                             <label class="chimera-checkbox accessory__is_equipped chimera-checkbox--column-reverse" data-i18n-title="accessory_is_equipped_title" title="Equipped">
                               <div class="chimera-checkbox__field">
                                 <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
@@ -1755,7 +1830,7 @@
           <div class="character__journal"><span>journal</span></div>
           <div class="character__settings">
                 <div class="settings--edit">
-                  <h2 class="spells__heading--edit" data-i18n="spells">Spells</h2>
+                  <h2 class="settings__heading--edit" data-i18n="settings">Settings</h2>
                   <div class="setting">
                     <label class="chimera-checkbox settings_high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
                       <div class="chimera-checkbox__field">
@@ -1769,6 +1844,12 @@
                         <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Automatically subtract MP when casting spells and rituals"/>
                       </div><span class="chimera-checkbox__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
                     </label>
+                  </div>
+                  <div class="setting">
+                    <div class="chimera-input settings_currency_name chimera-input--flex-row chimera-input--small">
+                      <label class="chimera-input__label" data-i18n="currency_name" for="currency_name">Currency Name</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="currency_name_placeholder" data-i18n-title="currency_name_title" id="currency_name" name="attr_currency_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
+                    </div>
                   </div>
                 </div>
           </div>
@@ -3269,6 +3350,7 @@ const RITUAL_DISCIPLINES = [
     'ritualism',
     'spiritism',
 ];
+const MARTIAL_PROFICIENCIES = ['martialmelee', 'martialranged', 'martialarmor', 'martialshield'];
 const RITUAL_DIFFICULTY = {
     difficulty: {
         minor: 7,
@@ -3314,6 +3396,10 @@ const ATTR_WATCH = {
         'repeating_classes:class_skill3_level',
         'repeating_classes:class_skill4_level',
         'repeating_classes:class_skill5_level',
+        'repeating_classes:class_martialmelee',
+        'repeating_classes:class_martialranged',
+        'repeating_classes:class_martialarmor',
+        'repeating_classes:class_martialshield',
     ],
     defense: [
         'dexterity',
@@ -3556,6 +3642,10 @@ const CHARACTER_SKILL_LEVEL = [
             'class_skill4_level',
             'class_skill5_name',
             'class_skill5_level',
+            'class_martialmelee',
+            'class_martialranged',
+            'class_martialarmor',
+            'class_martialshield',
         ],
     },
 ];
@@ -4283,14 +4373,21 @@ const calculateCharacterLevel = (request) => {
         if (attributes.sheet_type != 'character')
             return;
         const update = {};
-        let level = 0;
+        const martialequip = {};
+        let characterLevel = 0;
         sections.repeating_classes.forEach((id) => {
             const prefix = `repeating_classes_${id}_`;
             const keys = Object.keys(attributes).filter((key) => key.includes(id));
             const classLevel = keys.reduce((memo, level) => {
                 return memo + (level.includes('level') ? +attributes[level] : 0);
             }, 0);
-            level += classLevel;
+            MARTIAL_PROFICIENCIES.forEach((prof) => {
+                const val = attributes[prefix + `class_` + prof];
+                if (val === 'on' && !Object.hasOwn(martialequip, prof)) {
+                    martialequip[prof] = getTranslationByKey(`class_` + prof) || prof;
+                }
+            });
+            characterLevel += classLevel;
             update[prefix + 'class_level'] = classLevel;
             const skillsTaken = [];
             [1, 2, 3, 4, 5].forEach((skill) => {
@@ -4304,7 +4401,8 @@ const calculateCharacterLevel = (request) => {
             });
             update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
         });
-        update.level = level;
+        update.level = characterLevel;
+        update.may_equip = Object.values(martialequip).reduce((memo, val) => memo + (memo.length ? ' ✦ ' : '') + val, '');
         setAttrs(update, { silent: true });
     });
 };

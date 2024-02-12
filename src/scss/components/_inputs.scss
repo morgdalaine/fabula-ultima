@@ -121,6 +121,7 @@
   .fabula-check {
     // position: relative;
     display: flex;
+    flex-wrap: nowrap;
     gap: 4px;
 
     &::before {
@@ -130,6 +131,12 @@
     &::after {
       content: '】';
       line-height: 160%;
+    }
+
+    span {
+      @include mixins.text-lg-700;
+      white-space: nowrap;
+      color: hotpink;
     }
 
     input[value='0'] {

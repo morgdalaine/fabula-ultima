@@ -11,13 +11,6 @@
       gap: 4px;
 
       padding: 8px;
-
-      .fabula-check {
-        span {
-          @include mixins.text-base-700;
-          line-height: 180%;
-        }
-      }
     }
 
     // universal styles

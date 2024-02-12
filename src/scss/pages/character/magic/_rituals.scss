@@ -44,8 +44,7 @@
         }
       }
 
-      .fabula-diamond,
-      .fabula-check span {
+      .fabula-diamond {
         @include mixins.text-lg-700;
       }
     }
@@ -78,12 +77,6 @@
             &__value {
               @include mixins.text-lg-700;
             }
-          }
-        }
-
-        .fabula-check {
-          span {
-            @include mixins.text-lg-700;
           }
         }
 

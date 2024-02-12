@@ -52,6 +52,8 @@ const RITUAL_DISCIPLINES = [
   'spiritism',
 ];
 
+const MARTIAL_PROFICIENCIES = ['martialmelee', 'martialranged', 'martialarmor', 'martialshield'];
+
 const RITUAL_DIFFICULTY: Record<string, any> = {
   difficulty: {
     minor: 7,
@@ -106,6 +108,10 @@ const ATTR_WATCH: Record<string, string[]> = {
     'repeating_classes:class_skill3_level',
     'repeating_classes:class_skill4_level',
     'repeating_classes:class_skill5_level',
+    'repeating_classes:class_martialmelee',
+    'repeating_classes:class_martialranged',
+    'repeating_classes:class_martialarmor',
+    'repeating_classes:class_martialshield',
   ],
 
   defense: [
@@ -365,6 +371,10 @@ const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
       'class_skill4_level',
       'class_skill5_name',
       'class_skill5_level',
+      'class_martialmelee',
+      'class_martialranged',
+      'class_martialarmor',
+      'class_martialshield',
     ],
   },
 ];

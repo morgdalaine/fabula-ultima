@@ -230,8 +230,10 @@
 
   .chimera-repeater {
     &--simple {
+      padding: 0 4px;
+
       .repcontainer {
-        gap: 4px;
+        gap: 0px;
 
         .repitem {
           margin-block-end: 0;

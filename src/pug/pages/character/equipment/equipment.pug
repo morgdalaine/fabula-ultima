@@ -1,11 +1,13 @@
-mixin backpack-view(spine)
-  .backpack--view
-    h2.backpack__heading--view(data-i18n='backpack') Backpack
-    label.chimera-value__label May Equip:
-    span.chimera-value__value ✦ Martial Armor ✦ Martial Weapons
+mixin equipment-view(spine)
+  .equipment--view
+    h2.equipment__heading--view(data-i18n='equipment') Equipment
+    .chimera-value.chimera-value--colon
+      label.chimera-value__label(data-i18n='may_equip') May Equip
+      span.chimera-value__value(name='attr_may_equip')
     +chimera-repeater-simple('weapons')
       .equipment__weapon
         - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
+        //- +chimera-input(weapon.is_equipped)
         +chimera-value(weapon.name)
         +fabula-diamond
         +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy, weapon.damage)
@@ -14,6 +16,49 @@ mixin backpack-view(spine)
         +fabula-diamond
         +chimera-value(weapon.cost)
         +send-to-chat('weapon')
+
+    +chimera-repeater-simple('armors')
+      .equipment__armor
+        - const armor = fieldDictionary(spine.armor.view, 'armor');
+        each field in spine.armor.hidden
+          +chimera-hidden(field, 0)
+        +chimera-value(armor.name)
+        +fabula-diamond
+        +chimera-value(armor.defense)
+        +chimera-value(armor.defense_bonus)
+        +fabula-diamond
+        +chimera-value(armor.magic_defense_bonus)
+        +fabula-diamond
+        +chimera-value(armor.initiative)
+        +fabula-diamond
+        +chimera-value(armor.cost)
+        +send-to-chat('armor')
+
+    +chimera-repeater-simple('shields')
+      .equipment__shield
+        - const shield = fieldDictionary(spine.shield.view, 'shield');
+        each field in spine.shield.hidden
+          +chimera-hidden(field, 0)
+        +chimera-value(shield.name)
+        +fabula-diamond
+        +chimera-value(shield.defense_bonus)
+        +fabula-diamond
+        +chimera-value(shield.magic_defense_bonus)
+        +fabula-diamond
+        +chimera-value(shield.initiative)
+        +fabula-diamond
+        +chimera-value(shield.cost)
+        +send-to-chat('shield')
+
+    +chimera-repeater-simple('accessories')
+      .equipment__accessory
+        - const accessory = fieldDictionary(spine.accessory.view, 'accessory');
+        each field in spine.accessory.hidden
+          +chimera-hidden(field, 0)
+        +chimera-value(accessory.name)
+        +fabula-diamond
+        +chimera-value(accessory.cost)
+        +send-to-chat('accessory')
 
 mixin armors-edit(spine)
   .armors

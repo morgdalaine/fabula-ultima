@@ -1,35 +1,85 @@
 @use '../../../common/vars' as mixins;
 
 .fabula-ultima .character {
-  .backpack {
-    $this: '.backpack';
+  .equipment {
+    $this: '.equipment';
 
     @include mixins.repeater-heading;
 
     &--view {
       input[name*='backpack_range'] {
         &[value='melee'] {
-          ~ * .backpack__range--melee {
+          ~ * .equipment__range--melee {
             display: block;
           }
         }
         &[value='distance'] {
-          ~ * .backpack__range--distance {
+          ~ * .equipment__range--distance {
             display: block;
           }
         }
       }
 
-      .backpack {
+      // universal styles
+      .equipment {
+        &__weapon,
+        &__armor,
+        &__shield,
+        &__accessory {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          .send-to-chat {
+            margin-left: auto;
+          }
+        }
+
+        input[name*='is_martial'] {
+          &[value='on'] ~ {
+            .armor__defense_bonus {
+              display: none;
+            }
+          }
+          &[value='0'] ~ {
+            .armor__defense {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .armor,
+      .shield,
+      .accessory,
+      .weapon {
+        &__name {
+          .chimera-value {
+            &__label {
+              @include mixins.text-lg-700;
+            }
+            &__value {
+              @include mixins.text-lg-400;
+            }
+          }
+        }
+        &__cost {
+          .chimera-value {
+            &__value {
+              &::after {
+                content: ' z';
+              }
+            }
+          }
+        }
+      }
+
+      .equipment {
         display: grid;
         grid-template-columns: 1fr auto 0.5fr;
         gap: 4px;
 
         align-items: center;
-
-        .fabula-check span {
-          @include mixins.text-lg-700;
-        }
 
         &__range {
           &--melee,
@@ -61,24 +111,6 @@
         &__special {
           grid-column: 1/-1;
           @include mixins.text-lg-400;
-        }
-      }
-    }
-
-    &--edit {
-      .backpack {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr) repeat(3, auto);
-        gap: 4px;
-
-        &__special {
-          grid-column: 1/-1;
-        }
-
-        &__name {
-          grid-column: span 3;
-        }
-        &__category {
         }
       }
     }

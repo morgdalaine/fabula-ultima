@@ -13,8 +13,6 @@
         // grid-template-columns: repeat(10, minmax(3rem, auto));
         gap: 4px;
 
-        padding: 4px;
-
         text-align: center;
         width: min-content;
 
@@ -57,8 +55,8 @@
           input[name*='#{$imm}_immunity'] {
             &[value='on'] {
               ~ .status-effect--#{$imm} {
-                pointer-events: none;
-                opacity: 0.25;
+                opacity: 0.5;
+                filter: grayscale(100%);
               }
             }
           }

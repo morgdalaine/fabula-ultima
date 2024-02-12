@@ -4,6 +4,11 @@
   .weapons {
     $this: '.weapons';
 
+    // .repitem:has(input[name*='weapon_is_equipped'][value='0']) {
+    //   display: none;
+    //   background-color: hotpink;
+    // }
+
     @include mixins.repeater-heading;
 
     &--delete {
@@ -20,8 +25,7 @@
         }
       }
 
-      .fabula-diamond,
-      .fabula-check span {
+      .fabula-diamond {
         @include mixins.text-lg-700;
       }
     }
@@ -46,10 +50,6 @@
         gap: 4px;
 
         align-items: center;
-
-        .fabula-check span {
-          @include mixins.text-lg-700;
-        }
 
         &__range {
           &--melee,

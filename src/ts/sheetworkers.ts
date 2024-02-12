@@ -201,7 +201,9 @@ const calculateCharacterLevel = (request: string[]) => {
       if (attributes.sheet_type != 'character') return;
 
       const update: { [key: string]: string | number } = {};
-      let level = 0;
+      const martialequip: { [key: string]: string | number } = {};
+      let characterLevel = 0;
+
       sections.repeating_classes.forEach((id) => {
         const prefix = `repeating_classes_${id}_`;
 
@@ -210,7 +212,15 @@ const calculateCharacterLevel = (request: string[]) => {
           return memo + (level.includes('level') ? +attributes[level] : 0);
         }, 0);
 
-        level += classLevel;
+        // martial proficiency
+        MARTIAL_PROFICIENCIES.forEach((prof) => {
+          const val = attributes[prefix + `class_` + prof];
+          if (val === 'on' && !Object.hasOwn(martialequip, prof)) {
+            martialequip[prof] = getTranslationByKey(`class_` + prof) || prof;
+          }
+        });
+
+        characterLevel += classLevel;
         update[prefix + 'class_level'] = classLevel;
 
         // builid a string of current class levels
@@ -228,7 +238,11 @@ const calculateCharacterLevel = (request: string[]) => {
         update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
       });
 
-      update.level = level;
+      update.level = characterLevel;
+      update.may_equip = Object.values(martialequip).reduce(
+        (memo: string, val) => memo + (memo.length ? ' ✦ ' : '') + val,
+        ''
+      );
       setAttrs(update, { silent: true });
     }
   );

@@ -1,5 +1,9 @@
 -
   spine.shared.settings = {
+    heading: {
+      name: 'settings',
+      label: 'Settings',
+    },
     fields: [
       {
         name: 'high_fantasy_atlas',
@@ -13,6 +17,13 @@
         title: 'Automatically subtract MP when casting spells and rituals',
         type: 'checkbox',
         css: { names: ['settings_automatic_mp'], modifiers: [] },
+      },
+      {
+        name: 'currency_name',
+        label: 'Currency Name',
+        value: 'zenit',
+        type: 'text',
+        css: { names: ['settings_currency_name'], modifiers: ['flex-row', 'small'] },
       },
     ]
   }
