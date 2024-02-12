@@ -266,20 +266,21 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: block;
   text-align: center;
 }
-.chimera-repeater__view, .chimera-repeater__edit, .chimera-repeater__content, .chimera-repeater__delete {
+.chimera-repeater--view:empty, .chimera-repeater--edit:empty, .chimera-repeater--delete:empty {
   display: none;
   transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
+}
+.chimera-repeater--view:not(:has(div)), .chimera-repeater--edit:not(:has(div)), .chimera-repeater--delete:not(:has(div)) {
+  display: none;
 }
 .chimera-repeater__content {
   display: grid;
 }
-.chimera-repeater__edit, .chimera-repeater__content {
+.chimera-repeater--edit, .chimera-repeater--delete {
   padding: 8px;
 }
-.chimera-repeater__delete {
-  min-height: 16px;
-  padding-inline: 16px;
-  align-items: center;
+.chimera-repeater--view {
+  padding: 4px;
 }
 
 .chimera-input--flex {
@@ -877,7 +878,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-weight: 700;
   line-height: 150%;
   white-space: nowrap;
-  color: hotpink;
 }
 .fabula-ultima .fabula-check input[value="0"] ~ .fabula-attr__accuracy {
   display: none;
@@ -3336,11 +3336,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .equipment--view .equipment__weapon .send-to-chat, .fabula-ultima .character .equipment--view .equipment__armor .send-to-chat, .fabula-ultima .character .equipment--view .equipment__shield .send-to-chat, .fabula-ultima .character .equipment--view .equipment__accessory .send-to-chat {
   margin-left: auto;
 }
-.fabula-ultima .character .equipment--view .equipment input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+.fabula-ultima .character .equipment--view .equipment__weapon input[name*=is_martial][value=on] ~ .armor__defense_bonus, .fabula-ultima .character .equipment--view .equipment__armor input[name*=is_martial][value=on] ~ .armor__defense_bonus, .fabula-ultima .character .equipment--view .equipment__shield input[name*=is_martial][value=on] ~ .armor__defense_bonus, .fabula-ultima .character .equipment--view .equipment__accessory input[name*=is_martial][value=on] ~ .armor__defense_bonus {
   display: none;
 }
-.fabula-ultima .character .equipment--view .equipment input[name*=is_martial][value="0"] ~ .armor__defense {
+.fabula-ultima .character .equipment--view .equipment__weapon input[name*=is_martial][value="0"] ~ .armor__defense, .fabula-ultima .character .equipment--view .equipment__armor input[name*=is_martial][value="0"] ~ .armor__defense, .fabula-ultima .character .equipment--view .equipment__shield input[name*=is_martial][value="0"] ~ .armor__defense, .fabula-ultima .character .equipment--view .equipment__accessory input[name*=is_martial][value="0"] ~ .armor__defense {
   display: none;
+}
+.fabula-ultima .character .equipment--view .equipment__may_equip {
+  padding: 4px 8px;
 }
 .fabula-ultima .character .equipment--view .armor__name .chimera-value__label,
 .fabula-ultima .character .equipment--view .shield__name .chimera-value__label,
@@ -3865,12 +3868,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   align-items: center;
   gap: 4px;
 }
+.fabula-ultima .character .classes--view .class__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
 .fabula-ultima .character .classes--view .class__skills_taken, .fabula-ultima .character .classes--view .class__description {
   grid-column: 1/-1;
-}
-.fabula-ultima .character .classes--edit {
-  display: grid;
-  gap: 4px;
 }
 .fabula-ultima .character .classes--edit .class {
   display: grid;

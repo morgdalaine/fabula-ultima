@@ -136,7 +136,6 @@
     span {
       @include mixins.text-lg-700;
       white-space: nowrap;
-      color: hotpink;
     }
 
     input[value='0'] {

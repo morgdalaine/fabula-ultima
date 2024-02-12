@@ -1,7 +1,7 @@
 mixin equipment-view(spine)
   .equipment--view
     h2.equipment__heading--view(data-i18n='equipment') Equipment
-    .chimera-value.chimera-value--colon
+    .chimera-value.chimera-value--colon.equipment__may_equip
       label.chimera-value__label(data-i18n='may_equip') May Equip
       span.chimera-value__value(name='attr_may_equip')
     +chimera-repeater-simple('weapons')

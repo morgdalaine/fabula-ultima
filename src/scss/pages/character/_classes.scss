@@ -33,6 +33,12 @@
         align-items: center;
         gap: 4px;
 
+        &__name {
+          .chimera-value__value {
+            @include mixins.text-xl-700;
+          }
+        }
+
         &__skills_taken,
         &__description {
           grid-column: 1/-1;
@@ -41,9 +47,6 @@
     }
 
     &--edit {
-      display: grid;
-      gap: 4px;
-
       // base class info
       .class {
         display: grid;

@@ -33,26 +33,27 @@
     }
   }
 
-  &__view,
-  &__edit,
-  &__content,
-  &__delete {
-    display: none;
-    transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
+  &--view,
+  &--edit,
+  &--delete {
+    &:empty {
+      display: none;
+      transition: 0.3s cubic-bezier(0.95, 0.32, 0.37, 1.21);
+    }
+    &:not(:has(div)) {
+      display: none;
+    }
   }
 
   &__content {
     display: grid;
   }
 
-  &__edit,
-  &__content {
+  &--edit,
+  &--delete {
     padding: 8px;
   }
-
-  &__delete {
-    min-height: 16px;
-    padding-inline: 16px;
-    align-items: center;
+  &--view {
+    padding: 4px;
   }
 }

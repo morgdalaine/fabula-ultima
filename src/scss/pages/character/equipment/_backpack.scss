@@ -33,19 +33,23 @@
           .send-to-chat {
             margin-left: auto;
           }
+
+          input[name*='is_martial'] {
+            &[value='on'] ~ {
+              .armor__defense_bonus {
+                display: none;
+              }
+            }
+            &[value='0'] ~ {
+              .armor__defense {
+                display: none;
+              }
+            }
+          }
         }
 
-        input[name*='is_martial'] {
-          &[value='on'] ~ {
-            .armor__defense_bonus {
-              display: none;
-            }
-          }
-          &[value='0'] ~ {
-            .armor__defense {
-              display: none;
-            }
-          }
+        &__may_equip {
+          padding: 4px 8px;
         }
       }
 

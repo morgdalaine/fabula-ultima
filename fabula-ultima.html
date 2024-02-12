@@ -1,5 +1,5 @@
 <span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span>
-<input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="bestiary"/>
+<input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
 <input class="chimera-hidden" name="attr_sheet_mode" type="hidden"/>
 <div class="fabula-ultima">
   <header class="fabula-ultima__header">
@@ -505,7 +505,7 @@
           <!-- TODO Journal-->
               <div class="equipment--view">
                 <h2 class="equipment__heading--view" data-i18n="equipment">Equipment</h2>
-                <div class="chimera-value chimera-value--colon">
+                <div class="chimera-value chimera-value--colon equipment__may_equip">
                   <label class="chimera-value__label" data-i18n="may_equip">May Equip</label><span class="chimera-value__value" name="attr_may_equip"></span>
                 </div>
                 <div class="chimera-repeater--simple">
@@ -1174,22 +1174,22 @@
                             </div>
                             <label class="chimera-checkbox class__martialmelee chimera-checkbox--column-reverse" data-i18n-title="class_martialmelee_title" title="Martial Melee">
                               <div class="chimera-checkbox__field">
-                                <input id="class_martialmelee" name="attr_class_martialmelee" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                <input id="class_martialmelee" name="attr_class_martialmelee" type="checkbox"/><img data-i18n-title="martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Is Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="class_martialmelee" for="class_martialmelee">Martial Melee</span>
                             </label>
                             <label class="chimera-checkbox class__martialranged chimera-checkbox--column-reverse" data-i18n-title="class_martialranged_title" title="Martial Ranged">
                               <div class="chimera-checkbox__field">
-                                <input id="class_martialranged" name="attr_class_martialranged" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                <input id="class_martialranged" name="attr_class_martialranged" type="checkbox"/><img data-i18n-title="martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Is Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="class_martialranged" for="class_martialranged">Martial Ranged</span>
                             </label>
                             <label class="chimera-checkbox class__martialarmor chimera-checkbox--column-reverse" data-i18n-title="class_martialarmor_title" title="Martial Armor">
                               <div class="chimera-checkbox__field">
-                                <input id="class_martialarmor" name="attr_class_martialarmor" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                <input id="class_martialarmor" name="attr_class_martialarmor" type="checkbox"/><img data-i18n-title="martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Is Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="class_martialarmor" for="class_martialarmor">Martial Armor</span>
                             </label>
                             <label class="chimera-checkbox class__martialshield chimera-checkbox--column-reverse" data-i18n-title="class_martialshield_title" title="Martial Shield">
                               <div class="chimera-checkbox__field">
-                                <input id="class_martialshield" name="attr_class_martialshield" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                                <input id="class_martialshield" name="attr_class_martialshield" type="checkbox"/><img data-i18n-title="martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Is Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="class_martialshield" for="class_martialshield">Martial Shield</span>
                             </label>
                             <div class="chimera-input class__description">
@@ -1445,7 +1445,7 @@
                             </div>
                             <label class="chimera-checkbox armor__martial chimera-checkbox--column-reverse" data-i18n-title="armor_is_martial_title" title="Martial">
                               <div class="chimera-checkbox__field">
-                                <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="armor_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                                <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="armor_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
                             </label>
                             <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
@@ -1510,7 +1510,7 @@
                             </div>
                             <label class="chimera-checkbox shield__martial chimera-checkbox--column-reverse" data-i18n-title="shield_is_martial_title" title="Martial">
                               <div class="chimera-checkbox__field">
-                                <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="shield_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                                <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="shield_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
                             </label>
                             <div class="chimera-input shield__defense_bonus chimera-input--center chimera-input--small">
@@ -2706,7 +2706,7 @@
                   </div>
                   <label class="chimera-checkbox armor__martial chimera-checkbox--column-reverse" data-i18n-title="armor_is_martial_title" title="Martial">
                     <div class="chimera-checkbox__field">
-                      <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="armor_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                      <input id="armor_is_martial" name="attr_armor_is_martial" type="checkbox"/><img data-i18n-title="armor_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Martial"/>
                     </div><span class="chimera-checkbox__label" data-i18n="armor_is_martial" for="armor_is_martial">Martial</span>
                   </label>
                   <div class="chimera-input armor__defense chimera-input--center chimera-input--small">
@@ -2740,7 +2740,7 @@
                   </div>
                   <label class="chimera-checkbox shield__martial chimera-checkbox--column-reverse" data-i18n-title="shield_is_martial_title" title="Martial">
                     <div class="chimera-checkbox__field">
-                      <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="shield_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                      <input id="shield_is_martial" name="attr_shield_is_martial" type="checkbox"/><img data-i18n-title="shield_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Martial"/>
                     </div><span class="chimera-checkbox__label" data-i18n="shield_is_martial" for="shield_is_martial">Martial</span>
                   </label>
                   <div class="chimera-input shield__defense_bonus chimera-input--center chimera-input--small">
