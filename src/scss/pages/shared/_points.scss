@@ -24,6 +24,7 @@
           &__value {
             @include mixins.text-lg-700-fabula;
             text-align: center;
+            white-space: nowrap;
           }
           &__label {
             align-self: center;
@@ -45,7 +46,8 @@
             justify-content: center;
           }
 
-          &__hp {
+          &__hp,
+          &__hp_crisis {
             padding-inline: 8px;
             color: var(--color-on-dark);
             background-color: var(--color-hp);

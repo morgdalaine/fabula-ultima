@@ -7,12 +7,12 @@
         label: 'HP',
         title: 'Hit Points',
         type: 'number',
-        css: { names: ['points__hp'] },
+        css: { names: ['point--hp'] },
       },
       {
         name: 'hp_crisis',
         label: 'Crisis',
-        css: { names: ['points__hp_crisis'] },
+        css: { names: ['point--hp_crisis'] },
         type: 'number',
       },
       {
@@ -20,14 +20,14 @@
         label: 'MP',
         title: 'Mind Points',
         type: 'number',
-        css: { names: ['points__mp'] },
+        css: { names: ['point--mp'] },
       },
       {
         name: 'initiative',
         label: 'Init.',
         title: 'Initiative',
         type: 'number',
-        css: { names: ['points__initiative'] },
+        css: { names: ['point--initiative'] },
       },
       {
         name: 'ultima_points',
@@ -35,41 +35,10 @@
         type: 'number',
         min: 0,
         max: 15,
-        css: { names: ['point__ultima'], modifiers: ['small', 'center', 'column-reverse'] },
+        css: { names: ['point--ultima'], modifiers: ['small', 'center', 'column-reverse'] },
       },
     ],
-    arithmetics: [
-      {
-        name: 'hp-control',
-        label: 'HP',
-        title: 'Health Points',
-        type: 'arithmetic',
-        value: 1,
-        css: { names: ['point-controller__hp'] },
-      },
-      {
-        name: 'mp-control',
-        label: 'MP',
-        title: 'Mind Points',
-        type: 'arithmetic',
-        value: 1,
-        css: { names: ['point-controller__mp'] },
-      },
-      //- {
-      //-   name: 'up-control',
-      //-   label: 'UP',
-      //-   title: 'Ultima Points',
-      //-   type: 'arithmetic',
-      //-   value: 1,
-      //-   css: { names: ['point-controller__up'] },
-      //- }
-    ],
-    spendingultima: [
-      {
-        name: 'spending_ultima_points',
-        content: 'Spending Ultima Points',
-        css: { names : ['spending-ultima'], modifiers: ['no-label-bold'] },
-      },
+    ultima: [
       {
         name: 'ultima_escape',
         labelOverride: { key: 'escape', label: 'Escape' },

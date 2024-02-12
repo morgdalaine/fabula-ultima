@@ -65,7 +65,7 @@
   .chimera-value {
     &--bullet {
       &::before {
-        content: '✦';
+        content: '✦ ';
       }
     }
     &--column {
@@ -263,6 +263,11 @@
 
     width: fit-content;
     aspect-ratio: auto;
+
+    &__label {
+      @include mixins.text-base-700;
+      white-space: nowrap;
+    }
 
     img,
     svg {

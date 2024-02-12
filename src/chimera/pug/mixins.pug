@@ -65,7 +65,7 @@ mixin chimera-arithmetic(blob)
   - const blobTitle = blob.title ?? blob.label;
   - const inputClass = `${namespace}__field`;
 
-  .chimera-arithmetic(class=css)
+  div(class=css)
     label.chimera-arithmetic__label(data-i18n=blob.name, for=blob.name)= blob.label
     button.chimera-arithmetic__add(name=`act_${blob.name}-add`, type='action')
       +chimera-icon({ icon: 'plus' })
@@ -123,11 +123,13 @@ mixin chimera-input-element(blob)
     default
       input(
         class=blob.inputClass,
+        data-i18n-placeholder=`${blob.name}_placeholder`,
         data-i18n-title=`${blob.name}_title`,
         id=blob.name,
         max=blob.max,
         min=blob.min,
         name=blob.attr,
+        placeholder=blob.placeholder || '_',
         step=blob.step,
         title=blobTitle,
         type=blob.type,

@@ -1,47 +1,86 @@
 @use '../../common/vars' as mixins;
 
-.fabula-ultima {
-  .character {
-    .points {
-      $this: '.points';
+.fabula-ultima .character {
+  .fabula-points,
+  .experience-points {
+    @include mixins.repeater-heading;
 
-      @include mixins.repeater-heading;
+    &--view {
+      .point {
+        &__wrapper {
+          display: grid;
+          grid-template-columns: 5rem 1fr;
+          gap: 4px;
+          padding: 4px;
+        }
 
-      &--edit {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4px;
-        align-items: flex-start;
+        &--fabula,
+        &--xp {
+          justify-content: center;
 
-        .point {
-          &__hp,
-          &__mp,
-          &__ip,
-          &__initiative {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: 1fr auto;
-            // gap: 2px 4px;
-            align-items: center;
-            justify-content: center;
-
-            &-extra {
-              grid-row: span 2;
-            }
-          }
-
-          &__values {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-          }
-
-          &__helptext {
-            grid-column: 1/-2;
+          .chimera-input__field {
+            font-size: 2.5rem;
+            align-self: center;
+            border-radius: 50%;
+            height: 4rem;
+            width: 4rem;
             text-align: center;
-            @include mixins.text-sm-400;
+            padding: 0;
           }
+        }
+
+        &__spend,
+        &__declare {
+          grid-column: 1/-1;
+        }
+        &__declare {
+          display: flex;
+          align-items: flex-end;
+          gap: 4px;
+        }
+      }
+    }
+  }
+
+  .points {
+    $this: '.points';
+
+    @include mixins.repeater-heading;
+
+    &--edit {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      align-items: flex-start;
+
+      .point {
+        &__hp,
+        &__mp,
+        &__ip,
+        &__initiative {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          grid-template-rows: 1fr auto;
+          // gap: 2px 4px;
+          align-items: center;
+          justify-content: center;
+
+          &-extra {
+            grid-row: span 2;
+          }
+        }
+
+        &__values {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        }
+
+        &__helptext {
+          grid-column: 1/-2;
+          text-align: center;
+          @include mixins.text-sm-400;
         }
       }
     }

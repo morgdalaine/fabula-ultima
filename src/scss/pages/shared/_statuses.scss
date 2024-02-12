@@ -1,0 +1,121 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .status-effects {
+      $this: '.status-effects';
+
+      @include mixins.repeater-heading;
+
+      &--view {
+        display: flex;
+        // grid-template-columns: repeat(10, minmax(3rem, auto));
+        gap: 4px;
+
+        padding: 4px;
+
+        text-align: center;
+        width: min-content;
+
+        // border: 1px solid var(--color-fabula-darkest);
+        // border-right: none;
+        // border-image: var(--fabula-gradient-primary-border);
+
+        .status-debuffs {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 4px;
+        }
+        .status-buffs {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 4px;
+        }
+
+        .status-effect {
+          .chimera-value,
+          .chimera-checkbox {
+            &__label {
+              display: block;
+              white-space: nowrap;
+              // @include mixins.sr-only;
+              // @include mixins.hide-text;
+            }
+            &__value {
+              @include mixins.text-lg-500-fabula;
+              text-align: center;
+              white-space: nowrap;
+              color: var(--color-hp);
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        $statuses: 'slow', 'dazed', 'enraged', 'weak', 'shaken', 'poisoned';
+        @each $imm in $statuses {
+          input[name*='#{$imm}_immunity'] {
+            &[value='on'] {
+              ~ .status-effect--#{$imm} {
+                pointer-events: none;
+                opacity: 0.25;
+              }
+            }
+          }
+        }
+      }
+      &--edit {
+        .status-effect {
+          display: grid;
+          // grid-template-columns: auto 1fr auto;
+          grid-template-columns: auto 1fr 2fr;
+          gap: 4px;
+          align-items: center;
+
+          .chimera-input {
+            &__label {
+              @include mixins.text-lg-400;
+              align-self: center;
+            }
+          }
+        }
+      }
+    }
+
+    .status-immunities {
+      @include mixins.repeater-heading;
+      &--edit {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(3rem, auto));
+        gap: 2px;
+
+        text-align: center;
+        width: min-content;
+      }
+    }
+
+    // checkbox styling
+    .status-effect,
+    .status-boost,
+    .status-immunity {
+      &.chimera-checkbox {
+        .chimera-checkbox__field {
+          border: none;
+          border-radius: 0;
+
+          &:has(:checked) {
+            background: transparent;
+          }
+
+          svg,
+          img {
+            image-rendering: pixelated;
+            width: var(--input-component-size);
+            height: var(--input-component-size);
+          }
+        }
+      }
+    }
+  }
+}

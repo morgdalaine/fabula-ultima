@@ -12,6 +12,7 @@ include constants.spine.pug
 include translations.spine.pug
 
 include shared/affinities.spine.pug
+include shared/controllers.spine.pug
 include shared/modes.spine.pug
 include shared/statuses.spine.pug
 include shared/settings.spine.pug
@@ -45,6 +46,13 @@ include gm/gm.spine.pug
   spine.bestiary.affinities = {
     ...structuredClone(spine.shared.affinities),
     ...spine.bestiary.affinities };
+
+  spine.character.controllers = {
+    ...structuredClone(spine.shared.controllers),
+    ...spine.character.controllers };
+  spine.bestiary.controllers = {
+    ...structuredClone(spine.shared.controllers),
+    ...spine.bestiary.controllers };
 
   spine.character.statuses = {
     ...structuredClone(spine.shared.statuses),

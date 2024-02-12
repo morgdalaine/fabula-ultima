@@ -1,30 +1,24 @@
-mixin point-controllers(spine)
-  .point-controllers--view
+mixin ultima-points-view(spine)
+  .ultima-points--view
     each field in spine.points.hidden
       +chimera-hidden(field, 0)
-    .point-controller
-      each field in spine.points.arithmetics
-        +chimera-arithmetic(field)
-      +study-rolls
-    .points__ultima
       - const points = fieldDictionary(spine.points.fields);
       +chimera-input(points.ultima_points)
       .point__spending-ultima
-        each field in spine.points.spendingultima
+        each field in spine.points.ultima
           +chimera-value(field)
 
 mixin study-rolls
   .study
     label.study__label(data-i18n='study') Study
-
     +chimera-action({ name: 'study7', title: 'Study 7+ The NPCs Rank, Species, maximum HP, and maximum MP.'}).study__roll
-      label.chimera-value__label 7+
+      label.chimera-action__label 7+
       label.sr-only(data-i18n='study7_caption') The NPCs Rank, Species, maximum HP, and maximum MP.
 
     +chimera-action({ name: 'study10', title: 'Study 10+ All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities.'}).study__roll
-      label.chimera-value__label 10+
+      label.chimera-action__label 10+
       label.sr-only(data-i18n='study10_caption') All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities.
 
     +chimera-action({ name: 'study13', title: 'Study 13+ All the above, plus basic attacks and spells.'}).study__roll
-      label.chimera-value__label 13+
+      label.chimera-action__label 13+
       label.sr-only(data-i18n='study13_caption') All the above, plus basic attacks and spells.

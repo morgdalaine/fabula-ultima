@@ -33,17 +33,35 @@
         display: none;
       }
 
-      .status-effects {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
+      .study {
+        display: flex;
+        align-items: center;
         gap: 4px;
+
+        height: min-content;
+
+        &__label {
+          @include mixins.text-lg-500-fabula;
+          text-transform: uppercase;
+        }
+        .chimera-value__label {
+          margin-left: 4px;
+        }
+        &__roll {
+          flex: 1;
+        }
       }
 
-      .status-effect {
-        img,
-        svg {
-          // margin: 0; bolt svg is weird
-          filter: none;
+      .bestiary {
+        &__controls {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 4px;
+          padding: 0 4px;
+
+          .status-effects--view {
+            grid-row: span 2;
+          }
         }
       }
     }

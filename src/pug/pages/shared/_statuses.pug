@@ -1,0 +1,16 @@
+mixin status-effects-view(spine)
+  .status-effects--view
+    .status-debuffs
+      each hidden in spine.statuses.immunity
+        +chimera-hidden(hidden.name, 0)
+      each field in spine.statuses.fields
+        +chimera-input(field)
+    .status-buffs
+      each field in spine.statuses.buffs
+        +chimera-input(field)
+
+mixin status-immunity-edit(spine)
+  .status-immunities--edit
+    h2.status-immunities__heading--edit(data-i18n='status_immunities') Status Immunities
+    each field in spine.statuses.immunity
+      +chimera-input(field)

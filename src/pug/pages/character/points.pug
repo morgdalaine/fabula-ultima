@@ -1,3 +1,32 @@
+mixin fabula-points-view(spine)
+  .fabula-points--view
+    h2.fabula-points__heading--view(data-i18n='fabula_points') Fabula Points
+    - const points = fieldDictionary(spine.points.fields);
+    - const [gaining, spending] = spine.points.fabula;
+    .point__wrapper
+      +chimera-input(points.fabula_points)
+      .point__gain
+        each text in gaining
+          +chimera-value(text)
+      .point__spend
+        each text in spending
+          +chimera-value(text)
+
+      .point__declare
+        +chimera-input(points.spend_fabula_points)
+        +chimera-action({ name: 'declare-fabula' })
+          label.chimera-action__label Declare & Spend
+
+mixin experience-points-view(spine)
+  .experience-points--view
+    h2.experience-points__heading--view(data-i18n='experience_points') Experience Points
+    - const points = fieldDictionary(spine.points.fields);
+    .point__wrapper
+      +chimera-input(points.experience_points)
+      .point__gain
+        each text in spine.points.experience
+          +chimera-value(text)
+
 mixin points-edit(spine)
   .points--edit
     - const points = fieldDictionary(spine.points.fields);

@@ -18,11 +18,11 @@ mixin bestiary-view(spine)
 
     +statistics-view(spine)
 
-    .status-effects
-      each field in spine.statuses.fields
-        +chimera-input(field)
-
-    +point-controllers(spine)
+    .bestiary__controls
+      +status-effects-view(spine)
+      +study-rolls
+      +controllers-view(spine)
+      +ultima-points-view(spine)
 
     +basic-attacks-view(spine)
     +weapons-view(spine)

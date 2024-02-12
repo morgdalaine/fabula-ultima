@@ -1,0 +1,4 @@
+mixin controllers-view(spine)
+  .controllers--view
+    each field in spine.controllers.fields
+      +chimera-arithmetic(field)

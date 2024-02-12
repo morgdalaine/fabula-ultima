@@ -33,6 +33,10 @@ const STATUS_EFFECTS: Record<string, number> = {
   shaken: -1,
   slow: -1,
   weak: -1,
+  dexterity_boost: 1,
+  insight_boost: 1,
+  might_boost: 1,
+  willpower_boost: 1,
 };
 
 const RITUAL_DISCIPLINES = [
@@ -75,10 +79,10 @@ const ATTR_ABBREVIATIONS = {
 const AFFINITIES = ['physical', 'air', 'bolt', 'dark', 'earth', 'fire', 'ice', 'light', 'poison'];
 
 const ATTR_WATCH: Record<string, string[]> = {
-  dexterity: ['dexterity_max', 'slow', 'enraged'],
-  insight: ['insight_max', 'dazed', 'enraged'],
-  might: ['might_max', 'weak', 'poisoned'],
-  willpower: ['willpower_max', 'shaken', 'poisoned'],
+  dexterity: ['dexterity_max', 'slow', 'enraged', 'dexterity_boost'],
+  insight: ['insight_max', 'dazed', 'enraged', 'insight_boost'],
+  might: ['might_max', 'weak', 'poisoned', 'might_boost'],
+  willpower: ['willpower_max', 'shaken', 'poisoned', 'willpower_boost'],
 
   hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],

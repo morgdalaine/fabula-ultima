@@ -14,13 +14,23 @@ mixin character-view(spine)
   section.character--view
     +traits-view(spine)
     +statistics-view(spine)
+
+    .character__controls
+      +status-effects-view(spine)
+      +controllers-view(spine)
+
     +bonds-view(spine)
-    .traits--view
-      h2.traits__heading--view FABULA POINTS & EXPERIENCE
+    +fabula-points-view(spine)
+    +experience-points-view(spine)
 
     +weapons-view(spine)
     +spells-view(spine)
     +rituals-view(spine)
+
+    // TODO Backpack
+    // TODO Collapse sections
+    // TODO Equipment
+    // TODO Journal
 
     .traits--view
       h2.traits__heading--view BACKPACK
@@ -44,6 +54,7 @@ mixin character-edit(spine)
     //- pages
     .character__stats
       +statistics-edit(spine)
+      +status-immunity-edit(spine)
 
     .character__bonds
       +bonds-edit(spine)
