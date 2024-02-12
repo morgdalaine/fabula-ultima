@@ -2,7 +2,12 @@
   spine.character.armor = {
     heading: { name: 'armor', label: 'Armor' },
     hidden: ['armor_is_martial', 'armor_is_equipped'],
-    delete: [],
+    delete: [
+      {
+        name: 'armor_name',
+        css: { names: ['armor__name'], modifiers: [] },
+      },
+    ],
     view: [
       {
         name: 'armor_is_equipped',
@@ -107,13 +112,24 @@
         type: 'number',
         css: { names: ['armor__cost'], modifiers: ['center', 'small'] },
       },
+      {
+        name: 'armor_special',
+        label: 'Special',
+        type: 'textarea',
+        css: { names: ['armor__special'], modifiers: [] },
+      },
     ],
   };
 
   spine.character.shield = {
     heading: { name: 'shield', label: 'Shield' },
     hidden: [],
-    delete: [],
+    delete: [
+      {
+        name: 'shield_name',
+        css: { names: ['shield__name'], modifiers: [] },
+      },
+    ],
     view: [
       {
         name: 'shield_is_equipped',
@@ -218,13 +234,24 @@
         value: 0,
         css: { names: ['shield__cost'], modifiers: ['center', 'small'] },
       },
+      {
+        name: 'shield_special',
+        label: 'Special',
+        type: 'textarea',
+        css: { names: ['shield__special'], modifiers: [] },
+      },
     ],
   };
 
   spine.character.accessory = {
     heading: { name: 'accessory', label: 'Accessory' },
     hidden: [],
-    delete: [],
+    delete: [
+      {
+        name: 'accessory_name',
+        css: { names: ['accessory__name'], modifiers: [] },
+      },
+    ],
     view: [
       {
         name: 'accessory_is_equipped',
@@ -275,44 +302,6 @@
         css: { names: ['accessory__name'] },
       },
       {
-        name: 'accessory_is_martial',
-        label: 'Martial',
-        title: 'Martial',
-        type: 'checkbox',
-        css: { names: ['accessory__martial'], modifiers: ['column-reverse'] },
-      },
-      //- {
-      //-   name: 'accessory_defense',
-      //-   label: 'DEF',
-      //-   title: 'Defense',
-      //-   type: 'number',
-      //-   css: { names: ['accessory__defense'], modifiers: ['center', 'small'] },
-      //- },
-      {
-        name: 'accessory_defense_bonus',
-        label: '+DEF',
-        title: 'Defense Bonus',
-        type: 'number',
-        css: { names: ['accessory__defense_bonus'], modifiers: ['center', 'small'] },
-      },
-      //- {
-      //-   name: 'accessory_magic_defense',
-      //-   label: 'M.DEF',
-      //-   title: 'Magic Defense',
-      //-   type: 'number',
-      //-   css: { names: ['accessory__magic_defense'], modifiers: ['center', 'small'] },
-      //- },
-      {
-        name: 'accessory_magic_defense_bonus',
-        label: '+M.DEF',
-        title: 'Magic Defense Bonus',
-        type: 'number',
-        css: {
-          names: ['accessory__magic_defense_bonus'],
-          modifiers: ['center', 'small'],
-        },
-      },
-      {
         name: 'accessory_initiative',
         label: 'Initiative',
         title: 'Initiative',
@@ -328,6 +317,12 @@
         step: 50,
         value: 0,
         css: { names: ['accessory__cost'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'accessory_special',
+        label: 'Special',
+        type: 'textarea',
+        css: { names: ['accessory__special'], modifiers: [] },
       },
     ],
   };

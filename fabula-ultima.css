@@ -3228,7 +3228,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
 }
 
-.fabula-ultima .character .accessory__heading--edit {
+.fabula-ultima .character .accessories__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -3238,7 +3238,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .character .accessory__heading--view {
+.fabula-ultima .character .accessories__heading--view {
   grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
@@ -3251,23 +3251,40 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .character .accessory--edit .accessory {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
+.fabula-ultima .character .accessories--delete .accessory {
+  display: flex;
   gap: 4px;
 }
-.fabula-ultima .character .accessory--edit .accessory__name {
-  grid-column: span 3;
+.fabula-ultima .character .accessories--delete .accessory__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .accessories--delete .fabula-diamond {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .accessories--edit .accessory {
+  display: grid;
+  grid-template-columns: auto 1fr repeat(2, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .accessories--edit .accessory input[name*=is_martial][value=on] ~ .accessory__defense_bonus {
+  display: none;
+}
+.fabula-ultima .character .accessories--edit .accessory input[name*=is_martial][value="0"] ~ .accessory__defense {
+  display: none;
+}
+.fabula-ultima .character .accessories--edit .accessory__special {
   grid-column: 1/-1;
-}
-.fabula-ultima .character .accessory input[name*=is_martial][value=on] ~ .accessory__defense_bonus {
-  display: none;
-}
-.fabula-ultima .character .accessory input[name*=is_martial][value="0"] ~ .accessory__defense {
-  display: none;
 }
 
-.fabula-ultima .character .armor__heading--edit {
+.fabula-ultima .character .armors__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -3277,7 +3294,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .character .armor__heading--view {
+.fabula-ultima .character .armors__heading--view {
   grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
@@ -3290,23 +3307,40 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .character .armor--edit .armor {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
+.fabula-ultima .character .armors--delete .armor {
+  display: flex;
   gap: 4px;
 }
-.fabula-ultima .character .armor--edit .armor__name {
-  grid-column: span 3;
+.fabula-ultima .character .armors--delete .armor__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .armors--delete .fabula-diamond {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .armors--edit .armor {
+  display: grid;
+  grid-template-columns: auto 1fr repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .armors--edit .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
+  display: none;
+}
+.fabula-ultima .character .armors--edit .armor input[name*=is_martial][value="0"] ~ .armor__defense {
+  display: none;
+}
+.fabula-ultima .character .armors--edit .armor__special {
   grid-column: 1/-1;
-}
-.fabula-ultima .character .armor input[name*=is_martial][value=on] ~ .armor__defense_bonus {
-  display: none;
-}
-.fabula-ultima .character .armor input[name*=is_martial][value="0"] ~ .armor__defense {
-  display: none;
 }
 
-.fabula-ultima .character .shield__heading--edit {
+.fabula-ultima .character .backpack__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -3316,7 +3350,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .character .shield__heading--view {
+.fabula-ultima .character .backpack__heading--view {
   grid-column: 1/-1;
   background-image: var(--fabula-gradient-secondary);
   color: var(--color-on-dark);
@@ -3329,20 +3363,124 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .character .shield--edit .shield {
+.fabula-ultima .character .backpack--view input[name*=backpack_range][value=melee] ~ * .backpack__range--melee {
+  display: block;
+}
+.fabula-ultima .character .backpack--view input[name*=backpack_range][value=distance] ~ * .backpack__range--distance {
+  display: block;
+}
+.fabula-ultima .character .backpack--view .backpack {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: 1fr auto 0.5fr;
+  gap: 4px;
+  align-items: center;
+}
+.fabula-ultima .character .backpack--view .backpack .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .backpack--view .backpack__range--melee, .fabula-ultima .character .backpack--view .backpack__range--distance {
+  display: none;
+}
+.fabula-ultima .character .backpack--view .backpack__name {
+  display: flex;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .backpack--view .backpack__check {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.fabula-ultima .character .backpack--view .backpack__type {
+  text-align: end;
+}
+.fabula-ultima .character .backpack--view .backpack__type .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .backpack--view .backpack__special {
+  grid-column: 1/-1;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .backpack--edit .backpack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) repeat(3, auto);
   gap: 4px;
 }
-.fabula-ultima .character .shield--edit .shield__name {
-  grid-column: span 3;
+.fabula-ultima .character .backpack--edit .backpack__special {
   grid-column: 1/-1;
 }
-.fabula-ultima .character .shield input[name*=is_martial][value=on] ~ .shield__defense_bonus {
+.fabula-ultima .character .backpack--edit .backpack__name {
+  grid-column: span 3;
+}
+.fabula-ultima .character .shields__heading--edit {
+  grid-column: 1/-1;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .shields__heading--view {
+  grid-column: 1/-1;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .shields--delete .shield {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .shields--delete .shield__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .shields--delete .fabula-diamond {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .shields--edit .shield {
+  display: grid;
+  grid-template-columns: auto 1fr repeat(5, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .shields--edit .shield input[name*=is_martial][value=on] ~ .shield__defense_bonus {
   display: none;
 }
-.fabula-ultima .character .shield input[name*=is_martial][value="0"] ~ .shield__defense {
+.fabula-ultima .character .shields--edit .shield input[name*=is_martial][value="0"] ~ .shield__defense {
   display: none;
+}
+.fabula-ultima .character .shields--edit .shield__special {
+  grid-column: 1/-1;
 }
 
 .fabula-ultima .character .weapons__heading--edit {
@@ -3409,20 +3547,13 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .weapons--view .weapon__range--melee, .fabula-ultima .character .weapons--view .weapon__range--distance {
   display: none;
 }
-.fabula-ultima .character .weapons--view .weapon__attack {
+.fabula-ultima .character .weapons--view .weapon__name {
   display: flex;
-  gap: 4px;
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
-}
-.fabula-ultima .character .weapons--view .weapon__attack:has([name*=attack_name]:empty) .weapon__attack_name {
-  display: none;
-}
-.fabula-ultima .character .weapons--view .weapon__attack:has([name*=attack_name]:empty) .weapon__name {
-  display: inline;
 }
 .fabula-ultima .character .weapons--view .weapon__check {
   display: flex;
@@ -3439,9 +3570,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
-.fabula-ultima .character .weapons--view .weapon__name {
-  display: none;
-}
 .fabula-ultima .character .weapons--view .weapon__special {
   grid-column: 1/-1;
   font-family: var(--font-body);
@@ -3452,14 +3580,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .weapons--edit .weapon {
   display: grid;
-  grid-template-columns: 1fr repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr) repeat(3, auto);
   gap: 4px;
 }
 .fabula-ultima .character .weapons--edit .weapon__special {
   grid-column: 1/-1;
 }
 .fabula-ultima .character .weapons--edit .weapon__name {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 .fabula-ultima .character .spells__heading--edit {
   grid-column: 1/-1;

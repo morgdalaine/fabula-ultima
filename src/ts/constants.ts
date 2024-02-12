@@ -8,6 +8,10 @@ const REPEATING = [
   'classes',
   'notes',
 
+  'armors',
+  'shields',
+  'accessories',
+
   // bestiary
   'basic-attacks',
   'other-actions',

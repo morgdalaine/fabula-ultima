@@ -1,44 +1,56 @@
 @use '../../../common/vars' as mixins;
 
 .fabula-ultima .character {
-  .accessory {
-    $this: '.accessory';
+  .accessories {
+    $this: '.accessories';
 
     @include mixins.repeater-heading;
 
     // &--view {
     // }
 
-    &--edit {
+    &--delete {
       .accessory {
-        display: grid;
-        grid-template-columns: repeat(5, auto);
+        display: flex;
         gap: 4px;
 
         &__name {
-          grid-column: span 3;
-          grid-column: 1/-1;
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
         }
+      }
 
-        // &__initiative,
-        // &__cost,
-        // &__defense,
-        // &__defense_bonus,
-        // &__magic_defense,
-        // &__magic_defense_bonus {
-        // }
+      .fabula-diamond {
+        @include mixins.text-lg-700;
       }
     }
 
-    input[name*='is_martial'] {
-      &[value='on'] ~ {
-        #{$this}__defense_bonus {
-          display: none;
+    &--edit {
+      .accessory {
+        $this: '.accessory';
+
+        display: grid;
+        grid-template-columns: auto 1fr repeat(2, auto);
+        gap: 4px;
+
+        input[name*='is_martial'] {
+          &[value='on'] ~ {
+            #{$this}__defense_bonus {
+              display: none;
+            }
+          }
+          &[value='0'] ~ {
+            #{$this}__defense {
+              display: none;
+            }
+          }
         }
-      }
-      &[value='0'] ~ {
-        #{$this}__defense {
-          display: none;
+
+        &__special {
+          grid-column: 1/-1;
         }
       }
     }

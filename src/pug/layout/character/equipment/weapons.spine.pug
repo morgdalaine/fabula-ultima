@@ -12,10 +12,6 @@
         css: { names: ['weapon__is_equipped'], modifiers: ['column-reverse'] },
       },
       {
-        name: 'weapon_attack_name',
-        css: { names: ['weapon__attack_name'], modifiers: ['no-label-bold'] },
-      },
-      {
         name: 'weapon_name',
         labelOverride: { key: 'weapon', label: 'Weapon' },
         css: { names: ['weapon__name'], modifiers: ['colon'] },
@@ -87,12 +83,6 @@
     ],
     fields: [
       {
-        name: 'weapon_is_equipped',
-        label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['weapon__is_equipped'], modifiers: ['column-reverse'] },
-      },
-      {
         name: 'weapon_name',
         label: 'Weapon Name',
         type: 'text',
@@ -110,15 +100,21 @@
         label: 'Range',
         type: 'switch',
         options: rangeOptions,
-        value: rangeOptions.at(0),
+        value: rangeOptions.at(0).value,
         css: { names: ['weapon__range'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_is_equipped',
+        label: 'Equipped',
+        type: 'checkbox',
+        css: { names: ['weapon__is_equipped'], modifiers: ['column-reverse'] },
       },
       {
         name: 'weapon_category',
         label: 'Category',
         type: 'select',
         options: weaponCategoryOptions,
-        value: weaponCategoryOptions.at(0),
+        value: weaponCategoryOptions.at(0).value,
         css: { names: ['weapon__category'], modifiers: ['center'] },
       },
       {
@@ -126,16 +122,16 @@
         label: 'Attr 1',
         type: 'select',
         options: attributeOptions,
-        value: attributeOptions.at(0),
-        css: { names: ['weapon__attr1'], modifiers: ['small', 'center'] },
+        value: attributeOptions.at(0).value,
+        css: { names: ['weapon__attr1'], modifiers: ['center'] },
       },
       {
         name: 'weapon_attr2',
         label: 'Attr 2',
         type: 'select',
         options: attributeOptions,
-        value: attributeOptions.at(0),
-        css: { names: ['weapon__attr2'], modifiers: ['small', 'center'] },
+        value: attributeOptions.at(1).value,
+        css: { names: ['weapon__attr2'], modifiers: ['center'] },
       },
       {
         name: 'weapon_accuracy',
@@ -143,14 +139,6 @@
         type: 'number',
         min: 0,
         css: { names: ['weapon__accuracy'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'weapon_type',
-        label: 'Damage Type',
-        type: 'select',
-        options: damageTypeOptions,
-        value: damageTypeOptions.at(0),
-        css: { names: ['weapon__type'], modifiers: ['center'] },
       },
       {
         name: 'weapon_hands',
@@ -161,19 +149,27 @@
         css: { names: ['weapon__hands'], modifiers: ['small', 'center'] },
       },
       {
-        name: 'weapon_damage',
-        label: 'Damage',
-        type: 'number',
-        min: 0,
-        css: { names: ['weapon__damage'], modifiers: ['small', 'center'] },
-      },
-      {
         name: 'weapon_cost',
         label: 'Cost',
         type: 'number',
         min: 0,
         step: 50,
         css: { names: ['weapon__cost'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'weapon_type',
+        label: 'Damage Type',
+        type: 'select',
+        options: damageTypeOptions,
+        value: 'physical',
+        css: { names: ['weapon__type'], modifiers: ['center'] },
+      },
+      {
+        name: 'weapon_damage',
+        label: 'Damage',
+        type: 'number',
+        min: 0,
+        css: { names: ['weapon__damage'], modifiers: ['small', 'center'] },
       },
       {
         name: 'weapon_special',

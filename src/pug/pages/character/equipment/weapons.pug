@@ -12,9 +12,7 @@ mixin weapons-view(spine)
           +chimera-action({ name: 'weaponattack', title: 'Weapon Attack' }).weapon__roll
             each range in rangeOptions
               +chimera-icon(range)(class=`weapon__range--${range.name}`)
-
             .weapon__attack
-              +chimera-span(weapon.attack_name).weapon__attack_name
               +chimera-span(weapon.name).weapon__name
 
           .weapon__check

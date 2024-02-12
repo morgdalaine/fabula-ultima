@@ -121,6 +121,7 @@ mixin chimera-input-element(blob)
     when 'number'
     when 'text'
     default
+      - const placeholder = blob.placeholder ?? (blob.type === 'number' ? 0 : blob.label);
       input(
         class=blob.inputClass,
         data-i18n-placeholder=`${blob.name}_placeholder`,
@@ -129,7 +130,7 @@ mixin chimera-input-element(blob)
         max=blob.max,
         min=blob.min,
         name=blob.attr,
-        placeholder=blob.placeholder || '_',
+        placeholder=placeholder,
         step=blob.step,
         title=blobTitle,
         type=blob.type,
