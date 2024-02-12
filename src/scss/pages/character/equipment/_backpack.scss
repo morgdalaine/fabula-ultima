@@ -76,6 +76,10 @@
             }
           }
         }
+        &__is_equipped {
+          width: var(--button-component-size);
+          width: min-content;
+        }
       }
 
       .equipment {

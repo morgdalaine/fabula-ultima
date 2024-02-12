@@ -25,6 +25,7 @@ const handleClick = async (btn: string, id: string) => {
     case 'otheractionchat':
     case 'raregearchat':
     case 'shieldchat':
+    case 'accessorychat':
     case 'specialrulechat':
     case 'study7':
     case 'study10':
@@ -83,6 +84,8 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
         return 'armor_';
       case 'shieldchat':
         return 'shield_';
+      case 'accessorychat':
+        return 'accessory_';
       case 'weaponchat':
         return 'weapon_';
       // case 'classchat':
@@ -115,6 +118,10 @@ const simpleTemplate = (values: { [key: string]: string }) => {
 
   if (values.special) template.special = values.special;
   if (values.effect) template.effect = values.effect;
+
+  console.group('simpleTemplate');
+  console.log(values);
+  console.groupEnd();
 
   return template;
 };
@@ -283,11 +290,6 @@ const sendToChat = async (chat: string, id: string) => {
     const data = chatData(chat, prefix, v);
     const template = (function () {
       switch (chat) {
-        case 'otheractionchat':
-        case 'specialrulechat':
-        case 'raregearchat':
-        case 'notechat':
-          return simpleTemplate(data);
         case 'armorchat':
           return armorTemplate(data);
         case 'shieldchat':
@@ -307,6 +309,12 @@ const sendToChat = async (chat: string, id: string) => {
           return bondTemplate(data);
         case 'classchat':
           return classTemplate(data);
+        case 'otheractionchat':
+        case 'specialrulechat':
+        case 'raregearchat':
+        case 'notechat':
+        default:
+          return simpleTemplate(data);
       }
     })();
 

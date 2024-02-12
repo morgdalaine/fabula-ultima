@@ -512,6 +512,11 @@
                   <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
                   <fieldset class="repeating_weapons">
                     <div class="equipment__weapon">
+                      <label class="chimera-toggle weapon__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="weapon_is_equipped_title">
+                        <div class="chimera-toggle__field">
+                          <input id="weapon_is_equipped" name="attr_weapon_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                        </div><span class="chimera-toggle__label" data-i18n="weapon_is_equipped" for="weapon_is_equipped"></span>
+                      </label>
                       <div class="chimera-value weapon__name chimera-value--colon">
                         <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
                       </div><span class="fabula-diamond">⬥</span>
@@ -535,6 +540,11 @@
                     <div class="equipment__armor">
                       <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden" value="0"/>
                       <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden" value="0"/>
+                      <label class="chimera-toggle armor__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="armor_is_equipped_title" title="Equipped">
+                        <div class="chimera-toggle__field">
+                          <input id="armor_is_equipped" name="attr_armor_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                        </div><span class="chimera-toggle__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equipped</span>
+                      </label>
                       <div class="chimera-value armor__name chimera-value--colon">
                         <label class="chimera-value__label" data-i18n="armor" for="armor_name">Armor</label><span class="chimera-value__value" name="attr_armor_name"></span>
                       </div><span class="fabula-diamond">⬥</span>
@@ -563,6 +573,11 @@
                     <div class="equipment__shield">
                       <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden" value="0"/>
                       <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden" value="0"/>
+                      <label class="chimera-toggle shield__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="shield_is_equipped_title">
+                        <div class="chimera-toggle__field">
+                          <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                        </div><span class="chimera-toggle__label" data-i18n="shield_is_equipped" for="shield_is_equipped"></span>
+                      </label>
                       <div class="chimera-value shield__name chimera-value--colon">
                         <label class="chimera-value__label" data-i18n="shield" for="shield_name">Shield</label><span class="chimera-value__value" name="attr_shield_name"></span>
                       </div><span class="fabula-diamond">⬥</span>
@@ -588,6 +603,11 @@
                     <div class="equipment__accessory">
                       <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden" value="0"/>
                       <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden" value="0"/>
+                      <label class="chimera-toggle accessory__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="accessory_is_equipped_title" title="Equipped">
+                        <div class="chimera-toggle__field">
+                          <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                        </div><span class="chimera-toggle__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equipped</span>
+                      </label>
                       <div class="chimera-value accessory__name chimera-value--colon">
                         <label class="chimera-value__label" data-i18n="accessory" for="accessory_name">Accessory</label><span class="chimera-value__value" name="attr_accessory_name"></span>
                       </div><span class="fabula-diamond">⬥</span>
@@ -1205,10 +1225,6 @@
                                 <label class="chimera-input__label" data-i18n="class_skill1_level" for="class_skill1_level">SL</label>
                                 <input class="chimera-input__field" data-i18n-placeholder="class_skill1_level_placeholder" data-i18n-title="class_skill1_level_title" id="class_skill1_level" min="0" name="attr_class_skill1_level" placeholder="0" title="Skill Level" type="number" value="0"/>
                               </div>
-                              <div class="chimera-input class__skill_modifiers">
-                                <label class="chimera-input__label" data-i18n="class_skill1_modifiers" for="class_skill1_modifiers">Modifiers</label>
-                                <input class="chimera-input__field" data-i18n-placeholder="class_skill1_modifiers_placeholder" data-i18n-title="class_skill1_modifiers_title" id="class_skill1_modifiers" name="attr_class_skill1_modifiers" placeholder="Modifiers" title="Modifiers" type="text"/>
-                              </div>
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill1_description" for="class_skill1_description">Description</label>
                                 <textarea class="chimera-input__field" data-i18n-title="class_skill1_description_title" id="class_skill1_description" name="attr_class_skill1_description" title="Description" type="textarea"></textarea>
@@ -1220,10 +1236,6 @@
                               <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="class_skill2_level" for="class_skill2_level">SL</label>
                                 <input class="chimera-input__field" data-i18n-placeholder="class_skill2_level_placeholder" data-i18n-title="class_skill2_level_title" id="class_skill2_level" min="0" name="attr_class_skill2_level" placeholder="0" title="Skill Level" type="number" value="0"/>
-                              </div>
-                              <div class="chimera-input class__skill_modifiers">
-                                <label class="chimera-input__label" data-i18n="class_skill2_modifiers" for="class_skill2_modifiers">Modifiers</label>
-                                <input class="chimera-input__field" data-i18n-placeholder="class_skill2_modifiers_placeholder" data-i18n-title="class_skill2_modifiers_title" id="class_skill2_modifiers" name="attr_class_skill2_modifiers" placeholder="Modifiers" title="Modifiers" type="text"/>
                               </div>
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill2_description" for="class_skill2_description">Description</label>
@@ -1237,10 +1249,6 @@
                                 <label class="chimera-input__label" data-i18n="class_skill3_level" for="class_skill3_level">SL</label>
                                 <input class="chimera-input__field" data-i18n-placeholder="class_skill3_level_placeholder" data-i18n-title="class_skill3_level_title" id="class_skill3_level" min="0" name="attr_class_skill3_level" placeholder="0" title="Skill Level" type="number" value="0"/>
                               </div>
-                              <div class="chimera-input class__skill_modifiers">
-                                <label class="chimera-input__label" data-i18n="class_skill3_modifiers" for="class_skill3_modifiers">Modifiers</label>
-                                <input class="chimera-input__field" data-i18n-placeholder="class_skill3_modifiers_placeholder" data-i18n-title="class_skill3_modifiers_title" id="class_skill3_modifiers" name="attr_class_skill3_modifiers" placeholder="Modifiers" title="Modifiers" type="text"/>
-                              </div>
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill3_description" for="class_skill3_description">Description</label>
                                 <textarea class="chimera-input__field" data-i18n-title="class_skill3_description_title" id="class_skill3_description" name="attr_class_skill3_description" title="Description" type="textarea"></textarea>
@@ -1253,10 +1261,6 @@
                                 <label class="chimera-input__label" data-i18n="class_skill4_level" for="class_skill4_level">SL</label>
                                 <input class="chimera-input__field" data-i18n-placeholder="class_skill4_level_placeholder" data-i18n-title="class_skill4_level_title" id="class_skill4_level" min="0" name="attr_class_skill4_level" placeholder="0" title="Skill Level" type="number" value="0"/>
                               </div>
-                              <div class="chimera-input class__skill_modifiers">
-                                <label class="chimera-input__label" data-i18n="class_skill4_modifiers" for="class_skill4_modifiers">Modifiers</label>
-                                <input class="chimera-input__field" data-i18n-placeholder="class_skill4_modifiers_placeholder" data-i18n-title="class_skill4_modifiers_title" id="class_skill4_modifiers" name="attr_class_skill4_modifiers" placeholder="Modifiers" title="Modifiers" type="text"/>
-                              </div>
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill4_description" for="class_skill4_description">Description</label>
                                 <textarea class="chimera-input__field" data-i18n-title="class_skill4_description_title" id="class_skill4_description" name="attr_class_skill4_description" title="Description" type="textarea"></textarea>
@@ -1268,10 +1272,6 @@
                               <div class="chimera-input class__skill_level chimera-input--small chimera-input--center">
                                 <label class="chimera-input__label" data-i18n="class_skill5_level" for="class_skill5_level">SL</label>
                                 <input class="chimera-input__field" data-i18n-placeholder="class_skill5_level_placeholder" data-i18n-title="class_skill5_level_title" id="class_skill5_level" min="0" name="attr_class_skill5_level" placeholder="0" title="Skill Level" type="number" value="0"/>
-                              </div>
-                              <div class="chimera-input class__skill_modifiers">
-                                <label class="chimera-input__label" data-i18n="class_skill5_modifiers" for="class_skill5_modifiers">Modifiers</label>
-                                <input class="chimera-input__field" data-i18n-placeholder="class_skill5_modifiers_placeholder" data-i18n-title="class_skill5_modifiers_title" id="class_skill5_modifiers" name="attr_class_skill5_modifiers" placeholder="Modifiers" title="Modifiers" type="text"/>
                               </div>
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill5_description" for="class_skill5_description">Description</label>
@@ -1434,11 +1434,10 @@
                           <div class="armor">
                             <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden"/>
-                            <label class="chimera-checkbox armor__is_equipped chimera-checkbox--column-reverse" data-i18n-title="armor_is_equipped_title" title="Equipped">
-                              <div class="chimera-checkbox__field">
-                                <input id="armor_is_equipped" name="attr_armor_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                              </div><span class="chimera-checkbox__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equipped</span>
-                            </label>
+                            <div class="chimera-input armor__is_equipped chimera-input--tiny">
+                              <label class="chimera-input__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equipped</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="armor_is_equipped_placeholder" data-i18n-title="armor_is_equipped_title" id="armor_is_equipped" name="attr_armor_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
+                            </div>
                             <div class="chimera-input armor__name">
                               <label class="chimera-input__label" data-i18n="armor_name" for="armor_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="armor_name_placeholder" data-i18n-title="armor_name_title" id="armor_name" name="attr_armor_name" placeholder="Name" title="Name" type="text"/>
@@ -1499,11 +1498,10 @@
                           <div class="shield">
                             <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden"/>
-                            <label class="chimera-checkbox shield__is_equipped chimera-checkbox--column-reverse" data-i18n-title="shield_is_equipped_title" title="Equipped">
-                              <div class="chimera-checkbox__field">
-                                <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                              </div><span class="chimera-checkbox__label" data-i18n="shield_is_equipped" for="shield_is_equipped">Equipped</span>
-                            </label>
+                            <div class="chimera-input shield__is_equipped chimera-input--tiny">
+                              <label class="chimera-input__label" data-i18n="shield_is_equipped" for="shield_is_equipped">Equipped</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="shield_is_equipped_placeholder" data-i18n-title="shield_is_equipped_title" id="shield_is_equipped" name="attr_shield_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
+                            </div>
                             <div class="chimera-input shield__name">
                               <label class="chimera-input__label" data-i18n="shield_name" for="shield_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="shield_name_placeholder" data-i18n-title="shield_name_title" id="shield_name" name="attr_shield_name" placeholder="Name" title="Name" type="text"/>
@@ -1560,18 +1558,13 @@
                           <div class="accessory">
                             <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden"/>
-                            <label class="chimera-checkbox accessory__is_equipped chimera-checkbox--column-reverse" data-i18n-title="accessory_is_equipped_title" title="Equipped">
-                              <div class="chimera-checkbox__field">
-                                <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                              </div><span class="chimera-checkbox__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equipped</span>
-                            </label>
+                            <div class="chimera-input accessory__is_equipped chimera-input--tiny">
+                              <label class="chimera-input__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equipped</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="accessory_is_equipped_placeholder" data-i18n-title="accessory_is_equipped_title" id="accessory_is_equipped" name="attr_accessory_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
+                            </div>
                             <div class="chimera-input accessory__name">
                               <label class="chimera-input__label" data-i18n="accessory_name" for="accessory_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="accessory_name_placeholder" data-i18n-title="accessory_name_title" id="accessory_name" name="attr_accessory_name" placeholder="Name" title="Name" type="text"/>
-                            </div>
-                            <div class="chimera-input accessory__initiative chimera-input--center chimera-input--small">
-                              <label class="chimera-input__label" data-i18n="accessory_initiative" for="accessory_initiative">Initiative</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="accessory_initiative_placeholder" data-i18n-title="accessory_initiative_title" id="accessory_initiative" name="attr_accessory_initiative" placeholder="0" title="Initiative" type="number"/>
                             </div>
                             <div class="chimera-input accessory__cost chimera-input--center chimera-input--small">
                               <label class="chimera-input__label" data-i18n="accessory_cost" for="accessory_cost">Cost</label>
@@ -3480,6 +3473,9 @@ const CLICK_LISTENERS = {
     'repeating_basic-attacks:basicattack': 'basicattack',
     'repeating_weapons:weaponattack': 'weaponattack',
     'repeating_weapons:weaponchat': 'weaponchat',
+    'repeating_armors:armorchat': 'armorchat',
+    'repeating_shields:shieldchat': 'shieldchat',
+    'repeating_accessories:accessorychat': 'accessorychat',
     'repeating_spells:spell': 'spell',
     'repeating_rituals:ritual': 'ritual',
     'repeating_other-actions:otheractionchat': 'otheractionchat',
@@ -3574,6 +3570,7 @@ const SEND_TO_CHAT = {
         'armor_magic_defense_bonus',
         'armor_initiative',
         'armor_cost',
+        'armor_special',
     ],
     shieldchat: [
         'shield_name',
@@ -3582,7 +3579,9 @@ const SEND_TO_CHAT = {
         'shield_magic_defense_bonus',
         'shield_initiative',
         'shield_cost',
+        'shield_special',
     ],
+    accessorychat: ['accessory_name', 'accessory_cost', 'accessory_special'],
     weaponchat: [
         'weapon_name',
         'weapon_is_martial',
@@ -3730,6 +3729,7 @@ const handleClick = async (btn, id) => {
         case 'otheractionchat':
         case 'raregearchat':
         case 'shieldchat':
+        case 'accessorychat':
         case 'specialrulechat':
         case 'study7':
         case 'study10':
@@ -3781,6 +3781,8 @@ const chatData = (chat, prefix, values) => {
                 return 'armor_';
             case 'shieldchat':
                 return 'shield_';
+            case 'accessorychat':
+                return 'accessory_';
             case 'weaponchat':
                 return 'weapon_';
             case 'bond1':
@@ -3804,6 +3806,9 @@ const simpleTemplate = (values) => {
         template.special = values.special;
     if (values.effect)
         template.effect = values.effect;
+    console.group('simpleTemplate');
+    console.log(values);
+    console.groupEnd();
     return template;
 };
 const armorTemplate = (values) => {
@@ -3933,11 +3938,6 @@ const sendToChat = async (chat, id) => {
         const data = chatData(chat, prefix, v);
         const template = (function () {
             switch (chat) {
-                case 'otheractionchat':
-                case 'specialrulechat':
-                case 'raregearchat':
-                case 'notechat':
-                    return simpleTemplate(data);
                 case 'armorchat':
                     return armorTemplate(data);
                 case 'shieldchat':
@@ -3957,6 +3957,12 @@ const sendToChat = async (chat, id) => {
                     return bondTemplate(data);
                 case 'classchat':
                     return classTemplate(data);
+                case 'otheractionchat':
+                case 'specialrulechat':
+                case 'raregearchat':
+                case 'notechat':
+                default:
+                    return simpleTemplate(data);
             }
         })();
         chimeraRoll('fabula-chat', {

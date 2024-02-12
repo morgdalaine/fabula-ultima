@@ -7,7 +7,7 @@ mixin equipment-view(spine)
     +chimera-repeater-simple('weapons')
       .equipment__weapon
         - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
-        //- +chimera-input(weapon.is_equipped)
+        +chimera-toggle(weapon.is_equipped)
         +chimera-value(weapon.name)
         +fabula-diamond
         +fabula-check(weapon.attr1, weapon.attr2, weapon.accuracy, weapon.damage)
@@ -22,6 +22,7 @@ mixin equipment-view(spine)
         - const armor = fieldDictionary(spine.armor.view, 'armor');
         each field in spine.armor.hidden
           +chimera-hidden(field, 0)
+        +chimera-toggle(armor.is_equipped)
         +chimera-value(armor.name)
         +fabula-diamond
         +chimera-value(armor.defense)
@@ -39,6 +40,7 @@ mixin equipment-view(spine)
         - const shield = fieldDictionary(spine.shield.view, 'shield');
         each field in spine.shield.hidden
           +chimera-hidden(field, 0)
+        +chimera-toggle(shield.is_equipped)
         +chimera-value(shield.name)
         +fabula-diamond
         +chimera-value(shield.defense_bonus)
@@ -55,6 +57,7 @@ mixin equipment-view(spine)
         - const accessory = fieldDictionary(spine.accessory.view, 'accessory');
         each field in spine.accessory.hidden
           +chimera-hidden(field, 0)
+        +chimera-toggle(accessory.is_equipped)
         +chimera-value(accessory.name)
         +fabula-diamond
         +chimera-value(accessory.cost)

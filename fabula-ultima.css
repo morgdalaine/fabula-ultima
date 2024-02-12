@@ -444,6 +444,24 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-checkbox--center .chimera-checkbox__field {
   text-align: center;
 }
+.fabula-ultima .chimera-checkbox--hidden-label span {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+.fabula-ultima .chimera-checkbox--tiny .chimera-checkbox__field {
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
 .fabula-ultima .chimera-checkbox__label {
   font-family: var(--font-body);
   font-size: 0.875rem;
@@ -500,6 +518,118 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   opacity: 0.5;
 }
 .fabula-ultima .chimera-checkbox__field input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.fabula-ultima .chimera-toggle {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+}
+.fabula-ultima .chimera-toggle--column {
+  flex-direction: column;
+}
+.fabula-ultima .chimera-toggle--column-reverse {
+  flex-direction: column-reverse;
+}
+.fabula-ultima .chimera-toggle--flex-row {
+  flex-direction: row;
+}
+.fabula-ultima .chimera-toggle--flex-row .chimera-toggle__label {
+  align-self: center;
+}
+.fabula-ultima .chimera-toggle--center .chimera-toggle__label,
+.fabula-ultima .chimera-toggle--center .chimera-toggle__field {
+  text-align: center;
+}
+.fabula-ultima .chimera-toggle--hidden-label span {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+.fabula-ultima .chimera-toggle--tiny .chimera-toggle__field {
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+.fabula-ultima .chimera-toggle__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .chimera-toggle__field {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: var(--input-component-size);
+  height: var(--input-component-size);
+  aspect-ratio: 1;
+  color: var(--input-color);
+  background: transparent;
+  border: 2px solid var(--input-border-color);
+  border-radius: 4px;
+}
+.fabula-ultima .chimera-toggle__field:has(:checked) img,
+.fabula-ultima .chimera-toggle__field:has(:checked) svg {
+  filter: none;
+  opacity: 1;
+}
+.fabula-ultima .chimera-toggle__field:has(:checked) .chimera-toggle--off {
+  display: none;
+}
+.fabula-ultima .chimera-toggle__field:not(:has(:checked)) .chimera-toggle--on {
+  display: none;
+}
+.fabula-ultima .chimera-toggle__field:active, .fabula-ultima .chimera-toggle__field:hover, .fabula-ultima .chimera-toggle__field:focus {
+  outline: transparent;
+}
+.fabula-ultima .chimera-toggle__field:hover {
+  color: var(--button-color-hover);
+  border-color: var(--button-border-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+.fabula-ultima .chimera-toggle__field:focus {
+  color: var(--button-color-focus);
+  border-color: var(--button-border-color-focus);
+  background-color: var(--button-background-color-focus);
+}
+.fabula-ultima .chimera-toggle__field:active {
+  color: var(--button-color-active);
+  box-shadow: var(--button-shadow-active);
+  background-color: var(--button-background-color-active);
+  border-color: var(--button-border-color-active);
+}
+.fabula-ultima .chimera-toggle__field img,
+.fabula-ultima .chimera-toggle__field svg {
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
+  aspect-ratio: 1;
+  opacity: 0.5;
+}
+.fabula-ultima .chimera-toggle__field img,
+.fabula-ultima .chimera-toggle__field svg {
+  opacity: 1;
+}
+.fabula-ultima .chimera-toggle__field input[type=checkbox] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -3370,6 +3500,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .equipment--view .accessory__cost .chimera-value__value::after,
 .fabula-ultima .character .equipment--view .weapon__cost .chimera-value__value::after {
   content: " z";
+}
+.fabula-ultima .character .equipment--view .armor__is_equipped,
+.fabula-ultima .character .equipment--view .shield__is_equipped,
+.fabula-ultima .character .equipment--view .accessory__is_equipped,
+.fabula-ultima .character .equipment--view .weapon__is_equipped {
+  width: var(--button-component-size);
+  width: -moz-min-content;
+  width: min-content;
 }
 .fabula-ultima .character .equipment--view .equipment {
   display: grid;

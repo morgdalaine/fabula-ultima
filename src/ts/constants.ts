@@ -201,6 +201,9 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_basic-attacks:basicattack': 'basicattack',
   'repeating_weapons:weaponattack': 'weaponattack',
   'repeating_weapons:weaponchat': 'weaponchat',
+  'repeating_armors:armorchat': 'armorchat',
+  'repeating_shields:shieldchat': 'shieldchat',
+  'repeating_accessories:accessorychat': 'accessorychat',
   'repeating_spells:spell': 'spell',
   'repeating_rituals:ritual': 'ritual',
   'repeating_other-actions:otheractionchat': 'otheractionchat',
@@ -301,6 +304,7 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'armor_magic_defense_bonus',
     'armor_initiative',
     'armor_cost',
+    'armor_special',
   ],
   shieldchat: [
     'shield_name',
@@ -309,7 +313,9 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'shield_magic_defense_bonus',
     'shield_initiative',
     'shield_cost',
+    'shield_special',
   ],
+  accessorychat: ['accessory_name', 'accessory_cost', 'accessory_special'],
   weaponchat: [
     'weapon_name',
     'weapon_is_martial',

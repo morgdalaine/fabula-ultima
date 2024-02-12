@@ -43,6 +43,20 @@ mixin chimera-switch(blob)
           +chimera-icon({ icon: option.icon })
           span(data-i18n=option.value)= option.text
 
+mixin chimera-toggle(blob)
+  - const namespace = 'chimera-toggle';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const attr = `attr_${blob.name}`;
+  - const iconOn = blob.icon ?? 'toggleOn';
+  - const iconOff = blob.iconOff ?? 'toggleOff';
+  - const blobTitle = blob.title ?? blob.label;
+  label(class=css, data-i18n-title=`${blob.name}_title`, title=blobTitle)
+    .chimera-toggle__field
+      input(id=blob.name, name=attr, type='checkbox', value=blob.value)
+      +chimera-icon({ name: blob.name, icon: iconOff, title: blob.title }).chimera-toggle--off
+      +chimera-icon({ name: blob.name, icon: iconOn, title: blob.title }).chimera-toggle--on
+    span.chimera-toggle__label(data-i18n=blob.name, for=blob.name)= blob.label
+
 mixin chimera-checkbox(blob)
   - const namespace = 'chimera-checkbox';
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;

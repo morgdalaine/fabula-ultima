@@ -119,18 +119,31 @@
     &--column-reverse {
       flex-direction: column-reverse;
     }
-
     &--flex-row {
       flex-direction: row;
       .chimera-checkbox__label {
         align-self: center;
       }
     }
-
     &--center {
       .chimera-checkbox__label,
       .chimera-checkbox__field {
         text-align: center;
+      }
+    }
+    &--hidden-label {
+      span {
+        @include mixins.hide-text;
+        @include mixins.sr-only;
+      }
+    }
+    &--tiny {
+      .chimera-checkbox {
+        &__field {
+          border: none;
+          border-radius: 50%;
+          aspect-ratio: 1;
+        }
       }
     }
 
@@ -158,6 +171,87 @@
       }
 
       @include mixins.action-button;
+
+      input[type='checkbox'] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  .chimera-toggle {
+    &--column {
+      flex-direction: column;
+    }
+    &--column-reverse {
+      flex-direction: column-reverse;
+    }
+    &--flex-row {
+      flex-direction: row;
+      .chimera-toggle__label {
+        align-self: center;
+      }
+    }
+    &--center {
+      .chimera-toggle__label,
+      .chimera-toggle__field {
+        text-align: center;
+      }
+    }
+    &--hidden-label {
+      span {
+        @include mixins.hide-text;
+        @include mixins.sr-only;
+      }
+    }
+    &--tiny {
+      .chimera-toggle {
+        &__field {
+          border: none;
+          border-radius: 50%;
+          aspect-ratio: 1;
+        }
+      }
+    }
+
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+
+    align-items: center;
+
+    width: 100%;
+    width: stretch;
+
+    &__label {
+      @include mixins.text-sm-400;
+    }
+
+    &__field {
+      &:has(:checked) {
+        img,
+        svg {
+          filter: none;
+          opacity: 1;
+        }
+
+        .chimera-toggle--off {
+          display: none;
+        }
+      }
+      &:not(:has(:checked)) {
+        .chimera-toggle--on {
+          display: none;
+        }
+      }
+
+      @include mixins.action-button;
+      img,
+      svg {
+        opacity: 1;
+      }
 
       input[type='checkbox'] {
         position: absolute;

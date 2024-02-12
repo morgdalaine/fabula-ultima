@@ -12,8 +12,8 @@
       {
         name: 'armor_is_equipped',
         label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['armor__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['armor__is_equipped'], modifiers: ['hidden-label', 'tiny'] },
       },
       {
         name: 'armor_name',
@@ -47,8 +47,8 @@
       {
         name: 'armor_is_equipped',
         label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['armor__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['armor__is_equipped'], modifiers: ['tiny'] },
       },
       {
         name: 'armor_name',
@@ -134,9 +134,8 @@
     view: [
       {
         name: 'shield_is_equipped',
-        label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['shield__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['shield__is_equipped'], modifiers: ['hidden-label', 'tiny'] },
       },
       {
         name: 'shield_name',
@@ -170,8 +169,8 @@
       {
         name: 'shield_is_equipped',
         label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['shield__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['shield__is_equipped'], modifiers: ['tiny'] },
       },
       {
         name: 'shield_name',
@@ -258,8 +257,8 @@
       {
         name: 'accessory_is_equipped',
         label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['accessory__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['accessory__is_equipped'], modifiers: ['hidden-label', 'tiny'] },
       },
       {
         name: 'accessory_name',
@@ -280,10 +279,10 @@
         name: 'accessory_magic_defense_bonus',
         label: '+M.DEF',
       },
-      {
-        name: 'accessory_initiative',
-        labelOverride: { key: 'init', label: 'Init.' },
-      },
+      //- {
+      //-   name: 'accessory_initiative',
+      //-   labelOverride: { key: 'init', label: 'Init.' },
+      //- },
       {
         name: 'accessory_cost',
         css: { names: ['armor__cost'] },
@@ -293,8 +292,8 @@
       {
         name: 'accessory_is_equipped',
         label: 'Equipped',
-        type: 'checkbox',
-        css: { names: ['accessory__is_equipped'], modifiers: ['column-reverse'] },
+        type: 'toggle',
+        css: { names: ['accessory__is_equipped'], modifiers: ['tiny'] },
       },
       {
         name: 'accessory_name',
@@ -303,13 +302,13 @@
         type: 'text',
         css: { names: ['accessory__name'] },
       },
-      {
-        name: 'accessory_initiative',
-        label: 'Initiative',
-        title: 'Initiative',
-        type: 'number',
-        css: { names: ['accessory__initiative'], modifiers: ['center', 'small'] },
-      },
+      //- {
+      //-   name: 'accessory_initiative',
+      //-   label: 'Initiative',
+      //-   title: 'Initiative',
+      //-   type: 'number',
+      //-   css: { names: ['accessory__initiative'], modifiers: ['center', 'small'] },
+      //- },
       {
         name: 'accessory_cost',
         label: 'Cost',
