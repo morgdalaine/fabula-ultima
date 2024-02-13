@@ -1,0 +1,19 @@
+mixin inventory-view(spine)
+  .inventory--view
+    +fabula-heading-view('inventory', spine.inventory.heading)
+    .chimera-wrapper
+      .item__table
+        each header in spine.inventory.table
+          label.chimera-value__label(data-i18n=header.name)= header.label
+        each field in spine.inventory.view
+          +chimera-action(field)
+            +chimera-icon({ icon: field.icon })
+            .chimera-value(class=field.css.names)
+              label.chimera-value__label(data-i18n=field.name)= field.label
+          .chimera-value.chimera-value--center
+            span.chimera-value__value= field.cost
+          .chimera-value
+            span.chimera-value__value(data-i18n=`${field.name}_effect`)= field.title
+
+mixin inventory-edit(spine)
+  // TODO Custom inventory

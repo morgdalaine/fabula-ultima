@@ -1,14 +1,15 @@
 @use '../common/vars' as *;
 @use '../common/vars' as mixins;
 
-@use 'character/traits';
-@use 'character/bonds';
-@use 'character/statistics';
 @use 'character/attributes';
-@use 'character/points';
-@use 'character/equipment/equipment';
-@use 'character/magic/magic';
+@use 'character/bonds';
 @use 'character/classes';
+@use 'character/equipment/equipment';
+@use 'character/inventory';
+@use 'character/magic/magic';
+@use 'character/points';
+@use 'character/statistics';
+@use 'character/traits';
 @use 'shared/shared';
 
 .fabula-ultima {

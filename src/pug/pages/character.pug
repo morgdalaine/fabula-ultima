@@ -3,6 +3,7 @@ include character/bonds
 include character/classes
 include character/equipment/equipment
 include character/equipment/weapons
+include character/inventory
 include character/magic
 include character/nav
 include character/points
@@ -32,6 +33,8 @@ mixin character-view(spine)
     // TODO Backpack
     // TODO Journal
     +equipment-view(spine)
+
+    +inventory-view(spine)
 
     +classes-view(spine)
 

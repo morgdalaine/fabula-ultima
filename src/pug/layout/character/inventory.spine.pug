@@ -1,0 +1,52 @@
+-
+  spine.character.inventory = {
+    heading: { name: 'inventory', label: 'Inventory' },
+    table: [
+      { name: 'item', label: 'Item' },
+      { name: 'ip_cost', label: 'IP Cost' },
+      { name: 'effect', label: 'Effect' },
+    ],
+    view: [
+      {
+        name: 'elixir',
+        label: 'Elixir',
+        title: 'One creature recovers 50 Mind Points.',
+        icon: 'elixir',
+        cost: 3,
+        css: { names: ['item__elixir'], modifiers: [] },
+      },
+      {
+        name: 'remedy',
+        label: 'Remedy',
+        title: 'One creature recovers 50 Hit Points.',
+        icon: 'remedy',
+        cost: 3,
+        css: { names: ['item__remedy'], modifiers: [] },
+      },
+      {
+        name: 'tonic',
+        label: 'Tonic',
+        title: 'One creature recovers from a single status effect.',
+        icon: 'tonic',
+        cost: 2,
+        css: { names: ['item__tonic'], modifiers: [] },
+      },
+      {
+        name: 'elementalshard',
+        label: 'Elemental Shard',
+        title: 'One creature suffers 10 damage of a type of your choice (air, bolt, earth, fire, or ice).',
+        icon: 'elementalshard',
+        cost: 2,
+        css: { names: ['item__elementalshard'], modifiers: [] },
+      },
+      {
+        name: 'magictent',
+        label: 'Magic Tent',
+        title: 'Allows the entire group to rest in the wilderness.',
+        icon: 'magictent',
+        cost: 4,
+        css: { names: ['item__magictent'], modifiers: [] },
+      },
+    ],
+    repeating: [],
+  }

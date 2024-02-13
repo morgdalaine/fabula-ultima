@@ -19,12 +19,10 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-important(data-i18n='is_fumble') Critical Fumble!
 
     .sheet-header
-      +tags(['melee'])
-        img(src=assets.melee.src)
-      +tags(['distance'])
-        img(src=assets.distance.src)
-      +tags(['spell'])
-        img(src=assets.spell.src)
+      - const icons = ['melee', 'distance', 'spell', 'elixir', 'remedy', 'tonic', 'elementalshard', 'magictent'];
+      each tag in icons
+        +tags([tag])
+          img(src=assets[tag].src)
 
       span.sheet-fabula-label {{ name }}
 
@@ -83,12 +81,10 @@ rolltemplate.sheet-rolltemplate-fabula-chat
 
     +tags(['name'])
       .sheet-header
-        +tags(['melee'])
-          img(src=assets.melee.src)
-        +tags(['distance'])
-          img(src=assets.distance.src)
-        +tags(['spell'])
-          img(src=assets.spell.src)
+        - const icons = ['melee', 'distance', 'spell', 'elixir', 'remedy', 'tonic', 'elementalshard', 'magictent'];
+        each tag in icons
+          +tags([tag])
+            img(src=assets[tag].src)
 
         span.sheet-fabula-label {{ name }}
         +tags(['level'])
@@ -156,18 +152,15 @@ rolltemplate.sheet-rolltemplate-fabula-chat
       +tags(['category', 'hands'])
         div
           span.sheet-fabula-span {{ category }}
-          span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span(data-i18n='{{ hands }}-handed') X-Handed
 
       +tags(['init'])
         div
           span.sheet-fabula-label(data-i18n='init') Init.
-          span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ init }}
       +tags(['cost'])
         div
           span.sheet-fabula-label(data-i18n='cost') Cost
-          span.sheet-fabula-diamond ⬥
           span.sheet-fabula-span {{ cost }}
 
       +tags(['traits'])

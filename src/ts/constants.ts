@@ -209,6 +209,40 @@ const ATTR_WATCH: Record<string, string[]> = {
   // ],
 };
 
+const INVENTORY_DATA: Record<string, any> = {
+  elixir: {
+    label: 'Elixir',
+    icon: 'elixir',
+    cost: 3,
+    effect: 'One creature recovers 50 Mind Points.',
+  },
+  remedy: {
+    label: 'Remedy',
+    icon: 'remedy',
+    cost: 3,
+    effect: 'One creature recovers 50 Hit Points.',
+  },
+  tonic: {
+    label: 'Tonic',
+    icon: 'tonic',
+    cost: 2,
+    effect: 'One creature recovers from a single status effect.',
+  },
+  elementalshard: {
+    label: 'Elemental Shard',
+    icon: 'elementalshard',
+    cost: 2,
+    effect:
+      'One creature suffers 10 damage of a type of your choice (air, bolt, earth, fire, or ice).',
+  },
+  magictent: {
+    label: 'Magic Tent',
+    icon: 'magictent',
+    cost: 4,
+    effect: 'Allows the entire group to rest in the wilderness.',
+  },
+};
+
 const SECTION_PREFIX: Record<string, string> = {
   repeating_armors: 'armor_',
   repeating_shields: 'shield_',
@@ -247,6 +281,11 @@ const CLICK_LISTENERS: Record<string, string> = {
   'bond5chat': 'bond5',
   'bond6chat': 'bond6',
   'declare-fabula': 'fabulapoints',
+  'elixir': 'elixir',
+  'remedy': 'remedy',
+  'tonic': 'tonic',
+  'elementalshard': 'elementalshard',
+  'magictent': 'magictent',
 };
 
 const SEND_TO_CHAT: Record<string, string[]> = {

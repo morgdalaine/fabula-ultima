@@ -735,6 +735,57 @@
                   </fieldset>
                 </div>
               </div>
+              <div class="inventory--view">
+                <h2 class="inventory__heading--view"><span data-i18n="inventory">Inventory</span>
+                  <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
+                    <div class="chimera-toggle__field">
+                      <input id="inventory_collapse" name="attr_inventory_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                    </div><span class="chimera-toggle__label" data-i18n="inventory_collapse" for="inventory_collapse">Toggle inventory</span>
+                  </label>
+                </h2>
+                <div class="chimera-wrapper">
+                  <div class="item__table">
+                    <label class="chimera-value__label" data-i18n="item">Item</label>
+                    <label class="chimera-value__label" data-i18n="ip_cost">IP Cost</label>
+                    <label class="chimera-value__label" data-i18n="effect">Effect</label>
+                    <button class="chimera-action item__elixir" data-i18n-title="elixir_title" name="act_elixir" title="One creature recovers 50 Mind Points." type="action"><img data-i18n-title="elixir_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png" title="Elixir"/>
+                      <div class="chimera-value item__elixir">
+                        <label class="chimera-value__label" data-i18n="elixir">Elixir</label>
+                      </div>
+                    </button>
+                    <div class="chimera-value chimera-value--center"><span class="chimera-value__value">3</span></div>
+                    <div class="chimera-value"><span class="chimera-value__value" data-i18n="elixir_effect">One creature recovers 50 Mind Points.</span></div>
+                    <button class="chimera-action item__remedy" data-i18n-title="remedy_title" name="act_remedy" title="One creature recovers 50 Hit Points." type="action"><img data-i18n-title="remedy_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png" title="Remedy"/>
+                      <div class="chimera-value item__remedy">
+                        <label class="chimera-value__label" data-i18n="remedy">Remedy</label>
+                      </div>
+                    </button>
+                    <div class="chimera-value chimera-value--center"><span class="chimera-value__value">3</span></div>
+                    <div class="chimera-value"><span class="chimera-value__value" data-i18n="remedy_effect">One creature recovers 50 Hit Points.</span></div>
+                    <button class="chimera-action item__tonic" data-i18n-title="tonic_title" name="act_tonic" title="One creature recovers from a single status effect." type="action"><img data-i18n-title="tonic_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png" title="Tonic"/>
+                      <div class="chimera-value item__tonic">
+                        <label class="chimera-value__label" data-i18n="tonic">Tonic</label>
+                      </div>
+                    </button>
+                    <div class="chimera-value chimera-value--center"><span class="chimera-value__value">2</span></div>
+                    <div class="chimera-value"><span class="chimera-value__value" data-i18n="tonic_effect">One creature recovers from a single status effect.</span></div>
+                    <button class="chimera-action item__elementalshard" data-i18n-title="elementalshard_title" name="act_elementalshard" title="One creature suffers 10 damage of a type of your choice (air, bolt, earth, fire, or ice)." type="action"><img data-i18n-title="elementalshard_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png" title="Elemental Shard"/>
+                      <div class="chimera-value item__elementalshard">
+                        <label class="chimera-value__label" data-i18n="elementalshard">Elemental Shard</label>
+                      </div>
+                    </button>
+                    <div class="chimera-value chimera-value--center"><span class="chimera-value__value">2</span></div>
+                    <div class="chimera-value"><span class="chimera-value__value" data-i18n="elementalshard_effect">One creature suffers 10 damage of a type of your choice (air, bolt, earth, fire, or ice).</span></div>
+                    <button class="chimera-action item__magictent" data-i18n-title="magictent_title" name="act_magictent" title="Allows the entire group to rest in the wilderness." type="action"><img data-i18n-title="magictent_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png" title="Magic Tent"/>
+                      <div class="chimera-value item__magictent">
+                        <label class="chimera-value__label" data-i18n="magictent">Magic Tent</label>
+                      </div>
+                    </button>
+                    <div class="chimera-value chimera-value--center"><span class="chimera-value__value">4</span></div>
+                    <div class="chimera-value"><span class="chimera-value__value" data-i18n="magictent_effect">Allows the entire group to rest in the wilderness.</span></div>
+                  </div>
+                </div>
+              </div>
               <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_classes_empty" type="hidden"/>
               <div class="classes">
                 <h2 class="classes__heading--view"><span data-i18n="classes">Classes</span>
@@ -1989,6 +2040,7 @@
           <div class="character__settings">
                 <div class="settings--edit">
                   <h2 class="settings__heading--edit" data-i18n="settings">Settings</h2>
+                  <!-- TODO Implement settings-->
                   <div class="setting">
                     <label class="chimera-checkbox settings_high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
                       <div class="chimera-checkbox__field">
@@ -3397,7 +3449,7 @@
     </div>{{#^rollTotal() computed::critical 0}}{{#rollGreater() computed::critical 0}}
     <div class="sheet-critical-success"><span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span></div>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}
     <div class="sheet-critical-fumble"><span class="sheet-fabula-important" data-i18n="is_fumble">Critical Fumble!</span></div>{{/rollLess() computed::critical 0}}{{/^rollTotal() computed::critical 0}}
-    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>
+    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>
     </div>{{^noaction}}
     <div class="sheet-action">
       <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>{{#damage}}
@@ -3421,7 +3473,7 @@
       <div class="sheet-character-name"><span>{{ character }}</span></div>
       <div class="sheet-roll-type"><span>{{ action }}</span></div>
     </div>{{#name}}
-    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}<span class="sheet-fabula-label">{{ name }}</span>{{#level}}<span class="sheet-fabula-span">{{ level }}</span>{{/level}}{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
+    <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>{{#level}}<span class="sheet-fabula-span">{{ level }}</span>{{/level}}{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}
     </div>{{/name}}{{#study}}
     <div class="sheet-header sheet-space-around">{{#rank}}{{#species}}<span class="sheet-fabula-span">{{ rank }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ species }}</span>{{/species}}{{/rank}}{{#hp_max}}{{#mp_max}}<span class="sheet-fabula-diamond">⬥</span>
       <div class="sheet-hp"><span class="sheet-fabula-span">{{ hp_max }}</span><span class="sheet-fabula-label" data-i18n="hp_max">HP</span></div><span class="sheet-fabula-diamond">⬥</span>
@@ -3459,9 +3511,9 @@
       <div><span class="sheet-fabula-label">{{ accuracy }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-label">{{ damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/accuracy}}{{#def}}{{#mdef}}
       <div><span class="sheet-fabula-label" data-i18n="defense">DEF</span><span class="sheet-fabula-span">{{ def }}</span></div>
       <div><span class="sheet-fabula-label" data-i18n="magic_defense">M.DEF</span><span class="sheet-fabula-span">{{ mdef }}</span></div>{{/mdef}}{{/def}}{{#category}}{{#hands}}
-      <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed">X-Handed</span></div>{{/hands}}{{/category}}{{#init}}
-      <div><span class="sheet-fabula-label" data-i18n="init">Init.</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ init }}</span></div>{{/init}}{{#cost}}
-      <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#traits}}
+      <div><span class="sheet-fabula-span">{{ category }}</span><span class="sheet-fabula-span" data-i18n="{{ hands }}-handed">X-Handed</span></div>{{/hands}}{{/category}}{{#init}}
+      <div><span class="sheet-fabula-label" data-i18n="init">Init.</span><span class="sheet-fabula-span">{{ init }}</span></div>{{/init}}{{#cost}}
+      <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#traits}}
       <div><span class="sheet-fabula-label" data-i18n="traits">Traits</span><span class="sheet-fabula-span">{{ traits }}</span></div>{{/traits}}{{#bond}}
       <div class="sheet-bonds">{{#approval}}<span class="sheet-fabula-span">{{ approval }}</span>{{/approval}}{{#allegiance}}<span class="sheet-fabula-span">{{ allegiance }}</span>{{/allegiance}}{{#fondness}}<span class="sheet-fabula-span">{{ fondness }}</span>{{/fondness}}
       </div>{{/bond}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}
@@ -3637,6 +3689,38 @@ const ATTR_WATCH = {
         ...RITUAL_DISCIPLINES,
     ],
 };
+const INVENTORY_DATA = {
+    elixir: {
+        label: 'Elixir',
+        icon: 'elixir',
+        cost: 3,
+        effect: 'One creature recovers 50 Mind Points.',
+    },
+    remedy: {
+        label: 'Remedy',
+        icon: 'remedy',
+        cost: 3,
+        effect: 'One creature recovers 50 Hit Points.',
+    },
+    tonic: {
+        label: 'Tonic',
+        icon: 'tonic',
+        cost: 2,
+        effect: 'One creature recovers from a single status effect.',
+    },
+    elementalshard: {
+        label: 'Elemental Shard',
+        icon: 'elementalshard',
+        cost: 2,
+        effect: 'One creature suffers 10 damage of a type of your choice (air, bolt, earth, fire, or ice).',
+    },
+    magictent: {
+        label: 'Magic Tent',
+        icon: 'magictent',
+        cost: 4,
+        effect: 'Allows the entire group to rest in the wilderness.',
+    },
+};
 const SECTION_PREFIX = {
     repeating_armors: 'armor_',
     repeating_shields: 'shield_',
@@ -3673,6 +3757,11 @@ const CLICK_LISTENERS = {
     'bond5chat': 'bond5',
     'bond6chat': 'bond6',
     'declare-fabula': 'fabulapoints',
+    'elixir': 'elixir',
+    'remedy': 'remedy',
+    'tonic': 'tonic',
+    'elementalshard': 'elementalshard',
+    'magictent': 'magictent',
 };
 const SEND_TO_CHAT = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
@@ -3925,6 +4014,7 @@ const checkForCritical = (dice) => {
             : 0;
 };
 const handleClick = async (btn, id) => {
+    console.log('handleClick => ' + btn, id);
     switch (btn) {
         case 'basicattack':
         case 'weaponattack':
@@ -3942,14 +4032,20 @@ const handleClick = async (btn, id) => {
         case 'notechat':
         case 'otheractionchat':
         case 'raregearchat':
+        case 'weaponchat':
         case 'shieldchat':
         case 'accessorychat':
         case 'specialrulechat':
         case 'study7':
         case 'study10':
         case 'study13':
-        case 'weaponchat':
         case 'fabulapoints':
+        case 'elixir':
+        case 'remedy':
+        case 'tonic':
+        case 'elementalshard':
+        case 'magictent':
+        default:
             return sendToChat(btn, id);
     }
 };
@@ -3977,7 +4073,7 @@ const getSendChatRequest = (key, id) => {
         request = Object.values(attributes);
     }
     else {
-        request = SEND_TO_CHAT[key];
+        request = SEND_TO_CHAT[key] ?? [];
     }
     return { request, prefix };
 };
@@ -4009,7 +4105,7 @@ const chatData = (chat, prefix, values) => {
                 return `${chat}_`;
         }
     })();
-    return SEND_TO_CHAT[chat].reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
+    return SEND_TO_CHAT[chat]?.reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
 };
 const signedInteger = (value) => {
     return +value < 0 ? `${value}` : `+${value}`;
@@ -4157,6 +4253,16 @@ const fabulaPointsTemplate = (values) => {
     }
     return template;
 };
+const inventoryTemplate = (item, values) => {
+    const template = {};
+    const data = INVENTORY_DATA[item];
+    template.name = getTranslationByKey(item) || data.label;
+    template.special = getTranslationByKey(`${item}_effect`) || data.effect;
+    template.cost = data.cost;
+    template[item] = 'true';
+    template.action = getTranslationByKey('item') || 'Item';
+    return template;
+};
 const sendToChat = async (chat, id) => {
     const { request, prefix } = getSendChatRequest(chat, id);
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -4186,6 +4292,12 @@ const sendToChat = async (chat, id) => {
                     return classTemplate(data);
                 case 'fabulapoints':
                     return fabulaPointsTemplate(data);
+                case 'elixir':
+                case 'remedy':
+                case 'tonic':
+                case 'elementalshard':
+                case 'magictent':
+                    return inventoryTemplate(chat, data);
                 case 'otheractionchat':
                 case 'specialrulechat':
                 case 'raregearchat':

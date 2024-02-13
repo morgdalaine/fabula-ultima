@@ -91,7 +91,9 @@
         @include mixins.text-base-700;
       }
     }
-
+    &--center {
+      text-align: center;
+    }
     &--helptext {
       .chimera-value {
         &__label {

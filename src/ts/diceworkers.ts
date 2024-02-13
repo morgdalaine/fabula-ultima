@@ -7,6 +7,7 @@ const checkForCritical = (dice: number[]) => {
 };
 
 const handleClick = async (btn: string, id: string) => {
+  console.log('handleClick => ' + btn, id);
   switch (btn) {
     case 'basicattack':
     case 'weaponattack':
@@ -24,14 +25,20 @@ const handleClick = async (btn: string, id: string) => {
     case 'notechat':
     case 'otheractionchat':
     case 'raregearchat':
+    case 'weaponchat':
     case 'shieldchat':
     case 'accessorychat':
     case 'specialrulechat':
     case 'study7':
     case 'study10':
     case 'study13':
-    case 'weaponchat':
     case 'fabulapoints':
+    case 'elixir':
+    case 'remedy':
+    case 'tonic':
+    case 'elementalshard':
+    case 'magictent':
+    default:
       return sendToChat(btn, id);
   }
 };
@@ -64,7 +71,7 @@ const getSendChatRequest = (key: string, id: string) => {
     );
     request = Object.values(attributes);
   } else {
-    request = SEND_TO_CHAT[key];
+    request = SEND_TO_CHAT[key] ?? [];
   }
 
   return { request, prefix };
@@ -101,7 +108,7 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
     }
   })();
 
-  return SEND_TO_CHAT[chat].reduce(
+  return SEND_TO_CHAT[chat]?.reduce(
     (memo: { [key: string]: string }, attr: string) => (
       (memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo
     ),
@@ -295,6 +302,19 @@ const fabulaPointsTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const inventoryTemplate = (item: string, values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+  const data = INVENTORY_DATA[item];
+
+  template.name = getTranslationByKey(item) || data.label;
+  template.special = getTranslationByKey(`${item}_effect`) || data.effect;
+  template.cost = data.cost;
+  template[item] = 'true';
+  template.action = getTranslationByKey('item') || 'Item';
+
+  return template;
+};
+
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -325,6 +345,12 @@ const sendToChat = async (chat: string, id: string) => {
           return classTemplate(data);
         case 'fabulapoints':
           return fabulaPointsTemplate(data);
+        case 'elixir':
+        case 'remedy':
+        case 'tonic':
+        case 'elementalshard':
+        case 'magictent':
+          return inventoryTemplate(chat, data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':
