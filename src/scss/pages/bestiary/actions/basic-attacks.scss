@@ -4,7 +4,7 @@
   .basic-attacks {
     $this: '.basic-attacks';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .basic-attack {

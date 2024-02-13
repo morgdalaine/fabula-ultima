@@ -3,7 +3,7 @@
 .fabula-ultima .character {
   .fabula-points,
   .experience-points {
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--view {
       .point {
@@ -45,7 +45,7 @@
   .points {
     $this: '.points';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--edit {
       display: grid;

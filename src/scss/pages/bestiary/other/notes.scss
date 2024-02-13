@@ -4,7 +4,7 @@
   .notes {
     $this: '.notes';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .note {

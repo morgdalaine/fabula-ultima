@@ -166,7 +166,7 @@
   height: min-content;
 }
 
-@mixin repeater-heading {
+@mixin fabula-heading {
   &__heading {
     &--edit {
       grid-column: 1/-1;
@@ -175,6 +175,7 @@
     }
     &--view {
       grid-column: 1/-1;
+      display: flex;
       background-image: var(--fabula-gradient-secondary);
       color: var(--color-on-dark);
       padding-left: 16px;

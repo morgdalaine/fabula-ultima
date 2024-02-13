@@ -2,7 +2,7 @@
 
 .fabula-ultima .character {
   .rituals {
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &-known {
       display: grid;

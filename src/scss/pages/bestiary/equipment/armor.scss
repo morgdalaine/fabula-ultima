@@ -4,7 +4,7 @@
   .armor {
     $this: '.armor';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--view {
     }

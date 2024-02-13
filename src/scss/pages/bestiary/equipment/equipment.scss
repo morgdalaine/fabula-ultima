@@ -4,7 +4,7 @@
   .equipments {
     $this: '.equipment';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     .equipment {
       display: grid;

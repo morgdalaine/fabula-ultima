@@ -4,7 +4,7 @@
   .equipment {
     $this: '.equipment';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--view {
       input[name*='backpack_range'] {

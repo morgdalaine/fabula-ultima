@@ -6,7 +6,7 @@
     .controllers {
       $this: '.controllers';
 
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
 
       &--view {
         display: flex;

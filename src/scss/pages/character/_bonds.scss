@@ -4,7 +4,7 @@
   .bonds {
     $this: '.bonds';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--view {
       display: grid;

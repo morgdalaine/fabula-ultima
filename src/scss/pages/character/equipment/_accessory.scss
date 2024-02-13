@@ -4,7 +4,7 @@
   .accessories {
     $this: '.accessories';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     // &--view {
     // }

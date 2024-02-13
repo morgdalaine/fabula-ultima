@@ -9,7 +9,7 @@
       background-color: hotpink;
     }
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .weapon {

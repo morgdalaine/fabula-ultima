@@ -6,7 +6,7 @@
     .points {
       $this: '.points';
 
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
 
       &--view {
         display: grid;

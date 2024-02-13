@@ -4,7 +4,7 @@
   .attributes {
     $this: '.attributes';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &__distribution {
       grid-column: span 2;

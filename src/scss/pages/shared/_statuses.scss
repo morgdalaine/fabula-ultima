@@ -6,7 +6,7 @@
     .status-effects {
       $this: '.status-effects';
 
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
 
       &--view {
         display: flex;
@@ -81,7 +81,7 @@
     }
 
     .status-immunities {
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
       &--edit {
         grid-column: 1/-1;
         display: grid;

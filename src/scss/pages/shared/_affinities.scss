@@ -6,7 +6,7 @@
     .affinities {
       $this: '.affinities';
 
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
 
       &--view {
         display: grid;
@@ -109,7 +109,7 @@
       }
     }
     .statuses {
-      @include mixins.repeater-heading;
+      @include mixins.fabula-heading;
       &--edit {
         grid-column: 1/-1;
         display: grid;

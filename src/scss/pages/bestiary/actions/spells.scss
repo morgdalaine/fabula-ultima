@@ -4,7 +4,7 @@
   .spells {
     $this: '.spells';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .spell {

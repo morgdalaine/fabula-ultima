@@ -4,7 +4,7 @@
   .other-actions {
     $this: '.other-actions';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .other-action {

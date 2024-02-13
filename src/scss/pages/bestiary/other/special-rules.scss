@@ -4,7 +4,7 @@
   .special-rules {
     $this: '.special-rules';
 
-    @include mixins.repeater-heading;
+    @include mixins.fabula-heading;
 
     &--delete {
       .special-rule {
