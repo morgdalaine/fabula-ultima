@@ -12,7 +12,6 @@ mixin fabula-points-view(spine)
         each text in spending
           +chimera-value(text)
 
-      // TODO Attach to event listener
       .point__declare
         +chimera-input(points.spend_fabula_points)
         +chimera-action({ name: 'declare-fabula' })

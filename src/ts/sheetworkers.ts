@@ -88,6 +88,7 @@ const calculateMaxHP = (request: string[]) => {
 
     let hp_max: number;
     if (v.sheet_type === 'character') {
+      // TODO calculate HP bonus from Classes
       hp_max = might_max * 5 + level + hp_extra; // + [class benefits]
     }
     if (v.sheet_type === 'bestiary') {
@@ -113,6 +114,7 @@ const calculateMaxMP = (request: string[]) => {
 
     let mp_max: number;
     if (v.sheet_type === 'character') {
+      // TODO calculate MP bonus from Classes
       mp_max = willpower_max * 5 + level + mp_extra; // + [class benefits]
     }
     if (v.sheet_type === 'bestiary') {
@@ -133,6 +135,7 @@ const calculateMaxIP = (request: string[]) => {
 
     const ip_extra: number = +v.ip_extra ?? 0;
     const ip_max = 6 + ip_extra;
+    // TODO calculate IP bonus from Classes
 
     setAttrs({ ip_max }, { silent: true });
   });

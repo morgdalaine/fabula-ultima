@@ -31,6 +31,7 @@ const handleClick = async (btn: string, id: string) => {
     case 'study10':
     case 'study13':
     case 'weaponchat':
+    case 'fabulapoints':
       return sendToChat(btn, id);
   }
 };
@@ -118,10 +119,6 @@ const simpleTemplate = (values: { [key: string]: string }) => {
 
   if (values.special) template.special = values.special;
   if (values.effect) template.effect = values.effect;
-
-  console.group('simpleTemplate');
-  console.log(values);
-  console.groupEnd();
 
   return template;
 };
@@ -268,8 +265,6 @@ const bondTemplate = (values: { [key: string]: string }) => {
 const classTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
-  console.log(values);
-
   template.benefit = getTranslationByKey(values.benefit) || values.benefit;
   template.name = values.class_name;
   template.character_level = values.character_level;
@@ -277,6 +272,25 @@ const classTemplate = (values: { [key: string]: string }) => {
 
   template.effect = values.class_skills_taken;
   template.special = values.class_description;
+
+  return template;
+};
+
+const fabulaPointsTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  const current = +values.fabula_points ?? 0;
+  const newValue = current - 1;
+  const fabula_points = getTranslationByKey('fabula_points') || 'Fabula Points';
+
+  if (newValue >= 0) {
+    template.name = `${fabula_points} (${current} - 1 = ${newValue})`;
+    template.special = values.spend_fabula_points;
+    setAttrs({ spend_fabula_points: '', fabula_points: newValue }, { silent: true });
+  } else {
+    template.name = `${fabula_points} (0)`;
+    template.special = getTranslationByKey('spend_fabula_failed') || 'No fabula points...';
+  }
 
   return template;
 };
@@ -309,6 +323,8 @@ const sendToChat = async (chat: string, id: string) => {
           return bondTemplate(data);
         case 'classchat':
           return classTemplate(data);
+        case 'fabulapoints':
+          return fabulaPointsTemplate(data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':

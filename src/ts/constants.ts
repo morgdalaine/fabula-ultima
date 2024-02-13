@@ -246,6 +246,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'bond4chat': 'bond4',
   'bond5chat': 'bond5',
   'bond6chat': 'bond6',
+  'declare-fabula': 'fabulapoints',
 };
 
 const SEND_TO_CHAT: Record<string, string[]> = {
@@ -363,6 +364,7 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'level',
     'class_description',
   ],
+  fabulapoints: ['fabula_points', 'spend_fabula_points'],
 };
 SEND_TO_CHAT.study10 = [
   ...SEND_TO_CHAT.study7,

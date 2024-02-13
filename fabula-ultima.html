@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
 <input class="chimera-hidden" name="attr_sheet_mode" type="hidden"/>
 <div class="fabula-ultima">
@@ -416,7 +416,6 @@
                     <div class="chimera-value spending-fabula chimera-value--bullet chimera-value--helptext"><span class="chimera-value__value" data-i18n="fabula_spend_to_alter_the_story">Spend 1 Fabula Point to alter the story. If you alter an existing element, you need permission from whoever introduced it.</span>
                     </div>
                   </div>
-                  <!-- TODO Attach to event listener-->
                   <div class="point__declare">
                     <div class="chimera-input point--spend-fabula">
                       <label class="chimera-input__label" data-i18n="spend_fabula_points" for="spend_fabula_points">Declare and Spend Fabula Point</label>
@@ -613,8 +612,6 @@
                 </div>
               </div>
           <!-- TODO Backpack-->
-          <!-- TODO Collapse sections-->
-          <!-- TODO Equipment-->
           <!-- TODO Journal-->
               <div class="equipment--view">
                 <h2 class="equipment__heading--view"><span data-i18n="equipment">Equipment</span>
@@ -2024,7 +2021,6 @@
         </section>
   </main>
   <main class="bestiary">
-    <!-- TODO Study Roll-->
         <section class="bestiary--view">
               <div class="bio--view">
                 <div class="bio">
@@ -3676,6 +3672,7 @@ const CLICK_LISTENERS = {
     'bond4chat': 'bond4',
     'bond5chat': 'bond5',
     'bond6chat': 'bond6',
+    'declare-fabula': 'fabulapoints',
 };
 const SEND_TO_CHAT = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
@@ -3787,6 +3784,7 @@ const SEND_TO_CHAT = {
         'level',
         'class_description',
     ],
+    fabulapoints: ['fabula_points', 'spend_fabula_points'],
 };
 SEND_TO_CHAT.study10 = [
     ...SEND_TO_CHAT.study7,
@@ -3951,6 +3949,7 @@ const handleClick = async (btn, id) => {
         case 'study10':
         case 'study13':
         case 'weaponchat':
+        case 'fabulapoints':
             return sendToChat(btn, id);
     }
 };
@@ -4022,9 +4021,6 @@ const simpleTemplate = (values) => {
         template.special = values.special;
     if (values.effect)
         template.effect = values.effect;
-    console.group('simpleTemplate');
-    console.log(values);
-    console.groupEnd();
     return template;
 };
 const armorTemplate = (values) => {
@@ -4137,13 +4133,28 @@ const bondTemplate = (values) => {
 };
 const classTemplate = (values) => {
     const template = {};
-    console.log(values);
     template.benefit = getTranslationByKey(values.benefit) || values.benefit;
     template.name = values.class_name;
     template.character_level = values.character_level;
     template.level = values.class_level;
     template.effect = values.class_skills_taken;
     template.special = values.class_description;
+    return template;
+};
+const fabulaPointsTemplate = (values) => {
+    const template = {};
+    const current = +values.fabula_points ?? 0;
+    const newValue = current - 1;
+    const fabula_points = getTranslationByKey('fabula_points') || 'Fabula Points';
+    if (newValue >= 0) {
+        template.name = `${fabula_points} (${current} - 1 = ${newValue})`;
+        template.special = values.spend_fabula_points;
+        setAttrs({ spend_fabula_points: '', fabula_points: newValue }, { silent: true });
+    }
+    else {
+        template.name = `${fabula_points} (0)`;
+        template.special = getTranslationByKey('spend_fabula_failed') || 'No fabula points...';
+    }
     return template;
 };
 const sendToChat = async (chat, id) => {
@@ -4173,6 +4184,8 @@ const sendToChat = async (chat, id) => {
                     return bondTemplate(data);
                 case 'classchat':
                     return classTemplate(data);
+                case 'fabulapoints':
+                    return fabulaPointsTemplate(data);
                 case 'otheractionchat':
                 case 'specialrulechat':
                 case 'raregearchat':
