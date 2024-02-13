@@ -14,6 +14,7 @@ include translations.spine.pug
 include shared/affinities.spine.pug
 include shared/controllers.spine.pug
 include shared/modes.spine.pug
+include shared/rolls.spine.pug
 include shared/statuses.spine.pug
 include shared/settings.spine.pug
 
@@ -67,3 +68,10 @@ include gm/gm.spine.pug
   spine.bestiary.settings = {
     ...structuredClone(spine.shared.settings),
     ...spine.bestiary.settings };
+
+  spine.character.rolls = {
+    ...structuredClone(spine.shared.rolls),
+    ...spine.character.rolls };
+  spine.bestiary.rolls = {
+    ...structuredClone(spine.shared.rolls),
+    ...spine.bestiary.rolls };

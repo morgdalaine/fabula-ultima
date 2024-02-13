@@ -1,0 +1,14 @@
+mixin rolls-view(spine)
+  .rolls--view
+    +fabula-heading-view('rolls', { name: 'frequently_used_checks', label: 'Frequently Used Checks' })
+    .chimera-wrapper
+      .roll__custom
+        each field in spine.rolls.fields
+          +chimera-input(field)
+        +chimera-action({ name: 'check_custom', title: 'Roll Custom Check' }).roll__check--custom
+          +chimera-icon({ icon: 'dice' })
+          label.chimera-action__label(data-i18n='roll') Roll
+
+      each action in spine.rolls.actions
+        +chimera-action(action)
+          label.chimera-action__label(data-i18n=action.name)= action.label

@@ -26,3 +26,19 @@ mixin send-to-chat(attr, title)
   +chimera-action({ title: buttonTitle, name:`${attr}chat` }).send-to-chat
     +chimera-icon({ icon: 'chat' })
     span(data-i18n='send_to_chat') Send to Chat
+
+mixin toggle-collapse(attr)
+  - const css = { modifiers: ['hidden-label', 'tiny'] };
+  +chimera-toggle({ name: `${attr}_collapse`, label: `Toggle ${attr}`, icon: 'expand', iconOff: 'collapse', css: css })
+
+mixin fabula-heading-view(attr, heading, toggle=true)
+  h2(class=`${attr}__heading--view`)
+    span(data-i18n=heading.name)= heading.label
+    if (toggle)
+      +toggle-collapse(attr)
+
+mixin fabula-heading-edit(attr, heading, toggle=true)
+  h2(class=`${attr}__heading--edit`)
+    span(data-i18n=heading.name)= heading.label
+    if (toggle)
+      +toggle-collapse(attr)

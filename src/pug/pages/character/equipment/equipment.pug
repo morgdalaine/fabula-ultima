@@ -1,9 +1,10 @@
 mixin equipment-view(spine)
   .equipment--view
-    h2.equipment__heading--view(data-i18n='equipment') Equipment
+    +fabula-heading-view('equipment', { name: 'equipment', label: 'Equipment' })
     .chimera-value.chimera-value--colon.equipment__may_equip
       label.chimera-value__label(data-i18n='may_equip') May Equip
       span.chimera-value__value(name='attr_may_equip')
+
     +chimera-repeater-simple('weapons')
       .equipment__weapon
         - const weapon = fieldDictionary(spine.weapons.view, 'weapon');
@@ -65,7 +66,8 @@ mixin equipment-view(spine)
 
 mixin armors-edit(spine)
   .armors
-    h2.armors__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
+    +fabula-heading-edit('armors', spine.armor.heading)
+
     +chimera-repeater('armors')
       +chimera-block('delete')
         .armor
@@ -80,7 +82,7 @@ mixin armors-edit(spine)
 
 mixin shields-edit(spine)
   .shields
-    h2.shields__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
+    +fabula-heading-edit('shields', spine.shield.heading)
     +chimera-repeater('shields')
       +chimera-block('delete')
         .shield
@@ -95,7 +97,7 @@ mixin shields-edit(spine)
 
 mixin accessories-edit(spine)
   .accessories
-    h2.accessories__heading--edit(data-i18n=spine.accessory.heading.name)= spine.accessory.heading.label
+    +fabula-heading-edit('accessories', spine.accessory.heading)
     +chimera-repeater('accessories')
       +chimera-block('delete')
         .accessory

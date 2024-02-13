@@ -1,0 +1,47 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .rolls {
+      $this: '.rolls';
+
+      @include mixins.fabula-heading;
+
+      &--view {
+        .chimera-wrapper {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 4px;
+
+          padding-inline: 4px;
+        }
+
+        .roll {
+          &__custom {
+            grid-column: 1/-1;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+          }
+          &__check {
+            width: 100%;
+
+            &--custom {
+              padding-inline: 16px;
+              img,
+              svg {
+                position: relative;
+              }
+            }
+          }
+        }
+      }
+
+      &--edit {
+        display: grid;
+        gap: 4px;
+      }
+    }
+  }
+}

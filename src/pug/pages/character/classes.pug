@@ -1,7 +1,7 @@
 mixin classes-view(spine)
   +chimera-hidden('classes_empty').chimera-repeater--empty-hide-next
   .classes
-    h2.classes__heading--view(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
+    +fabula-heading-view('classes', spine.classes.heading)
     +chimera-repeater('classes')
       +chimera-block('view')
         .class
@@ -19,7 +19,7 @@ mixin classes-view(spine)
 
 mixin classes-edit(spine)
   .classes--edit
-    h2.classes__heading--edit(data-i18n=spine.classes.heading.name)= spine.classes.heading.label
+    +fabula-heading-edit('classes', spine.classes.heading, false)
     +chimera-repeater('classes')
       +chimera-block('delete')
         .class

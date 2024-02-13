@@ -27,6 +27,7 @@
         &[value='#{$page}'] {
           ~ * #{$this}__#{$page} {
             display: grid;
+            gap: 4px;
           }
         }
       }

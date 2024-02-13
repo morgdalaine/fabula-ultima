@@ -170,7 +170,7 @@ mixin chimera-action(blob)
   - const actionClass = `${namespace}__field`;
   - const attr = `act_${blob.name}`;
   - const blobTitle = blob.title ?? blob.label;
-  button(class=css, data-i18n-title=blob.name, name=attr, title=blobTitle, type='action')&attributes(attributes)
+  button(class=css, data-i18n-title=`${blob.name}_title`, name=attr, title=blobTitle, type='action')&attributes(attributes)
     //- +chimera-icon(blob)
     block
 

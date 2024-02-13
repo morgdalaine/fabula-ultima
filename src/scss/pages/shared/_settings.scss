@@ -1,0 +1,17 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima {
+  .bestiary,
+  .character {
+    .settings {
+      $this: '.settings';
+
+      @include mixins.fabula-heading;
+
+      &--edit {
+        display: grid;
+        gap: 4px;
+      }
+    }
+  }
+}

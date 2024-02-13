@@ -168,8 +168,16 @@
 
 @mixin fabula-heading {
   &__heading {
+    &--edit,
+    &--view {
+      .chimera-toggle {
+        margin-left: auto;
+      }
+    }
+
     &--edit {
       grid-column: 1/-1;
+      display: flex;
       @include text-xl-400-fabula;
       text-transform: capitalize;
     }
@@ -178,10 +186,34 @@
       display: flex;
       background-image: var(--fabula-gradient-secondary);
       color: var(--color-on-dark);
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-inline-start: 16px;
       @include text-xxl-500-fabula;
     }
+  }
+
+  &--view,
+  &--edit {
+    &:has(input[name*='collapse']:checked) {
+      .chimera-wrapper,
+      .chimera-repeater--simple {
+        height: 0;
+      }
+    }
+    .chimera-wrapper,
+    .chimera-repeater--simple {
+      overflow: hidden;
+    }
+  }
+
+  &:has(input[name*='collapse']:checked) {
+    .chimera-repeater,
+    .chimera-repeater--simple {
+      height: 0;
+    }
+  }
+  .chimera-repeater,
+  .chimera-repeater--simple {
+    overflow: hidden;
   }
 }
 

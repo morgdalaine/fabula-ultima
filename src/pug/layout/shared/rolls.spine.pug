@@ -1,0 +1,100 @@
+-
+  spine.shared.rolls = {
+    heading: { name: 'rolls', label: '' },
+    fields: [
+      {
+        name: 'check_attr1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['check__attr1'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'check_attr2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['check__attr2'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'check_description',
+        label: 'Custom Check',
+        type: 'text',
+        css: { names: ['check__description'] },
+      },
+    ],
+    actions: [
+      {
+        name: 'check_sneak',
+        label: 'Sneak【DEX + DEX】',
+        title: 'Moving silently, hiding and acting unnoticed.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_dodge',
+        label: 'Dodge【DEX + INS】',
+        title: 'Avoiding a trap or finding a way to flee a collapsing building.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_anticipate',
+        label: 'Anticipate【DEX + INS】',
+        title: 'Anticipating someone’s movements and catching them by surprise.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_tinker',
+        label: 'Tinker【DEX + INS】',
+        title: 'Completing a work of craftsmanship or repairing something.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_captivate',
+        label: 'Captivate【DEX + WLP】',
+        title: 'Moving gracefully to earn someone’s attention.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_study',
+        label: 'Study【INS + INS】',
+        title: 'Examining or investigating someone or something.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_recall',
+        label: 'Recall【INS + INS】',
+        title: 'Remembering useful information about something.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_interrogate',
+        label: 'Interrogate【INS + WLP】',
+        title: 'Getting information from someone during a conversation.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_persuade',
+        label: 'Persuade【INS + WLP】',
+        title: 'Persuading someone through authority or diplomacy.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_effort',
+        label: 'Effort【MIG + MIG】',
+        title: 'Hard work, such as lifting a portcullis or pushing a statue.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_endure',
+        label: 'Endure【MIG + WLP】',
+        title: 'Resisting intense pain or fatigue.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+      {
+        name: 'check_intimidate',
+        label: 'Intimidate【MIG + WLP】',
+        title: 'Intimidating someone with your strength.',
+        css: { names: ['roll__check'], modifiers: [] },
+      },
+    ]
+  }

@@ -1,9 +1,9 @@
 mixin fabula-points-view(spine)
   .fabula-points--view
-    h2.fabula-points__heading--view(data-i18n='fabula_points') Fabula Points
+    +fabula-heading-view('fabula-points', { name: 'fabula_points', value: 'Fabula Points' })
     - const points = fieldDictionary(spine.points.fields);
     - const [gaining, spending] = spine.points.fabula;
-    .point__wrapper
+    .point__wrapper.chimera-wrapper
       +chimera-input(points.fabula_points)
       .point__gain
         each text in gaining
@@ -12,6 +12,7 @@ mixin fabula-points-view(spine)
         each text in spending
           +chimera-value(text)
 
+      // TODO Attach to event listener
       .point__declare
         +chimera-input(points.spend_fabula_points)
         +chimera-action({ name: 'declare-fabula' })
@@ -19,9 +20,9 @@ mixin fabula-points-view(spine)
 
 mixin experience-points-view(spine)
   .experience-points--view
-    h2.experience-points__heading--view(data-i18n='experience_points') Experience Points
+    +fabula-heading-view('experience-points', { name: 'experience_points', value: 'Experience Points' })
     - const points = fieldDictionary(spine.points.fields);
-    .point__wrapper
+    .point__wrapper.chimera-wrapper
       +chimera-input(points.experience_points)
       .point__gain
         each text in spine.points.experience

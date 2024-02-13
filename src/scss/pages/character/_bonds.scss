@@ -7,10 +7,6 @@
     @include mixins.fabula-heading;
 
     &--view {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
-
       @each $bond in 1, 2, 3, 4, 5, 6 {
         input[name*='bond#{$bond}_level'] {
           &[value='0'],
@@ -21,6 +17,12 @@
             }
           }
         }
+      }
+
+      .chimera-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
       }
 
       .bond {
@@ -41,9 +43,11 @@
     }
 
     &--edit {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
+      .chimera-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+      }
 
       .bond {
         display: grid;
