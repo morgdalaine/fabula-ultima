@@ -1,4 +1,6 @@
-const handleCalculations = (attr: string) => {
+const handleCalculations = (attr: string, eventInfo: EventInfo) => {
+  if (eventInfo.sourceType === 'sheetworker') return;
+
   switch (attr) {
     case 'dexterity':
     case 'insight':
@@ -19,10 +21,8 @@ const handleCalculations = (attr: string) => {
       return calculateInitiative(ATTR_WATCH[attr]);
 
     case 'defense':
-      return calculateDefense(ATTR_WATCH[attr]);
-
     case 'magic_defense':
-      return calculateMagicDefense(ATTR_WATCH[attr]);
+      return calculateDefenses();
 
     case 'basic_attacks':
       return calculateBasicAccuracyDamage(ATTR_WATCH[attr]);
@@ -38,7 +38,10 @@ const handleCalculations = (attr: string) => {
     case 'bonds':
       return calculateBondLevels(ATTR_WATCH[attr]);
 
-    case 'equipments_empty':
+    case 'equipped':
+      return manageEquipment(eventInfo?.sourceAttribute);
+
+    // case 'equipments_empty':
     case 'villain_empty':
       return isFieldEmpty(attr, ATTR_WATCH[attr]);
   }
@@ -62,11 +65,10 @@ const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
   const die = +v[`${attr}_max`] ?? 0;
   const currentStep = DIE_SIZES.findIndex((size) => size == die);
 
+  // TODO Status immunities
   const debuffs = ATTR_WATCH[attr]
     .filter((a) => !a.includes('max'))
     .reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
-
-  // TODO Awaken (stat buffs)
 
   const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
   return DIE_SIZES.at(newSize);
@@ -159,38 +161,94 @@ const updatePoints = (attr: string, direction: string) => {
   });
 };
 
-const calculateDefense = (request: string[]) => {
-  getAttrs(request, (v) => {
-    const dexterity: number = +v.dexterity ?? 0;
-    const defense_extra: number = +v.defense_extra ?? 0;
+// TODO Finish method
+const manageEquipment = (source: string) => {
+  RepeatingModule.getAllAttrs(
+    CHARACTER_EQUIPMENTS,
+    EQUIPMENT_REQUESTS,
+    (attributes: Record<string, string>, sections) => {
+      let handsUsed = 0;
+      const update: Record<string, any> = {};
+      const sourceId = source.split('_').at(2);
+      const sourceFieldset = source.split('_').at(1);
+      ['repeating_armors', 'repeating_shields', 'repeating_accessories'].forEach((fieldset) => {
+        sections[fieldset].forEach((id) => {
+          const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
 
-    const is_martial: boolean = v.armor_is_martial === 'on';
-    const armor_defense: number = +v.armor_defense ?? 0;
-    const armor_defense_bonus: number = +v.armor_defense_bonus ?? 0;
-    const shield_defense_bonus: number = +v.shield_defense_bonus ?? 0;
+          if (fieldset.includes(sourceFieldset) && id != sourceId) {
+            update[prefix + 'is_equipped'] = '0';
+          } else {
+          }
+        });
+      });
 
-    const defense =
-      (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
-      shield_defense_bonus +
-      defense_extra;
+      if (handsUsed > 2) {
+        console.log(`I hope you've got ${handsUsed} hands in that coat.`);
+      }
 
-    setAttrs({ defense }, { silent: true });
-  });
+      setAttrs(update, { silent: true }, () => calculateDefenses());
+    }
+  );
 };
 
-const calculateMagicDefense = (request: string[]) => {
-  getAttrs(request, (v) => {
-    const willpower: number = +v.willpower ?? 0;
-    const magic_defense_extra: number = +v.magic_defense_extra ?? 0;
+const calculateDefenses = () => {
+  RepeatingModule.getAllAttrs(
+    CHARACTER_EQUIPMENTS,
+    EQUIPMENT_REQUESTS,
+    (attributes: Record<string, string>, sections) => {
+      const sheet_type = attributes.sheet_type;
+      if (!['character', 'bestiary'].includes(sheet_type)) return;
 
-    const armor_magic_defense_bonus: number = +v.armor_magic_defense_bonus ?? 0;
-    const shield_magic_defense_bonus: number = +v.shield_magic_defense_bonus ?? 0;
+      const dexterity: number = +attributes.dexterity ?? 0;
+      const defense_extra: number = +attributes.defense_extra ?? 0;
+      const willpower: number = +attributes.willpower ?? 0;
+      const magic_defense_extra: number = +attributes.magic_defense_extra ?? 0;
 
-    const magic_defense =
-      willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
+      let defense = dexterity;
+      let magic_defense = willpower;
 
-    setAttrs({ magic_defense }, { silent: true });
-  });
+      if (sheet_type === 'character') {
+        ['repeating_armors', 'repeating_shields'].forEach((fieldset) => {
+          sections[fieldset].forEach((id) => {
+            const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
+            const is_martial: boolean = attributes[prefix + 'is_martial'] === 'on';
+            const is_equipped: boolean = attributes[prefix + 'is_equipped'] == 'on';
+
+            if (is_equipped) {
+              // defense
+              if (is_martial && fieldset === 'repeating_armors') {
+                defense = +attributes[prefix + 'defense'] ?? 0;
+              } else {
+                defense += +attributes[prefix + 'defense_bonus'] ?? 0;
+              }
+
+              magic_defense += +attributes[prefix + 'magic_defense_bonus'] ?? 0;
+            }
+          });
+        });
+
+        defense += defense_extra;
+        magic_defense += magic_defense_extra;
+      } else if (sheet_type === 'bestiary') {
+        const is_martial: boolean = attributes.armor_is_martial === 'on';
+        const armor_defense: number = +attributes.armor_defense ?? 0;
+        const armor_defense_bonus: number = +attributes.armor_defense_bonus ?? 0;
+        const shield_defense_bonus: number = +attributes.shield_defense_bonus ?? 0;
+        defense =
+          (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
+          shield_defense_bonus +
+          defense_extra;
+
+        const armor_magic_defense_bonus: number = +attributes.armor_magic_defense_bonus ?? 0;
+        const shield_magic_defense_bonus: number = +attributes.shield_magic_defense_bonus ?? 0;
+
+        magic_defense =
+          willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
+      }
+
+      setAttrs({ defense, magic_defense }, { silent: true });
+    }
+  );
 };
 
 const calculateCharacterLevel = (request: string[]) => {

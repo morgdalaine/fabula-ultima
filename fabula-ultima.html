@@ -1315,7 +1315,7 @@
                             </div>
                             <label class="chimera-checkbox weapon__martial chimera-checkbox--column-reverse" data-i18n-title="weapon_is_martial_title" title="Martial">
                               <div class="chimera-checkbox__field">
-                                <input id="weapon_is_martial" name="attr_weapon_is_martial" type="checkbox"/><img data-i18n-title="weapon_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Martial"/>
+                                <input id="weapon_is_martial" name="attr_weapon_is_martial" type="checkbox"/><img data-i18n-title="weapon_is_martial_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/martial.svg" title="Martial"/>
                               </div><span class="chimera-checkbox__label" data-i18n="weapon_is_martial" for="weapon_is_martial">Martial</span>
                             </label>
                             <div class="chimera-input weapon__range chimera-input--small chimera-input--center">
@@ -1332,10 +1332,10 @@
                                 </div>
                               </div>
                             </div>
-                            <label class="chimera-checkbox weapon__is_equipped chimera-checkbox--column-reverse" data-i18n-title="weapon_is_equipped_title" title="Equipped">
-                              <div class="chimera-checkbox__field">
-                                <input id="weapon_is_equipped" name="attr_weapon_is_equipped" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                              </div><span class="chimera-checkbox__label" data-i18n="weapon_is_equipped" for="weapon_is_equipped">Equipped</span>
+                            <label class="chimera-toggle weapon__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="weapon_is_equipped_title" title="Equipped">
+                              <div class="chimera-toggle__field">
+                                <input id="weapon_is_equipped" name="attr_weapon_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                              </div><span class="chimera-toggle__label" data-i18n="weapon_is_equipped" for="weapon_is_equipped">Equipped</span>
                             </label>
                             <div class="chimera-input weapon__category chimera-input--center">
                               <label class="chimera-input__label" data-i18n="weapon_category" for="weapon_category">Category</label>
@@ -1434,10 +1434,11 @@
                           <div class="armor">
                             <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden"/>
-                            <div class="chimera-input armor__is_equipped chimera-input--tiny">
-                              <label class="chimera-input__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equipped</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="armor_is_equipped_placeholder" data-i18n-title="armor_is_equipped_title" id="armor_is_equipped" name="attr_armor_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
-                            </div>
+                            <label class="chimera-toggle armor__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="armor_is_equipped_title" title="Equipped">
+                              <div class="chimera-toggle__field">
+                                <input id="armor_is_equipped" name="attr_armor_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                              </div><span class="chimera-toggle__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equipped</span>
+                            </label>
                             <div class="chimera-input armor__name">
                               <label class="chimera-input__label" data-i18n="armor_name" for="armor_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="armor_name_placeholder" data-i18n-title="armor_name_title" id="armor_name" name="attr_armor_name" placeholder="Name" title="Name" type="text"/>
@@ -1498,10 +1499,11 @@
                           <div class="shield">
                             <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden"/>
-                            <div class="chimera-input shield__is_equipped chimera-input--tiny">
-                              <label class="chimera-input__label" data-i18n="shield_is_equipped" for="shield_is_equipped">Equipped</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="shield_is_equipped_placeholder" data-i18n-title="shield_is_equipped_title" id="shield_is_equipped" name="attr_shield_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
-                            </div>
+                            <label class="chimera-toggle shield__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="shield_is_equipped_title" title="Equipped">
+                              <div class="chimera-toggle__field">
+                                <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                              </div><span class="chimera-toggle__label" data-i18n="shield_is_equipped" for="shield_is_equipped">Equipped</span>
+                            </label>
                             <div class="chimera-input shield__name">
                               <label class="chimera-input__label" data-i18n="shield_name" for="shield_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="shield_name_placeholder" data-i18n-title="shield_name_title" id="shield_name" name="attr_shield_name" placeholder="Name" title="Name" type="text"/>
@@ -1558,10 +1560,11 @@
                           <div class="accessory">
                             <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden"/>
-                            <div class="chimera-input accessory__is_equipped chimera-input--tiny">
-                              <label class="chimera-input__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equipped</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="accessory_is_equipped_placeholder" data-i18n-title="accessory_is_equipped_title" id="accessory_is_equipped" name="attr_accessory_is_equipped" placeholder="Equipped" title="Equipped" type="toggle"/>
-                            </div>
+                            <label class="chimera-toggle accessory__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="accessory_is_equipped_title" title="Equipped">
+                              <div class="chimera-toggle__field">
+                                <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                              </div><span class="chimera-toggle__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equipped</span>
+                            </label>
                             <div class="chimera-input accessory__name">
                               <label class="chimera-input__label" data-i18n="accessory_name" for="accessory_name">Name</label>
                               <input class="chimera-input__field" data-i18n-placeholder="accessory_name_placeholder" data-i18n-title="accessory_name_title" id="accessory_name" name="attr_accessory_name" placeholder="Name" title="Name" type="text"/>
@@ -1836,6 +1839,13 @@
                       <div class="chimera-checkbox__field">
                         <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Automatically subtract MP when casting spells and rituals"/>
                       </div><span class="chimera-checkbox__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-checkbox settings_currency_name chimera-checkbox--flex-row chimera-checkbox--small" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
+                      <div class="chimera-checkbox__field">
+                        <input id="dual_shieldbearer" name="attr_dual_shieldbearer" type="checkbox"/><img data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="You can equip two shields"/>
+                      </div><span class="chimera-checkbox__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
                     </label>
                   </div>
                   <div class="setting">
@@ -3402,6 +3412,12 @@ const ATTR_WATCH = {
         'armor_defense',
         'armor_defense_bonus',
         'shield_defense_bonus',
+        'repeating_armors:armor_is_martial',
+        'repeating_armors:armor_defense',
+        'repeating_armors:armor_defense_bonus',
+        'repeating_armors:armor_is_equipped',
+        'repeating_shields:shield_defense_bonus',
+        'repeating_shields:shield_is_equipped',
     ],
     magic_defense: [
         'willpower',
@@ -3409,6 +3425,16 @@ const ATTR_WATCH = {
         'magic_defense_extra',
         'armor_magic_defense_bonus',
         'shield_magic_defense_bonus',
+        'repeating_armors:armor_magic_defense_bonus',
+        'repeating_armors:armor_is_equipped',
+        'repeating_shields:shield_magic_defense_bonus',
+        'repeating_shields:shield_is_equipped',
+    ],
+    equipped: [
+        'repeating_armors:armor_is_equipped',
+        'repeating_shields:shield_is_equipped',
+        'repeating_accessories:accessory_is_equipped',
+        'repeating_weapons:weapon_is_equipped',
     ],
     bonds: [1, 2, 3, 4, 5, 6].flatMap((bond) => [
         `bond${bond}_approval`,
@@ -3449,21 +3475,12 @@ const ATTR_WATCH = {
         'repeating_rituals:ritual_area',
         ...RITUAL_DISCIPLINES,
     ],
-    equipments_empty: [
-        'weapons_empty',
-        'armor_name',
-        'armor_defense',
-        'armor_defense_bonus',
-        'armor_magic_defense_bonus',
-        'armor_initiative',
-        'armor_cost',
-        'shield_name',
-        'shield_defense',
-        'shield_defense_bonus',
-        'shield_magic_defense_bonus',
-        'shield_initiative',
-        'shield_cost',
-    ],
+};
+const SECTION_PREFIX = {
+    repeating_armors: 'armor_',
+    repeating_shields: 'shield_',
+    repeating_accessories: 'accessory_',
+    repeating_weapons: 'weapon_',
 };
 const BUTTON_ACTIONS = {
     hp: ['hp-control-add', 'hp-control-subtract'],
@@ -3627,6 +3644,40 @@ SEND_TO_CHAT.study10 = [
 ];
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 const ROLLTEMPLATE_REQUESTS = ['character_avatar', 'sheet_type'];
+const EQUIPMENT_REQUESTS = [
+    'sheet_type',
+    'dexterity',
+    'willpower',
+    'dual_shieldbearer',
+    'armor_defense_bonus',
+    'armor_defense',
+    'armor_is_martial',
+    'armor_magic_defense_bonus',
+    'defense_extra',
+    'defense_extra',
+    'magic_defense_extra',
+    'magic_defense_extra',
+    'shield_defense_bonus',
+    'shield_magic_defense_bonus',
+];
+const CHARACTER_EQUIPMENTS = [
+    {
+        section: 'repeating_armors',
+        fields: [
+            'armor_is_equipped',
+            'armor_is_martial',
+            'armor_defense',
+            'armor_defense_bonus',
+            'armor_magic_defense_bonus',
+        ],
+    },
+    {
+        section: 'repeating_shields',
+        fields: ['shield_is_equipped', 'shield_defense_bonus', 'shield_magic_defense_bonus'],
+    },
+    { section: 'repeating_accessories', fields: ['accessory_is_equipped'] },
+    { section: 'repeating_weapons', fields: ['weapon_is_equipped', 'weapon_hands'] },
+];
 const CHARACTER_SKILL_LEVEL = [
     {
         section: 'repeating_classes',
@@ -4215,7 +4266,7 @@ REPEATING.forEach((fieldset) => {
     });
 });
 Object.keys(ATTR_WATCH).forEach((attr) => {
-    on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
+    on(listeners(ATTR_WATCH[attr]), (eventInfo) => handleCalculations(attr, eventInfo));
 });
 on('change:defense_quick', (eventInfo) => {
     calculateQuickDefenses(eventInfo.newValue);
@@ -4228,7 +4279,9 @@ on('clicked:hp-control-add clicked:hp-control-subtract ' +
     const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
     updatePoints(attr, direction);
 });
-const handleCalculations = (attr) => {
+const handleCalculations = (attr, eventInfo) => {
+    if (eventInfo.sourceType === 'sheetworker')
+        return;
     switch (attr) {
         case 'dexterity':
         case 'insight':
@@ -4246,9 +4299,8 @@ const handleCalculations = (attr) => {
         case 'initiative':
             return calculateInitiative(ATTR_WATCH[attr]);
         case 'defense':
-            return calculateDefense(ATTR_WATCH[attr]);
         case 'magic_defense':
-            return calculateMagicDefense(ATTR_WATCH[attr]);
+            return calculateDefenses();
         case 'basic_attacks':
             return calculateBasicAccuracyDamage(ATTR_WATCH[attr]);
         case 'weapons':
@@ -4261,7 +4313,8 @@ const handleCalculations = (attr) => {
             return calculateCharacterLevel(ATTR_WATCH[attr]);
         case 'bonds':
             return calculateBondLevels(ATTR_WATCH[attr]);
-        case 'equipments_empty':
+        case 'equipped':
+            return manageEquipment(eventInfo?.sourceAttribute);
         case 'villain_empty':
             return isFieldEmpty(attr, ATTR_WATCH[attr]);
     }
@@ -4350,28 +4403,74 @@ const updatePoints = (attr, direction) => {
         setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
     });
 };
-const calculateDefense = (request) => {
-    getAttrs(request, (v) => {
-        const dexterity = +v.dexterity ?? 0;
-        const defense_extra = +v.defense_extra ?? 0;
-        const is_martial = v.armor_is_martial === 'on';
-        const armor_defense = +v.armor_defense ?? 0;
-        const armor_defense_bonus = +v.armor_defense_bonus ?? 0;
-        const shield_defense_bonus = +v.shield_defense_bonus ?? 0;
-        const defense = (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
-            shield_defense_bonus +
-            defense_extra;
-        setAttrs({ defense }, { silent: true });
+const manageEquipment = (source) => {
+    RepeatingModule.getAllAttrs(CHARACTER_EQUIPMENTS, EQUIPMENT_REQUESTS, (attributes, sections) => {
+        let handsUsed = 0;
+        const update = {};
+        const sourceId = source.split('_').at(2);
+        const sourceFieldset = source.split('_').at(1);
+        ['repeating_armors', 'repeating_shields', 'repeating_accessories'].forEach((fieldset) => {
+            sections[fieldset].forEach((id) => {
+                const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
+                if (fieldset.includes(sourceFieldset) && id != sourceId) {
+                    update[prefix + 'is_equipped'] = '0';
+                }
+                else {
+                }
+            });
+        });
+        if (handsUsed > 2) {
+            console.log(`I hope you've got ${handsUsed} hands in that coat.`);
+        }
+        setAttrs(update, { silent: true }, () => calculateDefenses());
     });
 };
-const calculateMagicDefense = (request) => {
-    getAttrs(request, (v) => {
-        const willpower = +v.willpower ?? 0;
-        const magic_defense_extra = +v.magic_defense_extra ?? 0;
-        const armor_magic_defense_bonus = +v.armor_magic_defense_bonus ?? 0;
-        const shield_magic_defense_bonus = +v.shield_magic_defense_bonus ?? 0;
-        const magic_defense = willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
-        setAttrs({ magic_defense }, { silent: true });
+const calculateDefenses = () => {
+    RepeatingModule.getAllAttrs(CHARACTER_EQUIPMENTS, EQUIPMENT_REQUESTS, (attributes, sections) => {
+        const sheet_type = attributes.sheet_type;
+        if (!['character', 'bestiary'].includes(sheet_type))
+            return;
+        const dexterity = +attributes.dexterity ?? 0;
+        const defense_extra = +attributes.defense_extra ?? 0;
+        const willpower = +attributes.willpower ?? 0;
+        const magic_defense_extra = +attributes.magic_defense_extra ?? 0;
+        let defense = dexterity;
+        let magic_defense = willpower;
+        if (sheet_type === 'character') {
+            ['repeating_armors', 'repeating_shields'].forEach((fieldset) => {
+                sections[fieldset].forEach((id) => {
+                    const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
+                    const is_martial = attributes[prefix + 'is_martial'] === 'on';
+                    const is_equipped = attributes[prefix + 'is_equipped'] == 'on';
+                    if (is_equipped) {
+                        if (is_martial && fieldset === 'repeating_armors') {
+                            defense = +attributes[prefix + 'defense'] ?? 0;
+                        }
+                        else {
+                            defense += +attributes[prefix + 'defense_bonus'] ?? 0;
+                        }
+                        magic_defense += +attributes[prefix + 'magic_defense_bonus'] ?? 0;
+                    }
+                });
+            });
+            defense += defense_extra;
+            magic_defense += magic_defense_extra;
+        }
+        else if (sheet_type === 'bestiary') {
+            const is_martial = attributes.armor_is_martial === 'on';
+            const armor_defense = +attributes.armor_defense ?? 0;
+            const armor_defense_bonus = +attributes.armor_defense_bonus ?? 0;
+            const shield_defense_bonus = +attributes.shield_defense_bonus ?? 0;
+            defense =
+                (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
+                    shield_defense_bonus +
+                    defense_extra;
+            const armor_magic_defense_bonus = +attributes.armor_magic_defense_bonus ?? 0;
+            const shield_magic_defense_bonus = +attributes.shield_magic_defense_bonus ?? 0;
+            magic_defense =
+                willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
+        }
+        setAttrs({ defense, magic_defense }, { silent: true });
     });
 };
 const calculateCharacterLevel = (request) => {

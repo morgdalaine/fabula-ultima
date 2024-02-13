@@ -2,12 +2,12 @@
 
 .fabula-ultima .character {
   .weapons {
-    $this: '.weapons';
+    // $this: '.weapons';
 
-    // .repitem:has(input[name*='weapon_is_equipped'][value='0']) {
-    //   display: none;
-    //   background-color: hotpink;
-    // }
+    .repitem:has(.weapons--view input[name*='weapon_is_equipped'][value='0']) {
+      display: none;
+      background-color: hotpink;
+    }
 
     @include mixins.repeater-heading;
 
@@ -42,6 +42,11 @@
             display: block;
           }
         }
+      }
+
+      &:has(input[name*='weapon_is_equipped'][value='0']) {
+        background-color: cyan;
+        color: lime;
       }
 
       .weapon {

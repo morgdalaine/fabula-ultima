@@ -14,7 +14,7 @@ REPEATING.forEach((fieldset) => {
 });
 
 Object.keys(ATTR_WATCH).forEach((attr) => {
-  on(listeners(ATTR_WATCH[attr]), () => handleCalculations(attr));
+  on(listeners(ATTR_WATCH[attr]), (eventInfo) => handleCalculations(attr, eventInfo));
 });
 
 on('change:defense_quick', (eventInfo) => {

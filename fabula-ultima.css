@@ -3606,6 +3606,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 
+.fabula-ultima .character .weapons .repitem:has(.weapons--view input[name*=weapon_is_equipped][value="0"]) {
+  display: none;
+  background-color: hotpink;
+}
 .fabula-ultima .character .weapons__heading--edit {
   grid-column: 1/-1;
   font-family: var(--font-title);
@@ -3652,6 +3656,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .weapons--view input[name*=weapon_range][value=distance] ~ * .weapon__range--distance {
   display: block;
+}
+.fabula-ultima .character .weapons--view:has(input[name*=weapon_is_equipped][value="0"]) {
+  background-color: cyan;
+  color: lime;
 }
 .fabula-ultima .character .weapons--view .weapon {
   display: grid;

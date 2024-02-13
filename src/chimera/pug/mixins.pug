@@ -192,6 +192,9 @@ mixin chimera-input(blob)
   else if blob.type === 'value'
     +chimera-value(blob)
 
+  else if blob.type === 'toggle'
+    +chimera-toggle(blob)
+
   else
     div(class=css)
       if blob.icon

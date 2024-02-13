@@ -122,6 +122,12 @@ const ATTR_WATCH: Record<string, string[]> = {
     'armor_defense',
     'armor_defense_bonus',
     'shield_defense_bonus',
+    'repeating_armors:armor_is_martial',
+    'repeating_armors:armor_defense',
+    'repeating_armors:armor_defense_bonus',
+    'repeating_armors:armor_is_equipped',
+    'repeating_shields:shield_defense_bonus',
+    'repeating_shields:shield_is_equipped',
   ],
 
   magic_defense: [
@@ -132,6 +138,17 @@ const ATTR_WATCH: Record<string, string[]> = {
     // 'armor_magic_defense',
     'armor_magic_defense_bonus',
     'shield_magic_defense_bonus',
+    'repeating_armors:armor_magic_defense_bonus',
+    'repeating_armors:armor_is_equipped',
+    'repeating_shields:shield_magic_defense_bonus',
+    'repeating_shields:shield_is_equipped',
+  ],
+
+  equipped: [
+    'repeating_armors:armor_is_equipped',
+    'repeating_shields:shield_is_equipped',
+    'repeating_accessories:accessory_is_equipped',
+    'repeating_weapons:weapon_is_equipped',
   ],
 
   bonds: [1, 2, 3, 4, 5, 6].flatMap((bond) => [
@@ -175,21 +192,28 @@ const ATTR_WATCH: Record<string, string[]> = {
     ...RITUAL_DISCIPLINES,
   ],
 
-  equipments_empty: [
-    'weapons_empty',
-    'armor_name',
-    'armor_defense',
-    'armor_defense_bonus',
-    'armor_magic_defense_bonus',
-    'armor_initiative',
-    'armor_cost',
-    'shield_name',
-    'shield_defense',
-    'shield_defense_bonus',
-    'shield_magic_defense_bonus',
-    'shield_initiative',
-    'shield_cost',
-  ],
+  // equipments_empty: [
+  //   'weapons_empty',
+  //   'armor_name',
+  //   'armor_defense',
+  //   'armor_defense_bonus',
+  //   'armor_magic_defense_bonus',
+  //   'armor_initiative',
+  //   'armor_cost',
+  //   'shield_name',
+  //   'shield_defense',
+  //   'shield_defense_bonus',
+  //   'shield_magic_defense_bonus',
+  //   'shield_initiative',
+  //   'shield_cost',
+  // ],
+};
+
+const SECTION_PREFIX: Record<string, string> = {
+  repeating_armors: 'armor_',
+  repeating_shields: 'shield_',
+  repeating_accessories: 'accessory_',
+  repeating_weapons: 'weapon_',
 };
 
 const BUTTON_ACTIONS: Record<string, string[]> = {
@@ -362,6 +386,42 @@ SEND_TO_CHAT.study10 = [
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 
 const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar', 'sheet_type'];
+
+const EQUIPMENT_REQUESTS: string[] = [
+  'sheet_type',
+  'dexterity',
+  'willpower',
+  'dual_shieldbearer',
+  'armor_defense_bonus',
+  'armor_defense',
+  'armor_is_martial',
+  'armor_magic_defense_bonus',
+  'defense_extra',
+  'defense_extra',
+  'magic_defense_extra',
+  'magic_defense_extra',
+  'shield_defense_bonus',
+  'shield_magic_defense_bonus',
+];
+
+const CHARACTER_EQUIPMENTS: SectionDetails[] = [
+  {
+    section: 'repeating_armors',
+    fields: [
+      'armor_is_equipped',
+      'armor_is_martial',
+      'armor_defense',
+      'armor_defense_bonus',
+      'armor_magic_defense_bonus',
+    ],
+  },
+  {
+    section: 'repeating_shields',
+    fields: ['shield_is_equipped', 'shield_defense_bonus', 'shield_magic_defense_bonus'],
+  },
+  { section: 'repeating_accessories', fields: ['accessory_is_equipped'] },
+  { section: 'repeating_weapons', fields: ['weapon_is_equipped', 'weapon_hands'] },
+];
 
 const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
   {
