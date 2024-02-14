@@ -65,6 +65,8 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
         return 'attack_';
       case 'spell':
         return 'spell_';
+      case 'ritual':
+        return 'ritual_';
       case 'bond1':
       case 'bond2':
       case 'bond3':
@@ -377,7 +379,7 @@ const customCheckTemplate = (action: string, values: { [key: string]: string }) 
     setAttrs({ check_description: '' }, { silent: true });
   }
 
-  template['nodamage'] = 'true';
+  template.nodamage = 'nodamage';
 
   return template;
 };
@@ -395,6 +397,8 @@ const rollAction = async (btn: string, id: string) => {
           return basicAttackTemplate(data);
         case 'spell':
           return spellTemplate(data);
+        case 'ritual':
+          return ritualTemplate(data);
         case 'check':
         default:
           return customCheckTemplate(id, data);
@@ -499,71 +503,26 @@ const spellTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
-const rollRitualAction = async (id: string) => {
-  const prefix = `repeating_rituals_${id}_`;
-  const attributes = SEND_TO_CHAT.ritual.reduce(
-    (memo: { [key: string]: string }, v: string) => ((memo[v] = prefix + v), memo),
-    {}
-  );
+const ritualTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+  template.name = values.name;
+  template.att1 = values.attr1;
+  template.att2 = values.attr2;
+  template.accuracy = values.accuracy_total;
 
-  const request = Object.values(attributes);
-  getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
-    console.group('rollRitualAction');
-    console.log(v);
-    console.groupEnd();
+  template.mp = values.mp;
+  template.potency = getTranslation(values.potency, values.potency);
+  template.area = getTranslation(values.area, values.area);
+  template.disciple = getTranslation(values.disciple, values.disciple);
 
-    const att1 = v[prefix + 'ritual_attr1'];
-    const att2 = v[prefix + 'ritual_attr2'];
+  const dl = getTranslation('ritual_difficulty', 'DL');
+  template.vs = `[[${values.difficulty}[${dl}]]]`;
 
-    const attackName = v[prefix + 'ritual_name'];
+  template.special = values.effect;
 
-    const att1_i18n = getTranslationByKey(att1) || att1;
-    const att2_i18n = getTranslationByKey(att2) || att2;
+  template.nodamage = 'nodamage';
+  template.ritual = 'ritual';
 
-    const hr_i18n = getTranslationByKey('hr') || 'HR';
-    const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
-
-    const accuracy = +v[prefix + 'ritual_accuracy_total'] ?? 0;
-
-    const action = getTranslationByKey('ritual') || 'Ritual';
-    const range = 'ritual';
-
-    const accuracyRoll =
-      `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-
-    const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
-
-    chimeraRoll(
-      'fabula-attack',
-      {
-        avatar: avatar,
-        sheet_type: v.sheet_type,
-        action: action,
-        character: `@{character_name}`,
-        name: attackName,
-        type: getTranslationByKey(v[prefix + 'ritual_type']) || '',
-        mp: v[prefix + 'ritual_mp'],
-        discipline: getTranslationByKey(v[prefix + 'ritual_discipline']) || '',
-        potency: getTranslationByKey(v[prefix + 'ritual_potency']) || '',
-        area: getTranslationByKey(v[prefix + 'ritual_area']) || '',
-        special: v[prefix + 'ritual_effect'],
-        check: accuracyRoll,
-
-        [range]: range,
-      },
-      {
-        roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
-        critical: '0',
-      },
-      ({ rollId, results }) => {
-        // HR + damage
-        const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
-        const critical = checkForCritical(results.roll.dice);
-
-        finishRoll(rollId, {
-          critical: critical,
-        });
-      }
-    );
-  });
+  template.action = getTranslationByKey('ritual') || 'Ritual';
+  return template;
 };

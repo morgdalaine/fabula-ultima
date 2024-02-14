@@ -3462,7 +3462,8 @@
     <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>
     </div>{{^noaction}}
     <div class="sheet-action">
-      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>{{^nodamage}}{{#damage}}
+      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span>{{#vs}}<span class="sheet-fabula-span" data-i18n="vs">vs</span><span class="sheet-fabula-span">{{ vs }}</span>{{/vs}}
+      </div>{{^nodamage}}{{#damage}}
       <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}{{/nodamage}}
       <!-- TODO Vunerable and Resistance calculations-->
       <!-- preferrably shown by hover or something?-->
@@ -4164,6 +4165,8 @@ const chatData = (chat, prefix, values) => {
                 return 'attack_';
             case 'spell':
                 return 'spell_';
+            case 'ritual':
+                return 'ritual_';
             case 'bond1':
             case 'bond2':
             case 'bond3':
@@ -4414,7 +4417,7 @@ const customCheckTemplate = (action, values) => {
         template.name = name || custom;
         setAttrs({ check_description: '' }, { silent: true });
     }
-    template['nodamage'] = 'true';
+    template.nodamage = 'nodamage';
     return template;
 };
 const rollAction = async (btn, id) => {
@@ -4429,6 +4432,8 @@ const rollAction = async (btn, id) => {
                     return basicAttackTemplate(data);
                 case 'spell':
                     return spellTemplate(data);
+                case 'ritual':
+                    return ritualTemplate(data);
                 case 'check':
                 default:
                     return customCheckTemplate(id, data);
@@ -4509,51 +4514,23 @@ const spellTemplate = (values) => {
     template.action = getTranslationByKey('spell') || 'Spell';
     return template;
 };
-const rollRitualAction = async (id) => {
-    const prefix = `repeating_rituals_${id}_`;
-    const attributes = SEND_TO_CHAT.ritual.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
-    const request = Object.values(attributes);
-    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
-        console.group('rollRitualAction');
-        console.log(v);
-        console.groupEnd();
-        const att1 = v[prefix + 'ritual_attr1'];
-        const att2 = v[prefix + 'ritual_attr2'];
-        const attackName = v[prefix + 'ritual_name'];
-        const att1_i18n = getTranslationByKey(att1) || att1;
-        const att2_i18n = getTranslationByKey(att2) || att2;
-        const hr_i18n = getTranslationByKey('hr') || 'HR';
-        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
-        const accuracy = +v[prefix + 'ritual_accuracy_total'] ?? 0;
-        const action = getTranslationByKey('ritual') || 'Ritual';
-        const range = 'ritual';
-        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
-        chimeraRoll('fabula-attack', {
-            avatar: avatar,
-            sheet_type: v.sheet_type,
-            action: action,
-            character: `@{character_name}`,
-            name: attackName,
-            type: getTranslationByKey(v[prefix + 'ritual_type']) || '',
-            mp: v[prefix + 'ritual_mp'],
-            discipline: getTranslationByKey(v[prefix + 'ritual_discipline']) || '',
-            potency: getTranslationByKey(v[prefix + 'ritual_potency']) || '',
-            area: getTranslationByKey(v[prefix + 'ritual_area']) || '',
-            special: v[prefix + 'ritual_effect'],
-            check: accuracyRoll,
-            [range]: range,
-        }, {
-            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
-            critical: '0',
-        }, ({ rollId, results }) => {
-            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
-            const critical = checkForCritical(results.roll.dice);
-            finishRoll(rollId, {
-                critical: critical,
-            });
-        });
-    });
+const ritualTemplate = (values) => {
+    const template = {};
+    template.name = values.name;
+    template.att1 = values.attr1;
+    template.att2 = values.attr2;
+    template.accuracy = values.accuracy_total;
+    template.mp = values.mp;
+    template.potency = getTranslation(values.potency, values.potency);
+    template.area = getTranslation(values.area, values.area);
+    template.disciple = getTranslation(values.disciple, values.disciple);
+    const dl = getTranslation('ritual_difficulty', 'DL');
+    template.vs = `[[${values.difficulty}[${dl}]]]`;
+    template.special = values.effect;
+    template.nodamage = 'nodamage';
+    template.ritual = 'ritual';
+    template.action = getTranslationByKey('ritual') || 'Ritual';
+    return template;
 };
 class RepeatingModule {
     static isFieldsetEmpty(section, suffix = 'empty') {

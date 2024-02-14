@@ -32,6 +32,10 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-label {{ check }}
           span.sheet-fabula-span {{ roll }}
 
+          +tags(['vs'])
+            span.sheet-fabula-span(data-i18n='vs') vs
+            span.sheet-fabula-span {{ vs }}
+
         +tags(['^nodamage', 'damage'])
           div
             span.span.sheet-fabula-label {{ hr }}
