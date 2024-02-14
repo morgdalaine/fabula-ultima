@@ -6,7 +6,7 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
     case 'insight':
     case 'might':
     case 'willpower':
-      return calculateAttribute(attr, ATTR_WATCH[attr]);
+      return calculateAttribute(attr);
 
     case 'hp':
       return calculateMaxHP(ATTR_WATCH[attr]);
@@ -54,7 +54,8 @@ const isFieldEmpty = (attr: string, request: string[]) => {
   });
 };
 
-const calculateAttribute = (attr: string, request: string[]) => {
+const calculateAttribute = (attr: string) => {
+  const request: string[] = ATTR_WATCH[attr];
   getAttrs(request, (v) => {
     const die = calculateStatusEffects(attr, v);
     setAttrs({ [attr]: die });
@@ -65,10 +66,17 @@ const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
   const die = +v[`${attr}_max`] ?? 0;
   const currentStep = DIE_SIZES.findIndex((size) => size == die);
 
-  // TODO Status immunities
-  const debuffs = ATTR_WATCH[attr]
-    .filter((a) => !a.includes('max'))
-    .reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
+  const immunities = ATTR_WATCH[attr]
+    .filter((a) => a.includes('immunity') && v[a] === 'on')
+    .map((a) => a.replace(/_\w+/, ''));
+  // Remove base attribute and any immunities from calculation
+  const statuses = ATTR_WATCH[attr].filter(
+    (a) => !a.includes('max') && !a.includes('immunity') && !immunities.includes(a)
+  );
+  const debuffs = statuses.reduce(
+    (memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0),
+    0
+  );
 
   const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
   return DIE_SIZES.at(newSize);

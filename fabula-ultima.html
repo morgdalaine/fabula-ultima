@@ -3606,10 +3606,31 @@ const ATTR_ABBREVIATIONS = {
 };
 const AFFINITIES = ['physical', 'air', 'bolt', 'dark', 'earth', 'fire', 'ice', 'light', 'poison'];
 const ATTR_WATCH = {
-    dexterity: ['dexterity_max', 'slow', 'enraged', 'dexterity_boost'],
-    insight: ['insight_max', 'dazed', 'enraged', 'insight_boost'],
-    might: ['might_max', 'weak', 'poisoned', 'might_boost'],
-    willpower: ['willpower_max', 'shaken', 'poisoned', 'willpower_boost'],
+    dexterity: [
+        'dexterity_max',
+        'slow',
+        'enraged',
+        'dexterity_boost',
+        'slow_immunity',
+        'enraged_immunity',
+    ],
+    insight: [
+        'insight_max',
+        'dazed',
+        'enraged',
+        'insight_boost',
+        'dazed_immunity',
+        'enraged_immunity',
+    ],
+    might: ['might_max', 'weak', 'poisoned', 'might_boost', 'weak_immunity', 'poisoned_immunity'],
+    willpower: [
+        'willpower_max',
+        'shaken',
+        'poisoned',
+        'willpower_boost',
+        'shaken_immunity',
+        'poisoned_immunity',
+    ],
     hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
     mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
     ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
@@ -4592,7 +4613,7 @@ const handleCalculations = (attr, eventInfo) => {
         case 'insight':
         case 'might':
         case 'willpower':
-            return calculateAttribute(attr, ATTR_WATCH[attr]);
+            return calculateAttribute(attr);
         case 'hp':
             return calculateMaxHP(ATTR_WATCH[attr]);
         case 'mp':
@@ -4630,7 +4651,8 @@ const isFieldEmpty = (attr, request) => {
         setAttrs({ [attr]: isEmpty }, { silent: true });
     });
 };
-const calculateAttribute = (attr, request) => {
+const calculateAttribute = (attr) => {
+    const request = ATTR_WATCH[attr];
     getAttrs(request, (v) => {
         const die = calculateStatusEffects(attr, v);
         setAttrs({ [attr]: die });
@@ -4639,9 +4661,11 @@ const calculateAttribute = (attr, request) => {
 const calculateStatusEffects = (attr, v) => {
     const die = +v[`${attr}_max`] ?? 0;
     const currentStep = DIE_SIZES.findIndex((size) => size == die);
-    const debuffs = ATTR_WATCH[attr]
-        .filter((a) => !a.includes('max'))
-        .reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
+    const immunities = ATTR_WATCH[attr]
+        .filter((a) => a.includes('immunity') && v[a] === 'on')
+        .map((a) => a.replace(/_\w+/, ''));
+    const statuses = ATTR_WATCH[attr].filter((a) => !a.includes('max') && !a.includes('immunity') && !immunities.includes(a));
+    const debuffs = statuses.reduce((memo, status) => memo + (v[status] === 'on' ? STATUS_EFFECTS[status] : 0), 0);
     const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
     return DIE_SIZES.at(newSize);
 };

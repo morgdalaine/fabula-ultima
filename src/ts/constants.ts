@@ -85,10 +85,31 @@ const ATTR_ABBREVIATIONS: { [key: string]: string } = {
 const AFFINITIES = ['physical', 'air', 'bolt', 'dark', 'earth', 'fire', 'ice', 'light', 'poison'];
 
 const ATTR_WATCH: Record<string, string[]> = {
-  dexterity: ['dexterity_max', 'slow', 'enraged', 'dexterity_boost'],
-  insight: ['insight_max', 'dazed', 'enraged', 'insight_boost'],
-  might: ['might_max', 'weak', 'poisoned', 'might_boost'],
-  willpower: ['willpower_max', 'shaken', 'poisoned', 'willpower_boost'],
+  dexterity: [
+    'dexterity_max',
+    'slow',
+    'enraged',
+    'dexterity_boost',
+    'slow_immunity',
+    'enraged_immunity',
+  ],
+  insight: [
+    'insight_max',
+    'dazed',
+    'enraged',
+    'insight_boost',
+    'dazed_immunity',
+    'enraged_immunity',
+  ],
+  might: ['might_max', 'weak', 'poisoned', 'might_boost', 'weak_immunity', 'poisoned_immunity'],
+  willpower: [
+    'willpower_max',
+    'shaken',
+    'poisoned',
+    'willpower_boost',
+    'shaken_immunity',
+    'poisoned_immunity',
+  ],
 
   hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
