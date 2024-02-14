@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span><span class="fabula-translation" data-i18n="custom">Custom</span><span class="fabula-translation" data-i18n="modifier">Modifier</span><span class="fabula-translation" data-i18n="mod">MOD</span>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
 <input class="chimera-hidden" name="attr_sheet_mode" type="hidden"/>
 <div class="fabula-ultima">
@@ -232,7 +232,7 @@
                 </h2>
                 <div class="chimera-wrapper">
                   <div class="roll__custom">
-                    <div class="chimera-input check__attr1 chimera-input--center chimera-input--small">
+                    <div class="chimera-input check__attr1 chimera-input--center chimera-input--smallest">
                       <label class="chimera-input__label" data-i18n="check_attr1" for="check_attr1">Attr 1</label>
                       <select class="chimera-input__field" data-i18n-title="check_attr1_title" id="check_attr1" name="attr_check_attr1" title="Attr 1">
                         <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -241,7 +241,7 @@
                         <option data-i18n="willpower" value="willpower">WLP</option>
                       </select>
                     </div>
-                    <div class="chimera-input check__attr2 chimera-input--center chimera-input--small">
+                    <div class="chimera-input check__attr2 chimera-input--center chimera-input--smallest">
                       <label class="chimera-input__label" data-i18n="check_attr2" for="check_attr2">Attr 2</label>
                       <select class="chimera-input__field" data-i18n-title="check_attr2_title" id="check_attr2" name="attr_check_attr2" title="Attr 2">
                         <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -1327,6 +1327,9 @@
                 <div class="classes--edit">
                   <h2 class="classes__heading--edit"><span data-i18n="classes">Classes</span>
                   </h2>
+                  <input class="chimera-hidden" name="attr_class_hp_total" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_class_mp_total" type="hidden" value="0"/>
+                  <input class="chimera-hidden" name="attr_class_ip_total" type="hidden" value="0"/>
                   <div class="chimera-repeater">
                     <input class="chimera-hidden chimera-repeater--is-empty" name="attr_classes_empty" type="hidden" value="0"/>
                     <div class="chimera-repeater__empty">
@@ -2041,6 +2044,13 @@
                 <div class="settings--edit">
                   <h2 class="settings__heading--edit" data-i18n="settings">Settings</h2>
                   <!-- TODO Implement settings-->
+                  <div class="setting">
+                    <label class="chimera-checkbox settings_roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check modifiers">
+                      <div class="chimera-checkbox__field">
+                        <input id="roll_mods" name="attr_roll_mods" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
+                      </div><span class="chimera-checkbox__label" data-i18n="roll_mods" for="roll_mods">Ask for Accuracy Check modifiers</span>
+                    </label>
+                  </div>
                   <div class="setting">
                     <label class="chimera-checkbox settings_high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
                       <div class="chimera-checkbox__field">
@@ -3452,8 +3462,8 @@
     <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>
     </div>{{^noaction}}
     <div class="sheet-action">
-      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>{{#damage}}
-      <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}
+      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span></div>{{^nodamage}}{{#damage}}
+      <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}{{/nodamage}}
       <!-- TODO Vunerable and Resistance calculations-->
       <!-- preferrably shown by hover or something?-->
     </div>{{/noaction}}
@@ -3599,9 +3609,9 @@ const ATTR_WATCH = {
     insight: ['insight_max', 'dazed', 'enraged', 'insight_boost'],
     might: ['might_max', 'weak', 'poisoned', 'might_boost'],
     willpower: ['willpower_max', 'shaken', 'poisoned', 'willpower_boost'],
-    hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
-    mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
-    ip: ['sheet_type', 'ip_extra'],
+    hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
+    mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
+    ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
     ultima_points: ['sheet_type', 'villain'],
     villain_empty: ['villain', 'multipart', 'phases'],
     initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
@@ -3616,6 +3626,7 @@ const ATTR_WATCH = {
         'repeating_classes:class_martialranged',
         'repeating_classes:class_martialarmor',
         'repeating_classes:class_martialshield',
+        'repeating_classes:class_benefit',
     ],
     defense: [
         'dexterity',
@@ -3762,6 +3773,19 @@ const CLICK_LISTENERS = {
     'tonic': 'tonic',
     'elementalshard': 'elementalshard',
     'magictent': 'magictent',
+    'check_sneak': 'check',
+    'check_dodge': 'check',
+    'check_anticipate': 'check',
+    'check_tinker': 'check',
+    'check_captivate': 'check',
+    'check_study': 'check',
+    'check_recall': 'check',
+    'check_interrogate': 'check',
+    'check_persuade': 'check',
+    'check_effort': 'check',
+    'check_endure': 'check',
+    'check_intimidate': 'check',
+    'check_custom': 'check',
 };
 const SEND_TO_CHAT = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
@@ -3874,6 +3898,15 @@ const SEND_TO_CHAT = {
         'class_description',
     ],
     fabulapoints: ['fabula_points', 'spend_fabula_points'],
+    check: [
+        'dexterity',
+        'insight',
+        'might',
+        'willpower',
+        'check_attr1',
+        'check_attr2',
+        'check_description',
+    ],
 };
 SEND_TO_CHAT.study10 = [
     ...SEND_TO_CHAT.study7,
@@ -3895,7 +3928,69 @@ SEND_TO_CHAT.study10 = [
     'poison',
 ];
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
-const ROLLTEMPLATE_REQUESTS = ['character_avatar', 'sheet_type'];
+const COMMON_CHECKS = {
+    sneak: {
+        attrs: ['dexterity', 'dexterity'],
+        label: 'Sneak',
+        title: 'Moving silently, hiding and acting unnoticed.',
+    },
+    dodge: {
+        attrs: ['dexterity', 'insight'],
+        label: 'Dodge',
+        title: 'Avoiding a trap or finding a way to flee a collapsing building.',
+    },
+    anticipate: {
+        attrs: ['dexterity', 'insight'],
+        label: 'Anticipate',
+        title: 'Anticipating someone’s movements and catching them by surprise.',
+    },
+    tinker: {
+        attrs: ['dexterity', 'insight'],
+        label: 'Tinker',
+        title: 'Completing a work of craftsmanship or repairing something.',
+    },
+    captivate: {
+        attrs: ['dexterity', 'willpower'],
+        label: 'Captivate',
+        title: 'Moving gracefully to earn someone’s attention.',
+    },
+    study: {
+        attrs: ['insight', 'insight'],
+        label: 'Study',
+        title: 'Examining or investigating someone or something.',
+    },
+    recall: {
+        attrs: ['insight', 'insight'],
+        label: 'Recall',
+        title: 'Remembering useful information about something.',
+    },
+    interrogate: {
+        attrs: ['insight', 'willpower'],
+        label: 'Interrogate',
+        title: 'Getting information from someone during a conversation.',
+    },
+    persuade: {
+        attrs: ['insight', 'willpower'],
+        label: 'Persuade',
+        title: 'Persuading someone through authority or diplomacy.',
+    },
+    effort: {
+        attrs: ['might', 'might'],
+        label: 'Effort',
+        title: 'Hard work, such as lifting a portcullis or pushing a statue.',
+    },
+    endure: {
+        attrs: ['might', 'willpower'],
+        label: 'Endure',
+        title: 'Resisting intense pain or fatigue.',
+    },
+    intimidate: {
+        attrs: ['might', 'willpower'],
+        label: 'Intimidate',
+        title: 'Intimidating someone with your strength.',
+    },
+};
+const ROLLTEMPLATE_REQUESTS = ['character_avatar', 'sheet_type', 'roll_mods'];
 const EQUIPMENT_REQUESTS = [
     'sheet_type',
     'dexterity',
@@ -4000,10 +4095,13 @@ function chimeraRoll(template, attributes, rolls, callback) {
     const rollstring = `&{template:${template}} ${x} ${r}`;
     startRoll(rollstring, callback);
 }
+function getTranslation(key, dne = '') {
+    return getTranslationByKey(key) || dne;
+}
 Object.entries(CLICK_LISTENERS).forEach(([btn, key]) => {
     on(`clicked:${btn}`, async (eventInfo) => {
         const id = RepeatingModule.getRepId(eventInfo?.sourceAttribute);
-        return handleClick(key, id);
+        return handleClick(key, id ?? btn);
     });
 });
 const checkForCritical = (dice) => {
@@ -4020,45 +4118,10 @@ const handleClick = async (btn, id) => {
         case 'weaponattack':
         case 'spell':
         case 'ritual':
+        case 'check':
             return rollAction(btn, id);
-        case 'armorchat':
-        case 'bond1':
-        case 'bond2':
-        case 'bond3':
-        case 'bond4':
-        case 'bond5':
-        case 'bond6':
-        case 'classchat':
-        case 'notechat':
-        case 'otheractionchat':
-        case 'raregearchat':
-        case 'weaponchat':
-        case 'shieldchat':
-        case 'accessorychat':
-        case 'specialrulechat':
-        case 'study7':
-        case 'study10':
-        case 'study13':
-        case 'fabulapoints':
-        case 'elixir':
-        case 'remedy':
-        case 'tonic':
-        case 'elementalshard':
-        case 'magictent':
         default:
             return sendToChat(btn, id);
-    }
-};
-const rollAction = async (action, id) => {
-    switch (action) {
-        case 'basicattack':
-            return rollBasicAttack(id);
-        case 'weaponattack':
-            return rollWeaponAttack(id);
-        case 'spell':
-            return rollSpellAction(id);
-        case 'ritual':
-            return rollRitualAction(id);
     }
 };
 const getSendChatRequest = (key, id) => {
@@ -4094,8 +4157,13 @@ const chatData = (chat, prefix, values) => {
                 return 'shield_';
             case 'accessorychat':
                 return 'accessory_';
+            case 'weaponattack':
             case 'weaponchat':
                 return 'weapon_';
+            case 'basicattack':
+                return 'attack_';
+            case 'spell':
+                return 'spell_';
             case 'bond1':
             case 'bond2':
             case 'bond3':
@@ -4306,6 +4374,15 @@ const sendToChat = async (chat, id) => {
                     return simpleTemplate(data);
             }
         })();
+        console.group('sendToChat');
+        console.log(chat, prefix);
+        console.log('v => ');
+        console.log(v);
+        console.log('data => ');
+        console.log(data);
+        console.log('template => ');
+        console.log(template);
+        console.groupEnd();
         chimeraRoll('fabula-chat', {
             avatar: avatar,
             sheet_type: v.sheet_type,
@@ -4317,39 +4394,80 @@ const sendToChat = async (chat, id) => {
         });
     });
 };
-const rollBasicAttack = async (id) => {
-    const prefix = `repeating_basic-attacks_${id}_`;
-    const attributes = SEND_TO_CHAT.basicattack.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
-    const request = Object.values(attributes);
+const customCheckTemplate = (action, values) => {
+    const check = action.split('_').at(-1);
+    const template = {};
+    if (Object.hasOwn(COMMON_CHECKS, check)) {
+        const [att1, att2] = COMMON_CHECKS[check].attrs;
+        template.att1 = att1;
+        template.att2 = att2;
+        template.name = (getTranslationByKey(action) || COMMON_CHECKS[check].label)
+            .match(/^[\w\s]+/)
+            .shift();
+        template.special = getTranslationByKey(`${action}_title`) || COMMON_CHECKS[check].title;
+    }
+    else {
+        template.att1 = values.check_attr1;
+        template.att2 = values.check_attr2;
+        const name = values.check_description;
+        const custom = getTranslationByKey('custom') || 'Custom';
+        template.name = name || custom;
+        setAttrs({ check_description: '' }, { silent: true });
+    }
+    template['nodamage'] = 'true';
+    return template;
+};
+const rollAction = async (btn, id) => {
+    const { request, prefix } = getSendChatRequest(btn, id);
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
-        const att1 = v[prefix + 'attack_attr1'];
-        const att2 = v[prefix + 'attack_attr2'];
-        const att1_i18n = getTranslationByKey(att1) || att1;
-        const att2_i18n = getTranslationByKey(att2) || att2;
-        const hr_i18n = getTranslationByKey('hr') || 'HR';
-        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
-        const accuracy = +v[prefix + 'attack_accuracy_total'] ?? 0;
-        const damage = v[prefix + 'attack_damage_total'];
-        const action = getTranslationByKey('attack') || 'Attack';
-        const range = v[prefix + 'attack_range'];
-        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-        const damageRoll = `【 ${hr_i18n} + ${damage} 】`;
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
+        const data = chatData(btn, prefix, v);
+        const template = (function () {
+            switch (btn) {
+                case 'basicattack':
+                case 'weaponattack':
+                    return basicAttackTemplate(data);
+                case 'spell':
+                    return spellTemplate(data);
+                case 'check':
+                default:
+                    return customCheckTemplate(id, data);
+            }
+        })();
+        console.group('rollAction');
+        console.log(btn, prefix, id);
+        console.log('v => ');
+        console.log(v);
+        console.log('data => ');
+        console.log(data);
+        console.log('template => ');
+        console.log(template);
+        console.groupEnd();
+        const i18n = {
+            action: getTranslation('action', 'Action'),
+            att1: getTranslation(template.att1, template.att1.toUpperCase()),
+            att2: getTranslation(template.att2, template.att2.toUpperCase()),
+            hr: getTranslation('hr', 'HR'),
+            dmg: getTranslation('dmg', 'DMG'),
+            mod: getTranslation('mod', 'MOD'),
+        };
+        const accuracy = template.accuracy ?? 0;
+        const accuracyRoll = `【 ${i18n.att1} + ${i18n.att2}` + (accuracy != 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const damage = template.damage ?? 0;
+        const damageRoll = `【 ${i18n.hr} + ${damage} 】`;
+        const rollmods = v.roll_mods === 'on' && !template.noaction ? ` + ?{${i18n.mod}|0}` : ``;
         chimeraRoll('fabula-attack', {
             avatar: avatar,
             sheet_type: v.sheet_type,
-            action: action,
+            action: i18n.action,
             character: `@{character_name}`,
-            name: v[prefix + 'attack_name'],
-            type: getTranslationByKey(v[prefix + 'attack_type']) || '',
-            special: v[prefix + 'attack_special'],
             check: accuracyRoll,
             hr: damageRoll,
-            [range]: range,
+            ...template,
         }, {
-            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
-            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
-            critical: '0',
+            roll: `1d@{${template.att1}}[${i18n.att1}] + 1d@{${template.att2}}[${i18n.att1}] + ${accuracy} ${rollmods}`,
+            damage: `0[${i18n.hr}] + ${damage}[${i18n.dmg}]`,
+            critical: `0`,
         }, ({ rollId, results }) => {
             const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
             const critical = checkForCritical(results.roll.dice);
@@ -4360,98 +4478,36 @@ const rollBasicAttack = async (id) => {
         });
     });
 };
-const rollWeaponAttack = async (id) => {
-    const prefix = `repeating_weapons_${id}_`;
-    const attributes = SEND_TO_CHAT.weaponattack.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
-    const request = Object.values(attributes);
-    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
-        const att1 = v[prefix + 'weapon_attr1'];
-        const att2 = v[prefix + 'weapon_attr2'];
-        const attackName = v[prefix + 'weapon_attack_name'] || v[prefix + 'weapon_name'];
-        const att1_i18n = getTranslationByKey(att1) || att1;
-        const att2_i18n = getTranslationByKey(att2) || att2;
-        const hr_i18n = getTranslationByKey('hr') || 'HR';
-        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
-        const accuracy = +v[prefix + 'weapon_accuracy_total'] ?? 0;
-        const damage = v[prefix + 'weapon_damage_total'];
-        const action = getTranslationByKey('attack') || 'Attack';
-        const range = v[prefix + 'weapon_range'];
-        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-        const damageRoll = `【 HR + ${damage} 】`;
-        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
-        chimeraRoll('fabula-attack', {
-            avatar: avatar,
-            sheet_type: v.sheet_type,
-            action: action,
-            character: `@{character_name}`,
-            name: attackName,
-            type: getTranslationByKey(v[prefix + 'weapon_type']) || '',
-            special: v[prefix + 'weapon_special'],
-            check: accuracyRoll,
-            hr: damageRoll,
-            [range]: range,
-        }, {
-            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
-            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
-            critical: '0',
-        }, ({ rollId, results }) => {
-            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
-            const critical = checkForCritical(results.roll.dice);
-            finishRoll(rollId, {
-                damage: hr + results.damage.result,
-                critical: critical,
-            });
-        });
-    });
+const basicAttackTemplate = (values) => {
+    const template = {};
+    template.name = values.attack_name || values.name;
+    template.att1 = values.attr1;
+    template.att2 = values.attr2;
+    template.accuracy = values.accuracy_total;
+    template.damage = values.damage_total;
+    template[values.range] = values.range;
+    template.type = getTranslation(values.type) || values.type;
+    template.special = values.special;
+    template.action = getTranslation('attack', 'Attack');
+    return template;
 };
-const rollSpellAction = async (id) => {
-    const prefix = `repeating_spells_${id}_`;
-    const attributes = SEND_TO_CHAT.spell.reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
-    const request = Object.values(attributes);
-    getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
-        const att1 = v[prefix + 'spell_attr1'];
-        const att2 = v[prefix + 'spell_attr2'];
-        const attackName = v[prefix + 'spell_name'];
-        const att1_i18n = getTranslationByKey(att1) || att1;
-        const att2_i18n = getTranslationByKey(att2) || att2;
-        const hr_i18n = getTranslationByKey('hr') || 'HR';
-        const dmg_i18n = getTranslationByKey('dmg') || 'DMG';
-        const accuracy = +v[prefix + 'spell_accuracy_total'] ?? 0;
-        const damage = v[prefix + 'spell_damage_total'];
-        const action = getTranslationByKey('spell') || 'Spell';
-        const range = 'spell';
-        const accuracyRoll = `【 ${att1_i18n} + ${att2_i18n}` + (accuracy > 0 ? ` + ${accuracy}` : ``) + ` 】`;
-        const damageRoll = `【 HR + ${damage} 】`;
-        const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
-        const noaction = v[prefix + 'spell_is_offensive'] === 'on' ? null : 'noaction';
-        chimeraRoll('fabula-attack', {
-            avatar: avatar,
-            sheet_type: v.sheet_type,
-            action: action,
-            character: `@{character_name}`,
-            name: attackName,
-            type: getTranslationByKey(v[prefix + 'spell_type']) || '',
-            mp: v[prefix + 'spell_mp'],
-            target: v[prefix + 'spell_target'],
-            duration: v[prefix + 'spell_duration'],
-            special: v[prefix + 'spell_effect'],
-            check: accuracyRoll,
-            hr: damageRoll,
-            [range]: range,
-            [noaction]: 'true',
-        }, {
-            roll: `1d@{${att1}}[${att1_i18n}] + 1d@{${att2}}[${att2_i18n}] + ${accuracy}`,
-            damage: `0[${hr_i18n}] + ${damage}[${dmg_i18n}]`,
-            critical: '0',
-        }, ({ rollId, results }) => {
-            const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
-            const critical = checkForCritical(results.roll.dice);
-            finishRoll(rollId, {
-                damage: hr + results.damage.result,
-                critical: critical,
-            });
-        });
-    });
+const spellTemplate = (values) => {
+    const template = {};
+    template.name = values.name;
+    template.att1 = values.attr1;
+    template.att2 = values.attr2;
+    template.accuracy = values.accuracy_total;
+    template.damage = values.damage_total;
+    const noaction = values.is_offensive === 'on' ? null : 'noaction';
+    template[noaction] = 'noaction';
+    template.spell = 'spell';
+    template.type = getTranslation(values.type) || values.type;
+    template.mp = values.mp;
+    template.target = values.target;
+    template.duration = values.duration;
+    template.special = values.effect;
+    template.action = getTranslationByKey('spell') || 'Spell';
+    return template;
 };
 const rollRitualAction = async (id) => {
     const prefix = `repeating_rituals_${id}_`;
@@ -4637,9 +4693,10 @@ const calculateMaxHP = (request) => {
         const might_max = +v.might_max ?? 0;
         const level = +v.level ?? 0;
         const hp_extra = +v.hp_extra ?? 0;
+        const class_hp_total = +v.class_hp_total ?? 0;
         let hp_max;
         if (v.sheet_type === 'character') {
-            hp_max = might_max * 5 + level + hp_extra;
+            hp_max = might_max * 5 + level + hp_extra + class_hp_total;
         }
         if (v.sheet_type === 'bestiary') {
             hp_max = might_max * 5 + level * 2 + hp_extra;
@@ -4655,9 +4712,10 @@ const calculateMaxMP = (request) => {
         const willpower_max = +v.willpower_max ?? 0;
         const level = +v.level ?? 0;
         const mp_extra = +v.mp_extra ?? 0;
+        const class_mp_total = +v.class_mp_total ?? 0;
         let mp_max;
         if (v.sheet_type === 'character') {
-            mp_max = willpower_max * 5 + level + mp_extra;
+            mp_max = willpower_max * 5 + level + mp_extra + class_mp_total;
         }
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
@@ -4670,7 +4728,8 @@ const calculateMaxIP = (request) => {
         if (v.sheet_type !== 'character')
             return;
         const ip_extra = +v.ip_extra ?? 0;
-        const ip_max = 6 + ip_extra;
+        const class_ip_total = +v.class_ip_total ?? 0;
+        const ip_max = 6 + ip_extra + class_ip_total;
         setAttrs({ ip_max }, { silent: true });
     });
 };
@@ -4770,6 +4829,9 @@ const calculateCharacterLevel = (request) => {
         const update = {};
         const martialequip = {};
         let characterLevel = 0;
+        const class_hp_total = 0;
+        const class_mp_total = 0;
+        const class_ip_total = 0;
         sections.repeating_classes.forEach((id) => {
             const prefix = `repeating_classes_${id}_`;
             const keys = Object.keys(attributes).filter((key) => key.includes(id));

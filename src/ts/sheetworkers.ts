@@ -85,11 +85,11 @@ const calculateMaxHP = (request: string[]) => {
     const might_max: number = +v.might_max ?? 0;
     const level: number = +v.level ?? 0;
     const hp_extra: number = +v.hp_extra ?? 0;
+    const class_hp_total: number = +v.class_hp_total ?? 0;
 
     let hp_max: number;
     if (v.sheet_type === 'character') {
-      // TODO calculate HP bonus from Classes
-      hp_max = might_max * 5 + level + hp_extra; // + [class benefits]
+      hp_max = might_max * 5 + level + hp_extra + class_hp_total;
     }
     if (v.sheet_type === 'bestiary') {
       hp_max = might_max * 5 + level * 2 + hp_extra;
@@ -111,11 +111,11 @@ const calculateMaxMP = (request: string[]) => {
     const willpower_max: number = +v.willpower_max ?? 0;
     const level: number = +v.level ?? 0;
     const mp_extra: number = +v.mp_extra ?? 0;
+    const class_mp_total: number = +v.class_mp_total ?? 0;
 
     let mp_max: number;
     if (v.sheet_type === 'character') {
-      // TODO calculate MP bonus from Classes
-      mp_max = willpower_max * 5 + level + mp_extra; // + [class benefits]
+      mp_max = willpower_max * 5 + level + mp_extra + class_mp_total;
     }
     if (v.sheet_type === 'bestiary') {
       mp_max = willpower_max * 5 + level + mp_extra;
@@ -134,8 +134,8 @@ const calculateMaxIP = (request: string[]) => {
     if (v.sheet_type !== 'character') return;
 
     const ip_extra: number = +v.ip_extra ?? 0;
-    const ip_max = 6 + ip_extra;
-    // TODO calculate IP bonus from Classes
+    const class_ip_total: number = +v.class_ip_total ?? 0;
+    const ip_max = 6 + ip_extra + class_ip_total;
 
     setAttrs({ ip_max }, { silent: true });
   });
@@ -265,6 +265,10 @@ const calculateCharacterLevel = (request: string[]) => {
       const martialequip: { [key: string]: string | number } = {};
       let characterLevel = 0;
 
+      const class_hp_total = 0;
+      const class_mp_total = 0;
+      const class_ip_total = 0;
+
       sections.repeating_classes.forEach((id) => {
         const prefix = `repeating_classes_${id}_`;
 
@@ -280,6 +284,8 @@ const calculateCharacterLevel = (request: string[]) => {
             martialequip[prof] = getTranslationByKey(`class_` + prof) || prof;
           }
         });
+
+        // TODO free benefits
 
         characterLevel += classLevel;
         update[prefix + 'class_level'] = classLevel;

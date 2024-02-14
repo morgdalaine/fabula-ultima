@@ -75,7 +75,7 @@ const RITUAL_DIFFICULTY: Record<string, any> = {
   },
 };
 
-const ATTR_ABBREVIATIONS = {
+const ATTR_ABBREVIATIONS: { [key: string]: string } = {
   dexterity: 'dex',
   insight: 'ins',
   might: 'mig',
@@ -90,9 +90,9 @@ const ATTR_WATCH: Record<string, string[]> = {
   might: ['might_max', 'weak', 'poisoned', 'might_boost'],
   willpower: ['willpower_max', 'shaken', 'poisoned', 'willpower_boost'],
 
-  hp: ['sheet_type', 'might_max', 'level', 'hp_extra'],
-  mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra'],
-  ip: ['sheet_type', 'ip_extra'],
+  hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
+  mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
+  ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
 
   ultima_points: ['sheet_type', 'villain'],
 
@@ -112,6 +112,7 @@ const ATTR_WATCH: Record<string, string[]> = {
     'repeating_classes:class_martialranged',
     'repeating_classes:class_martialarmor',
     'repeating_classes:class_martialshield',
+    'repeating_classes:class_benefit',
   ],
 
   defense: [
@@ -286,6 +287,19 @@ const CLICK_LISTENERS: Record<string, string> = {
   'tonic': 'tonic',
   'elementalshard': 'elementalshard',
   'magictent': 'magictent',
+  'check_sneak': 'check',
+  'check_dodge': 'check',
+  'check_anticipate': 'check',
+  'check_tinker': 'check',
+  'check_captivate': 'check',
+  'check_study': 'check',
+  'check_recall': 'check',
+  'check_interrogate': 'check',
+  'check_persuade': 'check',
+  'check_effort': 'check',
+  'check_endure': 'check',
+  'check_intimidate': 'check',
+  'check_custom': 'check',
 };
 
 const SEND_TO_CHAT: Record<string, string[]> = {
@@ -404,6 +418,15 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'class_description',
   ],
   fabulapoints: ['fabula_points', 'spend_fabula_points'],
+  check: [
+    'dexterity',
+    'insight',
+    'might',
+    'willpower',
+    'check_attr1',
+    'check_attr2',
+    'check_description',
+  ],
 };
 SEND_TO_CHAT.study10 = [
   ...SEND_TO_CHAT.study7,
@@ -426,7 +449,70 @@ SEND_TO_CHAT.study10 = [
 ];
 SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
 
-const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar', 'sheet_type'];
+const COMMON_CHECKS: { [key: string]: any } = {
+  sneak: {
+    attrs: ['dexterity', 'dexterity'],
+    label: 'Sneak',
+    title: 'Moving silently, hiding and acting unnoticed.',
+  },
+  dodge: {
+    attrs: ['dexterity', 'insight'],
+    label: 'Dodge',
+    title: 'Avoiding a trap or finding a way to flee a collapsing building.',
+  },
+  anticipate: {
+    attrs: ['dexterity', 'insight'],
+    label: 'Anticipate',
+    title: 'Anticipating someone’s movements and catching them by surprise.',
+  },
+  tinker: {
+    attrs: ['dexterity', 'insight'],
+    label: 'Tinker',
+    title: 'Completing a work of craftsmanship or repairing something.',
+  },
+  captivate: {
+    attrs: ['dexterity', 'willpower'],
+    label: 'Captivate',
+    title: 'Moving gracefully to earn someone’s attention.',
+  },
+  study: {
+    attrs: ['insight', 'insight'],
+    label: 'Study',
+    title: 'Examining or investigating someone or something.',
+  },
+  recall: {
+    attrs: ['insight', 'insight'],
+    label: 'Recall',
+    title: 'Remembering useful information about something.',
+  },
+  interrogate: {
+    attrs: ['insight', 'willpower'],
+    label: 'Interrogate',
+    title: 'Getting information from someone during a conversation.',
+  },
+  persuade: {
+    attrs: ['insight', 'willpower'],
+    label: 'Persuade',
+    title: 'Persuading someone through authority or diplomacy.',
+  },
+  effort: {
+    attrs: ['might', 'might'],
+    label: 'Effort',
+    title: 'Hard work, such as lifting a portcullis or pushing a statue.',
+  },
+  endure: {
+    attrs: ['might', 'willpower'],
+    label: 'Endure',
+    title: 'Resisting intense pain or fatigue.',
+  },
+  intimidate: {
+    attrs: ['might', 'willpower'],
+    label: 'Intimidate',
+    title: 'Intimidating someone with your strength.',
+  },
+};
+
+const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar', 'sheet_type', 'roll_mods'];
 
 const EQUIPMENT_REQUESTS: string[] = [
   'sheet_type',

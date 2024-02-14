@@ -20,6 +20,8 @@ mixin classes-view(spine)
 mixin classes-edit(spine)
   .classes--edit
     +fabula-heading-edit('classes', spine.classes.heading, false)
+    each field in ['hp', 'mp', 'ip']
+      +chimera-hidden(`class_${field}_total`, 0)
     +chimera-repeater('classes')
       +chimera-block('delete')
         .class

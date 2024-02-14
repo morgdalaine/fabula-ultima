@@ -14,3 +14,7 @@ function chimeraRoll<T extends string>(
   const rollstring = `&{template:${template}} ${x} ${r}`;
   startRoll(rollstring, callback);
 }
+
+function getTranslation(key: string, dne = ''): string {
+  return getTranslationByKey(key) || dne;
+}

@@ -32,7 +32,7 @@ rolltemplate.sheet-rolltemplate-fabula-attack
           span.sheet-fabula-label {{ check }}
           span.sheet-fabula-span {{ roll }}
 
-        +tags(['damage'])
+        +tags(['^nodamage', 'damage'])
           div
             span.span.sheet-fabula-label {{ hr }}
             span.sheet-fabula-span {{ computed::damage }}

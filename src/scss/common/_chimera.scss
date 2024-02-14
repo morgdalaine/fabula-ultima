@@ -23,8 +23,6 @@
       }
     }
     &--small {
-      width: 5rem;
-
       .chimera-input__field {
         width: 5rem;
         text-align: center;
@@ -32,6 +30,9 @@
           align-self: center;
         }
       }
+    }
+    &--smallest {
+      width: 5rem;
     }
     &--nowrap {
       .chimera-input__label {

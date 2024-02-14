@@ -4,6 +4,6 @@
 Object.entries(CLICK_LISTENERS).forEach(([btn, key]) => {
   on(`clicked:${btn}`, async (eventInfo) => {
     const id = RepeatingModule.getRepId(eventInfo?.sourceAttribute);
-    return handleClick(key, id);
+    return handleClick(key, id ?? btn);
   });
 });
