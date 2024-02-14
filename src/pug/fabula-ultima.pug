@@ -2,36 +2,31 @@ include ../chimera/pug/chimera
 include layout/spine
 include components/mixins
 
-mixin html
-  //- html
-  //-   head
-  //-     link(href='fabula-ultima.css', rel='stylesheet', type='text/css')
-  //-   body
-  block
++chimera-hidden('sheet_version', '')
++chimera-hidden('sheet_migrations', '')
++chimera-hidden('sheet_type', 'character')
++chimera-hidden(spine.shared.modes.name)
+.fabula-ultima
+  header.fabula-ultima__header
+    +chimera-input(spine.shared.modes, 0)
+    +chimera-input(spine.gm.sheet)
 
-+html
-  +chimera-hidden('sheet_type', 'character')
-  +chimera-hidden(spine.shared.modes.name)
-  .fabula-ultima
-    header.fabula-ultima__header
-      +chimera-input(spine.shared.modes, 0)
-      +chimera-input(spine.gm.sheet)
+  main.character
+    include pages/character
+    +chimera-hidden('nav', 'classes')
+    +character-view(spine.character)
+    +character-edit(spine.character)
+  main.bestiary
+    include pages/bestiary
+    +bestiary-view(spine.bestiary)
+    +bestiary-edit(spine.bestiary)
+  main.gm
+    span [GM]
 
-    main.character
-      include pages/character
-      +chimera-hidden('nav', 'classes')
-      +character-view(spine.character)
-      +character-edit(spine.character)
-    main.bestiary
-      include pages/bestiary
-      +bestiary-view(spine.bestiary)
-      +bestiary-edit(spine.bestiary)
-    main.gm
-      span [GM]
+  footer
+    +chimera-value({ name: 'sheet_version', label: 'Version' })
 
-    footer
+include templates/rolltemplates
 
-  include templates/rolltemplates
-
-  script(type='text/worker')
-    include ../fabula-ultima.js
+script(type='text/worker')
+  include ../fabula-ultima.js

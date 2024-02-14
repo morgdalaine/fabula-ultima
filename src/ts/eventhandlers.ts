@@ -1,5 +1,8 @@
 /// <reference path="constants.ts" />
 /// <reference path="../chimera/ts/repeating.ts" />
+/// <reference path="../chimera/ts/migration.ts" />
+
+on('sheet:opened', (eventInfo) => handleMigrations(eventInfo));
 
 NAVBAR.forEach((nav) => {
   on(`clicked:${nav}`, (eventInfo) => {

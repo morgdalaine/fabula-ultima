@@ -34,9 +34,8 @@ mixin bestiary-view(spine)
 
 mixin bestiary-edit(spine)
   section.bestiary--edit
+    // TODO Nav bar to settings
     +bio-edit(spine)
-
-    // TODO NPC Builder
 
     .attributes--edit
       each field in spine.attributes.fields
