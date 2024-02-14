@@ -4377,15 +4377,6 @@ const sendToChat = async (chat, id) => {
                     return simpleTemplate(data);
             }
         })();
-        console.group('sendToChat');
-        console.log(chat, prefix);
-        console.log('v => ');
-        console.log(v);
-        console.log('data => ');
-        console.log(data);
-        console.log('template => ');
-        console.log(template);
-        console.groupEnd();
         chimeraRoll('fabula-chat', {
             avatar: avatar,
             sheet_type: v.sheet_type,
@@ -4439,15 +4430,6 @@ const rollAction = async (btn, id) => {
                     return customCheckTemplate(id, data);
             }
         })();
-        console.group('rollAction');
-        console.log(btn, prefix, id);
-        console.log('v => ');
-        console.log(v);
-        console.log('data => ');
-        console.log(data);
-        console.log('template => ');
-        console.log(template);
-        console.groupEnd();
         const i18n = {
             action: getTranslation('action', 'Action'),
             att1: getTranslation(template.att1, template.att1.toUpperCase()),
