@@ -92,10 +92,14 @@ rolltemplate.sheet-rolltemplate-fabula-chat
 
         span.sheet-fabula-label {{ name }}
         +tags(['level'])
-          span.sheet-fabula-span {{ level }}
+          span.sheet-fabula-level(data-i18n='lv') Lv
+          span.sheet-fabula-level {{ level }}
 
         +tags(['martial'])
           span.sheet-fabula-diamond ✦
+
+        +tags(['subtitle'])
+          span.sheet-fabula-subtitle {{ subtitle }}
 
     +tags(['study'])
       .sheet-header.sheet-space-around

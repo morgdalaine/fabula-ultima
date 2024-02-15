@@ -3864,6 +3864,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   align-items: center;
   gap: 4px;
 }
+.fabula-ultima .character .classes--view .class__skill {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr repeat(2, auto);
+  align-items: center;
+  gap: 4px;
+  padding-left: 4px;
+  border-left: 4px solid var(--color-fabula-light);
+}
 .fabula-ultima .character .classes--view .class__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.25rem;
@@ -3871,7 +3880,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .character .classes--view .class__skills_taken, .fabula-ultima .character .classes--view .class__description {
+.fabula-ultima .character .classes--view .class__skills_taken, .fabula-ultima .character .classes--view .class__description, .fabula-ultima .character .classes--view .class__skill_description {
   grid-column: 1/-1;
 }
 .fabula-ultima .character .classes--edit .class {
@@ -6226,6 +6235,8 @@ html,
       var(--color-fabula-light)
     )
     1;
+  --fabula-gradient-accent-border: linear-gradient(180deg, var(--color-fabula-base), white) 1;
+  --fabula-gradient-accent: linear-gradient(90deg, color-mix(in srgb, white 80%, #b9a9be) 0%, white 100%);
   --fabula-gradient-success: linear-gradient(90deg, #906318 40%, white 100%);
   --fabula-gradient-fumble: linear-gradient(90deg, #b22222 40%, white 100%);
   --button-background-color: rgba(26, 35, 126, 0.2);
@@ -6530,6 +6541,25 @@ html .sheet-bestiary,
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-subtitle,
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-subtitle {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+.sheet-rolltemplate-fabula-attack span.sheet-fabula-level,
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-level {
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-span,
 .sheet-rolltemplate-fabula-chat span.sheet-fabula-span {

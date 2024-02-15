@@ -17,6 +17,15 @@ mixin classes-view(spine)
           +chimera-value(job.skills_taken)
           +chimera-value(job.description)
 
+          each skill, index in spine.classes.view_skills
+            - const sk = fieldDictionary(skill, `class_skill${index + 1}`);
+            +chimera-hidden(sk.level.name, 0).chimera-repeater--empty-hide-next
+            .class__skill
+              +chimera-value(sk.name)
+              +chimera-value(sk.level)
+              +send-to-chat(`skill${index + 1}`)
+              +chimera-value(sk.description)
+
 mixin classes-edit(spine)
   .classes--edit
     +fabula-heading-edit('classes', spine.classes.heading, false)

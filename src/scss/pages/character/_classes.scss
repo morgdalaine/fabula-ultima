@@ -33,6 +33,18 @@
         align-items: center;
         gap: 4px;
 
+        &__skill {
+          grid-column: 1/-1;
+          display: grid;
+          grid-template-columns: 1fr repeat(2, auto);
+          align-items: center;
+          gap: 4px;
+
+          padding-left: 4px;
+          border-left: 4px solid var(--color-fabula-light);
+          // border-image: var(--fabula-gradient-accent-border);
+        }
+
         &__name {
           .chimera-value__value {
             @include mixins.text-xl-700;
@@ -40,7 +52,8 @@
         }
 
         &__skills_taken,
-        &__description {
+        &__description,
+        &__skill_description {
           grid-column: 1/-1;
         }
       }

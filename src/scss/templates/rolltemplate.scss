@@ -194,6 +194,23 @@
     font-weight: 700;
     line-height: 150%;
   }
+  span.sheet-fabula-subtitle {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+  span.sheet-fabula-level {
+    font-family: var(--font-title);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+  }
   span.sheet-fabula-span {
     font-family: var(--font-body);
     font-size: 16px;

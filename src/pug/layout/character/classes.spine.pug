@@ -25,6 +25,23 @@
         css: { names: ['class__description'], modifiers: [] },
       },
     ],
+
+    view_skills: [1, 2, 3, 4, 5].map((skill) => [
+      {
+        name: `class_skill${skill}_name`,
+        css: { names: ['class__skill_name'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: `class_skill${skill}_level`,
+        label: 'SL',
+        title: 'Skill Level',
+        css: { names: ['class__skill_level'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: `class_skill${skill}_description`,
+        css: { names: ['class__skill_description'], modifiers: [] },
+      },
+    ]),
     delete: [
       {
         name: 'class_name',

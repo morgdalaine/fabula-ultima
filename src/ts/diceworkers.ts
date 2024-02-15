@@ -40,9 +40,9 @@ const getSendChatRequest = (key: string, id: string) => {
   return { request, prefix };
 };
 
-const chatData = (chat: string, prefix: string, values: { [key: string]: string }) => {
+const chatData = (key: string, prefix: string, values: { [key: string]: string }) => {
   const attrPrefix = (function () {
-    switch (chat) {
+    switch (key) {
       case 'otheractionchat':
         return 'action_';
       case 'specialrulechat':
@@ -72,11 +72,18 @@ const chatData = (chat: string, prefix: string, values: { [key: string]: string 
       case 'bond4':
       case 'bond5':
       case 'bond6':
-        return `${chat}_`;
+        return `${key}_`;
+      case 'skill1':
+      case 'skill2':
+      case 'skill3':
+      case 'skill4':
+      case 'skill5':
+      case 'skill6':
+        return `class_${key}_`;
     }
   })();
 
-  return SEND_TO_CHAT[chat]?.reduce(
+  return SEND_TO_CHAT[key]?.reduce(
     (memo: { [key: string]: string }, attr: string) => (
       (memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo
     ),
@@ -255,6 +262,18 @@ const classTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const skillTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  template.name = values.name;
+  template.subtitle = `【${values.class_name}】`;
+  template.level = values.level;
+
+  template.special = values.description;
+
+  return template;
+};
+
 const fabulaPointsTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
@@ -315,6 +334,13 @@ const sendToChat = async (chat: string, id: string) => {
           return bondTemplate(data);
         case 'classchat':
           return classTemplate(data);
+        case 'skill1':
+        case 'skill2':
+        case 'skill3':
+        case 'skill4':
+        case 'skill5':
+        case 'skill6':
+          return skillTemplate(data);
         case 'fabulapoints':
           return fabulaPointsTemplate(data);
         case 'elixir':

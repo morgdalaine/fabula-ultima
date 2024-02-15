@@ -57,6 +57,12 @@ html,
     )
     1;
 
+  --fabula-gradient-accent-border: #{linear-gradient(180deg, var(--color-fabula-base), white) 1};
+  --fabula-gradient-accent: #{linear-gradient(
+      90deg,
+      color-mix(in srgb, white 80%, colors.$fabula-bestiary-lightest) 0%,
+      white 100%
+    )};
   .character,
   .sheet-character {
     --color-fabula-darkest: #{colors.$fabula-character-darkest};
