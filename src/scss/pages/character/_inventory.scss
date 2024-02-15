@@ -58,8 +58,24 @@
         &__table {
           grid-column: 1/-1;
           display: grid;
-          grid-template-columns: 1fr auto 2fr;
+          grid-template-columns: 1fr 3rem 2fr;
           gap: 4px;
+          &--repeating {
+            @extend .item__table;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+
+    &--edit {
+      .item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4px;
+
+        &__effect {
+          grid-column: 1/-1;
         }
       }
     }

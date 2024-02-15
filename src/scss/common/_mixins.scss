@@ -220,6 +220,7 @@
 @mixin chimera-icon {
   img,
   svg {
+    image-rendering: pixelated;
     width: var(--icon-component-size);
     height: var(--icon-component-size);
     aspect-ratio: 1;

@@ -1,26 +1,27 @@
 -
   spine.shared.rolls = {
     heading: { name: 'rolls', label: '' },
+    hidden: [],
     fields: [
       {
         name: 'check_attr1',
         label: 'Attr 1',
         type: 'select',
         options: attributeOptions,
-        css: { names: ['check__attr1'], modifiers: ['center', 'smallest'] },
+        css: { names: ['roll__attr1'], modifiers: ['center', 'smallest'] },
       },
       {
         name: 'check_attr2',
         label: 'Attr 2',
         type: 'select',
         options: attributeOptions,
-        css: { names: ['check__attr2'], modifiers: ['center', 'smallest'] },
+        css: { names: ['roll__attr2'], modifiers: ['center', 'smallest'] },
       },
       {
         name: 'check_description',
         label: 'Custom Check',
         type: 'text',
-        css: { names: ['check__description'] },
+        css: { names: ['roll__description'] },
       },
     ],
     actions: [
@@ -95,6 +96,44 @@
         label: 'Intimidate【MIG + WLP】',
         title: 'Intimidating someone with your strength.',
         css: { names: ['roll__check'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'check_description',
+        css: { names: ['roll__description'], modifiers: [] },
+      },
+      {
+        name: 'check_attr1',
+        dynamic: true,
+        css: { names: ['roll__attr1'], modifiers: ['center', 'smallest'] },
+      },
+      {
+        name: 'check_attr2',
+        dynamic: true,
+        css: { names: ['roll__attr2'], modifiers: ['center', 'smallest'] },
+      },
+    ],
+    repeating: [
+      {
+        name: 'check_attr1',
+        label: 'Attr 1',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['roll__attr1'], modifiers: ['center', 'smallest'] },
+      },
+      {
+        name: 'check_attr2',
+        label: 'Attr 2',
+        type: 'select',
+        options: attributeOptions,
+        css: { names: ['roll__attr2'], modifiers: ['center', 'smallest'] },
+      },
+      {
+        name: 'check_description',
+        label: 'Custom Check',
+        type: 'text',
+        css: { names: ['roll__description'] },
       },
     ]
   }

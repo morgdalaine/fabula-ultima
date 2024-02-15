@@ -11,7 +11,7 @@ mixin inventory-view(spine)
       .item__table
         each header in spine.inventory.table
           label.chimera-value__label(data-i18n=header.name)= header.label
-        each field in spine.inventory.view
+        each field in spine.inventory.stock
           +chimera-action(field)
             +chimera-icon({ icon: field.icon })
             .chimera-value(class=field.css.names)
@@ -20,6 +20,26 @@ mixin inventory-view(spine)
             span.chimera-value__value= field.cost
           .chimera-value
             span.chimera-value__value(data-i18n=`${field.name}_effect`)= field.title
+    +chimera-repeater-simple('inventory')
+      .item__table--repeating
+        - const item = fieldDictionary(spine.inventory.view, 'inventory');
+        +chimera-action(item.name)
+          +chimera-value(item.name)
+        +chimera-value(item.cost)
+        +chimera-value(item.effect)
 
 mixin inventory-edit(spine)
-  // TODO Custom inventory
+  .inventory
+    +fabula-heading-edit('inventory', spine.inventory.heading)
+    +chimera-repeater('inventory')
+      +chimera-block('delete')
+        .item
+          - const [name] = spine.inventory.delete;
+          +chimera-value(name)
+
+      +chimera-block('edit')
+        .item
+          each field in spine.inventory.hidden
+            +chimera-hidden(field)
+          each field in spine.inventory.repeating
+            +chimera-input(field)

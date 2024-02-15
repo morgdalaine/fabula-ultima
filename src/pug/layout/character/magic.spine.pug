@@ -5,42 +5,36 @@
       label: 'Spells',
     },
     hidden: ['spell_is_offensive', 'spell_accuracy_total', 'spell_damage_total'],
-    view
-    : [
-        {
-          name: 'spell_name',
-          css: { names: ['spell__name'], modifiers:  ['no-label-bold'] },
-        },
+    view: [
       {
-
-          name: 'spell_attr1',
-          dynamic: true,
-          css: { names: ['spell__attr1'], modifiers: ['small', 'center'] },
-        },
+        name: 'spell_name',
+        css: { names: ['spell__name'], modifiers: ['no-label-bold'] },
+      },
       {
-
-          name: 'spell_attr2',
-          dynamic: true,
-          css: { names: ['spell__attr2'], modifiers: ['small', 'center'] },
-        },
+        name: 'spell_attr1',
+        dynamic: true,
+        css: { names: ['spell__attr1'], modifiers: ['small', 'center'] },
+      },
       {
-
-          name: 'spell_mp',
-          label: 'MP',
-          css: { names: ['spell__mp'], modifiers: ['reverse'] },
-        },
+        name: 'spell_attr2',
+        dynamic: true,
+        css: { names: ['spell__attr2'], modifiers: ['small', 'center'] },
+      },
       {
-
-          name: 'spell_accuracy_total',
-          title: 'Accuracy',
-          css: { names: ['spell__accuracy_total'], modifiers: ['center'] },
-        },
+        name: 'spell_mp',
+        label: 'MP',
+        css: { names: ['spell__mp'], modifiers: ['reverse'] },
+      },
       {
-
-          name: 'spell_damage_total',
-          title: 'Damage',
-          css: { names: ['spell__damage_total'], modifiers: ['center'] },
-        },
+        name: 'spell_accuracy_total',
+        title: 'Accuracy',
+        css: { names: ['spell__accuracy_total'], modifiers: ['center'] },
+      },
+      {
+        name: 'spell_damage_total',
+        title: 'Damage',
+        css: { names: ['spell__damage_total'], modifiers: ['center'] },
+      },
       {
         name: 'spell_type',
         dynamic: true,
@@ -172,11 +166,11 @@
       {
         name: 'ritual_known',
         label: 'Rituals Known',
-        css: { names: ['ritual__known'], modifiers:  ['colon'] },
+        css: { names: ['ritual__known'], modifiers: ['colon'] },
       },
       {
         name: 'ritual_name',
-        css: { names: ['ritual__name'], modifiers:  ['no-label-bold'] },
+        css: { names: ['ritual__name'], modifiers: ['no-label-bold'] },
       },
       {
         name: 'ritual_attr1',
@@ -324,37 +318,37 @@
         name: 'arcanism',
         label: 'Arcanism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
       {
         name: 'chimerism',
         label: 'Chimerism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
       {
         name: 'elementalism',
         label: 'Elementalism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
       {
         name: 'entropism',
         label: 'Entropism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
       {
         name: 'ritualism',
         label: 'Ritualism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
       {
         name: 'spiritism',
         label: 'Spiritism',
         type: 'checkbox',
-        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] }
+        css: { names: ['ritual-discipline'], modifiers: ['column-reverse'] },
       },
-    ]
+    ],
   };

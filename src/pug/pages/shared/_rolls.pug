@@ -12,3 +12,27 @@ mixin rolls-view(spine)
       each action in spine.rolls.actions
         +chimera-action(action)
           label.chimera-action__label(data-i18n=action.name)= action.label
+
+    +chimera-repeater-simple('rolls')
+      - const [name, att1, att2] = spine.rolls.delete;
+      +chimera-action({ name: 'check', title: 'Roll Custom Check' }).roll__check--repeating
+        +chimera-value(name)
+        +fabula-check(att1, att2)
+
+mixin rolls-edit(spine)
+  .rolls
+    +fabula-heading-edit('rolls', { name: 'custom_checks', label: 'Custom Checks' })
+    +chimera-repeater('rolls')
+      +chimera-block('delete')
+        .roll
+          - const [name, att1, att2] = spine.rolls.delete;
+          +chimera-value(name)
+          .roll__offensive
+            +fabula-diamond
+            +fabula-check(att1, att2)
+      +chimera-block('edit')
+        .roll
+          each field in spine.rolls.hidden
+            +chimera-hidden(field)
+          each field in spine.rolls.repeating
+            +chimera-input(field)

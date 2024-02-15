@@ -355,6 +355,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-input img,
 .fabula-ultima .chimera-input svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -524,6 +525,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-checkbox__field img,
 .fabula-ultima .chimera-checkbox__field svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -642,6 +644,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-toggle__field img,
 .fabula-ultima .chimera-toggle__field svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -706,6 +709,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-switch__label img,
 .fabula-ultima .chimera-switch__label svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -801,6 +805,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-arithmetic__add svg, .fabula-ultima .chimera-arithmetic__subtract img,
 .fabula-ultima .chimera-arithmetic__subtract svg, .fabula-ultima .chimera-arithmetic__button img,
 .fabula-ultima .chimera-arithmetic__button svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -882,6 +887,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 .fabula-ultima .chimera-action img,
 .fabula-ultima .chimera-action svg {
+  image-rendering: pixelated;
   width: var(--icon-component-size);
   height: var(--icon-component-size);
   aspect-ratio: 1;
@@ -3059,12 +3065,39 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .rolls .chimera-repeater--simple {
   overflow: hidden;
 }
+.fabula-ultima .bestiary .rolls--delete .roll,
+.fabula-ultima .character .rolls--delete .roll {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .rolls--delete .roll__description .chimera-value__value,
+.fabula-ultima .character .rolls--delete .roll__description .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .rolls--delete .roll__offensive,
+.fabula-ultima .character .rolls--delete .roll__offensive {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
 .fabula-ultima .bestiary .rolls--view .chimera-wrapper,
 .fabula-ultima .character .rolls--view .chimera-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
   padding-inline: 4px;
+}
+.fabula-ultima .bestiary .rolls--view .repcontainer,
+.fabula-ultima .character .rolls--view .repcontainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 0px;
+  margin-top: 4px;
 }
 .fabula-ultima .bestiary .rolls--view .roll__custom,
 .fabula-ultima .character .rolls--view .roll__custom {
@@ -3087,9 +3120,28 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .rolls--view .roll__check--custom svg {
   position: relative;
 }
-.fabula-ultima .bestiary .rolls--edit,
-.fabula-ultima .character .rolls--edit {
+.fabula-ultima .bestiary .rolls--view .roll__check--repeating,
+.fabula-ultima .character .rolls--view .roll__check--repeating {
+  gap: 0px;
+}
+.fabula-ultima .bestiary .rolls--view .roll__check--repeating span,
+.fabula-ultima .character .rolls--view .roll__check--repeating span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  white-space: nowrap;
+}
+.fabula-ultima .bestiary .rolls--view .roll__check--repeating .fabula-check,
+.fabula-ultima .character .rolls--view .roll__check--repeating .fabula-check {
+  gap: 0px;
+  align-self: center;
+}
+.fabula-ultima .bestiary .rolls--edit .roll,
+.fabula-ultima .character .rolls--edit .roll {
   display: grid;
+  grid-template-columns: repeat(2, auto) 1fr;
   gap: 4px;
 }
 
@@ -4556,12 +4608,27 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   padding: 4px 8px;
 }
-.fabula-ultima .character .fabula-points--view .item__table,
-.fabula-ultima .character .inventory--view .item__table {
+.fabula-ultima .character .fabula-points--view .item__table, .fabula-ultima .character .fabula-points--view .item__table--repeating,
+.fabula-ultima .character .inventory--view .item__table,
+.fabula-ultima .character .inventory--view .item__table--repeating {
   grid-column: 1/-1;
   display: grid;
-  grid-template-columns: 1fr auto 2fr;
+  grid-template-columns: 1fr 3rem 2fr;
   gap: 4px;
+}
+.fabula-ultima .character .fabula-points--view .item__table--repeating,
+.fabula-ultima .character .inventory--view .item__table--repeating {
+  margin-top: 4px;
+}
+.fabula-ultima .character .fabula-points--edit .item,
+.fabula-ultima .character .inventory--edit .item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+}
+.fabula-ultima .character .fabula-points--edit .item__effect,
+.fabula-ultima .character .inventory--edit .item__effect {
+  grid-column: 1/-1;
 }
 
 .fabula-ultima .character .spells__heading--edit .chimera-toggle, .fabula-ultima .character .spells__heading--view .chimera-toggle {
@@ -6025,6 +6092,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=equipment] ~ * .character__equipment {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .character__backpack {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=backpack] ~ * .character__backpack {
   display: grid;
   gap: 4px;
 }

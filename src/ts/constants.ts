@@ -1,15 +1,26 @@
-const NAVBAR = ['stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings'];
+const NAVBAR = [
+  'stats',
+  'bonds',
+  'classes',
+  'equipment',
+  'backpack',
+  'magic',
+  'journal',
+  'settings',
+];
 
 const REPEATING = [
   'weapons',
   'spells',
   'rituals',
+  'rolls',
 
   'classes',
 
   'armors',
   'shields',
   'accessories',
+  'inventory',
 
   'notes',
   'quests',
@@ -301,6 +312,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_rare-gears:raregearchat': 'raregearchat',
   'repeating_notes:notechat': 'notechat',
   'repeating_classes:classchat': 'classchat',
+  // 'repeating_rolls:check': 'check',
   'armorchat': 'armorchat',
   'shieldchat': 'shieldchat',
   'study7': 'study7',

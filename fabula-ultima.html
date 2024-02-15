@@ -242,7 +242,7 @@
                 </h2>
                 <div class="chimera-wrapper">
                   <div class="roll__custom">
-                    <div class="chimera-input check__attr1 chimera-input--center chimera-input--smallest">
+                    <div class="chimera-input roll__attr1 chimera-input--center chimera-input--smallest">
                       <label class="chimera-input__label" data-i18n="check_attr1" for="check_attr1">Attr 1</label>
                       <select class="chimera-input__field" data-i18n-title="check_attr1_title" id="check_attr1" name="attr_check_attr1" title="Attr 1">
                         <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -251,7 +251,7 @@
                         <option data-i18n="willpower" value="willpower">WLP</option>
                       </select>
                     </div>
-                    <div class="chimera-input check__attr2 chimera-input--center chimera-input--smallest">
+                    <div class="chimera-input roll__attr2 chimera-input--center chimera-input--smallest">
                       <label class="chimera-input__label" data-i18n="check_attr2" for="check_attr2">Attr 2</label>
                       <select class="chimera-input__field" data-i18n-title="check_attr2_title" id="check_attr2" name="attr_check_attr2" title="Attr 2">
                         <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
@@ -260,7 +260,7 @@
                         <option data-i18n="willpower" value="willpower">WLP</option>
                       </select>
                     </div>
-                    <div class="chimera-input check__description">
+                    <div class="chimera-input roll__description">
                       <label class="chimera-input__label" data-i18n="check_description" for="check_description">Custom Check</label>
                       <input class="chimera-input__field" data-i18n-placeholder="check_description_placeholder" data-i18n-title="check_description_title" id="check_description" name="attr_check_description" placeholder="Custom Check" title="Custom Check" type="text"/>
                     </div>
@@ -304,6 +304,17 @@
                   <button class="chimera-action roll__check" data-i18n-title="check_intimidate_title" name="act_check_intimidate" title="Intimidating someone with your strength." type="action">
                     <label class="chimera-action__label" data-i18n="check_intimidate">Intimidate【MIG + WLP】</label>
                   </button>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rolls_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_rolls">
+                    <button class="chimera-action roll__check--repeating" data-i18n-title="check_title" name="act_check" title="Roll Custom Check" type="action">
+                      <div class="chimera-value roll__description"><span class="chimera-value__value" name="attr_check_description"></span>
+                      </div>
+                      <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span>
+                      </div>
+                    </button>
+                  </fieldset>
                 </div>
               </div>
               <div class="bonds--view">
@@ -807,6 +818,21 @@
                     <div class="chimera-value"><span class="chimera-value__value" data-i18n="magictent_effect">Allows the entire group to rest in the wilderness.</span></div>
                   </div>
                 </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_inventory_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_inventory">
+                    <div class="item__table--repeating">
+                      <button class="chimera-action item__name chimera-action--no-label-bold" data-i18n-title="inventory_name_title" name="act_inventory_name" type="action">
+                        <div class="chimera-value item__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_inventory_name"></span>
+                        </div>
+                      </button>
+                      <div class="chimera-value item__cost chimera-value--center chimera-value--small"><span class="chimera-value__value" name="attr_inventory_cost"></span>
+                      </div>
+                      <div class="chimera-value item__effect"><span class="chimera-value__value" name="attr_inventory_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
               <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_classes_empty" type="hidden"/>
               <div class="classes">
@@ -1059,6 +1085,8 @@
                 </button>
                 <button class="chimera-action" data-i18n-title="equipment_title" name="act_equipment" title="Equipment" type="action"><span class="chimera-value__value" data-i18n="equipment">Equipment</span>
                 </button>
+                <button class="chimera-action" data-i18n-title="backpack_title" name="act_backpack" title="Backpack" type="action"><span class="chimera-value__value" data-i18n="backpack">Backpack</span>
+                </button>
                 <button class="chimera-action" data-i18n-title="magic_title" name="act_magic" title="Magic" type="action"><span class="chimera-value__value" data-i18n="magic">Magic</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="journal_title" name="act_journal" title="Journal" type="action"><span class="chimera-value__value" data-i18n="journal">Journal</span>
@@ -1243,6 +1271,63 @@
                       <input id="poisoned_immunity" name="attr_poisoned_immunity" type="checkbox"/><img data-i18n-title="poisoned_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned-pixerelia.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
                     </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
                   </label>
+                </div>
+                <div class="rolls">
+                  <h2 class="rolls__heading--edit"><span data-i18n="custom_checks">Custom Checks</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
+                      <div class="chimera-toggle__field">
+                        <input id="rolls_collapse" name="attr_rolls_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="rolls_collapse" for="rolls_collapse">Toggle rolls</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rolls_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_rolls_repeating">No rolls saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_rolls">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit rolls--edit">
+                          <div class="roll">
+                            <div class="chimera-input roll__attr1 chimera-input--center chimera-input--smallest">
+                              <label class="chimera-input__label" data-i18n="check_attr1" for="check_attr1">Attr 1</label>
+                              <select class="chimera-input__field" data-i18n-title="check_attr1_title" id="check_attr1" name="attr_check_attr1" title="Attr 1">
+                                <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
+                                <option data-i18n="insight" value="insight">INS</option>
+                                <option data-i18n="might" value="might">MIG</option>
+                                <option data-i18n="willpower" value="willpower">WLP</option>
+                              </select>
+                            </div>
+                            <div class="chimera-input roll__attr2 chimera-input--center chimera-input--smallest">
+                              <label class="chimera-input__label" data-i18n="check_attr2" for="check_attr2">Attr 2</label>
+                              <select class="chimera-input__field" data-i18n-title="check_attr2_title" id="check_attr2" name="attr_check_attr2" title="Attr 2">
+                                <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
+                                <option data-i18n="insight" value="insight">INS</option>
+                                <option data-i18n="might" value="might">MIG</option>
+                                <option data-i18n="willpower" value="willpower">WLP</option>
+                              </select>
+                            </div>
+                            <div class="chimera-input roll__description">
+                              <label class="chimera-input__label" data-i18n="check_description" for="check_description">Custom Check</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="check_description_placeholder" data-i18n-title="check_description_title" id="check_description" name="attr_check_description" placeholder="Custom Check" title="Custom Check" type="text"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete rolls--delete">
+                          <div class="roll">
+                            <div class="chimera-value roll__description"><span class="chimera-value__value" name="attr_check_description"></span>
+                            </div>
+                            <div class="roll__offensive"><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view rolls--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
           </div>
           <div class="character__bonds">
@@ -1951,6 +2036,137 @@
                   </div>
                 </div>
           </div>
+          <div class="character__backpack">
+                <div class="inventory">
+                  <h2 class="inventory__heading--edit"><span data-i18n="inventory">Inventory</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
+                      <div class="chimera-toggle__field">
+                        <input id="inventory_collapse" name="attr_inventory_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="inventory_collapse" for="inventory_collapse">Toggle inventory</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_inventory_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_inventory_repeating">No inventory saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_inventory">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit inventory--edit">
+                          <div class="item">
+                            <div class="chimera-input item__name">
+                              <label class="chimera-input__label" data-i18n="inventory_name" for="inventory_name">Item</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="inventory_name_placeholder" data-i18n-title="inventory_name_title" id="inventory_name" name="attr_inventory_name" placeholder="Item" title="Item" type="text"/>
+                            </div>
+                            <div class="chimera-input item__cost chimera-input--center chimera-input--small">
+                              <label class="chimera-input__label" data-i18n="inventory_cost" for="inventory_cost">Cost</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="inventory_cost_placeholder" data-i18n-title="inventory_cost_title" id="inventory_cost" name="attr_inventory_cost" placeholder="0" title="Cost" type="number"/>
+                            </div>
+                            <div class="chimera-input item__effect">
+                              <label class="chimera-input__label" data-i18n="inventory_effect" for="inventory_effect">Effect</label>
+                              <textarea class="chimera-input__field" data-i18n-title="inventory_effect_title" id="inventory_effect" name="attr_inventory_effect" title="Effect" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete inventory--delete">
+                          <div class="item">
+                            <div class="chimera-value item__name"><span class="chimera-value__value" name="attr_inventory_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view inventory--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="projects">
+                  <h2 class="projects__heading--edit"><span data-i18n="projects">Projects</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
+                      <div class="chimera-toggle__field">
+                        <input id="projects_collapse" name="attr_projects_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="projects_collapse" for="projects_collapse">Toggle projects</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_projects_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_projects_repeating">No projects saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_projects">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit projects--edit">
+                          <div class="project">
+                            <div class="chimera-input project__name">
+                              <label class="chimera-input__label" data-i18n="project_name" for="project_name">Project</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_name_placeholder" data-i18n-title="project_name_title" id="project_name" name="attr_project_name" placeholder="Project" title="Project" type="text"/>
+                            </div>
+                            <div class="chimera-input project__cost chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="project_cost" for="project_cost">Cost</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_cost_placeholder" data-i18n-title="project_cost_title" id="project_cost" name="attr_project_cost" placeholder="0" title="Cost" type="number"/>
+                            </div>
+                            <div class="chimera-input project__clock chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="project_clock" for="project_clock">Clock</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_clock_placeholder" data-i18n-title="project_clock_title" id="project_clock" name="attr_project_clock" placeholder="0" title="Clock" type="number"/>
+                            </div>
+                            <div class="chimera-input project__special">
+                              <label class="chimera-input__label" data-i18n="project_special" for="project_special">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="project_special_title" id="project_special" name="attr_project_special" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete projects--delete">
+                          <div class="project">
+                            <div class="chimera-value project__name"><span class="chimera-value__value" name="attr_project_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view projects--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="items">
+                  <h2 class="items__heading--edit"><span data-i18n="items">Items</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
+                      <div class="chimera-toggle__field">
+                        <input id="items_collapse" name="attr_items_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="items_collapse" for="items_collapse">Toggle items</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_items_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_items_repeating">No items saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_items">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit items--edit">
+                          <div class="item">
+                            <div class="chimera-input item__name">
+                              <label class="chimera-input__label" data-i18n="item_name" for="item_name">Item</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="item_name_placeholder" data-i18n-title="item_name_title" id="item_name" name="attr_item_name" placeholder="Item" title="Item" type="text"/>
+                            </div>
+                            <div class="chimera-input item__effect">
+                              <label class="chimera-input__label" data-i18n="item_effect" for="item_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="item_effect_title" id="item_effect" name="attr_item_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete items--delete">
+                          <div class="item">
+                            <div class="chimera-value item__name"><span class="chimera-value__value" name="attr_item_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view items--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+          </div>
           <div class="character__magic">
                 <div class="spells">
                   <h2 class="spells__heading--edit"><span data-i18n="spells">Spells</span>
@@ -2273,53 +2489,6 @@
                     </fieldset>
                   </div>
                 </div>
-                <div class="projects">
-                  <h2 class="projects__heading--edit"><span data-i18n="projects">Projects</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
-                      <div class="chimera-toggle__field">
-                        <input id="projects_collapse" name="attr_projects_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
-                      </div><span class="chimera-toggle__label" data-i18n="projects_collapse" for="projects_collapse">Toggle projects</span>
-                    </label>
-                  </h2>
-                  <div class="chimera-repeater">
-                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_projects_empty" type="hidden" value="0"/>
-                    <div class="chimera-repeater__empty">
-                      <h2 class="chimera-repeater__empty-header" data-i18n="none_projects_repeating">No projects saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
-                    </div>
-                    <fieldset class="repeating_projects">
-                      <div class="chimera-repeater__content">
-                        <div class="chimera-repeater--edit projects--edit">
-                          <div class="project">
-                            <div class="chimera-input project__name">
-                              <label class="chimera-input__label" data-i18n="project_name" for="project_name">Project</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="project_name_placeholder" data-i18n-title="project_name_title" id="project_name" name="attr_project_name" placeholder="Project" title="Project" type="text"/>
-                            </div>
-                            <div class="chimera-input project__cost chimera-input--small chimera-input--center">
-                              <label class="chimera-input__label" data-i18n="project_cost" for="project_cost">Cost</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="project_cost_placeholder" data-i18n-title="project_cost_title" id="project_cost" name="attr_project_cost" placeholder="0" title="Cost" type="number"/>
-                            </div>
-                            <div class="chimera-input project__clock chimera-input--small chimera-input--center">
-                              <label class="chimera-input__label" data-i18n="project_clock" for="project_clock">Clock</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="project_clock_placeholder" data-i18n-title="project_clock_title" id="project_clock" name="attr_project_clock" placeholder="0" title="Clock" type="number"/>
-                            </div>
-                            <div class="chimera-input project__special">
-                              <label class="chimera-input__label" data-i18n="project_special" for="project_special">Details</label>
-                              <textarea class="chimera-input__field" data-i18n-title="project_special_title" id="project_special" name="attr_project_special" title="Details" type="textarea"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="chimera-repeater--delete projects--delete">
-                          <div class="project">
-                            <div class="chimera-value project__name"><span class="chimera-value__value" name="attr_project_name"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="chimera-repeater--view projects--view">
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-                </div>
                 <div class="friends">
                   <h2 class="friends__heading--edit"><span data-i18n="friends">Friends</span>
                     <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
@@ -2471,45 +2640,6 @@
                           </div>
                         </div>
                         <div class="chimera-repeater--view artifacts--view">
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-                </div>
-                <div class="items">
-                  <h2 class="items__heading--edit"><span data-i18n="items">Items</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
-                      <div class="chimera-toggle__field">
-                        <input id="items_collapse" name="attr_items_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
-                      </div><span class="chimera-toggle__label" data-i18n="items_collapse" for="items_collapse">Toggle items</span>
-                    </label>
-                  </h2>
-                  <div class="chimera-repeater">
-                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_items_empty" type="hidden" value="0"/>
-                    <div class="chimera-repeater__empty">
-                      <h2 class="chimera-repeater__empty-header" data-i18n="none_items_repeating">No items saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
-                    </div>
-                    <fieldset class="repeating_items">
-                      <div class="chimera-repeater__content">
-                        <div class="chimera-repeater--edit items--edit">
-                          <div class="item">
-                            <div class="chimera-input item__name">
-                              <label class="chimera-input__label" data-i18n="item_name" for="item_name">Item</label>
-                              <input class="chimera-input__field" data-i18n-placeholder="item_name_placeholder" data-i18n-title="item_name_title" id="item_name" name="attr_item_name" placeholder="Item" title="Item" type="text"/>
-                            </div>
-                            <div class="chimera-input item__effect">
-                              <label class="chimera-input__label" data-i18n="item_effect" for="item_effect">Details</label>
-                              <textarea class="chimera-input__field" data-i18n-title="item_effect_title" id="item_effect" name="attr_item_effect" title="Details" type="textarea"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="chimera-repeater--delete items--delete">
-                          <div class="item">
-                            <div class="chimera-value item__name"><span class="chimera-value__value" name="attr_item_name"></span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="chimera-repeater--view items--view">
                         </div>
                       </div>
                     </fieldset>
@@ -4063,15 +4193,26 @@
     </div>
   </div>
 </rolltemplate>
-<script type="text/worker">const NAVBAR = ['stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings'];
+<script type="text/worker">const NAVBAR = [
+    'stats',
+    'bonds',
+    'classes',
+    'equipment',
+    'backpack',
+    'magic',
+    'journal',
+    'settings',
+];
 const REPEATING = [
     'weapons',
     'spells',
     'rituals',
+    'rolls',
     'classes',
     'armors',
     'shields',
     'accessories',
+    'inventory',
     'notes',
     'quests',
     'projects',
@@ -5370,7 +5511,7 @@ const CROSSWALK_TO_V20 = {
         armorInitiative: 'repeating_armors_-CREATE_armor_initiative',
         armorResist: 'repeating_armors_-CREATE_armor_magic_defense_bonus',
         armorDefense: 'repeating_armors_-CREATE_armor_defense',
-        armorDescription: 'repeating_armors_-CREATE_armor_name',
+        armorDescription: 'repeating_armors_-CREATE_armor_special',
     },
     shield: {
         shieldName: 'repeating_shields_-CREATE_shield_name',
@@ -5449,9 +5590,9 @@ const CROSSWALK_TO_V20 = {
         baseSpellEffect: 'repeating_spells_-CREATE_spell_effect',
     },
     repeating_inventoryitems: {
-        inventoryItemName: 'repeating_inventories_-CREATE_inventory_name',
-        inventoryItemIPCost: 'repeating_inventories_-CREATE_inventory_ip',
-        inventoryItemEffect: 'repeating_inventories_-CREATE_inventory_effect',
+        inventoryItemName: 'repeating_inventory_-CREATE_inventory_name',
+        inventoryItemIPCost: 'repeating_inventory_-CREATE_inventory_cost',
+        inventoryItemEffect: 'repeating_inventory_-CREATE_inventory_effect',
     },
     repeating_projects: {
         projectName: 'project_name',
@@ -5512,9 +5653,9 @@ const CROSSWALK_TO_V20 = {
         zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_details',
     },
     repeating_rolls: {
-        genericRollName: 'roll_name',
-        genericRollAttr1Name: 'roll_attr1',
-        genericRollAttr2Name: 'roll_attr2',
+        genericRollName: 'check_name',
+        genericRollAttr1Name: 'check_attr1',
+        genericRollAttr2Name: 'check_attr2',
     },
 };
 const CROSSWALK_REQUEST = [

@@ -18,7 +18,7 @@
     $this: '.character';
 
     // navigation
-    $pages: 'stats', 'bonds', 'classes', 'equipment', 'magic', 'journal', 'settings';
+    $pages: 'stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal', 'settings';
     @each $page in $pages {
       &__#{$page} {
         display: none;

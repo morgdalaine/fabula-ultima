@@ -98,7 +98,7 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     armorInitiative: 'repeating_armors_-CREATE_armor_initiative',
     armorResist: 'repeating_armors_-CREATE_armor_magic_defense_bonus',
     armorDefense: 'repeating_armors_-CREATE_armor_defense',
-    armorDescription: 'repeating_armors_-CREATE_armor_name',
+    armorDescription: 'repeating_armors_-CREATE_armor_special',
   },
   shield: {
     shieldName: 'repeating_shields_-CREATE_shield_name',
@@ -178,9 +178,9 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     baseSpellEffect: 'repeating_spells_-CREATE_spell_effect',
   },
   repeating_inventoryitems: {
-    inventoryItemName: 'repeating_inventories_-CREATE_inventory_name',
-    inventoryItemIPCost: 'repeating_inventories_-CREATE_inventory_ip',
-    inventoryItemEffect: 'repeating_inventories_-CREATE_inventory_effect',
+    inventoryItemName: 'repeating_inventory_-CREATE_inventory_name',
+    inventoryItemIPCost: 'repeating_inventory_-CREATE_inventory_cost',
+    inventoryItemEffect: 'repeating_inventory_-CREATE_inventory_effect',
   },
   repeating_projects: {
     projectName: 'project_name',
@@ -241,9 +241,9 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_details',
   },
   repeating_rolls: {
-    genericRollName: 'roll_name',
-    genericRollAttr1Name: 'roll_attr1',
-    genericRollAttr2Name: 'roll_attr2',
+    genericRollName: 'check_name',
+    genericRollAttr1Name: 'check_attr1',
+    genericRollAttr2Name: 'check_attr2',
   },
 };
 

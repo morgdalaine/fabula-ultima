@@ -15,7 +15,8 @@
       { name: 'ip_cost', label: 'IP Cost' },
       { name: 'effect', label: 'Effect' },
     ],
-    view: [
+    hidden: [],
+    stock: [
       {
         name: 'elixir',
         label: 'Elixir',
@@ -57,5 +58,44 @@
         css: { names: ['item__magictent'], modifiers: [] },
       },
     ],
-    repeating: [],
+    view: [
+      {
+        name: 'inventory_name',
+        css: { names: ['item__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'inventory_cost',
+        css: { names: ['item__cost'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'inventory_effect',
+        css: { names: ['item__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'inventory_name',
+        css: { names: ['item__name'], modifiers: [] },
+      },
+    ],
+    repeating: [
+      {
+        name: 'inventory_name',
+        label: 'Item',
+        type: 'text',
+        css: { names: ['item__name'] },
+      },
+      {
+        name: 'inventory_cost',
+        label: 'Cost',
+        type: 'number',
+        css: { names: ['item__cost'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'inventory_effect',
+        label: 'Effect',
+        type: 'textarea',
+        css: { names: ['item__effect'] },
+      },
+    ],
   }

@@ -51,6 +51,7 @@ mixin character-edit(spine)
     .character__stats
       +statistics-edit(spine)
       +status-immunity-edit(spine)
+      +rolls-edit(spine)
 
     .character__bonds
       +bonds-edit(spine)
@@ -64,6 +65,11 @@ mixin character-edit(spine)
       +shields-edit(spine)
       +accessories-edit(spine)
 
+    .character__backpack
+      +inventory-edit(spine)
+      +projects-edit(spine)
+      +items-edit(spine)
+
     .character__magic
       +spells-edit(spine)
       +rituals-edit(spine)
@@ -71,12 +77,10 @@ mixin character-edit(spine)
     .character__journal
       +notes-edit(spine)
       +quests-edit(spine)
-      +projects-edit(spine)
       +friends-edit(spine)
       +creatures-edit(spine)
       +locations-edit(spine)
       +artifacts-edit(spine)
-      +items-edit(spine)
       +discoveries-edit(spine)
 
     .character__settings

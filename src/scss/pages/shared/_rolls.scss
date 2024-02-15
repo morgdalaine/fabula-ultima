@@ -8,13 +8,41 @@
 
       @include mixins.fabula-heading;
 
+      &--delete {
+        .roll {
+          display: flex;
+          gap: 4px;
+
+          &__description {
+            .chimera-value {
+              &__value {
+                @include mixins.text-xl-400;
+              }
+            }
+          }
+
+          &__offensive {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 4px;
+          }
+        }
+      }
+
       &--view {
         .chimera-wrapper {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 4px;
-
           padding-inline: 4px;
+        }
+
+        .repcontainer {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 4px;
+          padding: 0px;
+          margin-top: 4px;
         }
 
         .roll {
@@ -34,13 +62,28 @@
                 position: relative;
               }
             }
+            &--repeating {
+              gap: 0px;
+
+              span {
+                @include mixins.text-base-700;
+                white-space: nowrap;
+              }
+              .fabula-check {
+                gap: 0px;
+                align-self: center;
+              }
+            }
           }
         }
       }
 
       &--edit {
-        display: grid;
-        gap: 4px;
+        .roll {
+          display: grid;
+          grid-template-columns: repeat(2, auto) 1fr;
+          gap: 4px;
+        }
       }
     }
   }
