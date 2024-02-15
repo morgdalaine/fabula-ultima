@@ -6,11 +6,20 @@ const REPEATING = [
   'rituals',
 
   'classes',
-  'notes',
 
   'armors',
   'shields',
   'accessories',
+
+  'notes',
+  'quests',
+  'projects',
+  'friends',
+  'creatures',
+  'locations',
+  'artifacts',
+  'discoveries',
+  'items',
 
   // bestiary
   'basic-attacks',
@@ -594,6 +603,12 @@ const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
     ],
   },
 ];
+
+const CLASS_BENEFIT: { [key: string]: number } = {
+  hp: 5,
+  mp: 5,
+  ip: 2,
+};
 
 const BASIC_ACCURACY_DAMAGE: SectionDetails[] = [
   {

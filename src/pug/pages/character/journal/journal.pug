@@ -21,7 +21,7 @@ mixin journal-view(spine)
         - const project = fieldDictionary(spine.projects.view, 'project');
         +chimera-value(project.name)
         +send-to-chat('project')
-        +chimera-value(project.effect)
+        +chimera-value(project.special)
 
     +chimera-repeater-simple('friends')
       .journal__friends

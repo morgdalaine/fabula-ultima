@@ -7,7 +7,6 @@ const checkForCritical = (dice: number[]) => {
 };
 
 const handleClick = async (btn: string, id: string) => {
-  console.log('handleClick => ' + btn, id);
   switch (btn) {
     case 'basicattack':
     case 'weaponattack':
@@ -241,7 +240,11 @@ const bondTemplate = (values: { [key: string]: string }) => {
 const classTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
-  template.benefit = getTranslationByKey(values.benefit) || values.benefit;
+  const benefitValue = CLASS_BENEFIT[values.class_benefit];
+  const benefitUpper = values.class_benefit.toUpperCase();
+
+  template.benefit =
+    getTranslationByKey(`plus${benefitUpper}`) || `+${benefitValue} ${benefitUpper}`;
   template.name = values.class_name;
   template.character_level = values.character_level;
   template.level = values.class_level;

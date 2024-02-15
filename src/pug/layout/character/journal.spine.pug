@@ -87,8 +87,18 @@
         css: { names: ['project__name'], modifiers:  ['no-label-bold'] },
       },
       {
-        name: 'project_effect',
-        css: { names: ['project__effect'], modifiers: [] },
+        name: 'project_cost',
+        label: 'Cost',
+        css: { names: ['project__cost'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'project_clock',
+        label: 'Clock',
+        css: { names: ['project__clock'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'project_special',
+        css: { names: ['project__special'], modifiers: [] },
       },
     ],
     delete: [
@@ -105,10 +115,22 @@
         css: { names: ['project__name'] },
       },
       {
-        name: 'project_effect',
+        name: 'project_cost',
+        label: 'Cost',
+        type: 'number',
+        css: { names: ['project__cost'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'project_clock',
+        label: 'Clock',
+        type: 'number',
+        css: { names: ['project__clock'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'project_special',
         label: 'Details',
         type: 'textarea',
-        css: { names: ['project__effect'] },
+        css: { names: ['project__special'] },
       },
     ],
   }

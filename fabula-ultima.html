@@ -893,7 +893,7 @@
                       </div>
                       <button class="chimera-action send-to-chat" data-i18n-title="projectchat_title" name="act_projectchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
                       </button>
-                      <div class="chimera-value project__effect"><span class="chimera-value__value" name="attr_project_effect"></span>
+                      <div class="chimera-value project__special"><span class="chimera-value__value" name="attr_project_special"></span>
                       </div>
                     </div>
                   </fieldset>
@@ -1514,9 +1514,9 @@
                             <div class="chimera-input class__benefit chimera-input--center">
                               <label class="chimera-input__label" data-i18n="class_benefit" for="class_benefit">Free Benefit</label>
                               <select class="chimera-input__field" data-i18n-title="class_benefit_title" id="class_benefit" name="attr_class_benefit" title="Free Benefit">
-                                <option data-i18n="plusHP" selected="selected" value="hp+5">+5 HP</option>
-                                <option data-i18n="plusMP" value="mp+5">+5 MP</option>
-                                <option data-i18n="plusIP" value="ip+2">+2 IP</option>
+                                <option data-i18n="plusHP" selected="selected" value="hp">+5 HP</option>
+                                <option data-i18n="plusMP" value="mp">+5 MP</option>
+                                <option data-i18n="plusIP" value="ip">+2 IP</option>
                               </select>
                             </div>
                             <label class="chimera-checkbox class__martialmelee chimera-checkbox--column-reverse" data-i18n-title="class_martialmelee_title" title="Martial Melee">
@@ -1603,6 +1603,14 @@
                               <div class="chimera-input class__skill_description">
                                 <label class="chimera-input__label" data-i18n="class_skill5_description" for="class_skill5_description">Description</label>
                                 <textarea class="chimera-input__field" data-i18n-title="class_skill5_description_title" id="class_skill5_description" name="attr_class_skill5_description" title="Description" type="textarea"></textarea>
+                              </div>
+                              <div class="chimera-input class__skill_name">
+                                <label class="chimera-input__label" data-i18n="class_heroic_skill_name" for="class_heroic_skill_name">Heroic Skill</label>
+                                <input class="chimera-input__field" data-i18n-placeholder="class_heroic_skill_name_placeholder" data-i18n-title="class_heroic_skill_name_title" id="class_heroic_skill_name" name="attr_class_heroic_skill_name" placeholder="Heroic Skill" title="Heroic Skill" type="text"/>
+                              </div>
+                              <div class="chimera-input class__skill_description">
+                                <label class="chimera-input__label" data-i18n="class_heroic_skill_description" for="class_heroic_skill_description">Description</label>
+                                <textarea class="chimera-input__field" data-i18n-title="class_heroic_skill_description_title" id="class_heroic_skill_description" name="attr_class_heroic_skill_description" title="Description" type="textarea"></textarea>
                               </div>
                             </div>
                           </div>
@@ -2286,9 +2294,17 @@
                               <label class="chimera-input__label" data-i18n="project_name" for="project_name">Project</label>
                               <input class="chimera-input__field" data-i18n-placeholder="project_name_placeholder" data-i18n-title="project_name_title" id="project_name" name="attr_project_name" placeholder="Project" title="Project" type="text"/>
                             </div>
-                            <div class="chimera-input project__effect">
-                              <label class="chimera-input__label" data-i18n="project_effect" for="project_effect">Details</label>
-                              <textarea class="chimera-input__field" data-i18n-title="project_effect_title" id="project_effect" name="attr_project_effect" title="Details" type="textarea"></textarea>
+                            <div class="chimera-input project__cost chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="project_cost" for="project_cost">Cost</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_cost_placeholder" data-i18n-title="project_cost_title" id="project_cost" name="attr_project_cost" placeholder="0" title="Cost" type="number"/>
+                            </div>
+                            <div class="chimera-input project__clock chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="project_clock" for="project_clock">Clock</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_clock_placeholder" data-i18n-title="project_clock_title" id="project_clock" name="attr_project_clock" placeholder="0" title="Clock" type="number"/>
+                            </div>
+                            <div class="chimera-input project__special">
+                              <label class="chimera-input__label" data-i18n="project_special" for="project_special">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="project_special_title" id="project_special" name="attr_project_special" title="Details" type="textarea"></textarea>
                             </div>
                           </div>
                         </div>
@@ -4029,7 +4045,8 @@
       <div class="sheet-affinity"><img data-i18n-title="poison_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/affinities/poison.svg" title="Poison Affinity"/><span class="sheet-fabula-label sheet-sr-only" data-i18n="poison">Poison</span><span class="sheet-fabula-span sheet-uppercase">{{ poison }}</span>
       </div>{{/poison}}
     </div>
-    <div class="sheet-details">{{#accuracy}}
+    <div class="sheet-details">{{#benefit}}
+      <div><span class="sheet-fabula-span">{{ benefit }}</span></div>{{/benefit}}{{#accuracy}}
       <div><span class="sheet-fabula-label">{{ accuracy }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-label">{{ damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/accuracy}}{{#def}}{{#mdef}}
       <div><span class="sheet-fabula-label" data-i18n="defense">DEF</span><span class="sheet-fabula-span">{{ def }}</span></div>
       <div><span class="sheet-fabula-label" data-i18n="magic_defense">M.DEF</span><span class="sheet-fabula-span">{{ mdef }}</span></div>{{/mdef}}{{/def}}{{#category}}{{#hands}}
@@ -4052,10 +4069,18 @@ const REPEATING = [
     'spells',
     'rituals',
     'classes',
-    'notes',
     'armors',
     'shields',
     'accessories',
+    'notes',
+    'quests',
+    'projects',
+    'friends',
+    'creatures',
+    'locations',
+    'artifacts',
+    'discoveries',
+    'items',
     'basic-attacks',
     'other-actions',
     'special-rules',
@@ -4581,6 +4606,11 @@ const CHARACTER_SKILL_LEVEL = [
         ],
     },
 ];
+const CLASS_BENEFIT = {
+    hp: 5,
+    mp: 5,
+    ip: 2,
+};
 const BASIC_ACCURACY_DAMAGE = [
     {
         section: 'repeating_basic-attacks',
@@ -4650,7 +4680,6 @@ const checkForCritical = (dice) => {
             : 0;
 };
 const handleClick = async (btn, id) => {
-    console.log('handleClick => ' + btn, id);
     switch (btn) {
         case 'basicattack':
         case 'weaponattack':
@@ -4837,7 +4866,10 @@ const bondTemplate = (values) => {
 };
 const classTemplate = (values) => {
     const template = {};
-    template.benefit = getTranslationByKey(values.benefit) || values.benefit;
+    const benefitValue = CLASS_BENEFIT[values.class_benefit];
+    const benefitUpper = values.class_benefit.toUpperCase();
+    template.benefit =
+        getTranslationByKey(`plus${benefitUpper}`) || `+${benefitValue} ${benefitUpper}`;
     template.name = values.class_name;
     template.character_level = values.character_level;
     template.level = values.class_level;
@@ -5108,15 +5140,8 @@ class ChimeraMigrator {
         this.migrations = migrations;
         this.version_attr = version_attr ?? 'sheet_version';
         this.migration_attr = migration_attr ?? 'sheet_migrations';
-        console.log('ChimeraMigrator', {
-            sheet: this.sheet,
-            migrations: this.migrations,
-            version_attr: this.version_attr,
-            migration_attr: this.migration_attr,
-        });
     }
     validate(callback) {
-        console.log('validate');
         this.getAppliedMigrations((applied) => {
             const existing = this.migrations.filter((m) => applied.includes(m.id)).map((m) => m.id);
             existing.forEach((m) => (this.log[m] = 'Already installed'));
@@ -5125,22 +5150,19 @@ class ChimeraMigrator {
     }
     getAppliedMigrations(callback) {
         getAttrs([this.migration_attr], (values) => {
-            console.log('getAppliedMigrations', this.migration_attr, values);
             const applied = values[this.migration_attr] ? values[this.migration_attr].split(',') : [];
             callback(applied);
         });
     }
     setAppliedMigrations(updates, callback) {
-        console.log('setAppliedMigrations');
+        console.log('setAppliedMigrations => ', updates);
         setAttrs({
             [this.migration_attr]: Array.from(new Set(updates)).join(),
         }, { silent: true }, callback());
     }
     handleNext(callback) {
-        console.log('handleNext');
         this.getAppliedMigrations((applied) => {
             const toBeInstalled = this.migrations.filter((m) => !applied.includes(m.id) && !Object.hasOwn(this.log, m.id));
-            console.log('toBeInstalled', toBeInstalled);
             if (toBeInstalled.length) {
                 toBeInstalled.at(0).apply(this.version_attr, this, callback);
             }
@@ -5151,7 +5173,7 @@ class ChimeraMigrator {
         });
     }
     resolveMigration(id, error, callback) {
-        console.log('resolveMigration');
+        console.log('resolveMigration => ', id, error);
         this.log[id] = error;
         this.getAppliedMigrations((applied) => {
             const migrations = Array.from(new Set([...applied, id]));
@@ -5160,12 +5182,11 @@ class ChimeraMigrator {
         });
     }
     rejectMigration(id, error, callback) {
-        console.log('rejectMigration');
+        console.log('rejectMigration => ', id, error);
         this.log[id] = error;
         this.handleNext(callback);
     }
     finish() {
-        console.log('finish');
         getAttrs([this.version_attr, 'character_name'], (values) => {
             const migrations = Object.entries(this.log);
             if (migrations.length) {
@@ -5304,6 +5325,12 @@ const CROSSWALK_TO_V20 = {
     zeroClock_max: 'zero_clock_max',
     zeroTriggerFS: 'zero_trigger_fill',
     zeroTriggerText: 'zero_description',
+    ritualArcanism: 'arcanism',
+    ritualChimerism: 'chimerism',
+    ritualElementalism: 'elementalism',
+    ritualEntropism: 'entropism',
+    ritualRitualism: 'ritualism',
+    ritualSpiritism: 'spiritism',
     bonds: {
         BondName: 'bond1_name',
         BondEmotion1: 'bond1_approval',
@@ -5357,12 +5384,6 @@ const CROSSWALK_TO_V20 = {
         accessoryName: 'repeating_accessories_-CREATE_accessory_name',
         accessoryDescription: 'repeating_accessories_-CREATE_accessory_special',
     },
-    ritualArcanism: 'arcanism',
-    ritualChimerism: 'chimerism',
-    ritualElementalism: 'elementalism',
-    ritualEntropism: 'entropism',
-    ritualRitualism: 'ritualism',
-    ritualSpiritism: 'spiritism',
     repeating_rituals: {
         ritualName: 'repeating_rituals_-CREATE_ritual_name',
         ritualAttr1Name: 'repeating_rituals_-CREATE_ritual_attr1',
@@ -5405,8 +5426,8 @@ const CROSSWALK_TO_V20 = {
         fifthSkillName: 'repeating_classes_-CREATE_class_skill5_name',
         fifthSkillLevel: 'repeating_classes_-CREATE_class_skill5_level',
         fifthSkillDescription: 'repeating_classes_-CREATE_class_skill5_description',
-        heroicSkillName: 'repeating_classes_-CREATE_class_skill6_name',
-        heroicSkillDescription: 'repeating_classes_-CREATE_class6_skill_description',
+        heroicSkillName: 'repeating_classes_-CREATE_class_heroic_skill_name',
+        heroicSkillDescription: 'repeating_classes_-CREATE_class_heroic_skill_description',
     },
     repeating_offensivespells: {
         offensiveSpellName: 'repeating_spells_-CREATE_spell_name',
@@ -5433,10 +5454,10 @@ const CROSSWALK_TO_V20 = {
         inventoryItemEffect: 'repeating_inventories_-CREATE_inventory_effect',
     },
     repeating_projects: {
-        projectName: 'repeating_projects_-CREATE_project_name',
-        projectCost: 'repeating_projects_-CREATE_project_cost',
-        projectAdvancement: 'repeating_projects_-CREATE_project_clock',
-        projectDescription: 'repeating_projects_-CREATE_project_description',
+        projectName: 'project_name',
+        projectCost: 'project_cost',
+        projectAdvancement: 'project_clock',
+        projectDescription: 'project_special',
     },
     repeating_spareequipments: {
         spareEquipType: 'repeating_armors_-CREATE_armor_type',
@@ -5450,8 +5471,8 @@ const CROSSWALK_TO_V20 = {
         spareAccessoryDescription: 'repeating_accessories_-CREATE_accessory_special',
     },
     repeating_items: {
-        itemName: 'repeating_items_-CREATE_item_name',
-        itemText: 'repeating_items_-CREATE_item_effect',
+        itemName: 'item_name',
+        itemText: 'item_effect',
     },
     repeating_ritualdisciplines: {
         ritualCustomDisciplineName: 'repeating_ritualdisciplines_-CREATE_ritual_discipline_name',
@@ -5461,20 +5482,20 @@ const CROSSWALK_TO_V20 = {
         noteText: 'note_effect',
     },
     repeating_quests: {
-        questName: 'repeating_quests_-CREATE_quest_name',
-        questText: 'repeating_quests_-CREATE_quest_effect',
+        questName: 'quest_name',
+        questText: 'quest_effect',
     },
     repeating_jcharacters: {
         jCharacterName: 'repeating_characters_-CREATE_character_name',
         jCharacterText: 'repeating_characters_-CREATE_character_effect',
     },
     repeating_creatures: {
-        creatureName: 'repeating_creatures_-CREATE_creature_name',
-        creatureText: 'repeating_creatures_-CREATE_creature_effect',
+        creatureName: 'creature_name',
+        creatureText: 'creature_effect',
     },
     repeating_locations: {
-        locationName: 'repeating_locations_-CREATE_location_name',
-        locationText: 'repeating_locations_-CREATE_location_effect',
+        locationName: 'location_name',
+        locationText: 'location_effect',
     },
     repeating_jitems: {
         jItemName: 'repeating_artifacts_-CREATE_artifact_name',
@@ -5486,14 +5507,14 @@ const CROSSWALK_TO_V20 = {
     },
     repeating_zeroeffects: {
         zeroName: 'repeating_zeropowers_-CREATE_zero_power_name',
-        zeroText: 'repeating_zeropowers_-CREATE_zero_power_description',
+        zeroText: 'repeating_zeropowers_-CREATE_zero_power_details',
         zeroEffect: 'repeating_zeropowers_-CREATE_zero_power_effect',
-        zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_description',
+        zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_details',
     },
     repeating_rolls: {
-        genericRollName: 'repeating_rolls_-CREATE_roll_name',
-        genericRollAttr1Name: 'repeating_rolls_-CREATE_roll_attr1',
-        genericRollAttr2Name: 'repeating_rolls_-CREATE_roll_attr2',
+        genericRollName: 'roll_name',
+        genericRollAttr1Name: 'roll_attr1',
+        genericRollAttr2Name: 'roll_attr2',
     },
 };
 const CROSSWALK_REQUEST = [
@@ -5724,9 +5745,6 @@ const fabulaMigrations = [
         RepeatingModule.getAllAttrs(CROSSWALK_SECTION_DETAILS, CROSSWALK_REQUEST, (attributes, sections) => {
             const update = {};
             update.sheet_type = 'character';
-            console.log('attributes => ');
-            console.log(attributes);
-            console.log(sections);
             Object.keys(CROSSWALK_TO_V20).forEach((key) => {
                 const data = CROSSWALK_TO_V20[key];
                 if (typeof data === 'string' && Object.hasOwn(attributes, key)) {
@@ -5810,7 +5828,8 @@ const fabulaMigrations = [
                             break;
                         }
                         case 'armor':
-                        case 'shield': {
+                        case 'shield':
+                        case 'accessory': {
                             const rowId = generateRowID();
                             Object.entries(data).forEach(([old, nu]) => {
                                 const attr = nu.replace('-CREATE', rowId);
@@ -5837,21 +5856,75 @@ const fabulaMigrations = [
                             });
                             break;
                         }
+                        case 'repeating_creatures':
+                        case 'repeating_items':
+                        case 'repeating_locations':
                         case 'repeating_notes':
+                        case 'repeating_quests':
+                        case 'repeating_ritualdisciplines': {
                             sections[key].forEach((id) => {
                                 const prefix = `${key}_${id}_`;
                                 Object.entries(data).forEach(([old, nu]) => {
                                     update[prefix + nu] = attributes[prefix + old];
                                 });
                             });
+                            break;
+                        }
+                        case 'repeating_jitems':
+                        case 'repeating_ritualdisciplines':
+                        case 'repeating_jcharacters':
+                        case 'repeating_otherdiscoveries':
+                        case 'repeating_zeroeffects':
+                        case 'repeating_spareaccessories':
+                        case 'repeating_inventoryitems': {
+                            sections[key].forEach((id) => {
+                                Object.entries(data).forEach(([old, nu]) => {
+                                    const val = attributes[`${key}_${id}_${old}`];
+                                    const nuAttr = nu.replace(/-CREATE/, id);
+                                    update[nuAttr] = val;
+                                });
+                                removeRepeatingRow(id);
+                            });
+                            break;
+                        }
+                        case 'repeating_charclasses':
+                        case 'repeating_offensivespells':
+                        case 'repeating_baseSpells':
+                        case 'repeating_rituals': {
+                            sections[key].forEach((id) => {
+                                const rowId = generateRowID();
+                                Object.entries(data).forEach(([old, nu]) => {
+                                    const val = attributes[`${key}_${id}_${old}`];
+                                    const nuAttr = nu.replace(/-CREATE/, rowId);
+                                    if (val) {
+                                        update[nuAttr] = (function () {
+                                            switch (old) {
+                                                case 'offensiveSpellAttr1Name':
+                                                case 'offensiveSpellAttr2Name':
+                                                case 'ritualAttr1Name':
+                                                case 'ritualAttr2Name':
+                                                    return reverseMap(ATTR_ABBREVIATIONS, val.toLowerCase());
+                                                case 'offensiveSpellDamageType':
+                                                case 'classBonus':
+                                                    return val.toLowerCase();
+                                                default:
+                                                    return val;
+                                            }
+                                        })();
+                                    }
+                                });
+                                if (key !== 'repeating_rituals') {
+                                    removeRepeatingRow(id);
+                                }
+                            });
+                            break;
+                        }
                     }
                 }
             });
-            console.log('update => ');
             console.log(update);
             setAttrs(update);
         });
-        console.log('do the thing!');
         resolve();
     }),
 ];
@@ -5860,7 +5933,6 @@ const handleMigrations = (eventInfo) => {
     migrator.validate(() => { });
 };
 const handleCalculations = (attr, eventInfo) => {
-    console.log('handleCalculations => ', attr);
     switch (attr) {
         case 'dexterity':
         case 'insight':
@@ -5938,7 +6010,6 @@ const calculateMaxHP = () => {
             hp_max = might_max * 5 + level * 2 + hp_extra;
         }
         const hp_crisis = Math.floor(hp_max / 2);
-        console.log({ hp_max, hp_crisis });
         setAttrs({ hp_max, hp_crisis }, { silent: true });
     });
 };
@@ -5957,7 +6028,6 @@ const calculateMaxMP = () => {
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
-        console.log({ mp_max });
         setAttrs({ mp_max }, { silent: true });
     });
 };
@@ -5982,14 +6052,11 @@ const calculateUltimaPoints = (request) => {
 };
 const updatePoints = (attr, direction) => {
     getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
-        console.log(attr, v);
         const xp = +v[attr] || 0;
         const xp_max = +v[`${attr}_max`] || 0;
         const xp_control = +v[`${attr}-control`] || 0;
         const sign = direction === 'add' ? 1 : -1;
-        console.log({ sign, xp, xp_max, xp_control });
         const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
-        console.log({ [attr]: update });
         setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
     });
 };
@@ -6010,7 +6077,7 @@ const manageEquipment = (source) => {
             });
         });
         if (handsUsed > 2) {
-            console.log(`I hope you've got ${handsUsed} hands in that coat.`);
+            console.warn(`I hope you've got ${handsUsed} hands in that coat.`);
         }
         setAttrs(update, { silent: true }, () => calculateDefenses());
     });
@@ -6087,8 +6154,8 @@ const calculateCharacterLevel = () => {
                     martialequip[prof] = getTranslationByKey(`class_` + prof) || prof;
                 }
             });
-            const benefit = attributes[prefix + 'class_benefit'].split('+');
-            free_benefits[benefit[0]] += +benefit[1];
+            const benefit = attributes[prefix + 'class_benefit'];
+            free_benefits[benefit] += CLASS_BENEFIT[benefit];
             characterLevel += classLevel;
             update[prefix + 'class_level'] = classLevel;
             const skillsTaken = [];

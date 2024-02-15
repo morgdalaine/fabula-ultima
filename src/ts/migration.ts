@@ -7,10 +7,6 @@ const fabulaMigrations: ChimeraMigration[] = [
         const update: { [key: string]: string } = {};
         update.sheet_type = 'character';
 
-        console.log('attributes => ');
-        console.log(attributes);
-        console.log(sections);
-
         Object.keys(CROSSWALK_TO_V20).forEach((key) => {
           const data = CROSSWALK_TO_V20[key];
           if (typeof data === 'string' && Object.hasOwn(attributes, key)) {
@@ -94,7 +90,8 @@ const fabulaMigrations: ChimeraMigration[] = [
                 break;
               }
               case 'armor':
-              case 'shield': {
+              case 'shield':
+              case 'accessory': {
                 const rowId = generateRowID();
                 Object.entries(data).forEach(([old, nu]: [string, string]) => {
                   const attr = nu.replace('-CREATE', rowId);
@@ -121,24 +118,83 @@ const fabulaMigrations: ChimeraMigration[] = [
                 });
                 break;
               }
+              // same fieldset new attr
+              case 'repeating_creatures':
+              case 'repeating_items':
+              case 'repeating_locations':
               case 'repeating_notes':
+              case 'repeating_quests':
+              case 'repeating_ritualdisciplines': {
                 sections[key].forEach((id) => {
                   const prefix = `${key}_${id}_`;
                   Object.entries(data).forEach(([old, nu]: [string, string]) => {
                     update[prefix + nu] = attributes[prefix + old];
                   });
                 });
+                break;
+              }
+              // new fieldset no conversion
+              case 'repeating_jitems':
+              case 'repeating_ritualdisciplines':
+              case 'repeating_jcharacters':
+              case 'repeating_otherdiscoveries':
+              case 'repeating_zeroeffects':
+              case 'repeating_spareaccessories':
+              case 'repeating_inventoryitems': {
+                sections[key].forEach((id) => {
+                  Object.entries(data).forEach(([old, nu]: [string, string]) => {
+                    const val = attributes[`${key}_${id}_${old}`];
+                    const nuAttr = nu.replace(/-CREATE/, id);
+                    update[nuAttr] = val;
+                  });
+                  removeRepeatingRow(id);
+                });
+                break;
+              }
+              // new fieldset with conversion
+              case 'repeating_charclasses':
+              case 'repeating_offensivespells':
+              case 'repeating_baseSpells':
+              case 'repeating_rituals': {
+                sections[key].forEach((id) => {
+                  const rowId = generateRowID();
+                  Object.entries(data).forEach(([old, nu]: [string, string]) => {
+                    const val = attributes[`${key}_${id}_${old}`];
+                    const nuAttr = nu.replace(/-CREATE/, rowId);
+                    if (val) {
+                      update[nuAttr] = (function () {
+                        switch (old) {
+                          case 'offensiveSpellAttr1Name':
+                          case 'offensiveSpellAttr2Name':
+                          case 'ritualAttr1Name':
+                          case 'ritualAttr2Name':
+                            return reverseMap(ATTR_ABBREVIATIONS, val.toLowerCase());
+                          case 'offensiveSpellDamageType':
+                          case 'classBonus':
+                            return val.toLowerCase();
+                          default:
+                            return val;
+                        }
+                      })();
+                    }
+                  });
+
+                  if (key !== 'repeating_rituals') {
+                    removeRepeatingRow(id);
+                  }
+                });
+                break;
+              }
             }
           }
         });
 
-        console.log('update => ');
         console.log(update);
         setAttrs(update);
       }
     );
 
-    console.log('do the thing!');
+    // FIXME 'TypeError: resolve is not a function'
     resolve();
   }),
 ];

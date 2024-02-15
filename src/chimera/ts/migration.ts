@@ -18,13 +18,6 @@ class ChimeraMigrator {
     this.migrations = migrations;
     this.version_attr = version_attr ?? 'sheet_version';
     this.migration_attr = migration_attr ?? 'sheet_migrations';
-
-    console.log('ChimeraMigrator', {
-      sheet: this.sheet,
-      migrations: this.migrations,
-      version_attr: this.version_attr,
-      migration_attr: this.migration_attr,
-    });
   }
 
   /**
@@ -32,7 +25,6 @@ class ChimeraMigrator {
    * @param callback
    */
   validate(callback: () => void): void {
-    console.log('validate');
     this.getAppliedMigrations((applied) => {
       const existing = this.migrations.filter((m) => applied.includes(m.id)).map((m) => m.id);
       existing.forEach((m) => (this.log[m] = 'Already installed'));
@@ -46,14 +38,13 @@ class ChimeraMigrator {
    */
   getAppliedMigrations(callback: (m: string[]) => void) {
     getAttrs([this.migration_attr], (values) => {
-      console.log('getAppliedMigrations', this.migration_attr, values);
       const applied = values[this.migration_attr] ? values[this.migration_attr].split(',') : [];
       callback(applied);
     });
   }
 
   setAppliedMigrations(updates: string[], callback: any) {
-    console.log('setAppliedMigrations');
+    console.log('setAppliedMigrations => ', updates);
     setAttrs(
       {
         [this.migration_attr]: Array.from(new Set(updates)).join(),
@@ -64,13 +55,11 @@ class ChimeraMigrator {
   }
 
   handleNext(callback: any) {
-    console.log('handleNext');
     this.getAppliedMigrations((applied) => {
       const toBeInstalled = this.migrations.filter(
         (m) => !applied.includes(m.id) && !Object.hasOwn(this.log, m.id)
       );
 
-      console.log('toBeInstalled', toBeInstalled);
       if (toBeInstalled.length) {
         toBeInstalled.at(0).apply(this.version_attr, this, callback);
       } else {
@@ -81,7 +70,7 @@ class ChimeraMigrator {
   }
 
   resolveMigration(id: string, error: string, callback: any) {
-    console.log('resolveMigration');
+    console.log('resolveMigration => ', id, error);
     this.log[id] = error;
     this.getAppliedMigrations((applied) => {
       const migrations = Array.from(new Set([...applied, id]));
@@ -91,13 +80,12 @@ class ChimeraMigrator {
   }
 
   rejectMigration(id: string, error: string, callback: any) {
-    console.log('rejectMigration');
+    console.log('rejectMigration => ', id, error);
     this.log[id] = error;
     this.handleNext(callback);
   }
 
   finish() {
-    console.log('finish');
     getAttrs([this.version_attr, 'character_name'], (values) => {
       const migrations = Object.entries(this.log);
       if (migrations.length) {

@@ -53,6 +53,12 @@ const CROSSWALK_TO_V20: Record<string, any> = {
   zeroClock_max: 'zero_clock_max',
   zeroTriggerFS: 'zero_trigger_fill',
   zeroTriggerText: 'zero_description',
+  ritualArcanism: 'arcanism',
+  ritualChimerism: 'chimerism',
+  ritualElementalism: 'elementalism',
+  ritualEntropism: 'entropism',
+  ritualRitualism: 'ritualism',
+  ritualSpiritism: 'spiritism',
   bonds: {
     BondName: 'bond1_name',
     BondEmotion1: 'bond1_approval',
@@ -106,12 +112,6 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     accessoryName: 'repeating_accessories_-CREATE_accessory_name',
     accessoryDescription: 'repeating_accessories_-CREATE_accessory_special',
   },
-  ritualArcanism: 'arcanism',
-  ritualChimerism: 'chimerism',
-  ritualElementalism: 'elementalism',
-  ritualEntropism: 'entropism',
-  ritualRitualism: 'ritualism',
-  ritualSpiritism: 'spiritism',
   repeating_rituals: {
     ritualName: 'repeating_rituals_-CREATE_ritual_name',
     ritualAttr1Name: 'repeating_rituals_-CREATE_ritual_attr1',
@@ -155,9 +155,8 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     fifthSkillName: 'repeating_classes_-CREATE_class_skill5_name',
     fifthSkillLevel: 'repeating_classes_-CREATE_class_skill5_level',
     fifthSkillDescription: 'repeating_classes_-CREATE_class_skill5_description',
-    // TODO implement heroic skills
-    heroicSkillName: 'repeating_classes_-CREATE_class_skill6_name',
-    heroicSkillDescription: 'repeating_classes_-CREATE_class6_skill_description',
+    heroicSkillName: 'repeating_classes_-CREATE_class_heroic_skill_name',
+    heroicSkillDescription: 'repeating_classes_-CREATE_class_heroic_skill_description',
   },
   repeating_offensivespells: {
     offensiveSpellName: 'repeating_spells_-CREATE_spell_name',
@@ -184,10 +183,10 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     inventoryItemEffect: 'repeating_inventories_-CREATE_inventory_effect',
   },
   repeating_projects: {
-    projectName: 'repeating_projects_-CREATE_project_name',
-    projectCost: 'repeating_projects_-CREATE_project_cost',
-    projectAdvancement: 'repeating_projects_-CREATE_project_clock',
-    projectDescription: 'repeating_projects_-CREATE_project_description',
+    projectName: 'project_name',
+    projectCost: 'project_cost',
+    projectAdvancement: 'project_clock',
+    projectDescription: 'project_special',
   },
   repeating_spareequipments: {
     spareEquipType: 'repeating_armors_-CREATE_armor_type',
@@ -201,8 +200,8 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     spareAccessoryDescription: 'repeating_accessories_-CREATE_accessory_special',
   },
   repeating_items: {
-    itemName: 'repeating_items_-CREATE_item_name',
-    itemText: 'repeating_items_-CREATE_item_effect',
+    itemName: 'item_name',
+    itemText: 'item_effect',
   },
   repeating_ritualdisciplines: {
     ritualCustomDisciplineName: 'repeating_ritualdisciplines_-CREATE_ritual_discipline_name',
@@ -212,20 +211,20 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     noteText: 'note_effect',
   },
   repeating_quests: {
-    questName: 'repeating_quests_-CREATE_quest_name',
-    questText: 'repeating_quests_-CREATE_quest_effect',
+    questName: 'quest_name',
+    questText: 'quest_effect',
   },
   repeating_jcharacters: {
     jCharacterName: 'repeating_characters_-CREATE_character_name',
     jCharacterText: 'repeating_characters_-CREATE_character_effect',
   },
   repeating_creatures: {
-    creatureName: 'repeating_creatures_-CREATE_creature_name',
-    creatureText: 'repeating_creatures_-CREATE_creature_effect',
+    creatureName: 'creature_name',
+    creatureText: 'creature_effect',
   },
   repeating_locations: {
-    locationName: 'repeating_locations_-CREATE_location_name',
-    locationText: 'repeating_locations_-CREATE_location_effect',
+    locationName: 'location_name',
+    locationText: 'location_effect',
   },
   repeating_jitems: {
     jItemName: 'repeating_artifacts_-CREATE_artifact_name',
@@ -237,14 +236,14 @@ const CROSSWALK_TO_V20: Record<string, any> = {
   },
   repeating_zeroeffects: {
     zeroName: 'repeating_zeropowers_-CREATE_zero_power_name',
-    zeroText: 'repeating_zeropowers_-CREATE_zero_power_description',
+    zeroText: 'repeating_zeropowers_-CREATE_zero_power_details',
     zeroEffect: 'repeating_zeropowers_-CREATE_zero_power_effect',
-    zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_description',
+    zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_details',
   },
   repeating_rolls: {
-    genericRollName: 'repeating_rolls_-CREATE_roll_name',
-    genericRollAttr1Name: 'repeating_rolls_-CREATE_roll_attr1',
-    genericRollAttr2Name: 'repeating_rolls_-CREATE_roll_attr2',
+    genericRollName: 'roll_name',
+    genericRollAttr1Name: 'roll_attr1',
+    genericRollAttr2Name: 'roll_attr2',
   },
 };
 

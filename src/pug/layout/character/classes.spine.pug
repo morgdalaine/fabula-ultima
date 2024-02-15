@@ -80,7 +80,7 @@
         label: 'Free Benefit',
         type: 'select',
         options: freeBenefitOptions,
-        value: freeBenefitOptions.at(0).name,
+        value: 'hp',
         css: { names: ['class__benefit'], modifiers: ['center'] },
       },
       {
@@ -153,4 +153,18 @@
         css: { names: ['class__skill_description'], modifiers: [] },
       },
     ]),
+    heroic: [
+      {
+        name: `class_heroic_skill_name`,
+        label: 'Heroic Skill',
+        type: 'text',
+        css: { names: ['class__skill_name'], modifiers: [] },
+      },
+      {
+        name: `class_heroic_skill_description`,
+        label: 'Description',
+        type: 'textarea',
+        css: { names: ['class__skill_description'], modifiers: [] },
+      },
+    ]
   };

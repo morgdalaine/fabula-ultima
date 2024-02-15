@@ -1,6 +1,5 @@
 const handleCalculations = (attr: string, eventInfo: EventInfo) => {
   // if (eventInfo.sourceType === 'sheetworker') return;
-  console.log('handleCalculations => ', attr);
 
   switch (attr) {
     case 'dexterity':
@@ -105,7 +104,6 @@ const calculateMaxHP = () => {
     }
 
     const hp_crisis = Math.floor(hp_max / 2);
-    console.log({ hp_max, hp_crisis });
     setAttrs({ hp_max, hp_crisis }, { silent: true });
   });
 };
@@ -131,7 +129,6 @@ const calculateMaxMP = () => {
       mp_max = willpower_max * 5 + level + mp_extra;
     }
 
-    console.log({ mp_max });
     setAttrs({ mp_max }, { silent: true });
   });
 };
@@ -164,17 +161,13 @@ const calculateUltimaPoints = (request: string[]) => {
 
 const updatePoints = (attr: string, direction: string) => {
   getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
-    console.log(attr, v);
     const xp: number = +v[attr] || 0;
     const xp_max: number = +v[`${attr}_max`] || 0;
     const xp_control: number = +v[`${attr}-control`] || 0;
 
     const sign: number = direction === 'add' ? 1 : -1;
 
-    console.log({ sign, xp, xp_max, xp_control });
-
     const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
-    console.log({ [attr]: update });
     setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
   });
 };
@@ -201,7 +194,7 @@ const manageEquipment = (source: string) => {
       });
 
       if (handsUsed > 2) {
-        console.log(`I hope you've got ${handsUsed} hands in that coat.`);
+        console.warn(`I hope you've got ${handsUsed} hands in that coat.`);
       }
 
       setAttrs(update, { silent: true }, () => calculateDefenses());
@@ -302,8 +295,8 @@ const calculateCharacterLevel = () => {
           }
         });
 
-        const benefit = attributes[prefix + 'class_benefit'].split('+');
-        free_benefits[benefit[0]] += +benefit[1];
+        const benefit = attributes[prefix + 'class_benefit'];
+        free_benefits[benefit] += CLASS_BENEFIT[benefit];
 
         characterLevel += classLevel;
         update[prefix + 'class_level'] = classLevel;

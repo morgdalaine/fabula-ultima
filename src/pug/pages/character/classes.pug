@@ -40,3 +40,5 @@ mixin classes-edit(spine)
             each skill in spine.classes.skills
               each field in skill
                 +chimera-input(field)
+            each field in spine.classes.heroic
+              +chimera-input(field)

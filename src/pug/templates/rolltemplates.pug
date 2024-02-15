@@ -136,6 +136,10 @@ rolltemplate.sheet-rolltemplate-fabula-chat
             span.sheet-fabula-span.sheet-uppercase {{ #{ field.name } }}
 
     .sheet-details
+      +tags(['benefit'])
+        div
+          span.sheet-fabula-span {{ benefit }}
+
       +tags(['accuracy'])
         div
           span.sheet-fabula-label {{ accuracy }}
