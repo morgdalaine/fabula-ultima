@@ -35,7 +35,7 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
       return calculateRitualAccuracyDifficulty(ATTR_WATCH[attr]);
 
     case 'level':
-      return calculateCharacterLevel(ATTR_WATCH[attr]);
+      return calculateCharacterLevel();
     case 'bonds':
       return calculateBondLevels(ATTR_WATCH[attr]);
 
@@ -263,10 +263,10 @@ const calculateDefenses = () => {
   );
 };
 
-const calculateCharacterLevel = (request: string[]) => {
+const calculateCharacterLevel = () => {
   RepeatingModule.getAllAttrs(
     CHARACTER_SKILL_LEVEL,
-    request,
+    ATTR_WATCH.level,
     (attributes: Record<string, string>, sections) => {
       if (attributes.sheet_type != 'character') return;
 
@@ -274,9 +274,11 @@ const calculateCharacterLevel = (request: string[]) => {
       const martialequip: { [key: string]: string | number } = {};
       let characterLevel = 0;
 
-      const class_hp_total = 0;
-      const class_mp_total = 0;
-      const class_ip_total = 0;
+      const free_benefits: { [key: string]: number } = {
+        hp: 0,
+        mp: 0,
+        ip: 0,
+      };
 
       sections.repeating_classes.forEach((id) => {
         const prefix = `repeating_classes_${id}_`;
@@ -294,7 +296,8 @@ const calculateCharacterLevel = (request: string[]) => {
           }
         });
 
-        // TODO free benefits
+        const benefit = attributes[prefix + 'class_benefit'].split('+');
+        free_benefits[benefit[0]] += +benefit[1];
 
         characterLevel += classLevel;
         update[prefix + 'class_level'] = classLevel;
@@ -314,6 +317,7 @@ const calculateCharacterLevel = (request: string[]) => {
         update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
       });
 
+      Object.entries(free_benefits).forEach(([attr, val]) => (update[`class_${attr}_total`] = val));
       update.level = characterLevel;
       update.may_equip = Object.values(martialequip).reduce(
         (memo: string, val) => memo + (memo.length ? ' ✦ ' : '') + val,

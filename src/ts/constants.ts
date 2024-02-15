@@ -585,6 +585,7 @@ const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
       'class_skill4_level',
       'class_skill5_name',
       'class_skill5_level',
+      'class_benefit',
       'class_martialmelee',
       'class_martialranged',
       'class_martialarmor',

@@ -1369,9 +1369,9 @@
                             <div class="chimera-input class__benefit chimera-input--center">
                               <label class="chimera-input__label" data-i18n="class_benefit" for="class_benefit">Free Benefit</label>
                               <select class="chimera-input__field" data-i18n-title="class_benefit_title" id="class_benefit" name="attr_class_benefit" title="Free Benefit">
-                                <option data-i18n="plusHP" selected="selected" value="hp5">+5 HP</option>
-                                <option data-i18n="plusMP" value="mp5">+5 MP</option>
-                                <option data-i18n="plusIP" value="ip2">+2 IP</option>
+                                <option data-i18n="plusHP" selected="selected" value="hp+5">+5 HP</option>
+                                <option data-i18n="plusMP" value="mp+5">+5 MP</option>
+                                <option data-i18n="plusIP" value="ip+2">+2 IP</option>
                               </select>
                             </div>
                             <label class="chimera-checkbox class__martialmelee chimera-checkbox--column-reverse" data-i18n-title="class_martialmelee_title" title="Martial Melee">
@@ -4067,6 +4067,7 @@ const CHARACTER_SKILL_LEVEL = [
             'class_skill4_level',
             'class_skill5_name',
             'class_skill5_level',
+            'class_benefit',
             'class_martialmelee',
             'class_martialranged',
             'class_martialarmor',
@@ -5213,6 +5214,7 @@ const fabulaMigrations = [
     new ChimeraMigration('bestiary', { set: 1.0 }, (resolve, reject) => {
         RepeatingModule.getAllAttrs(CROSSWALK_SECTION_DETAILS, CROSSWALK_REQUEST, (attributes, sections) => {
             const update = {};
+            update.sheet_type = 'character';
             console.log('attributes => ');
             console.log(attributes);
             Object.keys(CROSSWALK_TO_V20).forEach((key) => {
@@ -5370,7 +5372,7 @@ const handleCalculations = (attr, eventInfo) => {
         case 'rituals':
             return calculateRitualAccuracyDifficulty(ATTR_WATCH[attr]);
         case 'level':
-            return calculateCharacterLevel(ATTR_WATCH[attr]);
+            return calculateCharacterLevel();
         case 'bonds':
             return calculateBondLevels(ATTR_WATCH[attr]);
         case 'equipped':
@@ -5539,16 +5541,18 @@ const calculateDefenses = () => {
         setAttrs({ defense, magic_defense }, { silent: true });
     });
 };
-const calculateCharacterLevel = (request) => {
-    RepeatingModule.getAllAttrs(CHARACTER_SKILL_LEVEL, request, (attributes, sections) => {
+const calculateCharacterLevel = () => {
+    RepeatingModule.getAllAttrs(CHARACTER_SKILL_LEVEL, ATTR_WATCH.level, (attributes, sections) => {
         if (attributes.sheet_type != 'character')
             return;
         const update = {};
         const martialequip = {};
         let characterLevel = 0;
-        const class_hp_total = 0;
-        const class_mp_total = 0;
-        const class_ip_total = 0;
+        const free_benefits = {
+            hp: 0,
+            mp: 0,
+            ip: 0,
+        };
         sections.repeating_classes.forEach((id) => {
             const prefix = `repeating_classes_${id}_`;
             const keys = Object.keys(attributes).filter((key) => key.includes(id));
@@ -5561,6 +5565,8 @@ const calculateCharacterLevel = (request) => {
                     martialequip[prof] = getTranslationByKey(`class_` + prof) || prof;
                 }
             });
+            const benefit = attributes[prefix + 'class_benefit'].split('+');
+            free_benefits[benefit[0]] += +benefit[1];
             characterLevel += classLevel;
             update[prefix + 'class_level'] = classLevel;
             const skillsTaken = [];
@@ -5575,6 +5581,7 @@ const calculateCharacterLevel = (request) => {
             });
             update[prefix + 'class_skills_taken'] = skillsTaken.join(', ');
         });
+        Object.entries(free_benefits).forEach(([attr, val]) => (update[`class_${attr}_total`] = val));
         update.level = characterLevel;
         update.may_equip = Object.values(martialequip).reduce((memo, val) => memo + (memo.length ? ' ✦ ' : '') + val, '');
         setAttrs(update, { silent: true });

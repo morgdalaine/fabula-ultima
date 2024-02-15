@@ -5,6 +5,7 @@ const fabulaMigrations: ChimeraMigration[] = [
       CROSSWALK_REQUEST,
       (attributes: Record<string, string>, sections) => {
         const update: { [key: string]: string } = {};
+        update.sheet_type = 'character';
 
         console.log('attributes => ');
         console.log(attributes);
