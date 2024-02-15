@@ -813,6 +813,7 @@
                           <input class="chimera-hidden" name="attr_character_level" type="hidden"/>
                           <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
                           <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
+                          <input class="chimera-hidden" name="attr_class_benefit" type="hidden"/>
                           <div class="chimera-value class__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_name"></span>
                           </div>
                           <div class="chimera-value class__level">
@@ -1344,6 +1345,7 @@
                             <input class="chimera-hidden" name="attr_character_level" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
+                            <input class="chimera-hidden" name="attr_class_benefit" type="hidden"/>
                             <label class="chimera-toggle class__hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide">
                               <div class="chimera-toggle__field">
                                 <input id="class_hide" name="attr_class_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
@@ -5351,11 +5353,11 @@ const handleCalculations = (attr, eventInfo) => {
         case 'willpower':
             return calculateAttribute(attr);
         case 'hp':
-            return calculateMaxHP(ATTR_WATCH[attr]);
+            return calculateMaxHP();
         case 'mp':
-            return calculateMaxMP(ATTR_WATCH[attr]);
+            return calculateMaxMP();
         case 'ip':
-            return calculateMaxIP(ATTR_WATCH[attr]);
+            return calculateMaxIP();
         case 'ultima_points':
             return calculateUltimaPoints(ATTR_WATCH[attr]);
         case 'initiative':
@@ -5405,8 +5407,8 @@ const calculateStatusEffects = (attr, v) => {
     const newSize = Math.max(0, Math.min(DIE_SIZES.length - 1, currentStep + debuffs));
     return DIE_SIZES.at(newSize);
 };
-const calculateMaxHP = (request) => {
-    getAttrs(request, (v) => {
+const calculateMaxHP = () => {
+    getAttrs(ATTR_WATCH.hp, (v) => {
         if (!['character', 'bestiary'].includes(v.sheet_type))
             return;
         const might_max = +v.might_max ?? 0;
@@ -5424,8 +5426,8 @@ const calculateMaxHP = (request) => {
         setAttrs({ hp_max, hp_crisis }, { silent: true });
     });
 };
-const calculateMaxMP = (request) => {
-    getAttrs(request, (v) => {
+const calculateMaxMP = () => {
+    getAttrs(ATTR_WATCH.mp, (v) => {
         if (!['character', 'bestiary'].includes(v.sheet_type))
             return;
         const willpower_max = +v.willpower_max ?? 0;
@@ -5442,8 +5444,8 @@ const calculateMaxMP = (request) => {
         setAttrs({ mp_max }, { silent: true });
     });
 };
-const calculateMaxIP = (request) => {
-    getAttrs(request, (v) => {
+const calculateMaxIP = () => {
+    getAttrs(ATTR_WATCH.ip, (v) => {
         if (v.sheet_type !== 'character')
             return;
         const ip_extra = +v.ip_extra ?? 0;
@@ -5584,7 +5586,11 @@ const calculateCharacterLevel = () => {
         Object.entries(free_benefits).forEach(([attr, val]) => (update[`class_${attr}_total`] = val));
         update.level = characterLevel;
         update.may_equip = Object.values(martialequip).reduce((memo, val) => memo + (memo.length ? ' ✦ ' : '') + val, '');
-        setAttrs(update, { silent: true });
+        setAttrs(update, { silent: true }, () => {
+            calculateMaxHP();
+            calculateMaxMP();
+            calculateMaxIP();
+        });
     });
 };
 const calculateBondLevels = (request) => {

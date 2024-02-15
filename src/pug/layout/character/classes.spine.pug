@@ -1,6 +1,6 @@
 -
   spine.character.classes = {
-    hidden: ['character_level', 'class_hide', 'class_skills_taken'],
+    hidden: ['character_level', 'class_hide', 'class_skills_taken', 'class_benefit'],
     heading: { name: 'classes', label: 'Classes' },
     view: [
       {
@@ -80,6 +80,7 @@
         label: 'Free Benefit',
         type: 'select',
         options: freeBenefitOptions,
+        value: freeBenefitOptions.at(0).name,
         css: { names: ['class__benefit'], modifiers: ['center'] },
       },
       {

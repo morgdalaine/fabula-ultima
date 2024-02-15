@@ -10,11 +10,11 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
       return calculateAttribute(attr);
 
     case 'hp':
-      return calculateMaxHP(ATTR_WATCH[attr]);
+      return calculateMaxHP();
     case 'mp':
-      return calculateMaxMP(ATTR_WATCH[attr]);
+      return calculateMaxMP();
     case 'ip':
-      return calculateMaxIP(ATTR_WATCH[attr]);
+      return calculateMaxIP();
     case 'ultima_points':
       return calculateUltimaPoints(ATTR_WATCH[attr]);
 
@@ -87,8 +87,8 @@ const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
  * HP Max = (might_base * 5) + level + hp_other
  * @param request
  */
-const calculateMaxHP = (request: string[]) => {
-  getAttrs(request, (v) => {
+const calculateMaxHP = () => {
+  getAttrs(ATTR_WATCH.hp, (v) => {
     if (!['character', 'bestiary'].includes(v.sheet_type)) return;
 
     const might_max: number = +v.might_max ?? 0;
@@ -113,8 +113,8 @@ const calculateMaxHP = (request: string[]) => {
  * MP Max = (willpower_base * 5) + level + mp_other
  * @param request
  */
-const calculateMaxMP = (request: string[]) => {
-  getAttrs(request, (v) => {
+const calculateMaxMP = () => {
+  getAttrs(ATTR_WATCH.mp, (v) => {
     if (!['character', 'bestiary'].includes(v.sheet_type)) return;
 
     const willpower_max: number = +v.willpower_max ?? 0;
@@ -138,8 +138,8 @@ const calculateMaxMP = (request: string[]) => {
  * IP Max = 6 + ip_other
  * @param request
  */
-const calculateMaxIP = (request: string[]) => {
-  getAttrs(request, (v) => {
+const calculateMaxIP = () => {
+  getAttrs(ATTR_WATCH.ip, (v) => {
     if (v.sheet_type !== 'character') return;
 
     const ip_extra: number = +v.ip_extra ?? 0;
@@ -323,7 +323,11 @@ const calculateCharacterLevel = () => {
         (memo: string, val) => memo + (memo.length ? ' ✦ ' : '') + val,
         ''
       );
-      setAttrs(update, { silent: true });
+      setAttrs(update, { silent: true }, () => {
+        calculateMaxHP();
+        calculateMaxMP();
+        calculateMaxIP();
+      });
     }
   );
 };
