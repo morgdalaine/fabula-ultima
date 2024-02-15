@@ -627,6 +627,10 @@ const RITUAL_ACCURACY_DIFFICULTY: SectionDetails[] = [
   },
 ];
 
+const reverseMap = (enumObj: any, value: string): string => {
+  return Object.keys(enumObj).find((key) => enumObj[key] === value);
+};
+
 const listenersByKey = (obj: object) => {
   return Object.entries(obj).reduce((memo: Record<string, string>, [key, arr]) => {
     memo[key] = listeners(arr);

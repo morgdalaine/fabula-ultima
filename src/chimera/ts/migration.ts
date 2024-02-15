@@ -119,7 +119,7 @@ type ChimeraMigrationVersion = {
 
 class ChimeraMigration {
   id: string;
-  version: ChimeraMigrationVersion = {} as ChimeraMigrationVersion;
+  version: Partial<ChimeraMigrationVersion> = {};
   version_attr: string;
   migrator: ChimeraMigrator;
   migration: (resolve: () => void, reject: () => void) => void;
@@ -147,7 +147,6 @@ class ChimeraMigration {
       version: this.version,
       version_attr: this.version_attr,
       migrator: this.migrator,
-      migration: this.migration,
     });
     this.getVersion((v) => {
       if (this.isValid(v)) {
@@ -160,12 +159,11 @@ class ChimeraMigration {
 
   getVersion(callback: (version: number) => void) {
     console.log('getVersion');
-    getAttrs([this.version_attr], (values) => callback(+values[this.version_attr] ?? 0));
+    getAttrs([this.version_attr], (values) => callback(parseFloat(values[this.version_attr]) ?? 0));
   }
 
   setVersion(version: number, callback: () => void) {
-    console.log('setVersion');
-    console.log({ [this.version_attr]: version });
+    console.log('setVersion', { [this.version_attr]: version });
     setAttrs({ [this.version_attr]: version }, { silent: true }, () => callback());
   }
 
@@ -177,13 +175,13 @@ class ChimeraMigration {
   }
 
   resolve() {
-    console.log('resolve');
+    console.log('#resolve');
     this.setVersion(this.version.set, () => {
       this.migrator.resolveMigration(this.id, 'Done!', this.migration);
     });
   }
   reject(error: string) {
-    console.log('reject');
+    console.log('#reject');
     this.migrator.resolveMigration(this.id, error, this.migration);
   }
 }

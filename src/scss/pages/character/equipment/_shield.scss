@@ -36,19 +36,6 @@
         grid-template-columns: auto 1fr repeat(5, auto);
         gap: 4px;
 
-        input[name*='is_martial'] {
-          &[value='on'] ~ {
-            #{$this}__defense_bonus {
-              display: none;
-            }
-          }
-          &[value='0'] ~ {
-            #{$this}__defense {
-              display: none;
-            }
-          }
-        }
-
         &__special {
           grid-column: 1/-1;
         }

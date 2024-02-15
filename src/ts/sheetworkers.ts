@@ -1,5 +1,6 @@
 const handleCalculations = (attr: string, eventInfo: EventInfo) => {
-  if (eventInfo.sourceType === 'sheetworker') return;
+  // if (eventInfo.sourceType === 'sheetworker') return;
+  console.log('handleCalculations => ', attr);
 
   switch (attr) {
     case 'dexterity':
