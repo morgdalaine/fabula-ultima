@@ -2,6 +2,12 @@ mixin inventory-view(spine)
   .inventory--view
     +fabula-heading-view('inventory', spine.inventory.heading)
     .chimera-wrapper
+      .item__ip
+        +chimera-value({ name: 'ip', label: 'IP', title: 'Inventory Points' })
+      .item__money
+        +chimera-value({ name: 'money_name'})
+        +chimera-input(spine.backpack.money)
+        +chimera-icon({ icon: 'coins' })
       .item__table
         each header in spine.inventory.table
           label.chimera-value__label(data-i18n=header.name)= header.label

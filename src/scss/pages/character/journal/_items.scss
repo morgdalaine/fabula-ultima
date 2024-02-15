@@ -1,0 +1,54 @@
+@use '../../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .items {
+    $this: '.items';
+
+    @include mixins.fabula-heading;
+
+    &--delete {
+      .item {
+        display: flex;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+    }
+
+    &--view {
+      .item {
+        display: grid;
+        grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+        align-items: center;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
+        }
+
+        &__special,
+        &__effect {
+          grid-column: 1/-1;
+          @include mixins.text-lg-400;
+        }
+      }
+    }
+
+    &--edit {
+      .item {
+        display: grid;
+        gap: 4px;
+      }
+    }
+  }
+}

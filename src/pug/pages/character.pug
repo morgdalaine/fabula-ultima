@@ -4,6 +4,7 @@ include character/classes
 include character/equipment/equipment
 include character/equipment/weapons
 include character/inventory
+include character/journal/journal
 include character/magic
 include character/nav
 include character/points
@@ -38,8 +39,7 @@ mixin character-view(spine)
 
     +classes-view(spine)
 
-    .traits--view
-      h2.points__heading--view JOURNAL
+    +journal-view(spine)
 
 mixin character-edit(spine)
   section.character--edit
@@ -69,7 +69,15 @@ mixin character-edit(spine)
       +rituals-edit(spine)
 
     .character__journal
-      span journal
+      +notes-edit(spine)
+      +quests-edit(spine)
+      +projects-edit(spine)
+      +friends-edit(spine)
+      +creatures-edit(spine)
+      +locations-edit(spine)
+      +artifacts-edit(spine)
+      +items-edit(spine)
+      +discoveries-edit(spine)
 
     .character__settings
       +settings(spine)

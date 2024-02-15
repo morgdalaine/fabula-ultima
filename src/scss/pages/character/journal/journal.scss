@@ -1,0 +1,50 @@
+@use '../../../common/vars' as mixins;
+
+@use 'notes';
+@use 'quests';
+@use 'projects';
+@use 'friends';
+@use 'creatures';
+@use 'locations';
+@use 'artifacts';
+@use 'discoveries';
+@use 'items';
+
+.fabula-ultima .character {
+  .journal {
+    $this: '.journal';
+
+    @include mixins.fabula-heading;
+
+    &--view {
+      .journal {
+        &__notes {
+          display: grid;
+          grid-template-columns: 1fr var(--button-component-size);
+          align-items: center;
+          gap: 4px;
+
+          .send-to-chat {
+            margin-left: auto;
+          }
+        }
+
+        .note {
+          &__name {
+            .chimera-value {
+              &__value {
+                @include mixins.text-lg-700;
+              }
+            }
+          }
+
+          &__special,
+          &__effect {
+            grid-column: 1/-1;
+            @include mixins.text-lg-400;
+          }
+        }
+      }
+    }
+  }
+}

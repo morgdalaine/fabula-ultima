@@ -1,5 +1,26 @@
 -
   spine.character.notes = {
+    heading: {
+      name: 'notes',
+      label: 'Notes',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'note_name',
+        css: { names: ['note__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'note_effect',
+        css: { names: ['note__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'note_name',
+        css: { names: ['note__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'note_name',
@@ -17,6 +38,27 @@
   }
 
   spine.character.quests = {
+    heading: {
+      name: 'quests',
+      label: 'Quests',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'quest_name',
+        css: { names: ['quest__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'quest_effect',
+        css: { names: ['quest__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'quest_name',
+        css: { names: ['quest__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'quest_name',
@@ -34,6 +76,27 @@
   }
 
   spine.character.projects = {
+    heading: {
+      name: 'projects',
+      label: 'Projects',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'project_name',
+        css: { names: ['project__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'project_effect',
+        css: { names: ['project__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'project_name',
+        css: { names: ['project__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'project_name',
@@ -50,24 +113,66 @@
     ],
   }
 
-  spine.character.characters = {
-    fields: [
+  spine.character.friends = {
+    heading: {
+      name: 'friends',
+      label: 'Friends',
+    },
+    hidden: [],
+    view: [
       {
-        name: 'character_name',
-        label: 'Character',
-        type: 'text',
-        css: { names: ['character__name'] },
+        name: 'friend_name',
+        css: { names: ['friend__name'], modifiers:  ['no-label-bold'] },
       },
       {
-        name: 'character_effect',
+        name: 'friend_effect',
+        css: { names: ['friend__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'friend_name',
+        css: { names: ['friend__name'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'friend_name',
+        label: 'Character',
+        type: 'text',
+        css: { names: ['friend__name'] },
+      },
+      {
+        name: 'friend_effect',
         label: 'Details',
         type: 'textarea',
-        css: { names: ['character__effect'] },
+        css: { names: ['friend__effect'] },
       },
     ],
   }
 
   spine.character.creatures = {
+    heading: {
+      name: 'creatures',
+      label: 'Creatures',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'creature_name',
+        css: { names: ['creature__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'creature_effect',
+        css: { names: ['creature__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'creature_name',
+        css: { names: ['creature__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'creature_name',
@@ -85,6 +190,27 @@
   }
 
   spine.character.locations = {
+    heading: {
+      name: 'locations',
+      label: 'Locations',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'location_name',
+        css: { names: ['location__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'location_effect',
+        css: { names: ['location__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'location_name',
+        css: { names: ['location__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'location_name',
@@ -102,6 +228,27 @@
   }
 
   spine.character.artifacts = {
+    heading: {
+      name: 'artifacts',
+      label: 'Artifacts',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'artifact_name',
+        css: { names: ['artifact__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'artifact_effect',
+        css: { names: ['artifact__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'artifact_name',
+        css: { names: ['artifact__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'artifact_name',
@@ -119,23 +266,65 @@
   }
 
   spine.character.discoveries = {
-    fields: [
+    heading: {
+      name: 'discoveries',
+      label: 'Discoveries',
+    },
+    hidden: [],
+    view: [
       {
-        name: 'discoverie_name',
-        label: 'Discoverie',
-        type: 'text',
-        css: { names: ['discoverie__name'] },
+        name: 'discovery_name',
+        css: { names: ['discovery__name'], modifiers:  ['no-label-bold'] },
       },
       {
-        name: 'discoverie_effect',
+        name: 'discovery_effect',
+        css: { names: ['discovery__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'discovery_name',
+        css: { names: ['discovery__name'], modifiers: [] },
+      },
+    ],
+    fields: [
+      {
+        name: 'discovery_name',
+        label: 'Discovery',
+        type: 'text',
+        css: { names: ['discovery__name'] },
+      },
+      {
+        name: 'discovery_effect',
         label: 'Details',
         type: 'textarea',
-        css: { names: ['discoverie__effect'] },
+        css: { names: ['discovery__effect'] },
       },
     ],
   }
 
   spine.character.items = {
+    heading: {
+      name: 'items',
+      label: 'Items',
+    },
+    hidden: [],
+    view: [
+      {
+        name: 'item_name',
+        css: { names: ['item__name'], modifiers:  ['no-label-bold'] },
+      },
+      {
+        name: 'item_effect',
+        css: { names: ['item__effect'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'item_name',
+        css: { names: ['item__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'item_name',

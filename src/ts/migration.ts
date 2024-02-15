@@ -9,6 +9,7 @@ const fabulaMigrations: ChimeraMigration[] = [
 
         console.log('attributes => ');
         console.log(attributes);
+        console.log(sections);
 
         Object.keys(CROSSWALK_TO_V20).forEach((key) => {
           const data = CROSSWALK_TO_V20[key];
@@ -120,6 +121,13 @@ const fabulaMigrations: ChimeraMigration[] = [
                 });
                 break;
               }
+              case 'repeating_notes':
+                sections[key].forEach((id) => {
+                  const prefix = `${key}_${id}_`;
+                  Object.entries(data).forEach(([old, nu]: [string, string]) => {
+                    update[prefix + nu] = attributes[prefix + old];
+                  });
+                });
             }
           }
         });

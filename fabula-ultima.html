@@ -222,6 +222,14 @@
                     <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
                     </button>
                   </div>
+                  <div class="chimera-arithmetic controller__ip">
+                    <label class="chimera-arithmetic__label" data-i18n="ip-control" for="ip-control">IP</label>
+                    <button class="chimera-arithmetic__add" name="act_ip-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                    </button>
+                    <input class="chimera-arithmetic__field" data-i18n-title="ip-control_title" id="ip-control" name="attr_ip-control" title="Inventory Points" type="number" value="1"/>
+                    <button class="chimera-arithmetic__subtract" name="act_ip-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                    </button>
+                  </div>
                 </div>
           </div>
               <div class="rolls--view">
@@ -746,6 +754,18 @@
                   </label>
                 </h2>
                 <div class="chimera-wrapper">
+                  <div class="item__ip">
+                    <div class="chimera-value">
+                      <label class="chimera-value__label" data-i18n="ip" for="ip">IP</label><span class="chimera-value__value" name="attr_ip"></span>
+                    </div>
+                  </div>
+                  <div class="item__money">
+                    <div class="chimera-value"><span class="chimera-value__value" name="attr_money_name"></span>
+                    </div>
+                    <div class="chimera-input backpack__money chimera-input--flex-row">
+                      <input class="chimera-input__field" data-i18n-placeholder="money_placeholder" data-i18n-title="money_title" id="money" name="attr_money" placeholder="0" type="number"/>
+                    </div><img data-i18n-title="coins_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/coins.png" title="Gold Coins"/>
+                  </div>
                   <div class="item__table">
                     <label class="chimera-value__label" data-i18n="item">Item</label>
                     <label class="chimera-value__label" data-i18n="ip_cost">IP Cost</label>
@@ -831,9 +851,132 @@
                   </fieldset>
                 </div>
               </div>
-          <div class="traits--view">
-            <h2 class="points__heading--view">JOURNAL</h2>
-          </div>
+              <div class="journal--view">
+                <h2 class="journal__heading--view"><span data-i18n="journal">Journal</span>
+                  <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="journal_collapse_title" title="Toggle journal">
+                    <div class="chimera-toggle__field">
+                      <input id="journal_collapse" name="attr_journal_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                    </div><span class="chimera-toggle__label" data-i18n="journal_collapse" for="journal_collapse">Toggle journal</span>
+                  </label>
+                </h2>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_notes_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_notes">
+                    <div class="journal__notes">
+                      <div class="chimera-value note__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_note_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="notechat_title" name="act_notechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value note__effect"><span class="chimera-value__value" name="attr_note_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_quests_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_quests">
+                    <div class="journal__quests">
+                      <div class="chimera-value quest__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_quest_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="questchat_title" name="act_questchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value quest__effect"><span class="chimera-value__value" name="attr_quest_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_projects_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_projects">
+                    <div class="journal__projects">
+                      <div class="chimera-value project__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_project_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="projectchat_title" name="act_projectchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value project__effect"><span class="chimera-value__value" name="attr_project_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_friends_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_friends">
+                    <div class="journal__friends">
+                      <div class="chimera-value friend__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_friend_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="friendchat_title" name="act_friendchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value friend__effect"><span class="chimera-value__value" name="attr_friend_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_creatures_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_creatures">
+                    <div class="journal__creatures">
+                      <div class="chimera-value creature__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_creature_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="creaturechat_title" name="act_creaturechat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value creature__effect"><span class="chimera-value__value" name="attr_creature_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_locations_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_locations">
+                    <div class="journal__locations">
+                      <div class="chimera-value location__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_location_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="locationchat_title" name="act_locationchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value location__effect"><span class="chimera-value__value" name="attr_location_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_artifacts_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_artifacts">
+                    <div class="journal__artifacts">
+                      <div class="chimera-value artifact__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_artifact_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="artifactchat_title" name="act_artifactchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value artifact__effect"><span class="chimera-value__value" name="attr_artifact_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_discoveries_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_discoveries">
+                    <div class="journal__discoveries">
+                      <div class="chimera-value discovery__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_discovery_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="discoverychat_title" name="act_discoverychat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value discovery__effect"><span class="chimera-value__value" name="attr_discovery_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_items_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_items">
+                    <div class="journal__items">
+                      <div class="chimera-value item__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_item_name"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="itemchat_title" name="act_itemchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/pixel-chat.png" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value item__effect"><span class="chimera-value__value" name="attr_item_effect"></span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
         </section>
         <section class="character--edit">
               <div class="traits--edit">
@@ -2043,7 +2186,359 @@
                   </div>
                 </div>
           </div>
-          <div class="character__journal"><span>journal</span></div>
+          <div class="character__journal">
+                <div class="notes">
+                  <h2 class="notes__heading--edit"><span data-i18n="notes">Notes</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="notes_collapse_title" title="Toggle notes">
+                      <div class="chimera-toggle__field">
+                        <input id="notes_collapse" name="attr_notes_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="notes_collapse" for="notes_collapse">Toggle notes</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_notes_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_notes_repeating">No notes saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_notes">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit notes--edit">
+                          <div class="note">
+                            <div class="chimera-input note__name">
+                              <label class="chimera-input__label" data-i18n="note_name" for="note_name">Note</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="note_name_placeholder" data-i18n-title="note_name_title" id="note_name" name="attr_note_name" placeholder="Note" title="Note" type="text"/>
+                            </div>
+                            <div class="chimera-input note__effect">
+                              <label class="chimera-input__label" data-i18n="note_effect" for="note_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="note_effect_title" id="note_effect" name="attr_note_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete notes--delete">
+                          <div class="note">
+                            <div class="chimera-value note__name"><span class="chimera-value__value" name="attr_note_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view notes--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="quests">
+                  <h2 class="quests__heading--edit"><span data-i18n="quests">Quests</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="quests_collapse_title" title="Toggle quests">
+                      <div class="chimera-toggle__field">
+                        <input id="quests_collapse" name="attr_quests_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="quests_collapse" for="quests_collapse">Toggle quests</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_quests_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_quests_repeating">No quests saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_quests">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit quests--edit">
+                          <div class="quest">
+                            <div class="chimera-input quest__name">
+                              <label class="chimera-input__label" data-i18n="quest_name" for="quest_name">Quest</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="quest_name_placeholder" data-i18n-title="quest_name_title" id="quest_name" name="attr_quest_name" placeholder="Quest" title="Quest" type="text"/>
+                            </div>
+                            <div class="chimera-input quest__effect">
+                              <label class="chimera-input__label" data-i18n="quest_effect" for="quest_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="quest_effect_title" id="quest_effect" name="attr_quest_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete quests--delete">
+                          <div class="quest">
+                            <div class="chimera-value quest__name"><span class="chimera-value__value" name="attr_quest_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view quests--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="projects">
+                  <h2 class="projects__heading--edit"><span data-i18n="projects">Projects</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
+                      <div class="chimera-toggle__field">
+                        <input id="projects_collapse" name="attr_projects_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="projects_collapse" for="projects_collapse">Toggle projects</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_projects_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_projects_repeating">No projects saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_projects">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit projects--edit">
+                          <div class="project">
+                            <div class="chimera-input project__name">
+                              <label class="chimera-input__label" data-i18n="project_name" for="project_name">Project</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="project_name_placeholder" data-i18n-title="project_name_title" id="project_name" name="attr_project_name" placeholder="Project" title="Project" type="text"/>
+                            </div>
+                            <div class="chimera-input project__effect">
+                              <label class="chimera-input__label" data-i18n="project_effect" for="project_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="project_effect_title" id="project_effect" name="attr_project_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete projects--delete">
+                          <div class="project">
+                            <div class="chimera-value project__name"><span class="chimera-value__value" name="attr_project_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view projects--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="friends">
+                  <h2 class="friends__heading--edit"><span data-i18n="friends">Friends</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
+                      <div class="chimera-toggle__field">
+                        <input id="friends_collapse" name="attr_friends_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="friends_collapse" for="friends_collapse">Toggle friends</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_friends_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_friends_repeating">No friends saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_friends">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit friends--edit">
+                          <div class="friend">
+                            <div class="chimera-input friend__name">
+                              <label class="chimera-input__label" data-i18n="friend_name" for="friend_name">Character</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="friend_name_placeholder" data-i18n-title="friend_name_title" id="friend_name" name="attr_friend_name" placeholder="Character" title="Character" type="text"/>
+                            </div>
+                            <div class="chimera-input friend__effect">
+                              <label class="chimera-input__label" data-i18n="friend_effect" for="friend_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="friend_effect_title" id="friend_effect" name="attr_friend_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete friends--delete">
+                          <div class="friend">
+                            <div class="chimera-value friend__name"><span class="chimera-value__value" name="attr_friend_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view friends--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="creatures">
+                  <h2 class="creatures__heading--edit"><span data-i18n="creatures">Creatures</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="creatures_collapse_title" title="Toggle creatures">
+                      <div class="chimera-toggle__field">
+                        <input id="creatures_collapse" name="attr_creatures_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="creatures_collapse" for="creatures_collapse">Toggle creatures</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_creatures_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_creatures_repeating">No creatures saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_creatures">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit creatures--edit">
+                          <div class="creature">
+                            <div class="chimera-input creature__name">
+                              <label class="chimera-input__label" data-i18n="creature_name" for="creature_name">Creature</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="creature_name_placeholder" data-i18n-title="creature_name_title" id="creature_name" name="attr_creature_name" placeholder="Creature" title="Creature" type="text"/>
+                            </div>
+                            <div class="chimera-input creature__effect">
+                              <label class="chimera-input__label" data-i18n="creature_effect" for="creature_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="creature_effect_title" id="creature_effect" name="attr_creature_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete creatures--delete">
+                          <div class="creature">
+                            <div class="chimera-value creature__name"><span class="chimera-value__value" name="attr_creature_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view creatures--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="locations">
+                  <h2 class="locations__heading--edit"><span data-i18n="locations">Locations</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="locations_collapse_title" title="Toggle locations">
+                      <div class="chimera-toggle__field">
+                        <input id="locations_collapse" name="attr_locations_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="locations_collapse" for="locations_collapse">Toggle locations</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_locations_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_locations_repeating">No locations saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_locations">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit locations--edit">
+                          <div class="location">
+                            <div class="chimera-input location__name">
+                              <label class="chimera-input__label" data-i18n="location_name" for="location_name">Location</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="location_name_placeholder" data-i18n-title="location_name_title" id="location_name" name="attr_location_name" placeholder="Location" title="Location" type="text"/>
+                            </div>
+                            <div class="chimera-input location__effect">
+                              <label class="chimera-input__label" data-i18n="location_effect" for="location_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="location_effect_title" id="location_effect" name="attr_location_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete locations--delete">
+                          <div class="location">
+                            <div class="chimera-value location__name"><span class="chimera-value__value" name="attr_location_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view locations--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="artifacts">
+                  <h2 class="artifacts__heading--edit"><span data-i18n="artifacts">Artifacts</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="artifacts_collapse_title" title="Toggle artifacts">
+                      <div class="chimera-toggle__field">
+                        <input id="artifacts_collapse" name="attr_artifacts_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="artifacts_collapse" for="artifacts_collapse">Toggle artifacts</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_artifacts_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_artifacts_repeating">No artifacts saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_artifacts">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit artifacts--edit">
+                          <div class="artifact">
+                            <div class="chimera-input artifact__name">
+                              <label class="chimera-input__label" data-i18n="artifact_name" for="artifact_name">Artifact</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="artifact_name_placeholder" data-i18n-title="artifact_name_title" id="artifact_name" name="attr_artifact_name" placeholder="Artifact" title="Artifact" type="text"/>
+                            </div>
+                            <div class="chimera-input artifact__effect">
+                              <label class="chimera-input__label" data-i18n="artifact_effect" for="artifact_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="artifact_effect_title" id="artifact_effect" name="attr_artifact_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete artifacts--delete">
+                          <div class="artifact">
+                            <div class="chimera-value artifact__name"><span class="chimera-value__value" name="attr_artifact_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view artifacts--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="items">
+                  <h2 class="items__heading--edit"><span data-i18n="items">Items</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
+                      <div class="chimera-toggle__field">
+                        <input id="items_collapse" name="attr_items_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="items_collapse" for="items_collapse">Toggle items</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_items_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_items_repeating">No items saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_items">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit items--edit">
+                          <div class="item">
+                            <div class="chimera-input item__name">
+                              <label class="chimera-input__label" data-i18n="item_name" for="item_name">Item</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="item_name_placeholder" data-i18n-title="item_name_title" id="item_name" name="attr_item_name" placeholder="Item" title="Item" type="text"/>
+                            </div>
+                            <div class="chimera-input item__effect">
+                              <label class="chimera-input__label" data-i18n="item_effect" for="item_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="item_effect_title" id="item_effect" name="attr_item_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete items--delete">
+                          <div class="item">
+                            <div class="chimera-value item__name"><span class="chimera-value__value" name="attr_item_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view items--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="discoveries">
+                  <h2 class="discoveries__heading--edit"><span data-i18n="discoveries">Discoveries</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="discoveries_collapse_title" title="Toggle discoveries">
+                      <div class="chimera-toggle__field">
+                        <input id="discoveries_collapse" name="attr_discoveries_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="discoveries_collapse" for="discoveries_collapse">Toggle discoveries</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_discoveries_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_discoveries_repeating">No discoveries saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_discoveries">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit discoveries--edit">
+                          <div class="discovery">
+                            <div class="chimera-input discovery__name">
+                              <label class="chimera-input__label" data-i18n="discovery_name" for="discovery_name">Discovery</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="discovery_name_placeholder" data-i18n-title="discovery_name_title" id="discovery_name" name="attr_discovery_name" placeholder="Discovery" title="Discovery" type="text"/>
+                            </div>
+                            <div class="chimera-input discovery__effect">
+                              <label class="chimera-input__label" data-i18n="discovery_effect" for="discovery_effect">Details</label>
+                              <textarea class="chimera-input__field" data-i18n-title="discovery_effect_title" id="discovery_effect" name="attr_discovery_effect" title="Details" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete discoveries--delete">
+                          <div class="discovery">
+                            <div class="chimera-value discovery__name"><span class="chimera-value__value" name="attr_discovery_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view discoveries--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+          </div>
           <div class="character__settings">
                 <div class="settings--edit">
                   <h2 class="settings__heading--edit" data-i18n="settings">Settings</h2>
@@ -2070,16 +2565,16 @@
                     </label>
                   </div>
                   <div class="setting">
-                    <label class="chimera-checkbox settings_currency_name chimera-checkbox--flex-row chimera-checkbox--small" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
+                    <label class="chimera-checkbox settings_money_name chimera-checkbox--flex-row chimera-checkbox--small" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
                       <div class="chimera-checkbox__field">
                         <input id="dual_shieldbearer" name="attr_dual_shieldbearer" type="checkbox"/><img data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="You can equip two shields"/>
                       </div><span class="chimera-checkbox__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
                     </label>
                   </div>
                   <div class="setting">
-                    <div class="chimera-input settings_currency_name chimera-input--flex-row chimera-input--small">
-                      <label class="chimera-input__label" data-i18n="currency_name" for="currency_name">Currency Name</label>
-                      <input class="chimera-input__field" data-i18n-placeholder="currency_name_placeholder" data-i18n-title="currency_name_title" id="currency_name" name="attr_currency_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
+                    <div class="chimera-input settings_money_name chimera-input--flex-row chimera-input--small">
+                      <label class="chimera-input__label" data-i18n="money_name" for="money_name">Currency Name</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="money_name_placeholder" data-i18n-title="money_name_title" id="money_name" name="attr_money_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
                     </div>
                   </div>
                 </div>
@@ -2303,6 +2798,14 @@
                     </button>
                     <input class="chimera-arithmetic__field" data-i18n-title="mp-control_title" id="mp-control" name="attr_mp-control" title="Mind Points" type="number" value="1"/>
                     <button class="chimera-arithmetic__subtract" name="act_mp-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
+                    </button>
+                  </div>
+                  <div class="chimera-arithmetic controller__ip">
+                    <label class="chimera-arithmetic__label" data-i18n="ip-control" for="ip-control">IP</label>
+                    <button class="chimera-arithmetic__add" name="act_ip-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
+                    </button>
+                    <input class="chimera-arithmetic__field" data-i18n-title="ip-control_title" id="ip-control" name="attr_ip-control" title="Inventory Points" type="number" value="1"/>
+                    <button class="chimera-arithmetic__subtract" name="act_ip-control-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
                     </button>
                   </div>
                 </div>
@@ -3771,6 +4274,7 @@ const SECTION_PREFIX = {
 const BUTTON_ACTIONS = {
     hp: ['hp-control-add', 'hp-control-subtract'],
     mp: ['mp-control-add', 'mp-control-subtract'],
+    ip: ['ip-control-add', 'ip-control-subtract'],
 };
 const CLICK_LISTENERS = {
     'repeating_basic-attacks:basicattack': 'basicattack',
@@ -4749,7 +5253,8 @@ on('change:defense_extra change:magic_defense_extra', () => {
     updateQuickDefenseDropdown();
 });
 on('clicked:hp-control-add clicked:hp-control-subtract ' +
-    'clicked:mp-control-add clicked:mp-control-subtract ', (eventInfo) => {
+    'clicked:mp-control-add clicked:mp-control-subtract ' +
+    'clicked:ip-control-add clicked:ip-control-subtract ', (eventInfo) => {
     const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
     updatePoints(attr, direction);
 });
@@ -4771,7 +5276,8 @@ const CROSSWALK_TO_V20 = {
     insight: 'insight_max',
     might: 'might_max',
     willpower: 'willpower_max',
-    moneyName: 'currency_name',
+    moneyName: 'money_name',
+    characterMoney: 'money',
     affinity: {
         physicalAffinity: 'physical',
         airAffinity: 'air',
@@ -4951,8 +5457,8 @@ const CROSSWALK_TO_V20 = {
         ritualCustomDisciplineName: 'repeating_ritualdisciplines_-CREATE_ritual_discipline_name',
     },
     repeating_notes: {
-        noteName: 'repeating_notes_-CREATE_note_name',
-        noteText: 'repeating_notes_-CREATE_note_effect',
+        noteName: 'note_name',
+        noteText: 'note_effect',
     },
     repeating_quests: {
         questName: 'repeating_quests_-CREATE_quest_name',
@@ -5009,6 +5515,7 @@ const CROSSWALK_REQUEST = [
     'might',
     'willpower',
     'moneyName',
+    'characterMoney',
     'physicalAffinity',
     'airAffinity',
     'boltAffinity',
@@ -5219,6 +5726,7 @@ const fabulaMigrations = [
             update.sheet_type = 'character';
             console.log('attributes => ');
             console.log(attributes);
+            console.log(sections);
             Object.keys(CROSSWALK_TO_V20).forEach((key) => {
                 const data = CROSSWALK_TO_V20[key];
                 if (typeof data === 'string' && Object.hasOwn(attributes, key)) {
@@ -5329,6 +5837,13 @@ const fabulaMigrations = [
                             });
                             break;
                         }
+                        case 'repeating_notes':
+                            sections[key].forEach((id) => {
+                                const prefix = `${key}_${id}_`;
+                                Object.entries(data).forEach(([old, nu]) => {
+                                    update[prefix + nu] = attributes[prefix + old];
+                                });
+                            });
                     }
                 }
             });
@@ -5423,6 +5938,7 @@ const calculateMaxHP = () => {
             hp_max = might_max * 5 + level * 2 + hp_extra;
         }
         const hp_crisis = Math.floor(hp_max / 2);
+        console.log({ hp_max, hp_crisis });
         setAttrs({ hp_max, hp_crisis }, { silent: true });
     });
 };
@@ -5441,6 +5957,7 @@ const calculateMaxMP = () => {
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
         }
+        console.log({ mp_max });
         setAttrs({ mp_max }, { silent: true });
     });
 };
@@ -5465,11 +5982,14 @@ const calculateUltimaPoints = (request) => {
 };
 const updatePoints = (attr, direction) => {
     getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
-        const xp = +v[attr] ?? 0;
-        const xp_max = +v[`${attr}_max`] ?? 0;
-        const xp_control = +v[`${attr}-control`] ?? 0;
+        console.log(attr, v);
+        const xp = +v[attr] || 0;
+        const xp_max = +v[`${attr}_max`] || 0;
+        const xp_control = +v[`${attr}-control`] || 0;
         const sign = direction === 'add' ? 1 : -1;
+        console.log({ sign, xp, xp_max, xp_control });
         const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
+        console.log({ [attr]: update });
         setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
     });
 };

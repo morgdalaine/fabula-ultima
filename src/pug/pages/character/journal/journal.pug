@@ -1,0 +1,201 @@
+mixin journal-view(spine)
+  .journal--view
+    +fabula-heading-view('journal', { name: 'journal', label: 'Journal' })
+
+    +chimera-repeater-simple('notes')
+      .journal__notes
+        - const note = fieldDictionary(spine.notes.view, 'note');
+        +chimera-value(note.name)
+        +send-to-chat('note')
+        +chimera-value(note.effect)
+
+    +chimera-repeater-simple('quests')
+      .journal__quests
+        - const quest = fieldDictionary(spine.quests.view, 'quest');
+        +chimera-value(quest.name)
+        +send-to-chat('quest')
+        +chimera-value(quest.effect)
+
+    +chimera-repeater-simple('projects')
+      .journal__projects
+        - const project = fieldDictionary(spine.projects.view, 'project');
+        +chimera-value(project.name)
+        +send-to-chat('project')
+        +chimera-value(project.effect)
+
+    +chimera-repeater-simple('friends')
+      .journal__friends
+        - const friend = fieldDictionary(spine.friends.view, 'friend');
+        +chimera-value(friend.name)
+        +send-to-chat('friend')
+        +chimera-value(friend.effect)
+
+    +chimera-repeater-simple('creatures')
+      .journal__creatures
+        - const creature = fieldDictionary(spine.creatures.view, 'creature');
+        +chimera-value(creature.name)
+        +send-to-chat('creature')
+        +chimera-value(creature.effect)
+
+    +chimera-repeater-simple('locations')
+      .journal__locations
+        - const location = fieldDictionary(spine.locations.view, 'location');
+        +chimera-value(location.name)
+        +send-to-chat('location')
+        +chimera-value(location.effect)
+
+    +chimera-repeater-simple('artifacts')
+      .journal__artifacts
+        - const artifact = fieldDictionary(spine.artifacts.view, 'artifact');
+        +chimera-value(artifact.name)
+        +send-to-chat('artifact')
+        +chimera-value(artifact.effect)
+
+    +chimera-repeater-simple('discoveries')
+      .journal__discoveries
+        - const discovery = fieldDictionary(spine.discoveries.view, 'discovery');
+        +chimera-value(discovery.name)
+        +send-to-chat('discovery')
+        +chimera-value(discovery.effect)
+
+    +chimera-repeater-simple('items')
+      .journal__items
+        - const item = fieldDictionary(spine.items.view, 'item');
+        +chimera-value(item.name)
+        +send-to-chat('item')
+        +chimera-value(item.effect)
+
+mixin notes-edit(spine)
+  .notes
+    +fabula-heading-edit('notes', spine.notes.heading)
+    +chimera-repeater('notes')
+      +chimera-block('delete')
+        .note
+          - const [name] = spine.notes.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .note
+          each field in spine.notes.hidden
+            +chimera-hidden(field)
+          each field in spine.notes.fields
+            +chimera-input(field)
+
+mixin quests-edit(spine)
+  .quests
+    +fabula-heading-edit('quests', spine.quests.heading)
+    +chimera-repeater('quests')
+      +chimera-block('delete')
+        .quest
+          - const [name] = spine.quests.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .quest
+          each field in spine.quests.hidden
+            +chimera-hidden(field)
+          each field in spine.quests.fields
+            +chimera-input(field)
+
+mixin projects-edit(spine)
+  .projects
+    +fabula-heading-edit('projects', spine.projects.heading)
+    +chimera-repeater('projects')
+      +chimera-block('delete')
+        .project
+          - const [name] = spine.projects.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .project
+          each field in spine.projects.hidden
+            +chimera-hidden(field)
+          each field in spine.projects.fields
+            +chimera-input(field)
+
+mixin friends-edit(spine)
+  .friends
+    +fabula-heading-edit('friends', spine.friends.heading)
+    +chimera-repeater('friends')
+      +chimera-block('delete')
+        .friend
+          - const [name] = spine.friends.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .friend
+          each field in spine.friends.hidden
+            +chimera-hidden(field)
+          each field in spine.friends.fields
+            +chimera-input(field)
+
+mixin creatures-edit(spine)
+  .creatures
+    +fabula-heading-edit('creatures', spine.creatures.heading)
+    +chimera-repeater('creatures')
+      +chimera-block('delete')
+        .creature
+          - const [name] = spine.creatures.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .creature
+          each field in spine.creatures.hidden
+            +chimera-hidden(field)
+          each field in spine.creatures.fields
+            +chimera-input(field)
+
+mixin locations-edit(spine)
+  .locations
+    +fabula-heading-edit('locations', spine.locations.heading)
+    +chimera-repeater('locations')
+      +chimera-block('delete')
+        .location
+          - const [name] = spine.locations.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .location
+          each field in spine.locations.hidden
+            +chimera-hidden(field)
+          each field in spine.locations.fields
+            +chimera-input(field)
+
+mixin artifacts-edit(spine)
+  .artifacts
+    +fabula-heading-edit('artifacts', spine.artifacts.heading)
+    +chimera-repeater('artifacts')
+      +chimera-block('delete')
+        .artifact
+          - const [name] = spine.artifacts.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .artifact
+          each field in spine.artifacts.hidden
+            +chimera-hidden(field)
+          each field in spine.artifacts.fields
+            +chimera-input(field)
+
+mixin items-edit(spine)
+  .items
+    +fabula-heading-edit('items', spine.items.heading)
+    +chimera-repeater('items')
+      +chimera-block('delete')
+        .item
+          - const [name] = spine.items.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .item
+          each field in spine.items.hidden
+            +chimera-hidden(field)
+          each field in spine.items.fields
+            +chimera-input(field)
+
+mixin discoveries-edit(spine)
+  .discoveries
+    +fabula-heading-edit('discoveries', spine.discoveries.heading)
+    +chimera-repeater('discoveries')
+      +chimera-block('delete')
+        .discovery
+          - const [name] = spine.discoveries.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .discovery
+          each field in spine.discoveries.hidden
+            +chimera-hidden(field)
+          each field in spine.discoveries.fields
+            +chimera-input(field)

@@ -31,7 +31,8 @@ on('change:defense_extra change:magic_defense_extra', () => {
 on(
   // TODO move this to a loop for all controls
   'clicked:hp-control-add clicked:hp-control-subtract ' +
-    'clicked:mp-control-add clicked:mp-control-subtract ',
+    'clicked:mp-control-add clicked:mp-control-subtract ' +
+    'clicked:ip-control-add clicked:ip-control-subtract ',
   (eventInfo: EventInfo) => {
     const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
     updatePoints(attr, direction);

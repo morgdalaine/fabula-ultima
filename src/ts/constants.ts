@@ -275,6 +275,7 @@ const SECTION_PREFIX: Record<string, string> = {
 const BUTTON_ACTIONS: Record<string, string[]> = {
   hp: ['hp-control-add', 'hp-control-subtract'],
   mp: ['mp-control-add', 'mp-control-subtract'],
+  ip: ['ip-control-add', 'ip-control-subtract'],
 };
 
 const CLICK_LISTENERS: Record<string, string> = {

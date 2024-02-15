@@ -8,12 +8,55 @@
     &--view {
       .chimera-wrapper {
         display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 4px;
         padding-inline: 4px;
       }
 
       .item {
+        &__money {
+          display: grid;
+          grid-template-columns: 1fr auto auto;
+          gap: 4px;
+          padding: 4px;
+          align-items: center;
+          justify-items: flex-end;
+
+          .chimera-value {
+            &__value {
+              font-weight: 700;
+              text-transform: capitalize;
+            }
+          }
+        }
+        &__ip {
+          padding: 4px;
+
+          .chimera-value {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            &__label {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: var(--input-component-size);
+              padding: 4px;
+              background-color: var(--color-up);
+              color: var(--color-on-dark);
+              @include mixins.text-lg-700-fabula;
+            }
+            &__value {
+              @include mixins.text-xl-400-fabula;
+              padding: 4px 8px;
+            }
+          }
+        }
+
         &__table {
+          grid-column: 1/-1;
           display: grid;
           grid-template-columns: 1fr auto 2fr;
           gap: 4px;

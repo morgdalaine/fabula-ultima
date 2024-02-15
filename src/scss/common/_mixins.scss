@@ -217,6 +217,15 @@
   }
 }
 
+@mixin chimera-icon {
+  img,
+  svg {
+    width: var(--icon-component-size);
+    height: var(--icon-component-size);
+    aspect-ratio: 1;
+  }
+}
+
 @mixin action-button {
   position: relative;
   display: flex;
@@ -257,13 +266,9 @@
     border-color: var(--button-border-color-active);
   }
 
+  @include chimera-icon;
   img,
   svg {
-    width: var(--icon-component-size);
-    height: var(--icon-component-size);
-    aspect-ratio: 1;
-
-    // filter: invert(0.5);
     opacity: 0.5;
   }
 }

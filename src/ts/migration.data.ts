@@ -21,7 +21,8 @@ const CROSSWALK_TO_V20: Record<string, any> = {
   // dazed: 'dazed',
   // poisoned: 'poisoned',
   // shaken: 'shaken',
-  moneyName: 'currency_name',
+  moneyName: 'money_name',
+  characterMoney: 'money',
   affinity: {
     physicalAffinity: 'physical',
     airAffinity: 'air',
@@ -207,8 +208,8 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     ritualCustomDisciplineName: 'repeating_ritualdisciplines_-CREATE_ritual_discipline_name',
   },
   repeating_notes: {
-    noteName: 'repeating_notes_-CREATE_note_name',
-    noteText: 'repeating_notes_-CREATE_note_effect',
+    noteName: 'note_name',
+    noteText: 'note_effect',
   },
   repeating_quests: {
     questName: 'repeating_quests_-CREATE_quest_name',
@@ -266,6 +267,7 @@ const CROSSWALK_REQUEST: string[] = [
   'might',
   'willpower',
   'moneyName',
+  'characterMoney',
   'physicalAffinity',
   'airAffinity',
   'boltAffinity',

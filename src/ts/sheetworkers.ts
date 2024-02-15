@@ -105,6 +105,7 @@ const calculateMaxHP = () => {
     }
 
     const hp_crisis = Math.floor(hp_max / 2);
+    console.log({ hp_max, hp_crisis });
     setAttrs({ hp_max, hp_crisis }, { silent: true });
   });
 };
@@ -130,6 +131,7 @@ const calculateMaxMP = () => {
       mp_max = willpower_max * 5 + level + mp_extra;
     }
 
+    console.log({ mp_max });
     setAttrs({ mp_max }, { silent: true });
   });
 };
@@ -162,13 +164,17 @@ const calculateUltimaPoints = (request: string[]) => {
 
 const updatePoints = (attr: string, direction: string) => {
   getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
-    const xp: number = +v[attr] ?? 0;
-    const xp_max: number = +v[`${attr}_max`] ?? 0;
-    const xp_control: number = +v[`${attr}-control`] ?? 0;
+    console.log(attr, v);
+    const xp: number = +v[attr] || 0;
+    const xp_max: number = +v[`${attr}_max`] || 0;
+    const xp_control: number = +v[`${attr}-control`] || 0;
 
     const sign: number = direction === 'add' ? 1 : -1;
 
+    console.log({ sign, xp, xp_max, xp_control });
+
     const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
+    console.log({ [attr]: update });
     setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
   });
 };

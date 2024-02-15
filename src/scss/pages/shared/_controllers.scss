@@ -30,6 +30,14 @@
               color: var(--color-on-dark);
             }
           }
+          &__ip {
+            label {
+              width: var(--input-component-size);
+              padding: 4px;
+              background-color: var(--color-up);
+              color: var(--color-on-dark);
+            }
+          }
         }
       }
     }
