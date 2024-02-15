@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span><span class="fabula-translation" data-i18n="custom">Custom</span><span class="fabula-translation" data-i18n="modifier">Modifier</span><span class="fabula-translation" data-i18n="mod">MOD</span>
+<span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span><span class="fabula-translation" data-i18n="custom">Custom</span><span class="fabula-translation" data-i18n="modifier">Modifier</span><span class="fabula-translation" data-i18n="mod">MOD</span><span class="fabula-translation" data-i18n="attack">Attack</span><span class="fabula-translation" data-i18n="spell">Spell</span>
 <input class="chimera-hidden" name="attr_sheet_version" type="hidden" value=""/>
 <input class="chimera-hidden" name="attr_sheet_migrations" type="hidden" value=""/>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
@@ -6439,22 +6439,20 @@ const calculateSpellAccuracyDamage = (request) => {
         if (!['character', 'bestiary'].includes(attributes.sheet_type))
             return;
         const update = {};
-        if (attributes.sheet_type === 'bestiary') {
-            const level = +attributes.level || 0;
-            const accuracy_bonus = +attributes.accuracy_bonus || 0;
-            const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
-            const levelDamageBonus = calculateLevelDamageBonus(level);
-            const [section, ids] = Object.entries(sections).at(0);
-            ids.forEach((id) => {
-                const prefix = `${section}_${id}_`;
-                const spell_accuracy = +attributes[prefix + 'spell_accuracy'] || 0;
-                const spell_damage = +attributes[prefix + 'spell_damage'] || 0;
-                update[prefix + 'spell_accuracy_total'] =
-                    spell_accuracy + accuracy_bonus + levelAccuracyBonus;
-                update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
-            });
-            setAttrs(update, { silent: true });
-        }
+        const level = +attributes.level || 0;
+        const accuracy_bonus = +attributes.accuracy_bonus || 0;
+        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        const levelDamageBonus = calculateLevelDamageBonus(level);
+        const [section, ids] = Object.entries(sections).at(0);
+        ids.forEach((id) => {
+            const prefix = `${section}_${id}_`;
+            const spell_accuracy = +attributes[prefix + 'spell_accuracy'] || 0;
+            const spell_damage = +attributes[prefix + 'spell_damage'] || 0;
+            update[prefix + 'spell_accuracy_total'] =
+                spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+            update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
+        });
+        setAttrs(update, { silent: true });
     });
 };
 const calculateRitualAccuracyDifficulty = (request) => {

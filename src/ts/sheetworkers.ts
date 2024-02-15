@@ -493,27 +493,25 @@ const calculateSpellAccuracyDamage = (request: string[]) => {
 
       const update: Record<string, any> = {};
 
-      if (attributes.sheet_type === 'bestiary') {
-        const level: number = +attributes.level || 0;
-        const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
+      const level: number = +attributes.level || 0;
+      const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
 
-        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
-        const levelDamageBonus = calculateLevelDamageBonus(level);
+      const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+      const levelDamageBonus = calculateLevelDamageBonus(level);
 
-        const [section, ids] = Object.entries(sections).at(0);
-        ids.forEach((id) => {
-          const prefix = `${section}_${id}_`;
+      const [section, ids] = Object.entries(sections).at(0);
+      ids.forEach((id) => {
+        const prefix = `${section}_${id}_`;
 
-          const spell_accuracy: number = +attributes[prefix + 'spell_accuracy'] || 0;
-          const spell_damage: number = +attributes[prefix + 'spell_damage'] || 0;
+        const spell_accuracy: number = +attributes[prefix + 'spell_accuracy'] || 0;
+        const spell_damage: number = +attributes[prefix + 'spell_damage'] || 0;
 
-          update[prefix + 'spell_accuracy_total'] =
-            spell_accuracy + accuracy_bonus + levelAccuracyBonus;
-          update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
-        });
+        update[prefix + 'spell_accuracy_total'] =
+          spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+        update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
+      });
 
-        setAttrs(update, { silent: true });
-      }
+      setAttrs(update, { silent: true });
     }
   );
 };
