@@ -139,7 +139,7 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   villain_empty: ['villain', 'multipart', 'phases'],
 
-  initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
+  initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus', 'initiative_total'],
 
   level: [
     'sheet_type',
@@ -163,17 +163,21 @@ const ATTR_WATCH: Record<string, string[]> = {
     'armor_is_martial',
     'armor_defense',
     'armor_defense_bonus',
+    'armor_initiative',
+    'shield_initiative',
     'shield_defense_bonus',
     'repeating_armors:armor_is_martial',
     'repeating_armors:armor_defense',
     'repeating_armors:armor_defense_bonus',
+    'repeating_armors:armor_initiative',
     'repeating_armors:armor_is_equipped',
     'repeating_shields:shield_defense_bonus',
+    'repeating_shields:shield_initiative',
     'repeating_shields:shield_is_equipped',
   ],
 
   magic_defense: [
-    'willpower',
+    'insight',
     'defense_quick',
     'magic_defense_extra',
     // 'armor_is_martial',
@@ -560,7 +564,7 @@ const ROLLTEMPLATE_REQUESTS: string[] = ['character_avatar', 'sheet_type', 'roll
 const EQUIPMENT_REQUESTS: string[] = [
   'sheet_type',
   'dexterity',
-  'willpower',
+  'insight',
   'dual_shieldbearer',
   'armor_defense_bonus',
   'armor_defense',
@@ -572,6 +576,8 @@ const EQUIPMENT_REQUESTS: string[] = [
   'magic_defense_extra',
   'shield_defense_bonus',
   'shield_magic_defense_bonus',
+  'armor_initiative',
+  'shield_initiative',
 ];
 
 const CHARACTER_EQUIPMENTS: SectionDetails[] = [

@@ -4313,7 +4313,7 @@ const ATTR_WATCH = {
     ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
     ultima_points: ['sheet_type', 'villain'],
     villain_empty: ['villain', 'multipart', 'phases'],
-    initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus'],
+    initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus', 'initiative_total'],
     level: [
         'sheet_type',
         'repeating_classes:class_skill1_level',
@@ -4334,16 +4334,20 @@ const ATTR_WATCH = {
         'armor_is_martial',
         'armor_defense',
         'armor_defense_bonus',
+        'armor_initiative',
+        'shield_initiative',
         'shield_defense_bonus',
         'repeating_armors:armor_is_martial',
         'repeating_armors:armor_defense',
         'repeating_armors:armor_defense_bonus',
+        'repeating_armors:armor_initiative',
         'repeating_armors:armor_is_equipped',
         'repeating_shields:shield_defense_bonus',
+        'repeating_shields:shield_initiative',
         'repeating_shields:shield_is_equipped',
     ],
     magic_defense: [
-        'willpower',
+        'insight',
         'defense_quick',
         'magic_defense_extra',
         'armor_magic_defense_bonus',
@@ -4694,7 +4698,7 @@ const ROLLTEMPLATE_REQUESTS = ['character_avatar', 'sheet_type', 'roll_mods'];
 const EQUIPMENT_REQUESTS = [
     'sheet_type',
     'dexterity',
-    'willpower',
+    'insight',
     'dual_shieldbearer',
     'armor_defense_bonus',
     'armor_defense',
@@ -4706,6 +4710,8 @@ const EQUIPMENT_REQUESTS = [
     'magic_defense_extra',
     'shield_defense_bonus',
     'shield_magic_defense_bonus',
+    'armor_initiative',
+    'shield_initiative',
 ];
 const CHARACTER_EQUIPMENTS = [
     {
@@ -6089,7 +6095,7 @@ const handleCalculations = (attr, eventInfo) => {
         case 'ultima_points':
             return calculateUltimaPoints(ATTR_WATCH[attr]);
         case 'initiative':
-            return calculateInitiative(ATTR_WATCH[attr]);
+            return calculateInitiative();
         case 'defense':
         case 'magic_defense':
             return calculateDefenses();
@@ -6125,7 +6131,7 @@ const calculateAttribute = (attr) => {
     });
 };
 const calculateStatusEffects = (attr, v) => {
-    const die = +v[`${attr}_max`] ?? 0;
+    const die = +v[`${attr}_max`] || 0;
     const currentStep = DIE_SIZES.findIndex((size) => size == die);
     const immunities = ATTR_WATCH[attr]
         .filter((a) => a.includes('immunity') && v[a] === 'on')
@@ -6139,10 +6145,10 @@ const calculateMaxHP = () => {
     getAttrs(ATTR_WATCH.hp, (v) => {
         if (!['character', 'bestiary'].includes(v.sheet_type))
             return;
-        const might_max = +v.might_max ?? 0;
-        const level = +v.level ?? 0;
-        const hp_extra = +v.hp_extra ?? 0;
-        const class_hp_total = +v.class_hp_total ?? 0;
+        const might_max = +v.might_max || 0;
+        const level = +v.level || 0;
+        const hp_extra = +v.hp_extra || 0;
+        const class_hp_total = +v.class_hp_total || 0;
         let hp_max;
         if (v.sheet_type === 'character') {
             hp_max = might_max * 5 + level + hp_extra + class_hp_total;
@@ -6158,10 +6164,10 @@ const calculateMaxMP = () => {
     getAttrs(ATTR_WATCH.mp, (v) => {
         if (!['character', 'bestiary'].includes(v.sheet_type))
             return;
-        const willpower_max = +v.willpower_max ?? 0;
-        const level = +v.level ?? 0;
-        const mp_extra = +v.mp_extra ?? 0;
-        const class_mp_total = +v.class_mp_total ?? 0;
+        const willpower_max = +v.willpower_max || 0;
+        const level = +v.level || 0;
+        const mp_extra = +v.mp_extra || 0;
+        const class_mp_total = +v.class_mp_total || 0;
         let mp_max;
         if (v.sheet_type === 'character') {
             mp_max = willpower_max * 5 + level + mp_extra + class_mp_total;
@@ -6176,8 +6182,8 @@ const calculateMaxIP = () => {
     getAttrs(ATTR_WATCH.ip, (v) => {
         if (v.sheet_type !== 'character')
             return;
-        const ip_extra = +v.ip_extra ?? 0;
-        const class_ip_total = +v.class_ip_total ?? 0;
+        const ip_extra = +v.ip_extra || 0;
+        const class_ip_total = +v.class_ip_total || 0;
         const ip_max = 6 + ip_extra + class_ip_total;
         setAttrs({ ip_max }, { silent: true });
     });
@@ -6187,7 +6193,7 @@ const calculateUltimaPoints = (request) => {
         if (v.sheet_type !== 'bestiary')
             return;
         const villain = v.villain ?? '';
-        const ultima_points = VILLAIN_ULTIMA_POINTS[villain] ?? 0;
+        const ultima_points = VILLAIN_ULTIMA_POINTS[villain] || 0;
         setAttrs({ ultima_points }, { silent: true });
     });
 };
@@ -6228,26 +6234,29 @@ const calculateDefenses = () => {
         const sheet_type = attributes.sheet_type;
         if (!['character', 'bestiary'].includes(sheet_type))
             return;
-        const dexterity = +attributes.dexterity ?? 0;
-        const defense_extra = +attributes.defense_extra ?? 0;
-        const willpower = +attributes.willpower ?? 0;
-        const magic_defense_extra = +attributes.magic_defense_extra ?? 0;
+        const dexterity = +attributes.dexterity || 0;
+        const defense_extra = +attributes.defense_extra || 0;
+        const insight = +attributes.insight || 0;
+        const magic_defense_extra = +attributes.magic_defense_extra || 0;
         let defense = dexterity;
-        let magic_defense = willpower;
+        let magic_defense = insight;
+        let initiative_total = 0;
         if (sheet_type === 'character') {
             ['repeating_armors', 'repeating_shields'].forEach((fieldset) => {
                 sections[fieldset].forEach((id) => {
                     const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
                     const is_martial = attributes[prefix + 'is_martial'] === 'on';
                     const is_equipped = attributes[prefix + 'is_equipped'] == 'on';
+                    const initiative = +attributes[prefix + 'initiative'] || 0;
+                    initiative_total += initiative;
                     if (is_equipped) {
                         if (is_martial && fieldset === 'repeating_armors') {
-                            defense = +attributes[prefix + 'defense'] ?? 0;
+                            defense = +attributes[prefix + 'defense'] || 0;
                         }
                         else {
-                            defense += +attributes[prefix + 'defense_bonus'] ?? 0;
+                            defense += +attributes[prefix + 'defense_bonus'] || 0;
                         }
-                        magic_defense += +attributes[prefix + 'magic_defense_bonus'] ?? 0;
+                        magic_defense += +attributes[prefix + 'magic_defense_bonus'] || 0;
                     }
                 });
             });
@@ -6256,19 +6265,22 @@ const calculateDefenses = () => {
         }
         else if (sheet_type === 'bestiary') {
             const is_martial = attributes.armor_is_martial === 'on';
-            const armor_defense = +attributes.armor_defense ?? 0;
-            const armor_defense_bonus = +attributes.armor_defense_bonus ?? 0;
-            const shield_defense_bonus = +attributes.shield_defense_bonus ?? 0;
+            const armor_defense = +attributes.armor_defense || 0;
+            const armor_defense_bonus = +attributes.armor_defense_bonus || 0;
+            const shield_defense_bonus = +attributes.shield_defense_bonus || 0;
+            const armor_initiative = +attributes.armor_initiative || 0;
+            const shield_initiative = +attributes.shield_initiative || 0;
+            initiative_total = armor_initiative + shield_initiative;
             defense =
                 (is_martial ? armor_defense : dexterity + armor_defense_bonus) +
                     shield_defense_bonus +
                     defense_extra;
-            const armor_magic_defense_bonus = +attributes.armor_magic_defense_bonus ?? 0;
-            const shield_magic_defense_bonus = +attributes.shield_magic_defense_bonus ?? 0;
+            const armor_magic_defense_bonus = +attributes.armor_magic_defense_bonus || 0;
+            const shield_magic_defense_bonus = +attributes.shield_magic_defense_bonus || 0;
             magic_defense =
-                willpower + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
+                insight + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
         }
-        setAttrs({ defense, magic_defense }, { silent: true });
+        setAttrs({ defense, magic_defense, initiative_total }, { silent: true }, () => calculateInitiative());
     });
 };
 const calculateCharacterLevel = () => {
@@ -6349,20 +6361,23 @@ const updateQuickDefenseDropdown = () => {
         setAttrs({ defense_quick: defense_quick }, { silent: true });
     });
 };
-const calculateInitiative = (request) => {
+const calculateInitiative = () => {
+    const request = ATTR_WATCH.initiative;
     getAttrs(['sheet_type', ...request], (v) => {
         if (!['character', 'bestiary'].includes(v.sheet_type))
             return;
-        const dexterity = +v.dexterity ?? 0;
-        const insight = +v.insight ?? 0;
-        const initiative_bonus = +v.initiative_bonus ?? 0;
-        const initiative_extra = +v.initiative_extra ?? 0;
+        const dexterity = +v.dexterity || 0;
+        const insight = +v.insight || 0;
+        const initiative_bonus = +v.initiative_bonus || 0;
+        const initiative_extra = +v.initiative_extra || 0;
+        const initiative_total = +v.initiative_total || 0;
         let initiative;
         if (v.sheet_type === 'character') {
-            initiative = (dexterity + insight) / 2 + initiative_extra;
+            initiative = (dexterity + insight) / 2 + initiative_extra + initiative_total;
         }
         if (v.sheet_type === 'bestiary') {
-            initiative = (dexterity + insight) / 2 + initiative_bonus + initiative_extra;
+            initiative =
+                (dexterity + insight) / 2 + initiative_bonus + initiative_extra + initiative_total;
         }
         setAttrs({ initiative: initiative }, { silent: true });
     });
@@ -6375,14 +6390,14 @@ const calculateBasicAccuracyDamage = (request) => {
             return;
         const update = {};
         if (attributes.sheet_type === 'bestiary') {
-            const level = +attributes.level ?? 0;
-            const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+            const level = +attributes.level || 0;
+            const accuracy_bonus = +attributes.accuracy_bonus || 0;
             const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
             const levelDamageBonus = calculateLevelDamageBonus(level);
             const [section, ids] = Object.entries(sections).at(0);
             ids.forEach((id) => {
                 const prefix = `${section}_${id}_`;
-                const extra_damage = +attributes[prefix + 'attack_extra_damage'] ?? 0;
+                const extra_damage = +attributes[prefix + 'attack_extra_damage'] || 0;
                 update[prefix + 'attack_accuracy_total'] = accuracy_bonus + levelAccuracyBonus;
                 update[prefix + 'attack_damage_total'] = 5 + extra_damage + levelDamageBonus;
             });
@@ -6395,8 +6410,8 @@ const calculateWeaponAccuracyDamage = (request) => {
         if (!['character', 'bestiary'].includes(attributes.sheet_type))
             return;
         const update = {};
-        const level = +attributes.level ?? 0;
-        const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+        const level = +attributes.level || 0;
+        const accuracy_bonus = +attributes.accuracy_bonus || 0;
         let levelAccuracyBonus = 0;
         let levelDamageBonus = 0;
         if (attributes.sheet_type === 'bestiary') {
@@ -6406,11 +6421,11 @@ const calculateWeaponAccuracyDamage = (request) => {
         const [section, ids] = Object.entries(sections).at(0);
         ids.forEach((id) => {
             const prefix = `${section}_${id}_`;
-            const weapon_accuracy = +attributes[prefix + 'weapon_accuracy'] ?? 0;
-            const weapon_damage = +attributes[prefix + 'weapon_damage'] ?? 0;
-            const attack_accuracy = +attributes[prefix + 'weapon_attack_accuracy'] ?? 0;
-            const attack_damage = +attributes[prefix + 'weapon_attack_damage'] ?? 0;
-            const extra_damage = +attributes[prefix + 'weapon_extra_damage'] ?? 0;
+            const weapon_accuracy = +attributes[prefix + 'weapon_accuracy'] || 0;
+            const weapon_damage = +attributes[prefix + 'weapon_damage'] || 0;
+            const attack_accuracy = +attributes[prefix + 'weapon_attack_accuracy'] || 0;
+            const attack_damage = +attributes[prefix + 'weapon_attack_damage'] || 0;
+            const extra_damage = +attributes[prefix + 'weapon_extra_damage'] || 0;
             update[prefix + 'weapon_accuracy_total'] =
                 weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
             update[prefix + 'weapon_damage_total'] =
@@ -6425,15 +6440,15 @@ const calculateSpellAccuracyDamage = (request) => {
             return;
         const update = {};
         if (attributes.sheet_type === 'bestiary') {
-            const level = +attributes.level ?? 0;
-            const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+            const level = +attributes.level || 0;
+            const accuracy_bonus = +attributes.accuracy_bonus || 0;
             const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
             const levelDamageBonus = calculateLevelDamageBonus(level);
             const [section, ids] = Object.entries(sections).at(0);
             ids.forEach((id) => {
                 const prefix = `${section}_${id}_`;
-                const spell_accuracy = +attributes[prefix + 'spell_accuracy'] ?? 0;
-                const spell_damage = +attributes[prefix + 'spell_damage'] ?? 0;
+                const spell_accuracy = +attributes[prefix + 'spell_accuracy'] || 0;
+                const spell_damage = +attributes[prefix + 'spell_damage'] || 0;
                 update[prefix + 'spell_accuracy_total'] =
                     spell_accuracy + accuracy_bonus + levelAccuracyBonus;
                 update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
@@ -6447,7 +6462,7 @@ const calculateRitualAccuracyDifficulty = (request) => {
         if (attributes.sheet_type !== 'character')
             return;
         const update = {};
-        const accuracy_bonus = +attributes.accuracy_bonus ?? 0;
+        const accuracy_bonus = +attributes.accuracy_bonus || 0;
         let ritual_known = '';
         RITUAL_DISCIPLINES.forEach((discipline) => {
             const checkbox = attributes[discipline] ?? '';
@@ -6460,7 +6475,7 @@ const calculateRitualAccuracyDifficulty = (request) => {
         const [section, ids] = Object.entries(sections).at(0);
         ids.forEach((id) => {
             const prefix = `${section}_${id}_`;
-            const ritual_accuracy = +attributes[prefix + 'ritual_accuracy'] ?? 0;
+            const ritual_accuracy = +attributes[prefix + 'ritual_accuracy'] || 0;
             update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + accuracy_bonus;
             const potency = attributes[prefix + 'ritual_potency'] ?? 'minor';
             const area = attributes[prefix + 'ritual_area'] ?? 'individual';
