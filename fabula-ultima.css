@@ -1172,7 +1172,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-template-columns: auto 1fr auto;
   justify-content: space-between;
   margin-inline: 8px;
-  max-width: 500px;
+  max-width: 45rem;
 }
 .fabula-ultima__header .sheet-type {
   grid-column: -1;
@@ -2600,7 +2600,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .affinities--edit .affinity,
 .fabula-ultima .character .affinities--edit .affinity {
   display: grid;
-  grid-template-columns: auto 1fr 2fr;
+  grid-template-columns: var(--icon-component-size) 1fr 2fr;
   gap: 4px;
   align-items: center;
 }
@@ -3349,7 +3349,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .status-effects--edit .status-effect,
 .fabula-ultima .character .status-effects--edit .status-effect {
   display: grid;
-  grid-template-columns: auto 1fr 2fr;
+  grid-template-columns: var(--icon-component-size) 1fr 2fr;
   gap: 4px;
   align-items: center;
 }
@@ -3470,7 +3470,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary--view {
   min-width: 480px;
   margin: 8px;
-  max-width: 500px;
+  max-width: 45rem;
   background-color: var(--suface-container-lowest);
   box-shadow: var(--box-shadow-light);
   border-radius: 4px;
@@ -6131,7 +6131,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character--view {
   min-width: 480px;
   margin: 8px;
-  max-width: 500px;
+  max-width: 45rem;
   background-color: var(--suface-container-lowest);
   box-shadow: var(--box-shadow-light);
   border-radius: 4px;
