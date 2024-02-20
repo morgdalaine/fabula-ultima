@@ -679,13 +679,13 @@ const reverseMap = (enumObj: any, value: string): string => {
   return Object.keys(enumObj).find((key) => enumObj[key] === value);
 };
 
-const listenersByKey = (obj: object) => {
-  return Object.entries(obj).reduce((memo: Record<string, string>, [key, arr]) => {
-    memo[key] = listeners(arr);
+const listenersByKey = (obj: object, event: string): { [key: string]: string } => {
+  return Object.entries(obj).reduce((memo: { [key: string]: string }, [key, arr]) => {
+    memo[key] = listeners(arr, event);
     return memo;
   }, {});
 };
 
-const listeners = (arr: string[]): string => {
-  return arr.map((str: string) => `change:${str}`).join(' ');
+const listeners = (arr: string[], event: string = 'change'): string => {
+  return arr.map((str: string) => `${event}:${str}`).join(' ');
 };
