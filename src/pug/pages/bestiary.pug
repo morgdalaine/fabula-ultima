@@ -53,9 +53,13 @@ mixin bestiary-edit(spine)
       each field in spine.affinities.skillcost
         +chimera-value(field)
 
+    .status-immunity--edit
+      // TODO Status Immunities
+
     +defenses-edit(spine)
 
     .extras
+      // TODO Show max HP/MP here to see calculations at work
       each field in spine.extras.fields
         +chimera-input(field)
 

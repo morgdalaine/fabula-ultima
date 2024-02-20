@@ -104,16 +104,17 @@
           }
         }
 
+        .status-immunity--edit {
+          grid-column: 2/-1;
+        }
+
         .defenses--edit {
-          grid-column: 2;
           align-self: flex-end;
         }
         .extras {
-          grid-column: 3;
           align-self: flex-end;
         }
         .extra--checkboxes {
-          grid-column: 4;
           align-self: flex-end;
         }
 
@@ -152,9 +153,16 @@
           }
         }
         .affinities {
+          &--edit {
+            grid-row: span 2;
+          }
           &__skillcost {
             grid-column: span 2;
           }
+        }
+
+        .status-immunity--edit {
+          grid-column: 2/-1;
         }
 
         .defenses--edit,
@@ -177,6 +185,7 @@
       }
 
       @media (max-width: $breakpoint-xs) {
+        .status-immunity--edit,
         .defenses--edit,
         .extras,
         .extra--checkboxes {

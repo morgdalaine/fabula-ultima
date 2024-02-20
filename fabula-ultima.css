@@ -3542,16 +3542,16 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   .fabula-ultima .bestiary--edit .affinities__skillcost {
     grid-column: span 3;
   }
+  .fabula-ultima .bestiary--edit .status-immunity--edit {
+    grid-column: 2/-1;
+  }
   .fabula-ultima .bestiary--edit .defenses--edit {
-    grid-column: 2;
     align-self: flex-end;
   }
   .fabula-ultima .bestiary--edit .extras {
-    grid-column: 3;
     align-self: flex-end;
   }
   .fabula-ultima .bestiary--edit .extra--checkboxes {
-    grid-column: 4;
     align-self: flex-end;
   }
   .fabula-ultima .bestiary--edit .shield--edit,
@@ -3582,8 +3582,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   .fabula-ultima .bestiary--edit .attributes__distribution {
     grid-column: span 2;
   }
+  .fabula-ultima .bestiary--edit .affinities--edit {
+    grid-row: span 2;
+  }
   .fabula-ultima .bestiary--edit .affinities__skillcost {
     grid-column: span 2;
+  }
+  .fabula-ultima .bestiary--edit .status-immunity--edit {
+    grid-column: 2/-1;
   }
   .fabula-ultima .bestiary--edit .defenses--edit,
   .fabula-ultima .bestiary--edit .extras,
@@ -3603,6 +3609,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   }
 }
 @media (max-width: 480px) {
+  .fabula-ultima .bestiary--edit .status-immunity--edit,
   .fabula-ultima .bestiary--edit .defenses--edit,
   .fabula-ultima .bestiary--edit .extras,
   .fabula-ultima .bestiary--edit .extra--checkboxes {

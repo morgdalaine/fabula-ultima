@@ -3581,6 +3581,9 @@
             <div class="chimera-value skillcost chimera-value--helptext"><span class="chimera-value__value" data-i18n="affinity_skill_gain_absorption">Use 2 skill per Absorption</span>
             </div>
           </div>
+          <div class="status-immunity--edit">
+            <!-- TODO Status Immunities-->
+          </div>
               <div class="defenses--edit">
                 <div class="chimera-input defense defense__quick chimera-input--center">
                   <label class="chimera-input__label" data-i18n="defense_quick" for="defense_quick">Defenses</label>
@@ -3604,6 +3607,7 @@
                 </div>
               </div>
           <div class="extras">
+            <!-- TODO Show max HP/MP here to see calculations at work-->
             <div class="chimera-input extra extra__hp_extra chimera-input--flex-row chimera-input--small">
               <label class="chimera-input__label" data-i18n="hp_extra" for="hp_extra">Extra HP</label>
               <input class="chimera-input__field" data-i18n-placeholder="hp_extra_placeholder" data-i18n-title="hp_extra_title" id="hp_extra" name="attr_hp_extra" placeholder="0" step="10" title="Extra HP" type="number"/>
@@ -4432,6 +4436,7 @@ const ATTR_WATCH = {
         'level',
         'accuracy_bonus',
         'magic_bonus',
+        'repeating_basic-attacks:attack_name',
         'repeating_basic-attacks:attack_extra_damage',
     ],
     weapons: [

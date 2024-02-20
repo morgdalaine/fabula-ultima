@@ -208,6 +208,7 @@ const ATTR_WATCH: Record<string, string[]> = {
     'level',
     'accuracy_bonus',
     'magic_bonus',
+    'repeating_basic-attacks:attack_name',
     'repeating_basic-attacks:attack_extra_damage',
   ],
   weapons: [
