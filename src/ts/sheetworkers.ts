@@ -1,6 +1,4 @@
 const handleCalculations = (attr: string, eventInfo: EventInfo) => {
-  // if (eventInfo.sourceType === 'sheetworker') return;
-
   switch (attr) {
     case 'dexterity':
     case 'insight':
@@ -39,7 +37,7 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
       return calculateBondLevels();
 
     case 'equipped':
-      return manageEquipment(eventInfo?.sourceAttribute);
+      return manageEquipment(eventInfo);
 
     case 'villain':
       return makeVillainString();
@@ -206,15 +204,17 @@ const updatePoints = (attr: string, direction: string) => {
 };
 
 // TODO Finish method
-const manageEquipment = (source: string) => {
+const manageEquipment = (eventInfo: EventInfo) => {
+  if (eventInfo.sourceType === 'sheetworker') return;
+
   RepeatingModule.getAllAttrs(
     CHARACTER_EQUIPMENTS,
     EQUIPMENT_REQUESTS,
     (attributes: Record<string, string>, sections) => {
       let handsUsed = 0;
       const update: Record<string, any> = {};
-      const sourceId = source.split('_').at(2);
-      const sourceFieldset = source.split('_').at(1);
+      const sourceFieldset = eventInfo?.sourceAttribute.split('_').at(1);
+      const sourceId = eventInfo?.sourceAttribute.split('_').at(2);
       ['repeating_armors', 'repeating_shields', 'repeating_accessories'].forEach((fieldset) => {
         sections[fieldset].forEach((id) => {
           const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
