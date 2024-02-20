@@ -1,5 +1,9 @@
 const fabulaMigrations: ChimeraMigration[] = [
-  new ChimeraMigration('bestiary', { set: 1.0 }, (resolve, reject) => {
+  new ChimeraMigration('bestiary', { set: 0.1 }, (resolve: Function, reject: Function) => {
+    if (!resolve || !reject) {
+      return;
+    }
+
     RepeatingModule.getAllAttrs(
       CROSSWALK_SECTION_DETAILS,
       CROSSWALK_REQUEST,
@@ -46,8 +50,7 @@ const fabulaMigrations: ChimeraMigration[] = [
                 break;
               }
               case 'mainWeapon':
-              case 'offWeapon':
-              case 'repeating_weapons': {
+              case 'offWeapon': {
                 const rowId = generateRowID();
                 Object.entries(data).forEach(([old, nu]: [string, string]) => {
                   const attr = nu.replace('-CREATE', rowId);
@@ -119,6 +122,8 @@ const fabulaMigrations: ChimeraMigration[] = [
                 break;
               }
               // same fieldset new attr
+              case 'repeating_weapons':
+              case 'repeating_rolls':
               case 'repeating_creatures':
               case 'repeating_items':
               case 'repeating_locations':
@@ -128,7 +133,8 @@ const fabulaMigrations: ChimeraMigration[] = [
                 sections[key].forEach((id) => {
                   const prefix = `${key}_${id}_`;
                   Object.entries(data).forEach(([old, nu]: [string, string]) => {
-                    update[prefix + nu] = attributes[prefix + old];
+                    const value = attributes[prefix + old];
+                    if (value) update[prefix + nu] = value;
                   });
                 });
                 break;
@@ -142,9 +148,10 @@ const fabulaMigrations: ChimeraMigration[] = [
               case 'repeating_spareaccessories':
               case 'repeating_inventoryitems': {
                 sections[key].forEach((id) => {
+                  const rowId = generateRowID();
                   Object.entries(data).forEach(([old, nu]: [string, string]) => {
                     const val = attributes[`${key}_${id}_${old}`];
-                    const nuAttr = nu.replace(/-CREATE/, id);
+                    const nuAttr = nu.replace(/-CREATE/, rowId);
                     update[nuAttr] = val;
                   });
                   removeRepeatingRow(id);
@@ -180,7 +187,7 @@ const fabulaMigrations: ChimeraMigration[] = [
                   });
 
                   if (key !== 'repeating_rituals') {
-                    removeRepeatingRow(id);
+                    // removeRepeatingRow(id);
                   }
                 });
                 break;
@@ -189,12 +196,10 @@ const fabulaMigrations: ChimeraMigration[] = [
           }
         });
 
-        console.log(update);
         setAttrs(update);
       }
     );
 
-    // FIXME 'TypeError: resolve is not a function'
     resolve();
   }),
 ];
@@ -221,12 +226,11 @@ const initializeSheet = () => {
     calculateUltimaPoints();
     makeVillainString();
 
-    setAttrs({ sheet_initialized: 1 });
+    setAttrs({ sheet_initialized: 1 }, { silent: true });
   });
 };
 
 const handleMigrations = (eventInfo: EventInfo) => {
   const migrator = new ChimeraMigrator('Fabula Ultima', fabulaMigrations);
-  migrator.validate(() => {});
-  initializeSheet();
+  migrator.validate(() => initializeSheet());
 };

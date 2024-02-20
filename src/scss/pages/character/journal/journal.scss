@@ -18,7 +18,15 @@
 
     &--view {
       .journal {
-        &__notes {
+        &__notes,
+        &__quests,
+        &__projects,
+        &__friends,
+        &__creatures,
+        &__locations,
+        &__artifacts,
+        &__discoveries,
+        &__items {
           display: grid;
           grid-template-columns: 1fr var(--button-component-size);
           align-items: center;
@@ -29,7 +37,15 @@
           }
         }
 
-        .note {
+        .note,
+        .quest,
+        .project,
+        .friend,
+        .creature,
+        .location,
+        .artifact,
+        .discovery,
+        .item {
           &__name {
             .chimera-value {
               &__value {

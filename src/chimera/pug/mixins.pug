@@ -253,13 +253,10 @@ mixin chimera-repeater(fieldset)
     fieldset(class=`repeating_${fieldset}`)
       .chimera-repeater__content
         .chimera-repeater--edit(class=`${fieldset}--edit`)
-          //- - console.log(`> EDIT ${fieldset}`);
           +chimera-block('edit', true)
         .chimera-repeater--delete(class=`${fieldset}--delete`)
-          //- - console.log(`> DELETE ${fieldset}`);
           +chimera-block('delete', true)
         .chimera-repeater--view(class=`${fieldset}--view`)
-          //- - console.log(`> VIEW ${fieldset}`);
           +chimera-block('view', true)
 
 mixin chimera-repeater-simple(fieldset)

@@ -30,6 +30,14 @@
           align-items: center;
           gap: 4px;
 
+          .fabula-check {
+            &::before,
+            &::after,
+            span {
+              @include mixins.text-base-700;
+            }
+          }
+
           .send-to-chat {
             margin-left: auto;
           }

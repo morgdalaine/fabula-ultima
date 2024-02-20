@@ -1031,7 +1031,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .fabula-check {
   display: flex;
   flex-wrap: nowrap;
-  gap: 4px;
+  gap: 2px;
 }
 .fabula-ultima .fabula-check::before {
   content: "【";
@@ -4202,6 +4202,17 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   align-items: center;
   gap: 4px;
 }
+.fabula-ultima .character .equipment--view .equipment__weapon .fabula-check::before, .fabula-ultima .character .equipment--view .equipment__weapon .fabula-check::after,
+.fabula-ultima .character .equipment--view .equipment__weapon .fabula-check span, .fabula-ultima .character .equipment--view .equipment__armor .fabula-check::before, .fabula-ultima .character .equipment--view .equipment__armor .fabula-check::after,
+.fabula-ultima .character .equipment--view .equipment__armor .fabula-check span, .fabula-ultima .character .equipment--view .equipment__shield .fabula-check::before, .fabula-ultima .character .equipment--view .equipment__shield .fabula-check::after,
+.fabula-ultima .character .equipment--view .equipment__shield .fabula-check span, .fabula-ultima .character .equipment--view .equipment__accessory .fabula-check::before, .fabula-ultima .character .equipment--view .equipment__accessory .fabula-check::after,
+.fabula-ultima .character .equipment--view .equipment__accessory .fabula-check span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
 .fabula-ultima .character .equipment--view .equipment__weapon .send-to-chat, .fabula-ultima .character .equipment--view .equipment__armor .send-to-chat, .fabula-ultima .character .equipment--view .equipment__shield .send-to-chat, .fabula-ultima .character .equipment--view .equipment__accessory .send-to-chat {
   margin-left: auto;
 }
@@ -6037,23 +6048,47 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .journal .chimera-repeater--simple {
   overflow: hidden;
 }
-.fabula-ultima .character .journal--view .journal__notes {
+.fabula-ultima .character .journal--view .journal__notes, .fabula-ultima .character .journal--view .journal__quests, .fabula-ultima .character .journal--view .journal__projects, .fabula-ultima .character .journal--view .journal__friends, .fabula-ultima .character .journal--view .journal__creatures, .fabula-ultima .character .journal--view .journal__locations, .fabula-ultima .character .journal--view .journal__artifacts, .fabula-ultima .character .journal--view .journal__discoveries, .fabula-ultima .character .journal--view .journal__items {
   display: grid;
   grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
-.fabula-ultima .character .journal--view .journal__notes .send-to-chat {
+.fabula-ultima .character .journal--view .journal__notes .send-to-chat, .fabula-ultima .character .journal--view .journal__quests .send-to-chat, .fabula-ultima .character .journal--view .journal__projects .send-to-chat, .fabula-ultima .character .journal--view .journal__friends .send-to-chat, .fabula-ultima .character .journal--view .journal__creatures .send-to-chat, .fabula-ultima .character .journal--view .journal__locations .send-to-chat, .fabula-ultima .character .journal--view .journal__artifacts .send-to-chat, .fabula-ultima .character .journal--view .journal__discoveries .send-to-chat, .fabula-ultima .character .journal--view .journal__items .send-to-chat {
   margin-left: auto;
 }
-.fabula-ultima .character .journal--view .journal .note__name .chimera-value__value {
+.fabula-ultima .character .journal--view .journal .note__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .quest__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .project__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .friend__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .creature__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .location__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .artifact__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .discovery__name .chimera-value__value,
+.fabula-ultima .character .journal--view .journal .item__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .character .journal--view .journal .note__special, .fabula-ultima .character .journal--view .journal .note__effect {
+.fabula-ultima .character .journal--view .journal .note__special, .fabula-ultima .character .journal--view .journal .note__effect,
+.fabula-ultima .character .journal--view .journal .quest__special,
+.fabula-ultima .character .journal--view .journal .quest__effect,
+.fabula-ultima .character .journal--view .journal .project__special,
+.fabula-ultima .character .journal--view .journal .project__effect,
+.fabula-ultima .character .journal--view .journal .friend__special,
+.fabula-ultima .character .journal--view .journal .friend__effect,
+.fabula-ultima .character .journal--view .journal .creature__special,
+.fabula-ultima .character .journal--view .journal .creature__effect,
+.fabula-ultima .character .journal--view .journal .location__special,
+.fabula-ultima .character .journal--view .journal .location__effect,
+.fabula-ultima .character .journal--view .journal .artifact__special,
+.fabula-ultima .character .journal--view .journal .artifact__effect,
+.fabula-ultima .character .journal--view .journal .discovery__special,
+.fabula-ultima .character .journal--view .journal .discovery__effect,
+.fabula-ultima .character .journal--view .journal .item__special,
+.fabula-ultima .character .journal--view .journal .item__effect {
   grid-column: 1/-1;
   font-family: var(--font-body);
   font-size: 1.125rem;

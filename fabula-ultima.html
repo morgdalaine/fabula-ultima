@@ -2758,10 +2758,17 @@
                     </label>
                   </div>
                   <div class="setting">
-                    <label class="chimera-toggle settings__high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
+                    <label class="chimera-toggle settings__quirk" data-i18n-title="enable_quirk_title" title="Enable Quirks">
                       <div class="chimera-toggle__field">
-                        <input id="high_fantasy_atlas" name="attr_high_fantasy_atlas" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
-                      </div><span class="chimera-toggle__label" data-i18n="high_fantasy_atlas" for="high_fantasy_atlas">Enable High Fantasy Atlas</span>
+                        <input id="enable_quirk" name="attr_enable_quirk" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                      </div><span class="chimera-toggle__label" data-i18n="enable_quirk" for="enable_quirk">Enable Quirks</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__zero_powers" data-i18n-title="enable_zero_powers_title" title="Enable Zero Powers">
+                      <div class="chimera-toggle__field">
+                        <input id="enable_zero_powers" name="attr_enable_zero_powers" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                      </div><span class="chimera-toggle__label" data-i18n="enable_zero_powers" for="enable_zero_powers">Enable Zero Powers</span>
                     </label>
                   </div>
                   <div class="setting">
@@ -4887,9 +4894,6 @@ function chimeraRoll(template, attributes, rolls, callback) {
     const rollstring = `&{template:${template}} ${x} ${r}`;
     startRoll(rollstring, callback);
 }
-function getTranslation(key, dne = '') {
-    return getTranslationByKey(key) || dne;
-}
 Object.entries(CLICK_LISTENERS).forEach(([btn, key]) => {
     on(`clicked:${btn}`, async (eventInfo) => {
         const id = RepeatingModule.getRepId(eventInfo?.sourceAttribute);
@@ -5380,7 +5384,7 @@ class ChimeraMigrator {
     migrations;
     version_attr;
     migration_attr;
-    log = {};
+    logToConsole = {};
     constructor(sheet, migrations, version_attr = 'sheet_version', migration_attr = 'sheet_migration') {
         this.sheet = sheet;
         this.migrations = migrations;
@@ -5390,7 +5394,7 @@ class ChimeraMigrator {
     validate(callback) {
         this.getAppliedMigrations((applied) => {
             const existing = this.migrations.filter((m) => applied.includes(m.id)).map((m) => m.id);
-            existing.forEach((m) => (this.log[m] = 'Already installed'));
+            existing.forEach((m) => (this.logToConsole[m] = 'Already installed'));
         });
         this.handleNext(callback);
     }
@@ -5401,14 +5405,13 @@ class ChimeraMigrator {
         });
     }
     setAppliedMigrations(updates, callback) {
-        console.log('setAppliedMigrations => ', updates);
         setAttrs({
             [this.migration_attr]: Array.from(new Set(updates)).join(),
         }, { silent: true }, callback());
     }
     handleNext(callback) {
         this.getAppliedMigrations((applied) => {
-            const toBeInstalled = this.migrations.filter((m) => !applied.includes(m.id) && !Object.hasOwn(this.log, m.id));
+            const toBeInstalled = this.migrations.filter((m) => !applied.includes(m.id) && !Object.hasOwn(this.logToConsole, m.id));
             if (toBeInstalled.length) {
                 toBeInstalled.at(0).apply(this.version_attr, this, callback);
             }
@@ -5419,8 +5422,7 @@ class ChimeraMigrator {
         });
     }
     resolveMigration(id, error, callback) {
-        console.log('resolveMigration => ', id, error);
-        this.log[id] = error;
+        this.logToConsole[id] = error;
         this.getAppliedMigrations((applied) => {
             const migrations = Array.from(new Set([...applied, id]));
             const matches = this.migrations.filter((m) => migrations.includes(m.id)).map((m) => m.id);
@@ -5428,15 +5430,14 @@ class ChimeraMigrator {
         });
     }
     rejectMigration(id, error, callback) {
-        console.log('rejectMigration => ', id, error);
-        this.log[id] = error;
+        this.logToConsole[id] = error;
         this.handleNext(callback);
     }
     finish() {
         getAttrs([this.version_attr, 'character_name'], (values) => {
-            const migrations = Object.entries(this.log);
+            const migrations = Object.entries(this.logToConsole);
             if (migrations.length) {
-                console.groupCollapsed('CHIMERA: Installing Migrations');
+                console.groupCollapsed('CHIMERA: Migration Installer');
                 migrations.forEach(([update, msg]) => console.log(`Applying ${update}... ${msg}`));
                 console.groupEnd();
             }
@@ -5461,14 +5462,9 @@ class ChimeraMigration {
     apply(version_attr, migrator, callback) {
         this.version_attr = version_attr;
         this.migrator = migrator;
-        console.log('apply', {
-            id: this.id,
-            version: this.version,
-            version_attr: this.version_attr,
-            migrator: this.migrator,
-        });
-        this.getVersion((v) => {
-            if (this.isValid(v)) {
+        this.callback = callback;
+        this.getVersion((version) => {
+            if (this.isValid(version)) {
                 this.migration(this.resolve.bind(this), this.reject.bind(this));
             }
             else {
@@ -5477,26 +5473,21 @@ class ChimeraMigration {
         });
     }
     getVersion(callback) {
-        console.log('getVersion');
-        getAttrs([this.version_attr], (values) => callback(parseFloat(values[this.version_attr]) ?? 0));
+        getAttrs([this.version_attr], (values) => callback(parseFloat(values[this.version_attr]) || 0));
     }
     setVersion(version, callback) {
-        console.log('setVersion', { [this.version_attr]: version });
         setAttrs({ [this.version_attr]: version }, { silent: true }, () => callback());
     }
     isValid(version) {
-        console.log('isValid');
         return (version >= this.version.min && (version < this.version.set || version <= this.version.max));
     }
     resolve() {
-        console.log('#resolve');
         this.setVersion(this.version.set, () => {
-            this.migrator.resolveMigration(this.id, 'Done!', this.migration);
+            this.migrator.resolveMigration(this.id, 'Done!', this.callback);
         });
     }
     reject(error) {
-        console.log('#reject');
-        this.migrator.resolveMigration(this.id, error, this.migration);
+        this.migrator.resolveMigration(this.id, error, this.callback);
     }
 }
 on('sheet:opened', (eventInfo) => handleMigrations(eventInfo));
@@ -5641,17 +5632,17 @@ const CROSSWALK_TO_V20 = {
         ritualEffect: 'repeating_rituals_-CREATE_ritual_effect',
     },
     repeating_weapons: {
-        additionalWeaponAttr1Name: 'repeating_weapons_-CREATE_weapon_attr1',
-        additionalWeaponAttr2Name: 'repeating_weapons_-CREATE_weapon_attr2',
-        additionalWeaponName: 'repeating_weapons_-CREATE_weapon_name',
-        additionalWeaponCategory: 'repeating_weapons_-CREATE_weapon_category',
-        additionalWeaponMartial: 'repeating_weapons_-CREATE_weapon_is_martial',
-        additionalWeaponAccuracy: 'repeating_weapons_-CREATE_weapon_accuracy',
-        additionalWeaponDamage: 'repeating_weapons_-CREATE_weapon_damage',
-        additionalWeaponDamageType: 'repeating_weapons_-CREATE_weapon_type',
-        additionalWeaponGrip: 'repeating_weapons_-CREATE_weapon_hands',
-        additionalWeaponRange: 'repeating_weapons_-CREATE_weapon_range',
-        additionalWeaponDescription: 'repeating_weapons_-CREATE_weapon_special',
+        additionalWeaponAttr1Name: 'weapon_attr1',
+        additionalWeaponAttr2Name: 'weapon_attr2',
+        additionalWeaponName: 'weapon_name',
+        additionalWeaponCategory: 'weapon_category',
+        additionalWeaponMartial: 'weapon_is_martial',
+        additionalWeaponAccuracy: 'weapon_accuracy',
+        additionalWeaponDamage: 'weapon_damage',
+        additionalWeaponDamageType: 'weapon_type',
+        additionalWeaponGrip: 'weapon_hands',
+        additionalWeaponRange: 'weapon_range',
+        additionalWeaponDescription: 'weapon_special',
     },
     repeating_charclasses: {
         className: 'repeating_classes_-CREATE_class_name',
@@ -5758,7 +5749,7 @@ const CROSSWALK_TO_V20 = {
         zeroEffectText: 'repeating_zeropowers_-CREATE_zero_power_effect_details',
     },
     repeating_rolls: {
-        genericRollName: 'check_name',
+        genericRollName: 'check_description',
         genericRollAttr1Name: 'check_attr1',
         genericRollAttr2Name: 'check_attr2',
     },
@@ -5987,7 +5978,10 @@ const CROSSWALK_BONDS = {
     hatred: 'fondness',
 };
 const fabulaMigrations = [
-    new ChimeraMigration('bestiary', { set: 1.0 }, (resolve, reject) => {
+    new ChimeraMigration('bestiary', { set: 0.1 }, (resolve, reject) => {
+        if (!resolve || !reject) {
+            return;
+        }
         RepeatingModule.getAllAttrs(CROSSWALK_SECTION_DETAILS, CROSSWALK_REQUEST, (attributes, sections) => {
             const update = {};
             update.sheet_type = 'character';
@@ -6030,8 +6024,7 @@ const fabulaMigrations = [
                             break;
                         }
                         case 'mainWeapon':
-                        case 'offWeapon':
-                        case 'repeating_weapons': {
+                        case 'offWeapon': {
                             const rowId = generateRowID();
                             Object.entries(data).forEach(([old, nu]) => {
                                 const attr = nu.replace('-CREATE', rowId);
@@ -6102,6 +6095,8 @@ const fabulaMigrations = [
                             });
                             break;
                         }
+                        case 'repeating_weapons':
+                        case 'repeating_rolls':
                         case 'repeating_creatures':
                         case 'repeating_items':
                         case 'repeating_locations':
@@ -6111,7 +6106,9 @@ const fabulaMigrations = [
                             sections[key].forEach((id) => {
                                 const prefix = `${key}_${id}_`;
                                 Object.entries(data).forEach(([old, nu]) => {
-                                    update[prefix + nu] = attributes[prefix + old];
+                                    const value = attributes[prefix + old];
+                                    if (value)
+                                        update[prefix + nu] = value;
                                 });
                             });
                             break;
@@ -6124,9 +6121,10 @@ const fabulaMigrations = [
                         case 'repeating_spareaccessories':
                         case 'repeating_inventoryitems': {
                             sections[key].forEach((id) => {
+                                const rowId = generateRowID();
                                 Object.entries(data).forEach(([old, nu]) => {
                                     const val = attributes[`${key}_${id}_${old}`];
-                                    const nuAttr = nu.replace(/-CREATE/, id);
+                                    const nuAttr = nu.replace(/-CREATE/, rowId);
                                     update[nuAttr] = val;
                                 });
                                 removeRepeatingRow(id);
@@ -6160,7 +6158,6 @@ const fabulaMigrations = [
                                     }
                                 });
                                 if (key !== 'repeating_rituals') {
-                                    removeRepeatingRow(id);
                                 }
                             });
                             break;
@@ -6168,7 +6165,6 @@ const fabulaMigrations = [
                     }
                 }
             });
-            console.log(update);
             setAttrs(update);
         });
         resolve();
@@ -6192,13 +6188,12 @@ const initializeSheet = () => {
         calculateBondLevels();
         calculateUltimaPoints();
         makeVillainString();
-        setAttrs({ sheet_initialized: 1 });
+        setAttrs({ sheet_initialized: 1 }, { silent: true });
     });
 };
 const handleMigrations = (eventInfo) => {
     const migrator = new ChimeraMigrator('Fabula Ultima', fabulaMigrations);
-    migrator.validate(() => { });
-    initializeSheet();
+    migrator.validate(() => initializeSheet());
 };
 const handleCalculations = (attr, eventInfo) => {
     switch (attr) {
@@ -6635,5 +6630,8 @@ const calculateRitualAccuracyDifficulty = () => {
         setAttrs(update, { silent: true });
     });
 };
+function getTranslation(key, dne = '') {
+    return getTranslationByKey(key) || dne;
+}
 
 </script>
