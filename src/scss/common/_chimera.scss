@@ -216,13 +216,6 @@
     }
     &--tiny {
       width: min-content;
-      .chimera-toggle {
-        &__field {
-          border: none;
-          border-radius: 50%;
-          aspect-ratio: 1;
-        }
-      }
     }
 
     display: flex;
@@ -257,6 +250,10 @@
       }
 
       @include mixins.action-button;
+
+      border: none;
+      border-radius: 50%;
+      aspect-ratio: 1;
       img,
       svg {
         opacity: 1;

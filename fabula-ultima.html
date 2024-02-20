@@ -1819,7 +1819,7 @@
                                 </div>
                               </div>
                             </div>
-                            <label class="chimera-toggle weapon__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="weapon_is_equipped_title" title="Equip">
+                            <label class="chimera-toggle weapon__is_equipped chimera-toggle--column-reverse" data-i18n-title="weapon_is_equipped_title" title="Equip">
                               <div class="chimera-toggle__field">
                                 <input id="weapon_is_equipped" name="attr_weapon_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                               </div><span class="chimera-toggle__label" data-i18n="weapon_is_equipped" for="weapon_is_equipped">Equip</span>
@@ -1927,7 +1927,7 @@
                           <div class="armor">
                             <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden"/>
-                            <label class="chimera-toggle armor__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="armor_is_equipped_title" title="Equip">
+                            <label class="chimera-toggle armor__is_equipped chimera-toggle--column-reverse" data-i18n-title="armor_is_equipped_title" title="Equip">
                               <div class="chimera-toggle__field">
                                 <input id="armor_is_equipped" name="attr_armor_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                               </div><span class="chimera-toggle__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equip</span>
@@ -1998,7 +1998,7 @@
                           <div class="shield">
                             <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden"/>
-                            <label class="chimera-toggle shield__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="shield_is_equipped_title" title="Equip">
+                            <label class="chimera-toggle shield__is_equipped chimera-toggle--column-reverse" data-i18n-title="shield_is_equipped_title" title="Equip">
                               <div class="chimera-toggle__field">
                                 <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                               </div><span class="chimera-toggle__label" data-i18n="shield_is_equipped" for="shield_is_equipped">Equip</span>
@@ -2065,7 +2065,7 @@
                           <div class="accessory">
                             <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden"/>
                             <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden"/>
-                            <label class="chimera-toggle accessory__is_equipped chimera-toggle--column-reverse chimera-toggle--tiny" data-i18n-title="accessory_is_equipped_title" title="Equip">
+                            <label class="chimera-toggle accessory__is_equipped chimera-toggle--column-reverse" data-i18n-title="accessory_is_equipped_title" title="Equip">
                               <div class="chimera-toggle__field">
                                 <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                               </div><span class="chimera-toggle__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equip</span>
@@ -2751,35 +2751,35 @@
                   <h2 class="settings__heading--edit" data-i18n="settings">Settings</h2>
                   <!-- TODO Implement settings-->
                   <div class="setting">
-                    <label class="chimera-checkbox settings_roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check modifiers">
-                      <div class="chimera-checkbox__field">
-                        <input id="roll_mods" name="attr_roll_mods" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                      </div><span class="chimera-checkbox__label" data-i18n="roll_mods" for="roll_mods">Ask for Accuracy Check modifiers</span>
+                    <label class="chimera-toggle settings__roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check modifiers">
+                      <div class="chimera-toggle__field">
+                        <input id="roll_mods" name="attr_roll_mods" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                      </div><span class="chimera-toggle__label" data-i18n="roll_mods" for="roll_mods">Ask for Accuracy Check modifiers</span>
                     </label>
                   </div>
                   <div class="setting">
-                    <label class="chimera-checkbox settings_high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
-                      <div class="chimera-checkbox__field">
-                        <input id="high_fantasy_atlas" name="attr_high_fantasy_atlas" type="checkbox"/><img data-i18n-title="checkbox_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Checkbox"/>
-                      </div><span class="chimera-checkbox__label" data-i18n="high_fantasy_atlas" for="high_fantasy_atlas">Enable High Fantasy Atlas</span>
+                    <label class="chimera-toggle settings__high_fantasy_atlas" data-i18n-title="high_fantasy_atlas_title" title="Enable High Fantasy Atlas">
+                      <div class="chimera-toggle__field">
+                        <input id="high_fantasy_atlas" name="attr_high_fantasy_atlas" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+                      </div><span class="chimera-toggle__label" data-i18n="high_fantasy_atlas" for="high_fantasy_atlas">Enable High Fantasy Atlas</span>
                     </label>
                   </div>
                   <div class="setting">
-                    <label class="chimera-checkbox settings_automatic_mp" data-i18n-title="automatic_mp_title" title="Automatically subtract MP when casting spells and rituals">
-                      <div class="chimera-checkbox__field">
-                        <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="Automatically subtract MP when casting spells and rituals"/>
-                      </div><span class="chimera-checkbox__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
+                    <label class="chimera-toggle settings__automatic_mp" data-i18n-title="automatic_mp_title" title="Automatically subtract MP when casting spells and rituals">
+                      <div class="chimera-toggle__field">
+                        <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Automatically subtract MP when casting spells and rituals"/><img class="chimera-toggle--on" data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Automatically subtract MP when casting spells and rituals"/>
+                      </div><span class="chimera-toggle__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
                     </label>
                   </div>
                   <div class="setting">
-                    <label class="chimera-checkbox settings_money_name chimera-checkbox--flex-row chimera-checkbox--small" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
-                      <div class="chimera-checkbox__field">
-                        <input id="dual_shieldbearer" name="attr_dual_shieldbearer" type="checkbox"/><img data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/checkbox.svg" title="You can equip two shields"/>
-                      </div><span class="chimera-checkbox__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
+                    <label class="chimera-toggle settings__money_name" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
+                      <div class="chimera-toggle__field">
+                        <input id="dual_shieldbearer" name="attr_dual_shieldbearer" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="You can equip two shields"/><img class="chimera-toggle--on" data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="You can equip two shields"/>
+                      </div><span class="chimera-toggle__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
                     </label>
                   </div>
                   <div class="setting">
-                    <div class="chimera-input settings_money_name chimera-input--flex-row chimera-input--small">
+                    <div class="chimera-input settings__money_name chimera-input--flex-row chimera-input--small">
                       <label class="chimera-input__label" data-i18n="money_name" for="money_name">Currency Name</label>
                       <input class="chimera-input__field" data-i18n-placeholder="money_name_placeholder" data-i18n-title="money_name_title" id="money_name" name="attr_money_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
                     </div>
@@ -6233,7 +6233,7 @@ const handleCalculations = (attr, eventInfo) => {
         case 'bonds':
             return calculateBondLevels();
         case 'equipped':
-            return manageEquipment(eventInfo?.sourceAttribute);
+            return manageEquipment(eventInfo);
         case 'villain':
             return makeVillainString();
     }
@@ -6355,12 +6355,14 @@ const updatePoints = (attr, direction) => {
         setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });
     });
 };
-const manageEquipment = (source) => {
+const manageEquipment = (eventInfo) => {
+    if (eventInfo.sourceType === 'sheetworker')
+        return;
     RepeatingModule.getAllAttrs(CHARACTER_EQUIPMENTS, EQUIPMENT_REQUESTS, (attributes, sections) => {
         let handsUsed = 0;
         const update = {};
-        const sourceId = source.split('_').at(2);
-        const sourceFieldset = source.split('_').at(1);
+        const sourceFieldset = eventInfo?.sourceAttribute.split('_').at(1);
+        const sourceId = eventInfo?.sourceAttribute.split('_').at(2);
         ['repeating_armors', 'repeating_shields', 'repeating_accessories'].forEach((fieldset) => {
             sections[fieldset].forEach((id) => {
                 const prefix = `${fieldset}_${id}_${SECTION_PREFIX[fieldset]}`;
