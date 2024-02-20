@@ -80,8 +80,6 @@
         &__villain {
           grid-column: span 3;
           display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
           gap: 4px;
 
           border-bottom: 1px solid var(--color-fabula-light);
@@ -89,32 +87,6 @@
           padding: 4px;
           padding-left: 16px;
           @include mixins.text-xxl-500-fabula;
-
-          span {
-            &:empty {
-              display: none;
-            }
-          }
-
-          > span,
-          > div {
-            &:not(:first-child) {
-              &::before {
-                content: '⬥';
-              }
-            }
-          }
-        }
-
-        &__phases {
-          &:has(span:empty) {
-            display: none;
-          }
-          span {
-            &::before {
-              content: ' ';
-            }
-          }
         }
 
         &__description {

@@ -1,7 +1,7 @@
 mixin bio-view(spine)
   .bio--view
     .bio
-      - const bio = fieldDictionary(spine.bio.fields);
+      - const bio = fieldDictionary(spine.bio.view);
       +chimera-hidden('character_avatar', '')
       .bio__avatar
         img(
@@ -11,6 +11,7 @@ mixin bio-view(spine)
         )
       .bio__name
         +chimera-span(bio.character_name)
+
       .bio__meta
         label(data-i18n='lv') Lv
         +chimera-hidden(bio.rank.name)
@@ -19,20 +20,14 @@ mixin bio-view(spine)
         +fabula-diamond
         +chimera-span(bio.species)
 
-      +chimera-hidden('villain_empty').chimera-repeater--empty-hide-next
+      +chimera-hidden(bio.villainous.name).chimera-repeater--empty-hide-next
       .bio__villain
-        +chimera-span(bio.villain)
-        span.bio__phases
-          label(data-i18n='phase') Phase
-          +chimera-span(bio.phases)
-        +chimera-span(bio.multipart)
+        +chimera-span(bio.villainous)
 
       .bio__description
         +chimera-span(bio.description)
 
-      .bio__traits
-        label.label--colon(data-i18n='typical_traits') Typical Traits
-        +chimera-span(bio.traits)
+      +chimera-value(bio.traits)
 
 mixin bio-edit(spine)
   .bio--edit

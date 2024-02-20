@@ -1697,8 +1697,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .bio--view .bio__villain {
   grid-column: span 3;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   gap: 4px;
   border-bottom: 1px solid var(--color-fabula-light);
   -o-border-image: var(--fabula-gradient-primary-border);
@@ -1711,19 +1709,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 500;
   line-height: 150%;
   text-transform: uppercase;
-}
-.fabula-ultima .bestiary .bio--view .bio__villain span:empty {
-  display: none;
-}
-.fabula-ultima .bestiary .bio--view .bio__villain > span:not(:first-child)::before,
-.fabula-ultima .bestiary .bio--view .bio__villain > div:not(:first-child)::before {
-  content: "⬥";
-}
-.fabula-ultima .bestiary .bio--view .bio__phases:has(span:empty) {
-  display: none;
-}
-.fabula-ultima .bestiary .bio--view .bio__phases span::before {
-  content: " ";
 }
 .fabula-ultima .bestiary .bio--view .bio__description {
   grid-column: 1/-1;

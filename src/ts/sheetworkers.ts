@@ -15,7 +15,7 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
     case 'ip':
       return calculateMaxIP();
     case 'ultima_points':
-      return calculateUltimaPoints(ATTR_WATCH[attr]);
+      return calculateUltimaPoints();
 
     case 'initiative':
       return calculateInitiative();
@@ -25,25 +25,24 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
       return calculateDefenses();
 
     case 'basic_attacks':
-      return calculateBasicAccuracyDamage(ATTR_WATCH[attr]);
+      return calculateBasicAccuracyDamage();
     case 'weapons':
-      return calculateWeaponAccuracyDamage(ATTR_WATCH[attr]);
+      return calculateWeaponAccuracyDamage();
     case 'spells':
-      return calculateSpellAccuracyDamage(ATTR_WATCH[attr]);
+      return calculateSpellAccuracyDamage();
     case 'rituals':
-      return calculateRitualAccuracyDifficulty(ATTR_WATCH[attr]);
+      return calculateRitualAccuracyDifficulty();
 
     case 'level':
       return calculateCharacterLevel();
     case 'bonds':
-      return calculateBondLevels(ATTR_WATCH[attr]);
+      return calculateBondLevels();
 
     case 'equipped':
       return manageEquipment(eventInfo?.sourceAttribute);
 
-    // case 'equipments_empty':
-    case 'villain_empty':
-      return isFieldEmpty(attr, ATTR_WATCH[attr]);
+    case 'villain':
+      return makeVillainString();
   }
 };
 
@@ -52,6 +51,28 @@ const isFieldEmpty = (attr: string, request: string[]) => {
     const isEmpty = Object.values(v).every((val) => !String(val).trim() || val === 'none') ? 0 : 1;
     setAttrs({ [attr]: isEmpty }, { silent: true });
   });
+};
+
+const makeVillainString = () => {
+  getAttrs(ATTR_WATCH.villain, (v) => {
+    const villainKey = `villain_${v.villain}`;
+    const villain = getTranslation(villainKey);
+    const phase_i18n = getTranslation('phase', 'Phase');
+    const phase = v.phases ? `${phase_i18n} ${v.phases}` : null;
+    const multipart = v.multipart;
+
+    const update: Record<string, any> = {};
+    update.villainous = [villain, phase, multipart].reduce(
+      (memo: string, val) => (val ? memo + (memo.length ? ' ⬥ ' : '') + val : memo),
+      ''
+    );
+
+    setAttrs(update, { silent: true });
+  });
+};
+
+const calculateAllAttributes = () => {
+  Object.keys(ATTR_ABBREVIATIONS).forEach((attr) => calculateAttribute(attr));
 };
 
 const calculateAttribute = (attr: string) => {
@@ -86,9 +107,10 @@ const calculateStatusEffects = (attr: string, v: Record<string, string>) => {
  * HP Max = (might_base * 5) + level + hp_other
  * @param request
  */
-const calculateMaxHP = () => {
+const calculateMaxHP = (setCurrent: boolean = false) => {
   getAttrs(ATTR_WATCH.hp, (v) => {
     if (!['character', 'bestiary'].includes(v.sheet_type)) return;
+    const update: Record<string, any> = {};
 
     const might_max: number = +v.might_max || 0;
     const level: number = +v.level || 0;
@@ -103,8 +125,11 @@ const calculateMaxHP = () => {
       hp_max = might_max * 5 + level * 2 + hp_extra;
     }
 
-    const hp_crisis = Math.floor(hp_max / 2);
-    setAttrs({ hp_max, hp_crisis }, { silent: true });
+    update.hp_max = hp_max;
+    update.hp_crisis = Math.floor(hp_max / 2);
+    if (setCurrent) update.hp = hp_max;
+
+    setAttrs(update, { silent: true });
   });
 };
 
@@ -112,9 +137,10 @@ const calculateMaxHP = () => {
  * MP Max = (willpower_base * 5) + level + mp_other
  * @param request
  */
-const calculateMaxMP = () => {
+const calculateMaxMP = (setCurrent: boolean = false) => {
   getAttrs(ATTR_WATCH.mp, (v) => {
     if (!['character', 'bestiary'].includes(v.sheet_type)) return;
+    const update: Record<string, any> = {};
 
     const willpower_max: number = +v.willpower_max || 0;
     const level: number = +v.level || 0;
@@ -129,7 +155,10 @@ const calculateMaxMP = () => {
       mp_max = willpower_max * 5 + level + mp_extra;
     }
 
-    setAttrs({ mp_max }, { silent: true });
+    update.mp_max = mp_max;
+    if (setCurrent) update.mp = mp_max;
+
+    setAttrs(update, { silent: true });
   });
 };
 
@@ -137,20 +166,24 @@ const calculateMaxMP = () => {
  * IP Max = 6 + ip_other
  * @param request
  */
-const calculateMaxIP = () => {
+const calculateMaxIP = (setCurrent: boolean = false) => {
   getAttrs(ATTR_WATCH.ip, (v) => {
     if (v.sheet_type !== 'character') return;
+    const update: Record<string, any> = {};
 
     const ip_extra: number = +v.ip_extra || 0;
     const class_ip_total: number = +v.class_ip_total || 0;
     const ip_max = 6 + ip_extra + class_ip_total;
 
-    setAttrs({ ip_max }, { silent: true });
+    update.ip_max = ip_max;
+    if (setCurrent) update.ip = ip_max;
+
+    setAttrs(update, { silent: true });
   });
 };
 
-const calculateUltimaPoints = (request: string[]) => {
-  getAttrs(request, (v) => {
+const calculateUltimaPoints = () => {
+  getAttrs(ATTR_WATCH.ultima_points, (v) => {
     if (v.sheet_type !== 'bestiary') return;
 
     const villain: string = v.villain ?? '';
@@ -342,8 +375,8 @@ const calculateCharacterLevel = () => {
   );
 };
 
-const calculateBondLevels = (request: string[]) => {
-  getAttrs(request, (v) => {
+const calculateBondLevels = () => {
+  getAttrs(ATTR_WATCH.bonds, (v) => {
     const update: { [key: string]: string } = {};
     [1, 2, 3, 4, 5, 6].forEach((bond) => {
       const b = Object.entries(v)
@@ -412,10 +445,10 @@ const calculateLevelAccuracyBonus = (level: number) => Math.floor(level / 10);
 const calculateLevelDamageBonus = (level: number) =>
   level === 60 ? 15 : level >= 40 ? 10 : level >= 20 ? 5 : 0;
 
-const calculateBasicAccuracyDamage = (request: string[]) => {
+const calculateBasicAccuracyDamage = () => {
   RepeatingModule.getAllAttrs(
     BASIC_ACCURACY_DAMAGE,
-    request,
+    ATTR_WATCH.basic_attacks,
     (attributes: Record<string, string>, sections) => {
       if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
 
@@ -444,10 +477,10 @@ const calculateBasicAccuracyDamage = (request: string[]) => {
   );
 };
 
-const calculateWeaponAccuracyDamage = (request: string[]) => {
+const calculateWeaponAccuracyDamage = () => {
   RepeatingModule.getAllAttrs(
     WEAPON_ACCURACY_DAMAGE,
-    request,
+    ATTR_WATCH.weapons,
     (attributes: Record<string, string>, sections) => {
       if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
 
@@ -484,10 +517,10 @@ const calculateWeaponAccuracyDamage = (request: string[]) => {
   );
 };
 
-const calculateSpellAccuracyDamage = (request: string[]) => {
+const calculateSpellAccuracyDamage = () => {
   RepeatingModule.getAllAttrs(
     SPELL_ACCURACY_DAMAGE,
-    request,
+    ATTR_WATCH.spells,
     (attributes: Record<string, string>, sections) => {
       if (!['character', 'bestiary'].includes(attributes.sheet_type)) return;
 
@@ -516,10 +549,10 @@ const calculateSpellAccuracyDamage = (request: string[]) => {
   );
 };
 
-const calculateRitualAccuracyDifficulty = (request: string[]) => {
+const calculateRitualAccuracyDifficulty = () => {
   RepeatingModule.getAllAttrs(
     RITUAL_ACCURACY_DIFFICULTY,
-    request,
+    ATTR_WATCH.rituals,
     (attributes: Record<string, string>, sections) => {
       if (attributes.sheet_type !== 'character') return;
 

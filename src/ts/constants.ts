@@ -137,7 +137,7 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   ultima_points: ['sheet_type', 'villain'],
 
-  villain_empty: ['villain', 'multipart', 'phases'],
+  villain: ['villain', 'multipart', 'phases'],
 
   initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus', 'initiative_total'],
 

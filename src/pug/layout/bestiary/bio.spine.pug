@@ -1,6 +1,50 @@
 -
   spine.bestiary.bio = {
     hidden: ['rank'],
+    view: [
+      {
+        name: 'character_name',
+        css: { names: ['bio__name'] },
+      },
+      {
+        name: 'traits',
+        labelOverride: { key: 'typical_traits', label: 'Typical Traits'},
+        type: 'text',
+        css: { names: ['bio__traits'] }
+      },
+      {
+        name: 'level',
+        css: { names: ['bio__level'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'species',
+        dynamic: true,
+        css: { names: ['bio__species'] },
+      },
+      {
+        name: 'rank',
+        dynamic: true,
+        css: { names: ['bio__rank'] },
+      },
+      {
+        name: 'villainous',
+        css: { names: ['bio__villainous'] },
+      },
+      {
+        name: 'companion_skill_level',
+        css: { names: ['bio__companion_skill_level'], modifiers: ['center', 'small'] },
+      },
+      {
+        name: 'createdby',
+        label: 'Created By',
+        css: { names: ['bio__createdby'] },
+      },
+      {
+        name: 'description',
+        css: { names: ['bio__description'] },
+      },
+
+    ],
     fields: [
       {
         name: 'character_name',
@@ -18,7 +62,6 @@
         name: 'level',
         label: 'Level',
         type: 'number',
-        value: 5,
         min: 5,
         step: 5,
         max: 60,

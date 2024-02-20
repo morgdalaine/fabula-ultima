@@ -199,7 +199,34 @@ const fabulaMigrations: ChimeraMigration[] = [
   }),
 ];
 
+const initializeSheet = () => {
+  getAttrs(['sheet_initialized'], (v) => {
+    if (+v.sheet_initialized === 1) return;
+
+    calculateAllAttributes();
+
+    calculateMaxHP(true);
+    calculateMaxMP(true);
+    calculateMaxIP(true);
+    calculateInitiative();
+    calculateDefenses();
+
+    calculateBasicAccuracyDamage();
+    calculateWeaponAccuracyDamage();
+    calculateSpellAccuracyDamage();
+    calculateRitualAccuracyDifficulty();
+    calculateCharacterLevel();
+    calculateBondLevels();
+
+    calculateUltimaPoints();
+    makeVillainString();
+
+    setAttrs({ sheet_initialized: 1 });
+  });
+};
+
 const handleMigrations = (eventInfo: EventInfo) => {
   const migrator = new ChimeraMigrator('Fabula Ultima', fabulaMigrations);
   migrator.validate(() => {});
+  initializeSheet();
 };
