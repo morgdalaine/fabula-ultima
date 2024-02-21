@@ -1,0 +1,48 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .quirks {
+    $this: '.quirks';
+
+    @include mixins.fabula-heading;
+
+    &--view {
+      .quirk {
+        display: grid;
+        grid-template-columns: 1fr auto var(--button-component-size);
+        align-items: center;
+        gap: 4px;
+
+        padding-inline: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-lg-700;
+            }
+          }
+        }
+        &__description,
+        &__effect {
+          grid-column: 1/-1;
+        }
+      }
+    }
+
+    &--edit {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+
+      .quirk {
+        &__name {
+          grid-column: span 2;
+        }
+        &__description,
+        &__effect {
+          grid-column: 1/-1;
+        }
+      }
+    }
+  }
+}

@@ -421,6 +421,30 @@
                     </div>
                   </div>
                 </div>
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirk" type="hidden"/>
+                <div class="quirks--view">
+                  <h2 class="quirks__heading--view"><span data-i18n="quirks">Quirks</span>
+                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
+                      <div class="chimera-toggle__field">
+                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-wrapper">
+                    <div class="quirk">
+                      <div class="chimera-value quirk__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_quirk_name"></span>
+                      </div>
+                      <div class="chimera-value quirk__type"><span class="chimera-value__value" name="attr_quirk_type"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="quirkchat_title" name="act_quirkchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value quirk__description"><span class="chimera-value__value" name="attr_quirk_description"></span>
+                      </div>
+                      <div class="chimera-value quirk__effect"><span class="chimera-value__value" name="attr_quirk_effect"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
           </div>
           <div class="character__conflict">
                 <div class="rolls--view">
@@ -1506,7 +1530,7 @@
                   </select>
                 </div>
               </div>
-              <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
+              <div class="nav" style="grid-column: 1/-1; display: flex; flex-direction: row; gap: 4px">
                 <button class="chimera-action" data-i18n-title="stats_title" name="act_stats" title="Stats" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="stats">Stats</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="bonds_title" name="act_bonds" title="Bonds" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="bonds">Bonds</span>
@@ -1701,6 +1725,25 @@
                       <input id="poisoned_immunity" name="attr_poisoned_immunity" type="checkbox"/><img data-i18n-title="poisoned_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/statuseffects/poisoned-pixerelia.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
                     </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
                   </label>
+                </div>
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirk" type="hidden"/>
+                <div class="quirks--edit">
+                  <div class="chimera-input quirk__name">
+                    <label class="chimera-input__label" data-i18n="quirk_name" for="quirk_name">Quirk</label>
+                    <input class="chimera-input__field" data-i18n-placeholder="quirk_name_placeholder" data-i18n-title="quirk_name_title" id="quirk_name" name="attr_quirk_name" placeholder="Quirk" title="Quirk" type="text"/>
+                  </div>
+                  <div class="chimera-input quirk__type">
+                    <label class="chimera-input__label" data-i18n="quirk_type" for="quirk_type">Quirk Type</label>
+                    <input class="chimera-input__field" data-i18n-placeholder="quirk_type_placeholder" data-i18n-title="quirk_type_title" id="quirk_type" name="attr_quirk_type" placeholder="Quirk Type" title="Quirk Type" type="text"/>
+                  </div>
+                  <div class="chimera-input quirk__description">
+                    <label class="chimera-input__label" data-i18n="quirk_description" for="quirk_description">Description</label>
+                    <textarea class="chimera-input__field" data-i18n-title="quirk_description_title" id="quirk_description" name="attr_quirk_description" title="Description" type="textarea"></textarea>
+                  </div>
+                  <div class="chimera-input quirk__effect">
+                    <label class="chimera-input__label" data-i18n="quirk_effect" for="quirk_effect">Effect</label>
+                    <textarea class="chimera-input__field" data-i18n-title="quirk_effect_title" id="quirk_effect" name="attr_quirk_effect" title="Effect" type="textarea"></textarea>
+                  </div>
                 </div>
                 <div class="rolls">
                   <h2 class="rolls__heading--edit"><span data-i18n="custom_checks">Custom Checks</span>
@@ -5046,6 +5089,7 @@ const CLICK_LISTENERS = {
     'check_endure': 'check',
     'check_intimidate': 'check',
     'check_custom': 'check',
+    'quirkchat': 'quirk',
 };
 const SEND_TO_CHAT = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
@@ -5182,6 +5226,7 @@ const SEND_TO_CHAT = {
         'check_attr2',
         'check_description',
     ],
+    quirk: ['quirk_name', 'quirk_type', 'quirk_description', 'quirk_effect'],
     project: [
         'project_name',
         'project_cost',
@@ -5478,6 +5523,7 @@ const chatData = (key, prefix, values) => {
             case 'bond6':
             case 'project':
             case 'feature':
+            case 'quirk':
                 return `${key}_`;
         }
     })();
@@ -5659,6 +5705,15 @@ const projectTemplate = (values) => {
     template.action = getTranslation('projects', undefined);
     return template;
 };
+const quirkTemplate = (values) => {
+    const template = {};
+    template.name = values.name;
+    template.subtitle = values.type;
+    template.special = values.description;
+    template.effect = values.effect;
+    template.action = getTranslation('quirk_name', 'Quirk');
+    return template;
+};
 const featureTemplate = (values) => {
     const template = {};
     template.name = values.name;
@@ -5714,6 +5769,8 @@ const sendToChat = async (chat, id) => {
                     return projectTemplate(data);
                 case 'feature':
                     return featureTemplate(data);
+                case 'quirk':
+                    return quirkTemplate(data);
                 case 'otheractionchat':
                 case 'specialrulechat':
                 case 'raregearchat':

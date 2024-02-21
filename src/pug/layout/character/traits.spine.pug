@@ -34,7 +34,6 @@
         css: { names: ['trait__origin'], modifiers: ['column', 'colon'] },
       },
     ],
-    delete: [],
     fields: [
       {
         name: 'character_name',
@@ -67,10 +66,53 @@
         css: { names: ['trait__origin'], modifiers: [] },
       },
     ],
-    quirks: [
-      { name: 'quirk_name', label: 'Quirk', type: 'text', css: { names: ['quirk__name']}  },
-      { name: 'quirk_type', label: 'Quirk Type', type: 'text', css: { names: ['quirk__type']}  },
-      { name: 'quirk_description', label: 'Description', type: 'textarea', css: { names: ['quirk__description']}  },
-      { name: 'quirk_effect', label: 'Effect', type: 'textarea', css: { names: ['quirk__effect']}  },
+  };
+
+  spine.character.quirks = {
+    heading: { name: 'quirks', label: 'Quirks' },
+    hidden: [],
+    view: [
+      {
+        name: 'quirk_name',
+        css: { names: ['quirk__name'], modifiers: ['no-label-bold'] },
+      },
+      {
+        name: 'quirk_type',
+        css: { names: ['quirk__type'] },
+      },
+      {
+        name: 'quirk_description',
+        css: { names: ['quirk__description'] },
+      },
+      {
+        name: 'quirk_effect',
+        css: { names: ['quirk__effect'] },
+      },
+    ],
+    fields: [
+      {
+        name: 'quirk_name',
+        label: 'Quirk',
+        type: 'text',
+        css: { names: ['quirk__name'] },
+      },
+      {
+        name: 'quirk_type',
+        label: 'Quirk Type',
+        type: 'text',
+        css: { names: ['quirk__type'] },
+      },
+      {
+        name: 'quirk_description',
+        label: 'Description',
+        type: 'textarea',
+        css: { names: ['quirk__description'] },
+      },
+      {
+        name: 'quirk_effect',
+        label: 'Effect',
+        type: 'textarea',
+        css: { names: ['quirk__effect'] },
+      },
     ]
   };

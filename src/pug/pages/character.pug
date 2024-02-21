@@ -7,6 +7,7 @@ include character/inventory
 include character/journal/journal
 include character/magic
 include character/nav
+include character/quirks
 include character/points
 include character/statistics
 include character/traits
@@ -27,6 +28,7 @@ mixin character-view(spine)
       +bonds-view(spine)
       +fabula-points-view(spine)
       +experience-points-view(spine)
+      +quirks-view(spine)
 
     .character__conflict
       +rolls-view(spine)
@@ -66,6 +68,7 @@ mixin character-edit(spine)
     .character__stats
       +statistics-edit(spine)
       +status-immunity-edit(spine)
+      +quirks-edit(spine)
       +rolls-edit(spine)
 
     .character__bonds

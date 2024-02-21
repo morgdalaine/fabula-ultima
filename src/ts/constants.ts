@@ -375,6 +375,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'check_endure': 'check',
   'check_intimidate': 'check',
   'check_custom': 'check',
+  'quirkchat': 'quirk',
 };
 
 const SEND_TO_CHAT: Record<string, string[]> = {
@@ -517,6 +518,7 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'check_attr2',
     'check_description',
   ],
+  quirk: ['quirk_name', 'quirk_type', 'quirk_description', 'quirk_effect'],
   project: [
     'project_name',
     'project_cost',

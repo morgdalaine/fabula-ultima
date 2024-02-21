@@ -7,11 +7,12 @@
 @use 'character/equipment/equipment';
 @use 'character/features';
 @use 'character/inventory';
+@use 'character/journal/journal';
 @use 'character/magic/magic';
 @use 'character/points';
+@use 'character/quirks';
 @use 'character/statistics';
 @use 'character/traits';
-@use 'character/journal/journal';
 @use 'shared/shared';
 
 .fabula-ultima {

@@ -68,7 +68,6 @@
             @include mixins.text-base-500-fabula;
           }
         }
-
         &__level {
           display: flex;
           gap: 4px;
@@ -90,7 +89,6 @@
             }
           }
         }
-
         &__description {
           grid-column: 1/-1;
           display: grid;
@@ -100,7 +98,6 @@
           // border-image: var(--fabula-gradient-primary-border);
           padding: 4px;
         }
-
         &__identity {
           grid-column: 1/-1;
         }

@@ -82,6 +82,7 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'bond6':
       case 'project':
       case 'feature':
+      case 'quirk':
         return `${key}_`;
     }
   })();
@@ -323,6 +324,20 @@ const projectTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const quirkTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  template.name = values.name;
+  template.subtitle = values.type;
+
+  template.special = values.description;
+  template.effect = values.effect;
+
+  template.action = getTranslation('quirk_name', 'Quirk');
+
+  return template;
+};
+
 const featureTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
@@ -385,6 +400,8 @@ const sendToChat = async (chat: string, id: string) => {
           return projectTemplate(data);
         case 'feature':
           return featureTemplate(data);
+        case 'quirk':
+          return quirkTemplate(data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':

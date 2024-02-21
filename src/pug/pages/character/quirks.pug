@@ -1,0 +1,19 @@
+mixin quirks-view(spine)
+  +chimera-hidden('enable_quirk').chimera-repeater--empty-hide-next
+  .quirks--view
+    +fabula-heading-view('quirks', { name: 'quirks', label: 'Quirks' })
+    .chimera-wrapper
+      .quirk
+        - const quirk = fieldDictionary(spine.quirks.view, 'quirk');
+        +chimera-value(quirk.name)
+        +chimera-value(quirk.type)
+        +send-to-chat('quirk')
+
+        +chimera-value(quirk.description)
+        +chimera-value(quirk.effect)
+
+mixin quirks-edit(spine)
+  +chimera-hidden('enable_quirk').chimera-repeater--empty-hide-next
+  .quirks--edit
+    each field in spine.quirks.fields
+      +chimera-input(field)

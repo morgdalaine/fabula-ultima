@@ -42,7 +42,6 @@ const CROSSWALK_TO_V20: Record<string, any> = {
   statusImmunityPoisoned: 'poisoned_immunity',
   // addedDefense: '',
   // addedMagicDefense: '',
-  // TODO implement quirks
   quirkName: 'quirk_name',
   quirkType: 'quirk_type',
   quirkText: 'quirk_description',
@@ -118,7 +117,6 @@ const CROSSWALK_TO_V20: Record<string, any> = {
     ritualAttr2Name: 'repeating_rituals_-CREATE_ritual_attr2',
     ritualCastBonus: 'repeating_rituals_-CREATE_ritual_accuracy',
     ritualCost: 'repeating_rituals_-CREATE_ritual_mp',
-    // TODO implement ritual clock
     ritualAdvancement: 'repeating_rituals_-CREATE_ritual_clock',
     ritualMaxAdvancement: 'repeating_rituals_-CREATE_ritual_clock_max',
     ritualEffect: 'repeating_rituals_-CREATE_ritual_effect',

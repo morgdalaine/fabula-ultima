@@ -4780,642 +4780,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 
-.fabula-ultima .character .spells__heading--edit .chimera-toggle, .fabula-ultima .character .spells__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .spells__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .spells__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .spells--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .spells--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .spells--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .spells--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .spells--view .chimera-wrapper,
-.fabula-ultima .character .spells--view .chimera-repeater--simple, .fabula-ultima .character .spells--edit .chimera-wrapper,
-.fabula-ultima .character .spells--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .spells:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .spells:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .spells .chimera-repeater,
-.fabula-ultima .character .spells .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .spells--delete .spell {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .character .spells--delete .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
-.fabula-ultima .character .spells--delete .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
-  display: none;
-}
-.fabula-ultima .character .spells--delete .spell__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .spells--delete .spell__offensive {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 4px;
-}
-.fabula-ultima .character .spells--view .spell {
-  display: grid;
-  grid-template-columns: 1fr repeat(2, auto);
-  gap: 4px;
-}
-.fabula-ultima .character .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
-.fabula-ultima .character .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
-  display: none;
-}
-.fabula-ultima .character .spells--view .spell__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .spells--view .spell__type .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .spells--view .spell__offensive {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 4px;
-}
-.fabula-ultima .character .spells--view .spell__mp .chimera-value__label {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .spells--view .spell__mp .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .spells--view .spell__target-duration {
-  grid-column: 1/-1;
-  grid-row-start: 2;
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .character .spells--view .spell__effect {
-  grid-column: 1/-1;
-  grid-row-start: 3;
-}
-.fabula-ultima .character .spells--edit .spell {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) 5rem 1fr 5rem;
-  gap: 4px;
-}
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr1,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr2,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__accuracy,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr1,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr2,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
-.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__accuracy {
-  display: none;
-}
-.fabula-ultima .character .spells--edit .spell__name, .fabula-ultima .character .spells--edit .spell__offensive, .fabula-ultima .character .spells--edit .spell__mp {
-  grid-row: 1;
-}
-.fabula-ultima .character .spells--edit .spell__name {
-  grid-column: span 2;
-}
-.fabula-ultima .character .spells--edit .spell__offensive {
-  grid-column-start: -2;
-}
-.fabula-ultima .character .spells--edit .spell__attr1, .fabula-ultima .character .spells--edit .spell__attr2, .fabula-ultima .character .spells--edit .spell__accuracy, .fabula-ultima .character .spells--edit .spell__damage, .fabula-ultima .character .spells--edit .spell__type {
-  grid-row: 2;
-}
-.fabula-ultima .character .spells--edit .spell__target {
-  grid-column: span 2;
-}
-.fabula-ultima .character .spells--edit .spell__duration {
-  grid-column: span 3;
-}
-.fabula-ultima .character .spells--edit .spell__special, .fabula-ultima .character .spells--edit .spell__effect {
-  grid-column: 1/-1;
-}
-
-.fabula-ultima .character .rituals__heading--edit .chimera-toggle, .fabula-ultima .character .rituals__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .rituals__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .rituals__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .rituals--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .rituals--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .rituals--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .rituals--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .rituals--view .chimera-wrapper,
-.fabula-ultima .character .rituals--view .chimera-repeater--simple, .fabula-ultima .character .rituals--edit .chimera-wrapper,
-.fabula-ultima .character .rituals--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .rituals:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .rituals:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .rituals .chimera-repeater,
-.fabula-ultima .character .rituals .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .rituals-known {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-.fabula-ultima .character .rituals-known .chimera-value__label {
-  grid-column: 1/-1;
-}
-.fabula-ultima .character .rituals--delete .ritual {
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--delete .ritual input[name*=ritual_is_offensive][value="0"] ~ .ritual__offensive,
-.fabula-ultima .character .rituals--delete .ritual input[name*=ritual_is_offensive] :not([value]) ~ .ritual__offensive {
-  display: none;
-}
-.fabula-ultima .character .rituals--delete .ritual__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--delete .ritual__offensive {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--delete .fabula-diamond {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--view .rituals-known {
-  grid-column: 1/-1;
-  padding: 4px 8px;
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--view .ritual {
-  display: grid;
-  grid-template-columns: 1fr repeat(2, auto);
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--view .ritual input[name*=ritual_is_offensive][value="0"] ~ .ritual__offensive,
-.fabula-ultima .character .rituals--view .ritual input[name*=ritual_is_offensive] :not([value]) ~ .ritual__offensive {
-  display: none;
-}
-.fabula-ultima .character .rituals--view .ritual__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--view .ritual__difficulty .chimera-value__label, .fabula-ultima .character .rituals--view .ritual__mp .chimera-value__label {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--view .ritual__difficulty .chimera-value__value, .fabula-ultima .character .rituals--view .ritual__mp .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .rituals--view .ritual__check {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--view .ritual__potency-area {
-  grid-column: 1/-1;
-  grid-row-start: 2;
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--view .ritual__clock {
-  flex: 1;
-  justify-content: flex-end;
-  width: -moz-min-content;
-  width: min-content;
-}
-.fabula-ultima .character .rituals--view .ritual__clock-progress {
-  min-width: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--view .ritual__effect {
-  grid-column: 1/-1;
-  grid-row-start: 3;
-}
-.fabula-ultima .character .rituals--edit .ritual {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(2, auto) repeat(2, 1fr);
-  gap: 4px;
-}
-.fabula-ultima .character .rituals--edit .ritual__name, .fabula-ultima .character .rituals--edit .ritual__discipline {
-  grid-column: span 2;
-}
-.fabula-ultima .character .rituals--edit .ritual__effect {
-  grid-column: 1/-1;
-}
-
-.fabula-ultima .character .fabula-points__heading--edit .chimera-toggle, .fabula-ultima .character .fabula-points__heading--view .chimera-toggle,
-.fabula-ultima .character .experience-points__heading--edit .chimera-toggle,
-.fabula-ultima .character .experience-points__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .fabula-points__heading--edit,
-.fabula-ultima .character .experience-points__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .fabula-points__heading--view,
-.fabula-ultima .character .experience-points__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .fabula-points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .fabula-points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .fabula-points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .fabula-points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .experience-points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .experience-points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .experience-points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .experience-points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .fabula-points--view .chimera-wrapper,
-.fabula-ultima .character .fabula-points--view .chimera-repeater--simple, .fabula-ultima .character .fabula-points--edit .chimera-wrapper,
-.fabula-ultima .character .fabula-points--edit .chimera-repeater--simple,
-.fabula-ultima .character .experience-points--view .chimera-wrapper,
-.fabula-ultima .character .experience-points--view .chimera-repeater--simple,
-.fabula-ultima .character .experience-points--edit .chimera-wrapper,
-.fabula-ultima .character .experience-points--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .fabula-points:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .fabula-points:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .experience-points:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .experience-points:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .fabula-points .chimera-repeater,
-.fabula-ultima .character .fabula-points .chimera-repeater--simple,
-.fabula-ultima .character .experience-points .chimera-repeater,
-.fabula-ultima .character .experience-points .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .fabula-points--view .point__wrapper,
-.fabula-ultima .character .experience-points--view .point__wrapper {
-  display: grid;
-  grid-template-columns: 5rem 1fr;
-  gap: 4px;
-  padding-inline: 4px;
-}
-.fabula-ultima .character .fabula-points--view .point--fabula, .fabula-ultima .character .fabula-points--view .point--xp,
-.fabula-ultima .character .experience-points--view .point--fabula,
-.fabula-ultima .character .experience-points--view .point--xp {
-  justify-content: center;
-}
-.fabula-ultima .character .fabula-points--view .point--fabula .chimera-input__field, .fabula-ultima .character .fabula-points--view .point--xp .chimera-input__field,
-.fabula-ultima .character .experience-points--view .point--fabula .chimera-input__field,
-.fabula-ultima .character .experience-points--view .point--xp .chimera-input__field {
-  font-size: 2.5rem;
-  align-self: center;
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
-  text-align: center;
-  padding: 0;
-}
-.fabula-ultima .character .fabula-points--view .point__spend, .fabula-ultima .character .fabula-points--view .point__declare,
-.fabula-ultima .character .experience-points--view .point__spend,
-.fabula-ultima .character .experience-points--view .point__declare {
-  grid-column: 1/-1;
-}
-.fabula-ultima .character .fabula-points--view .point__declare,
-.fabula-ultima .character .experience-points--view .point__declare {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-}
-.fabula-ultima .character .points__heading--edit .chimera-toggle, .fabula-ultima .character .points__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .points__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .points__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .points--view .chimera-wrapper,
-.fabula-ultima .character .points--view .chimera-repeater--simple, .fabula-ultima .character .points--edit .chimera-wrapper,
-.fabula-ultima .character .points--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .points:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .points:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .points .chimera-repeater,
-.fabula-ultima .character .points .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .points--edit {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  align-items: flex-start;
-}
-.fabula-ultima .character .points--edit .point__hp, .fabula-ultima .character .points--edit .point__mp, .fabula-ultima .character .points--edit .point__ip, .fabula-ultima .character .points--edit .point__initiative {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr auto;
-  align-items: center;
-  justify-content: center;
-}
-.fabula-ultima .character .points--edit .point__hp-extra, .fabula-ultima .character .points--edit .point__mp-extra, .fabula-ultima .character .points--edit .point__ip-extra, .fabula-ultima .character .points--edit .point__initiative-extra {
-  grid-row: span 2;
-}
-.fabula-ultima .character .points--edit .point__values {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-.fabula-ultima .character .points--edit .point__helptext {
-  grid-column: 1/-2;
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.fabula-ultima .character .statistics--edit {
-  display: grid;
-  gap: 4px;
-  align-items: flex-start;
-}
-
-.fabula-ultima .character .traits__heading--edit .chimera-toggle, .fabula-ultima .character .traits__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .traits__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .traits__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .traits--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .traits--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .traits--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .traits--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .traits--view .chimera-wrapper,
-.fabula-ultima .character .traits--view .chimera-repeater--simple, .fabula-ultima .character .traits--edit .chimera-wrapper,
-.fabula-ultima .character .traits--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .traits:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .traits:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .traits .chimera-repeater,
-.fabula-ultima .character .traits .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .traits--view {
-  display: grid;
-  grid-template-columns: calc(4 * var(--input-component-size)) 1fr repeat(2, auto);
-  grid-template-rows: auto 1fr;
-  gap: 4px;
-}
-.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__avatar {
-  display: block;
-  grid-row: span 2;
-}
-.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__name {
-  grid-column: span 2;
-}
-.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__villain,
-.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__description,
-.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__traits {
-  grid-column: 2/span 3;
-}
-.fabula-ultima .character .traits--view .trait__avatar {
-  display: none;
-  border: 1px solid var(--color-fabula-darkest);
-  -o-border-image: var(--fabula-gradient-dark-border);
-     border-image: var(--fabula-gradient-dark-border);
-  height: 10rem;
-}
-.fabula-ultima .character .traits--view .trait__avatar img,
-.fabula-ultima .character .traits--view .trait__avatar svg {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-.fabula-ultima .character .traits--view .trait__name {
-  grid-column: span 3;
-  background-image: var(--fabula-gradient-primary);
-  color: var(--color-on-dark);
-  padding-left: 16px;
-  padding-right: 16px;
-  display: flex;
-  gap: 4px;
-}
-.fabula-ultima .character .traits--view .trait__name span {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .traits--view .trait__pronouns:is(span) {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  font-family: var(--font-title);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-.fabula-ultima .character .traits--view .trait__level {
-  display: flex;
-  gap: 4px;
-  padding: 4px 16px;
-  border-left: 2px solid var(--color-fabula-light);
-  border-bottom: 2px solid var(--color-fabula-light);
-  -o-border-image: var(--fabula-gradient-secondary-border);
-     border-image: var(--fabula-gradient-secondary-border);
-}
-.fabula-ultima .character .traits--view .trait__level label,
-.fabula-ultima .character .traits--view .trait__level span {
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.fabula-ultima .character .traits--view .trait__level input[value=soldier] ~ span[name*=rank] {
-  font-size: 0;
-}
-.fabula-ultima .character .traits--view .trait__description {
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 4px;
-}
-.fabula-ultima .character .traits--view .trait__identity {
-  grid-column: 1/-1;
-}
-.fabula-ultima .character .traits--edit {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-}
-.fabula-ultima .character .traits--edit .trait__name {
-  grid-column: span 2;
-}
-
 .fabula-ultima .character .notes__heading--edit .chimera-toggle, .fabula-ultima .character .notes__heading--view .chimera-toggle {
   margin-left: auto;
 }
@@ -6171,6 +5535,716 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .items--edit .item {
   display: grid;
   gap: 4px;
+}
+
+.fabula-ultima .character .spells__heading--edit .chimera-toggle, .fabula-ultima .character .spells__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .spells__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .spells__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .spells--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .spells--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .spells--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .spells--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .spells--view .chimera-wrapper,
+.fabula-ultima .character .spells--view .chimera-repeater--simple, .fabula-ultima .character .spells--edit .chimera-wrapper,
+.fabula-ultima .character .spells--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .spells:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .spells:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .spells .chimera-repeater,
+.fabula-ultima .character .spells .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .spells--delete .spell {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .spells--delete .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
+.fabula-ultima .character .spells--delete .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
+  display: none;
+}
+.fabula-ultima .character .spells--delete .spell__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .spells--delete .spell__offensive {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+.fabula-ultima .character .spells--view .spell {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .spells--view .spell input[name*=spell_is_offensive][value="0"] ~ .spell__offensive,
+.fabula-ultima .character .spells--view .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__offensive {
+  display: none;
+}
+.fabula-ultima .character .spells--view .spell__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .spells--view .spell__type .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .spells--view .spell__offensive {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+.fabula-ultima .character .spells--view .spell__mp .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .spells--view .spell__mp .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .spells--view .spell__target-duration {
+  grid-column: 1/-1;
+  grid-row-start: 2;
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .spells--view .spell__effect {
+  grid-column: 1/-1;
+  grid-row-start: 3;
+}
+.fabula-ultima .character .spells--edit .spell {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 5rem 1fr 5rem;
+  gap: 4px;
+}
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr1,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__attr2,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__damage,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__type,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive][value="0"] ~ .spell__accuracy,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr1,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__attr2,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__damage,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__type,
+.fabula-ultima .character .spells--edit .spell input[name*=spell_is_offensive] :not([value]) ~ .spell__accuracy {
+  display: none;
+}
+.fabula-ultima .character .spells--edit .spell__name, .fabula-ultima .character .spells--edit .spell__offensive, .fabula-ultima .character .spells--edit .spell__mp {
+  grid-row: 1;
+}
+.fabula-ultima .character .spells--edit .spell__name {
+  grid-column: span 2;
+}
+.fabula-ultima .character .spells--edit .spell__offensive {
+  grid-column-start: -2;
+}
+.fabula-ultima .character .spells--edit .spell__attr1, .fabula-ultima .character .spells--edit .spell__attr2, .fabula-ultima .character .spells--edit .spell__accuracy, .fabula-ultima .character .spells--edit .spell__damage, .fabula-ultima .character .spells--edit .spell__type {
+  grid-row: 2;
+}
+.fabula-ultima .character .spells--edit .spell__target {
+  grid-column: span 2;
+}
+.fabula-ultima .character .spells--edit .spell__duration {
+  grid-column: span 3;
+}
+.fabula-ultima .character .spells--edit .spell__special, .fabula-ultima .character .spells--edit .spell__effect {
+  grid-column: 1/-1;
+}
+
+.fabula-ultima .character .rituals__heading--edit .chimera-toggle, .fabula-ultima .character .rituals__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .rituals__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .rituals__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .rituals--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .rituals--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .rituals--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .rituals--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .rituals--view .chimera-wrapper,
+.fabula-ultima .character .rituals--view .chimera-repeater--simple, .fabula-ultima .character .rituals--edit .chimera-wrapper,
+.fabula-ultima .character .rituals--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .rituals:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .rituals:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .rituals .chimera-repeater,
+.fabula-ultima .character .rituals .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .rituals-known {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.fabula-ultima .character .rituals-known .chimera-value__label {
+  grid-column: 1/-1;
+}
+.fabula-ultima .character .rituals--delete .ritual {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--delete .ritual input[name*=ritual_is_offensive][value="0"] ~ .ritual__offensive,
+.fabula-ultima .character .rituals--delete .ritual input[name*=ritual_is_offensive] :not([value]) ~ .ritual__offensive {
+  display: none;
+}
+.fabula-ultima .character .rituals--delete .ritual__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .rituals--delete .ritual__offensive {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--delete .fabula-diamond {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .rituals--view .rituals-known {
+  grid-column: 1/-1;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--view .ritual {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, auto);
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--view .ritual input[name*=ritual_is_offensive][value="0"] ~ .ritual__offensive,
+.fabula-ultima .character .rituals--view .ritual input[name*=ritual_is_offensive] :not([value]) ~ .ritual__offensive {
+  display: none;
+}
+.fabula-ultima .character .rituals--view .ritual__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .rituals--view .ritual__difficulty .chimera-value__label, .fabula-ultima .character .rituals--view .ritual__mp .chimera-value__label {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .rituals--view .ritual__difficulty .chimera-value__value, .fabula-ultima .character .rituals--view .ritual__mp .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .rituals--view .ritual__check {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--view .ritual__potency-area {
+  grid-column: 1/-1;
+  grid-row-start: 2;
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--view .ritual__clock {
+  flex: 1;
+  justify-content: flex-end;
+  width: -moz-min-content;
+  width: min-content;
+}
+.fabula-ultima .character .rituals--view .ritual__clock-progress {
+  min-width: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--view .ritual__effect {
+  grid-column: 1/-1;
+  grid-row-start: 3;
+}
+.fabula-ultima .character .rituals--edit .ritual {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) repeat(2, auto) repeat(2, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .rituals--edit .ritual__name, .fabula-ultima .character .rituals--edit .ritual__discipline {
+  grid-column: span 2;
+}
+.fabula-ultima .character .rituals--edit .ritual__effect {
+  grid-column: 1/-1;
+}
+
+.fabula-ultima .character .fabula-points__heading--edit .chimera-toggle, .fabula-ultima .character .fabula-points__heading--view .chimera-toggle,
+.fabula-ultima .character .experience-points__heading--edit .chimera-toggle,
+.fabula-ultima .character .experience-points__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .fabula-points__heading--edit,
+.fabula-ultima .character .experience-points__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .fabula-points__heading--view,
+.fabula-ultima .character .experience-points__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .fabula-points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .fabula-points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .fabula-points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .fabula-points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple,
+.fabula-ultima .character .experience-points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .experience-points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple,
+.fabula-ultima .character .experience-points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .experience-points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .fabula-points--view .chimera-wrapper,
+.fabula-ultima .character .fabula-points--view .chimera-repeater--simple, .fabula-ultima .character .fabula-points--edit .chimera-wrapper,
+.fabula-ultima .character .fabula-points--edit .chimera-repeater--simple,
+.fabula-ultima .character .experience-points--view .chimera-wrapper,
+.fabula-ultima .character .experience-points--view .chimera-repeater--simple,
+.fabula-ultima .character .experience-points--edit .chimera-wrapper,
+.fabula-ultima .character .experience-points--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .fabula-points:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .fabula-points:has(input[name*=collapse]:checked) .chimera-repeater--simple,
+.fabula-ultima .character .experience-points:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .experience-points:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .fabula-points .chimera-repeater,
+.fabula-ultima .character .fabula-points .chimera-repeater--simple,
+.fabula-ultima .character .experience-points .chimera-repeater,
+.fabula-ultima .character .experience-points .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .fabula-points--view .point__wrapper,
+.fabula-ultima .character .experience-points--view .point__wrapper {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 4px;
+  padding-inline: 4px;
+}
+.fabula-ultima .character .fabula-points--view .point--fabula, .fabula-ultima .character .fabula-points--view .point--xp,
+.fabula-ultima .character .experience-points--view .point--fabula,
+.fabula-ultima .character .experience-points--view .point--xp {
+  justify-content: center;
+}
+.fabula-ultima .character .fabula-points--view .point--fabula .chimera-input__field, .fabula-ultima .character .fabula-points--view .point--xp .chimera-input__field,
+.fabula-ultima .character .experience-points--view .point--fabula .chimera-input__field,
+.fabula-ultima .character .experience-points--view .point--xp .chimera-input__field {
+  font-size: 2.5rem;
+  align-self: center;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  padding: 0;
+}
+.fabula-ultima .character .fabula-points--view .point__spend, .fabula-ultima .character .fabula-points--view .point__declare,
+.fabula-ultima .character .experience-points--view .point__spend,
+.fabula-ultima .character .experience-points--view .point__declare {
+  grid-column: 1/-1;
+}
+.fabula-ultima .character .fabula-points--view .point__declare,
+.fabula-ultima .character .experience-points--view .point__declare {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.fabula-ultima .character .points__heading--edit .chimera-toggle, .fabula-ultima .character .points__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .points__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .points__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .points--view .chimera-wrapper,
+.fabula-ultima .character .points--view .chimera-repeater--simple, .fabula-ultima .character .points--edit .chimera-wrapper,
+.fabula-ultima .character .points--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .points:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .points:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .points .chimera-repeater,
+.fabula-ultima .character .points .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .points--edit {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  align-items: flex-start;
+}
+.fabula-ultima .character .points--edit .point__hp, .fabula-ultima .character .points--edit .point__mp, .fabula-ultima .character .points--edit .point__ip, .fabula-ultima .character .points--edit .point__initiative {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-content: center;
+}
+.fabula-ultima .character .points--edit .point__hp-extra, .fabula-ultima .character .points--edit .point__mp-extra, .fabula-ultima .character .points--edit .point__ip-extra, .fabula-ultima .character .points--edit .point__initiative-extra {
+  grid-row: span 2;
+}
+.fabula-ultima .character .points--edit .point__values {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.fabula-ultima .character .points--edit .point__helptext {
+  grid-column: 1/-2;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.fabula-ultima .character .quirks__heading--edit .chimera-toggle, .fabula-ultima .character .quirks__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .quirks__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .quirks__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .quirks--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .quirks--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .quirks--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .quirks--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .quirks--view .chimera-wrapper,
+.fabula-ultima .character .quirks--view .chimera-repeater--simple, .fabula-ultima .character .quirks--edit .chimera-wrapper,
+.fabula-ultima .character .quirks--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .quirks:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .quirks:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .quirks .chimera-repeater,
+.fabula-ultima .character .quirks .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .quirks--view .quirk {
+  display: grid;
+  grid-template-columns: 1fr auto var(--button-component-size);
+  align-items: center;
+  gap: 4px;
+  padding-inline: 4px;
+}
+.fabula-ultima .character .quirks--view .quirk__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .character .quirks--view .quirk__description, .fabula-ultima .character .quirks--view .quirk__effect {
+  grid-column: 1/-1;
+}
+.fabula-ultima .character .quirks--edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .quirks--edit .quirk__name {
+  grid-column: span 2;
+}
+.fabula-ultima .character .quirks--edit .quirk__description, .fabula-ultima .character .quirks--edit .quirk__effect {
+  grid-column: 1/-1;
+}
+
+.fabula-ultima .character .statistics--edit {
+  display: grid;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.fabula-ultima .character .traits__heading--edit .chimera-toggle, .fabula-ultima .character .traits__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .character .traits__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .character .traits__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .traits--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .traits--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .traits--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .character .traits--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .traits--view .chimera-wrapper,
+.fabula-ultima .character .traits--view .chimera-repeater--simple, .fabula-ultima .character .traits--edit .chimera-wrapper,
+.fabula-ultima .character .traits--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .traits:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .character .traits:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .character .traits .chimera-repeater,
+.fabula-ultima .character .traits .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .character .traits--view {
+  display: grid;
+  grid-template-columns: calc(4 * var(--input-component-size)) 1fr repeat(2, auto);
+  grid-template-rows: auto 1fr;
+  gap: 4px;
+}
+.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__avatar {
+  display: block;
+  grid-row: span 2;
+}
+.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__name {
+  grid-column: span 2;
+}
+.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__villain,
+.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__description,
+.fabula-ultima .character .traits--view input[name*=character_avatar]:not([value=""]) ~ .trait__traits {
+  grid-column: 2/span 3;
+}
+.fabula-ultima .character .traits--view .trait__avatar {
+  display: none;
+  border: 1px solid var(--color-fabula-darkest);
+  -o-border-image: var(--fabula-gradient-dark-border);
+     border-image: var(--fabula-gradient-dark-border);
+  height: 10rem;
+}
+.fabula-ultima .character .traits--view .trait__avatar img,
+.fabula-ultima .character .traits--view .trait__avatar svg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.fabula-ultima .character .traits--view .trait__name {
+  grid-column: span 3;
+  background-image: var(--fabula-gradient-primary);
+  color: var(--color-on-dark);
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .traits--view .trait__name span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .character .traits--view .trait__pronouns:is(span) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .traits--view .trait__level {
+  display: flex;
+  gap: 4px;
+  padding: 4px 16px;
+  border-left: 2px solid var(--color-fabula-light);
+  border-bottom: 2px solid var(--color-fabula-light);
+  -o-border-image: var(--fabula-gradient-secondary-border);
+     border-image: var(--fabula-gradient-secondary-border);
+}
+.fabula-ultima .character .traits--view .trait__level label,
+.fabula-ultima .character .traits--view .trait__level span {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.fabula-ultima .character .traits--view .trait__level input[value=soldier] ~ span[name*=rank] {
+  font-size: 0;
+}
+.fabula-ultima .character .traits--view .trait__description {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 4px;
+}
+.fabula-ultima .character .traits--view .trait__identity {
+  grid-column: 1/-1;
+}
+.fabula-ultima .character .traits--edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .traits--edit .trait__name {
+  grid-column: span 2;
 }
 
 .fabula-ultima .character__backpack {
