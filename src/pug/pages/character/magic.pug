@@ -7,7 +7,7 @@ mixin spells-view(spine)
         .spell
           - const spell = fieldDictionary(spine.spells.view, 'spell');
           each field in spine.spells.hidden
-            +chimera-hidden(field)
+            +chimera-hidden(field, 0)
 
           +chimera-action({ name: 'spell', title: 'Spell' }).spell__roll
             +chimera-icon({ icon: 'spell' }).spell__icon
@@ -36,7 +36,7 @@ mixin spells-edit(spine)
         .spell
           - const [name, att1, att2, accuracy] = spine.spells.delete;
           each field in spine.spells.hidden
-            +chimera-hidden(field)
+            +chimera-hidden(field, 0)
 
           +chimera-value(name)
 
