@@ -12,37 +12,37 @@
         css: { names: ['settings__roll_mods'], modifiers: [] },
       },
       {
+        name: 'money_name',
+        label: 'Currency Name',
+        type: 'text',
+        value: 'zenit',
+        css: { names: ['settings__money_name'], modifiers: ['row-reverse', 'small'] },
+      },
+      {
         name: 'enable_quirk',
         label: 'Enable Quirks',
         type: 'toggle',
-        css: { names: ['settings__quirk'], modifiers: [] },
+        css: { names: ['settings__quirk', 'setting--disabled'], modifiers: [] },
       },
       {
         name: 'enable_zero_powers',
         label: 'Enable Zero Powers',
         type: 'toggle',
-        css: { names: ['settings__zero_powers'], modifiers: [] },
+        css: { names: ['settings__zero_powers', 'setting--disabled'], modifiers: [] },
       },
       {
         name: 'automatic_mp',
         label: 'Automatic MP Use',
         title: 'Automatically subtract MP when casting spells and rituals',
         type: 'toggle',
-        css: { names: ['settings__automatic_mp'], modifiers: [] },
+        css: { names: ['settings__automatic_mp', 'setting--disabled'], modifiers: [] },
       },
       {
         name: 'dual_shieldbearer',
         label: 'Dual Shieldbearer',
         title: 'You can equip two shields',
         type: 'toggle',
-        css: { names: ['settings__money_name'], modifiers: [] },
-      },
-      {
-        name: 'money_name',
-        label: 'Currency Name',
-        type: 'text',
-        value: 'zenit',
-        css: { names: ['settings__money_name'], modifiers: ['flex-row', 'small'] },
+        css: { names: ['settings__money_name', 'setting--disabled'], modifiers: [] },
       },
     ]
   }

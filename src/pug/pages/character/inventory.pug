@@ -43,3 +43,64 @@ mixin inventory-edit(spine)
             +chimera-hidden(field)
           each field in spine.inventory.repeating
             +chimera-input(field)
+
+mixin projects-view(spine)
+  +chimera-hidden('projects_empty').chimera-repeater--empty-hide-next
+  .projects
+    +fabula-heading-view('projects', spine.projects.heading)
+    +chimera-repeater('projects')
+      +chimera-block('view')
+        .project
+          - const project = fieldDictionary(spine.projects.view, 'project');
+          +chimera-value(project.name)
+
+          +chimera-arithmetic-block(project.clock)
+            +chimera-value(project.clock)
+            span /
+            +chimera-value(project.clock_max)
+
+          +chimera-value(project.cost)
+          +send-to-chat('project')
+          +chimera-value(project.special)
+
+mixin projects-edit(spine)
+  .projects
+    +fabula-heading-edit('projects', spine.projects.heading)
+    +chimera-repeater('projects')
+      +chimera-block('delete')
+        .project
+          - const [name] = spine.projects.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .project
+          each field in spine.projects.hidden
+            +chimera-hidden(field)
+          each field in spine.projects.fields
+            +chimera-input(field)
+
+mixin items-view(spine)
+  +chimera-hidden('items_empty').chimera-repeater--empty-hide-next
+  .items
+    +fabula-heading-view('items', spine.items.heading)
+    +chimera-repeater('items')
+      +chimera-block('view')
+        .item
+          - const item = fieldDictionary(spine.items.view, 'item');
+          +chimera-value(item.name)
+          +send-to-chat('item')
+          +chimera-value(item.effect)
+
+mixin items-edit(spine)
+  .items
+    +fabula-heading-edit('items', spine.items.heading)
+    +chimera-repeater('items')
+      +chimera-block('delete')
+        .item
+          - const [name] = spine.items.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .item
+          each field in spine.items.hidden
+            +chimera-hidden(field)
+          each field in spine.items.fields
+            +chimera-input(field)

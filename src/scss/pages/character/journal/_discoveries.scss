@@ -24,7 +24,7 @@
     &--view {
       .discovery {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+        grid-template-columns: 1fr var(--button-component-size);
         align-items: center;
         gap: 4px;
 

@@ -24,7 +24,7 @@
     &--view {
       .project {
         display: grid;
-        grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+        grid-template-columns: 1fr 1fr auto var(--button-component-size);
         align-items: center;
         gap: 4px;
 
@@ -32,6 +32,16 @@
           .chimera-value {
             &__value {
               @include mixins.text-lg-700;
+            }
+          }
+        }
+
+        &__cost {
+          .chimera-value {
+            &__value {
+              &::after {
+                content: ' z';
+              }
             }
           }
         }
@@ -47,7 +57,12 @@
     &--edit {
       .project {
         display: grid;
+        grid-template-columns: 1fr auto auto;
         gap: 4px;
+
+        &__special {
+          grid-column: 1/-1;
+        }
       }
     }
   }

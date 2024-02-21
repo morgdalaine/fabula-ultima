@@ -30,7 +30,18 @@ on('change:defense_extra change:magic_defense_extra', () => {
 
 Object.keys(BUTTON_ACTIONS).forEach((key) => {
   on(listeners(BUTTON_ACTIONS[key], 'clicked'), (eventInfo) => {
-    const [attr, control, direction] = eventInfo.triggerName.substring(8).split('-');
-    updatePoints(attr, direction);
+    if (eventInfo.sourceType === 'sheetworker') return;
+
+    const control =
+      eventInfo.triggerName.split('-').at(-1).toUpperCase() === 'ADD'
+        ? ControlEnum.ADD
+        : ControlEnum.SUBTRACT;
+
+    if (key === 'project') {
+      const rowId = RepeatingModule.getRepId(eventInfo.sourceAttribute);
+      return advanceProjectClock(rowId, control);
+    }
+
+    updatePoints(key, control);
   });
 });

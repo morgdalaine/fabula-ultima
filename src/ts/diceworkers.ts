@@ -66,13 +66,6 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
         return 'spell_';
       case 'ritual':
         return 'ritual_';
-      case 'bond1':
-      case 'bond2':
-      case 'bond3':
-      case 'bond4':
-      case 'bond5':
-      case 'bond6':
-        return `${key}_`;
       case 'skill1':
       case 'skill2':
       case 'skill3':
@@ -80,6 +73,14 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'skill5':
       case 'skill6':
         return `class_${key}_`;
+      case 'bond1':
+      case 'bond2':
+      case 'bond3':
+      case 'bond4':
+      case 'bond5':
+      case 'bond6':
+      case 'project':
+        return `${key}_`;
     }
   })();
 
@@ -306,6 +307,21 @@ const inventoryTemplate = (item: string, values: { [key: string]: string }) => {
   return template;
 };
 
+const projectTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+  console.log(values);
+
+  template.name = values.name;
+  template.subtitle = `${values.clock} / ${values.clock_max}`;
+
+  template.cost = values.cost;
+  template.special = values.special;
+
+  template.action = getTranslation('projects', undefined);
+
+  return template;
+};
+
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -349,6 +365,8 @@ const sendToChat = async (chat: string, id: string) => {
         case 'elementalshard':
         case 'magictent':
           return inventoryTemplate(chat, data);
+        case 'project':
+          return projectTemplate(data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':

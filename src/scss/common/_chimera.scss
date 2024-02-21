@@ -14,6 +14,14 @@
         align-self: center;
       }
     }
+    &--row-reverse {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+
+      .chimera-input__label {
+        align-self: center;
+      }
+    }
     &--center {
       display: flex;
       align-items: center;
@@ -308,6 +316,17 @@
   }
 
   .chimera-arithmetic {
+    &--small {
+      .chimera-arithmetic {
+        &__add,
+        &__subtract,
+        &__button {
+          width: var(--icon-component-size);
+          height: var(--icon-component-size);
+        }
+      }
+    }
+
     display: flex;
     gap: 2px;
     align-items: center;

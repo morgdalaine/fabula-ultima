@@ -28,6 +28,11 @@
               text-transform: capitalize;
             }
           }
+
+          img,
+          svg {
+            image-rendering: pixelated;
+          }
         }
         &__ip {
           padding: 4px;

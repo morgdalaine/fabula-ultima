@@ -72,16 +72,34 @@ mixin chimera-checkbox(blob)
 mixin chimera-hidden(field, value)
   input.chimera-hidden(name=`attr_${field}`, type='hidden', value=value)&attributes(attributes)
 
-mixin chimera-arithmetic(blob)
+mixin chimera-arithmetic-block(blob)
   - const namespace = 'chimera-arithmetic';
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const act = blob.name.replace('_', '-');
   - const attr = `attr_${blob.name}`;
   - const blobTitle = blob.title ?? blob.label;
   - const inputClass = `${namespace}__field`;
 
   div(class=css)
-    label.chimera-arithmetic__label(data-i18n=blob.name, for=blob.name)= blob.label
-    button.chimera-arithmetic__subtract(name=`act_${blob.name}-subtract`, type='action')
+    if blob.label
+      label.chimera-arithmetic__label(data-i18n=blob.name, for=blob.name)= blob.label
+    button.chimera-arithmetic__subtract(name=`act_${act}-subtract`, type='action')
+      +chimera-icon({ icon: 'minus' })
+    block
+    button.chimera-arithmetic__add(name=`act_${act}-add`, type='action')
+      +chimera-icon({ icon: 'plus' })
+
+mixin chimera-arithmetic(blob)
+  - const namespace = 'chimera-arithmetic';
+  - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
+  - const act = blob.name.replace('_', '-');
+  - const attr = `attr_${blob.name}`;
+  - const blobTitle = blob.title ?? blob.label;
+  - const inputClass = `${namespace}__field`;
+  div(class=css)
+    if blob.label
+      label.chimera-arithmetic__label(data-i18n=blob.name, for=blob.name)= blob.label
+    button.chimera-arithmetic__subtract(name=`act_${act}-subtract`, type='action')
       +chimera-icon({ icon: 'minus' })
     input(
       class=inputClass,
@@ -95,7 +113,7 @@ mixin chimera-arithmetic(blob)
       type='number',
       value=blob.value
     )
-    button.chimera-arithmetic__add(name=`act_${blob.name}-add`, type='action')
+    button.chimera-arithmetic__add(name=`act_${act}-add`, type='action')
       +chimera-icon({ icon: 'plus' })
 
 mixin chimera-input-element(blob)

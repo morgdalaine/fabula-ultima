@@ -8,9 +8,20 @@
 
       @include mixins.fabula-heading;
 
-      &--edit {
+      &--edit,
+      &--view {
         display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 4px;
+
+        .setting {
+          &--disabled {
+            opacity: 0.5;
+            span {
+              text-decoration: line-through;
+            }
+          }
+        }
       }
     }
   }

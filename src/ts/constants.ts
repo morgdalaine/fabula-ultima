@@ -1,12 +1,14 @@
 const NAVBAR = [
-  'stats',
+  'backpack',
   'bonds',
   'classes',
+  'conflict',
   'equipment',
-  'backpack',
-  'magic',
   'journal',
+  'magic',
+  'meta',
   'settings',
+  'stats',
 ];
 
 const REPEATING = [
@@ -203,6 +205,12 @@ const ATTR_WATCH: Record<string, string[]> = {
     `bond${bond}_fondness`,
   ]),
 
+  projects: [
+    'repeating_projects:project_cost',
+    'repeating_projects:project_clock',
+    'repeating_projects:project_clock_max',
+  ],
+
   basic_attacks: [
     'sheet_type',
     'level',
@@ -301,6 +309,7 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
   hp: ['hp-control-add', 'hp-control-subtract'],
   mp: ['mp-control-add', 'mp-control-subtract'],
   ip: ['ip-control-add', 'ip-control-subtract'],
+  project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
 };
 
 const CLICK_LISTENERS: Record<string, string> = {
@@ -323,6 +332,8 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_classes:skill4chat': 'skill4',
   'repeating_classes:skill5chat': 'skill5',
   'repeating_classes:skill6chat': 'skill6',
+  'repeating_projects:projectchat': 'project',
+  // TODO repeating rolls to chat
   // 'repeating_rolls:check': 'check',
   'armorchat': 'armorchat',
   'shieldchat': 'shieldchat',
@@ -486,6 +497,13 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'check_attr1',
     'check_attr2',
     'check_description',
+  ],
+  project: [
+    'project_name',
+    'project_cost',
+    'project_clock',
+    'project_clock_max',
+    'project_special',
   ],
 };
 SEND_TO_CHAT.study10 = [

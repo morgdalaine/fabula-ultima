@@ -41,8 +41,16 @@ const handleCalculations = (attr: string, eventInfo: EventInfo) => {
 
     case 'villain':
       return makeVillainString();
+
+    case 'projects':
+      return calculateProjectClock(eventInfo);
   }
 };
+
+enum ControlEnum {
+  ADD = +1,
+  SUBTRACT = -1,
+}
 
 const isFieldEmpty = (attr: string, request: string[]) => {
   getAttrs(request, (v) => {
@@ -64,6 +72,42 @@ const makeVillainString = () => {
       (memo: string, val) => (val ? memo + (memo.length ? ' ⬥ ' : '') + val : memo),
       ''
     );
+
+    setAttrs(update, { silent: true });
+  });
+};
+
+const calculateProjectClock = (eventInfo: EventInfo) => {
+  if (eventInfo.sourceType === 'sheetworker') return;
+  const rowId = RepeatingModule.getRepId(eventInfo.sourceAttribute);
+  const request = ATTR_WATCH.projects.map((attr) => attr.replace(':', `_${rowId}_`));
+
+  const prefix = `repeating_projects_${rowId}_project_`;
+  getAttrs(request, (v) => {
+    const update: Record<string, any> = {};
+    const cost = +v[prefix + 'cost'] || 0;
+
+    const clock = +v[prefix + 'clock'] || 0;
+    const clock_max = Math.floor(cost / 100);
+
+    update[prefix + 'clock_max'] = clock_max;
+    if (clock > clock_max) {
+      update[prefix + 'clock'] = clock_max;
+    }
+
+    setAttrs(update, { silent: true });
+  });
+};
+
+const advanceProjectClock = (rowId: string, change: ControlEnum) => {
+  const request = ATTR_WATCH.projects.map((attr) => attr.replace(':', `_${rowId}_`));
+  const prefix = `repeating_projects_${rowId}_project_`;
+  getAttrs(request, (v) => {
+    const update: Record<string, any> = {};
+    const clock = +v[prefix + 'clock'] || 0;
+    const clock_max = +v[prefix + 'clock_max'] || 0;
+
+    update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + change));
 
     setAttrs(update, { silent: true });
   });
@@ -190,13 +234,11 @@ const calculateUltimaPoints = () => {
   });
 };
 
-const updatePoints = (attr: string, direction: string) => {
+const updatePoints = (attr: string, sign: ControlEnum) => {
   getAttrs([attr, `${attr}_max`, `${attr}-control`], (v) => {
     const xp: number = +v[attr] || 0;
     const xp_max: number = +v[`${attr}_max`] || 0;
     const xp_control: number = +v[`${attr}-control`] || 0;
-
-    const sign: number = direction === 'add' ? 1 : -1;
 
     const update = Math.max(0, Math.min(xp_max, xp + xp_control * sign));
     setAttrs({ [attr]: update, [`${attr}-control`]: 1 }, { silent: true });

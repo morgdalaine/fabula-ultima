@@ -75,66 +75,6 @@
     ],
   }
 
-  spine.character.projects = {
-    heading: {
-      name: 'projects',
-      label: 'Projects',
-    },
-    hidden: [],
-    view: [
-      {
-        name: 'project_name',
-        css: { names: ['project__name'], modifiers:  ['no-label-bold'] },
-      },
-      {
-        name: 'project_cost',
-        label: 'Cost',
-        css: { names: ['project__cost'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'project_clock',
-        label: 'Clock',
-        css: { names: ['project__clock'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'project_special',
-        css: { names: ['project__special'], modifiers: [] },
-      },
-    ],
-    delete: [
-      {
-        name: 'project_name',
-        css: { names: ['project__name'], modifiers: [] },
-      },
-    ],
-    fields: [
-      {
-        name: 'project_name',
-        label: 'Project',
-        type: 'text',
-        css: { names: ['project__name'] },
-      },
-      {
-        name: 'project_cost',
-        label: 'Cost',
-        type: 'number',
-        css: { names: ['project__cost'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'project_clock',
-        label: 'Clock',
-        type: 'number',
-        css: { names: ['project__clock'], modifiers: ['small', 'center'] },
-      },
-      {
-        name: 'project_special',
-        label: 'Details',
-        type: 'textarea',
-        css: { names: ['project__special'] },
-      },
-    ],
-  }
-
   spine.character.friends = {
     heading: {
       name: 'friends',
@@ -321,44 +261,6 @@
         label: 'Details',
         type: 'textarea',
         css: { names: ['discovery__effect'] },
-      },
-    ],
-  }
-
-  spine.character.items = {
-    heading: {
-      name: 'items',
-      label: 'Items',
-    },
-    hidden: [],
-    view: [
-      {
-        name: 'item_name',
-        css: { names: ['item__name'], modifiers:  ['no-label-bold'] },
-      },
-      {
-        name: 'item_effect',
-        css: { names: ['item__effect'], modifiers: [] },
-      },
-    ],
-    delete: [
-      {
-        name: 'item_name',
-        css: { names: ['item__name'], modifiers: [] },
-      },
-    ],
-    fields: [
-      {
-        name: 'item_name',
-        label: 'Item',
-        type: 'text',
-        css: { names: ['item__name'] },
-      },
-      {
-        name: 'item_effect',
-        label: 'Details',
-        type: 'textarea',
-        css: { names: ['item__effect'] },
       },
     ],
   }

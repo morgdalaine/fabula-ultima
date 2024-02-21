@@ -18,7 +18,8 @@
     $this: '.character';
 
     // navigation
-    $pages: 'stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal', 'settings';
+    $pages: 'backpack', 'bonds', 'classes', 'conflict', 'equipment', 'journal', 'magic', 'meta',
+      'settings', 'stats';
     @each $page in $pages {
       &__#{$page} {
         display: none;
@@ -54,8 +55,18 @@
 
       .character {
         &__controls {
+          // Always on display
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__controls,
+        &__meta,
+        &__conflict,
+        &__backpack,
+        &__classes,
+        &__journal,
+        &__settings {
           gap: 4px;
           padding: 0 4px;
         }

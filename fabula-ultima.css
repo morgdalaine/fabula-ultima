@@ -323,6 +323,13 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-input--flex-row .chimera-input__label {
   align-self: center;
 }
+.fabula-ultima .chimera-input--row-reverse {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.fabula-ultima .chimera-input--row-reverse .chimera-input__label {
+  align-self: center;
+}
 .fabula-ultima .chimera-input--center {
   display: flex;
   align-items: center;
@@ -757,6 +764,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: -webkit-fill-available;
   width: -moz-available;
   width: stretch;
+}
+.fabula-ultima .chimera-arithmetic--small .chimera-arithmetic__add, .fabula-ultima .chimera-arithmetic--small .chimera-arithmetic__subtract, .fabula-ultima .chimera-arithmetic--small .chimera-arithmetic__button {
+  width: var(--icon-component-size);
+  height: var(--icon-component-size);
 }
 .fabula-ultima .chimera-arithmetic__label {
   font-family: var(--font-title);
@@ -3189,10 +3200,22 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .settings .chimera-repeater--simple {
   overflow: hidden;
 }
-.fabula-ultima .bestiary .settings--edit,
-.fabula-ultima .character .settings--edit {
+.fabula-ultima .bestiary .settings--edit, .fabula-ultima .bestiary .settings--view,
+.fabula-ultima .character .settings--edit,
+.fabula-ultima .character .settings--view {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 4px;
+}
+.fabula-ultima .bestiary .settings--edit .setting--disabled, .fabula-ultima .bestiary .settings--view .setting--disabled,
+.fabula-ultima .character .settings--edit .setting--disabled,
+.fabula-ultima .character .settings--view .setting--disabled {
+  opacity: 0.5;
+}
+.fabula-ultima .bestiary .settings--edit .setting--disabled span, .fabula-ultima .bestiary .settings--view .setting--disabled span,
+.fabula-ultima .character .settings--edit .setting--disabled span,
+.fabula-ultima .character .settings--view .setting--disabled span {
+  text-decoration: line-through;
 }
 
 .fabula-ultima .bestiary .statistics--view,
@@ -4582,6 +4605,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 700;
   text-transform: capitalize;
 }
+.fabula-ultima .character .fabula-points--view .item__money img,
+.fabula-ultima .character .fabula-points--view .item__money svg,
+.fabula-ultima .character .inventory--view .item__money img,
+.fabula-ultima .character .inventory--view .item__money svg {
+  image-rendering: pixelated;
+}
 .fabula-ultima .character .fabula-points--view .item__ip,
 .fabula-ultima .character .inventory--view .item__ip {
   padding: 4px;
@@ -5323,7 +5352,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .notes--view .note {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5405,7 +5434,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .quests--view .quest {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5487,7 +5516,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .projects--view .project {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr 1fr auto var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5497,6 +5526,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+}
+.fabula-ultima .character .projects--view .project__cost .chimera-value__value::after {
+  content: " z";
 }
 .fabula-ultima .character .projects--view .project__special, .fabula-ultima .character .projects--view .project__effect {
   grid-column: 1/-1;
@@ -5508,7 +5540,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .projects--edit .project {
   display: grid;
+  grid-template-columns: 1fr auto auto;
   gap: 4px;
+}
+.fabula-ultima .character .projects--edit .project__special {
+  grid-column: 1/-1;
 }
 
 .fabula-ultima .character .friends__heading--edit .chimera-toggle, .fabula-ultima .character .friends__heading--view .chimera-toggle {
@@ -5569,7 +5605,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .friends--view .friend {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5651,7 +5687,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .creatures--view .creature {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5733,7 +5769,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .locations--view .location {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5815,7 +5851,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .artifacts--view .artifact {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5897,7 +5933,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .discoveries--view .discovery {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5979,7 +6015,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .items--view .item {
   display: grid;
-  grid-template-columns: var(--icon-component-size) 1fr var(--button-component-size);
+  grid-template-columns: 1fr var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -6003,105 +6039,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .character .journal__heading--edit .chimera-toggle, .fabula-ultima .character .journal__heading--view .chimera-toggle {
-  margin-left: auto;
-}
-.fabula-ultima .character .journal__heading--edit {
-  grid-column: 1/-1;
-  display: flex;
-  font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  text-transform: uppercase;
-  text-transform: capitalize;
-}
-.fabula-ultima .character .journal__heading--view {
-  grid-column: 1/-1;
-  display: flex;
-  background-image: var(--fabula-gradient-secondary);
-  color: var(--color-on-dark);
-  padding-inline-start: 16px;
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-.fabula-ultima .character .journal--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .journal--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .character .journal--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .journal--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .journal--view .chimera-wrapper,
-.fabula-ultima .character .journal--view .chimera-repeater--simple, .fabula-ultima .character .journal--edit .chimera-wrapper,
-.fabula-ultima .character .journal--edit .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .journal:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .journal:has(input[name*=collapse]:checked) .chimera-repeater--simple {
-  height: 0;
-}
-.fabula-ultima .character .journal .chimera-repeater,
-.fabula-ultima .character .journal .chimera-repeater--simple {
-  overflow: hidden;
-}
-.fabula-ultima .character .journal--view .journal__notes, .fabula-ultima .character .journal--view .journal__quests, .fabula-ultima .character .journal--view .journal__projects, .fabula-ultima .character .journal--view .journal__friends, .fabula-ultima .character .journal--view .journal__creatures, .fabula-ultima .character .journal--view .journal__locations, .fabula-ultima .character .journal--view .journal__artifacts, .fabula-ultima .character .journal--view .journal__discoveries, .fabula-ultima .character .journal--view .journal__items {
-  display: grid;
-  grid-template-columns: 1fr var(--button-component-size);
-  align-items: center;
-  gap: 4px;
-}
-.fabula-ultima .character .journal--view .journal__notes .send-to-chat, .fabula-ultima .character .journal--view .journal__quests .send-to-chat, .fabula-ultima .character .journal--view .journal__projects .send-to-chat, .fabula-ultima .character .journal--view .journal__friends .send-to-chat, .fabula-ultima .character .journal--view .journal__creatures .send-to-chat, .fabula-ultima .character .journal--view .journal__locations .send-to-chat, .fabula-ultima .character .journal--view .journal__artifacts .send-to-chat, .fabula-ultima .character .journal--view .journal__discoveries .send-to-chat, .fabula-ultima .character .journal--view .journal__items .send-to-chat {
-  margin-left: auto;
-}
-.fabula-ultima .character .journal--view .journal .note__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .quest__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .project__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .friend__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .creature__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .location__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .artifact__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .discovery__name .chimera-value__value,
-.fabula-ultima .character .journal--view .journal .item__name .chimera-value__value {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-.fabula-ultima .character .journal--view .journal .note__special, .fabula-ultima .character .journal--view .journal .note__effect,
-.fabula-ultima .character .journal--view .journal .quest__special,
-.fabula-ultima .character .journal--view .journal .quest__effect,
-.fabula-ultima .character .journal--view .journal .project__special,
-.fabula-ultima .character .journal--view .journal .project__effect,
-.fabula-ultima .character .journal--view .journal .friend__special,
-.fabula-ultima .character .journal--view .journal .friend__effect,
-.fabula-ultima .character .journal--view .journal .creature__special,
-.fabula-ultima .character .journal--view .journal .creature__effect,
-.fabula-ultima .character .journal--view .journal .location__special,
-.fabula-ultima .character .journal--view .journal .location__effect,
-.fabula-ultima .character .journal--view .journal .artifact__special,
-.fabula-ultima .character .journal--view .journal .artifact__effect,
-.fabula-ultima .character .journal--view .journal .discovery__special,
-.fabula-ultima .character .journal--view .journal .discovery__effect,
-.fabula-ultima .character .journal--view .journal .item__special,
-.fabula-ultima .character .journal--view .journal .item__effect {
-  grid-column: 1/-1;
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
-
-.fabula-ultima .character__stats {
+.fabula-ultima .character__backpack {
   display: none;
   grid-column: 1/-1;
 }
-.fabula-ultima .character input[name*=nav][value=stats] ~ * .character__stats {
+.fabula-ultima .character input[name*=nav][value=backpack] ~ * .character__backpack {
   display: grid;
   gap: 4px;
 }
@@ -6121,27 +6063,19 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
+.fabula-ultima .character__conflict {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=conflict] ~ * .character__conflict {
+  display: grid;
+  gap: 4px;
+}
 .fabula-ultima .character__equipment {
   display: none;
   grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=equipment] ~ * .character__equipment {
-  display: grid;
-  gap: 4px;
-}
-.fabula-ultima .character__backpack {
-  display: none;
-  grid-column: 1/-1;
-}
-.fabula-ultima .character input[name*=nav][value=backpack] ~ * .character__backpack {
-  display: grid;
-  gap: 4px;
-}
-.fabula-ultima .character__magic {
-  display: none;
-  grid-column: 1/-1;
-}
-.fabula-ultima .character input[name*=nav][value=magic] ~ * .character__magic {
   display: grid;
   gap: 4px;
 }
@@ -6153,11 +6087,35 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
+.fabula-ultima .character__magic {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=magic] ~ * .character__magic {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .character__meta {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=meta] ~ * .character__meta {
+  display: grid;
+  gap: 4px;
+}
 .fabula-ultima .character__settings {
   display: none;
   grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=settings] ~ * .character__settings {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .character__stats {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=stats] ~ * .character__stats {
   display: grid;
   gap: 4px;
 }
@@ -6178,6 +6136,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character--view .character__controls {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+.fabula-ultima .character--view .character__controls, .fabula-ultima .character--view .character__meta, .fabula-ultima .character--view .character__conflict, .fabula-ultima .character--view .character__backpack, .fabula-ultima .character--view .character__classes, .fabula-ultima .character--view .character__journal, .fabula-ultima .character--view .character__settings {
   gap: 4px;
   padding: 0 4px;
 }

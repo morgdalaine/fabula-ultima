@@ -21,27 +21,39 @@ mixin character-view(spine)
       +status-effects-view(spine)
       +controllers-view(spine)
 
-    // TODO tab navigation
+    +navbar-view(spine)
 
-    +rolls-view(spine)
+    .character__meta
+      +bonds-view(spine)
+      +fabula-points-view(spine)
+      +experience-points-view(spine)
 
-    +bonds-view(spine)
-    +fabula-points-view(spine)
-    +experience-points-view(spine)
+    .character__conflict
+      +rolls-view(spine)
+      +weapons-view(spine)
+      +spells-view(spine)
+      +rituals-view(spine)
 
-    +weapons-view(spine)
-    +spells-view(spine)
-    +rituals-view(spine)
+    .character__backpack
+      +inventory-view(spine)
+      +equipment-view(spine)
+      +projects-view(spine)
+      +items-view(spine)
 
-    // TODO view Backpack
-    // TODO view Journal
-    +equipment-view(spine)
+    .character__classes
+      +classes-view(spine)
 
-    +inventory-view(spine)
+    .character__journal
+      +notes-view(spine)
+      +quests-view(spine)
+      +friends-view(spine)
+      +creatures-view(spine)
+      +locations-view(spine)
+      +artifacts-view(spine)
+      +discoveries-view(spine)
 
-    +classes-view(spine)
-
-    +journal-view(spine)
+    .character__settings
+      +settings(spine)
 
 mixin character-edit(spine)
   section.character--edit
