@@ -120,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: block !important;
 }
 .ui-dialog .charsheet .repcontainer.editmode + .repcontrol button.repcontrol_edit::before {
-  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock-open.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
@@ -194,7 +194,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_edit::before {
-  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock-open.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
