@@ -1,5 +1,5 @@
 mixin quirks-view(spine)
-  +chimera-hidden('enable_quirk').chimera-repeater--empty-hide-next
+  +chimera-hidden('enable_quirks').chimera-repeater--empty-hide-next
   .quirks--view
     +fabula-heading-view('quirks', { name: 'quirks', label: 'Quirks' })
     .chimera-wrapper
@@ -13,7 +13,7 @@ mixin quirks-view(spine)
         +chimera-value(quirk.effect)
 
 mixin quirks-edit(spine)
-  +chimera-hidden('enable_quirk').chimera-repeater--empty-hide-next
+  +chimera-hidden('enable_quirks').chimera-repeater--empty-hide-next
   .quirks--edit
     each field in spine.quirks.fields
       +chimera-input(field)

@@ -4,16 +4,18 @@
   "authors": "Aurélien \"Wagi\" Chabani, Nohan \"Tozio\" Palasse, Corentin \"Rezay\" Ciret, Marcos Eduardo Crivellaro (a.k.a Alastor), morgdalaine",
   "roll20userid": "4842841, 1020021, 1470591, 590534, 61327",
   "preview": "fabula-ultima.png",
-  "instructions": "Fabula Ultima RPG character sheet",
+  "instructions": "The Unofficial Roll20 Fabula Ultima TTJRPG character sheet",
   "useroptions": [
     {
       "attribute": "roll_mods",
       "displayName": "Ask for Accuracy Check Modifiers",
       "displaytranslationkey": "roll_mods",
-      "type": "checkbox",
-      "value": "on",
+      "type": "select",
+      "options": ["off|0", "on|on"],
+      "optiontranslationkeys": ["off", "on"],
+      "default": "on",
       "description": "This will toggle accuracy modifiers for accuracy checks.",
-      "descriptiontranslationkey": "settings_roll_mods"
+      "descriptiontranslationkey": "settings_roll_mods_desc"
     },
     {
       "attribute": "money_name",
@@ -23,6 +25,17 @@
       "default": "zenit",
       "description": "This will set the default currency name for all characters.",
       "descriptiontranslationkey": "settings_money_name_desc"
+    },
+    {
+      "attribute": "enable_quirks",
+      "displayName": "Enable Quirks",
+      "displaytranslationkey": "enable_quirks",
+      "type": "select",
+      "options": ["off|0", "on|on"],
+      "optiontranslationkeys": ["off", "on"],
+      "default": "0",
+      "description": "This will enable the use of Quirks in your game.",
+      "descriptiontranslationkey": "settings_enable_quirks_desc"
     }
   ]
 }
