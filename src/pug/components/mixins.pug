@@ -28,7 +28,7 @@ mixin send-to-chat(attr, title)
     span(data-i18n='send_to_chat') Send to Chat
 
 mixin toggle-collapse(attr)
-  - const css = { modifiers: ['hidden-label', 'tiny'] };
+  - const css = { modifiers: ['hide-label', 'tiny'] };
   +chimera-toggle({ name: `${attr}_collapse`, label: `Toggle ${attr}`, icon: 'expand', iconOff: 'collapse', css: css })
 
 mixin fabula-heading-view(attr, heading, toggle=true)

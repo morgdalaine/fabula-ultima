@@ -6,10 +6,12 @@ include components/mixins
 +chimera-hidden('sheet_migrations', '')
 +chimera-hidden('sheet_type', 'character')
 +chimera-hidden(spine.shared.modes.name, 'on')
++chimera-hidden('show_settings')
 .fabula-ultima
   header.fabula-ultima__header
     +chimera-input(spine.shared.modes, 0)
     +chimera-input(spine.gm.sheet)
+    +chimera-input(spine.shared.settings.button)
 
   main.character
     include pages/character
@@ -22,6 +24,9 @@ include components/mixins
     +bestiary-edit(spine.bestiary)
   main.gm
     span [GM]
+
+  aside.settings
+    +settings(spine.shared)
 
   footer
     +chimera-value({ name: 'sheet_version', label: 'Version' })

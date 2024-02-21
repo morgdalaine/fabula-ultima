@@ -9,13 +9,24 @@
     grid-template-columns: auto 1fr auto;
     justify-content: space-between;
 
+    display: flex;
+
     margin-inline: 8px;
 
     max-width: 45rem;
 
+    .sheet-mode,
+    .sheet-type,
+    .sheet-settings {
+      width: fit-content;
+      span,
+      label {
+        white-space: nowrap;
+      }
+    }
+
     .sheet-type {
-      grid-column: -1;
-      justify-content: flex-end;
+      margin-left: auto;
     }
   }
 }

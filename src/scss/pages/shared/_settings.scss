@@ -1,25 +1,30 @@
 @use '../../common/vars' as mixins;
 
 .fabula-ultima {
-  .bestiary,
-  .character {
-    .settings {
-      $this: '.settings';
+  .settings {
+    $this: '.settings';
+    @include mixins.fabula-heading;
 
-      @include mixins.fabula-heading;
+    display: none;
 
-      &--edit,
-      &--view {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4px;
+    &--view {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
 
-        .setting {
-          &--disabled {
-            opacity: 0.5;
-            span {
-              text-decoration: line-through;
-            }
+      // min-width: $breakpoint-xs;
+      margin: 8px;
+      max-width: 45rem;
+      background-color: var(--suface-container-lowest);
+
+      box-shadow: var(--box-shadow-light);
+      border-radius: 4px;
+
+      .setting {
+        &--disabled {
+          opacity: 0.5;
+          span {
+            text-decoration: line-through;
           }
         }
       }

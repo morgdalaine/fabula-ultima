@@ -40,30 +40,40 @@ html .charsheet {
         }
       }
     }
+  }
 
-    input[name*='sheet_mode'] {
-      &[value='on'] {
-        ~ * .bestiary--edit,
-        ~ * .character--edit {
-          display: grid;
-        }
-        ~ * .bestiary--view,
-        ~ * .character--view {
-          display: none;
-        }
+  input[name*='show_settings'][value='on'] {
+    ~ * aside.settings {
+      display: grid;
+    }
+    ~ * main.bestiary,
+    ~ * main.character {
+      display: none;
+    }
+  }
+
+  input[name*='sheet_mode'] {
+    &[value='on'] {
+      ~ * .bestiary--edit,
+      ~ * .character--edit {
+        display: grid;
       }
+      ~ * .bestiary--view,
+      ~ * .character--view {
+        display: none;
+      }
+    }
 
-      &[value='0'],
-      &[value=''],
-      &:not([value]) {
-        ~ * .bestiary--edit,
-        ~ * .character--edit {
-          display: none;
-        }
-        ~ * .bestiary--view,
-        ~ * .character--view {
-          display: flex;
-        }
+    &[value='0'],
+    &[value=''],
+    &:not([value]) {
+      ~ * .bestiary--edit,
+      ~ * .character--edit {
+        display: none;
+      }
+      ~ * .bestiary--view,
+      ~ * .character--view {
+        display: flex;
       }
     }
   }

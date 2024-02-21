@@ -3,9 +3,10 @@
 <input class="chimera-hidden" name="attr_sheet_migrations" type="hidden" value=""/>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
 <input class="chimera-hidden" name="attr_sheet_mode" type="hidden" value="on"/>
+<input class="chimera-hidden" name="attr_show_settings" type="hidden"/>
 <div class="fabula-ultima">
   <header class="fabula-ultima__header">
-    <label class="chimera-checkbox sheet_mode" data-i18n-title="sheet_mode_title" title="Toggle edit mode">
+    <label class="chimera-checkbox sheet-mode" data-i18n-title="sheet_mode_title" title="Toggle edit mode">
       <div class="chimera-checkbox__field">
         <input id="sheet_mode" name="attr_sheet_mode" type="checkbox"/><img data-i18n-title="sheet_mode_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/feather.png" title="Toggle edit mode"/>
       </div><span class="chimera-checkbox__label" data-i18n="sheet_mode" for="sheet_mode">Edit</span>
@@ -18,6 +19,11 @@
         <option data-i18n="gm" value="gm">GM</option>
       </select>
     </div>
+    <label class="chimera-checkbox sheet-settings chimera-checkbox--hide-label" data-i18n-title="show_settings_title" title="Settings">
+      <div class="chimera-checkbox__field">
+        <input id="show_settings" name="attr_show_settings" type="checkbox"/><img data-i18n-title="show_settings_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toolbox.svg" title="Settings"/>
+      </div><span class="chimera-checkbox__label" data-i18n="show_settings" for="show_settings">Settings</span>
+    </label>
   </header>
   <main class="character">
     <input class="chimera-hidden" name="attr_nav" type="hidden" value="stats"/>
@@ -243,13 +249,11 @@
                 </button>
                 <button class="chimera-action" data-i18n-title="journal_title" name="act_journal" title="Journal" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="journal">Journal</span>
                 </button>
-                <button class="chimera-action" data-i18n-title="settings_title" name="act_settings" title="Settings" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="settings">Settings</span>
-                </button>
               </div>
           <div class="character__meta">
                 <div class="bonds--view">
                   <h2 class="bonds__heading--view"><span data-i18n="bonds">Bonds</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="bonds_collapse_title" title="Toggle bonds">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="bonds_collapse_title" title="Toggle bonds">
                       <div class="chimera-toggle__field">
                         <input id="bonds_collapse" name="attr_bonds_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="bonds_collapse" for="bonds_collapse">Toggle bonds</span>
@@ -356,7 +360,7 @@
                 </div>
                 <div class="fabula-points--view">
                   <h2 class="fabula-points__heading--view"><span data-i18n="fabula_points"></span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="fabula-points_collapse_title" title="Toggle fabula-points">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="fabula-points_collapse_title" title="Toggle fabula-points">
                       <div class="chimera-toggle__field">
                         <input id="fabula-points_collapse" name="attr_fabula-points_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="fabula-points_collapse" for="fabula-points_collapse">Toggle fabula-points</span>
@@ -398,7 +402,7 @@
                 </div>
                 <div class="experience-points--view">
                   <h2 class="experience-points__heading--view"><span data-i18n="experience_points"></span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="experience-points_collapse_title" title="Toggle experience-points">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="experience-points_collapse_title" title="Toggle experience-points">
                       <div class="chimera-toggle__field">
                         <input id="experience-points_collapse" name="attr_experience-points_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="experience-points_collapse" for="experience-points_collapse">Toggle experience-points</span>
@@ -424,7 +428,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
                 <div class="quirks--view">
                   <h2 class="quirks__heading--view"><span data-i18n="quirks">Quirks</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
                       <div class="chimera-toggle__field">
                         <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
@@ -449,7 +453,7 @@
           <div class="character__conflict">
                 <div class="rolls--view">
                   <h2 class="rolls__heading--view"><span data-i18n="frequently_used_checks">Frequently Used Checks</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
                       <div class="chimera-toggle__field">
                         <input id="rolls_collapse" name="attr_rolls_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="rolls_collapse" for="rolls_collapse">Toggle rolls</span>
@@ -535,7 +539,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_weapons_empty" type="hidden"/>
                 <div class="weapons">
                   <h2 class="weapons__heading--view"><span data-i18n="weapons">Weapons</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="weapons_collapse_title" title="Toggle weapons">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="weapons_collapse_title" title="Toggle weapons">
                       <div class="chimera-toggle__field">
                         <input id="weapons_collapse" name="attr_weapons_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="weapons_collapse" for="weapons_collapse">Toggle weapons</span>
@@ -580,7 +584,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_spells_empty" type="hidden"/>
                 <div class="spells">
                   <h2 class="spells__heading--view"><span data-i18n="spells">Spells</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="spells_collapse_title" title="Toggle spells">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="spells_collapse_title" title="Toggle spells">
                       <div class="chimera-toggle__field">
                         <input id="spells_collapse" name="attr_spells_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="spells_collapse" for="spells_collapse">Toggle spells</span>
@@ -635,7 +639,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_rituals_empty" type="hidden"/>
                 <div class="rituals rituals--view">
                   <h2 class="rituals__heading--view"><span data-i18n="rituals">Rituals</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="rituals_collapse_title" title="Toggle rituals">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="rituals_collapse_title" title="Toggle rituals">
                       <div class="chimera-toggle__field">
                         <input id="rituals_collapse" name="attr_rituals_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="rituals_collapse" for="rituals_collapse">Toggle rituals</span>
@@ -709,7 +713,7 @@
           <div class="character__backpack">
                 <div class="inventory--view">
                   <h2 class="inventory__heading--view"><span data-i18n="inventory">Inventory</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
                       <div class="chimera-toggle__field">
                         <input id="inventory_collapse" name="attr_inventory_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="inventory_collapse" for="inventory_collapse">Toggle inventory</span>
@@ -787,7 +791,7 @@
                 </div>
                 <div class="equipment--view">
                   <h2 class="equipment__heading--view"><span data-i18n="equipment">Equipment</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="equipment_collapse_title" title="Toggle equipment">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="equipment_collapse_title" title="Toggle equipment">
                       <div class="chimera-toggle__field">
                         <input id="equipment_collapse" name="attr_equipment_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="equipment_collapse" for="equipment_collapse">Toggle equipment</span>
@@ -800,7 +804,7 @@
                     <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
                     <fieldset class="repeating_weapons">
                       <div class="equipment__weapon">
-                        <label class="chimera-toggle weapon__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="weapon_is_equipped_title">
+                        <label class="chimera-toggle weapon__is_equipped chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="weapon_is_equipped_title">
                           <div class="chimera-toggle__field">
                             <input id="weapon_is_equipped" name="attr_weapon_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                           </div><span class="chimera-toggle__label" data-i18n="weapon_is_equipped" for="weapon_is_equipped"></span>
@@ -828,7 +832,7 @@
                       <div class="equipment__armor">
                         <input class="chimera-hidden" name="attr_armor_is_martial" type="hidden" value="0"/>
                         <input class="chimera-hidden" name="attr_armor_is_equipped" type="hidden" value="0"/>
-                        <label class="chimera-toggle armor__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="armor_is_equipped_title" title="Equip">
+                        <label class="chimera-toggle armor__is_equipped chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="armor_is_equipped_title" title="Equip">
                           <div class="chimera-toggle__field">
                             <input id="armor_is_equipped" name="attr_armor_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                           </div><span class="chimera-toggle__label" data-i18n="armor_is_equipped" for="armor_is_equipped">Equip</span>
@@ -861,7 +865,7 @@
                       <div class="equipment__shield">
                         <input class="chimera-hidden" name="attr_shield_is_martial" type="hidden" value="0"/>
                         <input class="chimera-hidden" name="attr_shield_is_equipped" type="hidden" value="0"/>
-                        <label class="chimera-toggle shield__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="shield_is_equipped_title">
+                        <label class="chimera-toggle shield__is_equipped chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="shield_is_equipped_title">
                           <div class="chimera-toggle__field">
                             <input id="shield_is_equipped" name="attr_shield_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                           </div><span class="chimera-toggle__label" data-i18n="shield_is_equipped" for="shield_is_equipped"></span>
@@ -891,7 +895,7 @@
                       <div class="equipment__accessory">
                         <input class="chimera-hidden" name="attr_accessory_is_martial" type="hidden" value="0"/>
                         <input class="chimera-hidden" name="attr_accessory_is_equipped" type="hidden" value="0"/>
-                        <label class="chimera-toggle accessory__is_equipped chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="accessory_is_equipped_title" title="Equip">
+                        <label class="chimera-toggle accessory__is_equipped chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="accessory_is_equipped_title" title="Equip">
                           <div class="chimera-toggle__field">
                             <input id="accessory_is_equipped" name="attr_accessory_is_equipped" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
                           </div><span class="chimera-toggle__label" data-i18n="accessory_is_equipped" for="accessory_is_equipped">Equip</span>
@@ -910,7 +914,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_projects_empty" type="hidden"/>
                 <div class="projects">
                   <h2 class="projects__heading--view"><span data-i18n="projects">Projects</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
                       <div class="chimera-toggle__field">
                         <input id="projects_collapse" name="attr_projects_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="projects_collapse" for="projects_collapse">Toggle projects</span>
@@ -958,7 +962,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_items_empty" type="hidden"/>
                 <div class="items">
                   <h2 class="items__heading--view"><span data-i18n="items">Other Items</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
                       <div class="chimera-toggle__field">
                         <input id="items_collapse" name="attr_items_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="items_collapse" for="items_collapse">Toggle items</span>
@@ -994,7 +998,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_classes_empty" type="hidden"/>
                 <div class="classes">
                   <h2 class="classes__heading--view"><span data-i18n="classes">Classes</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="classes_collapse_title" title="Toggle classes">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="classes_collapse_title" title="Toggle classes">
                       <div class="chimera-toggle__field">
                         <input id="classes_collapse" name="attr_classes_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="classes_collapse" for="classes_collapse">Toggle classes</span>
@@ -1017,7 +1021,7 @@
                             <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_benefit" type="hidden"/>
-                            <label class="chimera-toggle class__hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide Class">
+                            <label class="chimera-toggle class__hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide Class">
                               <div class="chimera-toggle__field">
                                 <input id="class_hide" name="attr_class_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                               </div><span class="chimera-toggle__label" data-i18n="class_hide" for="class_hide">Hide Class</span>
@@ -1035,7 +1039,7 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill1_level" type="hidden" value="0"/>
                             <div class="class__skill">
-                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
                                 <div class="chimera-toggle__field">
                                   <input id="class_skill1_hide" name="attr_class_skill1_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                                 </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill1_hide">Hide Class Skill</span>
@@ -1052,7 +1056,7 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill2_level" type="hidden" value="0"/>
                             <div class="class__skill">
-                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
                                 <div class="chimera-toggle__field">
                                   <input id="class_skill2_hide" name="attr_class_skill2_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                                 </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill2_hide">Hide Class Skill</span>
@@ -1069,7 +1073,7 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill3_level" type="hidden" value="0"/>
                             <div class="class__skill">
-                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
                                 <div class="chimera-toggle__field">
                                   <input id="class_skill3_hide" name="attr_class_skill3_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                                 </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill3_hide">Hide Class Skill</span>
@@ -1086,7 +1090,7 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill4_level" type="hidden" value="0"/>
                             <div class="class__skill">
-                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
                                 <div class="chimera-toggle__field">
                                   <input id="class_skill4_hide" name="attr_class_skill4_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                                 </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill4_hide">Hide Class Skill</span>
@@ -1103,7 +1107,7 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill5_level" type="hidden" value="0"/>
                             <div class="class__skill">
-                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
                                 <div class="chimera-toggle__field">
                                   <input id="class_skill5_hide" name="attr_class_skill5_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                                 </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill5_hide">Hide Class Skill</span>
@@ -1127,7 +1131,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_features_empty" type="hidden"/>
                 <div class="features">
                   <h2 class="features__heading--view"><span data-i18n="features">Class Features</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="features_collapse_title" title="Toggle features">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="features_collapse_title" title="Toggle features">
                       <div class="chimera-toggle__field">
                         <input id="features_collapse" name="attr_features_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="features_collapse" for="features_collapse">Toggle features</span>
@@ -1147,7 +1151,7 @@
                         <div class="chimera-repeater--view features--view">
                           <div class="feature">
                             <input class="chimera-hidden" name="attr_feature_hide" type="hidden"/>
-                            <label class="chimera-toggle feature__hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="feature_hide_title" title="Hide">
+                            <label class="chimera-toggle feature__hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="feature_hide_title" title="Hide">
                               <div class="chimera-toggle__field">
                                 <input id="feature_hide" name="attr_feature_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                               </div><span class="chimera-toggle__label" data-i18n="feature_hide" for="feature_hide">Hide</span>
@@ -1175,7 +1179,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_notes_empty" type="hidden"/>
                 <div class="notes">
                   <h2 class="notes__heading--view"><span data-i18n="notes">Notes</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="notes_collapse_title" title="Toggle notes">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="notes_collapse_title" title="Toggle notes">
                       <div class="chimera-toggle__field">
                         <input id="notes_collapse" name="attr_notes_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="notes_collapse" for="notes_collapse">Toggle notes</span>
@@ -1209,7 +1213,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_quests_empty" type="hidden"/>
                 <div class="quests">
                   <h2 class="quests__heading--view"><span data-i18n="quests">Quests</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="quests_collapse_title" title="Toggle quests">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quests_collapse_title" title="Toggle quests">
                       <div class="chimera-toggle__field">
                         <input id="quests_collapse" name="attr_quests_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="quests_collapse" for="quests_collapse">Toggle quests</span>
@@ -1243,7 +1247,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_friends_empty" type="hidden"/>
                 <div class="friends">
                   <h2 class="friends__heading--view"><span data-i18n="friends">Friends</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
                       <div class="chimera-toggle__field">
                         <input id="friends_collapse" name="attr_friends_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="friends_collapse" for="friends_collapse">Toggle friends</span>
@@ -1277,7 +1281,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_creatures_empty" type="hidden"/>
                 <div class="creatures">
                   <h2 class="creatures__heading--view"><span data-i18n="creatures">Creatures</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="creatures_collapse_title" title="Toggle creatures">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="creatures_collapse_title" title="Toggle creatures">
                       <div class="chimera-toggle__field">
                         <input id="creatures_collapse" name="attr_creatures_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="creatures_collapse" for="creatures_collapse">Toggle creatures</span>
@@ -1311,7 +1315,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_locations_empty" type="hidden"/>
                 <div class="locations">
                   <h2 class="locations__heading--view"><span data-i18n="locations">Locations</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="locations_collapse_title" title="Toggle locations">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="locations_collapse_title" title="Toggle locations">
                       <div class="chimera-toggle__field">
                         <input id="locations_collapse" name="attr_locations_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="locations_collapse" for="locations_collapse">Toggle locations</span>
@@ -1345,7 +1349,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_artifacts_empty" type="hidden"/>
                 <div class="artifacts">
                   <h2 class="artifacts__heading--view"><span data-i18n="artifacts">Artifacts</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="artifacts_collapse_title" title="Toggle artifacts">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="artifacts_collapse_title" title="Toggle artifacts">
                       <div class="chimera-toggle__field">
                         <input id="artifacts_collapse" name="attr_artifacts_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="artifacts_collapse" for="artifacts_collapse">Toggle artifacts</span>
@@ -1379,7 +1383,7 @@
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_discoveries_empty" type="hidden"/>
                 <div class="discoveries">
                   <h2 class="discoveries__heading--view"><span data-i18n="discoveries">Discoveries</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="discoveries_collapse_title" title="Toggle discoveries">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="discoveries_collapse_title" title="Toggle discoveries">
                       <div class="chimera-toggle__field">
                         <input id="discoveries_collapse" name="attr_discoveries_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="discoveries_collapse" for="discoveries_collapse">Toggle discoveries</span>
@@ -1412,7 +1416,9 @@
                 </div>
           </div>
           <div class="character__settings">
-                <div class="settings--edit">
+                <div class="settings--view">
+                  <h2 class="settings__heading--view"><span data-i18n="settings">Settings</span>
+                  </h2>
                   <!-- TODO Implement settings-->
                   <div class="setting">
                     <label class="chimera-toggle settings__roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check Modifiers">
@@ -1544,8 +1550,6 @@
                 <button class="chimera-action" data-i18n-title="magic_title" name="act_magic" title="Magic" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="magic">Magic</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="journal_title" name="act_journal" title="Journal" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="journal">Journal</span>
-                </button>
-                <button class="chimera-action" data-i18n-title="settings_title" name="act_settings" title="Settings" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="settings">Settings</span>
                 </button>
               </div>
           <div class="character__stats">
@@ -1728,6 +1732,13 @@
                 </div>
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
                 <div class="quirks--edit">
+                  <h2 class="quirks__heading--edit"><span data-i18n="quirks">Quirks</span>
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
+                      <div class="chimera-toggle__field">
+                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
+                    </label>
+                  </h2>
                   <div class="chimera-input quirk__name">
                     <label class="chimera-input__label" data-i18n="quirk_name" for="quirk_name">Quirk</label>
                     <input class="chimera-input__field" data-i18n-placeholder="quirk_name_placeholder" data-i18n-title="quirk_name_title" id="quirk_name" name="attr_quirk_name" placeholder="Quirk" title="Quirk" type="text"/>
@@ -1747,7 +1758,7 @@
                 </div>
                 <div class="rolls">
                   <h2 class="rolls__heading--edit"><span data-i18n="custom_checks">Custom Checks</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
                       <div class="chimera-toggle__field">
                         <input id="rolls_collapse" name="attr_rolls_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="rolls_collapse" for="rolls_collapse">Toggle rolls</span>
@@ -2047,7 +2058,7 @@
                             <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_benefit" type="hidden"/>
-                            <label class="chimera-toggle class__hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide">
+                            <label class="chimera-toggle class__hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide">
                               <div class="chimera-toggle__field">
                                 <input id="class_hide" name="attr_class_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                               </div><span class="chimera-toggle__label" data-i18n="class_hide" for="class_hide">Hide</span>
@@ -2189,7 +2200,7 @@
                 </div>
                 <div class="features--edit">
                   <h2 class="features__heading--edit"><span data-i18n="features">Class Features</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="features_collapse_title" title="Toggle features">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="features_collapse_title" title="Toggle features">
                       <div class="chimera-toggle__field">
                         <input id="features_collapse" name="attr_features_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="features_collapse" for="features_collapse">Toggle features</span>
@@ -2243,7 +2254,7 @@
           <div class="character__equipment">
                 <div class="weapons">
                   <h2 class="weapons__heading--edit"><span data-i18n="weapons">Weapons</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="weapons_collapse_title" title="Toggle weapons">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="weapons_collapse_title" title="Toggle weapons">
                       <div class="chimera-toggle__field">
                         <input id="weapons_collapse" name="attr_weapons_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="weapons_collapse" for="weapons_collapse">Toggle weapons</span>
@@ -2374,7 +2385,7 @@
                 </div>
                 <div class="armors">
                   <h2 class="armors__heading--edit"><span data-i18n="armor">Armor</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="armors_collapse_title" title="Toggle armors">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="armors_collapse_title" title="Toggle armors">
                       <div class="chimera-toggle__field">
                         <input id="armors_collapse" name="attr_armors_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="armors_collapse" for="armors_collapse">Toggle armors</span>
@@ -2445,7 +2456,7 @@
                 </div>
                 <div class="shields">
                   <h2 class="shields__heading--edit"><span data-i18n="shield">Shield</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="shields_collapse_title" title="Toggle shields">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="shields_collapse_title" title="Toggle shields">
                       <div class="chimera-toggle__field">
                         <input id="shields_collapse" name="attr_shields_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="shields_collapse" for="shields_collapse">Toggle shields</span>
@@ -2512,7 +2523,7 @@
                 </div>
                 <div class="accessories">
                   <h2 class="accessories__heading--edit"><span data-i18n="accessories">Accessories</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="accessories_collapse_title" title="Toggle accessories">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="accessories_collapse_title" title="Toggle accessories">
                       <div class="chimera-toggle__field">
                         <input id="accessories_collapse" name="attr_accessories_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="accessories_collapse" for="accessories_collapse">Toggle accessories</span>
@@ -2564,7 +2575,7 @@
           <div class="character__backpack">
                 <div class="inventory">
                   <h2 class="inventory__heading--edit"><span data-i18n="inventory">Inventory</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="inventory_collapse_title" title="Toggle inventory">
                       <div class="chimera-toggle__field">
                         <input id="inventory_collapse" name="attr_inventory_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="inventory_collapse" for="inventory_collapse">Toggle inventory</span>
@@ -2607,7 +2618,7 @@
                 </div>
                 <div class="projects">
                   <h2 class="projects__heading--edit"><span data-i18n="projects">Projects</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="projects_collapse_title" title="Toggle projects">
                       <div class="chimera-toggle__field">
                         <input id="projects_collapse" name="attr_projects_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="projects_collapse" for="projects_collapse">Toggle projects</span>
@@ -2655,7 +2666,7 @@
                 </div>
                 <div class="items">
                   <h2 class="items__heading--edit"><span data-i18n="items">Other Items</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="items_collapse_title" title="Toggle items">
                       <div class="chimera-toggle__field">
                         <input id="items_collapse" name="attr_items_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="items_collapse" for="items_collapse">Toggle items</span>
@@ -2696,7 +2707,7 @@
           <div class="character__magic">
                 <div class="spells">
                   <h2 class="spells__heading--edit"><span data-i18n="spells">Spells</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="spells_collapse_title" title="Toggle spells">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="spells_collapse_title" title="Toggle spells">
                       <div class="chimera-toggle__field">
                         <input id="spells_collapse" name="attr_spells_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="spells_collapse" for="spells_collapse">Toggle spells</span>
@@ -2803,7 +2814,7 @@
                 </div>
                 <div class="rituals">
                   <h2 class="rituals__heading--edit"><span data-i18n="rituals">Rituals</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="rituals_collapse_title" title="Toggle rituals">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="rituals_collapse_title" title="Toggle rituals">
                       <div class="chimera-toggle__field">
                         <input id="rituals_collapse" name="attr_rituals_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="rituals_collapse" for="rituals_collapse">Toggle rituals</span>
@@ -2943,7 +2954,7 @@
           <div class="character__journal">
                 <div class="notes">
                   <h2 class="notes__heading--edit"><span data-i18n="notes">Notes</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="notes_collapse_title" title="Toggle notes">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="notes_collapse_title" title="Toggle notes">
                       <div class="chimera-toggle__field">
                         <input id="notes_collapse" name="attr_notes_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="notes_collapse" for="notes_collapse">Toggle notes</span>
@@ -2982,7 +2993,7 @@
                 </div>
                 <div class="quests">
                   <h2 class="quests__heading--edit"><span data-i18n="quests">Quests</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="quests_collapse_title" title="Toggle quests">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quests_collapse_title" title="Toggle quests">
                       <div class="chimera-toggle__field">
                         <input id="quests_collapse" name="attr_quests_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="quests_collapse" for="quests_collapse">Toggle quests</span>
@@ -3021,7 +3032,7 @@
                 </div>
                 <div class="friends">
                   <h2 class="friends__heading--edit"><span data-i18n="friends">Friends</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="friends_collapse_title" title="Toggle friends">
                       <div class="chimera-toggle__field">
                         <input id="friends_collapse" name="attr_friends_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="friends_collapse" for="friends_collapse">Toggle friends</span>
@@ -3060,7 +3071,7 @@
                 </div>
                 <div class="creatures">
                   <h2 class="creatures__heading--edit"><span data-i18n="creatures">Creatures</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="creatures_collapse_title" title="Toggle creatures">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="creatures_collapse_title" title="Toggle creatures">
                       <div class="chimera-toggle__field">
                         <input id="creatures_collapse" name="attr_creatures_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="creatures_collapse" for="creatures_collapse">Toggle creatures</span>
@@ -3099,7 +3110,7 @@
                 </div>
                 <div class="locations">
                   <h2 class="locations__heading--edit"><span data-i18n="locations">Locations</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="locations_collapse_title" title="Toggle locations">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="locations_collapse_title" title="Toggle locations">
                       <div class="chimera-toggle__field">
                         <input id="locations_collapse" name="attr_locations_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="locations_collapse" for="locations_collapse">Toggle locations</span>
@@ -3138,7 +3149,7 @@
                 </div>
                 <div class="artifacts">
                   <h2 class="artifacts__heading--edit"><span data-i18n="artifacts">Artifacts</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="artifacts_collapse_title" title="Toggle artifacts">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="artifacts_collapse_title" title="Toggle artifacts">
                       <div class="chimera-toggle__field">
                         <input id="artifacts_collapse" name="attr_artifacts_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="artifacts_collapse" for="artifacts_collapse">Toggle artifacts</span>
@@ -3177,7 +3188,7 @@
                 </div>
                 <div class="discoveries">
                   <h2 class="discoveries__heading--edit"><span data-i18n="discoveries">Discoveries</span>
-                    <label class="chimera-toggle chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="discoveries_collapse_title" title="Toggle discoveries">
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="discoveries_collapse_title" title="Toggle discoveries">
                       <div class="chimera-toggle__field">
                         <input id="discoveries_collapse" name="attr_discoveries_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
                       </div><span class="chimera-toggle__label" data-i18n="discoveries_collapse" for="discoveries_collapse">Toggle discoveries</span>
@@ -3216,7 +3227,9 @@
                 </div>
           </div>
           <div class="character__settings">
-                <div class="settings--edit">
+                <div class="settings--view">
+                  <h2 class="settings__heading--view"><span data-i18n="settings">Settings</span>
+                  </h2>
                   <!-- TODO Implement settings-->
                   <div class="setting">
                     <label class="chimera-toggle settings__roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check Modifiers">
@@ -4672,6 +4685,54 @@
         </section>
   </main>
   <main class="gm"><span>[GM]</span></main>
+  <aside class="settings">
+        <div class="settings--view">
+          <h2 class="settings__heading--view"><span data-i18n="settings">Settings</span>
+          </h2>
+          <!-- TODO Implement settings-->
+          <div class="setting">
+            <label class="chimera-toggle settings__roll_mods" data-i18n-title="roll_mods_title" title="Ask for Accuracy Check Modifiers">
+              <div class="chimera-toggle__field">
+                <input id="roll_mods" name="attr_roll_mods" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+              </div><span class="chimera-toggle__label" data-i18n="roll_mods" for="roll_mods">Ask for Accuracy Check Modifiers</span>
+            </label>
+          </div>
+          <div class="setting">
+            <div class="chimera-input settings__money_name chimera-input--row-reverse chimera-input--small">
+              <label class="chimera-input__label" data-i18n="money_name" for="money_name">Currency Name</label>
+              <input class="chimera-input__field" data-i18n-placeholder="money_name_placeholder" data-i18n-title="money_name_title" id="money_name" name="attr_money_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
+            </div>
+          </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__quirk" data-i18n-title="enable_quirks_title" title="Enable Quirks">
+              <div class="chimera-toggle__field">
+                <input id="enable_quirks" name="attr_enable_quirks" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+              </div><span class="chimera-toggle__label" data-i18n="enable_quirks" for="enable_quirks">Enable Quirks</span>
+            </label>
+          </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__zero_powers setting--disabled" data-i18n-title="enable_zero_powers_title" title="Enable Zero Powers">
+              <div class="chimera-toggle__field">
+                <input id="enable_zero_powers" name="attr_enable_zero_powers" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
+              </div><span class="chimera-toggle__label" data-i18n="enable_zero_powers" for="enable_zero_powers">Enable Zero Powers</span>
+            </label>
+          </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__automatic_mp setting--disabled" data-i18n-title="automatic_mp_title" title="Automatically subtract MP when casting spells and rituals">
+              <div class="chimera-toggle__field">
+                <input id="automatic_mp" name="attr_automatic_mp" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Automatically subtract MP when casting spells and rituals"/><img class="chimera-toggle--on" data-i18n-title="automatic_mp_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Automatically subtract MP when casting spells and rituals"/>
+              </div><span class="chimera-toggle__label" data-i18n="automatic_mp" for="automatic_mp">Automatic MP Use</span>
+            </label>
+          </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__money_name setting--disabled" data-i18n-title="dual_shieldbearer_title" title="You can equip two shields">
+              <div class="chimera-toggle__field">
+                <input id="dual_shieldbearer" name="attr_dual_shieldbearer" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="You can equip two shields"/><img class="chimera-toggle--on" data-i18n-title="dual_shieldbearer_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="You can equip two shields"/>
+              </div><span class="chimera-toggle__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
+            </label>
+          </div>
+        </div>
+  </aside>
   <footer>
     <div class="chimera-value">
       <label class="chimera-value__label" data-i18n="sheet_version" for="sheet_version">Version</label><span class="chimera-value__value" name="attr_sheet_version"></span>

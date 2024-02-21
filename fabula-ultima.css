@@ -464,7 +464,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-checkbox--center .chimera-checkbox__field {
   text-align: center;
 }
-.fabula-ultima .chimera-checkbox--hidden-label span {
+.fabula-ultima .chimera-checkbox--hide-label span {
   overflow: hidden;
   padding: 0; /* 1 */
   text-indent: 101%;
@@ -576,7 +576,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-toggle--center .chimera-toggle__field {
   text-align: center;
 }
-.fabula-ultima .chimera-toggle--hidden-label span {
+.fabula-ultima .chimera-toggle--hide-label span {
   overflow: hidden;
   padding: 0; /* 1 */
   text-indent: 101%;
@@ -1180,12 +1180,26 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   grid-template-columns: auto 1fr auto;
   justify-content: space-between;
+  display: flex;
   margin-inline: 8px;
   max-width: 45rem;
 }
+.fabula-ultima__header .sheet-mode,
+.fabula-ultima__header .sheet-type,
+.fabula-ultima__header .sheet-settings {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.fabula-ultima__header .sheet-mode span,
+.fabula-ultima__header .sheet-mode label,
+.fabula-ultima__header .sheet-type span,
+.fabula-ultima__header .sheet-type label,
+.fabula-ultima__header .sheet-settings span,
+.fabula-ultima__header .sheet-settings label {
+  white-space: nowrap;
+}
 .fabula-ultima__header .sheet-type {
-  grid-column: -1;
-  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .fabula-ultima .bestiary .basic-attacks__heading--edit .chimera-toggle, .fabula-ultima .bestiary .basic-attacks__heading--view .chimera-toggle {
@@ -3139,13 +3153,13 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 
-.fabula-ultima .bestiary .settings__heading--edit .chimera-toggle, .fabula-ultima .bestiary .settings__heading--view .chimera-toggle,
-.fabula-ultima .character .settings__heading--edit .chimera-toggle,
-.fabula-ultima .character .settings__heading--view .chimera-toggle {
+.fabula-ultima .settings {
+  display: none;
+}
+.fabula-ultima .settings__heading--edit .chimera-toggle, .fabula-ultima .settings__heading--view .chimera-toggle {
   margin-left: auto;
 }
-.fabula-ultima .bestiary .settings__heading--edit,
-.fabula-ultima .character .settings__heading--edit {
+.fabula-ultima .settings__heading--edit {
   grid-column: 1/-1;
   display: flex;
   font-family: var(--font-title);
@@ -3156,8 +3170,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-.fabula-ultima .bestiary .settings__heading--view,
-.fabula-ultima .character .settings__heading--view {
+.fabula-ultima .settings__heading--view {
   grid-column: 1/-1;
   display: flex;
   background-image: var(--fabula-gradient-secondary);
@@ -3170,51 +3183,38 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   line-height: 150%;
   text-transform: uppercase;
 }
-.fabula-ultima .bestiary .settings--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .bestiary .settings--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .bestiary .settings--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .bestiary .settings--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .settings--view:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .settings--view:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .settings--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
-.fabula-ultima .character .settings--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+.fabula-ultima .settings--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .settings--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .settings--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .settings--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
   height: 0;
 }
-.fabula-ultima .bestiary .settings--view .chimera-wrapper,
-.fabula-ultima .bestiary .settings--view .chimera-repeater--simple, .fabula-ultima .bestiary .settings--edit .chimera-wrapper,
-.fabula-ultima .bestiary .settings--edit .chimera-repeater--simple,
-.fabula-ultima .character .settings--view .chimera-wrapper,
-.fabula-ultima .character .settings--view .chimera-repeater--simple,
-.fabula-ultima .character .settings--edit .chimera-wrapper,
-.fabula-ultima .character .settings--edit .chimera-repeater--simple {
+.fabula-ultima .settings--view .chimera-wrapper,
+.fabula-ultima .settings--view .chimera-repeater--simple, .fabula-ultima .settings--edit .chimera-wrapper,
+.fabula-ultima .settings--edit .chimera-repeater--simple {
   overflow: hidden;
 }
-.fabula-ultima .bestiary .settings:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .bestiary .settings:has(input[name*=collapse]:checked) .chimera-repeater--simple,
-.fabula-ultima .character .settings:has(input[name*=collapse]:checked) .chimera-repeater,
-.fabula-ultima .character .settings:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+.fabula-ultima .settings:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .settings:has(input[name*=collapse]:checked) .chimera-repeater--simple {
   height: 0;
 }
-.fabula-ultima .bestiary .settings .chimera-repeater,
-.fabula-ultima .bestiary .settings .chimera-repeater--simple,
-.fabula-ultima .character .settings .chimera-repeater,
-.fabula-ultima .character .settings .chimera-repeater--simple {
+.fabula-ultima .settings .chimera-repeater,
+.fabula-ultima .settings .chimera-repeater--simple {
   overflow: hidden;
 }
-.fabula-ultima .bestiary .settings--edit, .fabula-ultima .bestiary .settings--view,
-.fabula-ultima .character .settings--edit,
-.fabula-ultima .character .settings--view {
+.fabula-ultima .settings--view {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
+  margin: 8px;
+  max-width: 45rem;
+  background-color: var(--suface-container-lowest);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 4px;
 }
-.fabula-ultima .bestiary .settings--edit .setting--disabled, .fabula-ultima .bestiary .settings--view .setting--disabled,
-.fabula-ultima .character .settings--edit .setting--disabled,
-.fabula-ultima .character .settings--view .setting--disabled {
+.fabula-ultima .settings--view .setting--disabled {
   opacity: 0.5;
 }
-.fabula-ultima .bestiary .settings--edit .setting--disabled span, .fabula-ultima .bestiary .settings--view .setting--disabled span,
-.fabula-ultima .character .settings--edit .setting--disabled span,
-.fabula-ultima .character .settings--view .setting--disabled span {
+.fabula-ultima .settings--view .setting--disabled span {
   text-decoration: line-through;
 }
 
@@ -6788,42 +6788,6 @@ html input[name*=sheet_type][value=character] ~ * main.character,
 html .charsheet input[name*=sheet_type][value=character] ~ * main.character {
   display: grid;
 }
-html input[name*=sheet_mode][value=on] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value=on] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .character--edit {
-  display: grid;
-}
-html input[name*=sheet_mode][value=on] ~ * .bestiary--view,
-html input[name*=sheet_mode][value=on] ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .character--view {
-  display: none;
-}
-html input[name*=sheet_mode][value="0"] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value="0"] ~ * .character--edit, html input[name*=sheet_mode][value=""] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value=""] ~ * .character--edit, html input[name*=sheet_mode]:not([value]) ~ * .bestiary--edit,
-html input[name*=sheet_mode]:not([value]) ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .character--edit {
-  display: none;
-}
-html input[name*=sheet_mode][value="0"] ~ * .bestiary--view,
-html input[name*=sheet_mode][value="0"] ~ * .character--view, html input[name*=sheet_mode][value=""] ~ * .bestiary--view,
-html input[name*=sheet_mode][value=""] ~ * .character--view, html input[name*=sheet_mode]:not([value]) ~ * .bestiary--view,
-html input[name*=sheet_mode]:not([value]) ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .character--view,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .character--view {
-  display: flex;
-}
 html .bestiary,
 html .charsheet .bestiary {
   display: none;
@@ -6832,42 +6796,6 @@ html input[name*=sheet_type][value=bestiary] ~ * main.bestiary,
 html .charsheet input[name*=sheet_type][value=bestiary] ~ * main.bestiary {
   display: grid;
 }
-html input[name*=sheet_mode][value=on] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value=on] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .character--edit {
-  display: grid;
-}
-html input[name*=sheet_mode][value=on] ~ * .bestiary--view,
-html input[name*=sheet_mode][value=on] ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value=on] ~ * .character--view {
-  display: none;
-}
-html input[name*=sheet_mode][value="0"] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value="0"] ~ * .character--edit, html input[name*=sheet_mode][value=""] ~ * .bestiary--edit,
-html input[name*=sheet_mode][value=""] ~ * .character--edit, html input[name*=sheet_mode]:not([value]) ~ * .bestiary--edit,
-html input[name*=sheet_mode]:not([value]) ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .character--edit,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .bestiary--edit,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .character--edit {
-  display: none;
-}
-html input[name*=sheet_mode][value="0"] ~ * .bestiary--view,
-html input[name*=sheet_mode][value="0"] ~ * .character--view, html input[name*=sheet_mode][value=""] ~ * .bestiary--view,
-html input[name*=sheet_mode][value=""] ~ * .character--view, html input[name*=sheet_mode]:not([value]) ~ * .bestiary--view,
-html input[name*=sheet_mode]:not([value]) ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value="0"] ~ * .character--view,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode][value=""] ~ * .character--view,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .bestiary--view,
-html .charsheet input[name*=sheet_mode]:not([value]) ~ * .character--view {
-  display: flex;
-}
 html .gm,
 html .charsheet .gm {
   display: none;
@@ -6875,6 +6803,16 @@ html .charsheet .gm {
 html input[name*=sheet_type][value=gm] ~ * main.gm,
 html .charsheet input[name*=sheet_type][value=gm] ~ * main.gm {
   display: grid;
+}
+html input[name*=show_settings][value=on] ~ * aside.settings,
+html .charsheet input[name*=show_settings][value=on] ~ * aside.settings {
+  display: grid;
+}
+html input[name*=show_settings][value=on] ~ * main.bestiary,
+html input[name*=show_settings][value=on] ~ * main.character,
+html .charsheet input[name*=show_settings][value=on] ~ * main.bestiary,
+html .charsheet input[name*=show_settings][value=on] ~ * main.character {
+  display: none;
 }
 html input[name*=sheet_mode][value=on] ~ * .bestiary--edit,
 html input[name*=sheet_mode][value=on] ~ * .character--edit,

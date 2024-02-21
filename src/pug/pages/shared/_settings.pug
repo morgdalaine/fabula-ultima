@@ -1,6 +1,6 @@
 mixin settings(spine)
-  .settings--edit
-    //- h2.settings__heading--edit(data-i18n=spine.settings.heading.name)= spine.settings.heading.label
+  .settings--view
+    +fabula-heading-view('settings', spine.settings.heading, false)
     // TODO Implement settings
     each field in spine.settings.fields
       .setting
