@@ -140,15 +140,22 @@ const ATTR_WATCH: Record<string, string[]> = {
     'poisoned_immunity',
   ],
 
-  hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
-  mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
+  hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total', 'rank'],
+  mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total', 'rank'],
   ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
 
   ultima_points: ['sheet_type', 'villain'],
 
   villain: ['villain', 'multipart', 'phases'],
 
-  initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus', 'initiative_total'],
+  initiative: [
+    'dexterity',
+    'insight',
+    'initiative_extra',
+    'initiative_bonus',
+    'initiative_total',
+    'rank',
+  ],
 
   level: [
     'sheet_type',

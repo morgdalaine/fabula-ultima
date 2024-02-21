@@ -4949,12 +4949,19 @@ const ATTR_WATCH = {
         'shaken_immunity',
         'poisoned_immunity',
     ],
-    hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total'],
-    mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total'],
+    hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total', 'rank'],
+    mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total', 'rank'],
     ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
     ultima_points: ['sheet_type', 'villain'],
     villain: ['villain', 'multipart', 'phases'],
-    initiative: ['dexterity', 'insight', 'initiative_extra', 'initiative_bonus', 'initiative_total'],
+    initiative: [
+        'dexterity',
+        'insight',
+        'initiative_extra',
+        'initiative_bonus',
+        'initiative_total',
+        'rank',
+    ],
     level: [
         'sheet_type',
         'repeating_classes:class_skill1_level',
@@ -6640,7 +6647,6 @@ const fabulaMigrations = [
         }
         RepeatingModule.getAllAttrs(CROSSWALK_SECTION_DETAILS, CROSSWALK_REQUEST, (attributes, sections) => {
             const update = {};
-            update.sheet_type = 'character';
             Object.keys(CROSSWALK_TO_V20).forEach((key) => {
                 const data = CROSSWALK_TO_V20[key];
                 if (typeof data === 'string' && Object.hasOwn(attributes, key)) {
@@ -6990,6 +6996,14 @@ const calculateMaxHP = (setCurrent = false) => {
         }
         if (v.sheet_type === 'bestiary') {
             hp_max = might_max * 5 + level * 2 + hp_extra;
+            const rank = v.rank;
+            let multiplier = 1;
+            if (rank === 'elite')
+                multiplier = 2;
+            if (rank.includes('champion')) {
+                multiplier = +v.rank.match(/\d+/)?.at(0) || 1;
+            }
+            hp_max *= multiplier;
         }
         update.hp_max = hp_max;
         update.hp_crisis = Math.floor(hp_max / 2);
@@ -7013,6 +7027,11 @@ const calculateMaxMP = (setCurrent = false) => {
         }
         if (v.sheet_type === 'bestiary') {
             mp_max = willpower_max * 5 + level + mp_extra;
+            const rank = v.rank;
+            let multiplier = 1;
+            if (rank.includes('champion'))
+                multiplier = 2;
+            mp_max *= multiplier;
         }
         update.mp_max = mp_max;
         if (setCurrent)
@@ -7225,6 +7244,14 @@ const calculateInitiative = () => {
         if (v.sheet_type === 'bestiary') {
             initiative =
                 (dexterity + insight) / 2 + initiative_bonus + initiative_extra + initiative_total;
+            const rank = v.rank;
+            let modifier = 0;
+            if (rank === 'elite')
+                modifier = 2;
+            if (rank.includes('champion')) {
+                modifier = +v.rank.match(/\d+/)?.at(0) || 1;
+            }
+            initiative += modifier;
         }
         setAttrs({ initiative: initiative }, { silent: true });
     });

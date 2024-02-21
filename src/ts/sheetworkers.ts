@@ -177,6 +177,13 @@ const calculateMaxHP = (setCurrent: boolean = false) => {
     }
     if (v.sheet_type === 'bestiary') {
       hp_max = might_max * 5 + level * 2 + hp_extra;
+      const rank = v.rank;
+      let multiplier = 1;
+      if (rank === 'elite') multiplier = 2;
+      if (rank.includes('champion')) {
+        multiplier = +v.rank.match(/\d+/)?.at(0) || 1;
+      }
+      hp_max *= multiplier;
     }
 
     update.hp_max = hp_max;
@@ -207,6 +214,11 @@ const calculateMaxMP = (setCurrent: boolean = false) => {
     }
     if (v.sheet_type === 'bestiary') {
       mp_max = willpower_max * 5 + level + mp_extra;
+
+      const rank = v.rank;
+      let multiplier = 1;
+      if (rank.includes('champion')) multiplier = 2;
+      mp_max *= multiplier;
     }
 
     update.mp_max = mp_max;
@@ -482,6 +494,14 @@ const calculateInitiative = () => {
     if (v.sheet_type === 'bestiary') {
       initiative =
         (dexterity + insight) / 2 + initiative_bonus + initiative_extra + initiative_total;
+
+      const rank = v.rank;
+      let modifier = 0;
+      if (rank === 'elite') modifier = 2;
+      if (rank.includes('champion')) {
+        modifier = +v.rank.match(/\d+/)?.at(0) || 1;
+      }
+      initiative += modifier;
     }
 
     setAttrs({ initiative: initiative }, { silent: true });
