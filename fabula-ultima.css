@@ -3873,25 +3873,36 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .classes--view .class {
   display: grid;
-  grid-template-columns: 1fr repeat(2, auto);
+  grid-template-columns: var(--input-component-size) 1fr repeat(2, auto);
   align-items: center;
   gap: 4px;
+}
+.fabula-ultima .character .classes--view .class:has(input[name*=class_hide]:checked) .class__skill,
+.fabula-ultima .character .classes--view .class:has(input[name*=class_hide]:checked) .class__description {
+  overflow: hidden;
+  height: 0;
 }
 .fabula-ultima .character .classes--view .class__skill {
   grid-column: 1/-1;
   display: grid;
-  grid-template-columns: 1fr repeat(2, auto);
+  grid-template-columns: var(--input-component-size) 1fr repeat(2, auto);
   align-items: center;
   gap: 4px;
   padding-left: 4px;
   border-left: 4px solid var(--color-fabula-light);
 }
+.fabula-ultima .character .classes--view .class__skill:has(input[name*=_hide]:checked) .class__skill_description {
+  overflow: hidden;
+  height: 0;
+}
 .fabula-ultima .character .classes--view .class__name .chimera-value__value {
-  font-family: var(--font-body);
+  font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 150%;
+  text-transform: uppercase;
+  text-transform: uppercase;
 }
 .fabula-ultima .character .classes--view .class__skills_taken, .fabula-ultima .character .classes--view .class__description, .fabula-ultima .character .classes--view .class__skill_description {
   grid-column: 1/-1;
@@ -5516,7 +5527,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .projects--view .project {
   display: grid;
-  grid-template-columns: 1fr 1fr auto var(--button-component-size);
+  grid-template-columns: 2fr 1fr 5rem var(--button-component-size);
   align-items: center;
   gap: 4px;
 }
@@ -5529,6 +5540,15 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .character .projects--view .project__cost .chimera-value__value::after {
   content: " z";
+}
+.fabula-ultima .character .projects--view .project__clock {
+  justify-content: flex-start;
+}
+.fabula-ultima .character .projects--view .project__clock-progress {
+  min-width: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
 }
 .fabula-ultima .character .projects--view .project__special, .fabula-ultima .character .projects--view .project__effect {
   grid-column: 1/-1;

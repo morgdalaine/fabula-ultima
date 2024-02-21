@@ -9,6 +9,7 @@ mixin classes-view(spine)
           each field in spine.classes.hidden
             +chimera-hidden(field)
 
+          +chimera-toggle(job.hide)
           +chimera-value(job.name)
           +chimera-value(job.level)
 
@@ -21,6 +22,7 @@ mixin classes-view(spine)
             - const sk = fieldDictionary(skill, `class_skill${index + 1}`);
             +chimera-hidden(sk.level.name, 0).chimera-repeater--empty-hide-next
             .class__skill
+              +chimera-toggle(sk.hide)
               +chimera-value(sk.name)
               +chimera-value(sk.level)
               +send-to-chat(`skill${index + 1}`)

@@ -55,9 +55,10 @@ mixin projects-view(spine)
           +chimera-value(project.name)
 
           +chimera-arithmetic-block(project.clock)
-            +chimera-value(project.clock)
-            span /
-            +chimera-value(project.clock_max)
+            .project__clock-progress
+              +chimera-value(project.clock)
+              span /
+              +chimera-value(project.clock_max)
 
           +chimera-value(project.cost)
           +send-to-chat('project')

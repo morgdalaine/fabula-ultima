@@ -230,6 +230,8 @@
   "class_name": "Name",
   "class_name_placeholder": "Name",
   "class_name_title": "Name",
+  "class_skill_hide": "Hide Class Skill",
+  "class_skill_hide_title": "Hide Class Skill",
   "class_skill1_description": "Description",
   "class_skill1_description_title": "Description",
   "class_skill1_level": "SL",

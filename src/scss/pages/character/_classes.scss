@@ -29,25 +29,41 @@
     &--view {
       .class {
         display: grid;
-        grid-template-columns: 1fr repeat(2, auto);
+        grid-template-columns: var(--input-component-size) 1fr repeat(2, auto);
         align-items: center;
         gap: 4px;
+
+        &:has(input[name*='class_hide']:checked) {
+          .class__skill,
+          .class__description {
+            overflow: hidden;
+            height: 0;
+          }
+        }
 
         &__skill {
           grid-column: 1/-1;
           display: grid;
-          grid-template-columns: 1fr repeat(2, auto);
+          grid-template-columns: var(--input-component-size) 1fr repeat(2, auto);
           align-items: center;
           gap: 4px;
 
           padding-left: 4px;
           border-left: 4px solid var(--color-fabula-light);
           // border-image: var(--fabula-gradient-accent-border);
+
+          &:has(input[name*='_hide']:checked) {
+            .class__skill_description {
+              overflow: hidden;
+              height: 0;
+            }
+          }
         }
 
         &__name {
           .chimera-value__value {
-            @include mixins.text-xl-700;
+            @include mixins.text-xl-400-fabula;
+            text-transform: uppercase;
           }
         }
 

@@ -49,13 +49,16 @@ mixin chimera-toggle(blob)
   - const attr = `attr_${blob.name}`;
   - const iconOn = blob.icon ?? 'toggleOn';
   - const iconOff = blob.iconOff ?? 'toggleOff';
-  - const blobTitle = blob.title ?? blob.label;
-  label(class=css, data-i18n-title=`${blob.name}_title`, title=blobTitle)
+  - const blobTitle = blob.title ?? (blob.labelOverride ? blob.labelOverride.label : blob.label);
+  - const labelkey = blob.labelOverride ? blob.labelOverride.key : blob.name;
+  - const labelOverride = blob.labelOverride ? blob.labelOverride.label : blob.label;
+  - const i18nTitle = labelkey ?? blob.name;
+  label(class=css, data-i18n-title=`${i18nTitle}_title`, title=blobTitle)
     .chimera-toggle__field
       input(id=blob.name, name=attr, type='checkbox', value=blob.value)
       +chimera-icon({ name: blob.name, icon: iconOff, title: blob.title }).chimera-toggle--off
       +chimera-icon({ name: blob.name, icon: iconOn, title: blob.title }).chimera-toggle--on
-    span.chimera-toggle__label(data-i18n=blob.name, for=blob.name)= blob.label
+    span.chimera-toggle__label(data-i18n=labelkey, for=blob.name)= labelOverride
 
 mixin chimera-checkbox(blob)
   - const namespace = 'chimera-checkbox';

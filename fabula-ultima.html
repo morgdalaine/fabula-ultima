@@ -896,9 +896,11 @@
                             <div class="chimera-arithmetic project__clock chimera-arithmetic--small chimera-arithmetic--center">
                               <button class="chimera-arithmetic__subtract" name="act_project-clock-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/minus.svg" title="Subtract"/>
                               </button>
-                              <div class="chimera-value project__clock chimera-value--small chimera-value--center"><span class="chimera-value__value" name="attr_project_clock"></span>
-                              </div><span>/</span>
-                              <div class="chimera-value project__clock_max"><span class="chimera-value__value" name="attr_project_clock_max"></span>
+                              <div class="project__clock-progress">
+                                <div class="chimera-value project__clock chimera-value--small chimera-value--center"><span class="chimera-value__value" name="attr_project_clock"></span>
+                                </div><span>/</span>
+                                <div class="chimera-value project__clock_max"><span class="chimera-value__value" name="attr_project_clock_max"></span>
+                                </div>
                               </div>
                               <button class="chimera-arithmetic__add" name="act_project-clock-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
                               </button>
@@ -977,6 +979,11 @@
                             <input class="chimera-hidden" name="attr_class_hide" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_skills_taken" type="hidden"/>
                             <input class="chimera-hidden" name="attr_class_benefit" type="hidden"/>
+                            <label class="chimera-toggle class__hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_hide_title" title="Hide Class">
+                              <div class="chimera-toggle__field">
+                                <input id="class_hide" name="attr_class_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                              </div><span class="chimera-toggle__label" data-i18n="class_hide" for="class_hide">Hide Class</span>
+                            </label>
                             <div class="chimera-value class__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_name"></span>
                             </div>
                             <div class="chimera-value class__level">
@@ -990,6 +997,11 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill1_level" type="hidden" value="0"/>
                             <div class="class__skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                                <div class="chimera-toggle__field">
+                                  <input id="class_skill1_hide" name="attr_class_skill1_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                                </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill1_hide">Hide Class Skill</span>
+                              </label>
                               <div class="chimera-value class__skill_name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_skill1_name"></span>
                               </div>
                               <div class="chimera-value class__skill_level chimera-value--small chimera-value--center">
@@ -1002,6 +1014,11 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill2_level" type="hidden" value="0"/>
                             <div class="class__skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                                <div class="chimera-toggle__field">
+                                  <input id="class_skill2_hide" name="attr_class_skill2_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                                </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill2_hide">Hide Class Skill</span>
+                              </label>
                               <div class="chimera-value class__skill_name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_skill2_name"></span>
                               </div>
                               <div class="chimera-value class__skill_level chimera-value--small chimera-value--center">
@@ -1014,6 +1031,11 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill3_level" type="hidden" value="0"/>
                             <div class="class__skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                                <div class="chimera-toggle__field">
+                                  <input id="class_skill3_hide" name="attr_class_skill3_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                                </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill3_hide">Hide Class Skill</span>
+                              </label>
                               <div class="chimera-value class__skill_name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_skill3_name"></span>
                               </div>
                               <div class="chimera-value class__skill_level chimera-value--small chimera-value--center">
@@ -1026,6 +1048,11 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill4_level" type="hidden" value="0"/>
                             <div class="class__skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                                <div class="chimera-toggle__field">
+                                  <input id="class_skill4_hide" name="attr_class_skill4_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                                </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill4_hide">Hide Class Skill</span>
+                              </label>
                               <div class="chimera-value class__skill_name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_skill4_name"></span>
                               </div>
                               <div class="chimera-value class__skill_level chimera-value--small chimera-value--center">
@@ -1038,6 +1065,11 @@
                             </div>
                             <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_class_skill5_level" type="hidden" value="0"/>
                             <div class="class__skill">
+                              <label class="chimera-toggle class__skill_hide chimera-toggle--hidden-label chimera-toggle--tiny" data-i18n-title="class_skill_hide_title" title="Hide Class Skill">
+                                <div class="chimera-toggle__field">
+                                  <input id="class_skill5_hide" name="attr_class_skill5_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/expand.svg" title="Expand"/>
+                                </div><span class="chimera-toggle__label" data-i18n="class_skill_hide" for="class_skill5_hide">Hide Class Skill</span>
+                              </label>
                               <div class="chimera-value class__skill_name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_class_skill5_name"></span>
                               </div>
                               <div class="chimera-value class__skill_level chimera-value--small chimera-value--center">

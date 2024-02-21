@@ -24,7 +24,7 @@
     &--view {
       .project {
         display: grid;
-        grid-template-columns: 1fr 1fr auto var(--button-component-size);
+        grid-template-columns: 2fr 1fr 5rem var(--button-component-size);
         align-items: center;
         gap: 4px;
 
@@ -43,6 +43,16 @@
                 content: ' z';
               }
             }
+          }
+        }
+
+        &__clock {
+          justify-content: flex-start;
+          &-progress {
+            min-width: 3rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4px;
           }
         }
 

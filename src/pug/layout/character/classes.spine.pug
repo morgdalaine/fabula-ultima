@@ -4,6 +4,14 @@
     heading: { name: 'classes', label: 'Classes' },
     view: [
       {
+        name: 'class_hide',
+        label: 'Hide Class',
+        type: 'toggle',
+        icon: 'expand',
+        iconOff: 'collapse',
+        css: { names: ['class__hide'], modifiers: ['hidden-label', 'tiny'] },
+      },
+      {
         name: 'class_name',
         css: { names: ['class__name'], modifiers: ['no-label-bold'] },
       },
@@ -25,8 +33,15 @@
         css: { names: ['class__description'], modifiers: [] },
       },
     ],
-
     view_skills: [1, 2, 3, 4, 5].map((skill) => [
+      {
+        name: `class_skill${skill}_hide`,
+        labelOverride: { key: 'class_skill_hide', label: 'Hide Class Skill' },
+        type: 'toggle',
+        icon: 'expand',
+        iconOff: 'collapse',
+        css: { names: ['class__skill_hide'], modifiers: ['hidden-label', 'tiny'] },
+      },
       {
         name: `class_skill${skill}_name`,
         css: { names: ['class__skill_name'], modifiers: ['no-label-bold'] },
