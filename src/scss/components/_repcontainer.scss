@@ -12,7 +12,7 @@
       + .repcontrol {
         display: block !important;
         button.repcontrol_edit::before {
-          background-image: url('https://www.svgrepo.com/show/471631/lock-unlocked-01.svg');
+          background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock.svg');
           width: var(--icon-component-size);
           height: var(--icon-component-size);
         }
@@ -120,7 +120,7 @@
     }
     &_edit {
       &::before {
-        background-image: url('https://www.svgrepo.com/show/471623/lock-01.svg');
+        background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock-open.svg');
         width: var(--icon-component-size);
         height: var(--icon-component-size);
       }
@@ -136,7 +136,7 @@
     &_del {
       right: 4px;
       &::before {
-        background-image: url('https://www.svgrepo.com/show/471998/trash-01.svg');
+        background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/trash.svg');
         width: var(--icon-component-size);
         height: var(--icon-component-size);
       }
@@ -144,7 +144,7 @@
     &_move {
       left: 4px;
       &::before {
-        background-image: url('https://www.svgrepo.com/show/471721/move.svg');
+        background-image: url('https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/move.svg');
         width: var(--icon-component-size);
         height: var(--icon-component-size);
       }

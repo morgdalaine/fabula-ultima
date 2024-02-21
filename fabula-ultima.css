@@ -120,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: block !important;
 }
 .ui-dialog .charsheet .repcontainer.editmode + .repcontrol button.repcontrol_edit::before {
-  background-image: url("https://www.svgrepo.com/show/471631/lock-unlocked-01.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
@@ -194,7 +194,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   height: var(--icon-component-size);
 }
 .ui-dialog .charsheet .repcontrol_edit::before {
-  background-image: url("https://www.svgrepo.com/show/471623/lock-01.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/lock-open.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
@@ -207,7 +207,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   right: 4px;
 }
 .ui-dialog .charsheet .repcontrol_del::before {
-  background-image: url("https://www.svgrepo.com/show/471998/trash-01.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/trash.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
@@ -215,7 +215,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   left: 4px;
 }
 .ui-dialog .charsheet .repcontrol_move::before {
-  background-image: url("https://www.svgrepo.com/show/471721/move.svg");
+  background-image: url("https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/move.svg");
   width: var(--icon-component-size);
   height: var(--icon-component-size);
 }
