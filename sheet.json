@@ -7,10 +7,22 @@
   "instructions": "Fabula Ultima RPG character sheet",
   "useroptions": [
     {
+      "attribute": "roll_mods",
+      "displayName": "Ask for Accuracy Check Modifiers",
+      "displaytranslationkey": "roll_mods",
+      "type": "checkbox",
+      "value": "on",
+      "description": "This will toggle accuracy modifiers for accuracy checks.",
+      "descriptiontranslationkey": "settings_roll_mods"
+    },
+    {
       "attribute": "money_name",
       "displayName": "Currency Name",
       "displaytranslationkey": "money_name",
-      "default": "zenit"
+      "type": "text",
+      "default": "zenit",
+      "description": "This will set the default currency name for all characters.",
+      "descriptiontranslationkey": "settings_money_name_desc"
     }
   ]
 }

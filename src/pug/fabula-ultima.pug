@@ -5,7 +5,7 @@ include components/mixins
 +chimera-hidden('sheet_version', '')
 +chimera-hidden('sheet_migrations', '')
 +chimera-hidden('sheet_type', 'character')
-+chimera-hidden(spine.shared.modes.name)
++chimera-hidden(spine.shared.modes.name, 'on')
 .fabula-ultima
   header.fabula-ultima__header
     +chimera-input(spine.shared.modes, 0)
@@ -13,7 +13,7 @@ include components/mixins
 
   main.character
     include pages/character
-    +chimera-hidden('nav', 'classes')
+    +chimera-hidden('nav', 'stats')
     +character-view(spine.character)
     +character-edit(spine.character)
   main.bestiary

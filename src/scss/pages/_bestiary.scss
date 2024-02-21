@@ -62,6 +62,10 @@
           .status-effects--view {
             grid-row: span 2;
           }
+
+          .controller__ip {
+            display: none;
+          }
         }
       }
     }

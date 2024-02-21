@@ -3532,6 +3532,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary--view .bestiary__controls .status-effects--view {
   grid-row: span 2;
 }
+.fabula-ultima .bestiary--view .bestiary__controls .controller__ip {
+  display: none;
+}
 .fabula-ultima .bestiary--edit {
   min-width: 360px;
   display: grid;
