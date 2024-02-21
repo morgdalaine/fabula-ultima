@@ -700,6 +700,8 @@
   "rs": "RS",
   "send_to_chat": "Send to Chat",
   "settings": "Settings",
+  "settings_money_name_desc": "This will set the default currency name for all characters.",
+  "settings_roll_mods": "This will toggle accuracy modifiers for accuracy checks.",
   "settings_title": "Settings",
   "shaken": "Shaken",
   "shaken_immunity": "Shaken",
