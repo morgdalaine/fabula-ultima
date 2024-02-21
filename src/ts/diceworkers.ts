@@ -309,7 +309,6 @@ const inventoryTemplate = (item: string, values: { [key: string]: string }) => {
 
 const projectTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
-  console.log(values);
 
   template.name = values.name;
   template.subtitle = `${values.clock} / ${values.clock_max}`;

@@ -4,6 +4,11 @@
     heading: { name: 'bonds', label: 'Bonds' },
     view: [1, 2, 3, 4, 5, 6].map((bond) => [
       {
+        name: `bond${bond}_level`,
+        labelOverride: { key: "lv", label: "Lv" },
+        css: { names: ['bond__level'], modifiers: [] },
+      },
+      {
         name: `bond${bond}_name`,
         css: { names: ['bond__name'], modifiers: ['no-label-bold'] },
       },
