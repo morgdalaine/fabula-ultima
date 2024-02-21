@@ -104,6 +104,18 @@
           display: flex;
           gap: 4px;
         }
+        &__clock {
+          flex: 1;
+          justify-content: flex-end;
+          width: min-content;
+
+          &-progress {
+            min-width: 3rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4px;
+          }
+        }
         &__effect {
           grid-column: 1/-1;
           grid-row-start: 3;

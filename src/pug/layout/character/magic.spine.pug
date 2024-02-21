@@ -161,7 +161,7 @@
       name: 'rituals',
       label: 'Rituals',
     },
-    hidden: ['ritual_accuracy_total'],
+    hidden: ['ritual_accuracy_total', 'ritual_clock', 'ritual_clock_max'],
     view: [
       {
         name: 'ritual_known',
@@ -212,6 +212,15 @@
         name: 'ritual_area',
         dynamic: true,
         css: { names: ['ritual__area'], modifiers: ['center'] },
+      },
+      {
+        name: 'ritual_clock',
+        type: 'arithmetic',
+        css: { names: ['ritual__clock'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'ritual_clock_max',
+        css: { names: ['ritual__clock_max'], modifiers: [] },
       },
       {
         name: 'ritual_effect',

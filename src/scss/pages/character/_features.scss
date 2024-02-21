@@ -1,0 +1,79 @@
+@use '../../common/vars' as mixins;
+
+.fabula-ultima .character {
+  .features {
+    $this: '.features';
+
+    @include mixins.fabula-heading;
+
+    &--delete {
+      .feature {
+        display: flex;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+
+      .fabula-diamond {
+        @include mixins.text-base-400;
+      }
+    }
+
+    &--view {
+      .feature {
+        display: grid;
+        grid-template-columns: var(--input-component-size) 3fr 1fr var(--input-component-size);
+        align-items: center;
+        gap: 4px;
+
+        &:has(input[name*='feature_hide']:checked) {
+          .feature__detail1,
+          .feature__detail2,
+          .feature__detail3 {
+            overflow: hidden;
+            height: 0;
+          }
+        }
+
+        &__name {
+          .chimera-value__value {
+            @include mixins.text-xl-400-fabula;
+            text-transform: uppercase;
+          }
+        }
+
+        &__detail1,
+        &__detail2,
+        &__detail3 {
+          grid-column: 1/-1;
+        }
+      }
+    }
+
+    &--edit {
+      .feature {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        gap: 4px;
+
+        // &__hide {
+        //   grid-column: 1;
+        //   grid-row: 1;
+        //   align-self: flex-start;
+        // }
+
+        &__detail1,
+        &__detail2,
+        &__detail3 {
+          grid-column: 1/-1;
+        }
+      }
+    }
+  }
+}

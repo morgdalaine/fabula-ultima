@@ -13,6 +13,7 @@ const handleClick = async (btn: string, id: string) => {
     case 'spell':
     case 'ritual':
     case 'check':
+    case 'checkrepeat':
       return rollAction(btn, id);
     default:
       return sendToChat(btn, id);
@@ -80,6 +81,7 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'bond5':
       case 'bond6':
       case 'project':
+      case 'feature':
         return `${key}_`;
     }
   })();
@@ -321,6 +323,21 @@ const projectTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const featureTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  template.name = values.name;
+  template.subtitle = `【${values.class}】`;
+
+  template.feature1 = values.detail1;
+  template.feature2 = values.detail2;
+  template.feature3 = values.detail3;
+
+  // template.action = getTranslation('projects', undefined);
+
+  return template;
+};
+
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -366,6 +383,8 @@ const sendToChat = async (chat: string, id: string) => {
           return inventoryTemplate(chat, data);
         case 'project':
           return projectTemplate(data);
+        case 'feature':
+          return featureTemplate(data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':

@@ -37,11 +37,15 @@ Object.keys(BUTTON_ACTIONS).forEach((key) => {
         ? ControlEnum.ADD
         : ControlEnum.SUBTRACT;
 
-    if (key === 'project') {
-      const rowId = RepeatingModule.getRepId(eventInfo.sourceAttribute);
-      return advanceProjectClock(rowId, control);
-    }
+    const rowId = RepeatingModule.getRepId(eventInfo.sourceAttribute);
 
-    updatePoints(key, control);
+    switch (key) {
+      case 'project':
+        return advanceProjectClock(rowId, control);
+      case 'ritual':
+        return advanceRitualClock(rowId, control);
+      default:
+        return updatePoints(key, control);
+    }
   });
 });

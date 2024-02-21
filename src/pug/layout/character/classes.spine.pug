@@ -1,7 +1,7 @@
 -
   spine.character.classes = {
-    hidden: ['character_level', 'class_hide', 'class_skills_taken', 'class_benefit'],
     heading: { name: 'classes', label: 'Classes' },
+    hidden: ['character_level', 'class_hide', 'class_skills_taken', 'class_benefit'],
     view: [
       {
         name: 'class_hide',
@@ -200,3 +200,84 @@
       },
     ]
   };
+
+  spine.character.classfeatures = {
+    heading: { name: 'features', label: 'Class Features' },
+    hidden: ['feature_hide'],
+    view: [
+      {
+        name: 'feature_hide',
+        label: 'Hide',
+        type: 'toggle',
+        icon: 'expand',
+        iconOff: 'collapse',
+        css: { names: ['feature__hide'], modifiers: ['hidden-label', 'tiny'] },
+      },
+      {
+        name: 'feature_name',
+        css: { names: ['feature__name'], modifiers: [] },
+      },
+      {
+        name: 'feature_class',
+        css: { names: ['feature__class'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail1',
+        css: { names: ['feature__detail1'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail2',
+        css: { names: ['feature__detail2'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail3',
+        css: { names: ['feature__detail3'], modifiers: [] },
+      },
+    ],
+    delete: [
+      {
+        name: 'feature_name',
+        css: { names: ['feature__name'], modifiers: [] },
+      },
+    ],
+    fields: [
+      //- {
+      //-   name: 'feature_hide',
+      //-   label: 'Hide',
+      //-   type: 'toggle',
+      //-   icon: 'expand',
+      //-   iconOff: 'collapse',
+      //-   css: { names: ['feature__hide'], modifiers: ['hidden-label', 'tiny'] },
+      //- },
+      {
+        name: 'feature_name',
+        label: 'Class Feature',
+        type: 'text',
+        css: { names: ['feature__name'], modifiers: [] },
+      },
+      {
+        name: 'feature_class',
+        label: 'Class',
+        type: 'text',
+        css: { names: ['feature__class'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail1',
+        label: 'Feature 1',
+        type: 'textarea',
+        css: { names: ['feature__detail1'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail2',
+        label: 'Feature 2',
+        type: 'textarea',
+        css: { names: ['feature__detail2'], modifiers: [] },
+      },
+      {
+        name: 'feature_detail3',
+        label: 'Feature 3',
+        type: 'textarea',
+        css: { names: ['feature__detail3'], modifiers: [] },
+      },
+    ],
+  }

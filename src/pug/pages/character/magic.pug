@@ -85,6 +85,12 @@ mixin rituals-view(spine)
             +fabula-diamond
             +chimera-value(ritual.area)
 
+            +chimera-arithmetic-block(ritual.clock)
+              .ritual__clock-progress
+                +chimera-value(ritual.clock)
+                span /
+                +chimera-value(ritual.clock_max)
+
           +chimera-value(ritual.effect)
 
 mixin rituals-edit(spine)

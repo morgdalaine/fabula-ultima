@@ -18,6 +18,7 @@ const REPEATING = [
   'rolls',
 
   'classes',
+  'features',
 
   'armors',
   'shields',
@@ -88,6 +89,12 @@ const RITUAL_DIFFICULTY: Record<string, any> = {
     medium: 30,
     major: 40,
     extreme: 50,
+  },
+  clock: {
+    minor: 4,
+    medium: 6,
+    major: 6,
+    extreme: 8,
   },
   area: {
     individual: 1,
@@ -244,6 +251,8 @@ const ATTR_WATCH: Record<string, string[]> = {
     'repeating_rituals:ritual_accuracy',
     'repeating_rituals:ritual_potency',
     'repeating_rituals:ritual_area',
+    'repeating_rituals:ritual_clock',
+    'repeating_rituals:ritual_clock_max',
     ...RITUAL_DISCIPLINES,
   ],
 
@@ -310,6 +319,7 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
   mp: ['mp-control-add', 'mp-control-subtract'],
   ip: ['ip-control-add', 'ip-control-subtract'],
   project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
+  ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
 };
 
 const CLICK_LISTENERS: Record<string, string> = {
@@ -332,9 +342,9 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_classes:skill4chat': 'skill4',
   'repeating_classes:skill5chat': 'skill5',
   'repeating_classes:skill6chat': 'skill6',
+  'repeating_features:featurechat': 'feature',
   'repeating_projects:projectchat': 'project',
-  // TODO repeating rolls to chat
-  // 'repeating_rolls:check': 'check',
+  'repeating_rolls:check': 'checkrepeat',
   'armorchat': 'armorchat',
   'shieldchat': 'shieldchat',
   'study7': 'study7',
@@ -498,12 +508,28 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'check_attr2',
     'check_description',
   ],
+  checkrepeat: [
+    'dexterity',
+    'insight',
+    'might',
+    'willpower',
+    'check_attr1',
+    'check_attr2',
+    'check_description',
+  ],
   project: [
     'project_name',
     'project_cost',
     'project_clock',
     'project_clock_max',
     'project_special',
+  ],
+  feature: [
+    'feature_name',
+    'feature_class',
+    'feature_detail1',
+    'feature_detail2',
+    'feature_detail3',
   ],
 };
 SEND_TO_CHAT.study10 = [

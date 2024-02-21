@@ -108,7 +108,19 @@ const advanceProjectClock = (rowId: string, change: ControlEnum) => {
     const clock_max = +v[prefix + 'clock_max'] || 0;
 
     update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + change));
+    setAttrs(update, { silent: true });
+  });
+};
 
+const advanceRitualClock = (rowId: string, change: ControlEnum) => {
+  const request = ATTR_WATCH.rituals.map((attr) => attr.replace(':', `_${rowId}_`));
+  const prefix = `repeating_rituals_${rowId}_ritual_`;
+  getAttrs(request, (v) => {
+    const update: Record<string, any> = {};
+    const clock = +v[prefix + 'clock'] || 0;
+    const clock_max = +v[prefix + 'clock_max'] || 0;
+
+    update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + change));
     setAttrs(update, { silent: true });
   });
 };
@@ -624,10 +636,13 @@ const calculateRitualAccuracyDifficulty = () => {
 
         const dl: number = RITUAL_DIFFICULTY.difficulty[potency];
         const mp: number = RITUAL_DIFFICULTY.potency[potency] * RITUAL_DIFFICULTY.area[area];
+        const clock_max: number = RITUAL_DIFFICULTY.clock[potency];
         update[prefix + 'ritual_difficulty'] = dl;
         update[prefix + 'ritual_mp'] = mp;
+        update[prefix + 'ritual_clock_max'] = clock_max;
       });
 
+      console.log(update);
       setAttrs(update, { silent: true });
     }
   );

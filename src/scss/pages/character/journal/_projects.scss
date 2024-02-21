@@ -47,7 +47,10 @@
         }
 
         &__clock {
+          flex: 1;
           justify-content: flex-start;
+          width: min-content;
+
           &-progress {
             min-width: 3rem;
             display: flex;

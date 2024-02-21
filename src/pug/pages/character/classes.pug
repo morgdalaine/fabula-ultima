@@ -53,3 +53,39 @@ mixin classes-edit(spine)
                 +chimera-input(field)
             each field in spine.classes.heroic
               +chimera-input(field)
+
+mixin features-view(spine)
+  +chimera-hidden('features_empty').chimera-repeater--empty-hide-next
+  .features
+    +fabula-heading-view('features', spine.classfeatures.heading)
+    +chimera-repeater('features')
+      +chimera-block('view')
+        .feature
+          - const feature = fieldDictionary(spine.classfeatures.view, 'feature');
+          each field in spine.classfeatures.hidden
+            +chimera-hidden(field)
+
+          +chimera-toggle(feature.hide)
+          +chimera-value(feature.name)
+          +chimera-value(feature.class)
+
+          +send-to-chat('feature')
+
+          +chimera-value(feature.detail1)
+          +chimera-value(feature.detail2)
+          +chimera-value(feature.detail3)
+
+mixin features-edit(spine)
+  .features--edit
+    +fabula-heading-edit('features', spine.classfeatures.heading)
+    +chimera-repeater('features')
+      +chimera-block('delete')
+        .feature
+          - const [name] = spine.classfeatures.delete;
+          +chimera-value(name)
+      +chimera-block('edit')
+        .feature
+          each field in spine.classfeatures.hidden
+            +chimera-hidden(field)
+          each field in spine.classfeatures.fields
+            +chimera-input(field)
