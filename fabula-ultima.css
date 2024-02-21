@@ -1674,6 +1674,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .bio--view .bio__avatar svg {
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   height: 100%;
   width: 100%;
 }
@@ -6174,6 +6176,8 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .traits--view .trait__avatar svg {
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   height: 100%;
   width: 100%;
 }
