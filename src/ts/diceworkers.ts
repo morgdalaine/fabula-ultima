@@ -50,8 +50,6 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
         return 'special_';
       case 'raregearchat':
         return 'raregear_';
-      case 'notechat':
-        return 'note_';
       case 'armorchat':
         return 'armor_';
       case 'shieldchat':
@@ -80,8 +78,15 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'bond4':
       case 'bond5':
       case 'bond6':
-      case 'project':
+      case 'artifact':
+      case 'creature':
+      case 'discovery':
       case 'feature':
+      case 'friend':
+      case 'location':
+      case 'note':
+      case 'project':
+      case 'quest':
       case 'quirk':
         return `${key}_`;
     }
@@ -240,7 +245,7 @@ const bondTemplate = (values: { [key: string]: string }) => {
 
   template.action = getTranslationByKey('bond') || 'Bond';
   template.name = values.name;
-  template.level = signedInteger(values.level);
+  template.level = values.level;
 
   template.bond = 'true';
   template.approval = getTranslationByKey(values.approval) || '';

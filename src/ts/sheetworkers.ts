@@ -662,7 +662,6 @@ const calculateRitualAccuracyDifficulty = () => {
         update[prefix + 'ritual_clock_max'] = clock_max;
       });
 
-      console.log(update);
       setAttrs(update, { silent: true });
     }
   );

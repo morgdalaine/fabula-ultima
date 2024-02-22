@@ -320,7 +320,7 @@
   "dazed_immunity": "Dazed",
   "dazed_immunity_title": "Dazed temporarily reduces your Insight die size by one.",
   "dazed_title": "Dazed temporarily reduces your Insight die size by one.",
-  "declare-fabula_title": "declare-fabula_title",
+  "declare_fabula_title": "Declare & Spend Fabula Points",
   "defense": "DEF",
   "defense_extra": "+DEF",
   "defense_extra_placeholder": "0",

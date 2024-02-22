@@ -394,7 +394,7 @@
                         <label class="chimera-input__label" data-i18n="spend_fabula_points" for="spend_fabula_points">Declare and Spend Fabula Point</label>
                         <input class="chimera-input__field" data-i18n-placeholder="spend_fabula_points_placeholder" data-i18n-title="spend_fabula_points_title" id="spend_fabula_points" name="attr_spend_fabula_points" placeholder="Declare to chat how you wish to spend Fabula Point" title="Spend Fabula Points" type="text"/>
                       </div>
-                      <button class="chimera-action" data-i18n-title="declare-fabula_title" name="act_declare-fabula" type="action">
+                      <button class="chimera-action" data-i18n-title="declare_fabula_title" name="act_declare_fabula" title="Declare &amp; Spend Fabula Points" type="action">
                         <label class="chimera-action__label">Declare & Spend</label>
                       </button>
                     </div>
@@ -5163,18 +5163,32 @@ const BUTTON_ACTIONS = {
     ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
 };
 const CLICK_LISTENERS = {
-    'repeating_basic-attacks:basicattack': 'basicattack',
-    'repeating_weapons:weaponattack': 'weaponattack',
-    'repeating_weapons:weaponchat': 'weaponchat',
-    'repeating_armors:armorchat': 'armorchat',
-    'repeating_shields:shieldchat': 'shieldchat',
+    'armorchat': 'armorchat',
+    'bond1chat': 'bond1',
+    'bond2chat': 'bond2',
+    'bond3chat': 'bond3',
+    'bond4chat': 'bond4',
+    'bond5chat': 'bond5',
+    'bond6chat': 'bond6',
+    'check_anticipate': 'check',
+    'check_captivate': 'check',
+    'check_custom': 'check',
+    'check_dodge': 'check',
+    'check_effort': 'check',
+    'check_endure': 'check',
+    'check_interrogate': 'check',
+    'check_intimidate': 'check',
+    'check_persuade': 'check',
+    'check_recall': 'check',
+    'check_sneak': 'check',
+    'check_study': 'check',
+    'check_tinker': 'check',
+    'declare_fabula': 'fabulapoints',
+    'quirkchat': 'quirk',
     'repeating_accessories:accessorychat': 'accessorychat',
-    'repeating_spells:spell': 'spell',
-    'repeating_rituals:ritual': 'ritual',
-    'repeating_other-actions:otheractionchat': 'otheractionchat',
-    'repeating_special-rules:specialrulechat': 'specialrulechat',
-    'repeating_rare-gears:raregearchat': 'raregearchat',
-    'repeating_notes:notechat': 'notechat',
+    'repeating_armors:armorchat': 'armorchat',
+    'repeating_artifacts:artifactchat': 'artifact',
+    'repeating_basic-attacks:basicattack': 'basicattack',
     'repeating_classes:classchat': 'classchat',
     'repeating_classes:skill1chat': 'skill1',
     'repeating_classes:skill2chat': 'skill2',
@@ -5182,40 +5196,32 @@ const CLICK_LISTENERS = {
     'repeating_classes:skill4chat': 'skill4',
     'repeating_classes:skill5chat': 'skill5',
     'repeating_classes:skill6chat': 'skill6',
+    'repeating_creatures:creaturechat': 'creature',
+    'repeating_discoveries:discoverychat': 'discovery',
     'repeating_features:featurechat': 'feature',
+    'repeating_friends:friendchat': 'friend',
+    'repeating_locations:locationchat': 'location',
+    'repeating_notes:notechat': 'note',
+    'repeating_other-actions:otheractionchat': 'otheractionchat',
     'repeating_projects:projectchat': 'project',
+    'repeating_quests:questchat': 'quest',
+    'repeating_rare-gears:raregearchat': 'raregearchat',
+    'repeating_rituals:ritual': 'ritual',
     'repeating_rolls:check': 'checkrepeat',
-    'armorchat': 'armorchat',
+    'repeating_shields:shieldchat': 'shieldchat',
+    'repeating_special-rules:specialrulechat': 'specialrulechat',
+    'repeating_spells:spell': 'spell',
+    'repeating_weapons:weaponattack': 'weaponattack',
+    'repeating_weapons:weaponchat': 'weaponchat',
     'shieldchat': 'shieldchat',
     'study7': 'study7',
     'study10': 'study10',
     'study13': 'study13',
-    'bond1chat': 'bond1',
-    'bond2chat': 'bond2',
-    'bond3chat': 'bond3',
-    'bond4chat': 'bond4',
-    'bond5chat': 'bond5',
-    'bond6chat': 'bond6',
-    'declare-fabula': 'fabulapoints',
+    'elementalshard': 'elementalshard',
     'elixir': 'elixir',
+    'magictent': 'magictent',
     'remedy': 'remedy',
     'tonic': 'tonic',
-    'elementalshard': 'elementalshard',
-    'magictent': 'magictent',
-    'check_sneak': 'check',
-    'check_dodge': 'check',
-    'check_anticipate': 'check',
-    'check_tinker': 'check',
-    'check_captivate': 'check',
-    'check_study': 'check',
-    'check_recall': 'check',
-    'check_interrogate': 'check',
-    'check_persuade': 'check',
-    'check_effort': 'check',
-    'check_endure': 'check',
-    'check_intimidate': 'check',
-    'check_custom': 'check',
-    'quirkchat': 'quirk',
 };
 const SEND_TO_CHAT = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
@@ -5283,7 +5289,13 @@ const SEND_TO_CHAT = {
     otheractionchat: ['action_name', 'action_effect'],
     specialrulechat: ['special_name', 'special_effect'],
     raregearchat: ['raregear_name', 'raregear_effect'],
-    notechat: ['note_name', 'note_effect'],
+    artifact: ['artifact_name', 'artifact_effect'],
+    creature: ['creature_name', 'creature_effect'],
+    discovery: ['discovery_name', 'discovery_effect'],
+    friend: ['friend_name', 'friend_effect'],
+    location: ['location_name', 'location_effect'],
+    note: ['note_name', 'note_effect'],
+    quest: ['quest_name', 'quest_effect'],
     armorchat: [
         'armor_is_martial',
         'armor_name',
@@ -5617,8 +5629,6 @@ const chatData = (key, prefix, values) => {
                 return 'special_';
             case 'raregearchat':
                 return 'raregear_';
-            case 'notechat':
-                return 'note_';
             case 'armorchat':
                 return 'armor_';
             case 'shieldchat':
@@ -5647,8 +5657,15 @@ const chatData = (key, prefix, values) => {
             case 'bond4':
             case 'bond5':
             case 'bond6':
-            case 'project':
+            case 'artifact':
+            case 'creature':
+            case 'discovery':
             case 'feature':
+            case 'friend':
+            case 'location':
+            case 'note':
+            case 'project':
+            case 'quest':
             case 'quirk':
                 return `${key}_`;
         }
@@ -5771,7 +5788,7 @@ const bondTemplate = (values) => {
     const template = {};
     template.action = getTranslationByKey('bond') || 'Bond';
     template.name = values.name;
-    template.level = signedInteger(values.level);
+    template.level = values.level;
     template.bond = 'true';
     template.approval = getTranslationByKey(values.approval) || '';
     template.allegiance = getTranslationByKey(values.allegiance) || '';
@@ -7420,7 +7437,6 @@ const calculateRitualAccuracyDifficulty = () => {
             update[prefix + 'ritual_mp'] = mp;
             update[prefix + 'ritual_clock_max'] = clock_max;
         });
-        console.log(update);
         setAttrs(update, { silent: true });
     });
 };
