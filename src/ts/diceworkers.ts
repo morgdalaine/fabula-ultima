@@ -151,6 +151,15 @@ const shieldTemplate = (values: { [key: string]: string }) => {
   return template;
 };
 
+const fabulaAccuracy = (att1: string, att2: string, accuracy: string | number) => {
+  return `【${att1}+${att2}】` + (accuracy != 0 ? signedInteger(accuracy) : '');
+};
+
+const fabulaDamage = (damage: string | number) => {
+  const hr = getTranslationByKey('hr') || 'HR';
+  return `【${hr}${signedInteger(damage)}】`;
+};
+
 const weaponTemplate = (values: { [key: string]: string }) => {
   const template: { [key: string]: string } = {};
 
@@ -169,13 +178,8 @@ const weaponTemplate = (values: { [key: string]: string }) => {
 
   const att1_i18n = getTranslationByKey(values.attr1) || values.attr;
   const att2_i18n = getTranslationByKey(values.attr2) || values.attr;
-  const hr_i18n = getTranslationByKey('hr') || 'HR';
-
-  const accuracy =
-    `【 ${att1_i18n} + ${att2_i18n}` +
-    (+values.accuracy > 0 ? ` + ${values.accuracy}` : ``) +
-    ` 】`;
-  const damage = `【 ${hr_i18n} + ${values.damage} 】`;
+  const accuracy = fabulaAccuracy(att1_i18n, att2_i18n, values.accuracy);
+  const damage = fabulaDamage(values.damage);
 
   template.accuracy = accuracy;
   template.damage = damage;
@@ -487,11 +491,9 @@ const rollAction = async (btn: string, id: string) => {
     };
 
     const accuracy = template.accuracy ?? 0;
-    const accuracyRoll =
-      `【 ${i18n.att1} + ${i18n.att2}` + (accuracy != 0 ? ` + ${accuracy}` : ``) + ` 】`;
-
+    const accuracyRoll = fabulaAccuracy(i18n.att1, i18n.att2, accuracy);
     const damage = template.damage ?? 0;
-    const damageRoll = `【 ${i18n.hr} + ${damage} 】`;
+    const damageRoll = fabulaDamage(damage);
 
     // include roll modifier from settings
     const rollmods = v.roll_mods === 'on' && !template.noaction ? ` + ?{${i18n.mod}|0}` : ``;

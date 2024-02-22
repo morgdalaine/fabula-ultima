@@ -1039,20 +1039,18 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   display: inline;
   content: "—";
 }
+.fabula-ultima .fabula-bracket--closed {
+  margin-right: -0.5rem;
+}
 .fabula-ultima .fabula-check {
   display: flex;
   flex-wrap: nowrap;
-  gap: 2px;
 }
-.fabula-ultima .fabula-check::before {
-  content: "【";
-  line-height: 160%;
+.fabula-ultima .fabula-check__accuracy, .fabula-ultima .fabula-check__damage {
+  display: flex;
+  flex-wrap: nowrap;
 }
-.fabula-ultima .fabula-check::after {
-  content: "】";
-  line-height: 160%;
-}
-.fabula-ultima .fabula-check span {
+.fabula-ultima .fabula-check__accuracy span, .fabula-ultima .fabula-check__damage span {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
@@ -1060,7 +1058,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   line-height: 150%;
   white-space: nowrap;
 }
-.fabula-ultima .fabula-check input[value="0"] ~ .fabula-attr__accuracy {
+.fabula-ultima .fabula-check__accuracy {
+  margin-right: 0.5rem;
+}
+.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__accuracy--mod {
   display: none;
 }
 .fabula-ultima .fabula-diamond {
@@ -6545,6 +6546,7 @@ html .sheet-bestiary,
   display: block;
   text-align: center;
   padding: 2px;
+  justify-self: center;
   background-color: color-mix(in srgb, white 60%, var(--color-fabula-light));
   color: black;
   border: none;
@@ -6677,14 +6679,6 @@ html .sheet-bestiary,
   -o-border-image: var(--fabula-gradient-primary-border);
      border-image: var(--fabula-gradient-primary-border);
 }
-.sheet-rolltemplate-fabula-attack .sheet-action div, .sheet-rolltemplate-fabula-attack .sheet-details div,
-.sheet-rolltemplate-fabula-chat .sheet-action div,
-.sheet-rolltemplate-fabula-chat .sheet-details div {
-  display: flex;
-  flex-direction: row;
-  gap: 2px;
-  align-items: center;
-}
 .sheet-rolltemplate-fabula-attack .sheet-action span.sheet-fabula-label,
 .sheet-rolltemplate-fabula-attack .sheet-action span.sheet-fabula-span, .sheet-rolltemplate-fabula-attack .sheet-details span.sheet-fabula-label,
 .sheet-rolltemplate-fabula-attack .sheet-details span.sheet-fabula-span,
@@ -6700,9 +6694,24 @@ html .sheet-bestiary,
   border-top: none;
   padding-top: 0;
 }
+.sheet-rolltemplate-fabula-attack .sheet-details div,
+.sheet-rolltemplate-fabula-chat .sheet-details div {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+}
 .sheet-rolltemplate-fabula-attack .sheet-details:not(:has(span)),
 .sheet-rolltemplate-fabula-chat .sheet-details:not(:has(span)) {
   display: none !important;
+}
+.sheet-rolltemplate-fabula-attack .sheet-action__check, .sheet-rolltemplate-fabula-attack .sheet-action__damage,
+.sheet-rolltemplate-fabula-chat .sheet-action__check,
+.sheet-rolltemplate-fabula-chat .sheet-action__damage {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px;
+  gap: 4px;
+  align-items: center;
 }
 .sheet-rolltemplate-fabula-attack .sheet-detail-banner,
 .sheet-rolltemplate-fabula-chat .sheet-detail-banner {

@@ -111,35 +111,33 @@
     }
   }
 
-  // label {
-  //   input[type='checkbox'] + span {
-  //     margin-inline-start: var(--m-sm);
-  //     vertical-align: middle;
-  //   }
-  // }
-
+  .fabula-bracket {
+    &--open {
+    }
+    &--closed {
+      margin-right: -0.5rem;
+    }
+  }
   .fabula-check {
-    // position: relative;
     display: flex;
     flex-wrap: nowrap;
-    gap: 2px;
 
-    &::before {
-      content: '【';
-      line-height: 160%;
-    }
-    &::after {
-      content: '】';
-      line-height: 160%;
-    }
+    &__accuracy,
+    &__damage {
+      display: flex;
+      flex-wrap: nowrap;
 
-    span {
-      @include mixins.text-lg-700;
-      white-space: nowrap;
+      span {
+        @include mixins.text-lg-700;
+        white-space: nowrap;
+      }
+    }
+    &__accuracy {
+      margin-right: 0.5rem;
     }
 
     input[value='0'] {
-      ~ .fabula-attr__accuracy {
+      ~ .fabula-check__accuracy--mod {
         display: none;
       }
     }

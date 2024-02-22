@@ -530,7 +530,9 @@
                       <button class="chimera-action roll__check--repeating" data-i18n-title="check_title" name="act_check" title="Roll Custom Check" type="action">
                         <div class="chimera-value roll__description"><span class="chimera-value__value" name="attr_check_description"></span>
                         </div>
-                        <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span>
+                        <div class="fabula-check">
+                          <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span><span class="fabula-bracket--closed">】</span>
+                          </div>
                         </div>
                       </button>
                     </fieldset>
@@ -565,10 +567,14 @@
                               </div>
                             </button>
                             <div class="weapon__check">
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
-                              </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage_total"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                  <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/>
+                                  <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy_total"></span>
+                                  </div>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_weapon_damage_total"></span><span class="fabula-bracket--closed">】</span>
+                                </div>
                               </div>
                             </div>
                             <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
@@ -611,10 +617,14 @@
                               </div>
                             </button>
                             <div class="spell__offensive">
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
-                                <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy_total"></span>
-                              </div><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_spell_damage_total"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                  <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/>
+                                  <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_spell_accuracy_total"></span>
+                                  </div>
+                                </div><span class="fabula-diamond">⬥</span>
+                                <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_spell_damage_total"></span><span class="fabula-bracket--closed">】</span>
+                                </div>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value spell__type chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_type"></span>
                               </div><span class="fabula-diamond">⬥</span>
@@ -671,8 +681,12 @@
                               </div>
                             </button>
                             <div class="ritual__check">
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr2"></span>
-                                <input class="chimera-hidden" name="attr_ritual_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_ritual_accuracy_total"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                  <input class="chimera-hidden" name="attr_ritual_accuracy_total" type="hidden" value="0"/>
+                                  <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_ritual_accuracy_total"></span>
+                                  </div>
+                                </div>
                               </div><span class="fabula-diamond">⬥</span>
                               <div class="chimera-value ritual__difficulty chimera-value--center chimera-value--small">
                                 <label class="chimera-value__label" data-i18n="ritual_difficulty" for="ritual_difficulty">DL</label><span class="chimera-value__value" name="attr_ritual_difficulty"></span>
@@ -812,10 +826,14 @@
                         <div class="chimera-value weapon__name chimera-value--colon">
                           <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
                         </div><span class="fabula-diamond">⬥</span>
-                        <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                          <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
-                        </div><span class="fabula-diamond">⬥</span>
-                        <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage"></span>
+                        <div class="fabula-check">
+                          <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                            <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/>
+                            <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy"></span>
+                            </div>
+                          </div><span class="fabula-diamond">⬥</span>
+                          <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_weapon_damage"></span><span class="fabula-bracket--closed">】</span>
+                          </div>
                         </div><span class="fabula-diamond">⬥</span>
                         <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                         </div><span class="fabula-diamond">⬥</span>
@@ -1802,7 +1820,9 @@
                             <div class="chimera-value roll__description"><span class="chimera-value__value" name="attr_check_description"></span>
                             </div>
                             <div class="roll__offensive"><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2372,8 +2392,12 @@
                           <div class="weapon">
                             <div class="chimera-value weapon__name"><span class="chimera-value__value" name="attr_weapon_name"></span>
                             </div><span class="fabula-diamond">⬥</span>
-                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                              <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
+                            <div class="fabula-check">
+                              <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/>
+                                <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy"></span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2800,8 +2824,12 @@
                             <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
                             </div>
                             <div class="spell__offensive"><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
-                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                  <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/>
+                                  <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_spell_accuracy"></span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2938,8 +2966,12 @@
                             <div class="chimera-value ritual__name"><span class="chimera-value__value" name="attr_ritual_name"></span>
                             </div>
                             <div class="ritual__offensive"><span class="fabula-diamond">⬥</span>
-                              <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr2"></span>
-                                <input class="chimera-hidden" name="attr_ritual_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_ritual_accuracy"></span>
+                              <div class="fabula-check">
+                                <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_ritual_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                  <input class="chimera-hidden" name="attr_ritual_accuracy" type="hidden" value="0"/>
+                                  <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_ritual_accuracy"></span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -3546,10 +3578,14 @@
                             </div>
                           </button>
                           <div class="basic-attack__check">
-                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span>
-                              <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_attack_accuracy_total"></span>
-                            </div><span class="fabula-diamond">⬥</span>
-                            <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_attack_damage_total"></span>
+                            <div class="fabula-check">
+                              <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                <input class="chimera-hidden" name="attr_attack_accuracy_total" type="hidden" value="0"/>
+                                <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_attack_accuracy_total"></span>
+                                </div>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_attack_damage_total"></span><span class="fabula-bracket--closed">】</span>
+                              </div>
                             </div>
                           </div>
                           <div class="chimera-value basic-attack__type chimera-value--center"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_type"></span>
@@ -3583,10 +3619,14 @@
                             </div>
                           </button>
                           <div class="weapon__check">
-                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                              <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy_total"></span>
-                            </div><span class="fabula-diamond">⬥</span>
-                            <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage_total"></span>
+                            <div class="fabula-check">
+                              <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                <input class="chimera-hidden" name="attr_weapon_accuracy_total" type="hidden" value="0"/>
+                                <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy_total"></span>
+                                </div>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_weapon_damage_total"></span><span class="fabula-bracket--closed">】</span>
+                              </div>
                             </div>
                           </div>
                           <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
@@ -3623,10 +3663,14 @@
                             </div>
                           </button>
                           <div class="spell__offensive">
-                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
-                              <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy_total"></span>
-                            </div><span class="fabula-diamond">⬥</span>
-                            <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_spell_damage_total"></span>
+                            <div class="fabula-check">
+                              <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                <input class="chimera-hidden" name="attr_spell_accuracy_total" type="hidden" value="0"/>
+                                <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_spell_accuracy_total"></span>
+                                </div>
+                              </div><span class="fabula-diamond">⬥</span>
+                              <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_spell_damage_total"></span><span class="fabula-bracket--closed">】</span>
+                              </div>
                             </div><span class="fabula-diamond">⬥</span>
                             <div class="chimera-value spell__type chimera-value--no-label-bold"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_type"></span>
                             </div><span class="fabula-diamond">⬥</span>
@@ -3716,10 +3760,14 @@
                           <div class="chimera-value weapon__name chimera-value--colon">
                             <label class="chimera-value__label" data-i18n="weapon" for="weapon_name">Weapon</label><span class="chimera-value__value" name="attr_weapon_name"></span>
                           </div><span class="fabula-diamond">⬥</span>
-                          <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                            <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
-                          </div><span class="fabula-diamond">⬥</span>
-                          <div class="fabula-check"><span data-i18n="hr">HR</span><span>+</span><span class="fabula-attr__damage" name="attr_weapon_damage"></span>
+                          <div class="fabula-check">
+                            <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                              <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/>
+                              <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy"></span>
+                              </div>
+                            </div><span class="fabula-diamond">⬥</span>
+                            <div class="fabula-check__damage"><span class="fabula-bracket--open">【</span><span data-i18n="hr">HR</span><span>+</span><span name="attr_weapon_damage"></span><span class="fabula-bracket--closed">】</span>
+                            </div>
                           </div><span class="fabula-diamond">⬥</span>
                           <div class="chimera-value weapon__type"><span class="chimera-value__value" data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_type"></span>
                           </div><span class="fabula-diamond">⬥</span>
@@ -4303,7 +4351,9 @@
                         <div class="basic-attack">
                           <div class="chimera-value basic-attack__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_attack_name"></span>
                           </div><span>✦</span>
-                          <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span>
+                          <div class="fabula-check">
+                            <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_attack_attr2"></span><span class="fabula-bracket--closed">】</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -4438,8 +4488,12 @@
                         <div class="weapon">
                           <div class="chimera-value weapon__name"><span class="chimera-value__value" name="attr_weapon_name"></span>
                           </div><span class="fabula-diamond">⬥</span>
-                          <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span>
-                            <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_weapon_accuracy"></span>
+                          <div class="fabula-check">
+                            <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_weapon_attr2"></span><span class="fabula-bracket--closed">】</span>
+                              <input class="chimera-hidden" name="attr_weapon_accuracy" type="hidden" value="0"/>
+                              <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_weapon_accuracy"></span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -4538,8 +4592,12 @@
                           <div class="chimera-value spell__name"><span class="chimera-value__value" name="attr_spell_name"></span>
                           </div>
                           <div class="spell__offensive"><span class="fabula-diamond">⬥</span>
-                            <div class="fabula-check"><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span>
-                              <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/><span class="fabula-attr__accuracy">+</span><span class="fabula-attr__accuracy" name="attr_spell_accuracy"></span>
+                            <div class="fabula-check">
+                              <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_spell_attr2"></span><span class="fabula-bracket--closed">】</span>
+                                <input class="chimera-hidden" name="attr_spell_accuracy" type="hidden" value="0"/>
+                                <div class="fabula-check__accuracy--mod"><span>+</span><span name="attr_spell_accuracy"></span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4751,9 +4809,9 @@
     <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>
     </div>{{^noaction}}
     <div class="sheet-action">
-      <div><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span>{{#vs}}<span class="sheet-fabula-span" data-i18n="vs">vs</span><span class="sheet-fabula-span">{{ vs }}</span>{{/vs}}
+      <div class="sheet-action__check"><span class="sheet-fabula-label">{{ check }}</span><span class="sheet-fabula-span">{{ roll }}</span>{{#vs}}<span class="sheet-fabula-span" data-i18n="vs">vs</span><span class="sheet-fabula-span">{{ vs }}</span>{{/vs}}
       </div>{{^nodamage}}{{#damage}}
-      <div><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-diamond">⬥</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}{{/nodamage}}
+      <div class="sheet-action__damage"><span class="span sheet-fabula-label">{{ hr }}</span><span class="sheet-fabula-span">{{ computed::damage }}</span><span class="sheet-fabula-span">{{ type }}</span></div>{{/damage}}{{/nodamage}}
       <!-- TODO Vunerable and Resistance calculations-->
       <!-- preferrably shown by hover or something?-->
     </div>{{/noaction}}
@@ -5646,6 +5704,13 @@ const shieldTemplate = (values) => {
         template.effect = values.effect;
     return template;
 };
+const fabulaAccuracy = (att1, att2, accuracy) => {
+    return `【${att1}+${att2}】` + (accuracy != 0 ? signedInteger(accuracy) : '');
+};
+const fabulaDamage = (damage) => {
+    const hr = getTranslationByKey('hr') || 'HR';
+    return `【${hr}${signedInteger(damage)}】`;
+};
 const weaponTemplate = (values) => {
     const template = {};
     let martial = values.is_martial === 'on';
@@ -5659,11 +5724,8 @@ const weaponTemplate = (values) => {
     template.cost = values.cost;
     const att1_i18n = getTranslationByKey(values.attr1) || values.attr;
     const att2_i18n = getTranslationByKey(values.attr2) || values.attr;
-    const hr_i18n = getTranslationByKey('hr') || 'HR';
-    const accuracy = `【 ${att1_i18n} + ${att2_i18n}` +
-        (+values.accuracy > 0 ? ` + ${values.accuracy}` : ``) +
-        ` 】`;
-    const damage = `【 ${hr_i18n} + ${values.damage} 】`;
+    const accuracy = fabulaAccuracy(att1_i18n, att2_i18n, values.accuracy);
+    const damage = fabulaDamage(values.damage);
     template.accuracy = accuracy;
     template.damage = damage;
     template.hands = values.hands;
@@ -5909,9 +5971,9 @@ const rollAction = async (btn, id) => {
             mod: getTranslation('mod', 'MOD'),
         };
         const accuracy = template.accuracy ?? 0;
-        const accuracyRoll = `【 ${i18n.att1} + ${i18n.att2}` + (accuracy != 0 ? ` + ${accuracy}` : ``) + ` 】`;
+        const accuracyRoll = fabulaAccuracy(i18n.att1, i18n.att2, accuracy);
         const damage = template.damage ?? 0;
-        const damageRoll = `【 ${i18n.hr} + ${damage} 】`;
+        const damageRoll = fabulaDamage(damage);
         const rollmods = v.roll_mods === 'on' && !template.noaction ? ` + ?{${i18n.mod}|0}` : ``;
         chimeraRoll('fabula-attack', {
             avatar: avatar,

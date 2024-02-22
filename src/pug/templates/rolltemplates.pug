@@ -28,7 +28,7 @@ rolltemplate.sheet-rolltemplate-fabula-attack
 
     +tags(['^noaction'])
       .sheet-action
-        div
+        .sheet-action__check
           span.sheet-fabula-label {{ check }}
           span.sheet-fabula-span {{ roll }}
 
@@ -37,10 +37,10 @@ rolltemplate.sheet-rolltemplate-fabula-attack
             span.sheet-fabula-span {{ vs }}
 
         +tags(['^nodamage', 'damage'])
-          div
+          .sheet-action__damage
             span.span.sheet-fabula-label {{ hr }}
             span.sheet-fabula-span {{ computed::damage }}
-            span.sheet-fabula-diamond ⬥
+            //- span.sheet-fabula-diamond ⬥
             span.sheet-fabula-span {{ type }}
 
         // TODO Vunerable and Resistance calculations

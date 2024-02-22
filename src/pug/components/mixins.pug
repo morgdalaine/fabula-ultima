@@ -1,19 +1,26 @@
 mixin fabula-check(att1, att2, accuracy, damage)
   .fabula-check
-    +chimera-span(att1)
-    span +
-    +chimera-span(att2)
-    if accuracy
-      +chimera-hidden(accuracy.name, 0)
-      span.fabula-attr__accuracy +
-      +chimera-span(accuracy).fabula-attr__accuracy
-
-  if damage
-    +fabula-diamond
-    .fabula-check
-      span(data-i18n='hr') HR
+    .fabula-check__accuracy
+      span.fabula-bracket--open 【
+      +chimera-span(att1)
       span +
-      +chimera-span(damage).fabula-attr__damage
+      +chimera-span(att2)
+      span.fabula-bracket--closed 】
+
+      if accuracy
+        +chimera-hidden(accuracy.name, 0)
+        .fabula-check__accuracy--mod
+          span +
+          +chimera-span(accuracy)
+
+    if damage
+      +fabula-diamond
+      .fabula-check__damage
+        span.fabula-bracket--open 【
+        span(data-i18n='hr') HR
+        span +
+        +chimera-span(damage)
+        span.fabula-bracket--closed 】
 
 mixin fabula-diamond(modifiers=[])
   -
