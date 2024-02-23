@@ -236,6 +236,9 @@
                     <button class="chimera-arithmetic__add" name="act_ip-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/plus.svg" title="Add"/>
                     </button>
                   </div>
+                  <button class="chimera-action action__rest" data-i18n-title="rest_title" name="act_rest" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects." type="action"><img data-i18n-title="rest_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/inventory/magic-tent.png" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects."/>
+                    <div class="chimera-value__label" data-i18n="rest">Rest &amp; Recover</div>
+                  </button>
                 </div>
           </div>
               <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
@@ -5310,6 +5313,7 @@ const BUTTON_ACTIONS = {
     ip: ['ip-control-add', 'ip-control-subtract'],
     project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
     ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
+    rest: ['rest'],
 };
 const CLICK_LISTENERS = {
     'armorchat': 'armorchat',
@@ -5372,7 +5376,7 @@ const CLICK_LISTENERS = {
     'remedy': 'remedy',
     'tonic': 'tonic',
 };
-const SEND_TO_CHAT = {
+const ACTION_REQUEST = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [
         `bond${bond}_name`,
         `bond${bond}_level`,
@@ -5528,9 +5532,10 @@ const SEND_TO_CHAT = {
         'feature_detail2',
         'feature_detail3',
     ],
+    rest: ['hp_max', 'mp_max'],
 };
-SEND_TO_CHAT.study10 = [
-    ...SEND_TO_CHAT.study7,
+ACTION_REQUEST.study10 = [
+    ...ACTION_REQUEST.study7,
     'traits',
     'dexterity_max',
     'insight_max',
@@ -5548,7 +5553,7 @@ SEND_TO_CHAT.study10 = [
     'light',
     'poison',
 ];
-SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
+ACTION_REQUEST.study13 = [...ACTION_REQUEST.study10];
 const COMMON_CHECKS = {
     sneak: {
         attrs: ['dexterity', 'dexterity'],
@@ -5761,11 +5766,11 @@ const getSendChatRequest = (key, id) => {
     let prefix = '';
     if (fieldset.includes('repeating')) {
         prefix = `${fieldset}_${id}_`;
-        const attributes = SEND_TO_CHAT[key].reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
+        const attributes = ACTION_REQUEST[key].reduce((memo, v) => ((memo[v] = prefix + v), memo), {});
         request = Object.values(attributes);
     }
     else {
-        request = SEND_TO_CHAT[key] ?? [];
+        request = ACTION_REQUEST[key] ?? [];
     }
     return { request, prefix };
 };
@@ -5819,7 +5824,7 @@ const chatData = (key, prefix, values) => {
                 return `${key}_`;
         }
     })();
-    return SEND_TO_CHAT[key]?.reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
+    return ACTION_REQUEST[key]?.reduce((memo, attr) => ((memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo), {});
 };
 const signedInteger = (value) => {
     return +value < 0 ? `${value}` : `+${value}`;
@@ -6402,6 +6407,8 @@ Object.keys(BUTTON_ACTIONS).forEach((key) => {
                 return advanceProjectClock(rowId, control);
             case 'ritual':
                 return advanceRitualClock(rowId, control);
+            case 'rest':
+                return restAndRecover();
             default:
                 return updatePoints(key, control);
         }
@@ -7185,6 +7192,17 @@ const advanceRitualClock = (rowId, change) => {
         const clock = +v[prefix + 'clock'] || 0;
         const clock_max = +v[prefix + 'clock_max'] || 0;
         update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + change));
+        setAttrs(update, { silent: true });
+    });
+};
+const restAndRecover = () => {
+    getAttrs(ACTION_REQUEST.rest, (v) => {
+        const update = {};
+        update.hp = +v.hp_max || 0;
+        update.mp = +v.mp_max || 0;
+        Object.keys(STATUS_EFFECTS)
+            .filter((status) => STATUS_EFFECTS[status] === -1)
+            .forEach((status) => (update[status] = 0));
         setAttrs(update, { silent: true });
     });
 };

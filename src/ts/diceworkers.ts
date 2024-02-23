@@ -29,13 +29,13 @@ const getSendChatRequest = (key: string, id: string) => {
   let prefix: string = '';
   if (fieldset.includes('repeating')) {
     prefix = `${fieldset}_${id}_`;
-    const attributes = SEND_TO_CHAT[key].reduce(
+    const attributes = ACTION_REQUEST[key].reduce(
       (memo: { [key: string]: string }, v: string) => ((memo[v] = prefix + v), memo),
       {}
     );
     request = Object.values(attributes);
   } else {
-    request = SEND_TO_CHAT[key] ?? [];
+    request = ACTION_REQUEST[key] ?? [];
   }
 
   return { request, prefix };
@@ -92,7 +92,7 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
     }
   })();
 
-  return SEND_TO_CHAT[key]?.reduce(
+  return ACTION_REQUEST[key]?.reduce(
     (memo: { [key: string]: string }, attr: string) => (
       (memo[attr.replace(attrPrefix, '')] = values[prefix + attr]), memo
     ),

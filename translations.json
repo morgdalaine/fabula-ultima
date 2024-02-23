@@ -721,6 +721,8 @@
   "remedy_effect": "One creature recovers 50 Hit Points.",
   "remedy_title": "Remedy",
   "resistant": "Resistant",
+  "rest": "Rest & Recover",
+  "rest_title": "When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects.",
   "ritual_accuracy": "Accuracy",
   "ritual_accuracy_placeholder": "0",
   "ritual_accuracy_title": "Accuracy",

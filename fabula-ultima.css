@@ -2971,9 +2971,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .controllers--view,
 .fabula-ultima .character .controllers--view {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   gap: 4px;
-  flex-direction: column;
+  height: -moz-max-content;
+  height: max-content;
 }
 .fabula-ultima .bestiary .controllers--view .controller__hp label,
 .fabula-ultima .character .controllers--view .controller__hp label {
@@ -2995,6 +2998,10 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   padding: 4px;
   background-color: var(--color-up);
   color: var(--color-on-dark);
+}
+.fabula-ultima .bestiary .controllers--view .chimera-action,
+.fabula-ultima .character .controllers--view .chimera-action {
+  width: 100%;
 }
 
 .fabula-ultima .bestiary .defenses--view,

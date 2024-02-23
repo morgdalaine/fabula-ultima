@@ -44,6 +44,8 @@ Object.keys(BUTTON_ACTIONS).forEach((key) => {
         return advanceProjectClock(rowId, control);
       case 'ritual':
         return advanceRitualClock(rowId, control);
+      case 'rest':
+        return restAndRecover();
       default:
         return updatePoints(key, control);
     }

@@ -329,6 +329,7 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
   ip: ['ip-control-add', 'ip-control-subtract'],
   project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
   ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
+  rest: ['rest'],
 };
 
 const CLICK_LISTENERS: Record<string, string> = {
@@ -394,7 +395,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'tonic': 'tonic',
 };
 
-const SEND_TO_CHAT: Record<string, string[]> = {
+const ACTION_REQUEST: Record<string, string[]> = {
   ...([1, 2, 3, 4, 5, 6] as any[]).reduce(
     (memo: Record<string, string[]>, bond: number) => (
       (memo[`bond${bond}`] = [
@@ -555,9 +556,10 @@ const SEND_TO_CHAT: Record<string, string[]> = {
     'feature_detail2',
     'feature_detail3',
   ],
+  rest: ['hp_max', 'mp_max'],
 };
-SEND_TO_CHAT.study10 = [
-  ...SEND_TO_CHAT.study7,
+ACTION_REQUEST.study10 = [
+  ...ACTION_REQUEST.study7,
   'traits',
   'dexterity_max',
   'insight_max',
@@ -575,7 +577,7 @@ SEND_TO_CHAT.study10 = [
   'light',
   'poison',
 ];
-SEND_TO_CHAT.study13 = [...SEND_TO_CHAT.study10];
+ACTION_REQUEST.study13 = [...ACTION_REQUEST.study10];
 
 const COMMON_CHECKS: { [key: string]: any } = {
   sneak: {

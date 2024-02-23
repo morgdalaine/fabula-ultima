@@ -9,9 +9,11 @@
       @include mixins.fabula-heading;
 
       &--view {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
         gap: 4px;
-        flex-direction: column;
+        height: max-content;
 
         .controller {
           &__hp {
@@ -38,6 +40,10 @@
               color: var(--color-on-dark);
             }
           }
+        }
+
+        .chimera-action {
+          width: 100%;
         }
       }
     }

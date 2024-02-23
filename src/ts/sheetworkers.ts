@@ -125,6 +125,20 @@ const advanceRitualClock = (rowId: string, change: ControlEnum) => {
   });
 };
 
+const restAndRecover = () => {
+  getAttrs(ACTION_REQUEST.rest, (v) => {
+    const update: Record<string, any> = {};
+    update.hp = +v.hp_max || 0;
+    update.mp = +v.mp_max || 0;
+
+    Object.keys(STATUS_EFFECTS)
+      .filter((status) => STATUS_EFFECTS[status] === -1)
+      .forEach((status) => (update[status] = 0));
+
+    setAttrs(update, { silent: true });
+  });
+};
+
 const calculateAllAttributes = () => {
   Object.keys(ATTR_ABBREVIATIONS).forEach((attr) => calculateAttribute(attr));
 };
