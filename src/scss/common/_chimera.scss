@@ -97,6 +97,20 @@
         }
       }
     }
+    &--parens {
+      &::before {
+        content: '(';
+      }
+      &::after {
+        content: ')';
+      }
+    }
+    &--hide-label {
+      .chimera-value__label {
+        @include mixins.sr-only;
+        @include mixins.hide-text;
+      }
+    }
     &--no-label-bold {
       .chimera-value__value {
         @include mixins.text-base-700;
@@ -113,6 +127,11 @@
         &__value {
           @include mixins.text-base-400;
         }
+      }
+    }
+    &--nowrap {
+      .chimera-value__value[name] {
+        white-space: nowrap;
       }
     }
 

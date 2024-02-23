@@ -33,35 +33,35 @@ mixin points-edit(spine)
     each field in spine.points.hidden
       +chimera-hidden(field)
 
-    .point__hp
-      .point__values
-        h2.points__heading--edit(data-i18n='hit_points') Hit Points
-        //- label.chimera-value__label(data-i18n='hp') HP
-        +chimera-value({...points.hp_max, label: null })
-        +fabula-diamond
-        +chimera-value({...points.hp_crisis, label: null })
+    .point.point__hp
+      +fabula-heading-edit('points', {name: 'hit_points', label: 'Hit Points (HP)'}, false)
       +chimera-input(points.hp_extra)
-      span.point__helptext(data-i18n='hp_calculation') (MIG x 5) + LEVEL + OTHER
-
-    .point__mp
       .point__values
-        h2.points__heading--edit(data-i18n='mind_points') Mind Points
-        //- label.chimera-value__label(data-i18n='mp') MP
-        +chimera-value({...points.mp_max, label: null })
+        +chimera-value(points.hp_max)
+        +chimera-value(points.hp_crisis)
+
+        //- .point__values--crisis
+          +chimera-value(points.hp_max)
+          //- +fabula-diamond
+          +chimera-value(points.hp_crisis)
+        span.point__helptext(data-i18n='hp_calculation') (MIG x 5) + LEVEL + OTHER
+
+    .point.point__mp
+      +fabula-heading-edit('points', {name: 'mind_points', label: 'Mind Points (MP)'}, false)
       +chimera-input(points.mp_extra)
-      span.point__helptext(data-i18n='mp_calculation') (WLP x 5) + LEVEL + OTHER
-
-    .point__ip
       .point__values
-        h2.points__heading--edit(data-i18n='inventory_points') Inventory Points
-        //- label.chimera-value__label(data-i18n='ip') IP
-        +chimera-value({...points.ip_max, label: null })
+        +chimera-value(points.mp_max)
+        span.point__helptext(data-i18n='mp_calculation') (WLP x 5) + LEVEL + OTHER
+
+    .point.point__ip
+      +fabula-heading-edit('points', {name: 'inventory_points', label: 'Inventory Points (IP)'}, false)
       +chimera-input(points.ip_extra)
-      span.point__helptext(data-i18n='ip_calculation') 6 + OTHER
-
-    .point__initiative
       .point__values
-        h2.points__heading--edit(data-i18n='initiative') Initiative
-        //- label.chimera-value__label(data-i18n='init') Init.
-        +chimera-value({...points.initiative, label: null })
+        +chimera-value(points.ip_max)
+        span.point__helptext(data-i18n='ip_calculation') 6 + OTHER
+
+    .point.point__initiative
+      +fabula-heading-edit('points', {name: 'initiative', label: 'Initiative'}, false)
       +chimera-input(points.initiative_extra)
+      .point__values
+        +chimera-value(points.initiative)
