@@ -17,7 +17,7 @@
     $this: '.bestiary';
 
     // navigation
-    $pages: 'conflict', 'defenses', 'other', 'stats';
+    $pages: 'conflict', 'equipment', 'other', 'stats';
     @each $page in $pages {
       &__#{$page} {
         display: none;
@@ -92,8 +92,6 @@
       display: grid;
       gap: 8px;
 
-      max-width: 45rem;
-
       margin: 8px;
       padding: 8px;
       background-color: var(--bestiary-edit-background);
@@ -108,40 +106,13 @@
         .bestiary {
           &__stats {
             grid-template-columns: repeat(2, 1fr);
+
+            .points--edit {
+              grid-column: 1/-1;
+            }
           }
         }
       }
-
-      // .defenses--edit {
-      //   align-self: flex-end;
-      // }
-      // .extras {
-      //   align-self: flex-end;
-      // }
-      // .extra--checkboxes {
-      //   align-self: flex-end;
-      // }
-
-      // .shield--edit,
-      // .weapons {
-      //   grid-column: 3 / span 2;
-      // }
-
-      // .armor--edit,
-      // .basic-attacks {
-      //   grid-column: 1 / span 2;
-      // }
-
-      // .spells {
-      //   grid-column: 1/-1;
-      // }
-
-      // .other-actions,
-      // .special-rules,
-      // .rare-gears,
-      // .notes {
-      //   grid-column: span 2;
-      // }
     }
   }
 }

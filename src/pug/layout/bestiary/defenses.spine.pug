@@ -15,23 +15,12 @@
     ],
     fields: [
       {
-        name: 'defense_quick',
-        label: 'Defenses',
-        title: 'Defense Quick Select',
-        type: 'select',
-        options: extraDefenseOptions,
-        css: {
-          names: ['defense', 'defense__quick'],
-          modifiers: ['center']
-        },
-      },
-      {
         name: 'defense_extra',
         label: '+DEF',
         type: 'number',
         css: {
           names: ['defense', 'defense__def'],
-          modifiers: ['flex-row', 'small', 'center'],
+          modifiers: ['small', 'center'],
         },
       },
       {
@@ -40,71 +29,19 @@
         type: 'number',
         css: {
           names: ['defense', 'defense__mdef'],
-          modifiers: ['flex-row', 'small', 'center'],
+          modifiers: ['small', 'center'],
+        },
+      },
+      {
+        name: 'defense_quick',
+        label: 'Defense Quick Set',
+        title: 'Defense Quick Set',
+        type: 'select',
+        options: extraDefenseOptions,
+        css: {
+          names: ['defense', 'defense__quick'],
+          modifiers: ['center', ]
         },
       },
     ]
-  };
-
-  spine.bestiary.extras = {
-    fields: [
-      {
-        name: 'hp_extra',
-        label: 'Extra HP',
-        type: 'number',
-        step: 10,
-        css: {
-          names: ['extra', 'extra__hp_extra'],
-          modifiers: ['flex-row', 'small'],
-        },
-      },
-      {
-        name: 'mp_extra',
-        label: 'Extra MP',
-        type: 'number',
-        step: 10,
-        css: {
-          names: ['extra', 'extra__mp_extra'],
-          modifiers: ['flex-row', 'small'],
-        },
-      },
-      {
-        name: 'initiative_extra',
-        label: 'Extra Initiative',
-        type: 'number',
-        css: {
-          names: ['extra', 'extra__initiative_extra'],
-          modifiers: ['flex-row', 'small'],
-        },
-      },
-    ],
-    checkboxes: [
-      {
-        name: 'initiative_bonus',
-        label: '+4 Initiative',
-        value: 4,
-        type: 'checkbox',
-        css: {
-          names: ['extra', 'extra__initiative_bonus'],
-        },
-      },
-      {
-        name: 'accuracy_bonus',
-        label: '+3 bonus to all Accuracy checks',
-        value: 3,
-        type: 'checkbox',
-        css: {
-          names: ['extra', 'extra__accuracy_bonus'],
-        },
-      },
-      {
-        name: 'magic_bonus',
-        label: '+3 bonus to all Magic checks',
-        value: 3,
-        type: 'checkbox',
-        css: {
-          names: ['extra', 'extra__magic_bonus'],
-        },
-      },
-    ],
   };

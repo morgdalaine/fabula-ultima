@@ -39,11 +39,6 @@ mixin points-edit(spine)
       .point__values
         +chimera-value(points.hp_max)
         +chimera-value(points.hp_crisis)
-
-        //- .point__values--crisis
-          +chimera-value(points.hp_max)
-          //- +fabula-diamond
-          +chimera-value(points.hp_crisis)
         span.point__helptext(data-i18n='hp_calculation') (MIG x 5) + LEVEL + OTHER
 
     .point.point__mp

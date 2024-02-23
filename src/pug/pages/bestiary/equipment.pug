@@ -52,8 +52,8 @@ mixin equipment-view(spine)
 
 mixin armor-edit(spine)
   .armor--edit
-    h2.armor__heading--edit(data-i18n=spine.armor.heading.name)= spine.armor.heading.label
-    .armor
+    +fabula-heading-edit('armor', spine.armor.heading)
+    .armor.chimera-wrapper
       each field in spine.armor.hidden
         +chimera-hidden(field)
       each field in spine.armor.fields
@@ -61,8 +61,8 @@ mixin armor-edit(spine)
 
 mixin shield-edit(spine)
   .shield--edit
-    h2.shield__heading--edit(data-i18n=spine.shield.heading.name)= spine.shield.heading.label
-    .shield
+    +fabula-heading-edit('shield', spine.shield.heading)
+    .shield.chimera-wrapper
       each field in spine.shield.hidden
         +chimera-hidden(field)
       each field in spine.shield.fields

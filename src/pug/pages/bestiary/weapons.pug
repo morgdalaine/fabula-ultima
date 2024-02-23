@@ -1,7 +1,6 @@
 mixin weapons-view(spine)
   +chimera-hidden('weapons_empty').chimera-repeater--empty-hide-next
   .weapons
-    //- h2.weapons__heading--view(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
     +chimera-repeater('weapons')
       +chimera-block('view')
         .weapon
@@ -26,7 +25,7 @@ mixin weapons-view(spine)
 
 mixin weapons-edit(spine)
   .weapons
-    h2.weapons__heading--edit(data-i18n=spine.weapons.heading.name)= spine.weapons.heading.label
+    +fabula-heading-edit('weapons', spine.weapons.heading)
     +chimera-repeater('weapons')
       +chimera-block('delete')
         .weapon

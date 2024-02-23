@@ -1,4 +1,5 @@
 mixin defenses-edit(spine)
   .defenses--edit
+    +fabula-heading-edit('defenses', {name: 'defenses', label: 'Defenses'}, false)
     each field in spine.defenses.fields
       +chimera-input(field)

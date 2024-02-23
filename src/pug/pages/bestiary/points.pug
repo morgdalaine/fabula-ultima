@@ -22,3 +22,34 @@ mixin study-rolls
     +chimera-action({ name: 'study13', title: 'Study 13+ All the above, plus basic attacks and spells.'}).study__roll
       label.chimera-action__label 13+
       label.sr-only(data-i18n='study13_caption') All the above, plus basic attacks and spells.
+
+mixin points-edit(spine)
+  .points--edit
+    - const points = fieldDictionary(spine.points.fields);
+    each field in spine.points.hidden
+      +chimera-hidden(field)
+
+    .point.point__hp
+      +fabula-heading-edit('points', {name: 'hit_points', label: 'Hit Points (HP)'}, false)
+      +chimera-input(points.hp_extra)
+      .point__values
+        +chimera-value(points.hp_max)
+        +chimera-value(points.hp_crisis)
+
+    .point.point__mp
+      +fabula-heading-edit('points', {name: 'mind_points', label: 'Mind Points (MP)'}, false)
+      +chimera-input(points.mp_extra)
+      .point__values
+        +chimera-value(points.mp_max)
+
+    .point.point__initiative
+      +fabula-heading-edit('points', {name: 'initiative', label: 'Initiative'}, false)
+      +chimera-input(points.initiative_extra)
+      .point__values
+        +chimera-value(points.initiative)
+        +chimera-input(points.initiative_bonus)
+
+    .extras.extra--checkboxes
+      +fabula-heading-edit('points', {name: 'accuracy', label: 'Accuracy'}, false)
+      each field in spine.extras.checkboxes
+        +chimera-input(field)

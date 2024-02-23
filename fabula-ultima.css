@@ -1656,16 +1656,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   align-self: normal;
 }
 
-.fabula-ultima .bestiary .defenses--edit {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
+.fabula-ultima .bestiary .defenses__heading--edit .chimera-toggle, .fabula-ultima .bestiary .defenses__heading--view .chimera-toggle {
+  margin-left: auto;
 }
-.fabula-ultima .bestiary .defenses--edit .defense__quick {
+.fabula-ultima .bestiary .defenses__heading--edit {
   grid-column: 1/-1;
-  grid-template-columns: 1fr;
-}
-.fabula-ultima .bestiary .defenses--edit .defense__quick .chimera-input__label {
+  display: flex;
   font-family: var(--font-title);
   font-size: 1.25rem;
   font-style: normal;
@@ -1674,7 +1670,42 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   text-transform: uppercase;
   text-transform: capitalize;
 }
-
+.fabula-ultima .bestiary .defenses__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .defenses--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .bestiary .defenses--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .bestiary .defenses--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .bestiary .defenses--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .bestiary .defenses--view .chimera-wrapper,
+.fabula-ultima .bestiary .defenses--view .chimera-repeater--simple, .fabula-ultima .bestiary .defenses--edit .chimera-wrapper,
+.fabula-ultima .bestiary .defenses--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .bestiary .defenses:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .bestiary .defenses:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .bestiary .defenses .chimera-repeater,
+.fabula-ultima .bestiary .defenses .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .bestiary .defenses--edit {
+  display: grid;
+  grid-template-columns: repeat(2, auto) 1fr;
+  gap: 4px;
+}
 .fabula-ultima .bestiary .bio--view .bio {
   display: grid;
   grid-template-columns: calc(4 * var(--input-component-size)) 1fr repeat(2, auto);
@@ -2428,6 +2459,98 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .points__heading--edit .chimera-toggle, .fabula-ultima .bestiary .points__heading--view .chimera-toggle {
+  margin-left: auto;
+}
+.fabula-ultima .bestiary .points__heading--edit {
+  grid-column: 1/-1;
+  display: flex;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.fabula-ultima .bestiary .points__heading--view {
+  grid-column: 1/-1;
+  display: flex;
+  background-image: var(--fabula-gradient-secondary);
+  color: var(--color-on-dark);
+  padding-inline-start: 16px;
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.fabula-ultima .bestiary .points--view:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .bestiary .points--view:has(input[name*=collapse]:checked) .chimera-repeater--simple, .fabula-ultima .bestiary .points--edit:has(input[name*=collapse]:checked) .chimera-wrapper,
+.fabula-ultima .bestiary .points--edit:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .bestiary .points--view .chimera-wrapper,
+.fabula-ultima .bestiary .points--view .chimera-repeater--simple, .fabula-ultima .bestiary .points--edit .chimera-wrapper,
+.fabula-ultima .bestiary .points--edit .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .bestiary .points:has(input[name*=collapse]:checked) .chimera-repeater,
+.fabula-ultima .bestiary .points:has(input[name*=collapse]:checked) .chimera-repeater--simple {
+  height: 0;
+}
+.fabula-ultima .bestiary .points .chimera-repeater,
+.fabula-ultima .bestiary .points .chimera-repeater--simple {
+  overflow: hidden;
+}
+.fabula-ultima .bestiary .points__heading--edit {
+  justify-content: center;
+}
+.fabula-ultima .bestiary .points--edit {
+  display: grid;
+  gap: 4px;
+  align-items: flex-start;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .fabula-ultima .bestiary .points--edit {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.fabula-ultima .bestiary .points--edit .point {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.fabula-ultima .bestiary .points--edit .point-extra {
+  grid-row: span 2;
+}
+.fabula-ultima .bestiary .points--edit .point .chimera-value {
+  display: grid;
+  grid-template-columns: minmax(5rem, 1fr) 1fr;
+}
+.fabula-ultima .bestiary .points--edit .point__values {
+  display: grid;
+  align-items: center;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .points--edit .point__values--crisis {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px;
+}
+.fabula-ultima .bestiary .points--edit .point__helptext {
+  grid-column: 1/-1;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
   line-height: 150%;
 }
 
@@ -3528,11 +3651,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
-.fabula-ultima .bestiary__defenses {
+.fabula-ultima .bestiary__equipment {
   display: none;
   grid-column: 1/-1;
 }
-.fabula-ultima .bestiary input[name*=nav][value=defenses] ~ * .bestiary__defenses {
+.fabula-ultima .bestiary input[name*=nav][value=equipment] ~ * .bestiary__equipment {
   display: grid;
   gap: 4px;
 }
@@ -3602,7 +3725,6 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary--edit {
   display: grid;
   gap: 8px;
-  max-width: 45rem;
   margin: 8px;
   padding: 8px;
   background-color: var(--bestiary-edit-background);
@@ -3617,6 +3739,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   }
   .fabula-ultima .bestiary--edit .bestiary__stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .fabula-ultima .bestiary--edit .bestiary__stats .points--edit {
+    grid-column: 1/-1;
   }
 }
 

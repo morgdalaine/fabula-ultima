@@ -10,10 +10,25 @@
         css: { names: ['point--hp'] },
       },
       {
-        name: 'hp_crisis',
-        label: 'Crisis',
-        css: { names: ['point--hp_crisis'] },
+        name: 'hp_max',
+        label: 'HP Max',
+        title: 'Hit Points',
         type: 'number',
+        css: { names: ['point--hp'] },
+      },
+      {
+        name: 'hp_crisis',
+        label: 'HP Crisis',
+        title: `If your current HP is at or below this number, your are considered "in Crisis", which means you're not looking good — you're having a bad day and it shows.`,
+        type: 'number',
+        css: { names: ['point--hp_crisis'], modifiers: ['nowrap'] },
+      },
+      {
+        name: 'hp_extra',
+        label: 'Extra HP',
+        type: 'number',
+        step: 5,
+        css: { names: ['point--hp-extra'], modifiers: ['small', 'center'] },
       },
       {
         name: 'mp',
@@ -23,11 +38,41 @@
         css: { names: ['point--mp'] },
       },
       {
+        name: 'mp_max',
+        label: 'MP Max',
+        title: 'Mind Points',
+        type: 'number',
+        css: { names: ['point--mp'] },
+      },
+      {
+        name: 'mp_extra',
+        label: 'Extra MP',
+        type: 'number',
+        step: 5,
+        css: { names: ['point--mp-extra'], modifiers: ['small', 'center'] },
+      },
+      {
         name: 'initiative',
-        label: 'Init.',
+        label: 'Initiative',
         title: 'Initiative',
         type: 'number',
         css: { names: ['point--initiative'] },
+      },
+      {
+        name: 'initiative_extra',
+        label: 'Extra Init.',
+        title: 'Extra Initiative',
+        type: 'number',
+        css: { names: ['point--init-extra'], modifiers: ['small', 'center'] },
+      },
+      {
+        name: 'initiative_bonus',
+        label: '+4 Initiative',
+        value: 4,
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__initiative_bonus'],
+        },
       },
       {
         name: 'ultima_points',
@@ -58,4 +103,27 @@
         css: { names : ['spending-ultima'], modifiers: ['bullet', 'helptext', 'colon'] },
       },
     ]
+  };
+
+  spine.bestiary.extras = {
+    checkboxes: [
+      {
+        name: 'accuracy_bonus',
+        label: '+3 bonus to all Accuracy checks',
+        value: 3,
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__accuracy_bonus'],
+        },
+      },
+      {
+        name: 'magic_bonus',
+        label: '+3 bonus to all Magic checks',
+        value: 3,
+        type: 'checkbox',
+        css: {
+          names: ['extra', 'extra__magic_bonus'],
+        },
+      },
+    ],
   };
