@@ -76,12 +76,7 @@
     }
 
     &--edit {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-
       display: grid;
-      grid-template-columns: 3fr 1fr;
       grid-template-rows: 1fr auto;
       gap: 8px;
 
@@ -97,6 +92,8 @@
       }
 
       @media (min-width: $breakpoint-sm) {
+        grid-template-columns: 3fr 1fr;
+
         .attributes--edit {
           grid-row: span 2;
         }

@@ -16,18 +16,36 @@
   .bestiary {
     $this: '.bestiary';
 
+    // navigation
+    $pages: 'conflict', 'defenses', 'other', 'stats';
+    @each $page in $pages {
+      &__#{$page} {
+        display: none;
+        grid-column: 1/-1;
+      }
+
+      input[name*='nav'] {
+        &[value='#{$page}'] {
+          ~ * #{$this}__#{$page} {
+            display: grid;
+            gap: 4px;
+          }
+        }
+      }
+    }
+
     &--view {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
       min-width: $breakpoint-xs;
-      margin: 8px;
       max-width: 45rem;
+      margin: 8px;
       background-color: var(--suface-container-lowest);
 
       box-shadow: var(--box-shadow-light);
       border-radius: 4px;
-
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
 
       * ~ .repcontrol {
         display: none;
@@ -71,11 +89,12 @@
     }
 
     &--edit {
-      min-width: $breakpoint-xxs;
       display: grid;
       gap: 8px;
-      margin: 8px;
 
+      max-width: 45rem;
+
+      margin: 8px;
       padding: 8px;
       background-color: var(--bestiary-edit-background);
 
@@ -83,119 +102,46 @@
         height: min-content;
       }
 
-      @media (min-width: $breakpoint-sm) {
-        grid-template-columns: repeat(4, 1fr);
+      @media (min-width: $breakpoint-xs) {
+        grid-template-columns: 1fr auto;
 
-        .bio--edit {
-          grid-column: 1 / span 3;
-        }
-
-        .attributes {
-          &--edit {
-            grid-column-start: 1;
+        .bestiary {
+          &__stats {
+            grid-template-columns: repeat(2, 1fr);
           }
-          &__distribution {
-            grid-column: span 3;
-          }
-        }
-
-        .affinities {
-          &--edit {
-            grid-row: 3 / span 2;
-          }
-          &__skillcost {
-            grid-column: span 3;
-          }
-        }
-
-        .status-immunity--edit {
-          grid-column: 2/-1;
-        }
-
-        .defenses--edit {
-          align-self: flex-end;
-        }
-        .extras {
-          align-self: flex-end;
-        }
-        .extra--checkboxes {
-          align-self: flex-end;
-        }
-
-        .shield--edit,
-        .weapons {
-          grid-column: 3 / span 2;
-        }
-
-        .armor--edit,
-        .basic-attacks {
-          grid-column: 1 / span 2;
-        }
-
-        .spells {
-          grid-column: 1/-1;
-        }
-
-        .other-actions,
-        .special-rules,
-        .rare-gears,
-        .notes {
-          grid-column: span 2;
         }
       }
 
-      @media (max-width: $breakpoint-sm) {
-        grid-template-columns: repeat(3, 1fr);
+      // .defenses--edit {
+      //   align-self: flex-end;
+      // }
+      // .extras {
+      //   align-self: flex-end;
+      // }
+      // .extra--checkboxes {
+      //   align-self: flex-end;
+      // }
 
-        .bio--edit {
-          grid-column: 1/-1;
-        }
-        .attributes {
-          // &--edit { }
-          &__distribution {
-            grid-column: span 2;
-          }
-        }
-        .affinities {
-          &--edit {
-            grid-row: span 2;
-          }
-          &__skillcost {
-            grid-column: span 2;
-          }
-        }
+      // .shield--edit,
+      // .weapons {
+      //   grid-column: 3 / span 2;
+      // }
 
-        .status-immunity--edit {
-          grid-column: 2/-1;
-        }
+      // .armor--edit,
+      // .basic-attacks {
+      //   grid-column: 1 / span 2;
+      // }
 
-        .defenses--edit,
-        .extras,
-        .extra--checkboxes {
-          align-self: flex-end;
-        }
+      // .spells {
+      //   grid-column: 1/-1;
+      // }
 
-        .shield--edit,
-        .weapons,
-        .armor--edit,
-        .basic-attacks,
-        .spells,
-        .other-actions,
-        .special-rules,
-        .rare-gears,
-        .notes {
-          grid-column: 1/-1;
-        }
-      }
-
-      @media (max-width: $breakpoint-xs) {
-        .status-immunity--edit,
-        .defenses--edit,
-        .extras,
-        .extra--checkboxes {
-          grid-column: 1/-1;
-        }
-      }
+      // .other-actions,
+      // .special-rules,
+      // .rare-gears,
+      // .notes {
+      //   grid-column: span 2;
+      // }
     }
   }
 }

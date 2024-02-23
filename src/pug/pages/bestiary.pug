@@ -1,3 +1,4 @@
+include bestiary/attributes
 include bestiary/basic-attacks
 include bestiary/bio
 include bestiary/defenses
@@ -36,44 +37,44 @@ mixin bestiary-edit(spine)
   section.bestiary--edit
     // TODO Nav bar to settings
     +bio-edit(spine)
+    +attributes-edit(spine)
 
-    .attributes--edit
-      each field in spine.attributes.fields
-        +chimera-input(field)
+    +navbar-edit(spine)
 
-    .attributes__distribution.chimera-shadow
-      each field in spine.attributes.distribution
-        +chimera-value(field)
+    .bestiary__stats
+      .affinities--edit
+        each field in spine.affinities.fields
+          +chimera-input(field)
 
-    .affinities--edit
-      each field in spine.affinities.fields
-        +chimera-input(field)
+      .affinities__skillcost.chimera-shadow
+        each field in spine.affinities.skillcost
+          +chimera-value(field)
 
-    .affinities__skillcost.chimera-shadow
-      each field in spine.affinities.skillcost
-        +chimera-value(field)
+      .status-immunity--edit
+        +status-immunity-edit(spine)
 
-    .status-immunity--edit
-      +status-immunity-edit(spine)
+    .bestiary__defenses
+      +defenses-edit(spine)
 
-    +defenses-edit(spine)
+      .extras
+        // TODO Show max HP/MP here to see calculations at work
+        each field in spine.extras.fields
+          +chimera-input(field)
 
-    .extras
-      // TODO Show max HP/MP here to see calculations at work
-      each field in spine.extras.fields
-        +chimera-input(field)
+      .extras.extra--checkboxes
+        each field in spine.extras.checkboxes
+          +chimera-input(field)
 
-    .extras.extra--checkboxes
-      each field in spine.extras.checkboxes
-        +chimera-input(field)
+      +armor-edit(spine)
+      +shield-edit(spine)
 
-    +armor-edit(spine)
-    +shield-edit(spine)
+    .bestiary__conflict
+      +basic-attacks-edit(spine)
+      +weapons-edit(spine)
+      +spells-edit(spine)
 
-    +basic-attacks-edit(spine)
-    +weapons-edit(spine)
-    +spells-edit(spine)
-    +other-actions-edit(spine)
-    +special-rules-edit(spine)
-    +rare-gear-edit(spine)
-    +notes-edit(spine)
+    .bestiary__other
+      +other-actions-edit(spine)
+      +special-rules-edit(spine)
+      +rare-gear-edit(spine)
+      +notes-edit(spine)

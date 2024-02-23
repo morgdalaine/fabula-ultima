@@ -3,10 +3,12 @@ const NAVBAR = [
   'bonds',
   'classes',
   'conflict',
+  'defenses',
   'equipment',
   'journal',
   'magic',
   'meta',
+  'other',
   'settings',
   'stats',
 ];

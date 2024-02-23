@@ -5,6 +5,7 @@
     $this: '.attributes';
 
     &__distribution {
+      grid-column: span 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -12,6 +13,7 @@
 
     &--edit {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 4px;
 
       .attribute {

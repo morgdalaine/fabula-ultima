@@ -1,0 +1,7 @@
+mixin attributes-edit(spine)
+  .attributes--edit
+    .attributes__distribution.chimera-shadow
+      each text in spine.attributes.distribution
+        +chimera-value(text)
+    each field in spine.attributes.fields
+      +chimera-input(field)

@@ -399,6 +399,25 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 .fabula-ultima .chimera-value--colon .chimera-value__label::after {
   content: ":";
 }
+.fabula-ultima .chimera-value--parens::before {
+  content: "(";
+}
+.fabula-ultima .chimera-value--parens::after {
+  content: ")";
+}
+.fabula-ultima .chimera-value--hide-label .chimera-value__label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
 .fabula-ultima .chimera-value--no-label-bold .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -422,6 +441,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+.fabula-ultima .chimera-value--nowrap .chimera-value__value[name] {
+  white-space: nowrap;
 }
 .fabula-ultima .chimera-value__label {
   margin-inline-end: 2px;
@@ -1599,14 +1621,21 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
+@media (min-width: 540px) {
+  .fabula-ultima .bestiary .affinities--edit {
+    grid-row: span 2;
+  }
+}
 
 .fabula-ultima .bestiary .attributes__distribution {
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .fabula-ultima .bestiary .attributes--edit {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 4px;
 }
 .fabula-ultima .bestiary .attributes--edit .attribute {
@@ -3491,16 +3520,48 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   height: var(--input-component-size);
 }
 
+.fabula-ultima .bestiary__conflict {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary input[name*=nav][value=conflict] ~ * .bestiary__conflict {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .bestiary__defenses {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary input[name*=nav][value=defenses] ~ * .bestiary__defenses {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .bestiary__other {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary input[name*=nav][value=other] ~ * .bestiary__other {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .bestiary__stats {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .bestiary input[name*=nav][value=stats] ~ * .bestiary__stats {
+  display: grid;
+  gap: 4px;
+}
 .fabula-ultima .bestiary--view {
-  min-width: 480px;
-  margin: 8px;
-  max-width: 45rem;
-  background-color: var(--suface-container-lowest);
-  box-shadow: var(--box-shadow-light);
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 540px;
+  max-width: 45rem;
+  margin: 8px;
+  background-color: var(--suface-container-lowest);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 4px;
 }
 .fabula-ultima .bestiary--view * ~ .repcontrol {
   display: none;
@@ -3539,9 +3600,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: none;
 }
 .fabula-ultima .bestiary--edit {
-  min-width: 360px;
   display: grid;
   gap: 8px;
+  max-width: 45rem;
   margin: 8px;
   padding: 8px;
   background-color: var(--bestiary-edit-background);
@@ -3550,97 +3611,12 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   height: -moz-min-content;
   height: min-content;
 }
-@media (min-width: 768px) {
+@media (min-width: 540px) {
   .fabula-ultima .bestiary--edit {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr auto;
   }
-  .fabula-ultima .bestiary--edit .bio--edit {
-    grid-column: 1/span 3;
-  }
-  .fabula-ultima .bestiary--edit .attributes--edit {
-    grid-column-start: 1;
-  }
-  .fabula-ultima .bestiary--edit .attributes__distribution {
-    grid-column: span 3;
-  }
-  .fabula-ultima .bestiary--edit .affinities--edit {
-    grid-row: 3/span 2;
-  }
-  .fabula-ultima .bestiary--edit .affinities__skillcost {
-    grid-column: span 3;
-  }
-  .fabula-ultima .bestiary--edit .status-immunity--edit {
-    grid-column: 2/-1;
-  }
-  .fabula-ultima .bestiary--edit .defenses--edit {
-    align-self: flex-end;
-  }
-  .fabula-ultima .bestiary--edit .extras {
-    align-self: flex-end;
-  }
-  .fabula-ultima .bestiary--edit .extra--checkboxes {
-    align-self: flex-end;
-  }
-  .fabula-ultima .bestiary--edit .shield--edit,
-  .fabula-ultima .bestiary--edit .weapons {
-    grid-column: 3/span 2;
-  }
-  .fabula-ultima .bestiary--edit .armor--edit,
-  .fabula-ultima .bestiary--edit .basic-attacks {
-    grid-column: 1/span 2;
-  }
-  .fabula-ultima .bestiary--edit .spells {
-    grid-column: 1/-1;
-  }
-  .fabula-ultima .bestiary--edit .other-actions,
-  .fabula-ultima .bestiary--edit .special-rules,
-  .fabula-ultima .bestiary--edit .rare-gears,
-  .fabula-ultima .bestiary--edit .notes {
-    grid-column: span 2;
-  }
-}
-@media (max-width: 768px) {
-  .fabula-ultima .bestiary--edit {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .fabula-ultima .bestiary--edit .bio--edit {
-    grid-column: 1/-1;
-  }
-  .fabula-ultima .bestiary--edit .attributes__distribution {
-    grid-column: span 2;
-  }
-  .fabula-ultima .bestiary--edit .affinities--edit {
-    grid-row: span 2;
-  }
-  .fabula-ultima .bestiary--edit .affinities__skillcost {
-    grid-column: span 2;
-  }
-  .fabula-ultima .bestiary--edit .status-immunity--edit {
-    grid-column: 2/-1;
-  }
-  .fabula-ultima .bestiary--edit .defenses--edit,
-  .fabula-ultima .bestiary--edit .extras,
-  .fabula-ultima .bestiary--edit .extra--checkboxes {
-    align-self: flex-end;
-  }
-  .fabula-ultima .bestiary--edit .shield--edit,
-  .fabula-ultima .bestiary--edit .weapons,
-  .fabula-ultima .bestiary--edit .armor--edit,
-  .fabula-ultima .bestiary--edit .basic-attacks,
-  .fabula-ultima .bestiary--edit .spells,
-  .fabula-ultima .bestiary--edit .other-actions,
-  .fabula-ultima .bestiary--edit .special-rules,
-  .fabula-ultima .bestiary--edit .rare-gears,
-  .fabula-ultima .bestiary--edit .notes {
-    grid-column: 1/-1;
-  }
-}
-@media (max-width: 480px) {
-  .fabula-ultima .bestiary--edit .status-immunity--edit,
-  .fabula-ultima .bestiary--edit .defenses--edit,
-  .fabula-ultima .bestiary--edit .extras,
-  .fabula-ultima .bestiary--edit .extra--checkboxes {
-    grid-column: 1/-1;
+  .fabula-ultima .bestiary--edit .bestiary__stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -5991,31 +5967,47 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .points .chimera-repeater--simple {
   overflow: hidden;
 }
+.fabula-ultima .character .points__heading--edit {
+  justify-content: center;
+}
 .fabula-ultima .character .points--edit {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 4px;
   align-items: flex-start;
+  grid-template-columns: repeat(2, 1fr);
 }
-.fabula-ultima .character .points--edit .point__hp, .fabula-ultima .character .points--edit .point__mp, .fabula-ultima .character .points--edit .point__ip, .fabula-ultima .character .points--edit .point__initiative {
+@media (min-width: 768px) {
+  .fabula-ultima .character .points--edit {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.fabula-ultima .character .points--edit .point {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
-  align-items: center;
+  gap: 4px;
+  align-items: flex-start;
   justify-content: center;
 }
-.fabula-ultima .character .points--edit .point__hp-extra, .fabula-ultima .character .points--edit .point__mp-extra, .fabula-ultima .character .points--edit .point__ip-extra, .fabula-ultima .character .points--edit .point__initiative-extra {
+.fabula-ultima .character .points--edit .point-extra {
   grid-row: span 2;
 }
+.fabula-ultima .character .points--edit .point .chimera-value {
+  display: grid;
+  grid-template-columns: minmax(5rem, 1fr) 1fr;
+}
 .fabula-ultima .character .points--edit .point__values {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  gap: 4px;
+}
+.fabula-ultima .character .points--edit .point__values--crisis {
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 4px;
 }
 .fabula-ultima .character .points--edit .point__helptext {
-  grid-column: 1/-2;
-  text-align: center;
+  grid-column: 1/-1;
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-style: normal;
@@ -6333,7 +6325,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   gap: 4px;
 }
 .fabula-ultima .character--view {
-  min-width: 480px;
+  min-width: 540px;
   margin: 8px;
   max-width: 45rem;
   background-color: var(--suface-container-lowest);
@@ -6355,11 +6347,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   padding: 0 4px;
 }
 .fabula-ultima .character--edit {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   display: grid;
-  grid-template-columns: 3fr 1fr;
   grid-template-rows: 1fr auto;
   gap: 8px;
   margin: 8px;
@@ -6373,6 +6361,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   align-self: flex-end;
 }
 @media (min-width: 768px) {
+  .fabula-ultima .character--edit {
+    grid-template-columns: 3fr 1fr;
+  }
   .fabula-ultima .character--edit .attributes--edit {
     grid-row: span 2;
   }

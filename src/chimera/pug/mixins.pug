@@ -15,6 +15,11 @@
     }, {});
   }
 
+  const buildTitle = (blob) => {
+    if (!(blob.title || blob.titleOverride)) return {};
+    return { titleKey: `${blob.titleOverride?.key ?? blob.name}_title`, title: blob.titleOverride?.label ?? blob.title };
+  }
+
 //- https://github.com/pugjs/pug/issues/1693#issuecomment-894801220
 //- https://codepen.io/Vectorjon/pen/GRmYWjN
 mixin chimera-block(key, marker=false)
@@ -239,7 +244,8 @@ mixin chimera-value(blob)
   - const css = blob.css ? buildCSS({ block: namespace, ...blob.css }) : namespace;
   - const valueClass = `${namespace}__field`;
   - const attr = `attr_${blob.name}`;
-  div(class=css)&attributes(attributes)
+  - const { titleKey, title } = buildTitle(blob);
+  div(class=css, data-i18n-title=titleKey, title=title)&attributes(attributes)
     if blob.labelOverride
       - const { key, label } = blob.labelOverride;
       label.chimera-value__label(data-i18n=key, for=blob.name)= label
