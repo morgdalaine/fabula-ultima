@@ -615,10 +615,14 @@ const calculateSpellAccuracyDamage = () => {
       const update: Record<string, any> = {};
 
       const level: number = +attributes.level || 0;
-      const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
+      const magic_bonus: number = +attributes.magic_bonus || 0;
 
-      const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
-      const levelDamageBonus = calculateLevelDamageBonus(level);
+      let levelAccuracyBonus = 0;
+      let levelDamageBonus = 0;
+      if (attributes.sheet_type === 'bestiary') {
+        levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+        levelDamageBonus = calculateLevelDamageBonus(level);
+      }
 
       const [section, ids] = Object.entries(sections).at(0);
       ids.forEach((id) => {
@@ -627,8 +631,7 @@ const calculateSpellAccuracyDamage = () => {
         const spell_accuracy: number = +attributes[prefix + 'spell_accuracy'] || 0;
         const spell_damage: number = +attributes[prefix + 'spell_damage'] || 0;
 
-        update[prefix + 'spell_accuracy_total'] =
-          spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+        update[prefix + 'spell_accuracy_total'] = spell_accuracy + magic_bonus + levelAccuracyBonus;
         update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
       });
 
@@ -645,7 +648,7 @@ const calculateRitualAccuracyDifficulty = () => {
       if (attributes.sheet_type !== 'character') return;
 
       const update: Record<string, any> = {};
-      const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
+      const magic_bonus: number = +attributes.magic_bonus || 0;
 
       // Rituals Known
       let ritual_known = '';
@@ -663,7 +666,7 @@ const calculateRitualAccuracyDifficulty = () => {
       ids.forEach((id) => {
         const prefix = `${section}_${id}_`;
         const ritual_accuracy: number = +attributes[prefix + 'ritual_accuracy'] || 0;
-        update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + accuracy_bonus;
+        update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + magic_bonus;
 
         const potency: string = attributes[prefix + 'ritual_potency'] ?? 'minor';
         const area: string = attributes[prefix + 'ritual_area'] ?? 'individual';

@@ -5235,7 +5235,6 @@ const ATTR_WATCH = {
         'sheet_type',
         'level',
         'accuracy_bonus',
-        'magic_bonus',
         'repeating_basic-attacks:attack_name',
         'repeating_basic-attacks:attack_extra_damage',
     ],
@@ -5243,7 +5242,6 @@ const ATTR_WATCH = {
         'sheet_type',
         'level',
         'accuracy_bonus',
-        'magic_bonus',
         'repeating_weapons:weapon_accuracy',
         'repeating_weapons:weapon_damage',
         'repeating_weapons:weapon_attack_accuracy',
@@ -5253,14 +5251,13 @@ const ATTR_WATCH = {
     spells: [
         'sheet_type',
         'level',
-        'accuracy_bonus',
         'magic_bonus',
         'repeating_spells:spell_accuracy',
         'repeating_spells:spell_damage',
     ],
     rituals: [
         'sheet_type',
-        'accuracy_bonus',
+        'magic_bonus',
         'repeating_rituals:ritual_accuracy',
         'repeating_rituals:ritual_potency',
         'repeating_rituals:ritual_area',
@@ -7560,16 +7557,19 @@ const calculateSpellAccuracyDamage = () => {
             return;
         const update = {};
         const level = +attributes.level || 0;
-        const accuracy_bonus = +attributes.accuracy_bonus || 0;
-        const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
-        const levelDamageBonus = calculateLevelDamageBonus(level);
+        const magic_bonus = +attributes.magic_bonus || 0;
+        let levelAccuracyBonus = 0;
+        let levelDamageBonus = 0;
+        if (attributes.sheet_type === 'bestiary') {
+            levelAccuracyBonus = calculateLevelAccuracyBonus(level);
+            levelDamageBonus = calculateLevelDamageBonus(level);
+        }
         const [section, ids] = Object.entries(sections).at(0);
         ids.forEach((id) => {
             const prefix = `${section}_${id}_`;
             const spell_accuracy = +attributes[prefix + 'spell_accuracy'] || 0;
             const spell_damage = +attributes[prefix + 'spell_damage'] || 0;
-            update[prefix + 'spell_accuracy_total'] =
-                spell_accuracy + accuracy_bonus + levelAccuracyBonus;
+            update[prefix + 'spell_accuracy_total'] = spell_accuracy + magic_bonus + levelAccuracyBonus;
             update[prefix + 'spell_damage_total'] = spell_damage + levelDamageBonus;
         });
         setAttrs(update, { silent: true });
@@ -7580,7 +7580,7 @@ const calculateRitualAccuracyDifficulty = () => {
         if (attributes.sheet_type !== 'character')
             return;
         const update = {};
-        const accuracy_bonus = +attributes.accuracy_bonus || 0;
+        const magic_bonus = +attributes.magic_bonus || 0;
         let ritual_known = '';
         RITUAL_DISCIPLINES.forEach((discipline) => {
             const checkbox = attributes[discipline] ?? '';
@@ -7594,7 +7594,7 @@ const calculateRitualAccuracyDifficulty = () => {
         ids.forEach((id) => {
             const prefix = `${section}_${id}_`;
             const ritual_accuracy = +attributes[prefix + 'ritual_accuracy'] || 0;
-            update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + accuracy_bonus;
+            update[prefix + 'ritual_accuracy_total'] = ritual_accuracy + magic_bonus;
             const potency = attributes[prefix + 'ritual_potency'] ?? 'minor';
             const area = attributes[prefix + 'ritual_area'] ?? 'individual';
             const dl = RITUAL_DIFFICULTY.difficulty[potency];
