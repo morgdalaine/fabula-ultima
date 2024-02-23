@@ -1,7 +1,7 @@
 mixin other-actions-view(spine)
   +chimera-hidden('other-actions_empty').chimera-repeater--empty-hide-next
   .other-actions
-    h2.other-actions__heading--view(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+    +fabula-heading-view('other-actions', spine.actions.heading)
     +chimera-repeater('other-actions')
       +chimera-block('view')
         .other-action
@@ -15,7 +15,7 @@ mixin other-actions-view(spine)
 
 mixin other-actions-edit(spine)
   .other-actions
-    h2.other-actions__heading--edit(data-i18n=spine.actions.heading.name)= spine.actions.heading.label
+    +fabula-heading-edit('other-actions', spine.actions.heading)
     +chimera-repeater('other-actions')
       +chimera-block('delete')
         .other-action

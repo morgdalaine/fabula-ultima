@@ -1,7 +1,7 @@
 mixin rare-gear-view(spine)
   +chimera-hidden('rare-gears_empty').chimera-repeater--empty-hide-next
   .rare-gears
-    h2.rare-gears__heading--view(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+    +fabula-heading-view('rare-gears', spine.raregear.heading)
     +chimera-repeater('rare-gears')
       +chimera-block('view')
         .rare-gear
@@ -14,7 +14,7 @@ mixin rare-gear-view(spine)
 
 mixin rare-gear-edit(spine)
   .rare-gears
-    h2.rare-gears__heading--edit(data-i18n=spine.raregear.heading.name)= spine.raregear.heading.label
+    +fabula-heading-edit('rare-gears', spine.raregear.heading)
     +chimera-repeater('rare-gears')
       +chimera-block('delete')
         .rare-gear

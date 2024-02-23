@@ -1,6 +1,6 @@
 mixin basic-attacks-view(spine)
   .basic-attacks
-    h2.basic-attacks__heading--view(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
+    +fabula-heading-view('basic-attacks', spine.attacks.heading)
     +chimera-hidden('basic-attacks_empty').chimera-repeater--empty-hide-next
     +chimera-repeater('basic-attacks')
       +chimera-block('view')
@@ -23,7 +23,7 @@ mixin basic-attacks-view(spine)
 
 mixin basic-attacks-edit(spine)
   .basic-attacks
-    h2.basic-attacks__heading--edit(data-i18n=spine.attacks.heading.name)= spine.attacks.heading.label
+    +fabula-heading-edit('basic-attacks', spine.attacks.heading)
     +chimera-repeater('basic-attacks')
       +chimera-block('delete')
         .basic-attack

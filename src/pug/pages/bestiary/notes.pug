@@ -1,7 +1,7 @@
 mixin notes-view(spine)
   +chimera-hidden('notes_empty').chimera-repeater--empty-hide-next
   .notes
-    h2.notes__heading--view(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+    +fabula-heading-view('notes', spine.notes.heading)
     +chimera-repeater('notes')
       +chimera-block('view')
         .note
@@ -14,7 +14,7 @@ mixin notes-view(spine)
 
 mixin notes-edit(spine)
   .notes
-    h2.notes__heading--edit(data-i18n=spine.notes.heading.name)= spine.notes.heading.label
+    +fabula-heading-edit('notes', spine.notes.heading)
     +chimera-repeater('notes')
       +chimera-block('delete')
         .note

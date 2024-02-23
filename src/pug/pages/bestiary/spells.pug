@@ -1,7 +1,7 @@
 mixin spells-view(spine)
   +chimera-hidden('spells_empty').chimera-repeater--empty-hide-next
   .spells
-    h2.spells__heading--view(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    +fabula-heading-view('spells', spine.spells.heading)
     +chimera-repeater('spells')
       +chimera-block('view')
         .spell
@@ -30,7 +30,7 @@ mixin spells-view(spine)
 
 mixin spells-edit(spine)
   .spells
-    h2.spells__heading--edit(data-i18n=spine.spells.heading.name)= spine.spells.heading.label
+    +fabula-heading-edit('spells', spine.spells.heading)
     +chimera-repeater('spells')
       +chimera-block('delete')
         .spell
