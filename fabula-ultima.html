@@ -1455,6 +1455,20 @@
                     </div>
                   </div>
                   <div class="setting">
+                    <label class="chimera-toggle settings__melee_weapon_mastery" data-i18n-title="show_melee_weapon_mastery_title" title="Set global accuracy for attacks with melee weapons">
+                      <div class="chimera-toggle__field">
+                        <input id="show_melee_weapon_mastery" name="attr_show_melee_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with melee weapons"/><img class="chimera-toggle--on" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with melee weapons"/>
+                      </div><span class="chimera-toggle__label" data-i18n="show_melee_weapon_mastery" for="show_melee_weapon_mastery">Show Global Melee Weapon Accuracy</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__ranged_weapon_mastery" data-i18n-title="show_ranged_weapon_mastery_title" title="Set global accuracy for attacks with ranged weapons">
+                      <div class="chimera-toggle__field">
+                        <input id="show_ranged_weapon_mastery" name="attr_show_ranged_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with ranged weapons"/><img class="chimera-toggle--on" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with ranged weapons"/>
+                      </div><span class="chimera-toggle__label" data-i18n="show_ranged_weapon_mastery" for="show_ranged_weapon_mastery">Show Global Ranged Weapon Accuracy</span>
+                    </label>
+                  </div>
+                  <div class="setting">
                     <label class="chimera-toggle settings__quirk" data-i18n-title="enable_quirks_title" title="Enable Quirks">
                       <div class="chimera-toggle__field">
                         <input id="enable_quirks" name="attr_enable_quirks" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
@@ -2292,6 +2306,17 @@
                       </div><span class="chimera-toggle__label" data-i18n="weapons_collapse" for="weapons_collapse">Toggle weapons</span>
                     </label>
                   </h2>
+                  <div class="weapons__accuracy">
+                    <h2 class="accuracy__subheading--edit"><span data-i18n="weapon_mastery">Weapon Mastery</span></h2>
+                    <div class="chimera-input accuracy accuracy__melee_weapon_mastery chimera-input--row-reverse">
+                      <label class="chimera-input__label" data-i18n="melee_weapon_mastery" for="melee_weapon_mastery">Melee Weapon Accuracy Bonus</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="melee_weapon_mastery_placeholder" data-i18n-title="melee_weapon_mastery_title" id="melee_weapon_mastery" name="attr_melee_weapon_mastery" placeholder="0" title="Set bonus to Accuracy Checks with melee weapons" type="number" value="0"/>
+                    </div>
+                    <div class="chimera-input accuracy accuracy__ranged_weapon_mastery chimera-input--row-reverse">
+                      <label class="chimera-input__label" data-i18n="ranged_weapon_mastery" for="ranged_weapon_mastery">Ranged Weapon Accuracy Bonus</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="ranged_weapon_mastery_placeholder" data-i18n-title="ranged_weapon_mastery_title" id="ranged_weapon_mastery" name="attr_ranged_weapon_mastery" placeholder="0" title="Set bonus to Accuracy Checks with ranged weapons" type="number" value="0"/>
+                    </div>
+                  </div>
                   <div class="chimera-repeater">
                     <input class="chimera-hidden chimera-repeater--is-empty" name="attr_weapons_empty" type="hidden" value="0"/>
                     <div class="chimera-repeater__empty">
@@ -3287,6 +3312,20 @@
                       <label class="chimera-input__label" data-i18n="money_name" for="money_name">Currency Name</label>
                       <input class="chimera-input__field" data-i18n-placeholder="money_name_placeholder" data-i18n-title="money_name_title" id="money_name" name="attr_money_name" placeholder="Currency Name" title="Currency Name" type="text" value="zenit"/>
                     </div>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__melee_weapon_mastery" data-i18n-title="show_melee_weapon_mastery_title" title="Set global accuracy for attacks with melee weapons">
+                      <div class="chimera-toggle__field">
+                        <input id="show_melee_weapon_mastery" name="attr_show_melee_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with melee weapons"/><img class="chimera-toggle--on" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with melee weapons"/>
+                      </div><span class="chimera-toggle__label" data-i18n="show_melee_weapon_mastery" for="show_melee_weapon_mastery">Show Global Melee Weapon Accuracy</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__ranged_weapon_mastery" data-i18n-title="show_ranged_weapon_mastery_title" title="Set global accuracy for attacks with ranged weapons">
+                      <div class="chimera-toggle__field">
+                        <input id="show_ranged_weapon_mastery" name="attr_show_ranged_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with ranged weapons"/><img class="chimera-toggle--on" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with ranged weapons"/>
+                      </div><span class="chimera-toggle__label" data-i18n="show_ranged_weapon_mastery" for="show_ranged_weapon_mastery">Show Global Ranged Weapon Accuracy</span>
+                    </label>
                   </div>
                   <div class="setting">
                     <label class="chimera-toggle settings__quirk" data-i18n-title="enable_quirks_title" title="Enable Quirks">
@@ -4913,6 +4952,20 @@
             </div>
           </div>
           <div class="setting">
+            <label class="chimera-toggle settings__melee_weapon_mastery" data-i18n-title="show_melee_weapon_mastery_title" title="Set global accuracy for attacks with melee weapons">
+              <div class="chimera-toggle__field">
+                <input id="show_melee_weapon_mastery" name="attr_show_melee_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with melee weapons"/><img class="chimera-toggle--on" data-i18n-title="show_melee_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with melee weapons"/>
+              </div><span class="chimera-toggle__label" data-i18n="show_melee_weapon_mastery" for="show_melee_weapon_mastery">Show Global Melee Weapon Accuracy</span>
+            </label>
+          </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__ranged_weapon_mastery" data-i18n-title="show_ranged_weapon_mastery_title" title="Set global accuracy for attacks with ranged weapons">
+              <div class="chimera-toggle__field">
+                <input id="show_ranged_weapon_mastery" name="attr_show_ranged_weapon_mastery" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Set global accuracy for attacks with ranged weapons"/><img class="chimera-toggle--on" data-i18n-title="show_ranged_weapon_mastery_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Set global accuracy for attacks with ranged weapons"/>
+              </div><span class="chimera-toggle__label" data-i18n="show_ranged_weapon_mastery" for="show_ranged_weapon_mastery">Show Global Ranged Weapon Accuracy</span>
+            </label>
+          </div>
+          <div class="setting">
             <label class="chimera-toggle settings__quirk" data-i18n-title="enable_quirks_title" title="Enable Quirks">
               <div class="chimera-toggle__field">
                 <input id="enable_quirks" name="attr_enable_quirks" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="toggleOff_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Off"/><img class="chimera-toggle--on" data-i18n-title="toggleOn_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="On"/>
@@ -5243,8 +5296,11 @@ const ATTR_WATCH = {
         'sheet_type',
         'level',
         'accuracy_bonus',
+        'melee_weapon_mastery',
+        'ranged_weapon_mastery',
         'repeating_weapons:weapon_accuracy',
         'repeating_weapons:weapon_damage',
+        'repeating_weapons:weapon_range',
         'repeating_weapons:weapon_attack_accuracy',
         'repeating_weapons:weapon_attack_damage',
         'repeating_weapons:weapon_extra_damage',
@@ -5690,6 +5746,7 @@ const WEAPON_ACCURACY_DAMAGE = [
         fields: [
             'weapon_accuracy',
             'weapon_damage',
+            'weapon_range',
             'weapon_attack_accuracy',
             'weapon_attack_damage',
             'weapon_extra_damage',
@@ -7534,6 +7591,12 @@ const calculateWeaponAccuracyDamage = () => {
         const update = {};
         const level = +attributes.level || 0;
         const accuracy_bonus = +attributes.accuracy_bonus || 0;
+        let melee_mastery = 0;
+        let ranged_mastery = 0;
+        if (attributes.sheet_type === 'character') {
+            melee_mastery = +attributes.melee_weapon_mastery || 0;
+            ranged_mastery = +attributes.ranged_weapon_mastery || 0;
+        }
         let levelAccuracyBonus = 0;
         let levelDamageBonus = 0;
         if (attributes.sheet_type === 'bestiary') {
@@ -7548,8 +7611,13 @@ const calculateWeaponAccuracyDamage = () => {
             const attack_accuracy = +attributes[prefix + 'weapon_attack_accuracy'] || 0;
             const attack_damage = +attributes[prefix + 'weapon_attack_damage'] || 0;
             const extra_damage = +attributes[prefix + 'weapon_extra_damage'] || 0;
+            const range = attributes[prefix + 'weapon_range'];
             update[prefix + 'weapon_accuracy_total'] =
-                weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
+                weapon_accuracy +
+                    attack_accuracy +
+                    accuracy_bonus +
+                    levelAccuracyBonus +
+                    (range === 'distance' ? ranged_mastery : melee_mastery);
             update[prefix + 'weapon_damage_total'] =
                 weapon_damage + attack_damage + extra_damage + levelDamageBonus;
         });

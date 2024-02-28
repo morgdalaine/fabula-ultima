@@ -166,6 +166,17 @@
   height: min-content;
 }
 
+@mixin fabula-subheading {
+  &__subheading {
+    &--edit {
+      grid-column: 1/-1;
+      display: flex;
+      @include text-base-500-fabula;
+      text-transform: uppercase;
+    }
+  }
+}
+
 @mixin fabula-heading {
   &__heading {
     &--edit,

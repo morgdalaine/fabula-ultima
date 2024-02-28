@@ -577,6 +577,13 @@ const calculateWeaponAccuracyDamage = () => {
       const level: number = +attributes.level || 0;
       const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
 
+      let melee_mastery = 0;
+      let ranged_mastery = 0;
+      if (attributes.sheet_type === 'character') {
+        melee_mastery = +attributes.melee_weapon_mastery || 0;
+        ranged_mastery = +attributes.ranged_weapon_mastery || 0;
+      }
+
       let levelAccuracyBonus = 0;
       let levelDamageBonus = 0;
       if (attributes.sheet_type === 'bestiary') {
@@ -593,9 +600,15 @@ const calculateWeaponAccuracyDamage = () => {
         const attack_accuracy: number = +attributes[prefix + 'weapon_attack_accuracy'] || 0;
         const attack_damage: number = +attributes[prefix + 'weapon_attack_damage'] || 0;
         const extra_damage: number = +attributes[prefix + 'weapon_extra_damage'] || 0;
+        const range: string = attributes[prefix + 'weapon_range'];
 
         update[prefix + 'weapon_accuracy_total'] =
-          weapon_accuracy + attack_accuracy + accuracy_bonus + levelAccuracyBonus;
+          weapon_accuracy +
+          attack_accuracy +
+          accuracy_bonus +
+          levelAccuracyBonus +
+          (range === 'distance' ? ranged_mastery : melee_mastery);
+
         update[prefix + 'weapon_damage_total'] =
           weapon_damage + attack_damage + extra_damage + levelDamageBonus;
       });

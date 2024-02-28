@@ -49,3 +49,7 @@ mixin fabula-heading-edit(attr, heading, toggle=true)
     span(data-i18n=heading.name)= heading.label
     if (toggle)
       +toggle-collapse(attr)
+
+mixin fabula-subheading-edit(attr, heading)
+  h2(class=`${attr}__subheading--edit`)
+    span(data-i18n=heading.name)= heading.label

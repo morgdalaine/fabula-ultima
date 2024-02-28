@@ -11,6 +11,12 @@
 
     @include mixins.fabula-heading;
 
+    &__accuracy {
+      display: flex;
+      gap: 4px;
+      padding: 0px 8px;
+    }
+
     &--delete {
       .weapon {
         display: flex;
@@ -103,9 +109,17 @@
         &__name {
           grid-column: span 3;
         }
-        &__category {
-        }
       }
+    }
+  }
+
+  .accuracy {
+    width: fit-content;
+
+    @include mixins.fabula-subheading;
+
+    &__subheading--edit {
+      align-items: center;
     }
   }
 }

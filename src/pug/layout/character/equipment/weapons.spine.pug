@@ -1,4 +1,31 @@
 -
+  spine.character.accuracy = {
+    fields: [
+      {
+        name: 'melee_weapon_mastery',
+        label: 'Melee Weapon Accuracy Bonus',
+        title: 'Set bonus to Accuracy Checks with melee weapons',
+        type: 'number',
+        value: 0,
+        css: {
+          names: ['accuracy', 'accuracy__melee_weapon_mastery'],
+          modifiers: ['row-reverse']
+        },
+      },
+      {
+        name: 'ranged_weapon_mastery',
+        label: 'Ranged Weapon Accuracy Bonus',
+        title: 'Set bonus to Accuracy Checks with ranged weapons',
+        type: 'number',
+        value: 0,
+        css: {
+          names: ['accuracy', 'accuracy__ranged_weapon_mastery'],
+          modifiers: ['row-reverse']
+        },
+      },
+    ],
+  }
+
   spine.character.weapons = {
     heading: {
       name: 'weapons',
