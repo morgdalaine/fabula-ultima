@@ -283,7 +283,6 @@ const updatePoints = (attr: string, sign: ControlEnum) => {
   });
 };
 
-// TODO Finish method
 const manageEquipment = (eventInfo: EventInfo) => {
   if (eventInfo.sourceType === 'sheetworker') return;
 
@@ -306,6 +305,7 @@ const manageEquipment = (eventInfo: EventInfo) => {
         });
       });
 
+      // TODO Count hands
       if (handsUsed > 2) {
         console.warn(`I hope you've got ${handsUsed} hands in that coat.`);
       }
