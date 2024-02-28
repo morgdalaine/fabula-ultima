@@ -394,6 +394,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'magictent': 'magictent',
   'remedy': 'remedy',
   'tonic': 'tonic',
+  'roll_initiative': 'initiative',
 };
 
 const ACTION_REQUEST: Record<string, string[]> = {
@@ -542,6 +543,7 @@ const ACTION_REQUEST: Record<string, string[]> = {
     'check_attr2',
     'check_description',
   ],
+  initiative: ['dexterity', 'insight', 'initiative'],
   quirk: ['quirk_name', 'quirk_type', 'quirk_description', 'quirk_effect'],
   project: [
     'project_name',
@@ -640,6 +642,10 @@ const COMMON_CHECKS: { [key: string]: any } = {
     attrs: ['might', 'willpower'],
     label: 'Intimidate',
     title: 'Intimidating someone with your strength.',
+  },
+  initiative: {
+    attrs: ['dexterity', 'insight'],
+    accuracy: 'initiative',
   },
 };
 

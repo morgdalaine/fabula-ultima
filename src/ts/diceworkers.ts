@@ -14,6 +14,7 @@ const handleClick = async (btn: string, id: string) => {
     case 'ritual':
     case 'check':
     case 'checkrepeat':
+    case 'initiative':
       return rollAction(btn, id);
     default:
       return sendToChat(btn, id);
@@ -450,6 +451,7 @@ const customCheckTemplate = (action: string, values: { [key: string]: string }) 
       .match(/^[\w\s]+/)
       .shift();
     template.special = getTranslationByKey(`${action}_title`) || COMMON_CHECKS[check].title;
+    template.accuracy = values[COMMON_CHECKS[check].accuracy];
   } else {
     template.att1 = values.check_attr1;
     template.att2 = values.check_attr2;
