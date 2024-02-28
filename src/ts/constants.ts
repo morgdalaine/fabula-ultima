@@ -151,6 +151,7 @@ const ATTR_WATCH: Record<string, string[]> = {
   villain: ['villain', 'multipart', 'phases'],
 
   initiative: [
+    'sheet_type',
     'dexterity',
     'insight',
     'initiative_extra',
@@ -672,11 +673,17 @@ const CHARACTER_EQUIPMENTS: SectionDetails[] = [
       'armor_defense',
       'armor_defense_bonus',
       'armor_magic_defense_bonus',
+      'armor_initiative',
     ],
   },
   {
     section: 'repeating_shields',
-    fields: ['shield_is_equipped', 'shield_defense_bonus', 'shield_magic_defense_bonus'],
+    fields: [
+      'shield_is_equipped',
+      'shield_defense_bonus',
+      'shield_magic_defense_bonus',
+      'shield_initiative',
+    ],
   },
   { section: 'repeating_accessories', fields: ['accessory_is_equipped'] },
   { section: 'repeating_weapons', fields: ['weapon_is_equipped', 'weapon_hands'] },

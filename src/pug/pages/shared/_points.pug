@@ -14,6 +14,13 @@ mixin points-view(spine)
     .point__mp
       +chimera-value({...points.mp, label: null })
 
-    .point__initiative
-      label.chimera-value__label(data-i18n='init') Init.
-      +chimera-value({...points.initiative, label: null })
+    if (spine.sheet === 'bestiary')
+      .point__initiative
+        label.chimera-value__label(data-i18n='init') Init.
+        +chimera-value({...points.initiative, label: null })
+    if (spine.sheet === 'character')
+      .point__roll-initiative
+        - const btn = spine.points.initiative;
+        +chimera-action(btn)
+          //- +chimera-icon(btn)
+          +chimera-value(points.initiative)

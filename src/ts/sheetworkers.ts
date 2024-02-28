@@ -323,6 +323,8 @@ const calculateDefenses = () => {
       const sheet_type = attributes.sheet_type;
       if (!['character', 'bestiary'].includes(sheet_type)) return;
 
+      const update: { [key: string]: string | number } = {};
+
       const dexterity: number = +attributes.dexterity || 0;
       const defense_extra: number = +attributes.defense_extra || 0;
       const insight: number = +attributes.insight || 0;
@@ -340,8 +342,6 @@ const calculateDefenses = () => {
             const is_equipped: boolean = attributes[prefix + 'is_equipped'] == 'on';
             const initiative: number = +attributes[prefix + 'initiative'] || 0;
 
-            initiative_total += initiative;
-
             if (is_equipped) {
               // defense
               if (is_martial && fieldset === 'repeating_armors') {
@@ -351,6 +351,7 @@ const calculateDefenses = () => {
               }
 
               magic_defense += +attributes[prefix + 'magic_defense_bonus'] || 0;
+              initiative_total += initiative;
             }
           });
         });
@@ -379,9 +380,10 @@ const calculateDefenses = () => {
           insight + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
       }
 
-      setAttrs({ defense, magic_defense, initiative_total }, { silent: true }, () =>
-        calculateInitiative()
-      );
+      update.defense = defense;
+      update.magic_defense = magic_defense;
+      update.initiative_total = initiative_total;
+      setAttrs(update, { silent: true }, () => calculateInitiative());
     }
   );
 };
@@ -501,9 +503,9 @@ const calculateInitiative = () => {
     const initiative_extra: number = +v.initiative_extra || 0;
     const initiative_total: number = +v.initiative_total || 0;
 
-    let initiative: number;
+    let initiative: number | string;
     if (v.sheet_type === 'character') {
-      initiative = (dexterity + insight) / 2 + initiative_extra + initiative_total;
+      initiative = signedInteger(initiative_extra + initiative_total);
     }
     if (v.sheet_type === 'bestiary') {
       initiative =

@@ -57,6 +57,21 @@
             color: var(--color-on-dark);
             background-color: var(--color-mp);
           }
+
+          &__roll-initiative {
+            .chimera-action {
+              width: 100%;
+            }
+            .chimera-value {
+              &__label {
+                margin-inline-end: 2px;
+                @include mixins.text-base-700;
+              }
+              &__value {
+                @include mixins.text-base-400;
+              }
+            }
+          }
         }
       }
     }

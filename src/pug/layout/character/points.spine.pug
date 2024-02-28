@@ -1,6 +1,14 @@
 -
   spine.character.points = {
-    hidden: ['hp_crisis'],
+    hidden: ['hp_crisis', 'initiative_total'],
+    initiative: {
+      name: 'roll_initiative',
+      label: 'Initiative',
+      title: 'Roll Initiative',
+      //- icon: 'elixir',
+      type: 'action',
+      css: { names: ['point--roll-initiative'] },
+    },
     fields: [
       {
         name: 'hp',

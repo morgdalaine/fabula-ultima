@@ -65,6 +65,7 @@
                 </div>
                     <div class="points--view">
                       <input class="chimera-hidden" name="attr_hp_crisis" type="hidden"/>
+                      <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
                       <label class="chimera-value__label" data-i18n="hp">HP</label>
                       <div class="point__hp">
                         <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points"><span class="chimera-value__value" name="attr_hp"></span>
@@ -77,10 +78,12 @@
                         <div class="chimera-value point--mp" data-i18n-title="mp_title" title="Mind Points"><span class="chimera-value__value" name="attr_mp"></span>
                         </div>
                       </div>
-                      <div class="point__initiative">
-                        <label class="chimera-value__label" data-i18n="init">Init.</label>
-                        <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative"><span class="chimera-value__value" name="attr_initiative"></span>
-                        </div>
+                      <div class="point__roll-initiative">
+                        <button class="chimera-action point--roll-initiative" data-i18n-title="roll_initiative_title" name="act_roll_initiative" title="Roll Initiative" type="action">
+                          <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative">
+                            <label class="chimera-value__label" data-i18n="initiative" for="initiative">Initiative</label><span class="chimera-value__value" name="attr_initiative"></span>
+                          </div>
+                        </button>
                       </div>
                     </div>
                     <div class="defenses--view">
@@ -1496,6 +1499,13 @@
                       </div><span class="chimera-toggle__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
                     </label>
                   </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__initiative setting--disabled" data-i18n-title="disable_initiative_title" title="Remove initiative from the game">
+                      <div class="chimera-toggle__field">
+                        <input id="disable_initiative" name="attr_disable_initiative" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Remove initiative from the game"/><img class="chimera-toggle--on" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Remove initiative from the game"/>
+                      </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
+                    </label>
+                  </div>
                 </div>
           </div>
         </section>
@@ -1591,6 +1601,7 @@
                 <div class="statistics--edit">
                       <div class="points--edit">
                         <input class="chimera-hidden" name="attr_hp_crisis" type="hidden"/>
+                        <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
                         <div class="point point__hp">
                           <h2 class="points__heading--edit"><span data-i18n="hit_points">Hit Points (HP)</span>
                           </h2>
@@ -3355,6 +3366,13 @@
                       </div><span class="chimera-toggle__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
                     </label>
                   </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__initiative setting--disabled" data-i18n-title="disable_initiative_title" title="Remove initiative from the game">
+                      <div class="chimera-toggle__field">
+                        <input id="disable_initiative" name="attr_disable_initiative" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Remove initiative from the game"/><img class="chimera-toggle--on" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Remove initiative from the game"/>
+                      </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
+                    </label>
+                  </div>
                 </div>
           </div>
         </section>
@@ -3399,6 +3417,7 @@
                 </div>
                     <div class="points--view">
                       <input class="chimera-hidden" name="attr_villain" type="hidden"/>
+                      <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
                       <label class="chimera-value__label" data-i18n="hp">HP</label>
                       <div class="point__hp">
                         <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points"><span class="chimera-value__value" name="attr_hp"></span>
@@ -3589,6 +3608,22 @@
                 </div>
                 <div class="ultima-points--view">
                   <input class="chimera-hidden" name="attr_villain" type="hidden" value="0"/>
+                  <div class="chimera-input point--ultima chimera-input--small chimera-input--center chimera-input--column-reverse">
+                    <label class="chimera-input__label" data-i18n="ultima_points" for="ultima_points">Ultima Points</label>
+                    <input class="chimera-input__field" data-i18n-placeholder="ultima_points_placeholder" data-i18n-title="ultima_points_title" id="ultima_points" max="15" min="0" name="attr_ultima_points" placeholder="0" title="Ultima Points" type="number"/>
+                  </div>
+                  <div class="point__spending-ultima">
+                    <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                      <label class="chimera-value__label" data-i18n="escape" for="ultima_escape">Escape</label><span class="chimera-value__value" data-i18n="ultima_escape">A Villain may spend 1 Ultima Point to safely leave the scene — the Game Master describes how they do so, perhaps leaving a few henchmen behind to &quot;keep the heroes company&quot;.</span>
+                    </div>
+                    <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                      <label class="chimera-value__label" data-i18n="invoke_trait" for="ultima_invoke_trait">Invoke Trait</label><span class="chimera-value__value" data-i18n="ultima_invoke_trait">After performing a Check, a Villain may spend 1 Ultima Point to invoke one of their Traits and reroll one or both dice (this follows the same rules seen on page 46).</span>
+                    </div>
+                    <div class="chimera-value spending-ultima chimera-value--bullet chimera-value--helptext chimera-value--colon">
+                      <label class="chimera-value__label" data-i18n="recover" for="ultima_recovery">Recovery</label><span class="chimera-value__value" data-i18n="ultima_recovery">A Villain may use an action and spend 1 Ultima Point to recover from all status effects and also recover 50 Mind Points.</span>
+                    </div>
+                  </div>
+                  <input class="chimera-hidden" name="attr_initiative_total" type="hidden" value="0"/>
                   <div class="chimera-input point--ultima chimera-input--small chimera-input--center chimera-input--column-reverse">
                     <label class="chimera-input__label" data-i18n="ultima_points" for="ultima_points">Ultima Points</label>
                     <input class="chimera-input__field" data-i18n-placeholder="ultima_points_placeholder" data-i18n-title="ultima_points_title" id="ultima_points" max="15" min="0" name="attr_ultima_points" placeholder="0" title="Ultima Points" type="number"/>
@@ -4111,6 +4146,7 @@
           <div class="bestiary__stats">
                 <div class="points--edit">
                   <input class="chimera-hidden" name="attr_villain" type="hidden"/>
+                  <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
                   <div class="point point__hp">
                     <h2 class="points__heading--edit"><span data-i18n="hit_points">Hit Points (HP)</span>
                     </h2>
@@ -4993,6 +5029,13 @@
               </div><span class="chimera-toggle__label" data-i18n="dual_shieldbearer" for="dual_shieldbearer">Dual Shieldbearer</span>
             </label>
           </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__initiative setting--disabled" data-i18n-title="disable_initiative_title" title="Remove initiative from the game">
+              <div class="chimera-toggle__field">
+                <input id="disable_initiative" name="attr_disable_initiative" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-off.svg" title="Remove initiative from the game"/><img class="chimera-toggle--on" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/toggle-on.svg" title="Remove initiative from the game"/>
+              </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
+            </label>
+          </div>
         </div>
   </aside>
   <footer>
@@ -5219,6 +5262,7 @@ const ATTR_WATCH = {
     ultima_points: ['sheet_type', 'villain'],
     villain: ['villain', 'multipart', 'phases'],
     initiative: [
+        'sheet_type',
         'dexterity',
         'insight',
         'initiative_extra',
@@ -5698,11 +5742,17 @@ const CHARACTER_EQUIPMENTS = [
             'armor_defense',
             'armor_defense_bonus',
             'armor_magic_defense_bonus',
+            'armor_initiative',
         ],
     },
     {
         section: 'repeating_shields',
-        fields: ['shield_is_equipped', 'shield_defense_bonus', 'shield_magic_defense_bonus'],
+        fields: [
+            'shield_is_equipped',
+            'shield_defense_bonus',
+            'shield_magic_defense_bonus',
+            'shield_initiative',
+        ],
     },
     { section: 'repeating_accessories', fields: ['accessory_is_equipped'] },
     { section: 'repeating_weapons', fields: ['weapon_is_equipped', 'weapon_hands'] },
@@ -7402,6 +7452,7 @@ const calculateDefenses = () => {
         const sheet_type = attributes.sheet_type;
         if (!['character', 'bestiary'].includes(sheet_type))
             return;
+        const update = {};
         const dexterity = +attributes.dexterity || 0;
         const defense_extra = +attributes.defense_extra || 0;
         const insight = +attributes.insight || 0;
@@ -7416,7 +7467,6 @@ const calculateDefenses = () => {
                     const is_martial = attributes[prefix + 'is_martial'] === 'on';
                     const is_equipped = attributes[prefix + 'is_equipped'] == 'on';
                     const initiative = +attributes[prefix + 'initiative'] || 0;
-                    initiative_total += initiative;
                     if (is_equipped) {
                         if (is_martial && fieldset === 'repeating_armors') {
                             defense = +attributes[prefix + 'defense'] || 0;
@@ -7425,6 +7475,7 @@ const calculateDefenses = () => {
                             defense += +attributes[prefix + 'defense_bonus'] || 0;
                         }
                         magic_defense += +attributes[prefix + 'magic_defense_bonus'] || 0;
+                        initiative_total += initiative;
                     }
                 });
             });
@@ -7448,7 +7499,10 @@ const calculateDefenses = () => {
             magic_defense =
                 insight + armor_magic_defense_bonus + shield_magic_defense_bonus + magic_defense_extra;
         }
-        setAttrs({ defense, magic_defense, initiative_total }, { silent: true }, () => calculateInitiative());
+        update.defense = defense;
+        update.magic_defense = magic_defense;
+        update.initiative_total = initiative_total;
+        setAttrs(update, { silent: true }, () => calculateInitiative());
     });
 };
 const calculateCharacterLevel = () => {
@@ -7541,7 +7595,7 @@ const calculateInitiative = () => {
         const initiative_total = +v.initiative_total || 0;
         let initiative;
         if (v.sheet_type === 'character') {
-            initiative = (dexterity + insight) / 2 + initiative_extra + initiative_total;
+            initiative = signedInteger(initiative_extra + initiative_total);
         }
         if (v.sheet_type === 'bestiary') {
             initiative =

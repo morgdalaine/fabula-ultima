@@ -3173,6 +3173,27 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   color: var(--color-on-dark);
   background-color: var(--color-mp);
 }
+.fabula-ultima .bestiary .points--view .point__roll-initiative .chimera-action,
+.fabula-ultima .character .points--view .point__roll-initiative .chimera-action {
+  width: 100%;
+}
+.fabula-ultima .bestiary .points--view .point__roll-initiative .chimera-value__label,
+.fabula-ultima .character .points--view .point__roll-initiative .chimera-value__label {
+  margin-inline-end: 2px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+.fabula-ultima .bestiary .points--view .point__roll-initiative .chimera-value__value,
+.fabula-ultima .character .points--view .point__roll-initiative .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
 
 .fabula-ultima .bestiary .rolls__heading--edit .chimera-toggle, .fabula-ultima .bestiary .rolls__heading--view .chimera-toggle,
 .fabula-ultima .character .rolls__heading--edit .chimera-toggle,
