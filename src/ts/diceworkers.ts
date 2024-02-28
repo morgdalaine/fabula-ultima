@@ -206,12 +206,13 @@ const studyTemplate = (chat: string, values: { [key: string]: string }) => {
 
   // The NPCs Rank, Species, maximum HP, and maximum MP.
   if (study >= STUDY_THRESHOLDS[0]) {
-    template.rank = getTranslationByKey(values.rank) || '';
-    template.species = values.species;
+    template.rank = getTranslation(values.rank, values.rank);
+    template.species = getTranslation(values.species, values.species);
     template.hp_max = values.hp_max;
     if (+values.hp <= +values.hp_crisis) template.crisis = 'true';
 
     template.mp_max = values.mp_max;
+    template.special = values.description;
   }
 
   // All the above, plus Traits, Attributes, Defense, Magic Defense, Affinities.
@@ -226,7 +227,7 @@ const studyTemplate = (chat: string, values: { [key: string]: string }) => {
 
     AFFINITIES.forEach((affinity) => {
       if (values[affinity] !== '') {
-        template[affinity] = getTranslationByKey(values[affinity]) || values[affinity];
+        template[affinity] = getTranslation(values[affinity], values[affinity]);
       }
     });
   }
@@ -367,6 +368,10 @@ const sendToChat = async (chat: string, id: string) => {
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
     const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
     const action = getTranslationByKey('info') || 'Info';
+
+    console.group('sendToChat');
+    console.log(v);
+    console.groupEnd();
 
     const data = chatData(chat, prefix, v);
     const template = (function () {

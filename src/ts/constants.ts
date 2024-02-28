@@ -504,7 +504,7 @@ const ACTION_REQUEST: Record<string, string[]> = {
     'weapon_cost',
     'weapon_special',
   ],
-  study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
+  study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max', 'description'],
   classchat: [
     'class_name',
     'class_level',

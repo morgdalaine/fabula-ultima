@@ -5481,7 +5481,7 @@ const ACTION_REQUEST = {
         'weapon_cost',
         'weapon_special',
     ],
-    study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max'],
+    study7: ['rank', 'species', 'hp', 'hp_max', 'hp_crisis', 'mp_max', 'description'],
     classchat: [
         'class_name',
         'class_level',
@@ -5910,12 +5910,13 @@ const studyTemplate = (chat, values) => {
     template.action = getTranslationByKey('study') || 'Study';
     template.study = 'true';
     if (study >= STUDY_THRESHOLDS[0]) {
-        template.rank = getTranslationByKey(values.rank) || '';
-        template.species = values.species;
+        template.rank = getTranslation(values.rank, values.rank);
+        template.species = getTranslation(values.species, values.species);
         template.hp_max = values.hp_max;
         if (+values.hp <= +values.hp_crisis)
             template.crisis = 'true';
         template.mp_max = values.mp_max;
+        template.special = values.description;
     }
     if (study >= STUDY_THRESHOLDS[1]) {
         template.traits = values.traits;
@@ -5926,7 +5927,7 @@ const studyTemplate = (chat, values) => {
         template.mdef = values.magic_defense;
         AFFINITIES.forEach((affinity) => {
             if (values[affinity] !== '') {
-                template[affinity] = getTranslationByKey(values[affinity]) || values[affinity];
+                template[affinity] = getTranslation(values[affinity], values[affinity]);
             }
         });
     }
@@ -6027,6 +6028,9 @@ const sendToChat = async (chat, id) => {
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         const action = getTranslationByKey('info') || 'Info';
+        console.group('sendToChat');
+        console.log(v);
+        console.groupEnd();
         const data = chatData(chat, prefix, v);
         const template = (function () {
             switch (chat) {
