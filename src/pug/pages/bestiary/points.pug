@@ -2,11 +2,11 @@ mixin ultima-points-view(spine)
   .ultima-points--view
     each field in spine.points.hidden
       +chimera-hidden(field, 0)
-      - const points = fieldDictionary(spine.points.fields);
-      +chimera-input(points.ultima_points)
-      .point__spending-ultima
-        each field in spine.points.ultima
-          +chimera-value(field)
+    - const points = fieldDictionary(spine.points.fields);
+    +chimera-input(points.ultima_points)
+    .point__spending-ultima
+      each field in spine.points.ultima
+        +chimera-value(field)
 
 mixin study-rolls
   .study
