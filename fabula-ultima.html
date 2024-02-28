@@ -6085,9 +6085,6 @@ const sendToChat = async (chat, id) => {
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         const action = getTranslationByKey('info') || 'Info';
-        console.group('sendToChat');
-        console.log(v);
-        console.groupEnd();
         const data = chatData(chat, prefix, v);
         const template = (function () {
             switch (chat) {
