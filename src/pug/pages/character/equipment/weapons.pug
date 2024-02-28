@@ -28,7 +28,6 @@ mixin weapons-edit(spine)
     .weapons__accuracy
       +fabula-subheading-edit('accuracy', { name: 'weapon_mastery', label: 'Weapon Mastery' })
       each field in spine.accuracy.fields
-        - console.log(field);
         +chimera-input(field)
     +chimera-repeater('weapons')
       +chimera-block('delete')

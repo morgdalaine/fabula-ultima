@@ -369,10 +369,6 @@ const sendToChat = async (chat: string, id: string) => {
     const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
     const action = getTranslationByKey('info') || 'Info';
 
-    console.group('sendToChat');
-    console.log(v);
-    console.groupEnd();
-
     const data = chatData(chat, prefix, v);
     const template = (function () {
       switch (chat) {
