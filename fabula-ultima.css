@@ -1326,6 +1326,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-weight: 400;
   line-height: 150%;
 }
+.fabula-ultima .bestiary .basic-attacks--view .basic-attack__special:has(span:empty) {
+  display: none;
+}
 .fabula-ultima .bestiary .basic-attacks--edit .basic-attack {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4662,6 +4665,9 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+.fabula-ultima .character .weapons--view .weapon__special:has(span:empty) {
+  display: none;
 }
 .fabula-ultima .character .weapons--edit .weapon {
   display: grid;

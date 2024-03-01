@@ -75,6 +75,10 @@
         &__special {
           grid-column: 1/-1;
           @include mixins.text-lg-400;
+
+          &:has(span:empty) {
+            display: none;
+          }
         }
       }
     }
