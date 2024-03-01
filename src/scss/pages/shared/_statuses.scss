@@ -10,15 +10,10 @@
 
       &--view {
         display: flex;
-        // grid-template-columns: repeat(10, minmax(3rem, auto));
-        gap: 4px;
+        gap: 2px;
 
         text-align: center;
         width: min-content;
-
-        // border: 1px solid var(--color-fabula-darkest);
-        // border-right: none;
-        // border-image: var(--fabula-gradient-primary-border);
 
         .status-debuffs {
           display: grid;

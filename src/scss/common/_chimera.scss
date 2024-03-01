@@ -362,7 +362,7 @@
     &__add,
     &__subtract,
     &__button {
-      @include mixins.action-button;
+      @include mixins.action-button-tiny;
     }
   }
 

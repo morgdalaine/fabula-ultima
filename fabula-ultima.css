@@ -805,20 +805,29 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  width: var(--input-component-size);
-  height: var(--input-component-size);
   aspect-ratio: 1;
   color: var(--input-color);
   background: transparent;
-  border: 2px solid var(--input-border-color);
-  border-radius: 4px;
+  border: 2px solid transparent;
+  border-radius: 50%;
 }
 .fabula-ultima .chimera-arithmetic__add:active, .fabula-ultima .chimera-arithmetic__add:hover, .fabula-ultima .chimera-arithmetic__add:focus, .fabula-ultima .chimera-arithmetic__subtract:active, .fabula-ultima .chimera-arithmetic__subtract:hover, .fabula-ultima .chimera-arithmetic__subtract:focus, .fabula-ultima .chimera-arithmetic__button:active, .fabula-ultima .chimera-arithmetic__button:hover, .fabula-ultima .chimera-arithmetic__button:focus {
   outline: transparent;
 }
+.fabula-ultima .chimera-arithmetic__add:active img,
+.fabula-ultima .chimera-arithmetic__add:active svg, .fabula-ultima .chimera-arithmetic__add:hover img,
+.fabula-ultima .chimera-arithmetic__add:hover svg, .fabula-ultima .chimera-arithmetic__add:focus img,
+.fabula-ultima .chimera-arithmetic__add:focus svg, .fabula-ultima .chimera-arithmetic__subtract:active img,
+.fabula-ultima .chimera-arithmetic__subtract:active svg, .fabula-ultima .chimera-arithmetic__subtract:hover img,
+.fabula-ultima .chimera-arithmetic__subtract:hover svg, .fabula-ultima .chimera-arithmetic__subtract:focus img,
+.fabula-ultima .chimera-arithmetic__subtract:focus svg, .fabula-ultima .chimera-arithmetic__button:active img,
+.fabula-ultima .chimera-arithmetic__button:active svg, .fabula-ultima .chimera-arithmetic__button:hover img,
+.fabula-ultima .chimera-arithmetic__button:hover svg, .fabula-ultima .chimera-arithmetic__button:focus img,
+.fabula-ultima .chimera-arithmetic__button:focus svg {
+  opacity: 1;
+}
 .fabula-ultima .chimera-arithmetic__add:hover, .fabula-ultima .chimera-arithmetic__subtract:hover, .fabula-ultima .chimera-arithmetic__button:hover {
   color: var(--button-color-hover);
-  border-color: var(--button-border-color-hover);
   background-color: var(--button-background-color-hover);
 }
 .fabula-ultima .chimera-arithmetic__add:focus, .fabula-ultima .chimera-arithmetic__subtract:focus, .fabula-ultima .chimera-arithmetic__button:focus {
@@ -830,7 +839,6 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   color: var(--button-color-active);
   box-shadow: var(--button-shadow-active);
   background-color: var(--button-background-color-active);
-  border-color: var(--button-border-color-active);
 }
 .fabula-ultima .chimera-arithmetic__add img,
 .fabula-ultima .chimera-arithmetic__add svg, .fabula-ultima .chimera-arithmetic__subtract img,
@@ -3489,7 +3497,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .status-effects--view,
 .fabula-ultima .character .status-effects--view {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   text-align: center;
   width: -moz-min-content;
   width: min-content;
@@ -3498,13 +3506,13 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .status-effects--view .status-debuffs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 2px;
 }
 .fabula-ultima .bestiary .status-effects--view .status-buffs,
 .fabula-ultima .character .status-effects--view .status-buffs {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
 }
 .fabula-ultima .bestiary .status-effects--view .status-effect .chimera-value__label,
 .fabula-ultima .bestiary .status-effects--view .status-effect .chimera-checkbox__label,
@@ -3646,18 +3654,22 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .status-effect.chimera-checkbox .chimera-checkbox__field,
 .fabula-ultima .bestiary .status-boost.chimera-checkbox .chimera-checkbox__field,
+.fabula-ultima .bestiary .status-down.chimera-checkbox .chimera-checkbox__field,
 .fabula-ultima .bestiary .status-immunity.chimera-checkbox .chimera-checkbox__field,
 .fabula-ultima .character .status-effect.chimera-checkbox .chimera-checkbox__field,
 .fabula-ultima .character .status-boost.chimera-checkbox .chimera-checkbox__field,
+.fabula-ultima .character .status-down.chimera-checkbox .chimera-checkbox__field,
 .fabula-ultima .character .status-immunity.chimera-checkbox .chimera-checkbox__field {
   border: none;
   border-radius: 0;
 }
 .fabula-ultima .bestiary .status-effect.chimera-checkbox .chimera-checkbox__field:has(:checked),
 .fabula-ultima .bestiary .status-boost.chimera-checkbox .chimera-checkbox__field:has(:checked),
+.fabula-ultima .bestiary .status-down.chimera-checkbox .chimera-checkbox__field:has(:checked),
 .fabula-ultima .bestiary .status-immunity.chimera-checkbox .chimera-checkbox__field:has(:checked),
 .fabula-ultima .character .status-effect.chimera-checkbox .chimera-checkbox__field:has(:checked),
 .fabula-ultima .character .status-boost.chimera-checkbox .chimera-checkbox__field:has(:checked),
+.fabula-ultima .character .status-down.chimera-checkbox .chimera-checkbox__field:has(:checked),
 .fabula-ultima .character .status-immunity.chimera-checkbox .chimera-checkbox__field:has(:checked) {
   background: transparent;
 }
@@ -3665,12 +3677,16 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .bestiary .status-effect.chimera-checkbox .chimera-checkbox__field img,
 .fabula-ultima .bestiary .status-boost.chimera-checkbox .chimera-checkbox__field svg,
 .fabula-ultima .bestiary .status-boost.chimera-checkbox .chimera-checkbox__field img,
+.fabula-ultima .bestiary .status-down.chimera-checkbox .chimera-checkbox__field svg,
+.fabula-ultima .bestiary .status-down.chimera-checkbox .chimera-checkbox__field img,
 .fabula-ultima .bestiary .status-immunity.chimera-checkbox .chimera-checkbox__field svg,
 .fabula-ultima .bestiary .status-immunity.chimera-checkbox .chimera-checkbox__field img,
 .fabula-ultima .character .status-effect.chimera-checkbox .chimera-checkbox__field svg,
 .fabula-ultima .character .status-effect.chimera-checkbox .chimera-checkbox__field img,
 .fabula-ultima .character .status-boost.chimera-checkbox .chimera-checkbox__field svg,
 .fabula-ultima .character .status-boost.chimera-checkbox .chimera-checkbox__field img,
+.fabula-ultima .character .status-down.chimera-checkbox .chimera-checkbox__field svg,
+.fabula-ultima .character .status-down.chimera-checkbox .chimera-checkbox__field img,
 .fabula-ultima .character .status-immunity.chimera-checkbox .chimera-checkbox__field svg,
 .fabula-ultima .character .status-immunity.chimera-checkbox .chimera-checkbox__field img {
   image-rendering: pixelated;

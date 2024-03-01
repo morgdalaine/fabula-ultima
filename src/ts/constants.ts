@@ -66,6 +66,10 @@ const STATUS_EFFECTS: Record<string, number> = {
   insight_boost: 1,
   might_boost: 1,
   willpower_boost: 1,
+  dexterity_down: -1,
+  insight_down: -1,
+  might_down: -1,
+  willpower_down: -1,
 };
 
 const RITUAL_DISCIPLINES = [

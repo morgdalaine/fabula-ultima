@@ -7,7 +7,7 @@
         title: 'Slow temporarily reduces your Dexterity die size by one.',
         type: 'checkbox',
         icon: 'slow',
-        css: { names: ['status-effect', 'status-effect--slow' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--slow' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'dazed',
@@ -15,7 +15,7 @@
         title: 'Dazed temporarily reduces your Insight die size by one.',
         type: 'checkbox',
         icon: 'dazed',
-        css: { names: ['status-effect', 'status-effect--dazed' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--dazed' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'enraged',
@@ -23,7 +23,7 @@
         title: 'Enraged temporarily reduces your Dexterity and Insight die sizes by one.',
         type: 'checkbox',
         icon: 'enraged',
-        css: { names: ['status-effect', 'status-effect--enraged' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--enraged' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'weak',
@@ -31,7 +31,7 @@
         title: 'Weak temporarily reduces your Might die size by one.',
         type: 'checkbox',
         icon: 'weak',
-        css: { names: ['status-effect', 'status-effect--weak' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--weak' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'shaken',
@@ -39,7 +39,7 @@
         title: 'Shaken temporarily reduces your Willpower die size by one.',
         type: 'checkbox',
         icon: 'shaken',
-        css: { names: ['status-effect', 'status-effect--shaken' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--shaken' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'poisoned',
@@ -47,7 +47,7 @@
         title: 'Poisoned temporarily reduces your Might and Willpower die sizes by one.',
         type: 'checkbox',
         icon: 'poisoned',
-        css: { names: ['status-effect', 'status-effect--poisoned' ], modifiers: ['column'] },
+        css: { names: ['status-effect', 'status-effect--poisoned' ], modifiers: ['hide-label', 'column'] },
       },
     ],
     immunity: [
@@ -57,7 +57,7 @@
         title: 'Slow temporarily reduces your Dexterity die size by one.',
         type: 'checkbox',
         icon: 'slow',
-        css: { names: ['status-immunity', 'status-immunity--slow' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--slow' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'dazed_immunity',
@@ -65,7 +65,7 @@
         title: 'Dazed temporarily reduces your Insight die size by one.',
         type: 'checkbox',
         icon: 'dazed',
-        css: { names: ['status-immunity', 'status-immunity--dazed' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--dazed' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'enraged_immunity',
@@ -73,7 +73,7 @@
         title: 'Enraged temporarily reduces your Dexterity and Insight die sizes by one.',
         type: 'checkbox',
         icon: 'enraged',
-        css: { names: ['status-immunity', 'status-immunity--enraged' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--enraged' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'weak_immunity',
@@ -81,7 +81,7 @@
         title: 'Weak temporarily reduces your Might die size by one.',
         type: 'checkbox',
         icon: 'weak',
-        css: { names: ['status-immunity', 'status-immunity--weak' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--weak' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'shaken_immunity',
@@ -89,7 +89,7 @@
         title: 'Shaken temporarily reduces your Willpower die size by one.',
         type: 'checkbox',
         icon: 'shaken',
-        css: { names: ['status-immunity', 'status-immunity--shaken' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--shaken' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'poisoned_immunity',
@@ -97,43 +97,73 @@
         title: 'Poisoned temporarily reduces your Might and Willpower die sizes by one.',
         type: 'checkbox',
         icon: 'poisoned',
-        css: { names: ['status-immunity', 'status-immunity--poisoned' ], modifiers: ['column'] },
+        css: { names: ['status-immunity', 'status-immunity--poisoned' ], modifiers: ['hide-label', 'column'] },
       },
     ],
     buffs: [
       {
         name: 'dexterity_boost',
-        label: 'DEX+',
+        label: 'DEX Up',
         title: 'Temporarily increases your Dexterity die size by one.',
         type: 'checkbox',
         icon: 'dexup',
-        css: { names: ['status-boost', 'status-boost--dexterity' ], modifiers: ['column'] },
+        css: { names: ['status-boost', 'status-boost--dexterity' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'insight_boost',
-        label: 'INS+',
+        label: 'INS Up',
         title: 'Temporarily increases your Insight die size by one.',
         type: 'checkbox',
         icon: 'insup',
-        css: { names: ['status-boost', 'status-boost--insight' ], modifiers: ['column'] },
+        css: { names: ['status-boost', 'status-boost--insight' ], modifiers: ['hide-label', 'column'] },
       },
-
       {
         name: 'might_boost',
-        label: 'MIG+',
+        label: 'MIG Up',
         title: 'Temporarily increases your Might die size by one.',
         type: 'checkbox',
         icon: 'migup',
-        css: { names: ['status-boost', 'status-boost--might' ], modifiers: ['column'] },
+        css: { names: ['status-boost', 'status-boost--might' ], modifiers: ['hide-label', 'column'] },
       },
       {
         name: 'willpower_boost',
-        label: 'WLP+',
+        label: 'WLP Up',
         title: 'Temporarily increases your Willpower die size by one.',
         type: 'checkbox',
         icon: 'wlpup',
-        css: { names: ['status-boost', 'status-boost--willpower' ], modifiers: ['column'] },
+        css: { names: ['status-boost', 'status-boost--willpower' ], modifiers: ['hide-label', 'column'] },
       },
-
+      {
+        name: 'dexterity_down',
+        label: 'DEX Down',
+        title: 'Temporarily decreases your Dexterity die size by one.',
+        type: 'checkbox',
+        icon: 'dexdown',
+        css: { names: ['status-down', 'status-down--dexterity' ], modifiers: ['hide-label', 'column'] },
+      },
+      {
+        name: 'insight_down',
+        label: 'INS Down',
+        title: 'Temporarily decreases your Insight die size by one.',
+        type: 'checkbox',
+        icon: 'insdown',
+        css: { names: ['status-down', 'status-down--insight' ], modifiers: ['hide-label', 'column'] },
+      },
+      {
+        name: 'might_down',
+        label: 'MIG Down',
+        title: 'Temporarily decreases your Might die size by one.',
+        type: 'checkbox',
+        icon: 'migdown',
+        css: { names: ['status-down', 'status-down--might' ], modifiers: ['hide-label', 'column'] },
+      },
+      {
+        name: 'willpower_down',
+        label: 'WLP Down',
+        title: 'Temporarily decreases your Willpower die size by one.',
+        type: 'checkbox',
+        icon: 'wlpdown',
+        css: { names: ['status-down', 'status-down--willpower' ], modifiers: ['hide-label', 'column'] },
+      },
     ]
   };
