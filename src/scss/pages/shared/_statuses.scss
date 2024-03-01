@@ -23,12 +23,12 @@
         .status-debuffs {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 4px;
+          gap: 2px;
         }
         .status-buffs {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 4px;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2px;
         }
 
         .status-effect {
@@ -95,6 +95,7 @@
     // checkbox styling
     .status-effect,
     .status-boost,
+    .status-down,
     .status-immunity {
       &.chimera-checkbox {
         .chimera-checkbox__field {
