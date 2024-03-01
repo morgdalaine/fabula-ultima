@@ -112,8 +112,6 @@
   }
 
   .fabula-bracket {
-    &--open {
-    }
     &--closed {
       margin-right: -0.5rem;
     }
@@ -132,13 +130,24 @@
         white-space: nowrap;
       }
     }
-    &__accuracy {
-      margin-right: 0.5rem;
+
+    &__hide-accuracy[value='0'] {
+      + .fabula-check__accuracy--mod {
+        display: none;
+      }
     }
 
-    input[value='0'] {
-      ~ .fabula-check__accuracy--mod {
-        display: none;
+    &__hide-damage {
+      &[value='0'] ~ {
+        .fabula-diamond,
+        .fabula-check__damage {
+          display: none;
+        }
+      }
+      &:not([value='0']) ~ {
+        .fabula-diamond {
+          margin-left: 0.5rem;
+        }
       }
     }
   }

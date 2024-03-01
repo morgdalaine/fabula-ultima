@@ -37,11 +37,12 @@ rolltemplate.sheet-rolltemplate-fabula-attack
             span.sheet-fabula-span {{ vs }}
 
         +tags(['^nodamage', 'damage'])
-          .sheet-action__damage
-            span.span.sheet-fabula-label {{ hr }}
-            span.sheet-fabula-span {{ computed::damage }}
-            //- span.sheet-fabula-diamond ⬥
-            span.sheet-fabula-span {{ type }}
+          +rollFunctions(['rollGreater() damage 0'])
+            .sheet-action__damage
+              span.span.sheet-fabula-label {{ hr }}
+              span.sheet-fabula-span {{ computed::damage }}
+              //- span.sheet-fabula-diamond ⬥
+              span.sheet-fabula-span {{ type }}
 
         // TODO Vunerable and Resistance calculations
         // preferrably shown by hover or something?

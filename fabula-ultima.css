@@ -1080,11 +1080,15 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   line-height: 150%;
   white-space: nowrap;
 }
-.fabula-ultima .fabula-check__accuracy {
-  margin-right: 0.5rem;
-}
-.fabula-ultima .fabula-check input[value="0"] ~ .fabula-check__accuracy--mod {
+.fabula-ultima .fabula-check__hide-accuracy[value="0"] + .fabula-check__accuracy--mod {
   display: none;
+}
+.fabula-ultima .fabula-check__hide-damage[value="0"] ~ .fabula-diamond,
+.fabula-ultima .fabula-check__hide-damage[value="0"] ~ .fabula-check__damage {
+  display: none;
+}
+.fabula-ultima .fabula-check__hide-damage:not([value="0"]) ~ .fabula-diamond {
+  margin-left: 0.5rem;
 }
 .fabula-ultima .fabula-diamond {
   font-family: var(--font-body);

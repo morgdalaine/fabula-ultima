@@ -8,12 +8,13 @@ mixin fabula-check(att1, att2, accuracy, damage)
       span.fabula-bracket--closed 】
 
       if accuracy
-        +chimera-hidden(accuracy.name, 0)
+        +chimera-hidden(accuracy.name, 0).fabula-check__hide-accuracy
         .fabula-check__accuracy--mod
           span +
           +chimera-span(accuracy)
 
     if damage
+      +chimera-hidden(damage.name).fabula-check__hide-damage
       +fabula-diamond
       .fabula-check__damage
         span.fabula-bracket--open 【
