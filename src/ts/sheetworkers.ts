@@ -188,16 +188,25 @@ const calculateMaxHP = (setCurrent: boolean = false) => {
     let hp_max: number;
     if (v.sheet_type === 'character') {
       hp_max = might_max * 5 + level + hp_extra + class_hp_total;
-    }
-    if (v.sheet_type === 'bestiary') {
-      hp_max = might_max * 5 + level * 2 + hp_extra;
+    } else if (v.sheet_type === 'bestiary') {
       const rank = v.rank;
-      let multiplier = 1;
-      if (rank === 'elite') multiplier = 2;
-      if (rank.includes('champion')) {
-        multiplier = +v.rank.match(/\d+/)?.at(0) || 1;
+      const companion_skill_level = +v.companion_skill_level || 0;
+      const pc_level = +v.pc_level || 0;
+
+      if (rank === 'companion') {
+        hp_max = might_max * companion_skill_level + Math.floor(pc_level / 2) + hp_extra;
+      } else {
+        const rank_multiplier: number = (function () {
+          if (rank === 'elite') {
+            return 2;
+          } else if (rank.includes('champion')) {
+            return +rank.match(/\d+/)?.at(0) || 1;
+          } else {
+            return 1;
+          }
+        })();
+        hp_max = (might_max * 5 + level * 2 + hp_extra) * rank_multiplier;
       }
-      hp_max *= multiplier;
     }
 
     update.hp_max = hp_max;
@@ -546,10 +555,12 @@ const calculateBasicAccuracyDamage = () => {
 
       if (attributes.sheet_type === 'bestiary') {
         const level: number = +attributes.level || 0;
-        const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
-
         const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
         const levelDamageBonus = calculateLevelDamageBonus(level);
+
+        const accuracy_bonus: number = +attributes.accuracy_bonus || 0;
+        const companion_skill_level =
+          attributes.rank === 'companion' ? +attributes.companion_skill_level || 0 : 0;
 
         const [section, ids] = Object.entries(sections).at(0);
         ids.forEach((id) => {
@@ -557,7 +568,8 @@ const calculateBasicAccuracyDamage = () => {
 
           const extra_damage: number = +attributes[prefix + 'attack_extra_damage'] || 0;
 
-          update[prefix + 'attack_accuracy_total'] = accuracy_bonus + levelAccuracyBonus;
+          update[prefix + 'attack_accuracy_total'] =
+            accuracy_bonus + companion_skill_level + levelAccuracyBonus;
           update[prefix + 'attack_damage_total'] = 5 + extra_damage + levelDamageBonus;
         });
 

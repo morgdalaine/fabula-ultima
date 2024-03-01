@@ -142,7 +142,16 @@ const ATTR_WATCH: Record<string, string[]> = {
     'poisoned_immunity',
   ],
 
-  hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total', 'rank'],
+  hp: [
+    'sheet_type',
+    'might_max',
+    'level',
+    'hp_extra',
+    'class_hp_total',
+    'rank',
+    'companion_skill_level',
+    'pc_level',
+  ],
   mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total', 'rank'],
   ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
 
@@ -230,8 +239,11 @@ const ATTR_WATCH: Record<string, string[]> = {
 
   basic_attacks: [
     'sheet_type',
+    'rank',
     'level',
     'accuracy_bonus',
+    'companion_skill_level',
+    'pc_level',
     'repeating_basic-attacks:attack_name',
     'repeating_basic-attacks:attack_extra_damage',
   ],

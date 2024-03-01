@@ -5241,7 +5241,16 @@ const ATTR_WATCH = {
         'shaken_immunity',
         'poisoned_immunity',
     ],
-    hp: ['sheet_type', 'might_max', 'level', 'hp_extra', 'class_hp_total', 'rank'],
+    hp: [
+        'sheet_type',
+        'might_max',
+        'level',
+        'hp_extra',
+        'class_hp_total',
+        'rank',
+        'companion_skill_level',
+        'pc_level',
+    ],
     mp: ['sheet_type', 'willpower_max', 'level', 'mp_extra', 'class_mp_total', 'rank'],
     ip: ['sheet_type', 'ip_extra', 'class_ip_total'],
     ultima_points: ['sheet_type', 'villain'],
@@ -5316,8 +5325,11 @@ const ATTR_WATCH = {
     ],
     basic_attacks: [
         'sheet_type',
+        'rank',
         'level',
         'accuracy_bonus',
+        'companion_skill_level',
+        'pc_level',
         'repeating_basic-attacks:attack_name',
         'repeating_basic-attacks:attack_extra_damage',
     ],
@@ -7339,16 +7351,27 @@ const calculateMaxHP = (setCurrent = false) => {
         if (v.sheet_type === 'character') {
             hp_max = might_max * 5 + level + hp_extra + class_hp_total;
         }
-        if (v.sheet_type === 'bestiary') {
-            hp_max = might_max * 5 + level * 2 + hp_extra;
+        else if (v.sheet_type === 'bestiary') {
             const rank = v.rank;
-            let multiplier = 1;
-            if (rank === 'elite')
-                multiplier = 2;
-            if (rank.includes('champion')) {
-                multiplier = +v.rank.match(/\d+/)?.at(0) || 1;
+            const companion_skill_level = +v.companion_skill_level || 0;
+            const pc_level = +v.pc_level || 0;
+            if (rank === 'companion') {
+                hp_max = might_max * companion_skill_level + Math.floor(pc_level / 2) + hp_extra;
             }
-            hp_max *= multiplier;
+            else {
+                const rank_multiplier = (function () {
+                    if (rank === 'elite') {
+                        return 2;
+                    }
+                    else if (rank.includes('champion')) {
+                        return +rank.match(/\d+/)?.at(0) || 1;
+                    }
+                    else {
+                        return 1;
+                    }
+                })();
+                hp_max = (might_max * 5 + level * 2 + hp_extra) * rank_multiplier;
+            }
         }
         update.hp_max = hp_max;
         update.hp_crisis = Math.floor(hp_max / 2);
@@ -7614,14 +7637,16 @@ const calculateBasicAccuracyDamage = () => {
         const update = {};
         if (attributes.sheet_type === 'bestiary') {
             const level = +attributes.level || 0;
-            const accuracy_bonus = +attributes.accuracy_bonus || 0;
             const levelAccuracyBonus = calculateLevelAccuracyBonus(level);
             const levelDamageBonus = calculateLevelDamageBonus(level);
+            const accuracy_bonus = +attributes.accuracy_bonus || 0;
+            const companion_skill_level = attributes.rank === 'companion' ? +attributes.companion_skill_level || 0 : 0;
             const [section, ids] = Object.entries(sections).at(0);
             ids.forEach((id) => {
                 const prefix = `${section}_${id}_`;
                 const extra_damage = +attributes[prefix + 'attack_extra_damage'] || 0;
-                update[prefix + 'attack_accuracy_total'] = accuracy_bonus + levelAccuracyBonus;
+                update[prefix + 'attack_accuracy_total'] =
+                    accuracy_bonus + companion_skill_level + levelAccuracyBonus;
                 update[prefix + 'attack_damage_total'] = 5 + extra_damage + levelDamageBonus;
             });
             setAttrs(update, { silent: true });
