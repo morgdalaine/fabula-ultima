@@ -6,9 +6,6 @@
 
     @include mixins.fabula-heading;
 
-    &--view {
-    }
-
     &--edit {
       .shield {
         display: grid;
@@ -18,14 +15,6 @@
         &__name {
           grid-column: span 3;
           grid-column: 1/-1;
-        }
-
-        &__initiative,
-        &__cost,
-        &__defense,
-        &__defense_bonus,
-        &__magic_defense,
-        &__magic_defense_bonus {
         }
       }
     }

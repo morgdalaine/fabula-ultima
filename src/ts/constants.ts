@@ -361,7 +361,7 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
 };
 
 const CLICK_LISTENERS: Record<string, string> = {
-  'armorchat': 'armorchat',
+  'armorchat': 'npcarmorchat',
   'bond1chat': 'bond1',
   'bond2chat': 'bond2',
   'bond3chat': 'bond3',
@@ -411,7 +411,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_spells:spell': 'spell',
   'repeating_weapons:weaponattack': 'weaponattack',
   'repeating_weapons:weaponchat': 'weaponchat',
-  'shieldchat': 'shieldchat',
+  'shieldchat': 'npcshieldchat',
   'study7': 'study7',
   'study10': 'study10',
   'study13': 'study13',
@@ -512,7 +512,26 @@ const ACTION_REQUEST: Record<string, string[]> = {
     'armor_cost',
     'armor_special',
   ],
+  npcarmorchat: [
+    'armor_is_martial',
+    'armor_name',
+    'armor_defense',
+    'armor_defense_bonus',
+    'armor_magic_defense_bonus',
+    'armor_initiative',
+    'armor_cost',
+    'armor_special',
+  ],
   shieldchat: [
+    'shield_name',
+    'shield_is_martial',
+    'shield_defense_bonus',
+    'shield_magic_defense_bonus',
+    'shield_initiative',
+    'shield_cost',
+    'shield_special',
+  ],
+  npcshieldchat: [
     'shield_name',
     'shield_is_martial',
     'shield_defense_bonus',

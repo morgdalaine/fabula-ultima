@@ -16,7 +16,6 @@
       <select class="chimera-input__field" data-i18n-title="sheet_type_title" id="sheet_type" name="attr_sheet_type" title="Sheet Type">
         <option data-i18n="character" selected="selected" value="character">Character</option>
         <option data-i18n="bestiary" selected="selected" value="bestiary">Bestiary</option>
-        <option data-i18n="gm" value="gm">GM</option>
       </select>
     </div>
     <label class="chimera-checkbox sheet-settings chimera-checkbox--hide-label" data-i18n-title="show_settings_title" title="Settings">
@@ -5009,7 +5008,6 @@
           </div>
         </section>
   </main>
-  <main class="gm"><span>[GM]</span></main>
   <aside class="settings">
         <div class="settings--view">
           <h2 class="settings__heading--view"><span data-i18n="settings">Settings</span>
@@ -5482,7 +5480,7 @@ const BUTTON_ACTIONS = {
     rest: ['rest'],
 };
 const CLICK_LISTENERS = {
-    'armorchat': 'armorchat',
+    'armorchat': 'npcarmorchat',
     'bond1chat': 'bond1',
     'bond2chat': 'bond2',
     'bond3chat': 'bond3',
@@ -5532,7 +5530,7 @@ const CLICK_LISTENERS = {
     'repeating_spells:spell': 'spell',
     'repeating_weapons:weaponattack': 'weaponattack',
     'repeating_weapons:weaponchat': 'weaponchat',
-    'shieldchat': 'shieldchat',
+    'shieldchat': 'npcshieldchat',
     'study7': 'study7',
     'study10': 'study10',
     'study13': 'study13',
@@ -5626,7 +5624,26 @@ const ACTION_REQUEST = {
         'armor_cost',
         'armor_special',
     ],
+    npcarmorchat: [
+        'armor_is_martial',
+        'armor_name',
+        'armor_defense',
+        'armor_defense_bonus',
+        'armor_magic_defense_bonus',
+        'armor_initiative',
+        'armor_cost',
+        'armor_special',
+    ],
     shieldchat: [
+        'shield_name',
+        'shield_is_martial',
+        'shield_defense_bonus',
+        'shield_magic_defense_bonus',
+        'shield_initiative',
+        'shield_cost',
+        'shield_special',
+    ],
+    npcshieldchat: [
         'shield_name',
         'shield_is_martial',
         'shield_defense_bonus',
@@ -5964,8 +5981,10 @@ const chatData = (key, prefix, values) => {
             case 'raregearchat':
                 return 'raregear_';
             case 'armorchat':
+            case 'npcarmorchat':
                 return 'armor_';
             case 'shieldchat':
+            case 'npcshieldchat':
                 return 'shield_';
             case 'accessorychat':
                 return 'accessory_';
@@ -6022,15 +6041,15 @@ const armorTemplate = (values) => {
     const template = {};
     let martial = values.is_martial === 'on';
     if (martial) {
-        template.def = values.defense;
+        template.def = +values.defense || 0;
         template.martial = 'true';
     }
     else {
-        template.def = 'DEX size ' + signedInteger(values.defense_bonus);
+        template.def = 'DEX size ' + signedInteger(+values.defense_bonus || 0);
     }
     template.name = values.name;
-    template.mdef = 'INS size ' + signedInteger(values.magic_defense_bonus);
-    template.init = signedInteger(values.initiative);
+    template.mdef = 'INS size ' + signedInteger(+values.magic_defense_bonus || 0);
+    template.init = signedInteger(+values.initiative || 0);
     template.cost = values.cost;
     if (values.special)
         template.special = values.special;
@@ -6045,9 +6064,9 @@ const shieldTemplate = (values) => {
         template.martial = 'true';
     }
     template.name = values.name;
-    template.def = signedInteger(values.defense_bonus);
-    template.mdef = signedInteger(values.magic_defense_bonus);
-    template.init = signedInteger(values.initiative);
+    template.def = signedInteger(+values.defense_bonus || 0);
+    template.mdef = signedInteger(+values.magic_defense_bonus || 0);
+    template.init = signedInteger(+values.initiative || 0);
     template.cost = values.cost;
     if (values.special)
         template.special = values.special;
@@ -6214,8 +6233,10 @@ const sendToChat = async (chat, id) => {
         const template = (function () {
             switch (chat) {
                 case 'armorchat':
+                case 'npcarmorchat':
                     return armorTemplate(data);
                 case 'shieldchat':
+                case 'npcshieldchat':
                     return shieldTemplate(data);
                 case 'weaponchat':
                     return weaponTemplate(data);

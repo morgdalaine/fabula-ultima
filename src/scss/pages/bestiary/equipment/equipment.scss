@@ -9,8 +9,6 @@
     .equipment {
       display: grid;
       gap: 4px;
-
-      padding: 8px;
     }
 
     // universal styles
@@ -25,6 +23,11 @@
         .send-to-chat {
           margin-left: auto;
         }
+      }
+
+      &__armor,
+      &__shield {
+        padding: 0 4px;
       }
 
       input[name*='is_martial'] {
@@ -79,9 +82,6 @@
       &__name {
         grid-column: span 3;
       }
-      &__category {
-      }
     }
-    // }
   }
 }

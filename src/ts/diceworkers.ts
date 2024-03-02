@@ -52,8 +52,10 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'raregearchat':
         return 'raregear_';
       case 'armorchat':
+      case 'npcarmorchat':
         return 'armor_';
       case 'shieldchat':
+      case 'npcshieldchat':
         return 'shield_';
       case 'accessorychat':
         return 'accessory_';
@@ -116,19 +118,19 @@ const simpleTemplate = (values: { [key: string]: string }) => {
 };
 
 const armorTemplate = (values: { [key: string]: string }) => {
-  const template: { [key: string]: string } = {};
+  const template: { [key: string]: string | number } = {};
 
   let martial = values.is_martial === 'on';
   if (martial) {
-    template.def = values.defense;
+    template.def = +values.defense || 0;
     template.martial = 'true';
   } else {
-    template.def = 'DEX size ' + signedInteger(values.defense_bonus);
+    template.def = 'DEX size ' + signedInteger(+values.defense_bonus || 0);
   }
 
   template.name = values.name;
-  template.mdef = 'INS size ' + signedInteger(values.magic_defense_bonus);
-  template.init = signedInteger(values.initiative);
+  template.mdef = 'INS size ' + signedInteger(+values.magic_defense_bonus || 0);
+  template.init = signedInteger(+values.initiative || 0);
   template.cost = values.cost;
 
   if (values.special) template.special = values.special;
@@ -146,9 +148,9 @@ const shieldTemplate = (values: { [key: string]: string }) => {
   }
 
   template.name = values.name;
-  template.def = signedInteger(values.defense_bonus);
-  template.mdef = signedInteger(values.magic_defense_bonus);
-  template.init = signedInteger(values.initiative);
+  template.def = signedInteger(+values.defense_bonus || 0);
+  template.mdef = signedInteger(+values.magic_defense_bonus || 0);
+  template.init = signedInteger(+values.initiative || 0);
   template.cost = values.cost;
 
   if (values.special) template.special = values.special;
@@ -374,8 +376,10 @@ const sendToChat = async (chat: string, id: string) => {
     const template = (function () {
       switch (chat) {
         case 'armorchat':
+        case 'npcarmorchat':
           return armorTemplate(data);
         case 'shieldchat':
+        case 'npcshieldchat':
           return shieldTemplate(data);
         case 'weaponchat':
           return weaponTemplate(data);
