@@ -9,8 +9,7 @@
       @include mixins.fabula-heading;
 
       &--view {
-        display: grid;
-        grid-template-columns: repeat(2, var(--input-component-size) auto) auto;
+        display: flex;
         gap: 4px;
 
         border: 1px solid var(--color-fabula-darkest);
@@ -20,42 +19,62 @@
         padding-inline: 4px;
 
         .chimera-value {
+          display: flex;
+          text-align: center;
+
           &__label,
           &__value {
+            display: block;
             @include mixins.text-lg-700-fabula;
             text-align: center;
             white-space: nowrap;
+            padding: 4px 8px;
           }
-          &__label {
-            align-self: center;
-            justify-self: center;
+          &__value {
+            min-width: 2.5rem;
           }
         }
 
         .fabula-diamond {
           @include mixins.text-lg-400;
+          padding-block: 4px;
         }
 
         .point {
           &__hp,
           &__mp,
+          &__ip,
           &__initiative {
             display: flex;
-            gap: 4px;
-            padding: 4px;
             justify-content: center;
           }
 
           &__hp,
+          &__crisis,
+          &__mp,
+          &__ip {
+            .fabula-diamond,
+            .chimera-value__value {
+              color: var(--color-on-dark);
+            }
+          }
+
+          &__hp,
           &__hp_crisis {
-            padding-inline: 8px;
-            color: var(--color-on-dark);
-            background-color: var(--color-hp);
+            .fabula-diamond,
+            .chimera-value__value {
+              background-color: var(--color-hp);
+            }
           }
           &__mp {
-            padding-inline: 8px;
-            color: var(--color-on-dark);
-            background-color: var(--color-mp);
+            .chimera-value__value {
+              background-color: var(--color-mp);
+            }
+          }
+          &__ip {
+            .chimera-value__value {
+              background-color: var(--color-ip);
+            }
           }
 
           &__roll-initiative {

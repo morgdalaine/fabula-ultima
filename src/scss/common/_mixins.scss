@@ -5,11 +5,12 @@
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  // position: absolute;
+  position: absolute;
   width: 1px;
 }
 
 @mixin hide-text {
+  display: block;
   overflow: hidden;
   padding: 0; /* 1 */
   text-indent: 101%;

@@ -19,6 +19,7 @@ mixin character-view(spine)
 
     .character__controls
       +status-effects-view(spine)
+      +actions-view(spine)
       +controllers-view(spine)
 
     +navbar-view(spine)
@@ -66,7 +67,6 @@ mixin character-edit(spine)
     //- pages
     .character__stats
       +statistics-edit(spine)
-      +status-immunity-edit(spine)
       +quirks-edit(spine)
       +rolls-edit(spine)
 

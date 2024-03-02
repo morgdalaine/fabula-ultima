@@ -66,24 +66,23 @@
                     <div class="points--view">
                       <input class="chimera-hidden" name="attr_hp_crisis" type="hidden"/>
                       <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
-                      <label class="chimera-value__label" data-i18n="hp">HP</label>
                       <div class="point__hp">
-                        <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points"><span class="chimera-value__value" name="attr_hp"></span>
+                        <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points">
+                          <label class="chimera-value__label" data-i18n="hp" for="hp">HP</label><span class="chimera-value__value" name="attr_hp"></span>
                         </div><span class="fabula-diamond">⬥</span>
-                        <div class="chimera-value point--hp_crisis chimera-value--nowrap" data-i18n-title="hp_crisis_title" title="If your current HP is at or below this number, your are considered &quot;in Crisis&quot;, which means you're not looking good — you're having a bad day and it shows."><span class="chimera-value__value" name="attr_hp_crisis"></span>
+                        <div class="chimera-value point--hp_crisis chimera-value--nowrap chimera-value--hide-label" data-i18n-title="hp_crisis_title" title="If your current HP is at or below this number, your are considered &quot;in Crisis&quot;, which means you're not looking good — you're having a bad day and it shows.">
+                          <label class="chimera-value__label" data-i18n="hp_crisis" for="hp_crisis">HP Crisis</label><span class="chimera-value__value" name="attr_hp_crisis"></span>
                         </div>
                       </div>
-                      <label class="chimera-value__label" data-i18n="mp">MP</label>
                       <div class="point__mp">
-                        <div class="chimera-value point--mp" data-i18n-title="mp_title" title="Mind Points"><span class="chimera-value__value" name="attr_mp"></span>
+                        <div class="chimera-value point--mp" data-i18n-title="mp_title" title="Mind Points">
+                          <label class="chimera-value__label" data-i18n="mp" for="mp">MP</label><span class="chimera-value__value" name="attr_mp"></span>
                         </div>
                       </div>
-                      <div class="point__roll-initiative">
-                        <button class="chimera-action point--roll-initiative" data-i18n-title="roll_initiative_title" name="act_roll_initiative" title="Roll Initiative" type="action">
-                          <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative">
-                            <label class="chimera-value__label" data-i18n="initiative" for="initiative">Initiative</label><span class="chimera-value__value" name="attr_initiative"></span>
-                          </div>
-                        </button>
+                      <div class="point__ip">
+                        <div class="chimera-value point--ip" data-i18n-title="ip_title" title="Inventory Points">
+                          <label class="chimera-value__label" data-i18n="ip" for="ip">Inventory Points</label><span class="chimera-value__value" name="attr_ip"></span>
+                        </div>
                       </div>
                     </div>
                     <div class="defenses--view">
@@ -234,6 +233,18 @@
                     </label>
                   </div>
                 </div>
+                <div class="actions--view">
+                  <button class="chimera-action action__rest" data-i18n-title="rest_title" name="act_rest" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects." type="action"><img data-i18n-title="rest_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/magic-tent.png" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects."/>
+                    <div class="chimera-value action__rest" data-i18n-title="rest_title" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects.">
+                      <label class="chimera-value__label" data-i18n="rest" for="rest">Rest &amp; Recover</label><span class="chimera-value__value" name="attr_rest"></span>
+                    </div>
+                  </button>
+                  <button class="chimera-action action__initative" data-i18n-title="initiative_title" name="act_initiative" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries." type="action"><img data-i18n-title="initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/main/assets/sword.svg" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries."/>
+                    <div class="chimera-value action__initative" data-i18n-title="initiative_title" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.">
+                      <label class="chimera-value__label" data-i18n="initiative" for="initiative">Initiative</label><span class="chimera-value__value" name="attr_initiative"></span>
+                    </div>
+                  </button>
+                </div>
                 <div class="controllers--view">
                   <div class="chimera-arithmetic controller__hp">
                     <label class="chimera-arithmetic__label" data-i18n="hp-control" for="hp-control">HP</label>
@@ -259,9 +270,6 @@
                     <button class="chimera-arithmetic__add" name="act_ip-control-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/plus.svg" title="Add"/>
                     </button>
                   </div>
-                  <button class="chimera-action action__rest" data-i18n-title="rest_title" name="act_rest" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects." type="action"><img data-i18n-title="rest_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/magic-tent.png" title="When a Player Character rests, they enjoy the following benefits: They recover all of their Hit Points and Mind Points. They recover from all status effects."/>
-                    <div class="chimera-value__label" data-i18n="rest">Rest &amp; Recover</div>
-                  </button>
                 </div>
           </div>
               <div class="nav" style="display: flex; flex-direction: row; gap: 4px">
@@ -1675,7 +1683,7 @@
                             <input class="chimera-input__field" data-i18n-placeholder="initiative_extra_placeholder" data-i18n-title="initiative_extra_title" id="initiative_extra" name="attr_initiative_extra" placeholder="0" title="Extra Initiative" type="number"/>
                           </div>
                           <div class="point__values">
-                            <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative">
+                            <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.">
                               <label class="chimera-value__label" data-i18n="initiative" for="initiative">Initiative</label><span class="chimera-value__value" name="attr_initiative"></span>
                             </div>
                           </div>
@@ -1774,39 +1782,39 @@
                       </select>
                     </div>
                   </div>
-                </div>
-                <div class="status-immunities--edit">
-                  <h2 class="status-immunities__heading--edit" data-i18n="status_immunities">Status Immunities</h2>
-                  <label class="chimera-checkbox status-immunity status-immunity--slow chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="slow_immunity_title" title="Slow temporarily reduces your Dexterity die size by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="slow_immunity" name="attr_slow_immunity" type="checkbox"/><img data-i18n-title="slow_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/slow.png" title="Slow temporarily reduces your Dexterity die size by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="slow_immunity" for="slow_immunity">Slow</span>
-                  </label>
-                  <label class="chimera-checkbox status-immunity status-immunity--dazed chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="dazed_immunity_title" title="Dazed temporarily reduces your Insight die size by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="dazed_immunity" name="attr_dazed_immunity" type="checkbox"/><img data-i18n-title="dazed_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/dazed.png" title="Dazed temporarily reduces your Insight die size by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="dazed_immunity" for="dazed_immunity">Dazed</span>
-                  </label>
-                  <label class="chimera-checkbox status-immunity status-immunity--enraged chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="enraged_immunity_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="enraged_immunity" name="attr_enraged_immunity" type="checkbox"/><img data-i18n-title="enraged_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/enraged.png" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="enraged_immunity" for="enraged_immunity">Enraged</span>
-                  </label>
-                  <label class="chimera-checkbox status-immunity status-immunity--weak chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="weak_immunity_title" title="Weak temporarily reduces your Might die size by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="weak_immunity" name="attr_weak_immunity" type="checkbox"/><img data-i18n-title="weak_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/weak.png" title="Weak temporarily reduces your Might die size by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="weak_immunity" for="weak_immunity">Weak</span>
-                  </label>
-                  <label class="chimera-checkbox status-immunity status-immunity--shaken chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="shaken_immunity_title" title="Shaken temporarily reduces your Willpower die size by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="shaken_immunity" name="attr_shaken_immunity" type="checkbox"/><img data-i18n-title="shaken_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/shaken.png" title="Shaken temporarily reduces your Willpower die size by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="shaken_immunity" for="shaken_immunity">Shaken</span>
-                  </label>
-                  <label class="chimera-checkbox status-immunity status-immunity--poisoned chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="poisoned_immunity_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
-                    <div class="chimera-checkbox__field">
-                      <input id="poisoned_immunity" name="attr_poisoned_immunity" type="checkbox"/><img data-i18n-title="poisoned_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/poisoned.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
-                    </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
-                  </label>
+                      <div class="status-immunities--edit">
+                        <h2 class="status-immunities__heading--edit" data-i18n="status_immunities">Status Immunities</h2>
+                        <label class="chimera-checkbox status-immunity status-immunity--slow chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="slow_immunity_title" title="Slow temporarily reduces your Dexterity die size by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="slow_immunity" name="attr_slow_immunity" type="checkbox"/><img data-i18n-title="slow_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/slow.png" title="Slow temporarily reduces your Dexterity die size by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="slow_immunity" for="slow_immunity">Slow</span>
+                        </label>
+                        <label class="chimera-checkbox status-immunity status-immunity--dazed chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="dazed_immunity_title" title="Dazed temporarily reduces your Insight die size by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="dazed_immunity" name="attr_dazed_immunity" type="checkbox"/><img data-i18n-title="dazed_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/dazed.png" title="Dazed temporarily reduces your Insight die size by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="dazed_immunity" for="dazed_immunity">Dazed</span>
+                        </label>
+                        <label class="chimera-checkbox status-immunity status-immunity--enraged chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="enraged_immunity_title" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="enraged_immunity" name="attr_enraged_immunity" type="checkbox"/><img data-i18n-title="enraged_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/enraged.png" title="Enraged temporarily reduces your Dexterity and Insight die sizes by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="enraged_immunity" for="enraged_immunity">Enraged</span>
+                        </label>
+                        <label class="chimera-checkbox status-immunity status-immunity--weak chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="weak_immunity_title" title="Weak temporarily reduces your Might die size by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="weak_immunity" name="attr_weak_immunity" type="checkbox"/><img data-i18n-title="weak_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/weak.png" title="Weak temporarily reduces your Might die size by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="weak_immunity" for="weak_immunity">Weak</span>
+                        </label>
+                        <label class="chimera-checkbox status-immunity status-immunity--shaken chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="shaken_immunity_title" title="Shaken temporarily reduces your Willpower die size by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="shaken_immunity" name="attr_shaken_immunity" type="checkbox"/><img data-i18n-title="shaken_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/shaken.png" title="Shaken temporarily reduces your Willpower die size by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="shaken_immunity" for="shaken_immunity">Shaken</span>
+                        </label>
+                        <label class="chimera-checkbox status-immunity status-immunity--poisoned chimera-checkbox--hide-label chimera-checkbox--column" data-i18n-title="poisoned_immunity_title" title="Poisoned temporarily reduces your Might and Willpower die sizes by one.">
+                          <div class="chimera-checkbox__field">
+                            <input id="poisoned_immunity" name="attr_poisoned_immunity" type="checkbox"/><img data-i18n-title="poisoned_immunity_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/statuseffects/poisoned.png" title="Poisoned temporarily reduces your Might and Willpower die sizes by one."/>
+                          </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
+                        </label>
+                      </div>
                 </div>
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
                 <div class="quirks--edit">
@@ -3441,21 +3449,22 @@
                     <div class="points--view">
                       <input class="chimera-hidden" name="attr_villain" type="hidden"/>
                       <input class="chimera-hidden" name="attr_initiative_total" type="hidden"/>
-                      <label class="chimera-value__label" data-i18n="hp">HP</label>
                       <div class="point__hp">
-                        <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points"><span class="chimera-value__value" name="attr_hp"></span>
+                        <div class="chimera-value point--hp" data-i18n-title="hp_title" title="Hit Points">
+                          <label class="chimera-value__label" data-i18n="hp" for="hp">HP</label><span class="chimera-value__value" name="attr_hp"></span>
                         </div><span class="fabula-diamond">⬥</span>
-                        <div class="chimera-value point--hp_crisis chimera-value--nowrap" data-i18n-title="hp_crisis_title" title="If your current HP is at or below this number, your are considered &quot;in Crisis&quot;, which means you're not looking good — you're having a bad day and it shows."><span class="chimera-value__value" name="attr_hp_crisis"></span>
+                        <div class="chimera-value point--hp_crisis chimera-value--nowrap chimera-value--hide-label" data-i18n-title="hp_crisis_title" title="If your current HP is at or below this number, your are considered &quot;in Crisis&quot;, which means you're not looking good — you're having a bad day and it shows.">
+                          <label class="chimera-value__label" data-i18n="hp_crisis" for="hp_crisis">HP Crisis</label><span class="chimera-value__value" name="attr_hp_crisis"></span>
                         </div>
                       </div>
-                      <label class="chimera-value__label" data-i18n="mp">MP</label>
                       <div class="point__mp">
-                        <div class="chimera-value point--mp" data-i18n-title="mp_title" title="Mind Points"><span class="chimera-value__value" name="attr_mp"></span>
+                        <div class="chimera-value point--mp" data-i18n-title="mp_title" title="Mind Points">
+                          <label class="chimera-value__label" data-i18n="mp" for="mp">MP</label><span class="chimera-value__value" name="attr_mp"></span>
                         </div>
                       </div>
                       <div class="point__initiative">
-                        <label class="chimera-value__label" data-i18n="init">Init.</label>
-                        <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative"><span class="chimera-value__value" name="attr_initiative"></span>
+                        <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.">
+                          <label class="chimera-value__label" data-i18n="init" for="initiative">Init.</label><span class="chimera-value__value" name="attr_initiative"></span>
                         </div>
                       </div>
                     </div>
@@ -4216,7 +4225,7 @@
                       <input class="chimera-input__field" data-i18n-placeholder="initiative_extra_placeholder" data-i18n-title="initiative_extra_title" id="initiative_extra" name="attr_initiative_extra" placeholder="0" title="Extra Initiative" type="number"/>
                     </div>
                     <div class="point__values">
-                      <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Initiative">
+                      <div class="chimera-value point--initiative" data-i18n-title="initiative_title" title="Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.">
                         <label class="chimera-value__label" data-i18n="initiative" for="initiative">Initiative</label><span class="chimera-value__value" name="attr_initiative"></span>
                       </div>
                       <label class="chimera-toggle extra extra__initiative_bonus" data-i18n-title="initiative_bonus_title" title="+4 Initiative">
@@ -5272,6 +5281,7 @@ const ATTR_WATCH = {
         'slow',
         'enraged',
         'dexterity_boost',
+        'dexterity_down',
         'slow_immunity',
         'enraged_immunity',
     ],
@@ -5280,15 +5290,25 @@ const ATTR_WATCH = {
         'dazed',
         'enraged',
         'insight_boost',
+        'insight_down',
         'dazed_immunity',
         'enraged_immunity',
     ],
-    might: ['might_max', 'weak', 'poisoned', 'might_boost', 'weak_immunity', 'poisoned_immunity'],
+    might: [
+        'might_max',
+        'weak',
+        'poisoned',
+        'might_boost',
+        'might_down',
+        'weak_immunity',
+        'poisoned_immunity',
+    ],
     willpower: [
         'willpower_max',
         'shaken',
         'poisoned',
         'willpower_boost',
+        'willpower_down',
         'shaken_immunity',
         'poisoned_immunity',
     ],
@@ -5521,7 +5541,7 @@ const CLICK_LISTENERS = {
     'magictent': 'magictent',
     'remedy': 'remedy',
     'tonic': 'tonic',
-    'roll_initiative': 'initiative',
+    'initiative': 'initiative',
 };
 const ACTION_REQUEST = {
     ...[1, 2, 3, 4, 5, 6].reduce((memo, bond) => ((memo[`bond${bond}`] = [

@@ -3,17 +3,37 @@
 .fabula-ultima {
   .bestiary,
   .character {
-    .controllers {
-      $this: '.controllers';
-
+    .controllers,
+    .actions {
       @include mixins.fabula-heading;
 
       &--view {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         align-items: center;
         gap: 4px;
         height: max-content;
+      }
+    }
+
+    .actions {
+      &--view {
+        .chimera-action {
+          width: 100%;
+        }
+
+        .action {
+          &__rest {
+            .chimera-value__value {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .controllers {
+      &--view {
+        grid-column: 1/-1;
 
         .controller {
           &__hp {
@@ -40,10 +60,6 @@
               color: var(--color-on-dark);
             }
           }
-        }
-
-        .chimera-action {
-          width: 100%;
         }
       }
     }

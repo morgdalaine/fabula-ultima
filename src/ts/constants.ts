@@ -125,6 +125,7 @@ const ATTR_WATCH: Record<string, string[]> = {
     'slow',
     'enraged',
     'dexterity_boost',
+    'dexterity_down',
     'slow_immunity',
     'enraged_immunity',
   ],
@@ -133,15 +134,25 @@ const ATTR_WATCH: Record<string, string[]> = {
     'dazed',
     'enraged',
     'insight_boost',
+    'insight_down',
     'dazed_immunity',
     'enraged_immunity',
   ],
-  might: ['might_max', 'weak', 'poisoned', 'might_boost', 'weak_immunity', 'poisoned_immunity'],
+  might: [
+    'might_max',
+    'weak',
+    'poisoned',
+    'might_boost',
+    'might_down',
+    'weak_immunity',
+    'poisoned_immunity',
+  ],
   willpower: [
     'willpower_max',
     'shaken',
     'poisoned',
     'willpower_boost',
+    'willpower_down',
     'shaken_immunity',
     'poisoned_immunity',
   ],
@@ -410,7 +421,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'magictent': 'magictent',
   'remedy': 'remedy',
   'tonic': 'tonic',
-  'roll_initiative': 'initiative',
+  'initiative': 'initiative',
 };
 
 const ACTION_REQUEST: Record<string, string[]> = {

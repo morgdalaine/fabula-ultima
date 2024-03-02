@@ -34,7 +34,7 @@ mixin points-edit(spine)
       +chimera-hidden(field)
 
     .point.point__hp
-      +fabula-heading-edit('points', {name: 'hit_points', label: 'Hit Points (HP)'}, false)
+      +fabula-heading-edit('points', { name: 'hit_points', label: 'Hit Points (HP)' }, false)
       +chimera-input(points.hp_extra)
       .point__values
         +chimera-value(points.hp_max)
@@ -42,21 +42,21 @@ mixin points-edit(spine)
         span.point__helptext(data-i18n='hp_calculation') (MIG x 5) + LEVEL + OTHER
 
     .point.point__mp
-      +fabula-heading-edit('points', {name: 'mind_points', label: 'Mind Points (MP)'}, false)
+      +fabula-heading-edit('points', { name: 'mind_points', label: 'Mind Points (MP)' }, false)
       +chimera-input(points.mp_extra)
       .point__values
         +chimera-value(points.mp_max)
         span.point__helptext(data-i18n='mp_calculation') (WLP x 5) + LEVEL + OTHER
 
     .point.point__ip
-      +fabula-heading-edit('points', {name: 'inventory_points', label: 'Inventory Points (IP)'}, false)
+      +fabula-heading-edit('points', { name: 'inventory_points', label: 'Inventory Points (IP)' }, false)
       +chimera-input(points.ip_extra)
       .point__values
         +chimera-value(points.ip_max)
         span.point__helptext(data-i18n='ip_calculation') 6 + OTHER
 
     .point.point__initiative
-      +fabula-heading-edit('points', {name: 'initiative', label: 'Initiative'}, false)
+      +fabula-heading-edit('points', { name: 'initiative', label: 'Initiative' }, false)
       +chimera-input(points.initiative_extra)
       .point__values
         +chimera-value(points.initiative)

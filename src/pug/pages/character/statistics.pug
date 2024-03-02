@@ -5,3 +5,4 @@ mixin statistics-edit(spine)
       h2.affinities__heading--edit(data-i18n='damage_affinities') Damage Affinities
       each field in spine.affinities.fields
         +chimera-input(field)
+    +status-immunity-edit(spine)

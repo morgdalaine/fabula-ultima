@@ -1,14 +1,38 @@
 -
   spine.character.points = {
     hidden: ['hp_crisis', 'initiative_total'],
-    initiative: {
-      name: 'roll_initiative',
-      label: 'Initiative',
-      title: 'Roll Initiative',
-      //- icon: 'elixir',
-      type: 'action',
-      css: { names: ['point--roll-initiative'] },
-    },
+    view : [
+      {
+        name: 'hp',
+        label: 'HP',
+        title: 'Hit Points',
+        css: { names: ['point--hp'], modifiers: [] },
+      },
+      {
+        name: 'hp_crisis',
+        label: 'HP Crisis',
+        title: `If your current HP is at or below this number, your are considered "in Crisis", which means you're not looking good — you're having a bad day and it shows.`,
+        css: { names: ['point--hp_crisis'], modifiers: ['nowrap', 'hide-label'] },
+      },
+      {
+        name: 'mp',
+        label: 'MP',
+        title: 'Mind Points',
+        css: { names: ['point--mp'], modifiers: [] },
+      },
+      {
+        name: 'ip',
+        label: 'Inventory Points',
+        title: 'Inventory Points',
+        css: { names: ['point--ip'], modifiers: [] },
+      },
+      {
+        name: 'initiative',
+        label: 'Initiative',
+        title: 'Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.',
+        css: { names: ['point--initiative'], modifiers: [] },
+      },
+    ],
     fields: [
       {
         name: 'hp',
@@ -83,7 +107,7 @@
       {
         name: 'initiative',
         label: 'Initiative',
-        title: 'Initiative',
+        title: 'Player Characters perform a【DEX+INS】 Initiative Group Check to determine which side acts first. The Difficulty Level for this Check equals the highest Initiative among their adversaries.',
         type: 'number',
         css: { names: ['point--initiative'] },
       },

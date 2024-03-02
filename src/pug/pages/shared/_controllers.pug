@@ -2,8 +2,11 @@ mixin controllers-view(spine)
   .controllers--view
     each field in spine.controllers.fields
       +chimera-arithmetic(field)
-    if (spine.controllers.actions)
-      each field in spine.controllers.actions
-        +chimera-action(field)
+
+mixin actions-view(spine)
+  .actions--view
+    each field in spine.controllers.actions
+      +chimera-action(field)
+        if field.icon
           +chimera-icon(field)
-          .chimera-value__label(data-i18n=field.name)= field.label
+        +chimera-value(field)

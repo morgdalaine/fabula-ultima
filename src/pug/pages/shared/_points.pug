@@ -1,26 +1,20 @@
 mixin points-view(spine)
   .points--view
-    - const points = fieldDictionary(spine.points.fields);
+    - const points = fieldDictionary(spine.points.view);
     each field in spine.points.hidden
       +chimera-hidden(field)
 
-    label.chimera-value__label(data-i18n='hp') HP
     .point__hp
-      +chimera-value({...points.hp, label: null })
+      +chimera-value(points.hp)
       +fabula-diamond
-      +chimera-value({...points.hp_crisis, label: null })
+      +chimera-value(points.hp_crisis)
 
-    label.chimera-value__label(data-i18n='mp') MP
     .point__mp
-      +chimera-value({...points.mp, label: null })
+      +chimera-value(points.mp)
 
     if (spine.sheet === 'bestiary')
       .point__initiative
-        label.chimera-value__label(data-i18n='init') Init.
-        +chimera-value({...points.initiative, label: null })
+        +chimera-value(points.initiative)
     if (spine.sheet === 'character')
-      .point__roll-initiative
-        - const btn = spine.points.initiative;
-        +chimera-action(btn)
-          //- +chimera-icon(btn)
-          +chimera-value(points.initiative)
+      .point__ip
+        +chimera-value(points.ip)
