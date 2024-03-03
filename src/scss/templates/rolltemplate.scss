@@ -2,8 +2,10 @@
 @use '../common/vars' as mixins;
 
 .sheet-rolltemplate-fabula-attack,
-.sheet-rolltemplate-fabula-chat {
-  .inlinerollresult {
+.sheet-rolltemplate-fabula-chat,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode {
+  .inlinerollresult.inlinerollresult {
     display: block;
     text-align: center;
     padding: 2px;
@@ -88,16 +90,18 @@
     }
     &-character-name {
       flex: 1;
-      padding-inline: 16px;
+      padding-inline: 8px;
 
-      span {
-        font-family: var(--font-title);
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 150%;
-        text-transform: uppercase;
-      }
+      font-family: var(--font-title);
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%;
+      text-transform: uppercase;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     &-roll-type {
       padding: 8px;
@@ -203,6 +207,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
+    white-space: nowrap;
   }
   span.sheet-fabula-subtitle {
     font-family: var(--font-body);

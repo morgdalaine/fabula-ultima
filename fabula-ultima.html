@@ -5087,7 +5087,7 @@
   <div class="sheet-roll sheet-{{sheet_type}}">
     <div class="sheet-roll-header">{{#avatar}}
       <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
-      <div class="sheet-character-name"><span>{{ character }}</span></div>
+      <div class="sheet-character-name">{{ character }}</div>
       <div class="sheet-roll-type"><span>{{ action }}</span></div>
     </div>{{#^rollTotal() computed::critical 0}}{{#rollGreater() computed::critical 0}}
     <div class="sheet-critical-success"><span class="sheet-fabula-important" data-i18n="is_critical">Critical Success!</span></div>{{/rollGreater() computed::critical 0}}{{#rollLess() computed::critical 0}}
@@ -5114,7 +5114,7 @@
   <div class="sheet-roll sheet-{{sheet_type}}">
     <div class="sheet-roll-header">{{#avatar}}
       <div class="sheet-avatar">[avatar]({{ avatar }})</div>{{/avatar}}
-      <div class="sheet-character-name"><span>{{ character }}</span></div>
+      <div class="sheet-character-name">{{ character }}</div>
       <div class="sheet-roll-type"><span>{{ action }}</span></div>
     </div>{{#name}}
     <div class="sheet-header">{{#melee}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/melee.svg"/>{{/melee}}{{#distance}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/distance.svg"/>{{/distance}}{{#spell}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/spell.svg"/>{{/spell}}{{#elixir}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/elixir.png"/>{{/elixir}}{{#remedy}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/remedy.png"/>{{/remedy}}{{#tonic}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/tonic.png"/>{{/tonic}}{{#elementalshard}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/elemental-shard.png"/>{{/elementalshard}}{{#magictent}}<img src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/inventory/magic-tent.png"/>{{/magictent}}<span class="sheet-fabula-label">{{ name }}</span>{{#level}}<span class="sheet-fabula-level" data-i18n="lv">Lv</span><span class="sheet-fabula-level">{{ level }}</span>{{/level}}{{#martial}}<span class="sheet-fabula-diamond">✦</span>{{/martial}}{{#subtitle}}<span class="sheet-fabula-subtitle">{{ subtitle }}</span>{{/subtitle}}

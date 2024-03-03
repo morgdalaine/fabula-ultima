@@ -6824,8 +6824,10 @@ html .sheet-bestiary,
     1;
 }
 
-.sheet-rolltemplate-fabula-attack .inlinerollresult,
-.sheet-rolltemplate-fabula-chat .inlinerollresult {
+.sheet-rolltemplate-fabula-attack .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-chat .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .inlinerollresult.inlinerollresult {
   display: block;
   text-align: center;
   padding: 2px;
@@ -6837,30 +6839,46 @@ html .sheet-bestiary,
   min-height: 24px;
   aspect-ratio: 1;
 }
-.sheet-rolltemplate-fabula-attack .inlinerollresult.fullcrit, .sheet-rolltemplate-fabula-attack .inlinerollresult.fullfail, .sheet-rolltemplate-fabula-attack .inlinerollresult.importantroll,
-.sheet-rolltemplate-fabula-chat .inlinerollresult.fullcrit,
-.sheet-rolltemplate-fabula-chat .inlinerollresult.fullfail,
-.sheet-rolltemplate-fabula-chat .inlinerollresult.importantroll {
+.sheet-rolltemplate-fabula-attack .inlinerollresult.inlinerollresult.fullcrit, .sheet-rolltemplate-fabula-attack .inlinerollresult.inlinerollresult.fullfail, .sheet-rolltemplate-fabula-attack .inlinerollresult.inlinerollresult.importantroll,
+.sheet-rolltemplate-fabula-chat .inlinerollresult.inlinerollresult.fullcrit,
+.sheet-rolltemplate-fabula-chat .inlinerollresult.inlinerollresult.fullfail,
+.sheet-rolltemplate-fabula-chat .inlinerollresult.inlinerollresult.importantroll,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .inlinerollresult.inlinerollresult.fullcrit,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .inlinerollresult.inlinerollresult.fullfail,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .inlinerollresult.inlinerollresult.importantroll,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .inlinerollresult.inlinerollresult.fullcrit,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .inlinerollresult.inlinerollresult.fullfail,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .inlinerollresult.inlinerollresult.importantroll {
   border: none;
 }
 .sheet-rolltemplate-fabula-attack .sheet-flex.sheet-flex,
-.sheet-rolltemplate-fabula-chat .sheet-flex.sheet-flex {
+.sheet-rolltemplate-fabula-chat .sheet-flex.sheet-flex,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-flex.sheet-flex,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-flex.sheet-flex {
   display: flex;
 }
 .sheet-rolltemplate-fabula-attack .sheet-grid.sheet-grid,
-.sheet-rolltemplate-fabula-chat .sheet-grid.sheet-grid {
+.sheet-rolltemplate-fabula-chat .sheet-grid.sheet-grid,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-grid.sheet-grid,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-grid.sheet-grid {
   display: grid;
 }
 .sheet-rolltemplate-fabula-attack .sheet-space-around,
-.sheet-rolltemplate-fabula-chat .sheet-space-around {
+.sheet-rolltemplate-fabula-chat .sheet-space-around,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-space-around,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-space-around {
   justify-content: space-around;
 }
 .sheet-rolltemplate-fabula-attack .sheet-uppercase,
-.sheet-rolltemplate-fabula-chat .sheet-uppercase {
+.sheet-rolltemplate-fabula-chat .sheet-uppercase,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-uppercase,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-uppercase {
   text-transform: uppercase;
 }
 .sheet-rolltemplate-fabula-attack .sheet-sr-only,
-.sheet-rolltemplate-fabula-chat .sheet-sr-only {
+.sheet-rolltemplate-fabula-chat .sheet-sr-only,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-sr-only,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -6871,19 +6889,27 @@ html .sheet-bestiary,
   width: 1px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-hp .sheet-fabula-label,
-.sheet-rolltemplate-fabula-chat .sheet-hp .sheet-fabula-label {
+.sheet-rolltemplate-fabula-chat .sheet-hp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-hp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-hp .sheet-fabula-label {
   color: var(--color-hp);
 }
 .sheet-rolltemplate-fabula-attack .sheet-mp .sheet-fabula-label,
-.sheet-rolltemplate-fabula-chat .sheet-mp .sheet-fabula-label {
+.sheet-rolltemplate-fabula-chat .sheet-mp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-mp .sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-mp .sheet-fabula-label {
   color: var(--color-mp);
 }
 .sheet-rolltemplate-fabula-attack .sheet-bonds,
-.sheet-rolltemplate-fabula-chat .sheet-bonds {
+.sheet-rolltemplate-fabula-chat .sheet-bonds,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-bonds,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-bonds {
   justify-content: space-evenly;
 }
 .sheet-rolltemplate-fabula-attack .sheet-roll,
-.sheet-rolltemplate-fabula-chat .sheet-roll {
+.sheet-rolltemplate-fabula-chat .sheet-roll,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-roll,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-roll {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -6894,39 +6920,49 @@ html .sheet-bestiary,
   overflow: hidden;
 }
 .sheet-rolltemplate-fabula-attack .sheet-roll-header,
-.sheet-rolltemplate-fabula-chat .sheet-roll-header {
+.sheet-rolltemplate-fabula-chat .sheet-roll-header,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-roll-header,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-roll-header {
   display: flex;
   background-image: var(--fabula-gradient-primary);
   color: var(--color-on-dark);
 }
 .sheet-rolltemplate-fabula-attack .sheet-avatar,
-.sheet-rolltemplate-fabula-chat .sheet-avatar {
+.sheet-rolltemplate-fabula-chat .sheet-avatar,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-avatar,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-avatar {
   -o-object-fit: cover;
      object-fit: cover;
   max-width: 36px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-avatar img,
-.sheet-rolltemplate-fabula-chat .sheet-avatar img {
+.sheet-rolltemplate-fabula-chat .sheet-avatar img,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-avatar img,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-avatar img {
   max-height: 36px;
   border-top-left-radius: 4px;
   border: 2px solid var(--color-fabula-base);
 }
 .sheet-rolltemplate-fabula-attack .sheet-character-name,
-.sheet-rolltemplate-fabula-chat .sheet-character-name {
+.sheet-rolltemplate-fabula-chat .sheet-character-name,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-character-name,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-character-name {
   flex: 1;
-  padding-inline: 16px;
-}
-.sheet-rolltemplate-fabula-attack .sheet-character-name span,
-.sheet-rolltemplate-fabula-chat .sheet-character-name span {
+  padding-inline: 8px;
   font-family: var(--font-title);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .sheet-rolltemplate-fabula-attack .sheet-roll-type,
-.sheet-rolltemplate-fabula-chat .sheet-roll-type {
+.sheet-rolltemplate-fabula-chat .sheet-roll-type,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-roll-type,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-roll-type {
   padding: 8px;
   align-self: center;
   border-top-right-radius: 4px;
@@ -6937,7 +6973,9 @@ html .sheet-bestiary,
      border-image: var(--fabula-gradient-secondary-border);
 }
 .sheet-rolltemplate-fabula-attack .sheet-roll-type span,
-.sheet-rolltemplate-fabula-chat .sheet-roll-type span {
+.sheet-rolltemplate-fabula-chat .sheet-roll-type span,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-roll-type span,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-roll-type span {
   font-family: var(--font-title);
   font-size: 16px;
   font-style: normal;
@@ -6947,7 +6985,9 @@ html .sheet-bestiary,
   white-space: nowrap;
 }
 .sheet-rolltemplate-fabula-attack .sheet-header,
-.sheet-rolltemplate-fabula-chat .sheet-header {
+.sheet-rolltemplate-fabula-chat .sheet-header,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-header,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-header {
   display: flex;
   gap: 4px;
   padding-inline: 4px;
@@ -6955,7 +6995,11 @@ html .sheet-bestiary,
 }
 .sheet-rolltemplate-fabula-attack .sheet-action, .sheet-rolltemplate-fabula-attack .sheet-details,
 .sheet-rolltemplate-fabula-chat .sheet-action,
-.sheet-rolltemplate-fabula-chat .sheet-details {
+.sheet-rolltemplate-fabula-chat .sheet-details,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details {
   display: grid;
   gap: 4px;
   padding: 4px;
@@ -6969,54 +7013,82 @@ html .sheet-bestiary,
 .sheet-rolltemplate-fabula-chat .sheet-action span.sheet-fabula-label,
 .sheet-rolltemplate-fabula-chat .sheet-action span.sheet-fabula-span,
 .sheet-rolltemplate-fabula-chat .sheet-details span.sheet-fabula-label,
-.sheet-rolltemplate-fabula-chat .sheet-details span.sheet-fabula-span {
+.sheet-rolltemplate-fabula-chat .sheet-details span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details span.sheet-fabula-span {
   font-size: 14px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-action:has(.sheet-detail-banner), .sheet-rolltemplate-fabula-attack .sheet-details:has(.sheet-detail-banner),
 .sheet-rolltemplate-fabula-chat .sheet-action:has(.sheet-detail-banner),
-.sheet-rolltemplate-fabula-chat .sheet-details:has(.sheet-detail-banner) {
+.sheet-rolltemplate-fabula-chat .sheet-details:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action:has(.sheet-detail-banner),
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details:has(.sheet-detail-banner) {
   border-top: none;
   padding-top: 0;
 }
 .sheet-rolltemplate-fabula-attack .sheet-details div,
-.sheet-rolltemplate-fabula-chat .sheet-details div {
+.sheet-rolltemplate-fabula-chat .sheet-details div,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details div,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details div {
   display: flex;
   flex-direction: row;
   gap: 2px;
   align-items: center;
 }
 .sheet-rolltemplate-fabula-attack .sheet-details:not(:has(span)),
-.sheet-rolltemplate-fabula-chat .sheet-details:not(:has(span)) {
+.sheet-rolltemplate-fabula-chat .sheet-details:not(:has(span)),
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details:not(:has(span)),
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details:not(:has(span)) {
   display: none !important;
 }
 .sheet-rolltemplate-fabula-attack .sheet-action__check, .sheet-rolltemplate-fabula-attack .sheet-action__damage,
 .sheet-rolltemplate-fabula-chat .sheet-action__check,
-.sheet-rolltemplate-fabula-chat .sheet-action__damage {
+.sheet-rolltemplate-fabula-chat .sheet-action__damage,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action__check,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-action__damage,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action__check,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-action__damage {
   display: grid;
   grid-template-columns: 1fr 28px 1fr 28px;
   gap: 4px;
   align-items: center;
 }
 .sheet-rolltemplate-fabula-attack .sheet-detail-banner,
-.sheet-rolltemplate-fabula-chat .sheet-detail-banner {
+.sheet-rolltemplate-fabula-chat .sheet-detail-banner,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-detail-banner,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-detail-banner {
   color: var(--color-on-dark);
   background-image: var(--fabula-gradient-secondary);
   padding-inline: 16px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-critical-success,
-.sheet-rolltemplate-fabula-chat .sheet-critical-success {
+.sheet-rolltemplate-fabula-chat .sheet-critical-success,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-critical-success,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-critical-success {
   color: var(--color-on-dark);
   background-image: var(--fabula-gradient-success);
   padding-inline: 16px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-critical-fumble,
-.sheet-rolltemplate-fabula-chat .sheet-critical-fumble {
+.sheet-rolltemplate-fabula-chat .sheet-critical-fumble,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-critical-fumble,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-critical-fumble {
   color: var(--color-on-dark);
   background-image: var(--fabula-gradient-fumble);
   padding-inline: 16px;
 }
 .sheet-rolltemplate-fabula-attack .sheet-affinity .sheet-fabula-span,
-.sheet-rolltemplate-fabula-chat .sheet-affinity .sheet-fabula-span {
+.sheet-rolltemplate-fabula-chat .sheet-affinity .sheet-fabula-span,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-affinity .sheet-fabula-span,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-affinity .sheet-fabula-span {
   font-family: var(--font-body);
   font-size: 16px;
   font-style: normal;
@@ -7025,15 +7097,20 @@ html .sheet-bestiary,
   color: var(--color-hp);
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-label,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-label {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-label,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-label {
   font-family: var(--font-body);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+  white-space: nowrap;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-subtitle,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-subtitle {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-subtitle,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-subtitle,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-subtitle {
   font-family: var(--font-body);
   font-size: 12px;
   font-style: normal;
@@ -7043,7 +7120,9 @@ html .sheet-bestiary,
   margin-left: auto;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-level,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-level {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-level,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-level,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-level {
   font-family: var(--font-title);
   font-size: 12px;
   font-style: normal;
@@ -7052,7 +7131,9 @@ html .sheet-bestiary,
   text-transform: uppercase;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-span,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-span {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-span,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-span {
   font-family: var(--font-body);
   font-size: 16px;
   font-style: normal;
@@ -7060,7 +7141,9 @@ html .sheet-bestiary,
   line-height: 150%;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-important,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-important {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-important,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-important,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-important {
   font-family: var(--font-title);
   font-size: 18px;
   font-style: normal;
@@ -7069,7 +7152,9 @@ html .sheet-bestiary,
   text-transform: uppercase;
 }
 .sheet-rolltemplate-fabula-attack span.sheet-fabula-diamond,
-.sheet-rolltemplate-fabula-chat span.sheet-fabula-diamond {
+.sheet-rolltemplate-fabula-chat span.sheet-fabula-diamond,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode span.sheet-fabula-diamond,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode span.sheet-fabula-diamond {
   font-family: var(--font-body);
   font-size: 10px;
   font-style: normal;

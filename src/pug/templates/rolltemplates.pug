@@ -2,8 +2,7 @@ mixin rollheader
   .sheet-roll-header
     +tags(['avatar'])
       .sheet-avatar [avatar]({{ avatar }})
-    .sheet-character-name
-      span {{ character }}
+    .sheet-character-name {{ character }}
     .sheet-roll-type
       span {{ action }}
 
