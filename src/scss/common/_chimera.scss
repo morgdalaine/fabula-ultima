@@ -397,6 +397,13 @@
   }
 
   .chimera-action {
+    &--invisible {
+      border: none;
+      border-radius: 0;
+      padding-inline: 0;
+      width: 100%;
+    }
+
     @include mixins.action-button;
     padding-inline: 4px;
     gap: 4px;
@@ -407,6 +414,10 @@
     &__label {
       @include mixins.text-base-700;
       white-space: nowrap;
+    }
+
+    label {
+      cursor: pointer;
     }
 
     img,

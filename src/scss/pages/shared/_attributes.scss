@@ -23,6 +23,7 @@
         border-image: var(--fabula-gradient-dark-border);
 
         .attribute {
+          flex: 1;
           display: flex;
           gap: 4px;
           justify-content: center;

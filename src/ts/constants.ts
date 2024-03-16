@@ -361,6 +361,10 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
 };
 
 const CLICK_LISTENERS: Record<string, string> = {
+  'dexterity': 'ability',
+  'insight': 'ability',
+  'might': 'ability',
+  'willpower': 'ability',
   'armorchat': 'npcarmorchat',
   'bond1chat': 'bond1',
   'bond2chat': 'bond2',
@@ -425,6 +429,7 @@ const CLICK_LISTENERS: Record<string, string> = {
 };
 
 const ACTION_REQUEST: Record<string, string[]> = {
+  ability: ['dexterity', 'insight', 'might', 'willpower'],
   ...([1, 2, 3, 4, 5, 6] as any[]).reduce(
     (memo: Record<string, string[]>, bond: number) => (
       (memo[`bond${bond}`] = [

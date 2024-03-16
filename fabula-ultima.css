@@ -913,6 +913,12 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   width: fit-content;
   aspect-ratio: auto;
 }
+.fabula-ultima .chimera-action--invisible {
+  border: none;
+  border-radius: 0;
+  padding-inline: 0;
+  width: 100%;
+}
 .fabula-ultima .chimera-action:active, .fabula-ultima .chimera-action:hover, .fabula-ultima .chimera-action:focus {
   outline: transparent;
 }
@@ -950,6 +956,9 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-weight: 700;
   line-height: 150%;
   white-space: nowrap;
+}
+.fabula-ultima .chimera-action label {
+  cursor: pointer;
 }
 .fabula-ultima .chimera-action img,
 .fabula-ultima .chimera-action svg {
@@ -2903,6 +2912,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 }
 .fabula-ultima .bestiary .attributes--view .attribute,
 .fabula-ultima .character .attributes--view .attribute {
+  flex: 1;
   display: flex;
   gap: 4px;
   justify-content: center;

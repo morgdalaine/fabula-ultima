@@ -1,4 +1,6 @@
 const checkForCritical = (dice: number[]) => {
+  if (dice.length === 1) return 0;
+
   return dice.every((die) => die === 1)
     ? -1
     : dice.every((die) => die >= 6 && die === dice.at(0))
@@ -15,6 +17,7 @@ const handleClick = async (btn: string, id: string) => {
     case 'check':
     case 'checkrepeat':
     case 'initiative':
+    case 'ability':
       return rollAction(btn, id);
     default:
       return sendToChat(btn, id);
@@ -160,7 +163,9 @@ const shieldTemplate = (values: { [key: string]: string }) => {
 };
 
 const fabulaAccuracy = (att1: string, att2: string, accuracy: string | number) => {
-  return `【${att1}+${att2}】` + (accuracy != 0 ? signedInteger(accuracy) : '');
+  if (att2) return `【${att1}+${att2}】` + (accuracy != 0 ? signedInteger(accuracy) : '');
+
+  return `【${att1}】` + (accuracy != 0 ? signedInteger(accuracy) : '');
 };
 
 const fabulaDamage = (damage: string | number) => {
@@ -443,35 +448,6 @@ const sendToChat = async (chat: string, id: string) => {
   });
 };
 
-const customCheckTemplate = (action: string, values: { [key: string]: string }) => {
-  const check = action.split('_').at(-1);
-
-  const template: { [key: string]: string } = {};
-  if (Object.hasOwn(COMMON_CHECKS, check)) {
-    const [att1, att2] = COMMON_CHECKS[check].attrs as string[2];
-    template.att1 = att1;
-    template.att2 = att2;
-    template.name = (getTranslationByKey(action) || COMMON_CHECKS[check].label)
-      .match(/^[\w\s]+/)
-      .shift();
-    template.special = getTranslationByKey(`${action}_title`) || COMMON_CHECKS[check].title;
-    template.accuracy = values[COMMON_CHECKS[check].accuracy];
-  } else {
-    template.att1 = values.check_attr1;
-    template.att2 = values.check_attr2;
-
-    const name = values.check_description;
-    const custom = getTranslationByKey('custom') || 'Custom';
-    template.name = name || custom;
-
-    setAttrs({ check_description: '' }, { silent: true });
-  }
-
-  template.nodamage = 'nodamage';
-
-  return template;
-};
-
 const rollAction = async (btn: string, id: string) => {
   const { request, prefix } = getSendChatRequest(btn, id);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
@@ -487,6 +463,8 @@ const rollAction = async (btn: string, id: string) => {
           return spellTemplate(data);
         case 'ritual':
           return ritualTemplate(data);
+        case 'ability':
+          return abilityTemplate(id, data);
         case 'check':
         default:
           return customCheckTemplate(id, data);
@@ -496,19 +474,35 @@ const rollAction = async (btn: string, id: string) => {
     const i18n = {
       action: getTranslation('action', 'Action'),
       att1: getTranslation(template.att1, template.att1.toUpperCase()),
-      att2: getTranslation(template.att2, template.att2.toUpperCase()),
+      att2: '',
       hr: getTranslation('hr', 'HR'),
       dmg: getTranslation('dmg', 'DMG'),
       mod: getTranslation('mod', 'MOD'),
     };
 
+    if (template.att2) {
+      i18n.att2 = getTranslation(template.att2, template.att2.toUpperCase());
+    }
+
     const accuracy = template.accuracy ?? 0;
-    const accuracyRoll = fabulaAccuracy(i18n.att1, i18n.att2, accuracy);
+    const accuracyLabel = fabulaAccuracy(i18n.att1, i18n.att2, accuracy);
     const damage = template.damage ?? 0;
-    const damageRoll = fabulaDamage(damage);
+    const damageLabel = fabulaDamage(damage);
 
     // include roll modifier from settings
     const rollmods = v.roll_mods === 'on' && !template.noaction ? ` + ?{${i18n.mod}|0}` : ``;
+
+    const accuracyRoll =
+      `1d@{${template.att1}}[${i18n.att1}]` +
+      (template.att2 ? `+ 1d@{${template.att2}}[${i18n.att1}]` : '') +
+      `+ ${accuracy} ${rollmods}`;
+
+    const rolls: { [key: string]: string } = {};
+    if (!template.noaction) {
+      rolls.roll = accuracyRoll;
+      rolls.damage = `0[${i18n.hr}] + ${damage}[${i18n.dmg}]`;
+      rolls.critical = `0`;
+    }
 
     chimeraRoll(
       'fabula-attack',
@@ -517,18 +511,12 @@ const rollAction = async (btn: string, id: string) => {
         sheet_type: v.sheet_type,
         action: i18n.action,
         character: `@{character_name}`,
-        check: accuracyRoll,
-        hr: damageRoll,
+        check: accuracyLabel,
+        hr: damageLabel,
 
         ...template,
       },
-      template.noaction
-        ? {}
-        : {
-            roll: `1d@{${template.att1}}[${i18n.att1}] + 1d@{${template.att2}}[${i18n.att1}] + ${accuracy} ${rollmods}`,
-            damage: `0[${i18n.hr}] + ${damage}[${i18n.dmg}]`,
-            critical: `0`,
-          },
+      rolls,
       ({ rollId, results }) => {
         if (!Object.keys(results).length) return finishRoll(rollId, results);
 
@@ -604,5 +592,45 @@ const ritualTemplate = (values: { [key: string]: string }) => {
   template.ritual = 'ritual';
 
   template.action = getTranslationByKey('ritual') || 'Ritual';
+  return template;
+};
+
+const abilityTemplate = (ability: string, values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+  template.name = getTranslation(`${ability}_title`, ability);
+  template.att1 = ability;
+
+  template.nodamage = 'nodamage';
+
+  template.action = getTranslationByKey('check') || 'Check';
+  return template;
+};
+
+const customCheckTemplate = (action: string, values: { [key: string]: string }) => {
+  const check = action.split('_').at(-1);
+
+  const template: { [key: string]: string } = {};
+  if (Object.hasOwn(COMMON_CHECKS, check)) {
+    const [att1, att2] = COMMON_CHECKS[check].attrs as string[2];
+    template.att1 = att1;
+    template.att2 = att2;
+    template.name = (getTranslationByKey(action) || COMMON_CHECKS[check].label)
+      .match(/^[\w\s]+/)
+      .shift();
+    template.special = getTranslationByKey(`${action}_title`) || COMMON_CHECKS[check].title;
+    template.accuracy = values[COMMON_CHECKS[check].accuracy];
+  } else {
+    template.att1 = values.check_attr1;
+    template.att2 = values.check_attr2;
+
+    const name = values.check_description;
+    const custom = getTranslationByKey('custom') || 'Custom';
+    template.name = name || custom;
+
+    setAttrs({ check_description: '' }, { silent: true });
+  }
+
+  template.nodamage = 'nodamage';
+
   return template;
 };

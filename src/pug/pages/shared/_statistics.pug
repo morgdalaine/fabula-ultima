@@ -2,7 +2,9 @@ mixin statistics-view(spine)
   .statistics--view
     .attributes--view
       each field in spine.attributes.view
-        +chimera-value(field)
+        - const btn = { name: field.name, css: { modifiers: ['invisible'] } };
+        +chimera-action(btn)
+          +chimera-value(field)
 
     +points-view(spine)
     +defenses-view(spine)
