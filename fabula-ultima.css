@@ -7049,6 +7049,12 @@ html .sheet-bestiary,
 .sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details:not(:has(span)) {
   display: none !important;
 }
+.sheet-rolltemplate-fabula-attack .sheet-details .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-chat .sheet-details .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-attack.rolltemplate-darkmode .sheet-details .inlinerollresult.inlinerollresult,
+.sheet-rolltemplate-fabula-chat.rolltemplate-darkmode .sheet-details .inlinerollresult.inlinerollresult {
+  display: inline-block;
+}
 .sheet-rolltemplate-fabula-attack .sheet-action__check, .sheet-rolltemplate-fabula-attack .sheet-action__damage,
 .sheet-rolltemplate-fabula-chat .sheet-action__check,
 .sheet-rolltemplate-fabula-chat .sheet-action__damage,
