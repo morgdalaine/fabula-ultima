@@ -1,3 +1,6 @@
+// Type definitions for Roll20 built-in functions and variables
+// Based on Stars Without Number Revised by: Karl Erik Hofseth https://github.com/Karlinator
+
 declare type EventInfo = {
   htmlAttributes?: { name: string; [key: string]: string };
   newValue: string;
@@ -24,13 +27,6 @@ declare interface RollResult {
   // A breakdown of each “sub-roll” (each part of an expression is rolled separately)
   rolls: DiceRoll[];
 }
-
-// declare type RollResults<T extends string> = { [key in T]: RollResult };
-
-// declare type RollCallback<T extends string> = (arg: {
-//   rollId: string;
-//   results: { [key in T]: RollResult };
-// }) => void;
 
 declare type RollResults = { [key: string]: RollResult };
 
