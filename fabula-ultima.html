@@ -6444,11 +6444,15 @@ const rollAction = async (btn, id) => {
             check: accuracyRoll,
             hr: damageRoll,
             ...template,
-        }, {
-            roll: `1d@{${template.att1}}[${i18n.att1}] + 1d@{${template.att2}}[${i18n.att1}] + ${accuracy} ${rollmods}`,
-            damage: `0[${i18n.hr}] + ${damage}[${i18n.dmg}]`,
-            critical: `0`,
-        }, ({ rollId, results }) => {
+        }, template.noaction
+            ? {}
+            : {
+                roll: `1d@{${template.att1}}[${i18n.att1}] + 1d@{${template.att2}}[${i18n.att1}] + ${accuracy} ${rollmods}`,
+                damage: `0[${i18n.hr}] + ${damage}[${i18n.dmg}]`,
+                critical: `0`,
+            }, ({ rollId, results }) => {
+            if (!Object.keys(results).length)
+                return finishRoll(rollId, results);
             const hr = results.roll.dice.reduce((memo, die) => Math.max(memo, die), 0);
             const critical = checkForCritical(results.roll.dice);
             finishRoll(rollId, {

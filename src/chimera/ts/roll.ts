@@ -2,7 +2,6 @@ function chimeraRoll<T extends string>(
   template: string,
   attributes: { [key: string]: string },
   rolls: { [key: string]: string },
-  // rolls: { [key in T]: string },
   callback?: RollCallback
 ): void {
   const x = Object.entries(attributes)
