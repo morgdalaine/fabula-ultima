@@ -3677,6 +3677,93 @@
                   </div>
                 </div>
           </div>
+              <div class="rolls--view">
+                <h2 class="rolls__heading--view"><span data-i18n="frequently_used_checks">Frequently Used Checks</span>
+                  <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="rolls_collapse_title" title="Toggle rolls">
+                    <div class="chimera-toggle__field">
+                      <input id="rolls_collapse" name="attr_rolls_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                    </div><span class="chimera-toggle__label" data-i18n="rolls_collapse" for="rolls_collapse">Toggle rolls</span>
+                  </label>
+                </h2>
+                <div class="chimera-wrapper">
+                  <div class="roll__custom">
+                    <div class="chimera-input roll__attr1 chimera-input--center chimera-input--smallest">
+                      <label class="chimera-input__label" data-i18n="check_attr1" for="check_attr1">Attr 1</label>
+                      <select class="chimera-input__field" data-i18n-title="check_attr1_title" id="check_attr1" name="attr_check_attr1" title="Attr 1">
+                        <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
+                        <option data-i18n="insight" value="insight">INS</option>
+                        <option data-i18n="might" value="might">MIG</option>
+                        <option data-i18n="willpower" value="willpower">WLP</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input roll__attr2 chimera-input--center chimera-input--smallest">
+                      <label class="chimera-input__label" data-i18n="check_attr2" for="check_attr2">Attr 2</label>
+                      <select class="chimera-input__field" data-i18n-title="check_attr2_title" id="check_attr2" name="attr_check_attr2" title="Attr 2">
+                        <option data-i18n="dexterity" selected="selected" value="dexterity">DEX</option>
+                        <option data-i18n="insight" value="insight">INS</option>
+                        <option data-i18n="might" value="might">MIG</option>
+                        <option data-i18n="willpower" value="willpower">WLP</option>
+                      </select>
+                    </div>
+                    <div class="chimera-input roll__description">
+                      <label class="chimera-input__label" data-i18n="check_description" for="check_description">Custom Check</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="check_description_placeholder" data-i18n-title="check_description_title" id="check_description" name="attr_check_description" placeholder="Custom Check" title="Custom Check" type="text"/>
+                    </div>
+                    <button class="chimera-action roll__check--custom" data-i18n-title="check_custom_title" name="act_check_custom" title="Roll Custom Check" type="action"><img data-i18n-title="dice_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/dice.svg" title="Roll"/>
+                      <label class="chimera-action__label" data-i18n="roll">Roll</label>
+                    </button>
+                  </div>
+                  <button class="chimera-action roll__check" data-i18n-title="check_sneak_title" name="act_check_sneak" title="Moving silently, hiding and acting unnoticed." type="action">
+                    <label class="chimera-action__label" data-i18n="check_sneak">Sneak【DEX + DEX】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_dodge_title" name="act_check_dodge" title="Avoiding a trap or finding a way to flee a collapsing building." type="action">
+                    <label class="chimera-action__label" data-i18n="check_dodge">Dodge【DEX + INS】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_anticipate_title" name="act_check_anticipate" title="Anticipating someone’s movements and catching them by surprise." type="action">
+                    <label class="chimera-action__label" data-i18n="check_anticipate">Anticipate【DEX + INS】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_tinker_title" name="act_check_tinker" title="Completing a work of craftsmanship or repairing something." type="action">
+                    <label class="chimera-action__label" data-i18n="check_tinker">Tinker【DEX + INS】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_captivate_title" name="act_check_captivate" title="Moving gracefully to earn someone’s attention." type="action">
+                    <label class="chimera-action__label" data-i18n="check_captivate">Captivate【DEX + WLP】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_study_title" name="act_check_study" title="Examining or investigating someone or something." type="action">
+                    <label class="chimera-action__label" data-i18n="check_study">Study【INS + INS】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_recall_title" name="act_check_recall" title="Remembering useful information about something." type="action">
+                    <label class="chimera-action__label" data-i18n="check_recall">Recall【INS + INS】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_interrogate_title" name="act_check_interrogate" title="Getting information from someone during a conversation." type="action">
+                    <label class="chimera-action__label" data-i18n="check_interrogate">Interrogate【INS + WLP】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_persuade_title" name="act_check_persuade" title="Persuading someone through authority or diplomacy." type="action">
+                    <label class="chimera-action__label" data-i18n="check_persuade">Persuade【INS + WLP】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_effort_title" name="act_check_effort" title="Hard work, such as lifting a portcullis or pushing a statue." type="action">
+                    <label class="chimera-action__label" data-i18n="check_effort">Effort【MIG + MIG】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_endure_title" name="act_check_endure" title="Resisting intense pain or fatigue." type="action">
+                    <label class="chimera-action__label" data-i18n="check_endure">Endure【MIG + WLP】</label>
+                  </button>
+                  <button class="chimera-action roll__check" data-i18n-title="check_intimidate_title" name="act_check_intimidate" title="Intimidating someone with your strength." type="action">
+                    <label class="chimera-action__label" data-i18n="check_intimidate">Intimidate【MIG + WLP】</label>
+                  </button>
+                </div>
+                <div class="chimera-repeater--simple">
+                  <input class="chimera-hidden chimera-repeater--is-empty" name="attr_rolls_empty" type="hidden" value="0"/>
+                  <fieldset class="repeating_rolls">
+                    <button class="chimera-action roll__check--repeating" data-i18n-title="check_title" name="act_check" title="Roll Custom Check" type="action">
+                      <div class="chimera-value roll__description"><span class="chimera-value__value" name="attr_check_description"></span>
+                      </div>
+                      <div class="fabula-check">
+                        <div class="fabula-check__accuracy"><span class="fabula-bracket--open">【</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr1"></span><span>+</span><span data-i18n-dynamic="data-i18n-dynamic" name="attr_check_attr2"></span><span class="fabula-bracket--closed">】</span>
+                        </div>
+                      </div>
+                    </button>
+                  </fieldset>
+                </div>
+              </div>
               <div class="basic-attacks">
                 <h2 class="basic-attacks__heading--view"><span data-i18n="basic_attacks">Basic Attacks</span>
                   <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="basic-attacks_collapse_title" title="Toggle basic-attacks">
