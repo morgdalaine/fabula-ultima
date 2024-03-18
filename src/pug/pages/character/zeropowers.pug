@@ -1,0 +1,19 @@
+mixin zero-powers-view(spine)
+  +chimera-hidden('enable_zero_powers').chimera-repeater--empty-hide-next
+  .zero-powers--view
+    +fabula-heading-view('zero-powers', spine.zeropowers.heading)
+    .chimera-wrapper
+      .zero-power
+        - const zero = fieldDictionary(spine.zeropowers.view, 'zero');
+        +chimera-value(zero.trigger)
+        +send-to-chat('zeropower')
+
+        //- +chimera-value(zeropower.description)
+        //- +chimera-value(zeropower.effect)
+
+mixin zero-powers-edit(spine)
+  +chimera-hidden('enable_zero_powers').chimera-repeater--empty-hide-next
+  .zero-powers--edit
+    +fabula-heading-edit('zero-powers', spine.zeropowers.heading)
+    each field in spine.zeropowers.fields
+      +chimera-input(field)

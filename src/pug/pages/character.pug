@@ -6,10 +6,11 @@ include character/equipment/weapons
 include character/inventory
 include character/journal/journal
 include character/magic
-include character/quirks
 include character/points
+include character/quirks
 include character/statistics
 include character/traits
+include character/zeropowers
 include shared/shared
 
 mixin character-view(spine)
@@ -29,6 +30,7 @@ mixin character-view(spine)
       +fabula-points-view(spine)
       +experience-points-view(spine)
       +quirks-view(spine)
+      +zero-powers-view(spine)
 
     .character__conflict
       +rolls-view(spine)

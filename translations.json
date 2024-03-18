@@ -985,5 +985,10 @@
   "willpower_down_title": "Temporarily decreases your Willpower die size by one.",
   "willpower_max": "WLP",
   "willpower_max_title": "Willpower",
-  "willpower_title": "Willpower"
+  "willpower_title": "Willpower",
+  "zero_powers": "Zero Powers",
+  "zero_trigger": "Trigger",
+  "zero-powers_collapse": "Toggle zero-powers",
+  "zero-powers_collapse_title": "Toggle zero-powers",
+  "zeropowerchat_title": "Send to Chat"
 }
