@@ -5291,20 +5291,10 @@
     </div>
   </div>
 </rolltemplate>
-<script type="text/worker">const NAVBAR = [
-    'backpack',
-    'bonds',
-    'classes',
-    'conflict',
-    'defenses',
-    'equipment',
-    'journal',
-    'magic',
-    'meta',
-    'other',
-    'settings',
-    'stats',
-];
+<script type="text/worker">const NAVBAR = {
+    edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal'],
+    view: ['meta', 'conflict', 'backpack', 'classes', 'journal'],
+};
 const REPEATING = [
     'weapons',
     'spells',
@@ -6730,7 +6720,8 @@ class ChimeraMigration {
     }
 }
 on('sheet:opened', (eventInfo) => handleMigrations(eventInfo));
-NAVBAR.forEach((nav) => {
+on('change:sheet_mode', (eventInfo) => handleModeChange(eventInfo.newValue));
+Array.from(new Set(Object.values(NAVBAR).flatMap((m) => m.map((n) => n)))).forEach((nav) => {
     on(`clicked:${nav}`, (eventInfo) => {
         setAttrs({ nav: nav }, { silent: true });
     });
@@ -7446,6 +7437,16 @@ const initializeSheet = () => {
 const handleMigrations = (eventInfo) => {
     const migrator = new ChimeraMigrator('Fabula Ultima', fabulaMigrations);
     migrator.validate(() => initializeSheet());
+};
+const handleModeChange = (newValue) => {
+    const mode = newValue === 'on' ? 'edit' : 'view';
+    let nav = '';
+    getAttrs(['nav'], (v) => {
+        if (!NAVBAR[mode].includes(v.nav)) {
+            nav = NAVBAR[mode][0];
+            setAttrs({ nav: nav }, { silent: true });
+        }
+    });
 };
 const handleCalculations = (attr, eventInfo) => {
     switch (attr) {

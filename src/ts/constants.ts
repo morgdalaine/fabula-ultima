@@ -1,17 +1,7 @@
-const NAVBAR = [
-  'backpack',
-  'bonds',
-  'classes',
-  'conflict',
-  'defenses',
-  'equipment',
-  'journal',
-  'magic',
-  'meta',
-  'other',
-  'settings',
-  'stats',
-];
+const NAVBAR = {
+  edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal'],
+  view: ['meta', 'conflict', 'backpack', 'classes', 'journal'],
+};
 
 const REPEATING = [
   'weapons',

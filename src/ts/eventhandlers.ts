@@ -3,8 +3,9 @@
 /// <reference path="../chimera/ts/migration.ts" />
 
 on('sheet:opened', (eventInfo) => handleMigrations(eventInfo));
+on('change:sheet_mode', (eventInfo) => handleModeChange(eventInfo.newValue));
 
-NAVBAR.forEach((nav) => {
+Array.from(new Set(Object.values(NAVBAR).flatMap((m) => m.map((n) => n)))).forEach((nav) => {
   on(`clicked:${nav}`, (eventInfo) => {
     setAttrs({ nav: nav }, { silent: true });
   });

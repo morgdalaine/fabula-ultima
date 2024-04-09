@@ -1,3 +1,14 @@
+const handleModeChange = (newValue: string) => {
+  const mode = newValue === 'on' ? 'edit' : 'view';
+  let nav = '';
+  getAttrs(['nav'], (v) => {
+    if (!NAVBAR[mode].includes(v.nav)) {
+      nav = NAVBAR[mode][0];
+      setAttrs({ nav: nav }, { silent: true });
+    }
+  });
+};
+
 const handleCalculations = (attr: string, eventInfo: EventInfo) => {
   switch (attr) {
     case 'dexterity':
