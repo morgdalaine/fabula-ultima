@@ -50,7 +50,7 @@ const CROSSWALK_TO_V20: Record<string, any> = {
   zeroTrigger: 'zero_trigger',
   zeroClock: 'zero_clock',
   zeroClock_max: 'zero_clock_max',
-  zeroTriggerFS: 'zero_trigger_fill',
+  zeroTriggerFS: 'zero_trigger_step',
   zeroTriggerText: 'zero_description',
   ritualArcanism: 'arcanism',
   ritualChimerism: 'chimerism',

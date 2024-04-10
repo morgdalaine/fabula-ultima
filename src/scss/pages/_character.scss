@@ -21,8 +21,8 @@
     $this: '.character';
 
     // navigation
-    $pages: 'backpack', 'bonds', 'classes', 'conflict', 'equipment', 'journal', 'magic', 'meta',
-      'settings', 'stats';
+    $pages: 'backpack', 'bonds', 'classes', 'conflict', 'equipment', 'extra', 'journal', 'magic',
+      'meta', 'settings', 'stats';
     @each $page in $pages {
       &__#{$page} {
         display: none;
@@ -68,6 +68,7 @@
         &__conflict,
         &__backpack,
         &__classes,
+        &__extra,
         &__journal,
         &__settings {
           gap: 4px;

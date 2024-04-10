@@ -53,8 +53,45 @@
     hidden: [],
     view: [
       {
+        name: 'zero_hide',
+        label: 'Hide Zero Power',
+        type: 'toggle',
+        icon: 'expand',
+        iconOff: 'collapse',
+        css: { names: ['zero-power_hide'], modifiers: ['hide-label', 'tiny'] },
+      },
+      {
+        name: 'zero_name',
+        css: {
+          names: ['zero-power__name'],
+          modifiers: []
+        }
+      },
+      {
+        name: 'zero_description',
+        css: {
+          names: ['zero-power__description'],
+          modifiers: []
+        }
+      },
+      {
+        name: 'zero_effect',
+        label: 'Zero Effect',
+        css: {
+          names: ['zero-power__effect'],
+          modifiers: []
+        }
+      },
+      {
+        name: 'zero_effect_description',
+        css: {
+          names: ['zero-power__effect_description'],
+          modifiers: []
+        }
+      },
+      {
         name: 'zero_trigger',
-        label: 'Trigger',
+        label: 'Zero Trigger',
         css: {
           names: ['zero-power__trigger'],
           modifiers: []
@@ -62,41 +99,64 @@
       },
       {
         name: 'zero_clock',
-        label: 'Clock',
+        type: 'arithmetic',
         css: {
           names: ['zero-power__clock'],
-          modifiers: []
+          modifiers: ['small', 'center'],
         }
       },
       {
         name: 'zero_clock_max',
-        label: 'Clock_Max',
         css: {
           names: ['zero-power__clock_max'],
-          modifiers: []
+          modifiers: [],
         }
       },
       {
-        name: 'zero_trigger_fill',
-        label: 'Trigger_Fill',
+        name: 'zero_trigger_step',
+        labelOverride: { key: 'per_trigger', label: 'per Trigger' },
+        title: 'Fill Clock Per Trigger',
         css: {
-          names: ['zero-power__trigger_fill'],
-          modifiers: []
+          names: ['zero-power__trigger_step'],
+          modifiers: [],
         }
       },
       {
-        name: 'zero_description',
-        label: 'Description',
+        name: 'zero_trigger_effect',
         css: {
-          names: ['zero-power__description'],
+          names: ['zero-power__trigger_effect'],
           modifiers: []
         }
       },
     ],
+    delete: [
+      {
+        name: 'zero_name',
+        css: { names: ['zero__name'], modifiers: [] },
+      },
+    ],
     fields: [
       {
+        name: 'zero_name',
+        label: 'Zero Power',
+        type: 'text',
+        css: {
+          names: ['zero-power__name'],
+          modifiers: []
+        }
+      },
+      {
+        name: 'zero_description',
+        label: 'Zero Power Description',
+        type: 'textarea',
+        css: {
+          names: ['zero-power__description'],
+          modifiers: []
+        }
+      },
+      {
         name: 'zero_trigger',
-        label: 'Trigger',
+        label: 'Zero Trigger',
         type: 'text',
         css: {
           names: ['zero-power__trigger'],
@@ -106,36 +166,55 @@
       {
         name: 'zero_clock',
         label: 'Clock',
-        type: 'text',
+        type: 'number',
         css: {
           names: ['zero-power__clock'],
-          modifiers: []
+          modifiers: ['small', 'center'],
         }
       },
       {
         name: 'zero_clock_max',
-        label: 'Clock_Max',
-        type: 'text',
+        label: 'Clock Max',
+        type: 'number',
         css: {
           names: ['zero-power__clock_max'],
+          modifiers: ['small', 'center'],
+        }
+      },
+      {
+        name: 'zero_trigger_step',
+        label: 'Filled Sections',
+        title: 'Zero Power Clock Sections Filled Per Trigger',
+        type: 'number',
+        css: {
+          names: ['zero-power__trigger_step'],
+          modifiers: ['small', 'center'],
+        }
+      },
+      {
+        name: 'zero_trigger_effect',
+        label: 'Zero Trigger Effect',
+        type: 'textarea',
+        css: {
+          names: ['zero-power__trigger_effect'],
           modifiers: []
         }
       },
       {
-        name: 'zero_trigger_fill',
-        label: 'Trigger_Fill',
+        name: 'zero_effect',
+        label: 'Zero Effect',
         type: 'text',
         css: {
-          names: ['zero-power__trigger_fill'],
+          names: ['zero-power__effect'],
           modifiers: []
         }
       },
       {
-        name: 'zero_description',
-        label: 'Description',
-        type: 'text',
+        name: 'zero_effect_description',
+        label: 'Zero Effect Description',
+        type: 'textarea',
         css: {
-          names: ['zero-power__description'],
+          names: ['zero-power__effect_description'],
           modifiers: []
         }
       },

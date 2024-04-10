@@ -3809,11 +3809,11 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   gap: 4px;
 }
-.fabula-ultima .bestiary__other {
+.fabula-ultima .bestiary__extra {
   display: none;
   grid-column: 1/-1;
 }
-.fabula-ultima .bestiary input[name*=nav][value=other] ~ * .bestiary__other {
+.fabula-ultima .bestiary input[name*=nav][value=extra] ~ * .bestiary__extra {
   display: grid;
   gap: 4px;
 }
@@ -6378,7 +6378,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .quirks--view .quirk__description, .fabula-ultima .character .quirks--view .quirk__effect {
   grid-column: 1/-1;
 }
-.fabula-ultima .character .quirks--edit {
+.fabula-ultima .character .quirks--edit .quirk {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4px;
@@ -6590,33 +6590,59 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
 .fabula-ultima .character .zero-powers .chimera-repeater--simple {
   overflow: hidden;
 }
-.fabula-ultima .character .zero-powers--view .quirk {
+.fabula-ultima .character .zero-powers--delete .zero-power {
+  display: flex;
+  gap: 4px;
+}
+.fabula-ultima .character .zero-powers--delete .zero-power__name .chimera-value__value {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.fabula-ultima .character .zero-powers--view .zero-power {
   display: grid;
-  grid-template-columns: 1fr auto var(--button-component-size);
+  grid-template-columns: var(--input-component-size) 2fr 1fr 5rem var(--button-component-size);
   align-items: center;
   gap: 4px;
-  padding-inline: 4px;
 }
-.fabula-ultima .character .zero-powers--view .quirk__name .chimera-value__value {
+.fabula-ultima .character .zero-powers--view .zero-power:has(input[name*=zero_hide]:checked) .zero-power__effect, .fabula-ultima .character .zero-powers--view .zero-power:has(input[name*=zero_hide]:checked) .zero-power__effect_description, .fabula-ultima .character .zero-powers--view .zero-power:has(input[name*=zero_hide]:checked) .zero-power__trigger, .fabula-ultima .character .zero-powers--view .zero-power:has(input[name*=zero_hide]:checked) .zero-power__trigger_effect {
+  overflow: hidden;
+  height: 0;
+}
+.fabula-ultima .character .zero-powers--view .zero-power__name .chimera-value__value {
   font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
 }
-.fabula-ultima .character .zero-powers--view .quirk__description, .fabula-ultima .character .zero-powers--view .quirk__effect {
-  grid-column: 1/-1;
+.fabula-ultima .character .zero-powers--view .zero-power__clock {
+  flex: 1;
+  justify-content: flex-start;
+  width: -moz-min-content;
+  width: min-content;
 }
-.fabula-ultima .character .zero-powers--edit {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.fabula-ultima .character .zero-powers--view .zero-power__clock-progress {
+  min-width: 3rem;
+  display: flex;
+  justify-content: flex-end;
   gap: 4px;
 }
-.fabula-ultima .character .zero-powers--edit .quirk__name {
-  grid-column: span 2;
-}
-.fabula-ultima .character .zero-powers--edit .quirk__description, .fabula-ultima .character .zero-powers--edit .quirk__effect {
+.fabula-ultima .character .zero-powers--view .zero-power__description, .fabula-ultima .character .zero-powers--view .zero-power__effect, .fabula-ultima .character .zero-powers--view .zero-power__effect_description, .fabula-ultima .character .zero-powers--view .zero-power__trigger, .fabula-ultima .character .zero-powers--view .zero-power__trigger_effect {
   grid-column: 1/-1;
+}
+.fabula-ultima .character .zero-powers--edit .zero-power {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+.fabula-ultima .character .zero-powers--edit .zero-power__name, .fabula-ultima .character .zero-powers--edit .zero-power__description, .fabula-ultima .character .zero-powers--edit .zero-power__effect, .fabula-ultima .character .zero-powers--edit .zero-power__effect_description, .fabula-ultima .character .zero-powers--edit .zero-power__trigger, .fabula-ultima .character .zero-powers--edit .zero-power__trigger_effect {
+  grid-column: span 3;
+}
+.fabula-ultima .character .zero-powers--edit .zero-power__name, .fabula-ultima .character .zero-powers--edit .zero-power__effect {
+  grid-row: 1;
 }
 
 .fabula-ultima .character__backpack {
@@ -6656,6 +6682,14 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   grid-column: 1/-1;
 }
 .fabula-ultima .character input[name*=nav][value=equipment] ~ * .character__equipment {
+  display: grid;
+  gap: 4px;
+}
+.fabula-ultima .character__extra {
+  display: none;
+  grid-column: 1/-1;
+}
+.fabula-ultima .character input[name*=nav][value=extra] ~ * .character__extra {
   display: grid;
   gap: 4px;
 }
@@ -6717,7 +6751,7 @@ html .characterviewer .nav-tabs > li:nth-child(4) > a:nth-child(1):hover, html .
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.fabula-ultima .character--view .character__controls, .fabula-ultima .character--view .character__meta, .fabula-ultima .character--view .character__conflict, .fabula-ultima .character--view .character__backpack, .fabula-ultima .character--view .character__classes, .fabula-ultima .character--view .character__journal, .fabula-ultima .character--view .character__settings {
+.fabula-ultima .character--view .character__controls, .fabula-ultima .character--view .character__meta, .fabula-ultima .character--view .character__conflict, .fabula-ultima .character--view .character__backpack, .fabula-ultima .character--view .character__classes, .fabula-ultima .character--view .character__extra, .fabula-ultima .character--view .character__journal, .fabula-ultima .character--view .character__settings {
   gap: 4px;
   padding: 0 4px;
 }

@@ -1,4 +1,4 @@
-<span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="attack">Attack</span><span class="fabula-translation" data-i18n="custom">Custom</span><span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="mod">MOD</span><span class="fabula-translation" data-i18n="modifier">Modifier</span><span class="fabula-translation" data-i18n="off">Off</span><span class="fabula-translation" data-i18n="on">On</span><span class="fabula-translation" data-i18n="phase">Phase</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="settings_enable_quirks_desc">This will enable the use of Quirks in your game.</span><span class="fabula-translation" data-i18n="settings_money_name_desc">This will set the default currency name for all characters.</span><span class="fabula-translation" data-i18n="settings_roll_mods_desc">This will toggle accuracy modifiers for accuracy checks.</span><span class="fabula-translation" data-i18n="spell">Spell</span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span><span class="fabula-translation" data-i18n="villain_major">Major Villain</span><span class="fabula-translation" data-i18n="villain_minor">Minor Villain</span><span class="fabula-translation" data-i18n="villain_supreme">Supreme Villain</span><span class="fabula-translation" data-i18n="vu">VU</span>
+<span class="fabula-translation" data-i18n=""></span><span class="fabula-translation" data-i18n="1-handed">One-handed</span><span class="fabula-translation" data-i18n="2-handed">Two-handed</span><span class="fabula-translation" data-i18n="ab">AB</span><span class="fabula-translation" data-i18n="action">Action</span><span class="fabula-translation" data-i18n="attack">Attack</span><span class="fabula-translation" data-i18n="custom">Custom</span><span class="fabula-translation" data-i18n="damage">Damage</span><span class="fabula-translation" data-i18n="defense_full">Defense</span><span class="fabula-translation" data-i18n="dmg">DMG</span><span class="fabula-translation" data-i18n="high_roll">HR</span><span class="fabula-translation" data-i18n="HR">HR</span><span class="fabula-translation" data-i18n="im">IM</span><span class="fabula-translation" data-i18n="info">Info</span><span class="fabula-translation" data-i18n="mdefense_full">M. Defense</span><span class="fabula-translation" data-i18n="mod">MOD</span><span class="fabula-translation" data-i18n="modifier">Modifier</span><span class="fabula-translation" data-i18n="off">Off</span><span class="fabula-translation" data-i18n="on">On</span><span class="fabula-translation" data-i18n="phase">Phase</span><span class="fabula-translation" data-i18n="rs">RS</span><span class="fabula-translation" data-i18n="settings_enable_quirks_desc">This will enable the use of Quirks in your game.</span><span class="fabula-translation" data-i18n="settings_money_name_desc">This will set the default currency name for all characters.</span><span class="fabula-translation" data-i18n="settings_roll_mods_desc">This will toggle accuracy modifiers for accuracy checks.</span><span class="fabula-translation" data-i18n="spell">Spell</span><span class="fabula-translation" data-i18n="spend_fabula_failed">No Fabula Points to spend...</span><span class="fabula-translation" data-i18n="villain_major">Major Villain</span><span class="fabula-translation" data-i18n="villain_minor">Minor Villain</span><span class="fabula-translation" data-i18n="villain_supreme">Supreme Villain</span><span class="fabula-translation" data-i18n="vu">VU</span><span class="fabula-translation" data-i18n="zero_power">Zero Power</span>
 <input class="chimera-hidden" name="attr_sheet_version" type="hidden" value=""/>
 <input class="chimera-hidden" name="attr_sheet_migrations" type="hidden" value=""/>
 <input class="chimera-hidden" name="attr_sheet_type" type="hidden" value="character"/>
@@ -288,6 +288,8 @@
                 </button>
                 <button class="chimera-action" data-i18n-title="classes_title" name="act_classes" title="Classes" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="classes">Classes</span>
                 </button>
+                <button class="chimera-action" data-i18n-title="extra_title" name="act_extra" title="Extra" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="extra">Extra</span>
+                </button>
                 <button class="chimera-action" data-i18n-title="journal_title" name="act_journal" title="Journal" type="action" style="flex: 1;"><span class="chimera-value__value" data-i18n="journal">Journal</span>
                 </button>
               </div>
@@ -463,49 +465,6 @@
                       </div>
                       <div class="chimera-value gaining-experience chimera-value--helptext"><span class="chimera-value__value" data-i18n="experience_level_up">Finally, if you have 10 or more Experience Points, you must spend ten of those points and increase your character level by one—you keep any Experience Points in excess.</span>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
-                <div class="quirks--view">
-                  <h2 class="quirks__heading--view"><span data-i18n="quirks">Quirks</span>
-                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
-                      <div class="chimera-toggle__field">
-                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
-                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
-                    </label>
-                  </h2>
-                  <div class="chimera-wrapper">
-                    <div class="quirk">
-                      <div class="chimera-value quirk__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_quirk_name"></span>
-                      </div>
-                      <div class="chimera-value quirk__type"><span class="chimera-value__value" name="attr_quirk_type"></span>
-                      </div>
-                      <button class="chimera-action send-to-chat" data-i18n-title="quirkchat_title" name="act_quirkchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
-                      </button>
-                      <div class="chimera-value quirk__description"><span class="chimera-value__value" name="attr_quirk_description"></span>
-                      </div>
-                      <div class="chimera-value quirk__effect"><span class="chimera-value__value" name="attr_quirk_effect"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_zero_powers" type="hidden"/>
-                <div class="zero-powers--view">
-                  <h2 class="zero-powers__heading--view"><span data-i18n="zero_powers">Zero Powers</span>
-                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="zero-powers_collapse_title" title="Toggle zero-powers">
-                      <div class="chimera-toggle__field">
-                        <input id="zero-powers_collapse" name="attr_zero-powers_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
-                      </div><span class="chimera-toggle__label" data-i18n="zero-powers_collapse" for="zero-powers_collapse">Toggle zero-powers</span>
-                    </label>
-                  </h2>
-                  <div class="chimera-wrapper">
-                    <div class="zero-power">
-                      <div class="chimera-value zero-power__trigger">
-                        <label class="chimera-value__label" data-i18n="zero_trigger" for="zero_trigger">Trigger</label><span class="chimera-value__value" name="attr_zero_trigger"></span>
-                      </div>
-                      <button class="chimera-action send-to-chat" data-i18n-title="zeropowerchat_title" name="act_zeropowerchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -1256,6 +1215,97 @@
                   </div>
                 </div>
           </div>
+          <div class="character__extra">
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
+                <div class="quirks--view">
+                  <h2 class="quirks__heading--view"><span data-i18n="quirks">Quirks</span>
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
+                      <div class="chimera-toggle__field">
+                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-wrapper">
+                    <div class="quirk">
+                      <div class="chimera-value quirk__name chimera-value--no-label-bold"><span class="chimera-value__value" name="attr_quirk_name"></span>
+                      </div>
+                      <div class="chimera-value quirk__type"><span class="chimera-value__value" name="attr_quirk_type"></span>
+                      </div>
+                      <button class="chimera-action send-to-chat" data-i18n-title="quirkchat_title" name="act_quirkchat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                      </button>
+                      <div class="chimera-value quirk__description"><span class="chimera-value__value" name="attr_quirk_description"></span>
+                      </div>
+                      <div class="chimera-value quirk__effect"><span class="chimera-value__value" name="attr_quirk_effect"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_zeropowers_empty" type="hidden"/>
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_zero_powers" type="hidden"/>
+                <div class="zero-powers">
+                  <h2 class="zero-powers__heading--view"><span data-i18n="zero_powers">Zero Powers</span>
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="zero-powers_collapse_title" title="Toggle zero-powers">
+                      <div class="chimera-toggle__field">
+                        <input id="zero-powers_collapse" name="attr_zero-powers_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="zero-powers_collapse" for="zero-powers_collapse">Toggle zero-powers</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_zero-powers_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_zero-powers_repeating">No zero powers saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_zero-powers">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit zero-powers--edit">
+                        </div>
+                        <div class="chimera-repeater--delete zero-powers--delete">
+                        </div>
+                        <div class="chimera-repeater--view zero-powers--view">
+                          <div class="zero-power">
+                            <label class="chimera-toggle zero-power_hide chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="zero_hide_title" title="Hide Zero Power">
+                              <div class="chimera-toggle__field">
+                                <input id="zero_hide" name="attr_zero_hide" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                              </div><span class="chimera-toggle__label" data-i18n="zero_hide" for="zero_hide">Hide Zero Power</span>
+                            </label>
+                            <div class="chimera-value zero-power__name"><span class="chimera-value__value" name="attr_zero_name"></span>
+                            </div>
+                            <div class="chimera-arithmetic zero-power__clock chimera-arithmetic--small chimera-arithmetic--center">
+                              <button class="chimera-arithmetic__subtract" name="act_zero-clock-subtract" type="action"><img data-i18n-title="minus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/minus.svg" title="Subtract"/>
+                              </button>
+                              <div class="zero-power__clock-progress">
+                                <div class="chimera-value zero-power__clock chimera-value--small chimera-value--center"><span class="chimera-value__value" name="attr_zero_clock"></span>
+                                </div><span>/</span>
+                                <div class="chimera-value zero-power__clock_max"><span class="chimera-value__value" name="attr_zero_clock_max"></span>
+                                </div>
+                              </div>
+                              <button class="chimera-arithmetic__add" name="act_zero-clock-add" type="action"><img data-i18n-title="plus_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/plus.svg" title="Add"/>
+                              </button>
+                            </div>
+                            <div class="chimera-value zero-power__trigger_step" data-i18n-title="zero_trigger_step_title" title="Fill Clock Per Trigger">
+                              <label class="chimera-value__label" data-i18n="per_trigger" for="zero_trigger_step">per Trigger</label><span class="chimera-value__value" name="attr_zero_trigger_step"></span>
+                            </div>
+                            <button class="chimera-action send-to-chat" data-i18n-title="zerochat_title" name="act_zerochat" title="Send to Chat" type="action"><img data-i18n-title="chat_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/chat.svg" title="Send to Chat"/><span data-i18n="send_to_chat">Send to Chat</span>
+                            </button>
+                            <div class="chimera-value zero-power__description"><span class="chimera-value__value" name="attr_zero_description"></span>
+                            </div>
+                            <div class="chimera-value zero-power__trigger">
+                              <label class="chimera-value__label" data-i18n="zero_trigger" for="zero_trigger">Zero Trigger</label><span class="chimera-value__value" name="attr_zero_trigger"></span>
+                            </div>
+                            <div class="chimera-value zero-power__trigger_effect"><span class="chimera-value__value" name="attr_zero_trigger_effect"></span>
+                            </div>
+                            <div class="chimera-value zero-power__effect">
+                              <label class="chimera-value__label" data-i18n="zero_effect" for="zero_effect">Zero Effect</label><span class="chimera-value__value" name="attr_zero_effect"></span>
+                            </div>
+                            <div class="chimera-value zero-power__effect_description"><span class="chimera-value__value" name="attr_zero_effect_description"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+          </div>
           <div class="character__journal">
                 <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_notes_empty" type="hidden"/>
                 <div class="notes">
@@ -1563,6 +1613,13 @@
                       </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
                     </label>
                   </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__hide_npc_equipment setting--disabled" data-i18n-title="hide_npc_equipment_title" title="Hide NPC Equipment">
+                      <div class="chimera-toggle__field">
+                        <input id="hide_npc_equipment" name="attr_hide_npc_equipment" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-off.svg" title="Hide NPC Equipment"/><img class="chimera-toggle--on" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-on.svg" title="Hide NPC Equipment"/>
+                      </div><span class="chimera-toggle__label" data-i18n="hide_npc_equipment" for="hide_npc_equipment">Hide NPC Equipment</span>
+                    </label>
+                  </div>
                 </div>
           </div>
         </section>
@@ -1650,6 +1707,8 @@
                 <button class="chimera-action" data-i18n-title="backpack_title" name="act_backpack" title="Backpack" type="action"><span class="chimera-value__value" data-i18n="backpack">Backpack</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="magic_title" name="act_magic" title="Magic" type="action"><span class="chimera-value__value" data-i18n="magic">Magic</span>
+                </button>
+                <button class="chimera-action" data-i18n-title="extra_title" name="act_extra" title="Extra" type="action"><span class="chimera-value__value" data-i18n="extra">Extra</span>
                 </button>
                 <button class="chimera-action" data-i18n-title="journal_title" name="act_journal" title="Journal" type="action"><span class="chimera-value__value" data-i18n="journal">Journal</span>
                 </button>
@@ -1841,32 +1900,6 @@
                           </div><span class="chimera-checkbox__label" data-i18n="poisoned_immunity" for="poisoned_immunity">Poisoned</span>
                         </label>
                       </div>
-                </div>
-                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
-                <div class="quirks--edit">
-                  <h2 class="quirks__heading--edit"><span data-i18n="quirks">Quirks</span>
-                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
-                      <div class="chimera-toggle__field">
-                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
-                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
-                    </label>
-                  </h2>
-                  <div class="chimera-input quirk__name">
-                    <label class="chimera-input__label" data-i18n="quirk_name" for="quirk_name">Quirk</label>
-                    <input class="chimera-input__field" data-i18n-placeholder="quirk_name_placeholder" data-i18n-title="quirk_name_title" id="quirk_name" name="attr_quirk_name" placeholder="Quirk" title="Quirk" type="text"/>
-                  </div>
-                  <div class="chimera-input quirk__type">
-                    <label class="chimera-input__label" data-i18n="quirk_type" for="quirk_type">Quirk Type</label>
-                    <input class="chimera-input__field" data-i18n-placeholder="quirk_type_placeholder" data-i18n-title="quirk_type_title" id="quirk_type" name="attr_quirk_type" placeholder="Quirk Type" title="Quirk Type" type="text"/>
-                  </div>
-                  <div class="chimera-input quirk__description">
-                    <label class="chimera-input__label" data-i18n="quirk_description" for="quirk_description">Description</label>
-                    <textarea class="chimera-input__field" data-i18n-title="quirk_description_title" id="quirk_description" name="attr_quirk_description" title="Description" type="textarea"></textarea>
-                  </div>
-                  <div class="chimera-input quirk__effect">
-                    <label class="chimera-input__label" data-i18n="quirk_effect" for="quirk_effect">Effect</label>
-                    <textarea class="chimera-input__field" data-i18n-title="quirk_effect_title" id="quirk_effect" name="attr_quirk_effect" title="Effect" type="textarea"></textarea>
-                  </div>
                 </div>
                 <div class="rolls">
                   <h2 class="rolls__heading--edit"><span data-i18n="custom_checks">Custom Checks</span>
@@ -3088,6 +3121,104 @@
                   </div>
                 </div>
           </div>
+          <div class="character__extra">
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_quirks" type="hidden"/>
+                <div class="quirks--edit">
+                  <h2 class="quirks__heading--edit"><span data-i18n="quirks">Quirks</span>
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="quirks_collapse_title" title="Toggle quirks">
+                      <div class="chimera-toggle__field">
+                        <input id="quirks_collapse" name="attr_quirks_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="quirks_collapse" for="quirks_collapse">Toggle quirks</span>
+                    </label>
+                  </h2>
+                  <div class="quirk chimera-wrapper">
+                    <div class="chimera-input quirk__name">
+                      <label class="chimera-input__label" data-i18n="quirk_name" for="quirk_name">Quirk</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="quirk_name_placeholder" data-i18n-title="quirk_name_title" id="quirk_name" name="attr_quirk_name" placeholder="Quirk" title="Quirk" type="text"/>
+                    </div>
+                    <div class="chimera-input quirk__type">
+                      <label class="chimera-input__label" data-i18n="quirk_type" for="quirk_type">Quirk Type</label>
+                      <input class="chimera-input__field" data-i18n-placeholder="quirk_type_placeholder" data-i18n-title="quirk_type_title" id="quirk_type" name="attr_quirk_type" placeholder="Quirk Type" title="Quirk Type" type="text"/>
+                    </div>
+                    <div class="chimera-input quirk__description">
+                      <label class="chimera-input__label" data-i18n="quirk_description" for="quirk_description">Description</label>
+                      <textarea class="chimera-input__field" data-i18n-title="quirk_description_title" id="quirk_description" name="attr_quirk_description" title="Description" type="textarea"></textarea>
+                    </div>
+                    <div class="chimera-input quirk__effect">
+                      <label class="chimera-input__label" data-i18n="quirk_effect" for="quirk_effect">Effect</label>
+                      <textarea class="chimera-input__field" data-i18n-title="quirk_effect_title" id="quirk_effect" name="attr_quirk_effect" title="Effect" type="textarea"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <input class="chimera-hidden chimera-repeater--empty-hide-next" name="attr_enable_zero_powers" type="hidden"/>
+                <div class="zero-powers">
+                  <h2 class="zero-powers__heading--edit"><span data-i18n="zero_powers">Zero Powers</span>
+                    <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="zero-powers_collapse_title" title="Toggle zero-powers">
+                      <div class="chimera-toggle__field">
+                        <input id="zero-powers_collapse" name="attr_zero-powers_collapse" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="collapse_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/collapse.svg" title="Collapse"/><img class="chimera-toggle--on" data-i18n-title="expand_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/expand.svg" title="Expand"/>
+                      </div><span class="chimera-toggle__label" data-i18n="zero-powers_collapse" for="zero-powers_collapse">Toggle zero-powers</span>
+                    </label>
+                  </h2>
+                  <div class="chimera-repeater">
+                    <input class="chimera-hidden chimera-repeater--is-empty" name="attr_zero-powers_empty" type="hidden" value="0"/>
+                    <div class="chimera-repeater__empty">
+                      <h2 class="chimera-repeater__empty-header" data-i18n="none_zero-powers_repeating">No zero powers saved.</h2><span class="chimera-repeater__empty-subtitle" data-i18n="click_add_to_add">Click +Add to load data.</span>
+                    </div>
+                    <fieldset class="repeating_zero-powers">
+                      <div class="chimera-repeater__content">
+                        <div class="chimera-repeater--edit zero-powers--edit">
+                          <div class="zero-power">
+                            <div class="chimera-input zero-power__name">
+                              <label class="chimera-input__label" data-i18n="zero_name" for="zero_name">Zero Power</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_name_placeholder" data-i18n-title="zero_name_title" id="zero_name" name="attr_zero_name" placeholder="Zero Power" title="Zero Power" type="text"/>
+                            </div>
+                            <div class="chimera-input zero-power__description">
+                              <label class="chimera-input__label" data-i18n="zero_description" for="zero_description">Zero Power Description</label>
+                              <textarea class="chimera-input__field" data-i18n-title="zero_description_title" id="zero_description" name="attr_zero_description" title="Zero Power Description" type="textarea"></textarea>
+                            </div>
+                            <div class="chimera-input zero-power__trigger">
+                              <label class="chimera-input__label" data-i18n="zero_trigger" for="zero_trigger">Zero Trigger</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_trigger_placeholder" data-i18n-title="zero_trigger_title" id="zero_trigger" name="attr_zero_trigger" placeholder="Zero Trigger" title="Zero Trigger" type="text"/>
+                            </div>
+                            <div class="chimera-input zero-power__clock chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="zero_clock" for="zero_clock">Clock</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_clock_placeholder" data-i18n-title="zero_clock_title" id="zero_clock" name="attr_zero_clock" placeholder="0" title="Clock" type="number"/>
+                            </div>
+                            <div class="chimera-input zero-power__clock_max chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="zero_clock_max" for="zero_clock_max">Clock Max</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_clock_max_placeholder" data-i18n-title="zero_clock_max_title" id="zero_clock_max" name="attr_zero_clock_max" placeholder="0" title="Clock Max" type="number"/>
+                            </div>
+                            <div class="chimera-input zero-power__trigger_step chimera-input--small chimera-input--center">
+                              <label class="chimera-input__label" data-i18n="zero_trigger_step" for="zero_trigger_step">Filled Sections</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_trigger_step_placeholder" data-i18n-title="zero_trigger_step_title" id="zero_trigger_step" name="attr_zero_trigger_step" placeholder="0" title="Zero Power Clock Sections Filled Per Trigger" type="number"/>
+                            </div>
+                            <div class="chimera-input zero-power__trigger_effect">
+                              <label class="chimera-input__label" data-i18n="zero_trigger_effect" for="zero_trigger_effect">Zero Trigger Effect</label>
+                              <textarea class="chimera-input__field" data-i18n-title="zero_trigger_effect_title" id="zero_trigger_effect" name="attr_zero_trigger_effect" title="Zero Trigger Effect" type="textarea"></textarea>
+                            </div>
+                            <div class="chimera-input zero-power__effect">
+                              <label class="chimera-input__label" data-i18n="zero_effect" for="zero_effect">Zero Effect</label>
+                              <input class="chimera-input__field" data-i18n-placeholder="zero_effect_placeholder" data-i18n-title="zero_effect_title" id="zero_effect" name="attr_zero_effect" placeholder="Zero Effect" title="Zero Effect" type="text"/>
+                            </div>
+                            <div class="chimera-input zero-power__effect_description">
+                              <label class="chimera-input__label" data-i18n="zero_effect_description" for="zero_effect_description">Zero Effect Description</label>
+                              <textarea class="chimera-input__field" data-i18n-title="zero_effect_description_title" id="zero_effect_description" name="attr_zero_effect_description" title="Zero Effect Description" type="textarea"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--delete zero-powers--delete">
+                          <div class="zero-power">
+                            <div class="chimera-value zero__name"><span class="chimera-value__value" name="attr_zero_name"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chimera-repeater--view zero-powers--view">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+          </div>
           <div class="character__journal">
                 <div class="notes">
                   <h2 class="notes__heading--edit"><span data-i18n="notes">Notes</span>
@@ -3428,6 +3559,13 @@
                       <div class="chimera-toggle__field">
                         <input id="disable_initiative" name="attr_disable_initiative" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-off.svg" title="Remove initiative from the game"/><img class="chimera-toggle--on" data-i18n-title="disable_initiative_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-on.svg" title="Remove initiative from the game"/>
                       </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
+                    </label>
+                  </div>
+                  <div class="setting">
+                    <label class="chimera-toggle settings__hide_npc_equipment setting--disabled" data-i18n-title="hide_npc_equipment_title" title="Hide NPC Equipment">
+                      <div class="chimera-toggle__field">
+                        <input id="hide_npc_equipment" name="attr_hide_npc_equipment" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-off.svg" title="Hide NPC Equipment"/><img class="chimera-toggle--on" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-on.svg" title="Hide NPC Equipment"/>
+                      </div><span class="chimera-toggle__label" data-i18n="hide_npc_equipment" for="hide_npc_equipment">Hide NPC Equipment</span>
                     </label>
                   </div>
                 </div>
@@ -4302,7 +4440,7 @@
                 </button>
                 <button class="chimera-action" data-i18n-title="equipment_title" name="act_equipment" title="Equipment" type="action"><span class="chimera-value__value" data-i18n="equipment">Equipment</span>
                 </button>
-                <button class="chimera-action" data-i18n-title="other_title" name="act_other" title="Other" type="action"><span class="chimera-value__value" data-i18n="other">Other</span>
+                <button class="chimera-action" data-i18n-title="extra_title" name="act_extra" title="Extra" type="action"><span class="chimera-value__value" data-i18n="extra">Extra</span>
                 </button>
               </div>
           <div class="bestiary__stats">
@@ -5009,7 +5147,7 @@
                   </div>
                 </div>
           </div>
-          <div class="bestiary__other">
+          <div class="bestiary__extra">
                 <div class="special-rules">
                   <h2 class="special-rules__heading--edit"><span data-i18n="special_rules">Special Rules</span>
                     <label class="chimera-toggle chimera-toggle--hide-label chimera-toggle--tiny" data-i18n-title="special-rules_collapse_title" title="Toggle special-rules">
@@ -5197,6 +5335,13 @@
               </div><span class="chimera-toggle__label" data-i18n="disable_initiative" for="disable_initiative">Disable Initiative</span>
             </label>
           </div>
+          <div class="setting">
+            <label class="chimera-toggle settings__hide_npc_equipment setting--disabled" data-i18n-title="hide_npc_equipment_title" title="Hide NPC Equipment">
+              <div class="chimera-toggle__field">
+                <input id="hide_npc_equipment" name="attr_hide_npc_equipment" type="checkbox"/><img class="chimera-toggle--off" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-off.svg" title="Hide NPC Equipment"/><img class="chimera-toggle--on" data-i18n-title="hide_npc_equipment_title" src="https://raw.githubusercontent.com/morgdalaine/fabula-ultima/202403011618/assets/toggle-on.svg" title="Hide NPC Equipment"/>
+              </div><span class="chimera-toggle__label" data-i18n="hide_npc_equipment" for="hide_npc_equipment">Hide NPC Equipment</span>
+            </label>
+          </div>
         </div>
   </aside>
   <footer>
@@ -5283,8 +5428,8 @@
       <div><span class="sheet-fabula-label" data-i18n="cost">Cost</span><span class="sheet-fabula-span">{{ cost }}</span></div>{{/cost}}{{#traits}}
       <div><span class="sheet-fabula-label" data-i18n="traits">Traits</span><span class="sheet-fabula-span">{{ traits }}</span></div>{{/traits}}{{#bond}}
       <div class="sheet-bonds">{{#approval}}<span class="sheet-fabula-span">{{ approval }}</span>{{/approval}}{{#allegiance}}<span class="sheet-fabula-span">{{ allegiance }}</span>{{/allegiance}}{{#fondness}}<span class="sheet-fabula-span">{{ fondness }}</span>{{/fondness}}
-      </div>{{/bond}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}{{#feature1}}<span class="sheet-fabula-span">{{ feature1 }}</span>{{/feature1}}{{#feature2}}<span class="sheet-fabula-span">{{ feature2 }}</span>{{/feature2}}{{#feature3}}<span class="sheet-fabula-span">{{ feature3 }}</span>{{/feature3}}{{#feature4}}<span class="sheet-fabula-span">{{ feature4 }}</span>{{/feature4}}{{#feature5}}<span class="sheet-fabula-span">{{ feature5 }}</span>{{/feature5}}{{#feature6}}<span class="sheet-fabula-span">{{ feature6 }}</span>{{/feature6}}{{#feature7}}<span class="sheet-fabula-span">{{ feature7 }}</span>{{/feature7}}{{#feature8}}<span class="sheet-fabula-span">{{ feature8 }}</span>{{/feature8}}{{#feature9}}<span class="sheet-fabula-span">{{ feature9 }}</span>{{/feature9}}{{#feature10}}<span class="sheet-fabula-span">{{ feature10 }}</span>{{/feature10}}
-    </div>
+      </div>{{/bond}}{{#description}}<span class="sheet-fabula-span">{{ description }}</span>{{/description}}{{^zeropower}}{{#effect}}<span class="sheet-fabula-span">{{ effect }}</span>{{/effect}}{{/zeropower}}{{#special}}<span class="sheet-fabula-span">{{ special }}</span>{{/special}}{{#feature1}}<span class="sheet-fabula-span">{{ feature1 }}</span>{{/feature1}}{{#feature2}}<span class="sheet-fabula-span">{{ feature2 }}</span>{{/feature2}}{{#feature3}}<span class="sheet-fabula-span">{{ feature3 }}</span>{{/feature3}}{{#feature4}}<span class="sheet-fabula-span">{{ feature4 }}</span>{{/feature4}}{{#feature5}}<span class="sheet-fabula-span">{{ feature5 }}</span>{{/feature5}}{{#feature6}}<span class="sheet-fabula-span">{{ feature6 }}</span>{{/feature6}}{{#feature7}}<span class="sheet-fabula-span">{{ feature7 }}</span>{{/feature7}}{{#feature8}}<span class="sheet-fabula-span">{{ feature8 }}</span>{{/feature8}}{{#feature9}}<span class="sheet-fabula-span">{{ feature9 }}</span>{{/feature9}}{{#feature10}}<span class="sheet-fabula-span">{{ feature10 }}</span>{{/feature10}}
+    </div>{{#zeropower}}<span class="sheet-fabula-label">{{ trigger }}</span><span class="sheet-fabula-span">{{ trigger_effect }}</span><span class="sheet-fabula-label">{{ effect }}</span><span class="sheet-fabula-span">{{ effect_description }}</span>{{/zeropower}}
     <div class="sheet-details">{{#basicattacks}}
       <div class="sheet-detail-banner"><span class="sheet-fabula-important" data-i18n="basic_attacks">Basic Attacks</span></div><span class="sheet-fabula-span">...</span>{{/basicattacks}}{{#spells}}
       <div class="sheet-detail-banner"><span class="sheet-fabula-important" data-i18n="spells">Spells</span></div><span class="sheet-fabula-span">...</span>{{/spells}}
@@ -5292,8 +5437,8 @@
   </div>
 </rolltemplate>
 <script type="text/worker">const NAVBAR = {
-    edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal'],
-    view: ['meta', 'conflict', 'backpack', 'classes', 'journal'],
+    edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'extra', 'journal'],
+    view: ['meta', 'conflict', 'backpack', 'classes', 'extra', 'journal'],
 };
 const REPEATING = [
     'weapons',
@@ -5315,6 +5460,7 @@ const REPEATING = [
     'artifacts',
     'discoveries',
     'items',
+    'zero-powers',
     'basic-attacks',
     'other-actions',
     'special-rules',
@@ -5504,6 +5650,11 @@ const ATTR_WATCH = {
         'repeating_projects:project_clock',
         'repeating_projects:project_clock_max',
     ],
+    zero_powers: [
+        'repeating_zero-powers:zero_clock',
+        'repeating_zero-powers:zero_clock_max',
+        'repeating_zero-powers:zero_trigger_step',
+    ],
     basic_attacks: [
         'sheet_type',
         'rank',
@@ -5588,6 +5739,7 @@ const BUTTON_ACTIONS = {
     mp: ['mp-control-add', 'mp-control-subtract'],
     ip: ['ip-control-add', 'ip-control-subtract'],
     project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
+    zero: ['repeating_zero-powers:zero-clock-add', 'repeating_zero-powers:zero-clock-subtract'],
     ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
     rest: ['rest'],
 };
@@ -5646,6 +5798,7 @@ const CLICK_LISTENERS = {
     'repeating_spells:spell': 'spell',
     'repeating_weapons:weaponattack': 'weaponattack',
     'repeating_weapons:weaponchat': 'weaponchat',
+    'repeating_zero-powers:zerochat': 'zero',
     'shieldchat': 'npcshieldchat',
     'study7': 'study7',
     'study10': 'study10',
@@ -5835,6 +5988,17 @@ const ACTION_REQUEST = {
         'feature_detail3',
     ],
     rest: ['hp_max', 'mp_max'],
+    zero: [
+        'zero_name',
+        'zero_description',
+        'zero_effect',
+        'zero_effect_description',
+        'zero_trigger',
+        'zero_clock',
+        'zero_clock_max',
+        'zero_trigger_step',
+        'zero_trigger_effect',
+    ],
 };
 ACTION_REQUEST.study10 = [
     ...ACTION_REQUEST.study7,
@@ -6140,6 +6304,7 @@ const chatData = (key, prefix, values) => {
             case 'project':
             case 'quest':
             case 'quirk':
+            case 'zero':
                 return `${key}_`;
         }
     })();
@@ -6325,7 +6490,7 @@ const projectTemplate = (values) => {
     template.subtitle = `${values.clock} / ${values.clock_max}`;
     template.cost = values.cost;
     template.special = values.special;
-    template.action = getTranslation('projects', undefined);
+    template.action = getTranslation('projects', 'Projects');
     return template;
 };
 const quirkTemplate = (values) => {
@@ -6335,6 +6500,20 @@ const quirkTemplate = (values) => {
     template.special = values.description;
     template.effect = values.effect;
     template.action = getTranslation('quirk_name', 'Quirk');
+    return template;
+};
+const zeroPowerTemplate = (values) => {
+    const template = {};
+    template.name = values.name;
+    template.subtitle = `${values.clock} / ${values.clock_max}`;
+    template.description = values.description;
+    template.zeropower = 'true';
+    const per_trigger = getTranslation('per_trigger', 'per Trigger');
+    template.trigger = `${values.trigger} (+${values.trigger_step} ${per_trigger})`;
+    template.trigger_effect = values.trigger_effect;
+    template.effect = values.effect;
+    template.effect_description = values.effect_description;
+    template.action = getTranslation('zero_power', 'Zero Power');
     return template;
 };
 const featureTemplate = (values) => {
@@ -6348,10 +6527,13 @@ const featureTemplate = (values) => {
 };
 const sendToChat = async (chat, id) => {
     const { request, prefix } = getSendChatRequest(chat, id);
+    console.group('sendToChat');
+    console.log(request, prefix);
     getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
         const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
         const action = getTranslationByKey('info') || 'Info';
         const data = chatData(chat, prefix, v);
+        console.log('data => ', data);
         const template = (function () {
             switch (chat) {
                 case 'armorchat':
@@ -6396,6 +6578,8 @@ const sendToChat = async (chat, id) => {
                     return featureTemplate(data);
                 case 'quirk':
                     return quirkTemplate(data);
+                case 'zero':
+                    return zeroPowerTemplate(data);
                 case 'otheractionchat':
                 case 'specialrulechat':
                 case 'raregearchat':
@@ -6404,6 +6588,7 @@ const sendToChat = async (chat, id) => {
                     return simpleTemplate(data);
             }
         })();
+        console.log('template => ', template);
         chimeraRoll('fabula-chat', {
             avatar: avatar,
             sheet_type: v.sheet_type,
@@ -6414,6 +6599,7 @@ const sendToChat = async (chat, id) => {
             finishRoll(rollId, results);
         });
     });
+    console.groupEnd();
 };
 const rollAction = async (btn, id) => {
     const { request, prefix } = getSendChatRequest(btn, id);
@@ -6753,6 +6939,8 @@ Object.keys(BUTTON_ACTIONS).forEach((key) => {
                 return advanceProjectClock(rowId, control);
             case 'ritual':
                 return advanceRitualClock(rowId, control);
+            case 'zero':
+                return advanceZeroClock(rowId, control);
             case 'rest':
                 return restAndRecover();
             default:
@@ -6804,7 +6992,7 @@ const CROSSWALK_TO_V20 = {
     zeroTrigger: 'zero_trigger',
     zeroClock: 'zero_clock',
     zeroClock_max: 'zero_clock_max',
-    zeroTriggerFS: 'zero_trigger_fill',
+    zeroTriggerFS: 'zero_trigger_step',
     zeroTriggerText: 'zero_description',
     ritualArcanism: 'arcanism',
     ritualChimerism: 'chimerism',
@@ -7537,6 +7725,18 @@ const advanceProjectClock = (rowId, change) => {
         const clock = +v[prefix + 'clock'] || 0;
         const clock_max = +v[prefix + 'clock_max'] || 0;
         update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + change));
+        setAttrs(update, { silent: true });
+    });
+};
+const advanceZeroClock = (rowId, change) => {
+    const request = ATTR_WATCH.zero_powers.map((attr) => attr.replace(':', `_${rowId}_`));
+    const prefix = `repeating_zero-powers_${rowId}_zero_`;
+    getAttrs(request, (v) => {
+        const update = {};
+        const clock = +v[prefix + 'clock'] || 0;
+        const clock_max = +v[prefix + 'clock_max'] || 0;
+        const step = +v[prefix + 'trigger_step'] || 1;
+        update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + step * change));
         setAttrs(update, { silent: true });
     });
 };

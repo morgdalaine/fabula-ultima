@@ -186,7 +186,9 @@ rolltemplate.sheet-rolltemplate-fabula-chat
             +tags([emotion])
               span.sheet-fabula-span {{ #{ emotion } }}
 
-      +tags(['effect'])
+      +tags(['description'])
+        span.sheet-fabula-span {{ description }}
+      +tags(['^zeropower', 'effect'])
         span.sheet-fabula-span {{ effect }}
       +tags(['special'])
         span.sheet-fabula-span {{ special }}
@@ -195,6 +197,12 @@ rolltemplate.sheet-rolltemplate-fabula-chat
       each tag in features
         +tags([`feature${tag}`])
           span.sheet-fabula-span {{ feature#{ tag } }}
+
+    +tags(['zeropower'])
+      span.sheet-fabula-label {{ trigger }}
+      span.sheet-fabula-span {{ trigger_effect }}
+      span.sheet-fabula-label {{ effect }}
+      span.sheet-fabula-span {{ effect_description }}
 
     //- STUDY ROLL
     .sheet-details

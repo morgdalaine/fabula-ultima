@@ -29,8 +29,6 @@ mixin character-view(spine)
       +bonds-view(spine)
       +fabula-points-view(spine)
       +experience-points-view(spine)
-      +quirks-view(spine)
-      +zero-powers-view(spine)
 
     .character__conflict
       +rolls-view(spine)
@@ -47,6 +45,10 @@ mixin character-view(spine)
     .character__classes
       +classes-view(spine)
       +features-view(spine)
+
+    .character__extra
+      +quirks-view(spine)
+      +zero-powers-view(spine)
 
     .character__journal
       +notes-view(spine)
@@ -69,7 +71,6 @@ mixin character-edit(spine)
     //- pages
     .character__stats
       +statistics-edit(spine)
-      +quirks-edit(spine)
       +rolls-edit(spine)
 
     .character__bonds
@@ -93,6 +94,10 @@ mixin character-edit(spine)
     .character__magic
       +spells-edit(spine)
       +rituals-edit(spine)
+
+    .character__extra
+      +quirks-edit(spine)
+      +zero-powers-edit(spine)
 
     .character__journal
       +notes-edit(spine)

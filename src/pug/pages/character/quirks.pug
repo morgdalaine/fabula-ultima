@@ -16,5 +16,6 @@ mixin quirks-edit(spine)
   +chimera-hidden('enable_quirks').chimera-repeater--empty-hide-next
   .quirks--edit
     +fabula-heading-edit('quirks', spine.quirks.heading)
-    each field in spine.quirks.fields
-      +chimera-input(field)
+    .quirk.chimera-wrapper
+      each field in spine.quirks.fields
+        +chimera-input(field)

@@ -94,6 +94,7 @@ const chatData = (key: string, prefix: string, values: { [key: string]: string }
       case 'project':
       case 'quest':
       case 'quirk':
+      case 'zero':
         return `${key}_`;
     }
   })();
@@ -337,7 +338,7 @@ const projectTemplate = (values: { [key: string]: string }) => {
   template.cost = values.cost;
   template.special = values.special;
 
-  template.action = getTranslation('projects', undefined);
+  template.action = getTranslation('projects', 'Projects');
 
   return template;
 };
@@ -352,6 +353,27 @@ const quirkTemplate = (values: { [key: string]: string }) => {
   template.effect = values.effect;
 
   template.action = getTranslation('quirk_name', 'Quirk');
+
+  return template;
+};
+
+const zeroPowerTemplate = (values: { [key: string]: string }) => {
+  const template: { [key: string]: string } = {};
+
+  template.name = values.name;
+  template.subtitle = `${values.clock} / ${values.clock_max}`;
+  template.description = values.description;
+
+  template.zeropower = 'true';
+
+  const per_trigger = getTranslation('per_trigger', 'per Trigger');
+
+  template.trigger = `${values.trigger} (+${values.trigger_step} ${per_trigger})`;
+  template.trigger_effect = values.trigger_effect;
+  template.effect = values.effect;
+  template.effect_description = values.effect_description;
+
+  template.action = getTranslation('zero_power', 'Zero Power');
 
   return template;
 };
@@ -373,11 +395,14 @@ const featureTemplate = (values: { [key: string]: string }) => {
 
 const sendToChat = async (chat: string, id: string) => {
   const { request, prefix } = getSendChatRequest(chat, id);
+  console.group('sendToChat');
+  console.log(request, prefix);
   getAttrs([...ROLLTEMPLATE_REQUESTS, ...request], (v) => {
     const avatar = v['character_avatar'].replace(/\?\d+$/g, '');
     const action = getTranslationByKey('info') || 'Info';
 
     const data = chatData(chat, prefix, v);
+    console.log('data => ', data);
     const template = (function () {
       switch (chat) {
         case 'armorchat':
@@ -422,6 +447,8 @@ const sendToChat = async (chat: string, id: string) => {
           return featureTemplate(data);
         case 'quirk':
           return quirkTemplate(data);
+        case 'zero':
+          return zeroPowerTemplate(data);
         case 'otheractionchat':
         case 'specialrulechat':
         case 'raregearchat':
@@ -430,6 +457,8 @@ const sendToChat = async (chat: string, id: string) => {
           return simpleTemplate(data);
       }
     })();
+
+    console.log('template => ', template);
 
     chimeraRoll(
       'fabula-chat',
@@ -446,6 +475,7 @@ const sendToChat = async (chat: string, id: string) => {
       }
     );
   });
+  console.groupEnd();
 };
 
 const rollAction = async (btn: string, id: string) => {

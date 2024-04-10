@@ -1,6 +1,6 @@
 const NAVBAR = {
-  edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'journal'],
-  view: ['meta', 'conflict', 'backpack', 'classes', 'journal'],
+  edit: ['stats', 'bonds', 'classes', 'equipment', 'backpack', 'magic', 'extra', 'journal'],
+  view: ['meta', 'conflict', 'backpack', 'classes', 'extra', 'journal'],
 };
 
 const REPEATING = [
@@ -26,6 +26,7 @@ const REPEATING = [
   'artifacts',
   'discoveries',
   'items',
+  'zero-powers',
 
   // bestiary
   'basic-attacks',
@@ -242,6 +243,12 @@ const ATTR_WATCH: Record<string, string[]> = {
     'repeating_projects:project_clock_max',
   ],
 
+  zero_powers: [
+    'repeating_zero-powers:zero_clock',
+    'repeating_zero-powers:zero_clock_max',
+    'repeating_zero-powers:zero_trigger_step',
+  ],
+
   basic_attacks: [
     'sheet_type',
     'rank',
@@ -346,6 +353,7 @@ const BUTTON_ACTIONS: Record<string, string[]> = {
   mp: ['mp-control-add', 'mp-control-subtract'],
   ip: ['ip-control-add', 'ip-control-subtract'],
   project: ['repeating_projects:project-clock-add', 'repeating_projects:project-clock-subtract'],
+  zero: ['repeating_zero-powers:zero-clock-add', 'repeating_zero-powers:zero-clock-subtract'],
   ritual: ['repeating_rituals:ritual-clock-add', 'repeating_rituals:ritual-clock-subtract'],
   rest: ['rest'],
 };
@@ -405,6 +413,7 @@ const CLICK_LISTENERS: Record<string, string> = {
   'repeating_spells:spell': 'spell',
   'repeating_weapons:weaponattack': 'weaponattack',
   'repeating_weapons:weaponchat': 'weaponchat',
+  'repeating_zero-powers:zerochat': 'zero',
   'shieldchat': 'npcshieldchat',
   'study7': 'study7',
   'study10': 'study10',
@@ -601,6 +610,17 @@ const ACTION_REQUEST: Record<string, string[]> = {
     'feature_detail3',
   ],
   rest: ['hp_max', 'mp_max'],
+  zero: [
+    'zero_name',
+    'zero_description',
+    'zero_effect',
+    'zero_effect_description',
+    'zero_trigger',
+    'zero_clock',
+    'zero_clock_max',
+    'zero_trigger_step',
+    'zero_trigger_effect',
+  ],
 };
 ACTION_REQUEST.study10 = [
   ...ACTION_REQUEST.study7,

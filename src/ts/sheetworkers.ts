@@ -123,6 +123,20 @@ const advanceProjectClock = (rowId: string, change: ControlEnum) => {
   });
 };
 
+const advanceZeroClock = (rowId: string, change: ControlEnum) => {
+  const request = ATTR_WATCH.zero_powers.map((attr) => attr.replace(':', `_${rowId}_`));
+  const prefix = `repeating_zero-powers_${rowId}_zero_`;
+  getAttrs(request, (v) => {
+    const update: Record<string, any> = {};
+    const clock = +v[prefix + 'clock'] || 0;
+    const clock_max = +v[prefix + 'clock_max'] || 0;
+    const step = +v[prefix + 'trigger_step'] || 1;
+
+    update[prefix + 'clock'] = Math.max(0, Math.min(clock_max, clock + step * change));
+    setAttrs(update, { silent: true });
+  });
+};
+
 const advanceRitualClock = (rowId: string, change: ControlEnum) => {
   const request = ATTR_WATCH.rituals.map((attr) => attr.replace(':', `_${rowId}_`));
   const prefix = `repeating_rituals_${rowId}_ritual_`;

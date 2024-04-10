@@ -17,7 +17,7 @@
     $this: '.bestiary';
 
     // navigation
-    $pages: 'conflict', 'equipment', 'other', 'stats';
+    $pages: 'conflict', 'equipment', 'extra', 'stats';
     @each $page in $pages {
       &__#{$page} {
         display: none;

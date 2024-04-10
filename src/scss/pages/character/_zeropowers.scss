@@ -6,14 +6,40 @@
 
     @include mixins.fabula-heading;
 
+    &--delete {
+      .zero-power {
+        display: flex;
+        gap: 4px;
+
+        &__name {
+          .chimera-value {
+            &__value {
+              @include mixins.text-xl-400;
+            }
+          }
+        }
+      }
+    }
+
     &--view {
-      .quirk {
+      .zero-power {
         display: grid;
-        grid-template-columns: 1fr auto var(--button-component-size);
+        // grid-template-columns: 1fr auto var(--button-component-size);
+        grid-template-columns: var(--input-component-size) 2fr 1fr 5rem var(--button-component-size);
         align-items: center;
         gap: 4px;
 
-        padding-inline: 4px;
+        &:has(input[name*='zero_hide']:checked) {
+          .zero-power {
+            &__effect,
+            &__effect_description,
+            &__trigger,
+            &__trigger_effect {
+              overflow: hidden;
+              height: 0;
+            }
+          }
+        }
 
         &__name {
           .chimera-value {
@@ -22,25 +48,48 @@
             }
           }
         }
+
+        &__clock {
+          flex: 1;
+          justify-content: flex-start;
+          width: min-content;
+
+          &-progress {
+            min-width: 3rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4px;
+          }
+        }
+
         &__description,
-        &__effect {
+        &__effect,
+        &__effect_description,
+        &__trigger,
+        &__trigger_effect {
           grid-column: 1/-1;
         }
       }
     }
 
     &--edit {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
+      .zero-power {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 4px;
 
-      .quirk {
-        &__name {
-          grid-column: span 2;
-        }
+        &__name,
         &__description,
+        &__effect,
+        &__effect_description,
+        &__trigger,
+        &__trigger_effect {
+          grid-column: span 3;
+        }
+
+        &__name,
         &__effect {
-          grid-column: 1/-1;
+          grid-row: 1;
         }
       }
     }

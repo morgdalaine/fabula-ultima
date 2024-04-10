@@ -30,11 +30,11 @@
     }
 
     &--edit {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-
       .quirk {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+
         &__name {
           grid-column: span 2;
         }
