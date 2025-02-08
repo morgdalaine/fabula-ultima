@@ -780,6 +780,7 @@ const CHARACTER_SKILL_LEVEL: SectionDetails[] = [
 ];
 
 const CLASS_BENEFIT: { [key: string]: number } = {
+  none: 0,
   hp: 5,
   mp: 5,
   ip: 2,
