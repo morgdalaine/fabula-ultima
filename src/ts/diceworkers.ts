@@ -645,7 +645,7 @@ const customCheckTemplate = (action: string, values: { [key: string]: string }) 
     template.att1 = att1;
     template.att2 = att2;
     template.name = (getTranslationByKey(action) || COMMON_CHECKS[check].label)
-      .match(/^[\w\s]+/)
+      .match(/^[^【]+/)
       .shift();
     template.special = getTranslationByKey(`${action}_title`) || COMMON_CHECKS[check].title;
     template.accuracy = values[COMMON_CHECKS[check].accuracy];
